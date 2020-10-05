@@ -120,6 +120,12 @@
     <Compile Include="UserControll\UCmain.Designer.cs">
       <DependentUpon>UCmain.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControll\UCtuandui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCtuandui.Designer.cs">
+      <DependentUpon>UCtuandui.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControll\UCxinjian.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCmain.resx">
       <DependentUpon>UCmain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCtuandui.resx">
+      <DependentUpon>UCtuandui.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCxinjian.resx">
       <DependentUpon>UCxinjian.cs</DependentUpon>
