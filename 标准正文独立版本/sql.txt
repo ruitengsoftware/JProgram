@@ -1,0 +1,36 @@
+-- qianhai.zhengwensetting definition
+
+CREATE TABLE `zhengwensetting` (
+  `xuhao` varchar(100) DEFAULT NULL,
+  `geshimingcheng` varchar(100) DEFAULT NULL,
+  `zhengwenchachong` varchar(100) DEFAULT NULL,
+  `shanchu100` varchar(100) DEFAULT NULL,
+  `zhengwenchachongbiao` varchar(100) DEFAULT NULL,
+  `zhengwenruku` varchar(100) DEFAULT NULL,
+  `zhengwenrukubiao` varchar(100) DEFAULT NULL,
+  `rizhilujing` varchar(100) DEFAULT NULL,
+  `shujukushai` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- qianhai.tablesetting definition
+
+CREATE TABLE `tablesetting` (
+  `xuhao` char(1) DEFAULT NULL,
+  `geshimingcheng` varchar(100) DEFAULT NULL,
+  `xiahuaxian` varchar(100) DEFAULT NULL,
+  `weizhu` varchar(100) DEFAULT NULL,
+  `chongfulvqian` varchar(100) DEFAULT NULL,
+  `shanchu100` varchar(100) DEFAULT NULL,
+  `rizhilujing` varchar(100) DEFAULT NULL,
+  `lujing100` varchar(100) DEFAULT NULL,
+  `lujingfei100` varchar(100) DEFAULT NULL,
+  `zidongdaochu` varchar(100) DEFAULT NULL,
+  `chongfulvhou` varchar(100) DEFAULT NULL,
+  `zhengwenchachong` varchar(100) DEFAULT NULL,
+  `cijuchachong` varchar(100) DEFAULT NULL,
+  `zhengwenchachongbiao` varchar(100) DEFAULT NULL,
+  `cijuchachongbiao` varchar(100) DEFAULT NULL,
+  `zhengwenruku` varchar(100) DEFAULT NULL,
+  `cijuruku` varchar(100) DEFAULT NULL,
+  `zhengwenrukubiao` varchar(100) DEFAULT NULL,
+  `cijurukubiao` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
