@@ -28,6 +28,25 @@ namespace 团队任务台账管理系统.Controller
             return num > 0 ? true : false;
         }
         /// <summary>
+        /// 该方法用于更新任务的详情
+        /// </summary>
+        /// <param name="renwumingcheng"></param>
+        /// <param name="jutiyaoqiu"></param>
+        /// <param name="fenjie"></param>
+        /// <param name="jinzhan"></param>
+        /// <returns></returns>
+        public bool UpdateTask(string renwumingcheng, string jutiyaoqiu, string fenjie, string jinzhan,string banliren)
+        {
+            string str_sql = $"update jjtask set 具体要求='{jutiyaoqiu}',分解='{fenjie}',进展='{jinzhan}',办理人='{banliren}' where 任务名称='{renwumingcheng}'";
+            int num = mysqlhelper.ExecuteNonQuery(str_sql, null);
+            return num > 0 ? true : false;
+
+
+
+        }
+
+
+        /// <summary>
         /// 获得未读任务数量
         /// </summary>
         /// <returns></returns>

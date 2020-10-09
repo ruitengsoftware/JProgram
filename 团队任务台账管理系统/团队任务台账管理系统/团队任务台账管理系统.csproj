@@ -97,7 +97,9 @@
     <Compile Include="Controller\ControllerDenglu.cs" />
     <Compile Include="Controller\ControllerUCdaiban.cs" />
     <Compile Include="Controller\ControllerUCxiaoxiang.cs" />
+    <Compile Include="Controller\ControllerWFperson.cs" />
     <Compile Include="Controller\Controllerwfxinjian.cs" />
+    <Compile Include="Controller\ControllerWFzhuce.cs" />
     <Compile Include="Controller\MysqlHelper.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -161,11 +163,23 @@
     <Compile Include="UserControll\UCxinjian.Designer.cs">
       <DependentUpon>UCxinjian.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\WFperson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WFperson.Designer.cs">
+      <DependentUpon>WFperson.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\WFxinjian.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WinForm\WFxinjian.Designer.cs">
       <DependentUpon>WFxinjian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\WFzhuce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WFzhuce.Designer.cs">
+      <DependentUpon>WFzhuce.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -207,8 +221,14 @@
     <EmbeddedResource Include="UserControll\UCxinjian.resx">
       <DependentUpon>UCxinjian.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WFperson.resx">
+      <DependentUpon>WFperson.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WFxinjian.resx">
       <DependentUpon>WFxinjian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WFzhuce.resx">
+      <DependentUpon>WFzhuce.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -239,6 +259,8 @@
   <ItemGroup>
     <None Include="Resources\searchlv %282%29.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\addfieldlv.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

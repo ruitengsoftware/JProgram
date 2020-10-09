@@ -123,7 +123,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(421, 588);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(529, 588);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // label2
@@ -272,12 +272,12 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(341, 30);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(449, 30);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // btn_baocun
             // 
-            this.btn_baocun.Location = new System.Drawing.Point(184, 3);
+            this.btn_baocun.Location = new System.Drawing.Point(292, 3);
             this.btn_baocun.Name = "btn_baocun";
             this.btn_baocun.Size = new System.Drawing.Size(74, 24);
             this.btn_baocun.TabIndex = 0;
@@ -287,7 +287,7 @@
             // 
             // btn_shanchu
             // 
-            this.btn_shanchu.Location = new System.Drawing.Point(264, 3);
+            this.btn_shanchu.Location = new System.Drawing.Point(372, 3);
             this.btn_shanchu.Name = "btn_shanchu";
             this.btn_shanchu.Size = new System.Drawing.Size(74, 24);
             this.btn_shanchu.TabIndex = 0;
@@ -300,7 +300,7 @@
             this.tb_renwumingcheng.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_renwumingcheng.Location = new System.Drawing.Point(83, 3);
             this.tb_renwumingcheng.Name = "tb_renwumingcheng";
-            this.tb_renwumingcheng.Size = new System.Drawing.Size(335, 23);
+            this.tb_renwumingcheng.Size = new System.Drawing.Size(443, 23);
             this.tb_renwumingcheng.TabIndex = 3;
             // 
             // tableLayoutPanel6
@@ -318,7 +318,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(335, 24);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(443, 24);
             this.tableLayoutPanel6.TabIndex = 4;
             // 
             // rb_jinji
@@ -367,7 +367,7 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(341, 30);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(449, 30);
             this.tableLayoutPanel7.TabIndex = 5;
             // 
             // tb_jutiyaoqiu
@@ -375,13 +375,13 @@
             this.tb_jutiyaoqiu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_jutiyaoqiu.Location = new System.Drawing.Point(3, 3);
             this.tb_jutiyaoqiu.Name = "tb_jutiyaoqiu";
-            this.tb_jutiyaoqiu.Size = new System.Drawing.Size(305, 23);
+            this.tb_jutiyaoqiu.Size = new System.Drawing.Size(413, 23);
             this.tb_jutiyaoqiu.TabIndex = 0;
             // 
             // pb_paizhao
             // 
             this.pb_paizhao.Image = global::团队任务台账管理系统.Properties.Resources.paizhao;
-            this.pb_paizhao.Location = new System.Drawing.Point(314, 3);
+            this.pb_paizhao.Location = new System.Drawing.Point(422, 3);
             this.pb_paizhao.Name = "pb_paizhao";
             this.pb_paizhao.Size = new System.Drawing.Size(24, 24);
             this.pb_paizhao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -401,7 +401,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(341, 30);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(449, 30);
             this.tableLayoutPanel8.TabIndex = 5;
             // 
             // tb_fenjie
@@ -409,13 +409,13 @@
             this.tb_fenjie.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_fenjie.Location = new System.Drawing.Point(3, 3);
             this.tb_fenjie.Name = "tb_fenjie";
-            this.tb_fenjie.Size = new System.Drawing.Size(305, 23);
+            this.tb_fenjie.Size = new System.Drawing.Size(413, 23);
             this.tb_fenjie.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::团队任务台账管理系统.Properties.Resources.paizhao;
-            this.pictureBox1.Location = new System.Drawing.Point(314, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(422, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 24);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -435,7 +435,7 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(341, 30);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(449, 30);
             this.tableLayoutPanel9.TabIndex = 5;
             // 
             // tb_jinzhan
@@ -443,13 +443,13 @@
             this.tb_jinzhan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_jinzhan.Location = new System.Drawing.Point(3, 3);
             this.tb_jinzhan.Name = "tb_jinzhan";
-            this.tb_jinzhan.Size = new System.Drawing.Size(305, 23);
+            this.tb_jinzhan.Size = new System.Drawing.Size(413, 23);
             this.tb_jinzhan.TabIndex = 0;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::团队任务台账管理系统.Properties.Resources.paizhao;
-            this.pictureBox2.Location = new System.Drawing.Point(314, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(422, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(24, 24);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -462,7 +462,7 @@
             this.tb_shuifuze.FormattingEnabled = true;
             this.tb_shuifuze.Location = new System.Drawing.Point(83, 153);
             this.tb_shuifuze.Name = "tb_shuifuze";
-            this.tb_shuifuze.Size = new System.Drawing.Size(335, 25);
+            this.tb_shuifuze.Size = new System.Drawing.Size(443, 25);
             this.tb_shuifuze.TabIndex = 6;
             // 
             // tb_shuipizhun
@@ -471,7 +471,7 @@
             this.tb_shuipizhun.FormattingEnabled = true;
             this.tb_shuipizhun.Location = new System.Drawing.Point(83, 183);
             this.tb_shuipizhun.Name = "tb_shuipizhun";
-            this.tb_shuipizhun.Size = new System.Drawing.Size(335, 25);
+            this.tb_shuipizhun.Size = new System.Drawing.Size(443, 25);
             this.tb_shuipizhun.TabIndex = 6;
             // 
             // tb_zixunshui
@@ -480,7 +480,7 @@
             this.tb_zixunshui.FormattingEnabled = true;
             this.tb_zixunshui.Location = new System.Drawing.Point(83, 213);
             this.tb_zixunshui.Name = "tb_zixunshui";
-            this.tb_zixunshui.Size = new System.Drawing.Size(335, 25);
+            this.tb_zixunshui.Size = new System.Drawing.Size(443, 25);
             this.tb_zixunshui.TabIndex = 6;
             // 
             // tb_tongzhishui
@@ -489,7 +489,7 @@
             this.tb_tongzhishui.FormattingEnabled = true;
             this.tb_tongzhishui.Location = new System.Drawing.Point(83, 243);
             this.tb_tongzhishui.Name = "tb_tongzhishui";
-            this.tb_tongzhishui.Size = new System.Drawing.Size(335, 25);
+            this.tb_tongzhishui.Size = new System.Drawing.Size(443, 25);
             this.tb_tongzhishui.TabIndex = 6;
             // 
             // dtp_shixian
@@ -497,7 +497,7 @@
             this.dtp_shixian.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtp_shixian.Location = new System.Drawing.Point(83, 273);
             this.dtp_shixian.Name = "dtp_shixian";
-            this.dtp_shixian.Size = new System.Drawing.Size(335, 23);
+            this.dtp_shixian.Size = new System.Drawing.Size(443, 23);
             this.dtp_shixian.TabIndex = 7;
             // 
             // tableLayoutPanel10
@@ -513,7 +513,7 @@
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(341, 258);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(449, 258);
             this.tableLayoutPanel10.TabIndex = 5;
             // 
             // tb_beizhu
@@ -522,13 +522,13 @@
             this.tb_beizhu.Location = new System.Drawing.Point(3, 3);
             this.tb_beizhu.Multiline = true;
             this.tb_beizhu.Name = "tb_beizhu";
-            this.tb_beizhu.Size = new System.Drawing.Size(305, 252);
+            this.tb_beizhu.Size = new System.Drawing.Size(413, 252);
             this.tb_beizhu.TabIndex = 0;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::团队任务台账管理系统.Properties.Resources.paizhao;
-            this.pictureBox3.Location = new System.Drawing.Point(314, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(422, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(24, 24);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -540,7 +540,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(421, 588);
+            this.ClientSize = new System.Drawing.Size(529, 588);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

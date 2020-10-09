@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.Controller;
+using 团队任务台账管理系统.WinForm;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -30,18 +31,16 @@ namespace 团队任务台账管理系统.UserControll
             int num = data.Rows.Count;
             lbl_biaoti.Text = $"待办任务( {num} 项,未读 {datarows.Length} 项)";
             //给未读的任务加粗
-
-
             for (int i = 0; i < dgv_data.Rows.Count; i++)
             {
                 var item = dgv_data.Rows[i];
                 if (Convert.ToInt32(item.Cells["已读"].Value) == 0)
                 {
 
-                   //MessageBox.Show("Test");
+                    //MessageBox.Show("Test");
                     //item.DefaultCellStyle.Font = new Font(dgv_data.Font, FontStyle.Bold);
                     //item.Cells[1].Style.Font = new Font("隶书", 9);
-                  // item.Cells["紧急程度"].Style.Font = new Font(dgv_data.Font, FontStyle.Bold);
+                    // item.Cells["紧急程度"].Style.Font = new Font(dgv_data.Font, FontStyle.Bold);
                     item.DefaultCellStyle.BackColor = Color.Black;
                     //Application.DoEvents();
                 }
@@ -60,41 +59,80 @@ namespace 团队任务台账管理系统.UserControll
         {
             //获得选中行的任务具体要求
             string yaoqiu = dgv_data.CurrentRow.Cells["具体要求"].Value.ToString();
+            string fenjie = dgv_data.CurrentRow.Cells["分解"].Value.ToString();
+            string jinzhan = dgv_data.CurrentRow.Cells["进展"].Value.ToString();
+            string mingcheng = dgv_data.CurrentRow.Cells["任务名称"].Value.ToString();
+
             //显示再窗体上
-            lbl_xiangqing.Text = yaoqiu;
+            tb_renwumingcheng.Text = mingcheng;
+            tb_jutiyaoqiu.Text = yaoqiu;
+            tb_fenjie.Text = fenjie;
+            tb_jinzhan.Text = jinzhan;
             //判断记录是否为已读，如果未读更新该条记录为已读，并更新开始时间，如果已读不在执行
             int yidu = Convert.ToInt32(dgv_data.CurrentRow.Cells["已读"].Value);
-            if (yidu==1)
+            if (yidu == 0)
             {
-                return;
-            }
-            string str_time = DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
 
-            string renwumingcheng = dgv_data.CurrentRow.Cells["任务名称"].Value.ToString();
-            mycontroller.UpdateData(renwumingcheng,str_time);
-            //更新状态栏标题,当前行已读为1，获得data，计算总未读
-            dgv_data.CurrentRow.Cells["已读"].Value = 1;
-            dgv_data.CurrentRow.Cells["打开时间"].Value = str_time;
 
-            Application.DoEvents();
-            int numweidu = mycontroller.GetWeidu();
-            lbl_biaoti.Text = $"待办任务( {dgv_data.Rows.Count} 项,未读 {numweidu} 项)";
-            //给未读的任务加粗
-            foreach (DataGridViewRow item in dgv_data.Rows)
-            {
-                if (Convert.ToInt32(item.Cells["已读"].Value) == 0)
+                string str_time = DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
+
+                string renwumingcheng = dgv_data.CurrentRow.Cells["任务名称"].Value.ToString();
+                mycontroller.UpdateData(renwumingcheng, str_time);
+                //更新状态栏标题,当前行已读为1，获得data，计算总未读
+                dgv_data.CurrentRow.Cells["已读"].Value = 1;
+                dgv_data.CurrentRow.Cells["打开时间"].Value = str_time;
+
+                Application.DoEvents();
+                int numweidu = mycontroller.GetWeidu();
+                lbl_biaoti.Text = $"待办任务( {dgv_data.Rows.Count} 项,未读 {numweidu} 项)";
+                //给未读的任务加粗
+                foreach (DataGridViewRow item in dgv_data.Rows)
                 {
-                    //item.DefaultCellStyle.Font = new Font(dgv_data.Font, FontStyle.Bold);
-                    //item.Cells[1].Style.Font = new Font("隶书", 9);
-                    item.DefaultCellStyle.Font = new Font(dgv_data.Font, FontStyle.Bold);
+                    if (Convert.ToInt32(item.Cells["已读"].Value) == 0)
+                    {
+                        //item.DefaultCellStyle.Font = new Font(dgv_data.Font, FontStyle.Bold);
+                        //item.Cells[1].Style.Font = new Font("隶书", 9);
+                        item.DefaultCellStyle.Font = new Font(dgv_data.Font, FontStyle.Bold);
+                    }
                 }
+
             }
+
+
+
+
 
         }
 
+        private void btn_gengxin_Click(object sender, EventArgs e)
+        {
+            //获得 任务名称，具体要求，分解，进展
+            string mingcheng = tb_renwumingcheng.Text;
+            string yaoqiu = tb_jutiyaoqiu.Text;
+            string fenjie = tb_fenjie.Text;
+            string jinzhan = tb_jinzhan.Text;
+            string banliren = tb_banliren.Text;
+            bool b = mycontroller.UpdateTask(mingcheng, yaoqiu, fenjie, jinzhan, banliren);
+            //刷新数据
+            int selectindex = dgv_data.SelectedRows[0].Index;
+            UCdaiban_Load(null, null);
+            dgv_data.Rows[0].Selected = false;
+            dgv_data.Rows[selectindex].Selected = true;
+            if (b) MessageBox.Show("更新数据成功！");
 
+        }
 
+        private void pb_tianjia_Click(object sender, EventArgs e)
+        {
+            string str_person = tb_banliren.Text;
+            //打开人员表,选择人员并确认
+            WFperson mywfperson = new WFperson(str_person);
+            if (mywfperson.ShowDialog() == DialogResult.OK)
+            {
+                string xingming = string.Join(",", mywfperson.list_person);
+                tb_banliren.Text = xingming;
+            }
 
-
+        }
     }
 }

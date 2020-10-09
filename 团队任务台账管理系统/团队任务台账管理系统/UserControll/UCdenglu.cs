@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.Controller;
 using RuiTengDll;
+using 团队任务台账管理系统.WinForm;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -71,6 +72,12 @@ namespace 团队任务台账管理系统.UserControll
         {
             ((Control)sender).BackColor = Color.SeaGreen;
 
+        }
+
+        private void llbl_woyaozhuce_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            WFzhuce mywf = new WFzhuce();
+            mywf.ShowDialog();
         }
     }
 }
