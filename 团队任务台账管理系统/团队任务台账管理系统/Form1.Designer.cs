@@ -48,7 +48,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(896, 520);
+            this.splitContainer1.Size = new System.Drawing.Size(848, 464);
             this.splitContainer1.SplitterDistance = 40;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -68,7 +68,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(40, 520);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(40, 464);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // pb_home
@@ -91,7 +91,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(896, 520);
+            this.ClientSize = new System.Drawing.Size(848, 464);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

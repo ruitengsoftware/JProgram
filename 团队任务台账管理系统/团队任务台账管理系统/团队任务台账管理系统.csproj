@@ -76,6 +76,7 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -94,6 +95,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ControllerDenglu.cs" />
+    <Compile Include="Controller\ControllerUCdaiban.cs" />
+    <Compile Include="Controller\ControllerUCxiaoxiang.cs" />
+    <Compile Include="Controller\Controllerwfxinjian.cs" />
     <Compile Include="Controller\MysqlHelper.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -115,11 +119,29 @@
     <Compile Include="UserControll\UCdenglu.Designer.cs">
       <DependentUpon>UCdenglu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControll\UCfankui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCfankui.Designer.cs">
+      <DependentUpon>UCfankui.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControll\UCmain.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControll\UCmain.Designer.cs">
       <DependentUpon>UCmain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\UCrizhi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCrizhi.Designer.cs">
+      <DependentUpon>UCrizhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\UCshouquan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCshouquan.Designer.cs">
+      <DependentUpon>UCshouquan.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControll\UCtuandui.cs">
       <SubType>UserControl</SubType>
@@ -127,11 +149,23 @@
     <Compile Include="UserControll\UCtuandui.Designer.cs">
       <DependentUpon>UCtuandui.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControll\UCxiaoxiang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCxiaoxiang.Designer.cs">
+      <DependentUpon>UCxiaoxiang.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControll\UCxinjian.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControll\UCxinjian.Designer.cs">
       <DependentUpon>UCxinjian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\WFxinjian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WFxinjian.Designer.cs">
+      <DependentUpon>WFxinjian.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -152,14 +186,29 @@
     <EmbeddedResource Include="UserControll\UCdenglu.resx">
       <DependentUpon>UCdenglu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCfankui.resx">
+      <DependentUpon>UCfankui.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCmain.resx">
       <DependentUpon>UCmain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCrizhi.resx">
+      <DependentUpon>UCrizhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCshouquan.resx">
+      <DependentUpon>UCshouquan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCtuandui.resx">
       <DependentUpon>UCtuandui.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCxiaoxiang.resx">
+      <DependentUpon>UCxiaoxiang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCxinjian.resx">
       <DependentUpon>UCxinjian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WFxinjian.resx">
+      <DependentUpon>WFxinjian.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -187,5 +236,9 @@
   <ItemGroup>
     <None Include="Resources\paizhao.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchlv %282%29.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

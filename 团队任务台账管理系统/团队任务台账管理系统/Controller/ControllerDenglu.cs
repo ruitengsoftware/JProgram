@@ -15,8 +15,7 @@ namespace 团队任务台账管理系统.Controller
 
         public ControllerDenglu()
         {
-            string str_conn = $"server=39.107.125.33;port=3306;user=root;password=111111; database=jjdbrenwutaizhang;";
-            mysqlhelper = new MySQLHelper(str_conn);
+            mysqlhelper = new MySQLHelper();
         }
         //判断是否存在用户名和密码
         public bool Login(string uid,string pwd) 

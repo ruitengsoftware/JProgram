@@ -199,6 +199,7 @@
             this.btn_tuandui.TabIndex = 0;
             this.btn_tuandui.Text = "团队";
             this.btn_tuandui.UseVisualStyleBackColor = true;
+            this.btn_tuandui.Click += new System.EventHandler(this.btn_tuandui_Click);
             // 
             // btn_rizhi
             // 
@@ -209,6 +210,7 @@
             this.btn_rizhi.TabIndex = 0;
             this.btn_rizhi.Text = "日志";
             this.btn_rizhi.UseVisualStyleBackColor = true;
+            this.btn_rizhi.Click += new System.EventHandler(this.btn_rizhi_Click);
             // 
             // btn_fankui
             // 
@@ -219,6 +221,7 @@
             this.btn_fankui.TabIndex = 0;
             this.btn_fankui.Text = "反馈";
             this.btn_fankui.UseVisualStyleBackColor = true;
+            this.btn_fankui.Click += new System.EventHandler(this.btn_fankui_Click);
             // 
             // btn_xiaoxiang
             // 
@@ -229,6 +232,7 @@
             this.btn_xiaoxiang.TabIndex = 0;
             this.btn_xiaoxiang.Text = "销项";
             this.btn_xiaoxiang.UseVisualStyleBackColor = true;
+            this.btn_xiaoxiang.Click += new System.EventHandler(this.btn_xiaoxiang_Click);
             // 
             // btn_shouquan
             // 
@@ -239,6 +243,7 @@
             this.btn_shouquan.TabIndex = 0;
             this.btn_shouquan.Text = "授权";
             this.btn_shouquan.UseVisualStyleBackColor = true;
+            this.btn_shouquan.Click += new System.EventHandler(this.btn_shouquan_Click);
             // 
             // btn_ziliao
             // 
