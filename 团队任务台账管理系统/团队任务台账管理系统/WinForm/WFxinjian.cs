@@ -55,7 +55,7 @@ namespace 团队任务台账管理系统.WinForm
             string shuipizhun = tb_shuipizhun.Text;
             string zixunshui = tb_zixunshui.Text;
             string tongzhishui = tb_tongzhishui.Text;
-            string shixian = dtp_shixian.Value.ToLongTimeString();
+            string shixian = dtp_shixian.Value.ToLongDateString();
             string beizhu = tb_beizhu.Text;
             
             bool b=mycontroller.AddTask(renwumingcheng, jinjichengdu, jutiyaoqiu, fenjie, jinzhan, shuifuze, shuipizhun, zixunshui, tongzhishui, shixian, beizhu);

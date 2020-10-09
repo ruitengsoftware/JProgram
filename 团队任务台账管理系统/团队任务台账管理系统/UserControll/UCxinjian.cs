@@ -36,11 +36,11 @@ namespace 团队任务台账管理系统.UserControll
                 string filepath = Path.GetDirectoryName(str_uploadfile);
                 string filename = Path.GetFileName(str_uploadfile);
                 UpLoadFile(str_uploadfile, webpath, false);//上传文件
-                //    System.Net.WebClient myWebClient = new System.Net.WebClient();
-                //NetworkCredential credentials = new NetworkCredential("Administrator", "Lxr+850223");
-                //myWebClient.Credentials = credentials;
-                //myWebClient.UploadFile(webpath, "put", str_uploadfile);
-               
+                                                           //    System.Net.WebClient myWebClient = new System.Net.WebClient();
+                                                           //NetworkCredential credentials = new NetworkCredential("Administrator", "Lxr+850223");
+                                                           //myWebClient.Credentials = credentials;
+                                                           //myWebClient.UploadFile(webpath, "put", str_uploadfile);
+
 
 
             }
@@ -50,15 +50,23 @@ namespace 团队任务台账管理系统.UserControll
 
         }
 
-        private void btn_xiazai_Click(object sender, EventArgs e)
+        private async void btn_xiazai_Click(object sender, EventArgs e)
         {
             try
             {
-                WebClient myWebClient = new WebClient();
-                NetworkCredential credentials = new NetworkCredential("Administrator", "Lxr+850223");
-                myWebClient.Credentials = credentials;
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Excel 97~2003工作簿|*.xls|Excel 工作簿|*.xlsx";
 
-                myWebClient.DownloadFile("http://39.107.125.33/新建文本文档.txt", @"C:\Users\瑞腾软件\Desktop\111.txt");
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    WebClient myWebClient = new WebClient();
+                    NetworkCredential credentials = new NetworkCredential("Administrator", "Lxr+850223");
+                    myWebClient.Credentials = credentials;
+                    Uri myuri = new Uri("http://39.107.125.33/标准任务表.xlsx");
+                    myWebClient.DownloadFileAsync(myuri, sfd.FileName);
+                    MessageBox.Show("表格下载成功！");
+                }
+
             }
             catch (Exception ex) { string aa = ex.Message; }
         }
@@ -84,7 +92,7 @@ namespace 团队任务台账管理系统.UserControll
             if (uriString.EndsWith("/") == false) uriString = uriString + "/";
             uriString = uriString + NewFileName;
             WebClient myWebClient = new WebClient();
-           // myWebClient.Credentials = CredentialCache.DefaultCredentials;
+            // myWebClient.Credentials = CredentialCache.DefaultCredentials;
             NetworkCredential credentials = new NetworkCredential("Administrator", "Lxr+850223");
             myWebClient.Credentials = credentials;
             FileStream fs = new FileStream(fileNamePath, FileMode.Open, FileAccess.Read);

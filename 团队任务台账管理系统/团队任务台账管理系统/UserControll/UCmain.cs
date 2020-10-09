@@ -23,7 +23,7 @@ namespace 团队任务台账管理系统.UserControll
             parent.Controls.Clear();
             UCdaiban uc_daiban = new UCdaiban();
             uc_daiban.Dock = DockStyle.Fill;
-            parent.Controls.Add(uc_daiban);
+          parent.Controls.Add(uc_daiban);
         }
 
         private void btn_xinjian_Click(object sender, EventArgs e)

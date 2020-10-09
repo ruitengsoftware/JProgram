@@ -36,10 +36,10 @@ namespace 团队任务台账管理系统.Controller
             new MySql.Data.MySqlClient.MySqlParameter("@shixian",shixian),
             new MySql.Data.MySqlClient.MySqlParameter("@beizhu",beizhu),
             new MySql.Data.MySqlClient.MySqlParameter("@zhuangtai","未撤销"),
-                        new MySql.Data.MySqlClient.MySqlParameter("@yidu",0)
+                        new MySql.Data.MySqlClient.MySqlParameter("@yidu","0")
 
             });
-            return num > 1 ? true : false;
+            return num > 0 ? true : false;
 
 
         }
