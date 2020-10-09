@@ -38,11 +38,11 @@ namespace 团队任务台账管理系统.UserControll
                 if (Convert.ToInt32(item.Cells["已读"].Value) == 0)
                 {
 
-                    MessageBox.Show("Test");
+                   //MessageBox.Show("Test");
                     //item.DefaultCellStyle.Font = new Font(dgv_data.Font, FontStyle.Bold);
                     //item.Cells[1].Style.Font = new Font("隶书", 9);
-                   //item.Cells["紧急程度"].Style.Font = new Font(dgv_data.Font, FontStyle.Bold);
-                    //item.DefaultCellStyle.ForeColor = Color.Black;
+                  // item.Cells["紧急程度"].Style.Font = new Font(dgv_data.Font, FontStyle.Bold);
+                    item.DefaultCellStyle.BackColor = Color.Black;
                     //Application.DoEvents();
                 }
 
@@ -62,11 +62,20 @@ namespace 团队任务台账管理系统.UserControll
             string yaoqiu = dgv_data.CurrentRow.Cells["具体要求"].Value.ToString();
             //显示再窗体上
             lbl_xiangqing.Text = yaoqiu;
-            //更新该条记录为已读
+            //判断记录是否为已读，如果未读更新该条记录为已读，并更新开始时间，如果已读不在执行
+            int yidu = Convert.ToInt32(dgv_data.CurrentRow.Cells["已读"].Value);
+            if (yidu==1)
+            {
+                return;
+            }
+            string str_time = DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
+
             string renwumingcheng = dgv_data.CurrentRow.Cells["任务名称"].Value.ToString();
-            mycontroller.UpdateData(renwumingcheng);
+            mycontroller.UpdateData(renwumingcheng,str_time);
             //更新状态栏标题,当前行已读为1，获得data，计算总未读
             dgv_data.CurrentRow.Cells["已读"].Value = 1;
+            dgv_data.CurrentRow.Cells["打开时间"].Value = str_time;
+
             Application.DoEvents();
             int numweidu = mycontroller.GetWeidu();
             lbl_biaoti.Text = $"待办任务( {dgv_data.Rows.Count} 项,未读 {numweidu} 项)";
