@@ -20,8 +20,8 @@ namespace 团队任务台账管理系统
         //UserControl myuc = new UserControl();
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Width = 854;
-            this.Height = 481;
+            this.Width = 1000;
+            this.Height = 625;
             UCdenglu ucdenglu = new UCdenglu();
             ucdenglu.Dock = DockStyle.Fill;
             this.splitContainer1.Panel2.Controls.Add(ucdenglu);

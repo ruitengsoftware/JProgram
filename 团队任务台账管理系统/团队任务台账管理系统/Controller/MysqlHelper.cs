@@ -33,7 +33,10 @@ namespace 团队任务台账管理系统.Controller
         {
             this.ConnectionString = connectionString;
         }
-
+        public MySQLHelper()
+        {
+            this.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["connstr"].ConnectionString.ToString();
+        }
         /// <summary>
         /// 数据库连接字符串
         /// </summary>
