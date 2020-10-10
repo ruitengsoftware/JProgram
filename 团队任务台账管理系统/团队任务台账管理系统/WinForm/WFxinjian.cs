@@ -57,7 +57,7 @@ namespace 团队任务台账管理系统.WinForm
             string tongzhishui = tb_tongzhishui.Text;
             string shixian = dtp_shixian.Value.ToLongDateString();
             string beizhu = tb_beizhu.Text;
-            
+            //添加任务
             bool b=mycontroller.AddTask(renwumingcheng, jinjichengdu, jutiyaoqiu, fenjie, jinzhan, shuifuze, shuipizhun, zixunshui, tongzhishui, shixian, beizhu);
             if (b) MessageBox.Show("添加任务成功！");
 

@@ -35,9 +35,9 @@ namespace 团队任务台账管理系统.Controller
         /// <param name="fenjie"></param>
         /// <param name="jinzhan"></param>
         /// <returns></returns>
-        public bool UpdateTask(string renwumingcheng, string jutiyaoqiu, string fenjie, string jinzhan,string banliren)
+        public bool UpdateTask(string renwumingcheng, string jutiyaoqiu, string fenjie, string jinzhan,string banliren,string yanshouren)
         {
-            string str_sql = $"update jjtask set 具体要求='{jutiyaoqiu}',分解='{fenjie}',进展='{jinzhan}',办理人='{banliren}' where 任务名称='{renwumingcheng}'";
+            string str_sql = $"update jjtask set 具体要求='{jutiyaoqiu}',分解='{fenjie}',进展='{jinzhan}',办理人='{banliren}',验收人='{yanshouren}' where 任务名称='{renwumingcheng}'";
             int num = mysqlhelper.ExecuteNonQuery(str_sql, null);
             return num > 0 ? true : false;
 

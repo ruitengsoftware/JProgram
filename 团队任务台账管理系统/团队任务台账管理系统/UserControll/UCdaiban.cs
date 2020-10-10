@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.Controller;
 using 团队任务台账管理系统.WinForm;
+using System.Text.RegularExpressions;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -103,7 +104,11 @@ namespace 团队任务台账管理系统.UserControll
 
 
         }
-
+        /// <summary>
+        /// 点击更新按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_gengxin_Click(object sender, EventArgs e)
         {
             //获得 任务名称，具体要求，分解，进展
@@ -112,7 +117,8 @@ namespace 团队任务台账管理系统.UserControll
             string fenjie = tb_fenjie.Text;
             string jinzhan = tb_jinzhan.Text;
             string banliren = tb_banliren.Text;
-            bool b = mycontroller.UpdateTask(mingcheng, yaoqiu, fenjie, jinzhan, banliren);
+            string yanshouren = tb_yanshouren.Text;
+            bool b = mycontroller.UpdateTask(mingcheng, yaoqiu, fenjie, jinzhan, banliren,yanshouren);
             //刷新数据
             int selectindex = dgv_data.SelectedRows[0].Index;
             UCdaiban_Load(null, null);
@@ -133,6 +139,36 @@ namespace 团队任务台账管理系统.UserControll
                 tb_banliren.Text = xingming;
             }
 
+        }
+        /// <summary>
+        /// 点击发送按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_fasong_Click(object sender, EventArgs e)
+        {
+            //获得办理人员的名单
+            string banliren = string.Empty;
+            List<string> list_person = Regex.Split(banliren, @"[,，]").ToList();
+
+            //将任务名称和发送时间，办理人员存入数据库中jjtasksend
+
+
+
+
+
+        }
+
+        private void pb_yanshou_Click(object sender, EventArgs e)
+        {
+            string str_person = tb_yanshouren.Text;
+            //打开人员表,选择人员并确认
+            WFperson mywfperson = new WFperson(str_person);
+            if (mywfperson.ShowDialog() == DialogResult.OK)
+            {
+                string xingming = string.Join(",", mywfperson.list_person);
+                tb_yanshouren.Text = xingming;
+            }
         }
     }
 }

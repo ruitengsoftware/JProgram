@@ -123,7 +123,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(529, 588);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(529, 476);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // label2
@@ -253,7 +253,7 @@
             this.label12.Location = new System.Drawing.Point(1, 301);
             this.label12.Margin = new System.Windows.Forms.Padding(1);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(78, 256);
+            this.label12.Size = new System.Drawing.Size(78, 144);
             this.label12.TabIndex = 0;
             this.label12.Text = "备注";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -267,7 +267,7 @@
             this.tableLayoutPanel5.Controls.Add(this.btn_baocun, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.btn_shanchu, 2, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(80, 558);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(80, 446);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
@@ -513,7 +513,7 @@
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(449, 258);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(449, 146);
             this.tableLayoutPanel10.TabIndex = 5;
             // 
             // tb_beizhu
@@ -522,7 +522,7 @@
             this.tb_beizhu.Location = new System.Drawing.Point(3, 3);
             this.tb_beizhu.Multiline = true;
             this.tb_beizhu.Name = "tb_beizhu";
-            this.tb_beizhu.Size = new System.Drawing.Size(413, 252);
+            this.tb_beizhu.Size = new System.Drawing.Size(413, 140);
             this.tb_beizhu.TabIndex = 0;
             // 
             // pictureBox3
@@ -540,7 +540,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(529, 588);
+            this.ClientSize = new System.Drawing.Size(529, 476);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
