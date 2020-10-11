@@ -22,7 +22,7 @@ namespace 团队任务台账管理系统.Controller
 
         public bool AddTask(string task, string jinjichengdu, string jutiyaoqiu, string fenjie, string jinzhan, string shuifuze, string shuipizhun, string zixunshui, string tongzhishui, string shixian, string beizhu)
         {
-            string str_sql = $"insert into jjtask values(@task,@jinjichengdu,@jutiyaoqiu,@fenjie,@jinzhan,@shuifuze,@shuipizhun,@zixunshui,@tongzhishui,@shixian,@beizhu,@zhuangtai,@yidu,@kaishishijian)";
+            string str_sql = $"insert into jjtask values(@task,@jinjichengdu,@jutiyaoqiu,@fenjie,@jinzhan,@shuifuze,@shuipizhun,@zixunshui,@tongzhishui,@shixian,@beizhu,@zhuangtai,@yidu,@kaishishijian,@banliren,@yanshouren)";
             int num = mysqlhelper.ExecuteNonQuery(str_sql, new MySql.Data.MySqlClient.MySqlParameter[] {
             new MySql.Data.MySqlClient.MySqlParameter("@task",task),
             new MySql.Data.MySqlClient.MySqlParameter("@jinjichengdu",jinjichengdu),
@@ -37,7 +37,9 @@ namespace 团队任务台账管理系统.Controller
             new MySql.Data.MySqlClient.MySqlParameter("@beizhu",beizhu),
             new MySql.Data.MySqlClient.MySqlParameter("@zhuangtai","未撤销"),
                         new MySql.Data.MySqlClient.MySqlParameter("@yidu","0"),
-                        new MySql.Data.MySqlClient.MySqlParameter("@kaishishijian","--")
+                        new MySql.Data.MySqlClient.MySqlParameter("@kaishishijian","--"),
+                        new MySql.Data.MySqlClient.MySqlParameter("@banliren","--"),
+                        new MySql.Data.MySqlClient.MySqlParameter("@yanshouren","--")
 
             });
             return num > 0 ? true : false;

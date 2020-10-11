@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using 团队任务台账管理系统.Controller;
 using 团队任务台账管理系统.WinForm;
 using System.Text.RegularExpressions;
+using 团队任务台账管理系统.Properties;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -63,12 +64,16 @@ namespace 团队任务台账管理系统.UserControll
             string fenjie = dgv_data.CurrentRow.Cells["分解"].Value.ToString();
             string jinzhan = dgv_data.CurrentRow.Cells["进展"].Value.ToString();
             string mingcheng = dgv_data.CurrentRow.Cells["任务名称"].Value.ToString();
-
+            string banliren = dgv_data.CurrentRow.Cells["办理人"].Value.ToString();
+            string yanshouren = dgv_data.CurrentRow.Cells["验收人"].Value.ToString();
             //显示再窗体上
             tb_renwumingcheng.Text = mingcheng;
             tb_jutiyaoqiu.Text = yaoqiu;
             tb_fenjie.Text = fenjie;
             tb_jinzhan.Text = jinzhan;
+            tb_banliren.Text = banliren;
+            tb_yanshouren.Text = yanshouren;
+
             //判断记录是否为已读，如果未读更新该条记录为已读，并更新开始时间，如果已读不在执行
             int yidu = Convert.ToInt32(dgv_data.CurrentRow.Cells["已读"].Value);
             if (yidu == 0)
@@ -147,14 +152,17 @@ namespace 团队任务台账管理系统.UserControll
         /// <param name="e"></param>
         private void btn_fasong_Click(object sender, EventArgs e)
         {
+            string renwumingcheng = tb_renwumingcheng.Text;
+            string yanshouren = tb_yanshouren.Text;
             //获得办理人员的名单
-            string banliren = string.Empty;
+
+            string banliren = tb_banliren.Text ;
             List<string> list_person = Regex.Split(banliren, @"[,，]").ToList();
 
             //将任务名称和发送时间，办理人员存入数据库中jjtasksend
+           bool b= mycontroller.SendTask(renwumingcheng, list_person, yanshouren);
 
-
-
+            if (b) MessageBox.Show("任务发送成功！");
 
 
         }
@@ -169,6 +177,36 @@ namespace 团队任务台账管理系统.UserControll
                 string xingming = string.Join(",", mywfperson.list_person);
                 tb_yanshouren.Text = xingming;
             }
+        }
+        /// <summary>
+        /// 点击提交验收按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_yanshou_Click(object sender, EventArgs e)
+        {
+            string renwumingcheng = tb_renwumingcheng.Text;
+            string yanshouren = tb_yanshouren.Text;
+           
+            //将任务名称和发送时间，办理人员存入数据库中jjtasksend
+            bool b = mycontroller.TijiaoYanshou(renwumingcheng, Settings.Default.user);
+
+            if (b) MessageBox.Show("任务已提交验收！");
+        }
+        /// <summary>
+        /// 点击通过验收按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_tongguoyanshou_Click(object sender, EventArgs e)
+        {
+            string renwumingcheng = tb_renwumingcheng.Text;
+            string yanshouren = tb_yanshouren.Text;
+
+            //将任务名称和发送时间，办理人员存入数据库中jjtasksend
+            bool b = mycontroller.YanshouRenwu(renwumingcheng, Settings.Default.user);
+
+            if (b) MessageBox.Show("任务已通过验收！");
         }
     }
 }

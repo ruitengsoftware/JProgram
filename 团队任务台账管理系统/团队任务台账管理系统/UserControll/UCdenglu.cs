@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using 团队任务台账管理系统.Controller;
 using RuiTengDll;
 using 团队任务台账管理系统.WinForm;
+using 团队任务台账管理系统.Properties;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -24,10 +25,11 @@ namespace 团队任务台账管理系统.UserControll
         {
             string name = tb_yonghuming.Text.Trim();
             string pwd = tb_mima.Text.Trim();
-            bool successlogin = mycontroller.Login(name, pwd);
+            bool successlogin = mycontroller.Login(name, pwd);//登录，并返回成功失败
 
             if (successlogin)
             {
+                Settings.Default.user = name;
                 var parent = this.Parent;
                 parent.Controls.Clear();
                 UCmain uc_main = new UCmain();

@@ -22,6 +22,7 @@ using WindowsFormsApp2.Controller;
 using RuiTengDll;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.CryptoPro;
+using System.Drawing.Design;
 
 namespace WindowsFormsApp2
 {
@@ -705,7 +706,11 @@ namespace WindowsFormsApp2
             return myfile;
         }
 
-
+        /// <summary>
+        /// 已段落为单位调整格式的方法
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
 
         public string UpdateFormat2(object o)
         {
@@ -716,6 +721,7 @@ namespace WindowsFormsApp2
             var dic = o as Dictionary<string, object>;
             string file = dic["filename"].ToString();
             Dictionary<string, Format> dic_format = dic["format"] as Dictionary<string, Format>;
+           
             Aspose.Words.Document mydoc = new Aspose.Words.Document(file);
             var paras = mydoc.FirstSection.Body.Paragraphs;//获得文档所有的自然段
             for (int i = 0; i < paras.Count; i++)
@@ -723,23 +729,29 @@ namespace WindowsFormsApp2
                 var para = paras[i];
                 string str_text = para.Range.Text.Trim();
                 myjpara = new Jpara();
+                
+
+
+
+                if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center && !_existdabiaoti)
+                {
+                    _existdabiaoti = true;
+                    SetParaFormat(para, dic_format["大标题"]);
+                    continue;
+                }
 
 
                 //判断自然段是否为大标题
-                if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center)
-                {
-                    bool b1 = Regex.IsMatch(str_text, "^(第一编|第一章)");//是否以指定文字开头
-                    bool b2 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
-                    if (!_existdabiaoti && b1 && !b2)
+              
+                    bool bb1 = Regex.IsMatch(str_text, "^(第一编|第一章).*");//是否以指定文字开头
+                    //var bb2 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
+                    if ( bb1)
                     {
-                        //myjpara._leixing = "大标题";
-                        //myjdoc._existdabiaoti = true;
-                        _existdabiaoti = true;
-                        //myjpara._asposepara = para;
-
                         SetParaFormat(para, dic_format["大标题"]);
+                        continue;
                     }
-                }
+                
+
                 //判断自然段是否为副标题
                 if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center)
                 {
@@ -752,6 +764,7 @@ namespace WindowsFormsApp2
                         //myjpara._asposepara = para;
                         _existfubiaoti = true;
                         SetParaFormat(para, dic_format["副标题"]);
+                        continue;
 
                     }
                 }
@@ -771,14 +784,13 @@ namespace WindowsFormsApp2
                         continue;
                     }
                     //是否为二级标题
-                    bool c1 = Regex.IsMatch(str_text, @"^\([一二三四五六七八九十].*?\)");//是否以指定文字开头
-                    bool c2 = Regex.IsMatch(str_text, @"。|\r|\r\n");//是否含有句号
+                    bool c1 = Regex.IsMatch(str_text, @"^[\(（][一二三四五六七八九十].*?[\)）]");//是否以指定文字开头
+                    bool c2 = Regex.IsMatch(str_text, @"[。;；\r\r\n]$");//是否含有句号
                     if (c1 && c2)
                     {
                         //myjpara._leixing = "二级标题";
                         //myjpara._asposepara = para;
                         SetParaFormat(para, dic_format["二级标题"]);
-
                         continue;
                     }
                     //是否为三级标题
@@ -787,8 +799,8 @@ namespace WindowsFormsApp2
                     bool t3 = Regex.IsMatch(str_text, "^首先|其次");
                     bool t4 = Regex.IsMatch(str_text, @"^\([123456789].*?\)");
                     bool t5 = Regex.IsMatch(str_text, @"^[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿]");
-                    bool t6 = Regex.IsMatch(str_text, @"^第\s*?[条|款|项]");
-                    if (t1 && t2 && t3 && t4 && t5 && t6)
+                    bool t6 = Regex.IsMatch(str_text, @"^第\S*?[条|款|项].*");
+                    if (t1 || t2 || t3 || t4 || t5 || t6)
                     {
                         //myjpara._leixing = "三级标题";
                         //myjpara._asposepara = para;
@@ -838,38 +850,57 @@ namespace WindowsFormsApp2
             return file;
         }
 
-
+        /// <summary>
+        /// 设置自然段的格式，包括字体，字号，粗体，缩进，对齐方式，行间距等
+        /// </summary>
+        /// <param name="mypara"></param>
+        /// <param name="f"></param>
         public void SetParaFormat(Aspose.Words.Paragraph mypara, Format f)
         {
-            mypara.ParagraphFormat.Style.Font.Name = f.fontname;//设置字体
-                                                                //设置字号
-            mypara.ParagraphFormat.Style.Font.Size = f.fontsize;
+            if (!f.enable)
+            {
+                return;
+            }
+            Run myrun = mypara.Runs[0];
 
+            //mypara.ParagraphFormat.Style.Font.Name = f.fontname;//设置字体
+            myrun.Font.Name = f.fontname;                                               //设置字号
+            //mypara.ParagraphFormat.Style.Font.Size = f.fontsize;
+            myrun.Font.Size = f.fontsize;
             //设置 粗体
-            mypara.ParagraphFormat.Style.Font.Bold = f.bold == 1;
+            //mypara.ParagraphFormat.Style.Font.Bold = f.bold == 1;
+            myrun.Font.Bold = f.bold == 1;
             //设置缩进
-            mypara.ParagraphFormat.FirstLineIndent = f.suojin;
+            //mypara.ParagraphFormat.FirstLineIndent = f.suojin;
+            myrun.ParentParagraph.ParagraphFormat.FirstLineIndent = f.suojin;
             //设置对齐
             string juzhong = f.juzhong;
             if (juzhong != null)
             {
                 if (juzhong == "左对齐")
                 {
-                    mypara.ParagraphFormat.Alignment = ParagraphAlignment.Left;
+                    //mypara.ParagraphFormat.Alignment = ParagraphAlignment.Left;
+                    myrun.ParentParagraph.ParagraphFormat.Alignment = ParagraphAlignment.Left;
                 }
                 else if (juzhong == "居中")
                 {
-                    mypara.ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                    //mypara.ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                    myrun.ParentParagraph.ParagraphFormat.Alignment = ParagraphAlignment.Center;
                 }
                 else if (juzhong == "右对齐")
                 {
-                    mypara.ParagraphFormat.Alignment = ParagraphAlignment.Right;
+                    //mypara.ParagraphFormat.Alignment = ParagraphAlignment.Right;
+                    myrun.ParentParagraph.ParagraphFormat.Alignment = ParagraphAlignment.Right;
                 }
             }
             //设置空行
             //设置行距值
-            mypara.ParagraphFormat.LineSpacingRule = Aspose.Words.LineSpacingRule.Exactly;
-            mypara.ParagraphFormat.LineSpacing = f.lsvalue;
+            //mypara.ParagraphFormat.LineSpacingRule = Aspose.Words.LineSpacingRule.Exactly;
+            myrun.ParentParagraph.ParagraphFormat.LineSpacingRule = Aspose.Words.LineSpacingRule.Exactly;
+
+           // mypara.ParagraphFormat.LineSpacing = f.lsvalue;
+            myrun.ParentParagraph.ParagraphFormat.LineSpacing = f.lsvalue;
+
         }
 
 
