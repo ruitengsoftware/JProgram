@@ -21,8 +21,18 @@ namespace 团队任务台账管理系统.Controller
             return num > 0 ? true : false;
         }
 
+        /// <summary>
+        /// 判断花名是否已经有人注册
+        /// </summary>
+        /// <param name="huaming"></param>
+        /// <returns></returns>
+        public bool ExistsHuaming(string huaming)
+        {
+            string str_sql = $"select count(*) from jjperson where 花名='{huaming}'";
+            int num =Convert.ToInt32( mysqlhelper.ExecuteScalar(str_sql, null));
+            return num > 0 ? true : false;
 
-
+        }
 
 
     }

@@ -31,8 +31,8 @@ namespace 团队任务台账管理系统.WinForm
         private void btn_zhuce_Click(object sender, EventArgs e)
         {
             //判断是否有没填写的项目
-            string nicheng = tb_nicheng.Text.Trim();
-            string xingming = tb_xingming.Text.Trim();
+            string nicheng = tb_huaming.Text.Trim();
+            string xingming = tb_shiming.Text.Trim();
             string shoujihao = tb_shoujihao.Text.Trim();
             string bumen = tb_bumen.Text.Trim();
             string quanxian = cbb_quanxian.Text.Trim();
@@ -54,6 +54,21 @@ namespace 团队任务台账管理系统.WinForm
             {
                 MessageBox.Show("请输入完整信息！");
             }
+            //判断花名是否已经被注册
+            string huaming = tb_huaming.Text;
+            bool existhuaming = mycontroller.ExistsHuaming(huaming);
+            if (existhuaming)
+            {
+                lbl_cunzai.Text = "花名有主";
+                return;
+            }
+            else
+            {
+                lbl_cunzai.Text = "可以捷足先登";
+            }
+
+
+
             //构造dic
             Dictionary<string, string> dic = new Dictionary<string, string>() {
                 {"昵称",nicheng },
@@ -72,6 +87,11 @@ namespace 团队任务台账管理系统.WinForm
 
 
 
+        }
+
+
+        private void tb_nicheng_Validated(object sender, EventArgs e)
+        {
         }
     }
 }

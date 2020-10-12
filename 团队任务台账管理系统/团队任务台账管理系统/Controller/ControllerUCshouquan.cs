@@ -22,7 +22,7 @@ namespace 团队任务台账管理系统.Controller
 
         public bool UpdatePerson(string xingming,string quanxian)
         {
-            string str_sql = $"update jjperson set 权限='{quanxian}' where 姓名='{xingming}'";
+            string str_sql = $"update jjperson set 权限='{quanxian}' where 花名='{xingming}'";
             int num = mysqlhelper.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
         }

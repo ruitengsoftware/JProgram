@@ -81,5 +81,24 @@ namespace 团队任务台账管理系统.UserControll
             WFzhuce mywf = new WFzhuce();
             mywf.ShowDialog();
         }
+        //判断密码的显示状态
+        bool xianshi = false;
+        private void pb_xianshi_Click(object sender, EventArgs e)
+        {
+            //如果是隐藏，那么密码显示为星号，图片变成显示
+            if (!xianshi)
+            {
+                tb_mima.PasswordChar = '*';
+                pb_xianshi.Image = Properties.Resources.显示;
+                xianshi = true;
+            }
+            else if(xianshi)
+            {
+                tb_mima.PasswordChar = new char();
+                pb_xianshi.Image = Properties.Resources.隐藏;
+                xianshi = false;
+            }
+
+        }
     }
 }

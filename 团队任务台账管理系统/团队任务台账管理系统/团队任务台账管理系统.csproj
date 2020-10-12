@@ -266,5 +266,11 @@
   <ItemGroup>
     <None Include="Resources\huiyuan.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\显示.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\隐藏.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
