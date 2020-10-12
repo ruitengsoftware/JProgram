@@ -251,7 +251,7 @@
             this.btn_shouquan.Name = "btn_shouquan";
             this.btn_shouquan.Size = new System.Drawing.Size(184, 113);
             this.btn_shouquan.TabIndex = 0;
-            this.btn_shouquan.Text = "授权(暂无功能)";
+            this.btn_shouquan.Text = "授权";
             this.btn_shouquan.UseVisualStyleBackColor = true;
             this.btn_shouquan.Click += new System.EventHandler(this.btn_shouquan_Click);
             // 

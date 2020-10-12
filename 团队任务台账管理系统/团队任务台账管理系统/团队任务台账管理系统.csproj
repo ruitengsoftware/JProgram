@@ -96,6 +96,7 @@
   <ItemGroup>
     <Compile Include="Controller\ControllerDenglu.cs" />
     <Compile Include="Controller\ControllerUCdaiban.cs" />
+    <Compile Include="Controller\ControllerUCshouquan.cs" />
     <Compile Include="Controller\ControllerUCxiaoxiang.cs" />
     <Compile Include="Controller\ControllerWFperson.cs" />
     <Compile Include="Controller\Controllerwfxinjian.cs" />
