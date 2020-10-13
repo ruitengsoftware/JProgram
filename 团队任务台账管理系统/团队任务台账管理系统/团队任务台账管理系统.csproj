@@ -170,11 +170,23 @@
     <Compile Include="WinForm\WFperson.Designer.cs">
       <DependentUpon>WFperson.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\WFshenfen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WFshenfen.Designer.cs">
+      <DependentUpon>WFshenfen.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\WFxinjian.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WinForm\WFxinjian.Designer.cs">
       <DependentUpon>WFxinjian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\WFzhiji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WFzhiji.Designer.cs">
+      <DependentUpon>WFzhiji.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForm\WFzhuce.cs">
       <SubType>Form</SubType>
@@ -225,8 +237,14 @@
     <EmbeddedResource Include="WinForm\WFperson.resx">
       <DependentUpon>WFperson.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WFshenfen.resx">
+      <DependentUpon>WFshenfen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WFxinjian.resx">
       <DependentUpon>WFxinjian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WFzhiji.resx">
+      <DependentUpon>WFzhiji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WFzhuce.resx">
       <DependentUpon>WFzhuce.cs</DependentUpon>
