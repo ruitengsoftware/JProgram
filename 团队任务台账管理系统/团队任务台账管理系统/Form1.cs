@@ -50,7 +50,43 @@ namespace 团队任务台账管理系统
             this.Height = 625;
             UCdenglu ucdenglu = new UCdenglu();
             ucdenglu.Dock = DockStyle.Fill;
+
+           panel_my.Controls.Add(ucdenglu);
+        }
+
+        private void pb_touxiang_Click(object sender, EventArgs e)
+        {
+            if (splitContainer2.Panel1Collapsed == false)
+
+            {
+                splitContainer2.SplitterDistance = 100;
+                splitContainer2.Panel1Collapsed = true;
+            }
+            else
+            {
+                splitContainer2.Panel1Collapsed = false;
+            }
+        }
+
+        private void btn_wodedaiban_Click(object sender, EventArgs e)
+        {
+            panel_my.Controls.Clear();
+            UCdaiban uc_daiban = new UCdaiban();
+            uc_daiban.Dock = DockStyle.Fill;
+            panel_my.Controls.Add(uc_daiban); 
+
+        }
+
+        private void btn_wodeyanshou_Click(object sender, EventArgs e)
+        {
+            panel_my.Controls.Clear();
+            UCdaiban uc_daiban = new UCdaiban();
+            uc_daiban.Dock = DockStyle.Fill;
+            panel_my.Controls.Add(uc_daiban);
+             
+
             this.splitContainer1.Panel2.Controls.Add(ucdenglu);
+
         }
     }
 }
