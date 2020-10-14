@@ -34,5 +34,53 @@ namespace 团队任务台账管理系统.Properties {
                 this["user"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string huaming {
+            get {
+                return ((string)(this["huaming"]));
+            }
+            set {
+                this["huaming"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string mima {
+            get {
+                return ((string)(this["mima"]));
+            }
+            set {
+                this["mima"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool zidongdenglu {
+            get {
+                return ((bool)(this["zidongdenglu"]));
+            }
+            set {
+                this["zidongdenglu"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool jizhuwo {
+            get {
+                return ((bool)(this["jizhuwo"]));
+            }
+            set {
+                this["jizhuwo"] = value;
+            }
+        }
     }
 }

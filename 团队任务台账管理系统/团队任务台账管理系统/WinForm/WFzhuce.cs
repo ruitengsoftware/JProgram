@@ -100,11 +100,16 @@ namespace 团队任务台账管理系统.WinForm
                 {"自定义账号",zidingyizhanghao },
 
                 {"头像",mycontroller.ConvertImageToBase64(touxiang)},//把图片转换成base64
-                {"工作证件照",mycontroller.ConvertImageToBase64(zhengjianzhao)},
-                {"微信号",weixinhao },
+                { "工作证件照",string.Empty},
+                {"微信号",weixinhao }
 
             };
-           bool b= mycontroller.Zhuce(dic);
+            if (zhengjianzhao!=null)
+            {
+                dic["工作证件照"]= mycontroller.ConvertImageToBase64(zhengjianzhao);
+            }
+
+           bool b = mycontroller.Zhuce(dic);
             if (b) MessageBox.Show("注册成功！");
             this.Dispose();
 
@@ -160,6 +165,14 @@ namespace 团队任务台账管理系统.WinForm
                 Bitmap mybmp = new Bitmap(ofd.FileName);
                 pb_gongzuozheng.Image = mybmp;
             }
+
+        }
+
+        private void pb_gongzuozheng_MouseEnter(object sender, EventArgs e)
+        {
+            //toolTip1.InitialDelay = 1000;
+            toolTip1.IsBalloon = true;
+            toolTip1.SetToolTip(pb_gongzuozheng, "管理类、技术类必填，综合类选填");
 
         }
     }

@@ -41,6 +41,7 @@
             this.cb_jizhuwo = new System.Windows.Forms.CheckBox();
             this.llbl_woyaozhuce = new System.Windows.Forms.LinkLabel();
             this.llbl_wangjimima = new System.Windows.Forms.LinkLabel();
+            this.cb_zidongdenlgu = new System.Windows.Forms.CheckBox();
             this.lbl_denglu = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_mima = new System.Windows.Forms.TextBox();
@@ -73,7 +74,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 260F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(855, 450);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.tableLayoutPanel1.TabIndex = 4;
             // 
             // tableLayoutPanel3
             // 
@@ -189,17 +190,18 @@
             this.tb_yonghuming.Name = "tb_yonghuming";
             this.tb_yonghuming.Size = new System.Drawing.Size(334, 23);
             this.tb_yonghuming.TabIndex = 1;
-            this.tb_yonghuming.Text = "admin";
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnCount = 4;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel4.Controls.Add(this.cb_jizhuwo, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.llbl_woyaozhuce, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.llbl_wangjimima, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.llbl_woyaozhuce, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.llbl_wangjimima, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.cb_zidongdenlgu, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 130);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
@@ -231,7 +233,7 @@
             this.llbl_woyaozhuce.TabStop = true;
             this.llbl_woyaozhuce.Text = "我要注册";
             this.llbl_woyaozhuce.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.llbl_woyaozhuce.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbl_woyaozhuce_LinkClicked);
+            this.llbl_woyaozhuce.Click += new System.EventHandler(this.llbl_woyaozhuce_Click);
             // 
             // llbl_wangjimima
             // 
@@ -245,6 +247,16 @@
             this.llbl_wangjimima.TabStop = true;
             this.llbl_wangjimima.Text = "忘记密码";
             this.llbl_wangjimima.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // cb_zidongdenlgu
+            // 
+            this.cb_zidongdenlgu.AutoSize = true;
+            this.cb_zidongdenlgu.Location = new System.Drawing.Point(83, 3);
+            this.cb_zidongdenlgu.Name = "cb_zidongdenlgu";
+            this.cb_zidongdenlgu.Size = new System.Drawing.Size(75, 21);
+            this.cb_zidongdenlgu.TabIndex = 4;
+            this.cb_zidongdenlgu.Text = "自动登录";
+            this.cb_zidongdenlgu.UseVisualStyleBackColor = true;
             // 
             // lbl_denglu
             // 
@@ -286,7 +298,6 @@
             this.tb_mima.PasswordChar = '*';
             this.tb_mima.Size = new System.Drawing.Size(294, 23);
             this.tb_mima.TabIndex = 1;
-            this.tb_mima.Text = "admin";
             // 
             // pb_xianshi
             // 
@@ -329,21 +340,22 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel_my;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label lbl_info;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_yonghuming;
-        private System.Windows.Forms.TextBox tb_mima;
-        private System.Windows.Forms.CheckBox cb_jizhuwo;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.CheckBox cb_jizhuwo;
         private System.Windows.Forms.LinkLabel llbl_woyaozhuce;
         private System.Windows.Forms.LinkLabel llbl_wangjimima;
-        private System.Windows.Forms.Panel panel_my;
+        private System.Windows.Forms.CheckBox cb_zidongdenlgu;
         private System.Windows.Forms.Label lbl_denglu;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TextBox tb_mima;
         private System.Windows.Forms.PictureBox pb_xianshi;
     }
 }

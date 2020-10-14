@@ -77,7 +77,7 @@ namespace 团队任务台账管理系统.UserControll
             var parent = this.Parent;
             parent.Controls.Clear();
 
-            parent.Controls.Add(new UCshouquan() { Dock = DockStyle.Fill }); ;
+            parent.Controls.Add(new UCshouquan() { Dock = DockStyle.Fill }); 
 
         }
     }

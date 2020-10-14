@@ -31,13 +31,15 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pb_home = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pb_touxiang = new System.Windows.Forms.PictureBox();
+            this.pb_tuichu = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_home)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_touxiang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_tuichu)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -60,7 +62,8 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.pb_home, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pb_touxiang, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pb_tuichu, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -87,17 +90,29 @@
             this.pb_home.TabStop = false;
             this.pb_home.Click += new System.EventHandler(this.pb_home_Click);
             // 
-            // pictureBox1
+            // pb_touxiang
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::团队任务台账管理系统.Properties.Resources.touxiang;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 7);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(26, 26);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pb_touxiang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pb_touxiang.Image = global::团队任务台账管理系统.Properties.Resources.touxiang;
+            this.pb_touxiang.Location = new System.Drawing.Point(7, 7);
+            this.pb_touxiang.Margin = new System.Windows.Forms.Padding(7);
+            this.pb_touxiang.Name = "pb_touxiang";
+            this.pb_touxiang.Size = new System.Drawing.Size(26, 26);
+            this.pb_touxiang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_touxiang.TabIndex = 0;
+            this.pb_touxiang.TabStop = false;
+            // 
+            // pb_tuichu
+            // 
+            this.pb_tuichu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_tuichu.Image = global::团队任务台账管理系统.Properties.Resources.退出;
+            this.pb_tuichu.Location = new System.Drawing.Point(3, 83);
+            this.pb_tuichu.Name = "pb_tuichu";
+            this.pb_tuichu.Size = new System.Drawing.Size(34, 34);
+            this.pb_tuichu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_tuichu.TabIndex = 1;
+            this.pb_tuichu.TabStop = false;
+            this.pb_tuichu.Click += new System.EventHandler(this.pb_tuichu_Click);
             // 
             // Form1
             // 
@@ -112,14 +127,15 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "写手任务台账管理系统V1.0.2";
+            this.Text = "写手任务台账管理系统V1.0.3";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_home)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_touxiang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_tuichu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -129,7 +145,8 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox pb_home;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox pb_touxiang;
+        private System.Windows.Forms.PictureBox pb_tuichu;
     }
 }
 

@@ -94,6 +94,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\JJpanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controller\ControllerDenglu.cs" />
     <Compile Include="Controller\ControllerUCdaiban.cs" />
     <Compile Include="Controller\ControllerUCshouquan.cs" />
@@ -289,6 +292,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\隐藏.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\退出.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
