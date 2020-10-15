@@ -62,7 +62,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
@@ -79,11 +79,12 @@
             this.tableLayoutPanel2.Controls.Add(this.pb_my, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.flp_my, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 53);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 50);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(763, 237);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(769, 243);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // pb_my
@@ -92,7 +93,7 @@
             this.pb_my.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_my.Location = new System.Drawing.Point(3, 3);
             this.pb_my.Name = "pb_my";
-            this.pb_my.Size = new System.Drawing.Size(375, 231);
+            this.pb_my.Size = new System.Drawing.Size(378, 237);
             this.pb_my.TabIndex = 0;
             this.pb_my.TabStop = false;
             // 
@@ -105,9 +106,9 @@
             this.flp_my.Controls.Add(this.linkLabel4);
             this.flp_my.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flp_my.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flp_my.Location = new System.Drawing.Point(384, 3);
+            this.flp_my.Location = new System.Drawing.Point(387, 3);
             this.flp_my.Name = "flp_my";
-            this.flp_my.Size = new System.Drawing.Size(376, 231);
+            this.flp_my.Size = new System.Drawing.Size(379, 237);
             this.flp_my.TabIndex = 1;
             // 
             // linkLabel1
@@ -170,12 +171,13 @@
             this.tableLayoutPanel3.Controls.Add(this.btn_shouquan, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.btn_ziliao, 3, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 296);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 293);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(763, 238);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(769, 244);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // btn_daiban
@@ -183,7 +185,7 @@
             this.btn_daiban.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_daiban.Location = new System.Drawing.Point(3, 3);
             this.btn_daiban.Name = "btn_daiban";
-            this.btn_daiban.Size = new System.Drawing.Size(184, 113);
+            this.btn_daiban.Size = new System.Drawing.Size(186, 116);
             this.btn_daiban.TabIndex = 0;
             this.btn_daiban.Text = "待办";
             this.btn_daiban.UseVisualStyleBackColor = true;
@@ -192,9 +194,9 @@
             // btn_xinjian
             // 
             this.btn_xinjian.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_xinjian.Location = new System.Drawing.Point(193, 3);
+            this.btn_xinjian.Location = new System.Drawing.Point(195, 3);
             this.btn_xinjian.Name = "btn_xinjian";
-            this.btn_xinjian.Size = new System.Drawing.Size(184, 113);
+            this.btn_xinjian.Size = new System.Drawing.Size(186, 116);
             this.btn_xinjian.TabIndex = 0;
             this.btn_xinjian.Text = "新建";
             this.btn_xinjian.UseVisualStyleBackColor = true;
@@ -203,9 +205,9 @@
             // btn_tuandui
             // 
             this.btn_tuandui.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_tuandui.Location = new System.Drawing.Point(383, 3);
+            this.btn_tuandui.Location = new System.Drawing.Point(387, 3);
             this.btn_tuandui.Name = "btn_tuandui";
-            this.btn_tuandui.Size = new System.Drawing.Size(184, 113);
+            this.btn_tuandui.Size = new System.Drawing.Size(186, 116);
             this.btn_tuandui.TabIndex = 0;
             this.btn_tuandui.Text = "团队(暂无功能)";
             this.btn_tuandui.UseVisualStyleBackColor = true;
@@ -214,9 +216,9 @@
             // btn_rizhi
             // 
             this.btn_rizhi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_rizhi.Location = new System.Drawing.Point(573, 3);
+            this.btn_rizhi.Location = new System.Drawing.Point(579, 3);
             this.btn_rizhi.Name = "btn_rizhi";
-            this.btn_rizhi.Size = new System.Drawing.Size(187, 113);
+            this.btn_rizhi.Size = new System.Drawing.Size(187, 116);
             this.btn_rizhi.TabIndex = 0;
             this.btn_rizhi.Text = "日志(暂无功能)";
             this.btn_rizhi.UseVisualStyleBackColor = true;
@@ -225,9 +227,9 @@
             // btn_fankui
             // 
             this.btn_fankui.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_fankui.Location = new System.Drawing.Point(3, 122);
+            this.btn_fankui.Location = new System.Drawing.Point(3, 125);
             this.btn_fankui.Name = "btn_fankui";
-            this.btn_fankui.Size = new System.Drawing.Size(184, 113);
+            this.btn_fankui.Size = new System.Drawing.Size(186, 116);
             this.btn_fankui.TabIndex = 0;
             this.btn_fankui.Text = "反馈(暂无功能)";
             this.btn_fankui.UseVisualStyleBackColor = true;
@@ -236,9 +238,9 @@
             // btn_xiaoxiang
             // 
             this.btn_xiaoxiang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_xiaoxiang.Location = new System.Drawing.Point(193, 122);
+            this.btn_xiaoxiang.Location = new System.Drawing.Point(195, 125);
             this.btn_xiaoxiang.Name = "btn_xiaoxiang";
-            this.btn_xiaoxiang.Size = new System.Drawing.Size(184, 113);
+            this.btn_xiaoxiang.Size = new System.Drawing.Size(186, 116);
             this.btn_xiaoxiang.TabIndex = 0;
             this.btn_xiaoxiang.Text = "销项";
             this.btn_xiaoxiang.UseVisualStyleBackColor = true;
@@ -247,9 +249,9 @@
             // btn_shouquan
             // 
             this.btn_shouquan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_shouquan.Location = new System.Drawing.Point(383, 122);
+            this.btn_shouquan.Location = new System.Drawing.Point(387, 125);
             this.btn_shouquan.Name = "btn_shouquan";
-            this.btn_shouquan.Size = new System.Drawing.Size(184, 113);
+            this.btn_shouquan.Size = new System.Drawing.Size(186, 116);
             this.btn_shouquan.TabIndex = 0;
             this.btn_shouquan.Text = "授权";
             this.btn_shouquan.UseVisualStyleBackColor = true;
@@ -258,9 +260,9 @@
             // btn_ziliao
             // 
             this.btn_ziliao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_ziliao.Location = new System.Drawing.Point(573, 122);
+            this.btn_ziliao.Location = new System.Drawing.Point(579, 125);
             this.btn_ziliao.Name = "btn_ziliao";
-            this.btn_ziliao.Size = new System.Drawing.Size(187, 113);
+            this.btn_ziliao.Size = new System.Drawing.Size(187, 116);
             this.btn_ziliao.TabIndex = 0;
             this.btn_ziliao.Text = "资料(暂无功能)";
             this.btn_ziliao.UseVisualStyleBackColor = true;
@@ -284,7 +286,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UCmain";
             this.Size = new System.Drawing.Size(769, 537);
             this.tableLayoutPanel1.ResumeLayout(false);
