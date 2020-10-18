@@ -39,7 +39,6 @@ namespace 团队任务台账管理系统.UserControll
                 var item = dgv_data.Rows[i];
                 if (Convert.ToInt32(item.Cells["已读"].Value) == 0)
                 {
-
                     //MessageBox.Show("Test");
                     //item.DefaultCellStyle.Font = new Font(dgv_data.Font, FontStyle.Bold);
                     //item.Cells[1].Style.Font = new Font("隶书", 9);
@@ -47,10 +46,7 @@ namespace 团队任务台账管理系统.UserControll
                     item.DefaultCellStyle.BackColor = Color.Black;
                     //Application.DoEvents();
                 }
-
             }
-
-
         }
 
         /// <summary>

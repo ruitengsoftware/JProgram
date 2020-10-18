@@ -98,10 +98,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controller\ControllerDenglu.cs" />
+    <Compile Include="Controller\ControllerUCrizhi.cs" />
     <Compile Include="Controller\ControllerUCdaiban.cs" />
     <Compile Include="Controller\ControllerUCshouquan.cs" />
     <Compile Include="Controller\ControllerUCxiaoxiang.cs" />
     <Compile Include="Controller\ControllerWFperson.cs" />
+    <Compile Include="Controller\ControllerWFrizhi.cs" />
     <Compile Include="Controller\Controllerwfxinjian.cs" />
     <Compile Include="Controller\ControllerWFzhuce.cs" />
     <Compile Include="Controller\MysqlHelper.cs" />
@@ -173,6 +175,12 @@
     <Compile Include="WinForm\WFperson.Designer.cs">
       <DependentUpon>WFperson.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\WFrizhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WFrizhi.Designer.cs">
+      <DependentUpon>WFrizhi.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\WFshenfen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WFperson.resx">
       <DependentUpon>WFperson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WFrizhi.resx">
+      <DependentUpon>WFrizhi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WFshenfen.resx">
       <DependentUpon>WFshenfen.cs</DependentUpon>
