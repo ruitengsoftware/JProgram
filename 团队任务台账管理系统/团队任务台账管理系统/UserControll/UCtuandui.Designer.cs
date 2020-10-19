@@ -32,7 +32,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_chuangjian = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_jiechutuandui = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_tuandui = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,9 +42,8 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_fuzeren = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btn_baocun = new System.Windows.Forms.Button();
+            this.dgv_data = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -52,7 +51,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_chengyuan)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -61,7 +60,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.dgv_data, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -99,7 +98,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.btn_chuangjian, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btn_jiechutuandui, 1, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -116,15 +115,17 @@
             this.btn_chuangjian.TabIndex = 0;
             this.btn_chuangjian.Text = "创建团队";
             this.btn_chuangjian.UseVisualStyleBackColor = true;
+            this.btn_chuangjian.Click += new System.EventHandler(this.btn_chuangjian_Click);
             // 
-            // button2
+            // btn_jiechutuandui
             // 
-            this.button2.Location = new System.Drawing.Point(83, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(74, 24);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "解除团队";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_jiechutuandui.Location = new System.Drawing.Point(83, 3);
+            this.btn_jiechutuandui.Name = "btn_jiechutuandui";
+            this.btn_jiechutuandui.Size = new System.Drawing.Size(74, 24);
+            this.btn_jiechutuandui.TabIndex = 0;
+            this.btn_jiechutuandui.Text = "解除团队";
+            this.btn_jiechutuandui.UseVisualStyleBackColor = true;
+            this.btn_jiechutuandui.Click += new System.EventHandler(this.btn_jiechutuandui_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -204,8 +205,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel5.Controls.Add(this.tb_fuzeren, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.button3, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.button4, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btn_baocun, 2, 0);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 60);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -234,33 +234,25 @@
             this.label3.Text = "负责人";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button3
+            // btn_baocun
             // 
-            this.button3.Location = new System.Drawing.Point(683, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(74, 24);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "保存";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_baocun.Location = new System.Drawing.Point(683, 3);
+            this.btn_baocun.Name = "btn_baocun";
+            this.btn_baocun.Size = new System.Drawing.Size(74, 24);
+            this.btn_baocun.TabIndex = 2;
+            this.btn_baocun.Text = "保存";
+            this.btn_baocun.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // dgv_data
             // 
-            this.button4.Location = new System.Drawing.Point(763, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(74, 24);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "取消";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 133);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(834, 408);
-            this.dataGridView1.TabIndex = 1;
+            this.dgv_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_data.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_data.Location = new System.Drawing.Point(3, 133);
+            this.dgv_data.Name = "dgv_data";
+            this.dgv_data.RowTemplate.Height = 23;
+            this.dgv_data.Size = new System.Drawing.Size(834, 408);
+            this.dgv_data.TabIndex = 1;
+            this.dgv_data.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_data_CellMouseClick);
             // 
             // label1
             // 
@@ -284,6 +276,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UCtuandui";
             this.Size = new System.Drawing.Size(840, 544);
+            this.Load += new System.EventHandler(this.UCtuandui_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -293,7 +286,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_chengyuan)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -302,11 +295,11 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_data;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btn_chuangjian;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_jiechutuandui;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TextBox tb_tuandui;
         private System.Windows.Forms.Label label4;
@@ -316,7 +309,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TextBox tb_fuzeren;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_baocun;
     }
 }

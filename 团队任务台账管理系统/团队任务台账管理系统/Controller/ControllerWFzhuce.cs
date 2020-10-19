@@ -19,7 +19,7 @@ namespace 团队任务台账管理系统.Controller
         public bool Zhuce(Dictionary<string, string> dic)
         {
             string str_sql = $"insert into jjperson values('{dic["花名"]}','{dic["实名"]}','{dic["部门"]}','{dic["职级"]}','{dic["密码"]}','{dic["手机号"]}','{dic["电子邮箱"]}'," +
-                $"'{dic["自定义账号"]}','{dic["头像"]}','{dic["工作证件照"]}','{dic["微信号"]}')";
+                $"'{dic["自定义账号"]}','{dic["头像"]}','{dic["工作证件照"]}','{dic["微信号"]}',0)";
             int num=mysqlhelper.ExecuteNonQuery(str_sql, null);
             return num > 0 ? true : false;
         }

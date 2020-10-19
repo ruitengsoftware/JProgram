@@ -36,7 +36,7 @@ namespace 团队任务台账管理系统.WinForm
             for (int i = 0; i < dgv_data.Rows.Count; i++)
             {
                 var dgvrow = dgv_data.Rows[i];
-                string name = dgvrow.Cells["姓名"].Value.ToString();
+                string name = dgvrow.Cells["实名"].Value.ToString();
                 if (_person.Contains(name))
                 {
                     var mycell = (DataGridViewCell)dgvrow.Cells["选择"];
@@ -55,23 +55,23 @@ namespace 团队任务台账管理系统.WinForm
         {
             this.Dispose();
         }
-
+        /// <summary>
+        /// 点击确定按钮触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_quding_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < dgv_data.Rows.Count; i++)
             {
                 var myrow = dgv_data.Rows[i];
                 bool value = (Boolean)myrow.Cells["选择"].FormattedValue;
-                string name = myrow.Cells["姓名"].Value.ToString();
+                string name = myrow.Cells["实名"].Value.ToString();
                 if (Convert.ToBoolean(value))
                 {
                     list_person.Add(name);
                 }
             }
-
-
-
-
             this.DialogResult = DialogResult.OK;
         }
     }

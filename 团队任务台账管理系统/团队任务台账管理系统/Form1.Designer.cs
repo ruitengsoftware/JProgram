@@ -34,11 +34,11 @@
             this.pb_touxiang = new System.Windows.Forms.PictureBox();
             this.pb_tuichu = new System.Windows.Forms.PictureBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.panel_my = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_daiban = new System.Windows.Forms.Button();
             this.btn_yanshou = new System.Windows.Forms.Button();
             this.btn_shezhi = new System.Windows.Forms.Button();
+            this.panel_my = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -149,15 +149,6 @@
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 0;
             // 
-            // panel_my
-            // 
-            this.panel_my.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_my.Location = new System.Drawing.Point(0, 0);
-            this.panel_my.Margin = new System.Windows.Forms.Padding(0);
-            this.panel_my.Name = "panel_my";
-            this.panel_my.Size = new System.Drawing.Size(693, 464);
-            this.panel_my.TabIndex = 0;
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
@@ -206,6 +197,15 @@
             this.btn_shezhi.UseVisualStyleBackColor = true;
             this.btn_shezhi.Click += new System.EventHandler(this.btn_shezhi_Click);
             // 
+            // panel_my
+            // 
+            this.panel_my.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_my.Location = new System.Drawing.Point(0, 0);
+            this.panel_my.Margin = new System.Windows.Forms.Padding(0);
+            this.panel_my.Name = "panel_my";
+            this.panel_my.Size = new System.Drawing.Size(693, 464);
+            this.panel_my.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -219,7 +219,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "写手任务台账管理系统V1.0.3";
+            this.Text = "写手任务台账管理系统V1.1.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

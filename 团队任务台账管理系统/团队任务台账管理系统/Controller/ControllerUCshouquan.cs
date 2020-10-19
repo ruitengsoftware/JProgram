@@ -21,13 +21,33 @@ namespace 团队任务台账管理系统.Controller
             DataTable mydt = mysqlhelper.ExecuteDataTable(str_sql, null);
             return mydt;
         }
-
+        /// <summary>
+        /// 修改权限
+        /// </summary>
+        /// <param name="xingming"></param>
+        /// <param name="quanxian"></param>
+        /// <returns></returns>
         public bool UpdatePerson(string xingming,string quanxian)
         {
-            string str_sql = $"update jjperson set 权限='{quanxian}' where 花名='{xingming}'";
+            string str_sql = $"update jjperson set 职级='{quanxian}' where 花名='{xingming}'";
             int num = mysqlhelper.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
         }
+        /// <summary>
+        /// 删除指定花名的person
+        /// </summary>
+        /// <param name="huaming"></param>
+        /// <returns></returns>
+        public bool DeletePerson(string huaming)
+        {
+
+            string str_sql = $"update jjperson set 删除=1 where 花名='{huaming}'";
+            int num = mysqlhelper.ExecuteNonQuery(str_sql);
+            return num > 0 ? true : false;
+        }
+
+
+
         /// <summary>
         /// 将图片转换为base64编码
         /// </summary>

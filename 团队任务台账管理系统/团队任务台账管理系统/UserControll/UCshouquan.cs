@@ -23,6 +23,8 @@ namespace 团队任务台账管理系统.UserControll
             DataTable mydt = mycontroller.GetPerson();
             dgv_data.DataSource = null;
             dgv_data.DataSource = mydt;
+            dgv_data_CellMouseClick(null, null);
+
         }
 
         private void dgv_data_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -80,11 +82,34 @@ namespace 团队任务台账管理系统.UserControll
             DataTable mydt = mycontroller.GetPerson();
             dgv_data.DataSource = null;
             dgv_data.DataSource = mydt;
+            dgv_data_CellMouseClick(null, null);
+
             if (b) MessageBox.Show("更新数据成功！");
             
 
 
 
+        }
+        /// <summary>
+        /// 点击删除按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_shanchu_Click(object sender, EventArgs e)
+        {
+            //获得花名
+            string huaming = tb_huaming.Text.Trim();
+            //修改jjperson中对应的 删除  字段 值
+
+            //更新jjperson数据库
+
+            bool b = mycontroller.DeletePerson(huaming);
+            DataTable mydt = mycontroller.GetPerson();
+            dgv_data.DataSource = null;
+            dgv_data.DataSource = mydt;
+            dgv_data_CellMouseClick(null, null);
+
+            if (b) MessageBox.Show("数据已删除");
         }
     }
 }

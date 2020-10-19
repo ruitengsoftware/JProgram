@@ -30,6 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pb_my = new System.Windows.Forms.PictureBox();
             this.flp_my = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
@@ -45,12 +46,11 @@
             this.btn_shouquan = new System.Windows.Forms.Button();
             this.btn_ziliao = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.pb_my = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_my)).BeginInit();
             this.flp_my.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_my)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -86,6 +86,16 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(769, 243);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // pb_my
+            // 
+            this.pb_my.BackColor = System.Drawing.Color.LightGray;
+            this.pb_my.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_my.Location = new System.Drawing.Point(3, 3);
+            this.pb_my.Name = "pb_my";
+            this.pb_my.Size = new System.Drawing.Size(378, 237);
+            this.pb_my.TabIndex = 0;
+            this.pb_my.TabStop = false;
             // 
             // flp_my
             // 
@@ -199,7 +209,7 @@
             this.btn_tuandui.Name = "btn_tuandui";
             this.btn_tuandui.Size = new System.Drawing.Size(186, 116);
             this.btn_tuandui.TabIndex = 0;
-            this.btn_tuandui.Text = "团队(暂无功能)";
+            this.btn_tuandui.Text = "团队";
             this.btn_tuandui.UseVisualStyleBackColor = true;
             this.btn_tuandui.Click += new System.EventHandler(this.btn_tuandui_Click);
             // 
@@ -221,7 +231,7 @@
             this.btn_fankui.Name = "btn_fankui";
             this.btn_fankui.Size = new System.Drawing.Size(186, 116);
             this.btn_fankui.TabIndex = 0;
-            this.btn_fankui.Text = "反馈(暂无功能)";
+            this.btn_fankui.Text = "反馈";
             this.btn_fankui.UseVisualStyleBackColor = true;
             this.btn_fankui.Click += new System.EventHandler(this.btn_fankui_Click);
             // 
@@ -269,16 +279,6 @@
             this.label1.Text = "XXX团队任务台账记录";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pb_my
-            // 
-            this.pb_my.BackColor = System.Drawing.Color.LightGray;
-            this.pb_my.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_my.Location = new System.Drawing.Point(3, 3);
-            this.pb_my.Name = "pb_my";
-            this.pb_my.Size = new System.Drawing.Size(378, 237);
-            this.pb_my.TabIndex = 0;
-            this.pb_my.TabStop = false;
-            // 
             // UCmain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -292,10 +292,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_my)).EndInit();
             this.flp_my.ResumeLayout(false);
             this.flp_my.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_my)).EndInit();
             this.ResumeLayout(false);
 
         }

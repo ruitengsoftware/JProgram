@@ -98,6 +98,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controller\ControllerDenglu.cs" />
+    <Compile Include="Controller\ControllerFankui.cs" />
+    <Compile Include="Controller\ControllerTuandui.cs" />
     <Compile Include="Controller\ControllerUCrizhi.cs" />
     <Compile Include="Controller\ControllerUCdaiban.cs" />
     <Compile Include="Controller\ControllerUCshouquan.cs" />
@@ -169,6 +171,12 @@
     <Compile Include="UserControll\UCxinjian.Designer.cs">
       <DependentUpon>UCxinjian.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\WFfankui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WFfankui.Designer.cs">
+      <DependentUpon>WFfankui.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\WFperson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +194,12 @@
     </Compile>
     <Compile Include="WinForm\WFshenfen.Designer.cs">
       <DependentUpon>WFshenfen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\WFtuandui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WFtuandui.Designer.cs">
+      <DependentUpon>WFtuandui.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForm\WFxinjian.cs">
       <SubType>Form</SubType>
@@ -245,6 +259,9 @@
     <EmbeddedResource Include="UserControll\UCxinjian.resx">
       <DependentUpon>UCxinjian.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WFfankui.resx">
+      <DependentUpon>WFfankui.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WFperson.resx">
       <DependentUpon>WFperson.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WFshenfen.resx">
       <DependentUpon>WFshenfen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WFtuandui.resx">
+      <DependentUpon>WFtuandui.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WFxinjian.resx">
       <DependentUpon>WFxinjian.cs</DependentUpon>
