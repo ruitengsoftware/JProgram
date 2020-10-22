@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 using RuiTengDll;
-using Common;
+//using Common;
+using WindowsFormsApp2.Common;
 
 namespace WindowsFormsApp2.UC
 {

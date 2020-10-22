@@ -74,7 +74,6 @@
             this.tb_guizemingcheng = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.dgv_guize = new System.Windows.Forms.DataGridView();
-            this.xuanze = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_daoru = new System.Windows.Forms.Label();
             this.lbl_daochu = new System.Windows.Forms.Label();
@@ -100,6 +99,14 @@
             this.jindu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.xuanze = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.myxuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mingcheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leixing = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.riqi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zhengze = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tihuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wenben = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cms_chuli.SuspendLayout();
             this.cms_dgv.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -697,7 +704,14 @@
             this.dgv_guize.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_guize.ColumnHeadersHeight = 25;
             this.dgv_guize.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.xuanze});
+            this.xuanze,
+            this.myxuhao,
+            this.mingcheng,
+            this.leixing,
+            this.riqi,
+            this.zhengze,
+            this.tihuan,
+            this.wenben});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -723,11 +737,6 @@
             this.dgv_guize.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.Dgv_guize_RowsRemoved);
             this.dgv_guize.SelectionChanged += new System.EventHandler(this.Dgv_guize_SelectionChanged);
             this.dgv_guize.Sorted += new System.EventHandler(this.Dgv_guize_Sorted);
-            // 
-            // xuanze
-            // 
-            this.xuanze.HeaderText = "选择";
-            this.xuanze.Name = "xuanze";
             // 
             // tableLayoutPanel13
             // 
@@ -1087,6 +1096,46 @@
             this.splitContainer1.SplitterDistance = 321;
             this.splitContainer1.TabIndex = 1;
             // 
+            // xuanze
+            // 
+            this.xuanze.HeaderText = "选择";
+            this.xuanze.Name = "xuanze";
+            // 
+            // myxuhao
+            // 
+            this.myxuhao.HeaderText = "序号";
+            this.myxuhao.Name = "myxuhao";
+            // 
+            // mingcheng
+            // 
+            this.mingcheng.HeaderText = "名称";
+            this.mingcheng.Name = "mingcheng";
+            // 
+            // leixing
+            // 
+            this.leixing.HeaderText = "类型";
+            this.leixing.Name = "leixing";
+            // 
+            // riqi
+            // 
+            this.riqi.HeaderText = "日期";
+            this.riqi.Name = "riqi";
+            // 
+            // zhengze
+            // 
+            this.zhengze.HeaderText = "正则";
+            this.zhengze.Name = "zhengze";
+            // 
+            // tihuan
+            // 
+            this.tihuan.HeaderText = "替换";
+            this.tihuan.Name = "tihuan";
+            // 
+            // wenben
+            // 
+            this.wenben.HeaderText = "文本";
+            this.wenben.Name = "wenben";
+            // 
             // UCNeirongchuli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1190,7 +1239,6 @@
         private System.Windows.Forms.TextBox tb_guizemingcheng;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.DataGridView dgv_guize;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn xuanze;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.Label lbl_daoru;
         private System.Windows.Forms.Label lbl_daochu;
@@ -1216,5 +1264,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn jindu;
         private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn xuanze;
+        private System.Windows.Forms.DataGridViewTextBoxColumn myxuhao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mingcheng;
+        private System.Windows.Forms.DataGridViewTextBoxColumn leixing;
+        private System.Windows.Forms.DataGridViewTextBoxColumn riqi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zhengze;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tihuan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wenben;
     }
 }

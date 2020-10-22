@@ -223,7 +223,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\Setting.cs" />
+    <Compile Include="Common\Setting.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Controller\ControllerAddTask.cs" />
     <Compile Include="Controller\ControllerBiaozhu.cs" />
     <Compile Include="Controller\ControllerNeirongchuli.cs" />

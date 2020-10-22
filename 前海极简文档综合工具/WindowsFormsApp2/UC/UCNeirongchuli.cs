@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RuiTengDll;
-using Common;
+//using Common;
 
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Model;
@@ -19,6 +19,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using Aspose.Cells;
 using WindowsFormsApp2.Controller;
+using WindowsFormsApp2.Common;
 
 namespace WindowsFormsApp2.UC  
 {
@@ -459,7 +460,7 @@ namespace WindowsFormsApp2.UC
             //形成一个datatable，绑定到dgvguize中
             DataTable mydt0 = dgv_guize.DataSource as DataTable;
             //mydt0.Columns.Remove("选择");
-            mydt0.Rows.Add(new string[] { (mydt0.Rows.Count + 1).ToString(), mybuzhou._selfname, mybuzhou._name, mybuzhou._updatedate, mybuzhou._zhengze, mybuzhou._tihuan, mybuzhou._text, });
+            mydt0.Rows.Add(new string[] { (mydt0.Rows.Count + 1).ToString(), mybuzhou._selfname, mybuzhou._name, mybuzhou._updatedate, mybuzhou._zhengze, mybuzhou._tihuan, mybuzhou._text});
             dgv_guize.DataSource = null;
             dgv_guize.DataSource = mydt0;
             Application.DoEvents();

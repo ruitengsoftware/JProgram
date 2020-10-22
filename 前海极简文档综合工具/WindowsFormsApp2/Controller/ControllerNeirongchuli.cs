@@ -1,7 +1,7 @@
 ﻿
 using Aspose.Words;
 using Aspose.Words.Replacing;
-using Common.WinForm;
+//using Common.WinForm;
 using Newtonsoft.Json;
 using RuiTengDll;
 using Spire.Doc;
