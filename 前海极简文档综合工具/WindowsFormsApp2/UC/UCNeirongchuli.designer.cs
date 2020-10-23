@@ -101,11 +101,11 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.xuanze = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.myxuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mingcheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leixing = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.riqi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zhengze = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tihuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mingcheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.xiugaishijian = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zhengzebiaodashi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tihuanwei = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wenben = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cms_chuli.SuspendLayout();
             this.cms_dgv.SuspendLayout();
@@ -706,11 +706,11 @@
             this.dgv_guize.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.xuanze,
             this.myxuhao,
-            this.mingcheng,
             this.leixing,
-            this.riqi,
-            this.zhengze,
-            this.tihuan,
+            this.mingcheng,
+            this.xiugaishijian,
+            this.zhengzebiaodashi,
+            this.tihuanwei,
             this.wenben});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -1106,30 +1106,30 @@
             this.myxuhao.HeaderText = "序号";
             this.myxuhao.Name = "myxuhao";
             // 
-            // mingcheng
-            // 
-            this.mingcheng.HeaderText = "名称";
-            this.mingcheng.Name = "mingcheng";
-            // 
             // leixing
             // 
             this.leixing.HeaderText = "类型";
             this.leixing.Name = "leixing";
             // 
-            // riqi
+            // mingcheng
             // 
-            this.riqi.HeaderText = "日期";
-            this.riqi.Name = "riqi";
+            this.mingcheng.HeaderText = "名称";
+            this.mingcheng.Name = "mingcheng";
             // 
-            // zhengze
+            // xiugaishijian
             // 
-            this.zhengze.HeaderText = "正则";
-            this.zhengze.Name = "zhengze";
+            this.xiugaishijian.HeaderText = "修改时间";
+            this.xiugaishijian.Name = "xiugaishijian";
             // 
-            // tihuan
+            // zhengzebiaodashi
             // 
-            this.tihuan.HeaderText = "替换";
-            this.tihuan.Name = "tihuan";
+            this.zhengzebiaodashi.HeaderText = "正则表达式";
+            this.zhengzebiaodashi.Name = "zhengzebiaodashi";
+            // 
+            // tihuanwei
+            // 
+            this.tihuanwei.HeaderText = "替换为";
+            this.tihuanwei.Name = "tihuanwei";
             // 
             // wenben
             // 
@@ -1266,11 +1266,11 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn xuanze;
         private System.Windows.Forms.DataGridViewTextBoxColumn myxuhao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mingcheng;
         private System.Windows.Forms.DataGridViewTextBoxColumn leixing;
-        private System.Windows.Forms.DataGridViewTextBoxColumn riqi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zhengze;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tihuan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mingcheng;
+        private System.Windows.Forms.DataGridViewTextBoxColumn xiugaishijian;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zhengzebiaodashi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tihuanwei;
         private System.Windows.Forms.DataGridViewTextBoxColumn wenben;
     }
 }

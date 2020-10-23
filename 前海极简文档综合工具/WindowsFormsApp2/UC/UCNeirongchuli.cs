@@ -458,8 +458,31 @@ namespace WindowsFormsApp2.UC
 
 
             //形成一个datatable，绑定到dgvguize中
-            DataTable mydt0 = dgv_guize.DataSource as DataTable;
-            //mydt0.Columns.Remove("选择");
+            DataTable mydt0 = null;
+            //判断dgv_data是否有值
+            if (mydt0==null)
+            {
+                mydt0 = new DataTable();
+                mydt0.Columns.Add();
+            }
+            else
+            {
+            mydt0= dgv_guize.DataSource as DataTable;
+            mydt0.Columns.Remove("选择");
+                mydt0.Columns.Add("");
+                mydt0.Columns.Add();
+
+                mydt0.Columns.Add();
+
+                mydt0.Columns.Add();
+
+                mydt0.Columns.Add();
+                mydt0.Columns.Add();
+                mydt0.Columns.Add();
+                mydt0.Columns.Add();
+
+            }
+
             mydt0.Rows.Add(new string[] { (mydt0.Rows.Count + 1).ToString(), mybuzhou._selfname, mybuzhou._name, mybuzhou._updatedate, mybuzhou._zhengze, mybuzhou._tihuan, mybuzhou._text});
             dgv_guize.DataSource = null;
             dgv_guize.DataSource = mydt0;
