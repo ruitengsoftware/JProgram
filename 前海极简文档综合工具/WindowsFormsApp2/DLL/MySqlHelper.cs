@@ -13,7 +13,7 @@ namespace WindowsFormsApp2.DLL
     {
 
         MySqlConnection _mycon = new MySqlConnection();
-        string str_con = $"server=39.107.125.33;port=3306;user=root;password=111111; database=documenttools;";
+        string str_con = $"server=49.233.40.109;port=3306;user=root;password=111111; database=documenttools;";
         public MySqlHelper()
         {
 

@@ -36,7 +36,7 @@ namespace WindowsFormsApp2.Common
         public static bool _wenjianming;
         public static bool _zhengwen;
         public static object _ucneirongchuli;
-        public static List<BuzhouInfo> list_guize;
+        public static List<BuzhouInfo> list_guize = new List<BuzhouInfo>();
 
     }
 

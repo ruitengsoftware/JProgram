@@ -458,34 +458,37 @@ namespace WindowsFormsApp2.UC
 
 
             //形成一个datatable，绑定到dgvguize中
-            DataTable mydt0 = null;
+            DataTable mydt0 = dgv_guize.DataSource as DataTable;
             //判断dgv_data是否有值
             if (mydt0==null)
             {
                 mydt0 = new DataTable();
-                mydt0.Columns.Add();
+                mydt0.Columns.Add("序号");
+                mydt0.Columns.Add("类型");
+
+                mydt0.Columns.Add("名称");
+
+                mydt0.Columns.Add("修改时间");
+
+                mydt0.Columns.Add("正则表达式");
+                mydt0.Columns.Add("替换为");
+                mydt0.Columns.Add("文本");
             }
-            else
-            {
-            mydt0= dgv_guize.DataSource as DataTable;
-            mydt0.Columns.Remove("选择");
-                mydt0.Columns.Add("");
-                mydt0.Columns.Add();
-
-                mydt0.Columns.Add();
-
-                mydt0.Columns.Add();
-
-                mydt0.Columns.Add();
-                mydt0.Columns.Add();
-                mydt0.Columns.Add();
-                mydt0.Columns.Add();
-
-            }
+          
 
             mydt0.Rows.Add(new string[] { (mydt0.Rows.Count + 1).ToString(), mybuzhou._selfname, mybuzhou._name, mybuzhou._updatedate, mybuzhou._zhengze, mybuzhou._tihuan, mybuzhou._text});
             dgv_guize.DataSource = null;
             dgv_guize.DataSource = mydt0;
+            //添加选择复选框列
+            if (!dgv_guize.Columns.Contains("选择")) 
+            {
+            DataGridViewCheckBoxColumn mycol = new DataGridViewCheckBoxColumn();
+            mycol.Name = "选择";
+            mycol.HeaderText = "选择";
+            mycol.DisplayIndex = 0;
+            dgv_guize.Columns.Add(mycol);
+
+            }
             Application.DoEvents();
             GetGuize();
 
@@ -1225,7 +1228,9 @@ namespace WindowsFormsApp2.UC
 
         private void GetGuize()
         {
+
             Setting.list_guize.Clear();
+
             for (int i = 0; i < dgv_guize.Rows.Count; i++)
             {
                 var row = dgv_guize.Rows[i];
