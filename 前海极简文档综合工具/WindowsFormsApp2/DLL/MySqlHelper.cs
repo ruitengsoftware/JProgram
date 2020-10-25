@@ -160,6 +160,17 @@ namespace WindowsFormsApp2.DLL
             mycmd.Dispose();
             _mycon.Close();
         }
+        public void Delete(string field, string value, string tablename)
+        {
+            string str_sql = $"delete from {tablename} where {field}='{value}'";
+            _mycon.Open();
+            MySqlCommand mycmd = new MySqlCommand();
+            mycmd.CommandText = str_sql;
+            mycmd.Connection = _mycon;
+            mycmd.ExecuteNonQuery();
+            mycmd.Dispose();
+            _mycon.Close();
+        }
         /// <summary>
         /// 插入新的格式名称以及设置
         /// </summary>

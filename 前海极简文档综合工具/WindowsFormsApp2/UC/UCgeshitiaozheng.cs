@@ -711,7 +711,6 @@ namespace WindowsFormsApp2
         /// </summary>
         /// <param name="o"></param>
         /// <returns></returns>
-
         public string UpdateFormat2(object o)
         {
             Jdoc myjdoc = new Jdoc();
@@ -721,7 +720,7 @@ namespace WindowsFormsApp2
             var dic = o as Dictionary<string, object>;
             string file = dic["filename"].ToString();
             Dictionary<string, Format> dic_format = dic["format"] as Dictionary<string, Format>;
-           
+
             Aspose.Words.Document mydoc = new Aspose.Words.Document(file);
             var paras = mydoc.FirstSection.Body.Paragraphs;//获得文档所有的自然段
             for (int i = 0; i < paras.Count; i++)
@@ -729,7 +728,7 @@ namespace WindowsFormsApp2
                 var para = paras[i];
                 string str_text = para.Range.Text.Trim();
                 myjpara = new Jpara();
-                
+
 
 
 
@@ -742,15 +741,15 @@ namespace WindowsFormsApp2
 
 
                 //判断自然段是否为大标题
-              
-                    bool bb1 = Regex.IsMatch(str_text, "^(第一编|第一章).*");//是否以指定文字开头
-                    //var bb2 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
-                    if ( bb1)
-                    {
-                        SetParaFormat(para, dic_format["大标题"]);
-                        continue;
-                    }
-                
+
+                bool bb1 = Regex.IsMatch(str_text, "^(第一编|第一章).*");//是否以指定文字开头
+                                                                   //var bb2 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
+                if (bb1)
+                {
+                    SetParaFormat(para, dic_format["大标题"]);
+                    continue;
+                }
+
 
                 //判断自然段是否为副标题
                 if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center)
@@ -824,8 +823,8 @@ namespace WindowsFormsApp2
                 {
                     //页边距 
                     sections[i].PageSetup.LeftMargin = Convert.ToSingle(nudleft.Value);
-                    sections[i].PageSetup.RightMargin= Convert.ToSingle(nudright.Value);
-                    sections[i].PageSetup.TopMargin= Convert.ToSingle(nudtop.Value);
+                    sections[i].PageSetup.RightMargin = Convert.ToSingle(nudright.Value);
+                    sections[i].PageSetup.TopMargin = Convert.ToSingle(nudtop.Value);
                     sections[i].PageSetup.BottomMargin = Convert.ToSingle(nudbottom.Value);
                 }
             }
@@ -833,7 +832,7 @@ namespace WindowsFormsApp2
             //保存一次
 
             //mydoc.Save(file);
-            
+
             string finalfile = string.Empty;
             //再次保存为指定格式
             if (rbdoc.Checked)
@@ -857,11 +856,12 @@ namespace WindowsFormsApp2
         /// <param name="f"></param>
         public void SetParaFormat(Aspose.Words.Paragraph mypara, Format f)
         {
-            if (!f.enable)
+            Run myrun = mypara.Runs[0];
+
+            if (!f.enable || myrun==null)
             {
                 return;
             }
-            Run myrun = mypara.Runs[0];
 
             //mypara.ParagraphFormat.Style.Font.Name = f.fontname;//设置字体
             myrun.Font.Name = f.fontname;                                               //设置字号

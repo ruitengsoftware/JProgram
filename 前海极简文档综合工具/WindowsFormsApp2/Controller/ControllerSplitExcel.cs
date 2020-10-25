@@ -22,7 +22,8 @@ namespace WindowsFormsApp2.Controller
         }
         public void DeleteFormat(string field,string value,string tablename)
         {
-            
+            _sqlhelper.Delete(field, value, tablename);
+
         }
 
         /// <summary>

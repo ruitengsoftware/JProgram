@@ -63,8 +63,8 @@ namespace WindowsFormsApp2
             tbfontname.Text = dic["fontname"].ToString();
             nudfontsize.Value = Convert.ToDecimal(dic["fontsize"]);
             cbbold.Checked = Convert.ToBoolean(dic["bold"]);
-            cbbposition.Text = dic["position"].ToString();
-            cbbkonghang.Text = dic["space"].ToString();
+            cbbposition.Text = dic["myposition"].ToString();
+            cbbkonghang.Text = dic["myspace"].ToString();
             nudsuojin.Value = Convert.ToDecimal(dic["suojin"]);
             cbbformat.Text = dic["formatname"].ToString();
 
