@@ -64,7 +64,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 597F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(994, 511);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(994, 580);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tlpmain
@@ -82,7 +82,7 @@
             this.tlpmain.RowCount = 2;
             this.tlpmain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tlpmain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpmain.Size = new System.Drawing.Size(994, 511);
+            this.tlpmain.Size = new System.Drawing.Size(994, 580);
             this.tlpmain.TabIndex = 0;
             // 
             // mypanel
@@ -91,7 +91,7 @@
             this.mypanel.Location = new System.Drawing.Point(91, 61);
             this.mypanel.Margin = new System.Windows.Forms.Padding(1);
             this.mypanel.Name = "mypanel";
-            this.mypanel.Size = new System.Drawing.Size(902, 449);
+            this.mypanel.Size = new System.Drawing.Size(902, 518);
             this.mypanel.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -125,7 +125,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(90, 451);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(90, 520);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // lbldata
@@ -330,12 +330,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(994, 511);
+            this.ClientSize = new System.Drawing.Size(994, 580);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(1010, 550);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "挖潜智库·综合文档工具 6.2.7版 2020年10月25日";
+            this.Text = "挖潜智库·综合文档工具 6.3.1版 2020年10月26日";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

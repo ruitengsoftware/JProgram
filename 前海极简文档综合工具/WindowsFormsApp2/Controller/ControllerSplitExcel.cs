@@ -51,7 +51,6 @@ namespace WindowsFormsApp2.Controller
             {
                 { "ttname",format},
             };
-
             return _sqlhelper.GetAnySet("tableformat", mydic)[0];
         }
 

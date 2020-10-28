@@ -25,6 +25,8 @@ using Aspose.Words;
 using RuiTengDll;
 using WindowsFormsApp2.Controller;
 using MySql.Data.MySqlClient;
+using Aspose.Words.Replacing;
+using System.Collections;
 
 namespace WindowsFormsApp2.UC
 {
@@ -1531,7 +1533,7 @@ namespace WindowsFormsApp2.UC
             _mycontroller._sqlhelper.DeleteAnyFormat("ttname", format, "tabletotalformat");
             //保存数据
             _mycontroller._sqlhelper.SaveAnyFormat(dic, "tabletotalformat");
-                MessageBox.Show("保存数据成功！");
+            MessageBox.Show("保存数据成功！");
         }
 
         private void Lblshanchu_Click(object sender, EventArgs e)
@@ -1845,10 +1847,38 @@ namespace WindowsFormsApp2.UC
                 UpdateStatue("版权所有 深圳前海极简信息咨询服务有限公司");
             }
         }
+        /// <summary>
+        /// 读取记事本
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private string Txt2Text(string path)
+        {
+            StreamReader srFile = null;
+            string msg = string.Empty;
+            try
+            {
 
+                srFile = new StreamReader(path, System.Text.Encoding.UTF8);
+                msg = srFile.ReadToEnd();
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+            }
+            finally
+            {
+                if (srFile != null)
+                {
+                    srFile.Dispose();
+                    srFile.Close();
+                }
+            }
+            return msg;
+        }
 
         /// <summary>
-        /// 已段落为单位调整格式的方法
+        /// 以段落为单位调整格式的方法
         /// </summary>
         /// <param name="o"></param>
         /// <returns></returns>
@@ -1863,16 +1893,20 @@ namespace WindowsFormsApp2.UC
             Dictionary<string, Format> dic_format = dic["format"] as Dictionary<string, Format>;
 
             Aspose.Words.Document mydoc = new Aspose.Words.Document(file);
+            #region 在这里获得xml格式得word文档
+
+            //留空暂用
+
+
+            #endregion
+
+
             var paras = mydoc.FirstSection.Body.Paragraphs;//获得文档所有的自然段
             for (int i = 0; i < paras.Count; i++)
             {
                 var para = paras[i];
                 string str_text = para.Range.Text.Trim();
                 myjpara = new Jpara();
-
-
-
-
                 if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center && !_existdabiaoti)
                 {
                     _existdabiaoti = true;
@@ -1911,47 +1945,49 @@ namespace WindowsFormsApp2.UC
                 //判断是否是正文或各级标题
                 if (para.ParagraphFormat.Alignment != ParagraphAlignment.Center)
                 {
-                    //是否为一级标题
-                    bool b1 = Regex.IsMatch(str_text, @"^[一二三四五六七八九十].*[,，、]");//是否以指定文字开头
-                    bool b2 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
-                    bool b3 = Regex.IsMatch(str_text, @"。");//是否含有句号
-                    if (b1 && !b2 && !b3)
-                    {
-                        //myjpara._leixing = "一级标题";
-                        //myjpara._asposepara = para;
-                        SetParaFormat(para, dic_format["一级标题"]);
+                    SetStrFormat(para, dic_format);
 
-                        continue;
-                    }
-                    //是否为二级标题
-                    bool c1 = Regex.IsMatch(str_text, @"^[\(（][一二三四五六七八九十].*?[\)）]");//是否以指定文字开头
-                    bool c2 = Regex.IsMatch(str_text, @"[。;；\r\r\n]$");//是否含有句号
-                    if (c1 && c2)
-                    {
-                        //myjpara._leixing = "二级标题";
-                        //myjpara._asposepara = para;
-                        SetParaFormat(para, dic_format["二级标题"]);
-                        continue;
-                    }
-                    //是否为三级标题
-                    bool t1 = Regex.IsMatch(str_text, @"^.*?是要");//是否以指定文字开头
-                    bool t2 = Regex.IsMatch(str_text, @"^第[一二三四五六七八九].*?，,");
-                    bool t3 = Regex.IsMatch(str_text, "^首先|其次");
-                    bool t4 = Regex.IsMatch(str_text, @"^\([123456789].*?\)");
-                    bool t5 = Regex.IsMatch(str_text, @"^[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿]");
-                    bool t6 = Regex.IsMatch(str_text, @"^第\S*?[条|款|项].*");
-                    if (t1 || t2 || t3 || t4 || t5 || t6)
-                    {
-                        //myjpara._leixing = "三级标题";
-                        //myjpara._asposepara = para;
-                        SetParaFormat(para, dic_format["三级标题"]);
+                    ////是否为一级标题
+                    //bool b1 = Regex.IsMatch(str_text, @"^[一二三四五六七八九十].*[,，、]");//是否以指定文字开头
+                    ////bool b2 = Regex.IsMatch(str_text, @"[\s\S]+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
+                    ////bool b3 = Regex.IsMatch(str_text, @"。");//是否含有句号
+                    //if (b1 /*&& !b2 && !b3*/)
+                    //{
+                    //    //myjpara._leixing = "一级标题";
+                    //    //myjpara._asposepara = para;
+                    //    SetParaFormat(para, dic_format["一级标题"]);
 
-                        continue;
-                    }
-                    //以上情况均不属于，那么判别为正文
-                    //myjpara._leixing = "正文";
-                    //myjpara._asposepara = para;
-                    SetParaFormat(para, dic_format["正文"]);
+                    //    continue;
+                    //}
+                    ////是否为二级标题
+                    //bool c1 = Regex.IsMatch(str_text, @"^[\(（][一二三四五六七八九十].*?[\)）]");//是否以指定文字开头
+                    //bool c2 = Regex.IsMatch(str_text, @"[。;；\r\r\n]$");//是否含有句号
+                    //if (c1 && c2)
+                    //{
+                    //    //myjpara._leixing = "二级标题";
+                    //    //myjpara._asposepara = para;
+                    //    SetParaFormat(para, dic_format["二级标题"]);
+                    //    continue;
+                    //}
+                    ////是否为三级标题
+                    //bool t1 = Regex.IsMatch(str_text, @"^.*?是要");//是否以指定文字开头
+                    //bool t2 = Regex.IsMatch(str_text, @"^第[一二三四五六七八九].*?，,");
+                    //bool t3 = Regex.IsMatch(str_text, "^首先|其次");
+                    //bool t4 = Regex.IsMatch(str_text, @"^\([123456789].*?\)");
+                    //bool t5 = Regex.IsMatch(str_text, @"^[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿]");
+                    //bool t6 = Regex.IsMatch(str_text, @"^第\S*?[条|款|项].*");
+                    //if (t1 || t2 || t3 || t4 || t5 || t6)
+                    //{
+                    //    //myjpara._leixing = "三级标题";
+                    //    //myjpara._asposepara = para;
+                    //    SetParaFormat(para, dic_format["三级标题"]);
+
+                    //    continue;
+                    //}
+                    ////以上情况均不属于，那么判别为正文
+                    ////myjpara._leixing = "正文";
+                    ////myjpara._asposepara = para;
+                    //SetParaFormat(para, dic_format["正文"]);
 
                 }
                 //myjdoc._jparacollection.Add(myjpara);
@@ -1989,24 +2025,63 @@ namespace WindowsFormsApp2.UC
             }
             return file;
         }
+
         /// <summary>
-        /// 设置自然段的格式，包括字体，字号，粗体，缩进，对齐方式，行间距等
+        /// 调整段落内的各段匹配文字的央样式
+        /// </summary>
+        /// <param name="mypara"></param>
+        /// <param name="dic_format"></param>
+        public void SetStrFormat(Aspose.Words.Paragraph mypara, Dictionary<string, Format> dic_format)
+        {
+            //格式的设置包括那几个方面，字体大小，字体名称，斜体，加粗，倾斜，下划线等,缩进，对齐，行距值
+            //1、将整个段落的格式设置成正文
+            //获得正文格式
+            SetParaFormat(mypara, dic_format["正文"]);
+            //2、提取一级标题，设置格式
+            FindReplaceOptions options = new FindReplaceOptions();
+            options.Direction = FindReplaceDirection.Backward;
+            //调整文字
+            options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["一级标题"].fontname, dic_format["一级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
+            Regex regex = new Regex(@"((?<!。).)*[一二三四五六七八九十]、((?!。)[\s\S])*$", RegexOptions.IgnoreCase);
+            mypara.Range.Replace(regex, "", options);
+
+
+
+            //3、提取二级标题，设置格式
+            //调整文字
+            options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["二级标题"].fontname, dic_format["二级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
+            regex = new Regex(@"^[（\(][一二三四五六七八九十][\)）][\s\S]+[。;；]", RegexOptions.IgnoreCase);
+            mypara.Range.Replace(regex, "", options);
+
+
+            //4、提取三级标题，设置格式
+
+            //调整文字
+            options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["三级标题"].fontname, dic_format["三级标题"].fontsize, dic_format["三级标题"].bold==1?true:false);
+           regex = new Regex(@"第[一二三四五六七八九十]+?(?=，|、|,)|第[\s\S]+?[条款项]|首先|其次|.是要|（\([123456789]\)）|①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿", RegexOptions.IgnoreCase);
+            mypara.Range.Replace(regex, "", options);
+
+
+
+
+        }
+
+        /// <summary>
+        /// 设置整个自然段的格式，包括字体，字号，粗体，缩进，对齐方式，行间距等
         /// </summary>
         /// <param name="mypara"></param>
         /// <param name="f"></param>
         public void SetParaFormat(Aspose.Words.Paragraph mypara, Format f)
         {
             Run myrun = mypara.Runs[0];
-
             if (!f.enable || myrun == null)
             {
                 return;
             }
-
-            //mypara.ParagraphFormat.Style.Font.Name = f.fontname;//设置字体
-            myrun.Font.Name = f.fontname;                                               //设置字号
+            //mypara.ParagraphFormat.Style.Font.Name = f.fontname;
+            myrun.Font.Name = f.fontname;     //设置字体                                         
             //mypara.ParagraphFormat.Style.Font.Size = f.fontsize;
-            myrun.Font.Size = f.fontsize;
+            myrun.Font.Size = f.fontsize; //设置字号
             //设置 粗体
             //mypara.ParagraphFormat.Style.Font.Bold = f.bold == 1;
             myrun.Font.Bold = f.bold == 1;
@@ -2037,11 +2112,13 @@ namespace WindowsFormsApp2.UC
             //设置行距值
             //mypara.ParagraphFormat.LineSpacingRule = Aspose.Words.LineSpacingRule.Exactly;
             myrun.ParentParagraph.ParagraphFormat.LineSpacingRule = Aspose.Words.LineSpacingRule.Exactly;
-
             // mypara.ParagraphFormat.LineSpacing = f.lsvalue;
             myrun.ParentParagraph.ParagraphFormat.LineSpacing = f.lsvalue;
-
         }
+
+
+
+
 
 
         /// <summary> 
@@ -2352,7 +2429,7 @@ namespace WindowsFormsApp2.UC
                 { "fname",cbbymname.Text},
                 { "fposition","yemei"}
             };
-            var list = _mycontroller._sqlhelper.GetAnySet("tableformat",mydic);
+            var list = _mycontroller._sqlhelper.GetAnySet("tableformat", mydic);
             var dic = list[0];
             tbcontent0.Text = dic["ftext"].ToString();
             tbfontname0.Text = dic["ffontname"].ToString();
@@ -2440,7 +2517,7 @@ namespace WindowsFormsApp2.UC
             Dictionary<string, object> mydic = new Dictionary<string, object> {
                 {"pagename",cbb_page.Text }
             };
-            var list= _mycontroller._sqlhelper.GetAnySet( "tablepage",mydic);
+            var list = _mycontroller._sqlhelper.GetAnySet("tablepage", mydic);
             Dictionary<string, object> dic = list[0];
             cbb_fontformat.Text = dic["pagefontstyle"].ToString();
             cbb_yangshi.Text = dic["pageformat"].ToString();
@@ -2465,7 +2542,7 @@ namespace WindowsFormsApp2.UC
                 {"fieldname",fieldstr }
             };
 
-                var list = _mycontroller._sqlhelper.GetAnySet("tablefield",mydic);
+                var list = _mycontroller._sqlhelper.GetAnySet("tablefield", mydic);
                 Dictionary<string, object> dic = list[0];
                 tb_qian.Text = dic["fieldqian"].ToString();
                 tb_hou.Text = dic["fieldhou"].ToString();
@@ -2542,7 +2619,7 @@ namespace WindowsFormsApp2.UC
 
             string fieldstr = cbb_yizhangeshi.Text;
             //删除该一站格式
-            _mycontroller._sqlhelper.DeleteAnyFormat("yizhanshiname",fieldstr,"tableyizhangeshi");
+            _mycontroller._sqlhelper.DeleteAnyFormat("yizhanshiname", fieldstr, "tableyizhangeshi");
             MessageBox.Show("删除数据成功！");
         }
         /// <summary>
@@ -2559,7 +2636,7 @@ namespace WindowsFormsApp2.UC
                 Dictionary<string, object> mydic = new Dictionary<string, object> {
                 {"yizhanshiname",fieldstr}
                 };
-                var list = _mycontroller._sqlhelper.GetAnySet("tableyizhangeshi",mydic);
+                var list = _mycontroller._sqlhelper.GetAnySet("tableyizhangeshi", mydic);
                 Dictionary<string, object> dic0 = list[0];
                 //向四个步骤格式名称赋值
                 cbbzongtigeshi.Text = string.Empty;
@@ -2588,7 +2665,7 @@ namespace WindowsFormsApp2.UC
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Cbbzongtigeshi_TextChanged(object sender, EventArgs e)
-        { 
+        {
             try
             {
                 //判断格式名是否存在，如果不存在什么都不做
@@ -2597,8 +2674,8 @@ namespace WindowsFormsApp2.UC
             {
                 { "totalname",formatname}
             };
-                var list = _mycontroller._sqlhelper.GetAnySet("tablesplit",mydic);
-                if (list.Count == 0) 
+                var list = _mycontroller._sqlhelper.GetAnySet("tablesplit", mydic);
+                if (list.Count == 0)
                 {
                     return;
                 }
@@ -2606,7 +2683,7 @@ namespace WindowsFormsApp2.UC
             {
                 { "totalname",cbbzongtigeshi.Text}
             };
-                var list_data = _mycontroller._sqlhelper.GetAnySet("tablesplit",mydic_data);
+                var list_data = _mycontroller._sqlhelper.GetAnySet("tablesplit", mydic_data);
                 //加载段落
                 myflp.Controls.Clear();
                 foreach (object o in list_data)
@@ -2667,7 +2744,7 @@ namespace WindowsFormsApp2.UC
                 {"name",fieldstr }
             };
 
-                var list = _mycontroller._sqlhelper.GetAnySet("tableyemeiyejiao",mydic);
+                var list = _mycontroller._sqlhelper.GetAnySet("tableyemeiyejiao", mydic);
                 Dictionary<string, object> dic0 = list[0];
                 //添加进下拉菜单
                 cbbyemeiyejiao.Text = dic0["name"].ToString();
@@ -2689,7 +2766,7 @@ namespace WindowsFormsApp2.UC
                 {"name",ttname }
             };
 
-            var list = _mycontroller._sqlhelper.GetAnySet("tablepagemargin",mydic);
+            var list = _mycontroller._sqlhelper.GetAnySet("tablepagemargin", mydic);
             Dictionary<string, object> dic0 = list[0];
             nudleft.Value = Convert.ToDecimal(dic0["left"]);
             nudright.Value = Convert.ToDecimal(dic0["right"]);
@@ -2753,7 +2830,7 @@ namespace WindowsFormsApp2.UC
         private void cbbfield_DropDown(object sender, EventArgs e)
         {
             cbbfield.Items.Clear();
-            var list= _mycontroller._sqlhelper.GetSingleField("fieldname", "tablefield");
+            var list = _mycontroller._sqlhelper.GetSingleField("fieldname", "tablefield");
             cbbfield.Items.AddRange(list.ToArray());
         }
 
@@ -2768,7 +2845,7 @@ namespace WindowsFormsApp2.UC
         private void cbbzongtigeshi0_SelectedIndexChanged(object sender, EventArgs e)
         {
             string text = this.cbbzongtigeshi0.Text;
-            var list = _mycontroller._sqlhelper.GetAnySet("tabletotalformat",new Dictionary<string, object> { {"ttname",text} });
+            var list = _mycontroller._sqlhelper.GetAnySet("tabletotalformat", new Dictionary<string, object> { { "ttname", text } });
             foreach (object obj2 in list)
             {
                 Dictionary<string, object> dictionary = (Dictionary<string, object>)obj2;
@@ -2810,7 +2887,7 @@ namespace WindowsFormsApp2.UC
         private void cbbymname_DropDown(object sender, EventArgs e)
         {
             cbbymname.Items.Clear();
-            var list = _mycontroller._sqlhelper.GetSingleField("fname","tableformat");
+            var list = _mycontroller._sqlhelper.GetSingleField("fname", "tableformat");
             cbbymname.Items.AddRange(list.ToArray());
         }
 
@@ -2825,7 +2902,7 @@ namespace WindowsFormsApp2.UC
         private void cbb_page_DragDrop(object sender, DragEventArgs e)
         {
             cbb_page.Items.Clear();
-            var list = _mycontroller._sqlhelper.GetSingleField("pagename","tablepage");
+            var list = _mycontroller._sqlhelper.GetSingleField("pagename", "tablepage");
             cbb_page.Items.AddRange(list.ToArray());
 
         }
@@ -2836,6 +2913,64 @@ namespace WindowsFormsApp2.UC
             var list = _mycontroller._sqlhelper.GetSingleField("name", "tableyemeiyejiao");
             cbbyemeiyejiao.Items.AddRange(list.ToArray());
 
+        }
+    }
+    public class ReplaceEvaluatorFindAndHighlight : IReplacingCallback
+    {
+        /// <summary>    
+        /// Aspose.Words为每个匹配项查找并替换引擎调用此方法。    
+        ///即使跨多个运行，此方法也会突出显示匹配字符串。
+        /// </summary>    
+        ReplaceAction IReplacingCallback.Replacing(ReplacingArgs e)
+        {
+            // 这是一个Run节点，其中包含开始或完全匹配。  
+            Node currentNode = e.MatchNode;
+            // 第一次（可能是唯一一次）运行可以包含比赛前的文字，
+            // 在这种情况下，有必要拆分运行。  
+            if (e.MatchOffset > 0)
+                currentNode = SplitRun((Run)currentNode, e.MatchOffset);
+            // 此数组用于存储匹配的所有节点以进一步突出显示。  
+            ArrayList runs = new ArrayList();
+            // 查找包含匹配字符串部分的所有运行。    
+            int remainingLength = e.Match.Value.Length;
+            while (
+            (remainingLength > 0) &&
+            (currentNode != null) &&
+            (currentNode.GetText().Length <= remainingLength))
+            {
+                runs.Add(currentNode);
+                remainingLength = remainingLength - currentNode.GetText().Length;
+                //选择下一个“运行”节点。
+                //必须循环，因为可能还有其他节点，例如BookmarkStart等。 
+                do
+                {
+                    currentNode = currentNode.NextSibling;
+                }
+                while ((currentNode != null) && (currentNode.NodeType != NodeType.Run));
+            }
+            //如果剩余文本，则拆分包含该匹配项的最后一次运行。    
+            if ((currentNode != null) && (remainingLength > 0))
+            {
+                SplitRun((Run)currentNode, remainingLength);
+                runs.Add(currentNode);
+            }
+            //现在突出显示序列中的所有运行。
+            foreach (Run run in runs)
+                run.Font.HighlightColor = Color.Yellow;
+            //向替换引擎发出信号，表示什么都不做，因为我们已经完成了所有想要做的事情。
+            return ReplaceAction.Skip;
+        }
+        /// <summary>    
+        /// 将指定运行的文本分成两个运行。    
+        /// 在指定的运行之后插入新的运行。  
+        /// </summary>    
+        private static Run SplitRun(Run run, int position)
+        {
+            Run afterRun = (Run)run.Clone(true);
+            afterRun.Text = run.Text.Substring(position);
+            run.Text = run.Text.Substring(0, position);
+            run.ParentNode.InsertAfter(afterRun, run);
+            return afterRun;
         }
     }
 }

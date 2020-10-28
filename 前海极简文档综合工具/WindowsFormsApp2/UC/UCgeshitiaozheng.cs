@@ -23,6 +23,7 @@ using RuiTengDll;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.CryptoPro;
 using System.Drawing.Design;
+using Aspose.Words.Replacing;
 
 namespace WindowsFormsApp2
 {
@@ -770,47 +771,7 @@ namespace WindowsFormsApp2
                 //判断是否是正文或各级标题
                 if (para.ParagraphFormat.Alignment != ParagraphAlignment.Center)
                 {
-                    //是否为一级标题
-                    bool b1 = Regex.IsMatch(str_text, @"^[一二三四五六七八九十].*[,，、]");//是否以指定文字开头
-                    bool b2 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
-                    bool b3 = Regex.IsMatch(str_text, @"。");//是否含有句号
-                    if (b1 && !b2 && !b3)
-                    {
-                        //myjpara._leixing = "一级标题";
-                        //myjpara._asposepara = para;
-                        SetParaFormat(para, dic_format["一级标题"]);
-
-                        continue;
-                    }
-                    //是否为二级标题
-                    bool c1 = Regex.IsMatch(str_text, @"^[\(（][一二三四五六七八九十].*?[\)）]");//是否以指定文字开头
-                    bool c2 = Regex.IsMatch(str_text, @"[。;；\r\r\n]$");//是否含有句号
-                    if (c1 && c2)
-                    {
-                        //myjpara._leixing = "二级标题";
-                        //myjpara._asposepara = para;
-                        SetParaFormat(para, dic_format["二级标题"]);
-                        continue;
-                    }
-                    //是否为三级标题
-                    bool t1 = Regex.IsMatch(str_text, @"^.*?是要");//是否以指定文字开头
-                    bool t2 = Regex.IsMatch(str_text, @"^第[一二三四五六七八九].*?，,");
-                    bool t3 = Regex.IsMatch(str_text, "^首先|其次");
-                    bool t4 = Regex.IsMatch(str_text, @"^\([123456789].*?\)");
-                    bool t5 = Regex.IsMatch(str_text, @"^[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿]");
-                    bool t6 = Regex.IsMatch(str_text, @"^第\S*?[条|款|项].*");
-                    if (t1 || t2 || t3 || t4 || t5 || t6)
-                    {
-                        //myjpara._leixing = "三级标题";
-                        //myjpara._asposepara = para;
-                        SetParaFormat(para, dic_format["三级标题"]);
-
-                        continue;
-                    }
-                    //以上情况均不属于，那么判别为正文
-                    //myjpara._leixing = "正文";
-                    //myjpara._asposepara = para;
-                    SetParaFormat(para, dic_format["正文"]);
+                   SetStrFormat(para, dic_format);
 
                 }
                 //myjdoc._jparacollection.Add(myjpara);
@@ -847,6 +808,45 @@ namespace WindowsFormsApp2
                 // finalfile = SaveDocx(file);
             }
             return file;
+        }
+        /// <summary>
+        /// 调整段落内的各段匹配文字的央样式
+        /// </summary>
+        /// <param name="mypara"></param>
+        /// <param name="dic_format"></param>
+        public void SetStrFormat(Aspose.Words.Paragraph mypara, Dictionary<string, Format> dic_format)
+        {
+            //格式的设置包括那几个方面，字体大小，字体名称，斜体，加粗，倾斜，下划线等,缩进，对齐，行距值
+            //1、将整个段落的格式设置成正文
+            //获得正文格式
+            SetParaFormat(mypara, dic_format["正文"]);
+            //2、提取一级标题，设置格式
+            FindReplaceOptions options = new FindReplaceOptions();
+            options.Direction = FindReplaceDirection.Backward;
+            //调整文字
+            options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["一级标题"].fontname, dic_format["一级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
+            Regex regex = new Regex(@"((?<!。).)*[一二三四五六七八九十]、((?!。)[\s\S])*$", RegexOptions.IgnoreCase);
+            mypara.Range.Replace(regex, "", options);
+
+
+
+            //3、提取二级标题，设置格式
+            //调整文字
+            options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["二级标题"].fontname, dic_format["二级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
+            regex = new Regex(@"^[（\(][一二三四五六七八九十][\)）][\s\S]+[。;；]", RegexOptions.IgnoreCase);
+            mypara.Range.Replace(regex, "", options);
+
+
+            //4、提取三级标题，设置格式
+
+            //调整文字
+            options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["三级标题"].fontname, dic_format["三级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
+            regex = new Regex(@"第[一二三四五六七八九十]+?(?=，|、|,)|第[\s\S]+?[条款项]|首先|其次|.是要|（\([123456789]\)）|①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿", RegexOptions.IgnoreCase);
+            mypara.Range.Replace(regex, "", options);
+
+
+
+
         }
 
         /// <summary>
