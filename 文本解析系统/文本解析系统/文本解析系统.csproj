@@ -53,6 +53,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="JJController\ControllerNewTask.cs" />
+    <Compile Include="JJUserControl\UCRuleInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JJUserControl\UCRuleInfo.Designer.cs">
+      <DependentUpon>UCRuleInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="JJWinForm\WinFormGuize.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JJUserControl\UCRuleInfo.resx">
+      <DependentUpon>UCRuleInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JJWinForm\WinFormGuize.resx">
       <DependentUpon>WinFormGuize.cs</DependentUpon>
