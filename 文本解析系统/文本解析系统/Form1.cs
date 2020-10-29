@@ -57,7 +57,15 @@ namespace 文本解析系统
 
         private void dgv_jiexiguize_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //点击button按钮事件
+            if (dgv_jiexiguize.Columns[e.ColumnIndex].Name == "bianjianniu" && e.RowIndex >= 0)
+            {
+                btn_xinjian_Click(null, null);
+                //从数据库中获得该规则对应的文本特征，显示到新打开的winformguize中
 
+
+
+            }
         }
 
         private void btn_xinjian_Click(object sender, EventArgs e)
