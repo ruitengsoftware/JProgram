@@ -31,6 +31,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_xinzengrenwu = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.xuhao2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.renwuwenjianjia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jindu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zhuangtai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgv_daichuli = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_kaishi = new System.Windows.Forms.Button();
@@ -52,6 +62,7 @@
             this.cb_moren = new System.Windows.Forms.CheckBox();
             this.cb_qita = new System.Windows.Forms.CheckBox();
             this.tb_savepath = new System.Windows.Forms.TextBox();
+            this.pb_path = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -60,20 +71,6 @@
             this.btn_daochu = new System.Windows.Forms.Button();
             this.btn_piliangshanchu = new System.Windows.Forms.Button();
             this.dgv_jiexiguize = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgv_daichuli = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btn_xinzengrenwu = new System.Windows.Forms.Button();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.xuhao2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.renwuwenjianjia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jindu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zhuangtai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mubiaowenjianjia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jiexiguize = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wanchenghou = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xuanze = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.jiexiguizemingcheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chuangjianren = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,30 +79,33 @@
             this.shanchuanniu = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_search = new System.Windows.Forms.TextBox();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pb_path = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mubiaowenjianjia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jiexigeshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wanchenghou = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_daichuli)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jiexiguize)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_daichuli)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.tableLayoutPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,6 +127,116 @@
             this.splitContainer1.SplitterDistance = 309;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 1;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.Controls.Add(this.btn_xinzengrenwu, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.groupBox3, 0, 2);
+            this.tableLayoutPanel8.Controls.Add(this.groupBox2, 0, 1);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 3;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(309, 572);
+            this.tableLayoutPanel8.TabIndex = 0;
+            // 
+            // btn_xinzengrenwu
+            // 
+            this.btn_xinzengrenwu.Location = new System.Drawing.Point(3, 3);
+            this.btn_xinzengrenwu.Name = "btn_xinzengrenwu";
+            this.btn_xinzengrenwu.Size = new System.Drawing.Size(303, 34);
+            this.btn_xinzengrenwu.TabIndex = 0;
+            this.btn_xinzengrenwu.Text = "新增任务";
+            this.btn_xinzengrenwu.UseVisualStyleBackColor = true;
+            this.btn_xinzengrenwu.Click += new System.EventHandler(this.btn_xinzengrenwu_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dataGridView2);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(3, 309);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(303, 260);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "处理中任务列表";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.xuhao2,
+            this.renwuwenjianjia,
+            this.jindu,
+            this.zhuangtai});
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 19);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.RowTemplate.Height = 23;
+            this.dataGridView2.Size = new System.Drawing.Size(297, 238);
+            this.dataGridView2.TabIndex = 1;
+            // 
+            // xuhao2
+            // 
+            this.xuhao2.HeaderText = "序号";
+            this.xuhao2.Name = "xuhao2";
+            // 
+            // renwuwenjianjia
+            // 
+            this.renwuwenjianjia.HeaderText = "任务文件夹";
+            this.renwuwenjianjia.Name = "renwuwenjianjia";
+            // 
+            // jindu
+            // 
+            this.jindu.HeaderText = "进度";
+            this.jindu.Name = "jindu";
+            // 
+            // zhuangtai
+            // 
+            this.zhuangtai.HeaderText = "状态";
+            this.zhuangtai.Name = "zhuangtai";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgv_daichuli);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(3, 43);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(303, 260);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "待处理任务列表";
+            // 
+            // dgv_daichuli
+            // 
+            this.dgv_daichuli.AllowUserToAddRows = false;
+            this.dgv_daichuli.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_daichuli.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_daichuli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_daichuli.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.xuhao,
+            this.mubiaowenjianjia,
+            this.jiexigeshi,
+            this.wanchenghou,
+            this.shanchu});
+            this.dgv_daichuli.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_daichuli.Location = new System.Drawing.Point(3, 19);
+            this.dgv_daichuli.Name = "dgv_daichuli";
+            this.dgv_daichuli.RowHeadersVisible = false;
+            this.dgv_daichuli.RowTemplate.Height = 23;
+            this.dgv_daichuli.Size = new System.Drawing.Size(297, 238);
+            this.dgv_daichuli.TabIndex = 0;
+            this.dgv_daichuli.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_daichuli_CellMouseClick);
             // 
             // tableLayoutPanel1
             // 
@@ -373,6 +483,16 @@
             this.tb_savepath.Size = new System.Drawing.Size(271, 23);
             this.tb_savepath.TabIndex = 2;
             // 
+            // pb_path
+            // 
+            this.pb_path.Image = global::文本解析系统.Properties.Resources.folderlv;
+            this.pb_path.Location = new System.Drawing.Point(580, 3);
+            this.pb_path.Name = "pb_path";
+            this.pb_path.Size = new System.Drawing.Size(24, 28);
+            this.pb_path.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_path.TabIndex = 3;
+            this.pb_path.TabStop = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel6);
@@ -478,136 +598,6 @@
             this.dgv_jiexiguize.TabIndex = 1;
             this.dgv_jiexiguize.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_jiexiguize_CellContentClick);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dgv_daichuli);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 43);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(303, 260);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "待处理任务列表";
-            // 
-            // dgv_daichuli
-            // 
-            this.dgv_daichuli.AllowUserToAddRows = false;
-            this.dgv_daichuli.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_daichuli.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_daichuli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_daichuli.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.xuhao,
-            this.mubiaowenjianjia,
-            this.jiexiguize,
-            this.wanchenghou,
-            this.shanchu});
-            this.dgv_daichuli.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_daichuli.Location = new System.Drawing.Point(3, 19);
-            this.dgv_daichuli.Name = "dgv_daichuli";
-            this.dgv_daichuli.RowHeadersVisible = false;
-            this.dgv_daichuli.RowTemplate.Height = 23;
-            this.dgv_daichuli.Size = new System.Drawing.Size(297, 238);
-            this.dgv_daichuli.TabIndex = 0;
-            this.dgv_daichuli.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_daichuli_CellMouseClick);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dataGridView2);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 309);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(303, 260);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "处理中任务列表";
-            // 
-            // btn_xinzengrenwu
-            // 
-            this.btn_xinzengrenwu.Location = new System.Drawing.Point(3, 3);
-            this.btn_xinzengrenwu.Name = "btn_xinzengrenwu";
-            this.btn_xinzengrenwu.Size = new System.Drawing.Size(303, 34);
-            this.btn_xinzengrenwu.TabIndex = 0;
-            this.btn_xinzengrenwu.Text = "新增任务";
-            this.btn_xinzengrenwu.UseVisualStyleBackColor = true;
-            this.btn_xinzengrenwu.Click += new System.EventHandler(this.btn_xinzengrenwu_Click);
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.ColumnCount = 1;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.Controls.Add(this.btn_xinzengrenwu, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.groupBox3, 0, 2);
-            this.tableLayoutPanel8.Controls.Add(this.groupBox2, 0, 1);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 3;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(309, 572);
-            this.tableLayoutPanel8.TabIndex = 0;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.xuhao2,
-            this.renwuwenjianjia,
-            this.jindu,
-            this.zhuangtai});
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 19);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(297, 238);
-            this.dataGridView2.TabIndex = 1;
-            // 
-            // xuhao2
-            // 
-            this.xuhao2.HeaderText = "序号";
-            this.xuhao2.Name = "xuhao2";
-            // 
-            // renwuwenjianjia
-            // 
-            this.renwuwenjianjia.HeaderText = "任务文件夹";
-            this.renwuwenjianjia.Name = "renwuwenjianjia";
-            // 
-            // jindu
-            // 
-            this.jindu.HeaderText = "进度";
-            this.jindu.Name = "jindu";
-            // 
-            // zhuangtai
-            // 
-            this.zhuangtai.HeaderText = "状态";
-            this.zhuangtai.Name = "zhuangtai";
-            // 
-            // xuhao
-            // 
-            this.xuhao.HeaderText = "序号";
-            this.xuhao.Name = "xuhao";
-            // 
-            // mubiaowenjianjia
-            // 
-            this.mubiaowenjianjia.HeaderText = "目标文件夹";
-            this.mubiaowenjianjia.Name = "mubiaowenjianjia";
-            // 
-            // jiexiguize
-            // 
-            this.jiexiguize.HeaderText = "解析规则";
-            this.jiexiguize.Name = "jiexiguize";
-            // 
-            // wanchenghou
-            // 
-            this.wanchenghou.HeaderText = "完成后";
-            this.wanchenghou.Name = "wanchenghou";
-            // 
             // xuanze
             // 
             this.xuanze.HeaderText = "";
@@ -673,6 +663,16 @@
             this.tb_search.Size = new System.Drawing.Size(194, 23);
             this.tb_search.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::文本解析系统.Properties.Resources.fangdajing1;
+            this.pictureBox1.Location = new System.Drawing.Point(380, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(34, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "";
@@ -683,6 +683,26 @@
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn1.Width = 59;
             // 
+            // xuhao
+            // 
+            this.xuhao.HeaderText = "序号";
+            this.xuhao.Name = "xuhao";
+            // 
+            // mubiaowenjianjia
+            // 
+            this.mubiaowenjianjia.HeaderText = "目标文件夹";
+            this.mubiaowenjianjia.Name = "mubiaowenjianjia";
+            // 
+            // jiexigeshi
+            // 
+            this.jiexigeshi.HeaderText = "解析格式";
+            this.jiexigeshi.Name = "jiexigeshi";
+            // 
+            // wanchenghou
+            // 
+            this.wanchenghou.HeaderText = "完成后";
+            this.wanchenghou.Name = "wanchenghou";
+            // 
             // shanchu
             // 
             this.shanchu.HeaderText = "";
@@ -691,26 +711,6 @@
             this.shanchu.Name = "shanchu";
             this.shanchu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.shanchu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // pb_path
-            // 
-            this.pb_path.Image = global::文本解析系统.Properties.Resources.folderlv;
-            this.pb_path.Location = new System.Drawing.Point(580, 3);
-            this.pb_path.Name = "pb_path";
-            this.pb_path.Size = new System.Drawing.Size(24, 28);
-            this.pb_path.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_path.TabIndex = 3;
-            this.pb_path.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::文本解析系统.Properties.Resources.fangdajing1;
-            this.pictureBox1.Location = new System.Drawing.Point(380, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(34, 28);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
@@ -728,6 +728,11 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_daichuli)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -736,18 +741,13 @@
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jiexiguize)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_daichuli)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.tableLayoutPanel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -796,11 +796,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn renwuwenjianjia;
         private System.Windows.Forms.DataGridViewTextBoxColumn jindu;
         private System.Windows.Forms.DataGridViewTextBoxColumn zhuangtai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn xuhao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mubiaowenjianjia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jiexiguize;
-        private System.Windows.Forms.DataGridViewTextBoxColumn wanchenghou;
-        private System.Windows.Forms.DataGridViewImageColumn shanchu;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn xuanze;
         private System.Windows.Forms.DataGridViewTextBoxColumn jiexiguizemingcheng;
@@ -811,6 +806,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.TextBox tb_search;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn xuhao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mubiaowenjianjia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jiexigeshi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wanchenghou;
+        private System.Windows.Forms.DataGridViewImageColumn shanchu;
     }
 }
 

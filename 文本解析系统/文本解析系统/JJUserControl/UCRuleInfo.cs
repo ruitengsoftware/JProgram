@@ -26,5 +26,10 @@ namespace 文本解析系统.JJUserControl
         {
             this.Dispose();
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

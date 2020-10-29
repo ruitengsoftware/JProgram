@@ -16,18 +16,10 @@ namespace 文本解析系统
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            JJWinForm.WinFormLogin mywin = new JJWinForm.WinFormLogin();
-            if (mywin.ShowDialog()==DialogResult.OK)
-            {
             Application.Run(new Form1());
 
-            }
-            else
-            {
-                MessageBox.Show("登陆失败！");
-                return;
-            }
+           
+
         }
     }
 }

@@ -171,6 +171,7 @@
             this.btn_baocun.TabIndex = 4;
             this.btn_baocun.Text = "保存";
             this.btn_baocun.UseVisualStyleBackColor = true;
+            this.btn_baocun.Click += new System.EventHandler(this.btn_baocun_Click);
             // 
             // WinFormGuize
             // 

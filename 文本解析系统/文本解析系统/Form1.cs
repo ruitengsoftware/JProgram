@@ -22,7 +22,7 @@ namespace 文本解析系统
         {
             JJWinForm.WinFormNewTask mywin = new JJWinForm.WinFormNewTask();
             mywin.StartPosition = FormStartPosition.CenterParent;
-            if (mywin.ShowDialog()==DialogResult.OK)
+            if (mywin.ShowDialog() == DialogResult.OK)
             {
                 //如果点击ok，那么应该获得文件夹，解析规则，和完成后操作
                 string folder = mywin._folder;
@@ -35,7 +35,7 @@ namespace 文本解析系统
                     //在待处理人物列表增加行
                     int index = dgv_daichuli.Rows.Add();
                     var myrow = dgv_daichuli.Rows[index];
-                    myrow.Cells["xuhao"].Value = index+1;
+                    myrow.Cells["xuhao"].Value = index + 1;
                     myrow.Cells["mubiaowenjianjia"].Value = _mycontroller._childdirectories[i];
                     myrow.Cells["jiexiguize"].Value = jiexiguize;
                     myrow.Cells["wanchenghou"].Value = wanchenghou;
@@ -49,10 +49,15 @@ namespace 文本解析系统
 
         private void dgv_daichuli_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (dgv_daichuli.CurrentCell.ValueType.ToString().ToLower().Equals("system.drawing.image"))
+            try
             {
-                dgv_daichuli.Rows.RemoveAt(e.RowIndex);
-            } 
+                if (dgv_daichuli.CurrentCell.ValueType.ToString().ToLower().Equals("system.drawing.image"))
+                {
+                    dgv_daichuli.Rows.RemoveAt(e.RowIndex);
+                }
+
+            }
+            catch { }
         }
 
         private void dgv_jiexiguize_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -72,7 +77,7 @@ namespace 文本解析系统
         {
             JJWinForm.WinFormGuize mywin = new JJWinForm.WinFormGuize();
             mywin.StartPosition = FormStartPosition.CenterParent;
-            if (mywin.ShowDialog()==DialogResult.OK)
+            if (mywin.ShowDialog() == DialogResult.OK)
             {
 
             }
