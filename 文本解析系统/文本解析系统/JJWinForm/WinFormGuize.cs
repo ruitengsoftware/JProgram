@@ -15,6 +15,7 @@ namespace 文本解析系统.JJWinForm
 {
     public partial class WinFormGuize : Form
     {
+        JJController.ControllerGuize mycontroller = new JJController.ControllerGuize();
         public WinFormGuize()
         {
             InitializeComponent();
@@ -119,10 +120,17 @@ namespace 文本解析系统.JJWinForm
                 jiexiguize.ruleinfo.Add(ri);
             }
             //将解析规则转为json格式
-            string json = JsonConvert.SerializeObject(jiexiguize, Formatting.Indented);
-
-
-
+            string json = JsonConvert.SerializeObject(jiexiguize,Formatting.None);
+            //保存规则
+           bool b= mycontroller.SaveRule(guizemingcheng, guizeshuoming, json);
+            if (b)
+            {
+                MessageBox.Show("保存规则成功！");
+            }
+            else
+            {
+                MessageBox.Show("保存失败！");
+            }
 
 
         }
