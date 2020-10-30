@@ -27,7 +27,21 @@ namespace 文本解析系统.JJWinForm
         public WinFormGuize(string rulename)
         {
             InitializeComponent();
+            //获得数据库中rulename的对象，包括规则名称，规则说明，规则详情  
+            RuleInfo myri = mycontroller.GetRuleInfo(rulename);
+            //规则名称赋值
+            tb_guizemingcheng.Text = myri._guizemingcheng;
+            //规则说明赋值
+            tb_shuoming.Text = myri._guizeshuoming;
+            //文本特征集合转化成jigexiguize类，构造uc，添加到panel中
+            JiexiGuize myjiexiguize = JsonConvert.DeserializeObject<JiexiGuize>(myri._wenbentezheng);
+            for (int i = myjiexiguize.ruleinfo.Count-1; i >= 0; i--)
+            {
+                UCRuleInfo myuc = new UCRuleInfo(myjiexiguize.ruleinfo[i]);
+                myuc.Dock = DockStyle.Top;
+                panel_wenbentezheng.Controls.Add(myuc);
 
+            }
 
 
         }
@@ -68,7 +82,7 @@ namespace 文本解析系统.JJWinForm
             foreach (UserControl uc in panel_wenbentezheng.Controls)
             {
                 var myuc = uc as UCRuleInfo;
-                Ruleinfo ri = new Ruleinfo();
+                RuleDetail ri = new RuleDetail();
                 //获得对象选择，myuc.flp_duixiangxuanze中checked=true的text
                 foreach (Control item in myuc.flp_duixiangxuanze.Controls)
                 {

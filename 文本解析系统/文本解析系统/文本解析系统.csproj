@@ -72,9 +72,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="JJCommon\MySQLHelper.cs" />
+    <Compile Include="JJCommon\UserInfo.cs" />
     <Compile Include="JJController\ControllerGuize.cs" />
-    <Compile Include="JJController\ControllerNewTask.cs" />
-    <Compile Include="JJModel\Ruleinfo.cs" />
+    <Compile Include="JJController\ControllerForm.cs" />
+    <Compile Include="JJModel\FormatInfo.cs" />
+    <Compile Include="JJModel\RuleDetail.cs" />
+    <Compile Include="JJModel\RuleInfo.cs" />
     <Compile Include="JJUserControl\UCRuleInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>

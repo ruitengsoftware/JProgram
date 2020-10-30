@@ -30,14 +30,14 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
             this.flp_jieguo = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.cb_zidingyijieguo = new System.Windows.Forms.CheckBox();
             this.tb_zidingyijieguo = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.tb_wenbentezheng = new System.Windows.Forms.TextBox();
@@ -52,14 +52,14 @@
             this.flp_fuzhileixing = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.cb_zidingyileixing = new System.Windows.Forms.CheckBox();
             this.tb_zidingyileixing = new System.Windows.Forms.TextBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.pb_shanchu = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.flp_jieguo.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flp_duixiangxuanze.SuspendLayout();
@@ -88,7 +88,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(684, 188);
             this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // tableLayoutPanel3
             // 
@@ -108,43 +107,11 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(684, 68);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "文本特征";
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel7, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(93, 0);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(591, 34);
-            this.tableLayoutPanel4.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 34);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "文本特征结果";
-            // 
             // flp_jieguo
             // 
             this.flp_jieguo.Controls.Add(this.checkBox2);
             this.flp_jieguo.Controls.Add(this.checkBox3);
-            this.flp_jieguo.Controls.Add(this.checkBox1);
+            this.flp_jieguo.Controls.Add(this.cb_zidingyijieguo);
             this.flp_jieguo.Controls.Add(this.tb_zidingyijieguo);
             this.flp_jieguo.Location = new System.Drawing.Point(93, 34);
             this.flp_jieguo.Margin = new System.Windows.Forms.Padding(0);
@@ -172,6 +139,17 @@
             this.checkBox3.Text = "整句";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
+            // cb_zidingyijieguo
+            // 
+            this.cb_zidingyijieguo.AutoSize = true;
+            this.cb_zidingyijieguo.Location = new System.Drawing.Point(129, 3);
+            this.cb_zidingyijieguo.Name = "cb_zidingyijieguo";
+            this.cb_zidingyijieguo.Size = new System.Drawing.Size(63, 21);
+            this.cb_zidingyijieguo.TabIndex = 2;
+            this.cb_zidingyijieguo.Text = "自定义";
+            this.cb_zidingyijieguo.UseVisualStyleBackColor = true;
+            this.cb_zidingyijieguo.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // tb_zidingyijieguo
             // 
             this.tb_zidingyijieguo.Location = new System.Drawing.Point(198, 3);
@@ -179,16 +157,37 @@
             this.tb_zidingyijieguo.Size = new System.Drawing.Size(299, 23);
             this.tb_zidingyijieguo.TabIndex = 1;
             // 
-            // checkBox1
+            // label3
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(129, 3);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(63, 21);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "自定义";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 17);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "文本特征结果";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "文本特征";
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel7, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(93, 0);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(591, 34);
+            this.tableLayoutPanel4.TabIndex = 1;
             // 
             // tableLayoutPanel7
             // 
@@ -284,7 +283,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(678, 37);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
@@ -306,7 +305,7 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(580, 31);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
@@ -314,7 +313,7 @@
             // 
             this.flp_fuzhileixing.Controls.Add(this.checkBox6);
             this.flp_fuzhileixing.Controls.Add(this.checkBox7);
-            this.flp_fuzhileixing.Controls.Add(this.checkBox8);
+            this.flp_fuzhileixing.Controls.Add(this.cb_zidingyileixing);
             this.flp_fuzhileixing.Controls.Add(this.tb_zidingyileixing);
             this.flp_fuzhileixing.Location = new System.Drawing.Point(3, 3);
             this.flp_fuzhileixing.Name = "flp_fuzhileixing";
@@ -341,22 +340,22 @@
             this.checkBox7.Text = "来源";
             this.checkBox7.UseVisualStyleBackColor = true;
             // 
+            // cb_zidingyileixing
+            // 
+            this.cb_zidingyileixing.AutoSize = true;
+            this.cb_zidingyileixing.Location = new System.Drawing.Point(117, 3);
+            this.cb_zidingyileixing.Name = "cb_zidingyileixing";
+            this.cb_zidingyileixing.Size = new System.Drawing.Size(63, 21);
+            this.cb_zidingyileixing.TabIndex = 2;
+            this.cb_zidingyileixing.Text = "自定义";
+            this.cb_zidingyileixing.UseVisualStyleBackColor = true;
+            // 
             // tb_zidingyileixing
             // 
             this.tb_zidingyileixing.Location = new System.Drawing.Point(186, 3);
             this.tb_zidingyileixing.Name = "tb_zidingyileixing";
             this.tb_zidingyileixing.Size = new System.Drawing.Size(303, 23);
             this.tb_zidingyileixing.TabIndex = 1;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(117, 3);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(63, 21);
-            this.checkBox8.TabIndex = 2;
-            this.checkBox8.Text = "自定义";
-            this.checkBox8.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel11
             // 
@@ -396,9 +395,9 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
             this.flp_jieguo.ResumeLayout(false);
             this.flp_jieguo.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -429,7 +428,7 @@
         public System.Windows.Forms.CheckBox checkBox2;
         public System.Windows.Forms.CheckBox checkBox3;
         public System.Windows.Forms.TextBox tb_zidingyijieguo;
-        public System.Windows.Forms.CheckBox checkBox1;
+        public System.Windows.Forms.CheckBox cb_zidingyijieguo;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox tb_wenbentezheng;
@@ -443,7 +442,7 @@
         public System.Windows.Forms.CheckBox checkBox6;
         public System.Windows.Forms.CheckBox checkBox7;
         public System.Windows.Forms.TextBox tb_zidingyileixing;
-        public System.Windows.Forms.CheckBox checkBox8;
+        public System.Windows.Forms.CheckBox cb_zidingyileixing;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         public System.Windows.Forms.PictureBox pb_shanchu;
     }

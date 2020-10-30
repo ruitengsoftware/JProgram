@@ -1,10 +1,12 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using 文本解析系统.JJCommon;
+using 文本解析系统.JJModel;
 
 namespace 文本解析系统.JJController
 {
@@ -16,18 +18,37 @@ namespace 文本解析系统.JJController
         /// 保存规则
         /// </summary>
         /// <returns></returns>
-        public bool SaveRule(string mingcheng ,string shuoming,string xiangqing)
+        public bool SaveRule(string mingcheng, string shuoming, string xiangqing)
         {
-
-            string str_sql = $"insert into 规则信息表 set(规则名称,规则说明,规则详情) values(@规则名称,@规则说明,@规则详情)";
-            
-        int num=mysqlhelper.ExecuteNonQuery(str_sql,new MySqlParameter("@规则名称",mingcheng),
-            new MySqlParameter("@规则说明", shuoming),
-            new MySqlParameter("@规则详情", xiangqing));
-
-
+            string str_sql = $"insert into 规则信息表 (创建人,创建时间,规则名称,规则说明,规则详情) values(@创建人,@创建时间,@规则名称,@规则说明,@规则详情)";
+            int num = mysqlhelper.ExecuteNonQuery(str_sql,
+                new MySqlParameter("@创建人", UserInfo._username),
+                new MySqlParameter(@"创建时间", DateTime.Now.ToString()),
+                new MySqlParameter("@规则名称", mingcheng),
+                new MySqlParameter("@规则说明", shuoming),
+                new MySqlParameter("@规则详情", xiangqing));
             return num > 0 ? true : false;
         }
+
+        /// <summary>
+        /// 获得规则信息，返回一个rulinfo对象
+        /// </summary>
+        /// <param name="rulename">规则名称</param>
+        /// <returns></returns>
+        public RuleInfo GetRuleInfo(string rulename)
+        {
+            string str_sql = $"select * from 规则信息表 where 规则名称='{rulename}'";
+            DataRow mydr = mysqlhelper.ExecuteDataRow(str_sql, null);
+            RuleInfo myri = new RuleInfo();
+            myri._guizemingcheng = mydr["规则名称"].ToString();
+            myri._guizeshuoming = mydr["规则说明"].ToString();
+            myri._wenbentezheng = mydr["文本特征"].ToString();
+            myri._chuangjianren = mydr["创建人"].ToString();
+            myri._chuangjianshijian = mydr["创建时间"].ToString();
+            return myri;
+        }
+
+
 
 
     }

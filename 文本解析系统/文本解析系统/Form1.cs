@@ -12,7 +12,8 @@ namespace 文本解析系统
 {
     public partial class Form1 : Form
     {
-        JJController.ControllerNewTask _mycontroller = new JJController.ControllerNewTask();
+                                    
+        JJController.ControllerForm _mycontroller = new JJController.ControllerForm();
         public Form1()
         {
             InitializeComponent();
@@ -65,8 +66,12 @@ namespace 文本解析系统
             //点击button按钮事件
             if (dgv_jiexiguize.Columns[e.ColumnIndex].Name == "bianjianniu" && e.RowIndex >= 0)
             {
-                btn_xinjian_Click(null, null);
                 //从数据库中获得该规则对应的文本特征，显示到新打开的winformguize中
+                string rulename = dgv_jiexiguize.Rows[e.RowIndex].Cells["jiexiguizemingcheng"].Value.ToString();
+                //构造一个winformguize
+                JJWinForm.WinFormGuize mywin = new JJWinForm.WinFormGuize(rulename);
+                mywin.StartPosition = FormStartPosition.CenterParent;
+                mywin.ShowDialog();
 
 
 
@@ -81,6 +86,20 @@ namespace 文本解析系统
             {
 
             }
+        }
+        /// <summary>
+        /// 加载form1窗体时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //更新dgv_guize的数据
+            
+
+
+
+
         }
     }
 }

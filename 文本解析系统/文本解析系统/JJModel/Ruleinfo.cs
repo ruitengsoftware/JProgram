@@ -6,31 +6,31 @@ using System.Threading.Tasks;
 
 namespace 文本解析系统.JJModel
 {
-    public class Ruleinfo
+   public class RuleInfo
     {
         /// <summary>
-        /// 对象选择
+        /// 规则名称
         /// </summary>
-        public string duixiangxuanze { get; set; }
-        /// <summary>
-        /// 文本特征
-        /// </summary>
-        public string wenbentezheng { get; set; }
-        /// <summary>
-        /// 文本特征结果
-        /// </summary>
-        public string wenbentezhengjieguo { get; set; }
-        /// <summary>
-        /// 赋值类型
-        /// </summary>
-        public string fuzhileixing { get; set; }
-    }
 
-    public class JiexiGuize
-    {
+        public string _guizemingcheng = string.Empty;
         /// <summary>
-        /// 
+        /// 规则说明
         /// </summary>
-        public List<Ruleinfo> ruleinfo = new List<Ruleinfo>();
+        public string _guizeshuoming = string.Empty;
+        /// <summary>
+        /// 创建人
+        /// </summary>
+        public string _chuangjianren = string.Empty;
+
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public string _chuangjianshijian = string.Empty;
+        /// <summary>
+        /// 文本特征集合,包含多个规则详情的ruledetail集合
+        /// </summary>
+        public string _wenbentezheng = string.Empty;
+
+
     }
 }
