@@ -226,7 +226,16 @@ namespace 文本解析系统
 
             //把选中规则前面的对号打上
 
+            foreach (DataGridViewRow item in dgv_jiexiguize.Rows)
+            {
+                string name = item.Cells[1].Value.ToString();
+                if (myfi.list_jiexiguize.Contains(name))
+                {
+                    item.Cells[0].Value = true;
 
+
+                }
+            }
 
 
 

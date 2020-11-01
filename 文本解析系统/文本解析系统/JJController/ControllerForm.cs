@@ -135,7 +135,7 @@ namespace 文本解析系统.JJController
         public FormatInfo GetFormatInfo(string formatname)
         {
             List<string> list = new List<string>();
-            string str_sql = $"select * from 解析格式表 where 格式名称='{formatname}' 删除=0";
+            string str_sql = $"select * from 解析格式表 where 格式名称='{formatname}' and 删除=0";
             DataRow mydr = mysqlhelper.ExecuteDataRow(str_sql, null);
             return new FormatInfo() {
                 _formatname = mydr["格式名称"].ToString(),
