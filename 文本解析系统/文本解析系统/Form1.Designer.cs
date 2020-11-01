@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_xinzengrenwu = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgv_chulizhong = new System.Windows.Forms.DataGridView();
             this.xuhao2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.renwuwenjianjia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jindu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,13 +56,13 @@
             this.cbb_jiexigeshi = new System.Windows.Forms.ComboBox();
             this.btn_baocun = new System.Windows.Forms.Button();
             this.btn_shanchu = new System.Windows.Forms.Button();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlp_chachong = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.cb_wu = new System.Windows.Forms.CheckBox();
             this.cb_quanwen = new System.Windows.Forms.CheckBox();
             this.cb_zhengwen = new System.Windows.Forms.CheckBox();
             this.cb_md5 = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlp_excel = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.cb_moren = new System.Windows.Forms.CheckBox();
             this.cb_qita = new System.Windows.Forms.CheckBox();
@@ -92,14 +92,14 @@
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_chulizhong)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_daichuli)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
+            this.tlp_chachong.SuspendLayout();
+            this.tlp_excel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_path)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -158,7 +158,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView2);
+            this.groupBox3.Controls.Add(this.dgv_chulizhong);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 309);
             this.groupBox3.Name = "groupBox3";
@@ -167,24 +167,24 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "处理中任务列表";
             // 
-            // dataGridView2
+            // dgv_chulizhong
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_chulizhong.AllowUserToAddRows = false;
+            this.dgv_chulizhong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_chulizhong.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_chulizhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_chulizhong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.xuhao2,
             this.renwuwenjianjia,
             this.jindu,
             this.zhuangtai});
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 19);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(297, 238);
-            this.dataGridView2.TabIndex = 1;
+            this.dgv_chulizhong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_chulizhong.Location = new System.Drawing.Point(3, 19);
+            this.dgv_chulizhong.Name = "dgv_chulizhong";
+            this.dgv_chulizhong.RowHeadersVisible = false;
+            this.dgv_chulizhong.RowTemplate.Height = 23;
+            this.dgv_chulizhong.Size = new System.Drawing.Size(297, 238);
+            this.dgv_chulizhong.TabIndex = 1;
             // 
             // xuhao2
             // 
@@ -273,8 +273,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tlp_chachong, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tlp_excel, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -368,6 +368,8 @@
             this.cbb_jiexigeshi.Name = "cbb_jiexigeshi";
             this.cbb_jiexigeshi.Size = new System.Drawing.Size(301, 25);
             this.cbb_jiexigeshi.TabIndex = 1;
+            this.cbb_jiexigeshi.DropDown += new System.EventHandler(this.cbb_jiexigeshi_DropDown);
+            this.cbb_jiexigeshi.SelectedIndexChanged += new System.EventHandler(this.cbb_jiexigeshi_SelectedIndexChanged);
             // 
             // btn_baocun
             // 
@@ -377,6 +379,7 @@
             this.btn_baocun.TabIndex = 2;
             this.btn_baocun.Text = "保存";
             this.btn_baocun.UseVisualStyleBackColor = true;
+            this.btn_baocun.Click += new System.EventHandler(this.btn_baocun_Click);
             // 
             // btn_shanchu
             // 
@@ -386,26 +389,27 @@
             this.btn_shanchu.TabIndex = 2;
             this.btn_shanchu.Text = "删除";
             this.btn_shanchu.UseVisualStyleBackColor = true;
+            this.btn_shanchu.Click += new System.EventHandler(this.btn_shanchu_Click);
             // 
-            // tableLayoutPanel4
+            // tlp_chachong
             // 
-            this.tableLayoutPanel4.ColumnCount = 5;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.cb_wu, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.cb_quanwen, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.cb_zhengwen, 3, 0);
-            this.tableLayoutPanel4.Controls.Add(this.cb_md5, 4, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 83);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(607, 34);
-            this.tableLayoutPanel4.TabIndex = 2;
+            this.tlp_chachong.ColumnCount = 5;
+            this.tlp_chachong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tlp_chachong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tlp_chachong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tlp_chachong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tlp_chachong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_chachong.Controls.Add(this.label2, 0, 0);
+            this.tlp_chachong.Controls.Add(this.cb_wu, 1, 0);
+            this.tlp_chachong.Controls.Add(this.cb_quanwen, 2, 0);
+            this.tlp_chachong.Controls.Add(this.cb_zhengwen, 3, 0);
+            this.tlp_chachong.Controls.Add(this.cb_md5, 4, 0);
+            this.tlp_chachong.Location = new System.Drawing.Point(3, 83);
+            this.tlp_chachong.Name = "tlp_chachong";
+            this.tlp_chachong.RowCount = 1;
+            this.tlp_chachong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_chachong.Size = new System.Drawing.Size(607, 34);
+            this.tlp_chachong.TabIndex = 2;
             // 
             // label2
             // 
@@ -456,25 +460,25 @@
             this.cb_md5.Text = "写入新MD5值";
             this.cb_md5.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel5
+            // tlp_excel
             // 
-            this.tableLayoutPanel5.ColumnCount = 5;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel5.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.cb_moren, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.cb_qita, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.tb_savepath, 3, 0);
-            this.tableLayoutPanel5.Controls.Add(this.pb_path, 4, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 123);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(607, 34);
-            this.tableLayoutPanel5.TabIndex = 3;
+            this.tlp_excel.ColumnCount = 5;
+            this.tlp_excel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tlp_excel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tlp_excel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tlp_excel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_excel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlp_excel.Controls.Add(this.label3, 0, 0);
+            this.tlp_excel.Controls.Add(this.cb_moren, 1, 0);
+            this.tlp_excel.Controls.Add(this.cb_qita, 2, 0);
+            this.tlp_excel.Controls.Add(this.tb_savepath, 3, 0);
+            this.tlp_excel.Controls.Add(this.pb_path, 4, 0);
+            this.tlp_excel.Location = new System.Drawing.Point(3, 123);
+            this.tlp_excel.Name = "tlp_excel";
+            this.tlp_excel.RowCount = 1;
+            this.tlp_excel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_excel.Size = new System.Drawing.Size(607, 34);
+            this.tlp_excel.TabIndex = 3;
             // 
             // label3
             // 
@@ -599,6 +603,7 @@
             // 
             // btn_piliangshanchu
             // 
+            this.btn_piliangshanchu.Enabled = false;
             this.btn_piliangshanchu.Location = new System.Drawing.Point(498, 3);
             this.btn_piliangshanchu.Name = "btn_piliangshanchu";
             this.btn_piliangshanchu.Size = new System.Drawing.Size(94, 28);
@@ -608,6 +613,7 @@
             // 
             // dgv_jiexiguize
             // 
+            this.dgv_jiexiguize.AllowUserToAddRows = false;
             this.dgv_jiexiguize.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_jiexiguize.BackgroundColor = System.Drawing.Color.White;
             this.dgv_jiexiguize.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -653,18 +659,18 @@
             // 
             // bianjianniu
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "编辑";
-            this.bianjianniu.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "编辑";
+            this.bianjianniu.DefaultCellStyle = dataGridViewCellStyle3;
             this.bianjianniu.HeaderText = "";
             this.bianjianniu.Name = "bianjianniu";
             this.bianjianniu.Text = "";
             // 
             // shanchuanniu
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "删除";
-            this.shanchuanniu.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = "删除";
+            this.shanchuanniu.DefaultCellStyle = dataGridViewCellStyle4;
             this.shanchuanniu.HeaderText = "";
             this.shanchuanniu.Name = "shanchuanniu";
             this.shanchuanniu.Text = "";
@@ -731,17 +737,17 @@
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_chulizhong)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_daichuli)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
+            this.tlp_chachong.ResumeLayout(false);
+            this.tlp_chachong.PerformLayout();
+            this.tlp_excel.ResumeLayout(false);
+            this.tlp_excel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_path)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -767,13 +773,13 @@
         private System.Windows.Forms.ComboBox cbb_jiexigeshi;
         private System.Windows.Forms.Button btn_baocun;
         private System.Windows.Forms.Button btn_shanchu;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel tlp_chachong;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox cb_wu;
         private System.Windows.Forms.CheckBox cb_quanwen;
         private System.Windows.Forms.CheckBox cb_zhengwen;
         private System.Windows.Forms.CheckBox cb_md5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TableLayoutPanel tlp_excel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cb_moren;
         private System.Windows.Forms.CheckBox cb_qita;
@@ -792,7 +798,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgv_daichuli;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgv_chulizhong;
         private System.Windows.Forms.DataGridViewTextBoxColumn xuhao2;
         private System.Windows.Forms.DataGridViewTextBoxColumn renwuwenjianjia;
         private System.Windows.Forms.DataGridViewTextBoxColumn jindu;

@@ -20,16 +20,27 @@ namespace 文本解析系统.JJController
         /// <returns></returns>
         public bool SaveRule(string mingcheng, string shuoming, string xiangqing)
         {
-            string str_sql = $"insert into 规则信息表 (创建人,创建时间,规则名称,规则说明,规则详情) values(@创建人,@创建时间,@规则名称,@规则说明,@规则详情)";
+            string str_sql = $"insert into 规则信息表 (创建人,创建时间,规则名称,规则说明,文本特征,删除) values(@创建人,@创建时间,@规则名称,@规则说明,@文本特征,0)";
             int num = mysqlhelper.ExecuteNonQuery(str_sql,
                 new MySqlParameter("@创建人", UserInfo._username),
                 new MySqlParameter(@"创建时间", DateTime.Now.ToString()),
                 new MySqlParameter("@规则名称", mingcheng),
                 new MySqlParameter("@规则说明", shuoming),
-                new MySqlParameter("@规则详情", xiangqing));
+                new MySqlParameter("@文本特征", xiangqing));
             return num > 0 ? true : false;
         }
+        /// <summary>
+        /// 删除指定的规则
+        /// </summary>
+        /// <param name="mingcheng">规则名称</param>
+        /// <returns></returns>
+        public bool DeleteRule(string mingcheng)
+        {
+            string str_sql = $"delete from 规则信息表 where 规则名称='{mingcheng}'";
+            int num = mysqlhelper.ExecuteNonQuery(str_sql, null);
+            return num > 0 ? true : false;
 
+        }
         /// <summary>
         /// 获得规则信息，返回一个rulinfo对象
         /// </summary>

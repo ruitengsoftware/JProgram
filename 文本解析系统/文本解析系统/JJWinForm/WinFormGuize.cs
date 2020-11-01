@@ -40,10 +40,8 @@ namespace 文本解析系统.JJWinForm
                 UCRuleInfo myuc = new UCRuleInfo(myjiexiguize.ruleinfo[i]);
                 myuc.Dock = DockStyle.Top;
                 panel_wenbentezheng.Controls.Add(myuc);
-
+                panel_wenbentezheng.Controls.SetChildIndex(myuc, 0);
             }
-
-
         }
 
         /// <summary>
@@ -55,16 +53,17 @@ namespace 文本解析系统.JJWinForm
         {
             //构造规则UC
             UCRuleInfo myuc = new UCRuleInfo();
-
+          
             //添加到panel中，dock属性为top
             myuc.Dock = DockStyle.Top;
-            panel_wenbentezheng.Controls.Add(myuc);
-
+         panel_wenbentezheng.Controls.Add(myuc);
+            panel_wenbentezheng.Controls.SetChildIndex(myuc, 0);
+   
         }
 
         private void WinFormGuize_Load(object sender, EventArgs e)
         {
-
+            
         }
         /// <summary>
         /// 点击保存按钮时触发的事件
@@ -135,11 +134,14 @@ namespace 文本解析系统.JJWinForm
             }
             //将解析规则转为json格式
             string json = JsonConvert.SerializeObject(jiexiguize,Formatting.None);
+            //在保存之前先删除
+            mycontroller.DeleteRule(guizemingcheng);
             //保存规则
            bool b= mycontroller.SaveRule(guizemingcheng, guizeshuoming, json);
             if (b)
             {
                 MessageBox.Show("保存规则成功！");
+                this.DialogResult = DialogResult.OK;
             }
             else
             {
