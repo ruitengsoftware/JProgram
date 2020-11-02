@@ -228,6 +228,7 @@ namespace 文本解析系统
 
             foreach (DataGridViewRow item in dgv_jiexiguize.Rows)
             {
+                item.Cells[0].Value = false;
                 string name = item.Cells[1].Value.ToString();
                 if (myfi.list_jiexiguize.Contains(name))
                 {

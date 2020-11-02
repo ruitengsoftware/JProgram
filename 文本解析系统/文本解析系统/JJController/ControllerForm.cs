@@ -141,7 +141,7 @@ namespace 文本解析系统.JJController
                 _formatname = mydr["格式名称"].ToString(),
                 _chachongchuli = mydr["查重处理"].ToString(),
                 _excelpath = mydr["excel存放"].ToString(),
-                list_jiexiguize = Regex.Split(mydr["解析规则"].ToString(), "|").ToList()
+                list_jiexiguize = Regex.Split(mydr["解析规则"].ToString(), @"\|").ToList()
             };
 
         }
@@ -167,6 +167,34 @@ namespace 文本解析系统.JJController
                 mydgv.Rows[index].Cells[3].Value = mydt.Rows[i]["创建时间"].ToString();
             }
         }
+
+
+        /// <summary>
+        /// 解析word文档，在指定的位置保存为一个excel表格
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <param name="savepath"></param>
+        /// <returns></returns>
+        public bool Jiexi(string filename,string savepath,string formatname)
+        {
+            //获得word文档
+            Aspose.Words.Document myword = new Aspose.Words.Document(filename);
+            //是否查重
+            if (true)
+            {
+
+            }
+
+
+        
+        
+
+
+
+
+        }
+
+
 
 
     }
