@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aspose.Words;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -179,19 +180,57 @@ namespace 文本解析系统.JJController
         {
             //获得word文档
             Aspose.Words.Document myword = new Aspose.Words.Document(filename);
+            //获得他要用到的格式
+            FormatInfo myfi = GetFormatInfo(formatname);
+
             //是否查重
-            if (true)
+            if(myfi._chachongchuli.Equals("正文"))//如果需要查重，根据 正文，全文进行MD5变换并查重
             {
+                //判断是否重复，如果重复，跳出方法
+
+
+            }
+            else if(myfi._chachongchuli.Equals("全文"))
+            {
+                 
+                //判断是否重复，如果重复，跳出方法
+                var sections = myword.Sections;
+                foreach (Section sec in sections)
+                {
+                    var paras = sec.Body.Paragraphs;
+                    foreach (Paragraph para in paras)
+                    {
+                        if (para.GetText().Trim().Equals(string.Empty))
+                        {
+                            para.Remove();
+                        }
+                    }
+                }
+                //获得全文内容
+                string wordtext = myword.Range.Text;
+                //转化md5
+                string str_md5 = Md5Helper.Md5(wordtext);
+                string str_sql = $"select count(*) from 全文md5表 where md5值='{str_md5}' and  删除=0";
+                int num =Convert.ToInt32( mysqlhelper.ExecuteScalar(str_sql, null));
+                if (num > 0) return false;
+            }
+            //开始解析
+
+            for (int i = 0; i < myfi.list_jiexiguize.Count; i++)
+            {
+                
+
+
+
+
 
             }
 
 
-        
-        
 
 
 
-
+            return false;
         }
 
 
