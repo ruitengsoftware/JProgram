@@ -34,28 +34,39 @@ namespace 文本解析系统.JJUserControl
             //赋值文本特征
             tb_wenbentezheng.Text = ruledetail.wenbentezheng;
             //赋值文本特征结果
+            bool zidingyi = true;
             foreach (Control item in flp_jieguo.Controls)
             {
                 if (item is CheckBox && item.Text.Equals(ruledetail.wenbentezhengjieguo))
                 {
                     (item as CheckBox).Checked = true;
+                    zidingyi = false;//由于识别到了选中项，就取消了自定义的勾选
                     break;
                 }
+            }
+            //判断是否为自定义
+            if (zidingyi)
+            {
                 cb_zidingyijieguo.Checked = true;
                 tb_zidingyijieguo.Text = ruledetail.wenbentezhengjieguo;
             }
-            //赋值复制类型
+            //赋值类型
+            zidingyi = true;
             foreach (Control item in flp_fuzhileixing.Controls)
             {
                 if (item is CheckBox && item.Text.Equals(ruledetail.fuzhileixing))
                 {
                     (item as CheckBox).Checked = true;
+                    zidingyi = false;
                     break;
                 }
+            }
+            if (zidingyi)
+            {
                 cb_zidingyileixing.Checked = true;
                 tb_zidingyileixing.Text = ruledetail.fuzhileixing;
-            }
 
+            }
 
 
 
@@ -67,9 +78,6 @@ namespace 文本解析系统.JJUserControl
             this.Dispose();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+    
     }
 }

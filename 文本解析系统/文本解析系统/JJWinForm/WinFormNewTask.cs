@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 文本解析系统.JJController;
 
 namespace 文本解析系统.JJWinForm
 {
     public partial class WinFormNewTask : Form
     {
+        ControllerNewTask mycontroller = new ControllerNewTask();
+
+
         /// <summary>
         /// 文件夹名称
         /// </summary>
@@ -58,6 +62,19 @@ namespace 文本解析系统.JJWinForm
             {
                 tb_folder.Text = fbd.SelectedPath;
             }
+        }
+        /// <summary>
+        /// 下拉解析格式列表时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbb_jiexigeshi_DropDown(object sender, EventArgs e)
+        {
+            //获得所有解析格式的名称
+            List<string> list_format = mycontroller.GetFormat();
+            //加载cbb的item
+            cbb_jiexigeshi.Items.Clear();
+            cbb_jiexigeshi.Items.AddRange(list_format.ToArray());
         }
     }
 }

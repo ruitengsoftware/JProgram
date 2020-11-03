@@ -1,4 +1,5 @@
 ﻿using Aspose.Words;
+using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -17,15 +18,16 @@ namespace 文本解析系统.JJController
     public class ControllerForm
     {
         public List<string> _childdirectories = new List<string>();
+        /// <summary>
+        /// 获得一个文件夹下所有的子文件夹
+        /// </summary>
+        /// <param name="folder"></param>
         public void GetDirectory(string folder)
         {
 
             //判断是否含有子文件夹，如果没有，加入
-
-
-
             _childdirectories = new List<string>();
-            _childdirectories.Add(folder);
+            //_childdirectories.Add(folder);
             DirectoryInfo mydir = new DirectoryInfo(folder);
             string[] dirs = Directory.GetDirectories(folder);
             if (dirs.Length == 0)
@@ -108,8 +110,14 @@ namespace 文本解析系统.JJController
             //    return false;
             //}
             //保存格式
-            string str_sql = $"insert into 解析格式表 values('{name}','{chachong}','{excel}','{str_guize}',0)";
-            int num = mysqlhelper.ExecuteNonQuery(str_sql, null);
+            string str_sql = $"insert into 解析格式表 values('{name}','{chachong}',@excel,'{str_guize}',0)";
+
+
+
+
+            int num = mysqlhelper.ExecuteNonQuery(str_sql, new MySqlParameter[] {
+            new MySqlParameter("@excel",excel)
+            });
             return num > 0 ? true : false;
 
         }
@@ -193,12 +201,15 @@ namespace 文本解析系统.JJController
         /// <summary>
         /// 解析word文档，在指定的位置保存为一个excel表格
         /// </summary>
-        /// <param name="filename"></param>
-        /// <param name="savepath"></param>
+        /// <param name="filename">word文档全名</param>
+        /// <param name="savepath">保存路径</param>
+        /// <param name="formatname">解析格式名称</param>
         /// <returns></returns>
-        public bool Jiexi(string filename, string savepath, string formatname)
+        public string Jiexi(string filename, string formatname)
         {
-            //获得word文档
+            bool success = false;//用来记录解析是否成功
+
+            //构造aspose.words.document ，在之前需要判断文件名是否合法
             Aspose.Words.Document myword = new Aspose.Words.Document(filename);
             //获得他要用到的格式
             FormatInfo myfi = GetFormatInfo(formatname);
@@ -207,6 +218,27 @@ namespace 文本解析系统.JJController
             if (myfi._chachongchuli.Equals("正文"))//如果需要查重，根据 正文，全文进行MD5变换并查重
             {
                 //判断是否重复，如果重复，跳出方法
+                var sections = myword.Sections;
+                foreach (Section sec in sections)
+                {
+                    var paras = sec.Body.Paragraphs;
+                    foreach (Paragraph para in paras)
+                    {
+                        //锁定正文范围，居中显示和为零的自然段去掉
+                        if (para.GetText().Trim().Equals(string.Empty) || para.ParagraphFormat.Alignment == ParagraphAlignment.Center)
+                        {
+                            para.Remove();
+                        }
+                    }
+                }
+                //获得正文内容
+                string wordtext = myword.Range.Text;
+                //转化md5
+                string str_md5 = Md5Helper.Md5(wordtext);
+                string str_sql = $"select count(*) from 正文md5表 where md5值='{str_md5}' and  删除=0";
+                int num = Convert.ToInt32(mysqlhelper.ExecuteScalar(str_sql, null));
+                if (num > 0) return "重复";
+
 
 
             }
@@ -232,9 +264,9 @@ namespace 文本解析系统.JJController
                 string str_md5 = Md5Helper.Md5(wordtext);
                 string str_sql = $"select count(*) from 全文md5表 where md5值='{str_md5}' and  删除=0";
                 int num = Convert.ToInt32(mysqlhelper.ExecuteScalar(str_sql, null));
-                if (num > 0) return false;
+                if (num > 0) return "重复";
             }
-            //开始解析
+            //开始解析,得到复制类型和文本解析结果的dic
             Dictionary<string, string> dic_result = new Dictionary<string, string>();
             for (int i = 0; i < myfi.list_jiexiguize.Count; i++)
             {
@@ -267,32 +299,38 @@ namespace 文本解析系统.JJController
                             }
                             else if (myrd.wenbentezhengjieguo.Equals("整句"))
                             {
-                                strresult= Regex.Match(para_str,$@"(?<[。；;])[\s\S]*{myrd.wenbentezheng}[\s\S]*(?=[。；;])" ).Value.ToString();
+                                strresult = Regex.Match(para_str, $@"(?<=[^。；;])[\s\S]*{myrd.wenbentezheng}[\s\S]*(?=[。；;])").Value.ToString();
                             }
                             else
                             {
                                 strresult = myrd.wenbentezhengjieguo;
                             }
+                            //添加赋值结果和赋值类型到dictionary中
+                            if (dic_result.Keys.Contains(myrd.fuzhileixing))
+                            {
+                                dic_result[myrd.fuzhileixing] += strresult;
+                            }
+                            else
+                            {
+                                dic_result.Add(myrd.fuzhileixing, strresult);
+
+                            }
                         }
-                        //添加赋值结果和赋值类型到dictionary中
-
-
                     }
-
-
-
                 }
-
-
-
-
             }
-
-
-
-
-
-            return false;
+            //生成excel表格
+            Aspose.Cells.Workbook mywbk = new Aspose.Cells.Workbook();
+            Aspose.Cells.Worksheet mysht = mywbk.Worksheets.Add("解析结果表");
+            int row = 0; int col = 0;//用于表格行，列计数
+            foreach (KeyValuePair<string, string> kv in dic_result)
+            {
+                mysht.Cells[row, 1].Value = kv.Key;
+                mysht.Cells[row, 2].Value = kv.Value;
+            }
+            mywbk.Save($@"{myfi._excelpath}\测试结果表.xlsx");
+            //MessageBox.Show("解析完成");
+            return "完成";
         }
 
         /// <summary>

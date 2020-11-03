@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace 文本解析系统
                 //如果点击ok，那么应该获得文件夹，解析规则，和完成后操作
                 string folder = mywin._folder;
                 _mycontroller.GetDirectory(folder);//获得所有子文件夹
-                string jiexiguize = mywin._ruler;
+                string jiexigeshi = mywin._ruler;
                 string wanchenghou = mywin._action;
                 //获得文件夹下所有的文件夹
                 for (int i = 0; i < _mycontroller._childdirectories.Count; i++)
@@ -39,7 +40,7 @@ namespace 文本解析系统
                     var myrow = dgv_daichuli.Rows[index];
                     myrow.Cells["xuhao"].Value = index + 1;
                     myrow.Cells["mubiaowenjianjia"].Value = _mycontroller._childdirectories[i];
-                    myrow.Cells["jiexiguize"].Value = jiexiguize;
+                    myrow.Cells["jiexigeshi"].Value = jiexigeshi;
                     myrow.Cells["wanchenghou"].Value = wanchenghou;
                 }
 
@@ -208,7 +209,7 @@ namespace 文本解析系统
             {
                 if (item.Text.Equals(myfi._chachongchuli))
                 {
-                   (item as CheckBox).Checked = true;
+                    (item as CheckBox).Checked = true;
                 }
             }
 
@@ -241,6 +242,50 @@ namespace 文本解析系统
 
 
 
+        }
+        /// <summary>
+        /// 点击开始按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_kaishi_Click(object sender, EventArgs e)
+        {
+            //循环待处理文档
+            for (int i = 0; i < dgv_daichuli.Rows.Count; i++)
+            {
+                //获得文件夹名称
+                string foldername = dgv_daichuli.Rows[i].Cells[1].Value.ToString();
+                string formatname= dgv_daichuli.Rows[i].Cells[2].Value.ToString();
+                //显示在处理列表中，更改状态为处理中
+                int index = dgv_chulizhong.Rows.Add();
+                dgv_chulizhong.Rows[index].Cells[1].Value = foldername;
+                dgv_chulizhong.Rows[index].Cells[3].Value = "未完成";
+                //获得该文件夹下的所有文件，开始解析该文档，同时更新解析进度
+                var files = Directory.GetFiles(foldername).ToList();
+                for (int j = 0; j < files.Count; j++)
+                {
+                    // 更新进度       
+                    string jindu = (Convert.ToDouble(j + 1) / Convert.ToDouble(files.Count)).ToString("00.00");
+                    dgv_chulizhong.Rows[index].Cells[2].Value = $"{jindu}%";
+                    //获得解析结果，如果成功显示处理完成，未完成，重复
+                   string str_jiexijieguo= _mycontroller.Jiexi(files[j], formatname);
+                }
+            }
+        }
+        /// <summary>
+        /// 点击excel存放文件夹图片时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pb_path_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog()==DialogResult.OK)
+            {
+                tb_savepath.Text = fbd.SelectedPath;
+
+
+            }
         }
     }
 }

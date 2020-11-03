@@ -148,7 +148,6 @@
             this.cb_zidingyijieguo.TabIndex = 2;
             this.cb_zidingyijieguo.Text = "自定义";
             this.cb_zidingyijieguo.UseVisualStyleBackColor = true;
-            this.cb_zidingyijieguo.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // tb_zidingyijieguo
             // 

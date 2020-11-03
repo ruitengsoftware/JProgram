@@ -315,6 +315,7 @@
             this.btn_kaishi.TabIndex = 0;
             this.btn_kaishi.Text = "开始";
             this.btn_kaishi.UseVisualStyleBackColor = true;
+            this.btn_kaishi.Click += new System.EventHandler(this.btn_kaishi_Click);
             // 
             // btn_zanting
             // 
@@ -525,6 +526,7 @@
             this.pb_path.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_path.TabIndex = 3;
             this.pb_path.TabStop = false;
+            this.pb_path.Click += new System.EventHandler(this.pb_path_Click);
             // 
             // groupBox1
             // 

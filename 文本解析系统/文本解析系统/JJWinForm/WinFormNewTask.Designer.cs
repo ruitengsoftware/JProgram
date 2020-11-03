@@ -84,6 +84,7 @@
             this.cbb_jiexigeshi.Name = "cbb_jiexigeshi";
             this.cbb_jiexigeshi.Size = new System.Drawing.Size(348, 25);
             this.cbb_jiexigeshi.TabIndex = 4;
+            this.cbb_jiexigeshi.DropDown += new System.EventHandler(this.cbb_jiexigeshi_DropDown);
             // 
             // label3
             // 
