@@ -53,19 +53,6 @@
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.cb_quanwengangyao = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.flp_fuzhileixing = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.cb_quanwei = new System.Windows.Forms.CheckBox();
-            this.cb_xinxiku = new System.Windows.Forms.CheckBox();
-            this.cb_shijian = new System.Windows.Forms.CheckBox();
-            this.cb_diyu = new System.Windows.Forms.CheckBox();
-            this.cb_zidingyileixing = new System.Windows.Forms.CheckBox();
-            this.tb_zidingyileixing = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.pb_shanchu = new System.Windows.Forms.PictureBox();
             this.checkBox12 = new System.Windows.Forms.CheckBox();
             this.checkBox13 = new System.Windows.Forms.CheckBox();
             this.checkBox14 = new System.Windows.Forms.CheckBox();
@@ -89,12 +76,25 @@
             this.checkBox32 = new System.Windows.Forms.CheckBox();
             this.checkBox33 = new System.Windows.Forms.CheckBox();
             this.checkBox34 = new System.Windows.Forms.CheckBox();
-            this.checkBox35 = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.flp_fuzhileixing = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.checkBox36 = new System.Windows.Forms.CheckBox();
             this.checkBox37 = new System.Windows.Forms.CheckBox();
+            this.checkBox35 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.cb_shijian = new System.Windows.Forms.CheckBox();
+            this.cb_quanwei = new System.Windows.Forms.CheckBox();
             this.checkBox38 = new System.Windows.Forms.CheckBox();
+            this.cb_xinxiku = new System.Windows.Forms.CheckBox();
+            this.cb_diyu = new System.Windows.Forms.CheckBox();
             this.checkBox39 = new System.Windows.Forms.CheckBox();
             this.checkBox40 = new System.Windows.Forms.CheckBox();
+            this.cb_zidingyileixing = new System.Windows.Forms.CheckBox();
+            this.tb_zidingyileixing = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.pb_shanchu = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.flp_jieguo.SuspendLayout();
@@ -200,20 +200,26 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 33);
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Location = new System.Drawing.Point(1, 34);
+            this.label3.Margin = new System.Windows.Forms.Padding(1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 17);
+            this.label3.Size = new System.Drawing.Size(90, 32);
             this.label3.TabIndex = 0;
             this.label3.Text = "文本特征结果";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(1, 1);
+            this.label2.Margin = new System.Windows.Forms.Padding(1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 17);
+            this.label2.Size = new System.Drawing.Size(90, 31);
             this.label2.TabIndex = 0;
             this.label2.Text = "文本特征";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel4
             // 
@@ -247,11 +253,14 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Location = new System.Drawing.Point(1, 1);
+            this.label5.Margin = new System.Windows.Forms.Padding(1);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 17);
+            this.label5.Size = new System.Drawing.Size(100, 32);
             this.label5.TabIndex = 0;
             this.label5.Text = "文本特征";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tb_wenbentezheng
             // 
@@ -413,157 +422,6 @@
             this.cb_quanwengangyao.TabIndex = 7;
             this.cb_quanwengangyao.Text = "全文纲要";
             this.cb_quanwengangyao.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.ColumnCount = 2;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.68421F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.31579F));
-            this.tableLayoutPanel8.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.flp_fuzhileixing, 1, 0);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 242);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 1;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(668, 70);
-            this.tableLayoutPanel8.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 17);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "赋值类型";
-            // 
-            // flp_fuzhileixing
-            // 
-            this.flp_fuzhileixing.Controls.Add(this.checkBox6);
-            this.flp_fuzhileixing.Controls.Add(this.checkBox36);
-            this.flp_fuzhileixing.Controls.Add(this.checkBox37);
-            this.flp_fuzhileixing.Controls.Add(this.checkBox35);
-            this.flp_fuzhileixing.Controls.Add(this.checkBox7);
-            this.flp_fuzhileixing.Controls.Add(this.cb_shijian);
-            this.flp_fuzhileixing.Controls.Add(this.cb_quanwei);
-            this.flp_fuzhileixing.Controls.Add(this.checkBox38);
-            this.flp_fuzhileixing.Controls.Add(this.cb_xinxiku);
-            this.flp_fuzhileixing.Controls.Add(this.cb_diyu);
-            this.flp_fuzhileixing.Controls.Add(this.checkBox39);
-            this.flp_fuzhileixing.Controls.Add(this.checkBox40);
-            this.flp_fuzhileixing.Controls.Add(this.cb_zidingyileixing);
-            this.flp_fuzhileixing.Controls.Add(this.tb_zidingyileixing);
-            this.flp_fuzhileixing.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flp_fuzhileixing.Location = new System.Drawing.Point(94, 3);
-            this.flp_fuzhileixing.Name = "flp_fuzhileixing";
-            this.flp_fuzhileixing.Size = new System.Drawing.Size(571, 64);
-            this.flp_fuzhileixing.TabIndex = 0;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(3, 3);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(75, 21);
-            this.checkBox6.TabIndex = 0;
-            this.checkBox6.Text = "文本内容";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(271, 3);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(51, 21);
-            this.checkBox7.TabIndex = 1;
-            this.checkBox7.Text = "来源";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // cb_quanwei
-            // 
-            this.cb_quanwei.AutoSize = true;
-            this.cb_quanwei.Location = new System.Drawing.Point(385, 3);
-            this.cb_quanwei.Name = "cb_quanwei";
-            this.cb_quanwei.Size = new System.Drawing.Size(63, 21);
-            this.cb_quanwei.TabIndex = 3;
-            this.cb_quanwei.Text = "权威性";
-            this.cb_quanwei.UseVisualStyleBackColor = true;
-            // 
-            // cb_xinxiku
-            // 
-            this.cb_xinxiku.AutoSize = true;
-            this.cb_xinxiku.Location = new System.Drawing.Point(3, 30);
-            this.cb_xinxiku.Name = "cb_xinxiku";
-            this.cb_xinxiku.Size = new System.Drawing.Size(63, 21);
-            this.cb_xinxiku.TabIndex = 3;
-            this.cb_xinxiku.Text = "信息库";
-            this.cb_xinxiku.UseVisualStyleBackColor = true;
-            // 
-            // cb_shijian
-            // 
-            this.cb_shijian.AutoSize = true;
-            this.cb_shijian.Location = new System.Drawing.Point(328, 3);
-            this.cb_shijian.Name = "cb_shijian";
-            this.cb_shijian.Size = new System.Drawing.Size(51, 21);
-            this.cb_shijian.TabIndex = 3;
-            this.cb_shijian.Text = "时间";
-            this.cb_shijian.UseVisualStyleBackColor = true;
-            // 
-            // cb_diyu
-            // 
-            this.cb_diyu.AutoSize = true;
-            this.cb_diyu.Location = new System.Drawing.Point(72, 30);
-            this.cb_diyu.Name = "cb_diyu";
-            this.cb_diyu.Size = new System.Drawing.Size(51, 21);
-            this.cb_diyu.TabIndex = 3;
-            this.cb_diyu.Text = "地域";
-            this.cb_diyu.UseVisualStyleBackColor = true;
-            // 
-            // cb_zidingyileixing
-            // 
-            this.cb_zidingyileixing.AutoSize = true;
-            this.cb_zidingyileixing.Location = new System.Drawing.Point(339, 30);
-            this.cb_zidingyileixing.Name = "cb_zidingyileixing";
-            this.cb_zidingyileixing.Size = new System.Drawing.Size(63, 21);
-            this.cb_zidingyileixing.TabIndex = 2;
-            this.cb_zidingyileixing.Text = "自定义";
-            this.cb_zidingyileixing.UseVisualStyleBackColor = true;
-            // 
-            // tb_zidingyileixing
-            // 
-            this.tb_zidingyileixing.Location = new System.Drawing.Point(3, 57);
-            this.tb_zidingyileixing.Name = "tb_zidingyileixing";
-            this.tb_zidingyileixing.Size = new System.Drawing.Size(222, 23);
-            this.tb_zidingyileixing.TabIndex = 1;
-            // 
-            // tableLayoutPanel11
-            // 
-            this.tableLayoutPanel11.ColumnCount = 3;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Controls.Add(this.pb_shanchu, 1, 0);
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 318);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 1;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(668, 36);
-            this.tableLayoutPanel11.TabIndex = 1;
-            // 
-            // pb_shanchu
-            // 
-            this.pb_shanchu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
-            this.pb_shanchu.Location = new System.Drawing.Point(317, 3);
-            this.pb_shanchu.Name = "pb_shanchu";
-            this.pb_shanchu.Size = new System.Drawing.Size(34, 30);
-            this.pb_shanchu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_shanchu.TabIndex = 0;
-            this.pb_shanchu.TabStop = false;
-            this.pb_shanchu.Click += new System.EventHandler(this.pb_shanchu_Click);
             // 
             // checkBox12
             // 
@@ -795,15 +653,62 @@
             this.checkBox34.Text = "普通索引据";
             this.checkBox34.UseVisualStyleBackColor = true;
             // 
-            // checkBox35
+            // tableLayoutPanel8
             // 
-            this.checkBox35.AutoSize = true;
-            this.checkBox35.Location = new System.Drawing.Point(214, 3);
-            this.checkBox35.Name = "checkBox35";
-            this.checkBox35.Size = new System.Drawing.Size(51, 21);
-            this.checkBox35.TabIndex = 0;
-            this.checkBox35.Text = "作者";
-            this.checkBox35.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.68421F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.31579F));
+            this.tableLayoutPanel8.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.flp_fuzhileixing, 1, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 242);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(668, 70);
+            this.tableLayoutPanel8.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 17);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "赋值类型";
+            // 
+            // flp_fuzhileixing
+            // 
+            this.flp_fuzhileixing.Controls.Add(this.checkBox6);
+            this.flp_fuzhileixing.Controls.Add(this.checkBox36);
+            this.flp_fuzhileixing.Controls.Add(this.checkBox37);
+            this.flp_fuzhileixing.Controls.Add(this.checkBox35);
+            this.flp_fuzhileixing.Controls.Add(this.checkBox7);
+            this.flp_fuzhileixing.Controls.Add(this.cb_shijian);
+            this.flp_fuzhileixing.Controls.Add(this.cb_quanwei);
+            this.flp_fuzhileixing.Controls.Add(this.checkBox38);
+            this.flp_fuzhileixing.Controls.Add(this.cb_xinxiku);
+            this.flp_fuzhileixing.Controls.Add(this.cb_diyu);
+            this.flp_fuzhileixing.Controls.Add(this.checkBox39);
+            this.flp_fuzhileixing.Controls.Add(this.checkBox40);
+            this.flp_fuzhileixing.Controls.Add(this.cb_zidingyileixing);
+            this.flp_fuzhileixing.Controls.Add(this.tb_zidingyileixing);
+            this.flp_fuzhileixing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flp_fuzhileixing.Location = new System.Drawing.Point(94, 3);
+            this.flp_fuzhileixing.Name = "flp_fuzhileixing";
+            this.flp_fuzhileixing.Size = new System.Drawing.Size(571, 64);
+            this.flp_fuzhileixing.TabIndex = 0;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(3, 3);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(75, 21);
+            this.checkBox6.TabIndex = 0;
+            this.checkBox6.Text = "文本内容";
+            this.checkBox6.UseVisualStyleBackColor = true;
             // 
             // checkBox36
             // 
@@ -825,6 +730,46 @@
             this.checkBox37.Text = "字数";
             this.checkBox37.UseVisualStyleBackColor = true;
             // 
+            // checkBox35
+            // 
+            this.checkBox35.AutoSize = true;
+            this.checkBox35.Location = new System.Drawing.Point(214, 3);
+            this.checkBox35.Name = "checkBox35";
+            this.checkBox35.Size = new System.Drawing.Size(51, 21);
+            this.checkBox35.TabIndex = 0;
+            this.checkBox35.Text = "作者";
+            this.checkBox35.UseVisualStyleBackColor = true;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(271, 3);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(51, 21);
+            this.checkBox7.TabIndex = 1;
+            this.checkBox7.Text = "来源";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // cb_shijian
+            // 
+            this.cb_shijian.AutoSize = true;
+            this.cb_shijian.Location = new System.Drawing.Point(328, 3);
+            this.cb_shijian.Name = "cb_shijian";
+            this.cb_shijian.Size = new System.Drawing.Size(51, 21);
+            this.cb_shijian.TabIndex = 3;
+            this.cb_shijian.Text = "时间";
+            this.cb_shijian.UseVisualStyleBackColor = true;
+            // 
+            // cb_quanwei
+            // 
+            this.cb_quanwei.AutoSize = true;
+            this.cb_quanwei.Location = new System.Drawing.Point(385, 3);
+            this.cb_quanwei.Name = "cb_quanwei";
+            this.cb_quanwei.Size = new System.Drawing.Size(63, 21);
+            this.cb_quanwei.TabIndex = 3;
+            this.cb_quanwei.Text = "权威性";
+            this.cb_quanwei.UseVisualStyleBackColor = true;
+            // 
             // checkBox38
             // 
             this.checkBox38.AutoSize = true;
@@ -834,6 +779,26 @@
             this.checkBox38.TabIndex = 3;
             this.checkBox38.Text = "热度";
             this.checkBox38.UseVisualStyleBackColor = true;
+            // 
+            // cb_xinxiku
+            // 
+            this.cb_xinxiku.AutoSize = true;
+            this.cb_xinxiku.Location = new System.Drawing.Point(3, 30);
+            this.cb_xinxiku.Name = "cb_xinxiku";
+            this.cb_xinxiku.Size = new System.Drawing.Size(63, 21);
+            this.cb_xinxiku.TabIndex = 3;
+            this.cb_xinxiku.Text = "信息库";
+            this.cb_xinxiku.UseVisualStyleBackColor = true;
+            // 
+            // cb_diyu
+            // 
+            this.cb_diyu.AutoSize = true;
+            this.cb_diyu.Location = new System.Drawing.Point(72, 30);
+            this.cb_diyu.Name = "cb_diyu";
+            this.cb_diyu.Size = new System.Drawing.Size(51, 21);
+            this.cb_diyu.TabIndex = 3;
+            this.cb_diyu.Text = "地域";
+            this.cb_diyu.UseVisualStyleBackColor = true;
             // 
             // checkBox39
             // 
@@ -854,6 +819,50 @@
             this.checkBox40.TabIndex = 3;
             this.checkBox40.Text = "内容关联信息";
             this.checkBox40.UseVisualStyleBackColor = true;
+            // 
+            // cb_zidingyileixing
+            // 
+            this.cb_zidingyileixing.AutoSize = true;
+            this.cb_zidingyileixing.Location = new System.Drawing.Point(339, 30);
+            this.cb_zidingyileixing.Name = "cb_zidingyileixing";
+            this.cb_zidingyileixing.Size = new System.Drawing.Size(63, 21);
+            this.cb_zidingyileixing.TabIndex = 2;
+            this.cb_zidingyileixing.Text = "自定义";
+            this.cb_zidingyileixing.UseVisualStyleBackColor = true;
+            // 
+            // tb_zidingyileixing
+            // 
+            this.tb_zidingyileixing.Location = new System.Drawing.Point(408, 30);
+            this.tb_zidingyileixing.Name = "tb_zidingyileixing";
+            this.tb_zidingyileixing.Size = new System.Drawing.Size(148, 23);
+            this.tb_zidingyileixing.TabIndex = 1;
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 3;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Controls.Add(this.pb_shanchu, 1, 0);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 318);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 1;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(668, 36);
+            this.tableLayoutPanel11.TabIndex = 1;
+            // 
+            // pb_shanchu
+            // 
+            this.pb_shanchu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
+            this.pb_shanchu.Location = new System.Drawing.Point(317, 3);
+            this.pb_shanchu.Name = "pb_shanchu";
+            this.pb_shanchu.Size = new System.Drawing.Size(34, 30);
+            this.pb_shanchu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_shanchu.TabIndex = 0;
+            this.pb_shanchu.TabStop = false;
+            this.pb_shanchu.Click += new System.EventHandler(this.pb_shanchu_Click);
             // 
             // UCRuleInfo
             // 

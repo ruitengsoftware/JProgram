@@ -77,23 +77,38 @@ namespace 文本解析系统
                 //构造一个winformguize
                 JJWinForm.WinFormGuize mywin = new JJWinForm.WinFormGuize(rulename);
                 mywin.StartPosition = FormStartPosition.CenterParent;
-                mywin.ShowDialog();
+                if (mywin.ShowDialog() == DialogResult.OK)
+                {
+
+                    //刷新数据
+                    _mycontroller.UpdateDGV(dgv_jiexiguize);
+
+                }
+
             }
-            //点击button按钮事件
+            //点击删除按钮事件
             if (dgv_jiexiguize.Columns[e.ColumnIndex].Name == "shanchuanniu" && e.RowIndex >= 0)
             {
                 //获得规则名称
                 string rulename = dgv_jiexiguize.Rows[e.RowIndex].Cells["jiexiguizemingcheng"].Value.ToString();
                 //规则信息表该条规则的删除字段赋值为1
                 _mycontroller.DeleteGuize(rulename);
+                //刷新数据
+                _mycontroller.UpdateDGV(dgv_jiexiguize);
 
             }
-
-            //刷新数据
-            _mycontroller.UpdateDGV(dgv_jiexiguize);
-
-
-
+            //点击选择按钮
+            //if (dgv_jiexiguize.Columns[e.ColumnIndex].Name == "xuanze" && e.RowIndex >= 0)
+            //{
+            //    if (Convert.ToBoolean( dgv_jiexiguize.Rows[e.RowIndex].Cells[0].FormattedValue) == true)
+            //    {
+            //        dgv_jiexiguize.Rows[e.RowIndex].Cells[0].Value = false;
+            //    }
+            //    else
+            //    {
+            //        dgv_jiexiguize.Rows[e.RowIndex].Cells[0].Value = true;
+            //    }
+            //}
         }
 
         private void btn_xinjian_Click(object sender, EventArgs e)
@@ -263,35 +278,31 @@ namespace 文本解析系统
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btn_kaishi_Click(object sender, EventArgs e)
+        private async void btn_kaishi_Click(object sender, EventArgs e)
         {
-
-            Action a = () =>
+            //清楚处理中dgv的所有任务
+            dgv_chulizhong.Rows.Clear();
+            for (int i = 0; i < dgv_daichuli.Rows.Count; i++)
             {
-
-                for (int i = 0; i < dgv_daichuli.Rows.Count; i++)
+                //获得文件夹名称
+                string foldername = dgv_daichuli.Rows[i].Cells[1].Value.ToString();
+                string formatname = dgv_daichuli.Rows[i].Cells[2].Value.ToString();
+                //显示在处理列表中，更改状态为处理中
+                int index = dgv_chulizhong.Rows.Add();
+                dgv_chulizhong.Rows[index].Cells[1].Value = foldername;
+                dgv_chulizhong.Rows[index].Cells[3].Value = "未完成";
+                //获得该文件夹下的所有文件，开始解析该文档，同时更新解析进度
+                var files = Directory.GetFiles(foldername).ToList();
+                for (int j = 0; j < files.Count; j++)
                 {
-                    //获得文件夹名称
-                    string foldername = dgv_daichuli.Rows[i].Cells[1].Value.ToString();
-                    string formatname = dgv_daichuli.Rows[i].Cells[2].Value.ToString();
-                    //显示在处理列表中，更改状态为处理中
-                    int index = dgv_chulizhong.Rows.Add();
-                    dgv_chulizhong.Rows[index].Cells[1].Value = foldername;
-                    dgv_chulizhong.Rows[index].Cells[3].Value = "未完成";
-                    //获得该文件夹下的所有文件，开始解析该文档，同时更新解析进度
-                    var files = Directory.GetFiles(foldername).ToList();
-                    for (int j = 0; j < files.Count; j++)
-                    {
-                        // 更新进度       
-                        string jindu = (Convert.ToDouble(j + 1)*100 / Convert.ToDouble(files.Count)).ToString("00.00");
-                        dgv_chulizhong.Rows[index].Cells[2].Value = $"{jindu}%";
-                        //获得解析结果，如果成功显示处理完成，完成，重复
-                        string str_jiexijieguo = _mycontroller.Jiexi(files[j], formatname);
-                        dgv_chulizhong.Rows[index].Cells[3].Value = str_jiexijieguo;
-                    }
+                    // 更新进度       
+                    string jindu = (Convert.ToDouble(j + 1) * 100 / Convert.ToDouble(files.Count)).ToString("00.00");
+                    dgv_chulizhong.Rows[index].Cells[2].Value = $"{jindu}%";
+                    //获得解析结果，如果成功显示处理完成，完成，重复
+                    string str_jiexijieguo =await  _mycontroller.JiexiAsync(files[j], formatname);
+                    dgv_chulizhong.Rows[index].Cells[3].Value = str_jiexijieguo;
                 }
-            };
-            a.BeginInvoke(o=> { },null);
+            }
         }
         /// <summary>
         /// 点击excel存放文件夹图片时触发的事件
