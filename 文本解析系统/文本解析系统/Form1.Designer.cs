@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_xinzengrenwu = new System.Windows.Forms.Button();
@@ -123,8 +123,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(927, 572);
-            this.splitContainer1.SplitterDistance = 309;
+            this.splitContainer1.Size = new System.Drawing.Size(893, 466);
+            this.splitContainer1.SplitterDistance = 297;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -143,14 +143,14 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(309, 572);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(297, 466);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // btn_xinzengrenwu
             // 
             this.btn_xinzengrenwu.Location = new System.Drawing.Point(3, 3);
             this.btn_xinzengrenwu.Name = "btn_xinzengrenwu";
-            this.btn_xinzengrenwu.Size = new System.Drawing.Size(303, 34);
+            this.btn_xinzengrenwu.Size = new System.Drawing.Size(291, 34);
             this.btn_xinzengrenwu.TabIndex = 0;
             this.btn_xinzengrenwu.Text = "新增任务";
             this.btn_xinzengrenwu.UseVisualStyleBackColor = true;
@@ -160,9 +160,9 @@
             // 
             this.groupBox3.Controls.Add(this.dgv_chulizhong);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 309);
+            this.groupBox3.Location = new System.Drawing.Point(3, 256);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(303, 260);
+            this.groupBox3.Size = new System.Drawing.Size(291, 207);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "处理中任务列表";
@@ -183,7 +183,7 @@
             this.dgv_chulizhong.Name = "dgv_chulizhong";
             this.dgv_chulizhong.RowHeadersVisible = false;
             this.dgv_chulizhong.RowTemplate.Height = 23;
-            this.dgv_chulizhong.Size = new System.Drawing.Size(297, 238);
+            this.dgv_chulizhong.Size = new System.Drawing.Size(285, 185);
             this.dgv_chulizhong.TabIndex = 1;
             // 
             // xuhao2
@@ -212,7 +212,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 43);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(303, 260);
+            this.groupBox2.Size = new System.Drawing.Size(291, 207);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "待处理任务列表";
@@ -234,7 +234,7 @@
             this.dgv_daichuli.Name = "dgv_daichuli";
             this.dgv_daichuli.RowHeadersVisible = false;
             this.dgv_daichuli.RowTemplate.Height = 23;
-            this.dgv_daichuli.Size = new System.Drawing.Size(297, 238);
+            this.dgv_daichuli.Size = new System.Drawing.Size(285, 185);
             this.dgv_daichuli.TabIndex = 0;
             this.dgv_daichuli.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_daichuli_CellMouseClick);
             // 
@@ -286,7 +286,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(613, 572);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(591, 466);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -304,12 +304,12 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(607, 34);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(585, 34);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // btn_kaishi
             // 
-            this.btn_kaishi.Location = new System.Drawing.Point(156, 3);
+            this.btn_kaishi.Location = new System.Drawing.Point(145, 3);
             this.btn_kaishi.Name = "btn_kaishi";
             this.btn_kaishi.Size = new System.Drawing.Size(94, 28);
             this.btn_kaishi.TabIndex = 0;
@@ -319,7 +319,8 @@
             // 
             // btn_zanting
             // 
-            this.btn_zanting.Location = new System.Drawing.Point(256, 3);
+            this.btn_zanting.Enabled = false;
+            this.btn_zanting.Location = new System.Drawing.Point(245, 3);
             this.btn_zanting.Name = "btn_zanting";
             this.btn_zanting.Size = new System.Drawing.Size(94, 28);
             this.btn_zanting.TabIndex = 0;
@@ -328,7 +329,8 @@
             // 
             // btn_zhongzhi
             // 
-            this.btn_zhongzhi.Location = new System.Drawing.Point(356, 3);
+            this.btn_zhongzhi.Enabled = false;
+            this.btn_zhongzhi.Location = new System.Drawing.Point(345, 3);
             this.btn_zhongzhi.Name = "btn_zhongzhi";
             this.btn_zhongzhi.Size = new System.Drawing.Size(94, 28);
             this.btn_zhongzhi.TabIndex = 0;
@@ -350,7 +352,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(607, 34);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(585, 34);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // label1
@@ -367,14 +369,14 @@
             this.cbb_jiexigeshi.FormattingEnabled = true;
             this.cbb_jiexigeshi.Location = new System.Drawing.Point(103, 3);
             this.cbb_jiexigeshi.Name = "cbb_jiexigeshi";
-            this.cbb_jiexigeshi.Size = new System.Drawing.Size(301, 25);
+            this.cbb_jiexigeshi.Size = new System.Drawing.Size(279, 25);
             this.cbb_jiexigeshi.TabIndex = 1;
             this.cbb_jiexigeshi.DropDown += new System.EventHandler(this.cbb_jiexigeshi_DropDown);
             this.cbb_jiexigeshi.SelectedIndexChanged += new System.EventHandler(this.cbb_jiexigeshi_SelectedIndexChanged);
             // 
             // btn_baocun
             // 
-            this.btn_baocun.Location = new System.Drawing.Point(410, 3);
+            this.btn_baocun.Location = new System.Drawing.Point(388, 3);
             this.btn_baocun.Name = "btn_baocun";
             this.btn_baocun.Size = new System.Drawing.Size(94, 28);
             this.btn_baocun.TabIndex = 2;
@@ -384,7 +386,7 @@
             // 
             // btn_shanchu
             // 
-            this.btn_shanchu.Location = new System.Drawing.Point(510, 3);
+            this.btn_shanchu.Location = new System.Drawing.Point(488, 3);
             this.btn_shanchu.Name = "btn_shanchu";
             this.btn_shanchu.Size = new System.Drawing.Size(94, 28);
             this.btn_shanchu.TabIndex = 2;
@@ -409,7 +411,7 @@
             this.tlp_chachong.Name = "tlp_chachong";
             this.tlp_chachong.RowCount = 1;
             this.tlp_chachong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_chachong.Size = new System.Drawing.Size(607, 34);
+            this.tlp_chachong.Size = new System.Drawing.Size(585, 34);
             this.tlp_chachong.TabIndex = 2;
             // 
             // label2
@@ -478,7 +480,7 @@
             this.tlp_excel.Name = "tlp_excel";
             this.tlp_excel.RowCount = 1;
             this.tlp_excel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_excel.Size = new System.Drawing.Size(607, 34);
+            this.tlp_excel.Size = new System.Drawing.Size(585, 34);
             this.tlp_excel.TabIndex = 3;
             // 
             // label3
@@ -514,13 +516,13 @@
             // 
             this.tb_savepath.Location = new System.Drawing.Point(303, 3);
             this.tb_savepath.Name = "tb_savepath";
-            this.tb_savepath.Size = new System.Drawing.Size(271, 23);
+            this.tb_savepath.Size = new System.Drawing.Size(249, 23);
             this.tb_savepath.TabIndex = 2;
             // 
             // pb_path
             // 
             this.pb_path.Image = global::文本解析系统.Properties.Resources.folderlv;
-            this.pb_path.Location = new System.Drawing.Point(580, 3);
+            this.pb_path.Location = new System.Drawing.Point(558, 3);
             this.pb_path.Name = "pb_path";
             this.pb_path.Size = new System.Drawing.Size(24, 28);
             this.pb_path.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -534,7 +536,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 163);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(607, 406);
+            this.groupBox1.Size = new System.Drawing.Size(585, 300);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "解析规则列表";
@@ -553,7 +555,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(601, 384);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(579, 278);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -572,12 +574,12 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(595, 34);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(573, 34);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // btn_xinjian
             // 
-            this.btn_xinjian.Location = new System.Drawing.Point(198, 3);
+            this.btn_xinjian.Location = new System.Drawing.Point(176, 3);
             this.btn_xinjian.Name = "btn_xinjian";
             this.btn_xinjian.Size = new System.Drawing.Size(94, 28);
             this.btn_xinjian.TabIndex = 0;
@@ -587,7 +589,8 @@
             // 
             // btn_daoru
             // 
-            this.btn_daoru.Location = new System.Drawing.Point(298, 3);
+            this.btn_daoru.Enabled = false;
+            this.btn_daoru.Location = new System.Drawing.Point(276, 3);
             this.btn_daoru.Name = "btn_daoru";
             this.btn_daoru.Size = new System.Drawing.Size(94, 28);
             this.btn_daoru.TabIndex = 0;
@@ -596,7 +599,8 @@
             // 
             // btn_daochu
             // 
-            this.btn_daochu.Location = new System.Drawing.Point(398, 3);
+            this.btn_daochu.Enabled = false;
+            this.btn_daochu.Location = new System.Drawing.Point(376, 3);
             this.btn_daochu.Name = "btn_daochu";
             this.btn_daochu.Size = new System.Drawing.Size(94, 28);
             this.btn_daochu.TabIndex = 0;
@@ -606,7 +610,7 @@
             // btn_piliangshanchu
             // 
             this.btn_piliangshanchu.Enabled = false;
-            this.btn_piliangshanchu.Location = new System.Drawing.Point(498, 3);
+            this.btn_piliangshanchu.Location = new System.Drawing.Point(476, 3);
             this.btn_piliangshanchu.Name = "btn_piliangshanchu";
             this.btn_piliangshanchu.Size = new System.Drawing.Size(94, 28);
             this.btn_piliangshanchu.TabIndex = 0;
@@ -631,7 +635,7 @@
             this.dgv_jiexiguize.Name = "dgv_jiexiguize";
             this.dgv_jiexiguize.RowHeadersVisible = false;
             this.dgv_jiexiguize.RowTemplate.Height = 23;
-            this.dgv_jiexiguize.Size = new System.Drawing.Size(595, 298);
+            this.dgv_jiexiguize.Size = new System.Drawing.Size(573, 192);
             this.dgv_jiexiguize.TabIndex = 1;
             this.dgv_jiexiguize.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_jiexiguize_CellContentClick);
             // 
@@ -661,18 +665,18 @@
             // 
             // bianjianniu
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = "编辑";
-            this.bianjianniu.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "编辑";
+            this.bianjianniu.DefaultCellStyle = dataGridViewCellStyle1;
             this.bianjianniu.HeaderText = "";
             this.bianjianniu.Name = "bianjianniu";
             this.bianjianniu.Text = "";
             // 
             // shanchuanniu
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.NullValue = "删除";
-            this.shanchuanniu.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "删除";
+            this.shanchuanniu.DefaultCellStyle = dataGridViewCellStyle2;
             this.shanchuanniu.HeaderText = "";
             this.shanchuanniu.Name = "shanchuanniu";
             this.shanchuanniu.Text = "";
@@ -690,12 +694,12 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(595, 34);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(573, 34);
             this.tableLayoutPanel9.TabIndex = 2;
             // 
             // tb_search
             // 
-            this.tb_search.Location = new System.Drawing.Point(180, 3);
+            this.tb_search.Location = new System.Drawing.Point(169, 3);
             this.tb_search.Name = "tb_search";
             this.tb_search.Size = new System.Drawing.Size(194, 23);
             this.tb_search.TabIndex = 0;
@@ -703,7 +707,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::文本解析系统.Properties.Resources.fangdajing1;
-            this.pictureBox1.Location = new System.Drawing.Point(380, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(369, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(34, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -725,7 +729,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(927, 572);
+            this.ClientSize = new System.Drawing.Size(893, 466);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
