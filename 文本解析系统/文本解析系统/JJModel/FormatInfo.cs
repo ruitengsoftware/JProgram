@@ -25,7 +25,9 @@ namespace 文本解析系统.JJModel
         /// 解析规则集合
         /// </summary>
         public List<string> list_jiexiguize = new List<string>();
-
-
+        /// <summary>
+        /// 新Md5值
+        /// </summary>
+        public bool _newmd5 = false;
     }
 }

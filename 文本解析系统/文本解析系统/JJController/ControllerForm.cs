@@ -98,7 +98,7 @@ namespace 文本解析系统.JJController
         /// <param name="excel"></param>
         /// <param name="guize"></param>
         /// <returns></returns>
-        public bool SaveFormat(string name, string chachong, string excel, List<string> guize)
+        public bool SaveFormat(string name, string chachong, string excel,bool newmd5, List<string> guize)
         {
             string str_guize = string.Join("|", guize);
             //保存之前判断格式名称是否重复
@@ -110,13 +110,14 @@ namespace 文本解析系统.JJController
             //    return false;
             //}
             //保存格式
-            string str_sql = $"insert into 解析格式表 values('{name}','{chachong}',@excel,'{str_guize}',0)";
+            string str_sql = $"insert into 解析格式表 values('{name}','{chachong}',@excel,'{str_guize}',0,@newmd5)";
 
 
 
 
             int num = mysqlhelper.ExecuteNonQuery(str_sql, new MySqlParameter[] {
-            new MySqlParameter("@excel",excel)
+            new MySqlParameter("@excel",excel),
+            new MySqlParameter("@newmd5",newmd5)
             });
             return num > 0 ? true : false;
 
@@ -152,7 +153,8 @@ namespace 文本解析系统.JJController
                 _formatname = mydr["格式名称"].ToString(),
                 _chachongchuli = mydr["查重处理"].ToString(),
                 _excelpath = mydr["excel存放"].ToString(),
-                list_jiexiguize = Regex.Split(mydr["解析规则"].ToString(), @"\|").ToList()
+                list_jiexiguize = Regex.Split(mydr["解析规则"].ToString(), @"\|").ToList(),
+                _newmd5 = Convert.ToBoolean(mydr["newmd5"])
             };
 
         }
@@ -244,7 +246,6 @@ namespace 文本解析系统.JJController
             }
             else if (myfi._chachongchuli.Equals("全文"))
             {
-
                 //判断是否重复，如果重复，跳出方法
                 var sections = myword.Sections;
                 foreach (Section sec in sections)
@@ -285,7 +286,6 @@ namespace 文本解析系统.JJController
                     {
                         //获得自然段文本
                         string para_str = para.Range.Text;
-
                         //获得自然段文本结果
                         bool exist = Regex.IsMatch(para_str, myrd.wenbentezheng);
                         //如果包含的话，得到文本特征结果
@@ -319,14 +319,59 @@ namespace 文本解析系统.JJController
                     }
                 }
             }
+            //判断是否需要写入MD5值向全文/正文表格中去,如果md5选中了，那么判断正文/全文是否选中，插入到数据库中对应的表
+            if (myfi._newmd5)
+            {
+                if (myfi._chachongchuli.Equals("正文"))
+                {
+                    var zhengwen= GetPipeiduixiang(myword, "正文");
+                    string str_zhengwen = string.Empty;
+                    foreach (var item in zhengwen)
+                    {
+                        str_zhengwen += item.Range.Text;
+                    }
+                    string str_sql = $"insert into 正文MD5表 values(@md5值,@记录文件名,@上传时间,@上传人,@删除)";
+                    mysqlhelper.ExecuteNonQuery(str_sql, new MySqlParameter[] {
+                    new MySqlParameter("@md5值",Md5Helper.Md5(str_zhengwen)),
+                    new MySqlParameter("@记录文件名",filename),
+                    new MySqlParameter("@上传时间",DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss")),
+                    new MySqlParameter("@上传人",UserInfo._username),
+                    new MySqlParameter("@删除",0)
+                    }) ;
+                }
+                else if (myfi._chachongchuli.Equals("全文"))
+                {
+                    var zhengwen = GetPipeiduixiang(myword, "全文");
+                    string str_quanwen = string.Empty;
+                    foreach (var item in zhengwen)
+                    {
+                        str_quanwen += item.Range.Text;
+                    }
+                    string str_sql = $"insert into 全文MD5表 values(@md5值,@记录文件名,@上传时间,@上传人,@删除)";
+                    mysqlhelper.ExecuteNonQuery(str_sql, new MySqlParameter[] {
+                    new MySqlParameter("@md5值",Md5Helper.Md5(str_quanwen)),
+                    new MySqlParameter("@记录文件名",filename),
+                    new MySqlParameter("@上传时间",DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss")),
+                    new MySqlParameter("@上传人",UserInfo._username),
+                    new MySqlParameter("@删除",0)
+                    });
+
+                }
+            }
+
+
+
             //生成excel表格
             Aspose.Cells.Workbook mywbk = new Aspose.Cells.Workbook();
-            Aspose.Cells.Worksheet mysht = mywbk.Worksheets.Add("解析结果表");
-            int row = 0; int col = 0;//用于表格行，列计数
+            Aspose.Cells.Worksheet mysht = mywbk.Worksheets[0];
+            int row = 0; //用于表格行计数
+            mysht.Cells[0, 0].Value = "赋值类型";
+            mysht.Cells[0, 1].Value = "文本特征结果";
             foreach (KeyValuePair<string, string> kv in dic_result)
             {
-                mysht.Cells[row, 1].Value = kv.Key;
-                mysht.Cells[row, 2].Value = kv.Value;
+                row++;
+                mysht.Cells[row, 0].Value = kv.Key;
+                mysht.Cells[row, 1].Value = kv.Value;
             }
             mywbk.Save($@"{myfi._excelpath}\测试结果表.xlsx");
             //MessageBox.Show("解析完成");

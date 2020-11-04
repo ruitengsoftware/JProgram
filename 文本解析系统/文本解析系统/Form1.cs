@@ -127,7 +127,6 @@ namespace 文本解析系统
         {
             //获得格式名称
             string formatname = cbb_jiexigeshi.Text;
-
             //赋值对应的删除字段为1
             bool b = _mycontroller.DeleteFormat(formatname);
             if (b)
@@ -135,6 +134,9 @@ namespace 文本解析系统
                 MessageBox.Show("格式已删除！");
             }
             //显示该格式上一条名称，如果没有格式，不显示，所有得设置为空
+
+
+
 
         }
         /// <summary>
@@ -154,6 +156,10 @@ namespace 文本解析系统
             {
                 if (item is CheckBox && (item as CheckBox).Checked)
                 {
+                    if (item.Text == "写入新MD5值")
+                    {
+                        continue;
+                    }
                     chachong = item.Text;
                 }
             }
@@ -174,8 +180,10 @@ namespace 文本解析系统
                     list_guize.Add(item.Cells[1].Value.ToString());
                 }
             }
+            //获得是否新MD5
+            bool newmd5 = cb_md5.Checked;
             //保存解析格式
-            bool b = _mycontroller.SaveFormat(formatname, chachong, excelpath, list_guize);
+            bool b = _mycontroller.SaveFormat(formatname, chachong, excelpath, newmd5, list_guize);
             if (b) MessageBox.Show("解析格式保存成功！");
         }
         /// <summary>
@@ -207,12 +215,21 @@ namespace 文本解析系统
             //查重处理赋值
             foreach (Control item in tlp_chachong.Controls)
             {
-                if (item.Text.Equals(myfi._chachongchuli))
+
+                if (item is CheckBox && item.Text.Equals(myfi._chachongchuli))
                 {
                     (item as CheckBox).Checked = true;
                 }
+                else if (item is CheckBox && !item.Text.Equals(myfi._chachongchuli))
+                {
+                    (item as CheckBox).Checked = false;
+                }
             }
-
+            //新MD5复制
+            if (myfi._newmd5)
+            {
+                cb_md5.Checked = true;
+            }
             //excel存放赋值
             if (myfi._excelpath.Equals(string.Empty))
             {
@@ -234,8 +251,6 @@ namespace 文本解析系统
                 if (myfi.list_jiexiguize.Contains(name))
                 {
                     item.Cells[0].Value = true;
-
-
                 }
             }
 
@@ -250,27 +265,33 @@ namespace 文本解析系统
         /// <param name="e"></param>
         private void btn_kaishi_Click(object sender, EventArgs e)
         {
-            //循环待处理文档
-            for (int i = 0; i < dgv_daichuli.Rows.Count; i++)
+
+            Action a = () =>
             {
-                //获得文件夹名称
-                string foldername = dgv_daichuli.Rows[i].Cells[1].Value.ToString();
-                string formatname= dgv_daichuli.Rows[i].Cells[2].Value.ToString();
-                //显示在处理列表中，更改状态为处理中
-                int index = dgv_chulizhong.Rows.Add();
-                dgv_chulizhong.Rows[index].Cells[1].Value = foldername;
-                dgv_chulizhong.Rows[index].Cells[3].Value = "未完成";
-                //获得该文件夹下的所有文件，开始解析该文档，同时更新解析进度
-                var files = Directory.GetFiles(foldername).ToList();
-                for (int j = 0; j < files.Count; j++)
+
+                for (int i = 0; i < dgv_daichuli.Rows.Count; i++)
                 {
-                    // 更新进度       
-                    string jindu = (Convert.ToDouble(j + 1) / Convert.ToDouble(files.Count)).ToString("00.00");
-                    dgv_chulizhong.Rows[index].Cells[2].Value = $"{jindu}%";
-                    //获得解析结果，如果成功显示处理完成，未完成，重复
-                   string str_jiexijieguo= _mycontroller.Jiexi(files[j], formatname);
+                    //获得文件夹名称
+                    string foldername = dgv_daichuli.Rows[i].Cells[1].Value.ToString();
+                    string formatname = dgv_daichuli.Rows[i].Cells[2].Value.ToString();
+                    //显示在处理列表中，更改状态为处理中
+                    int index = dgv_chulizhong.Rows.Add();
+                    dgv_chulizhong.Rows[index].Cells[1].Value = foldername;
+                    dgv_chulizhong.Rows[index].Cells[3].Value = "未完成";
+                    //获得该文件夹下的所有文件，开始解析该文档，同时更新解析进度
+                    var files = Directory.GetFiles(foldername).ToList();
+                    for (int j = 0; j < files.Count; j++)
+                    {
+                        // 更新进度       
+                        string jindu = (Convert.ToDouble(j + 1)*100 / Convert.ToDouble(files.Count)).ToString("00.00");
+                        dgv_chulizhong.Rows[index].Cells[2].Value = $"{jindu}%";
+                        //获得解析结果，如果成功显示处理完成，完成，重复
+                        string str_jiexijieguo = _mycontroller.Jiexi(files[j], formatname);
+                        dgv_chulizhong.Rows[index].Cells[3].Value = str_jiexijieguo;
+                    }
                 }
-            }
+            };
+            a.BeginInvoke(o=> { },null);
         }
         /// <summary>
         /// 点击excel存放文件夹图片时触发的事件
@@ -280,11 +301,9 @@ namespace 文本解析系统
         private void pb_path_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog()==DialogResult.OK)
+            if (fbd.ShowDialog() == DialogResult.OK)
             {
                 tb_savepath.Text = fbd.SelectedPath;
-
-
             }
         }
     }
