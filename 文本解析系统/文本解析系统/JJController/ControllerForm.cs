@@ -704,7 +704,7 @@ namespace 文本解析系统.JJController
                     foreach (Paragraph para in sec.Body.Paragraphs)
                     {
                         bool juwei = Regex.IsMatch(para.Range.Text,$@"[\s\S]+(?![;。；……？！?!:])");
-                        if (juwei)
+                        if (!juwei)
                         {
                             result += para.Range.Text;
                         }
@@ -717,16 +717,24 @@ namespace 文本解析系统.JJController
                 {
                     foreach (Paragraph para in sec.Body.Paragraphs)
                     {
-
+                        bool juwei = Regex.IsMatch(para.Range.Text, $@"[\s\S]+(?![。……？！?!:])");
+                        if (juwei)
+                        {
+                            result += para.Range.Text;
+                        }
                     }
                 }
             }
-            else if (duixiang.Equals("首段标准句"))
+            else if (duixiang.Equals("首段标准句"))//需要写清楚
             {
                 foreach (Section sec in myword.Sections)
                 {
                     foreach (Paragraph para in sec.Body.Paragraphs)
                     {
+                        //判断是否为段首标准句
+
+
+
 
                     }
                 }
