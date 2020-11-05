@@ -419,8 +419,6 @@ namespace 文本解析系统.JJController
             //获得全文
             if (duixiang.Equals("全文"))
             {
-
-
                 foreach (Section sec in myword.Sections)
                 {
                     foreach (Paragraph para in sec.Body.Paragraphs)
@@ -431,7 +429,6 @@ namespace 文本解析系统.JJController
                         }
                     }
                 }
-
             }
             //获得正文
             else if (duixiang.Equals("正文"))
@@ -503,10 +500,12 @@ namespace 文本解析系统.JJController
                             {
                                 get1 = true;//如果已经找到第一个居中不为零的自然段，那么就记录下来
                             }
-                            else
+                            else if (!get2)
                             {
                                 result += para.Range.Text;
+                                get2 = true;
                             }
+
                         }
                         else if (kaitou1 && !jieweifuhao)
                         {
@@ -523,7 +522,6 @@ namespace 文本解析系统.JJController
                             {
                                 result += item.Value;
                             }
-
                         }
                     }
                 }
@@ -531,17 +529,318 @@ namespace 文本解析系统.JJController
             }
             else if (duixiang.Equals("一级标题"))
             {
-
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        bool kaitou = Regex.IsMatch(para.Range.Text, $@"^[一二三四五六七八九十]+、[\s\S]+(?![；。;])");
+                        bool juhao = Regex.IsMatch(para.Range.Text, $@"!(?!<。)[\s\S]+(?!。)$");
+                        if (kaitou && juhao)
+                        {
+                            result += para.Range.Text;
+                        }
+                    }
+                }
             }
             else if (duixiang.Equals("二级标题"))
             {
-
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        bool kaitou = Regex.IsMatch(para.Range.Text, $@"^[(（][一二三四五六七八九十][)）][\s\S]+");
+                        bool juhao = Regex.IsMatch(para.Range.Text, $@"[\s\S]+[。;]$");
+                        if (kaitou && juhao)
+                        {
+                            result += para.Range.Text;
+                        }
+                    }
+                }
             }
             else if (duixiang.Equals("三级标题"))
             {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        bool kaitou1 = Regex.IsMatch(para.Range.Text, $@"^[一二三四五六七八九十]+是要[\s\S]+");
+                        bool kaitou2 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+[,，][\s\S]+");
+                        bool kaitou3 = Regex.IsMatch(para.Range.Text, $@"^首先[\s\S]+");
+                        bool kaitou4 = Regex.IsMatch(para.Range.Text, $@"^其次[\s\S]+");
+                        bool kaitou5 = Regex.IsMatch(para.Range.Text, $@"^[(（]\d+[)）][\s\S]+");
+                        bool kaitou6 = Regex.IsMatch(para.Range.Text, $@"^[(（][①②③④⑤⑥⑦⑧⑨⑩][)）][\s\S]+");
+                        bool kaitou7 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+条[\s\S]+");
+                        bool kaitou8 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+款[\s\S]+");
+                        bool kaitou9 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+项[\s\S]+");
+                        if (kaitou1 || kaitou2 || kaitou3 || kaitou4 || kaitou5 || kaitou6 || kaitou7 | kaitou8 | kaitou9)
+                        {
+                            result += para.Range.Text;
+                        }
+
+                    }
+                }
+            }
+            else if (duixiang.Equals("全文纲要"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        //判断标题级别是否为1
+                        bool jibie = para.ListFormat.ListLevelNumber == 1;
+                        if (jibie)
+                        {
+                            result += para.Range.Text;
+                        }
+                    }
+                }
+            }
+            else if (duixiang.Equals("二级标题纲要"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        //判断标题级别是否为2
+                        bool jibie = para.ListFormat.ListLevelNumber == 2;
+                        if (jibie)
+                        {
+                            result += para.Range.Text;
+                        }
+                    }
+                }
+            }
+            else if (duixiang.Equals("三级标题纲要"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        //判断标题级别是否为3
+                        bool jibie = para.ListFormat.ListLevelNumber == 3;
+                        if (jibie)
+                        {
+                            result += para.Range.Text;
+                        }
+                    }
+                }
+            }
+            else if (duixiang.Equals("法条"))//推后开发
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                    }
+                }
+            }
+            else if (duixiang.Equals("政策文件条款"))//推后开发
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                    }
+                }
+            }
+            else if (duixiang.Equals("语义统计分析"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                    }
+                }
+            }
+            else if (duixiang.Equals("首段"))
+            {
+                var shouduan = myword.FirstSection.Body.FirstParagraph;
+                result += shouduan.Range.Text;
+            }
+            else if (duixiang.Equals("尾段"))
+            {
+                var shouduan = myword.LastSection.Body.LastParagraph;
+                result += shouduan.Range.Text;
 
             }
+            else if (duixiang.Equals("单句段"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        //判断是否有句号
+                        bool juhao = Regex.IsMatch(para.Range.Text, $@"[\s\S]+。[\S\s]");
+                        if (!juhao)
+                        {
+                            result += para.Range.Text;
+                        }
+                    }
+                }
+            }
+            else if (duixiang.Equals("普通标准段"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        bool juhao = Regex.IsMatch(para.Range.Text, $@"[\s\S]+。[\S\s]");
+                        bool shouduan = para==myword.FirstSection.Body.FirstParagraph;
+                        bool moduan = para==myword.FirstSection.Body.FirstParagraph;
+                        if (juhao && !shouduan && !moduan)
+                        {
+                            result += para.Range.Text;
+                        }
+                    }
+                }
+            }
+            else if (duixiang.Equals("无标点标准句"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        bool juwei = Regex.IsMatch(para.Range.Text,$@"[\s\S]+(?![;。；……？！?!:])");
+                        if (juwei)
+                        {
+                            result += para.Range.Text;
+                        }
+                    }
+                }
+            }
+            else if (duixiang.Equals("有标点标准句"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
 
+                    }
+                }
+            }
+            else if (duixiang.Equals("首段标准句"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                    }
+                }
+            }
+            else if (duixiang.Equals("普通标准句"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                    }
+                }
+            }
+            else if (duixiang.Equals("文件名索引句"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                    }
+                }
+            }
+            else if (duixiang.Equals("主标题索引据"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                    }
+                }
+            }
+            else if (duixiang.Equals("副标题索引句"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                    }
+                }
+            }
+            else if (duixiang.Equals("一级标题索引据"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                    }
+                }
+            }
+            else if (duixiang.Equals("二级标题索引句"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                    }
+                }
+            }
+            else if (duixiang.Equals("三级标题索引句"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                    }
+                }
+            }
+            else if (duixiang.Equals("段首索引句"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                    }
+                }
+            }
+            else if (duixiang.Equals("法条索引句"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                    }
+                }
+            }
+            else if (duixiang.Equals("政策条款索引句"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                    }
+                }
+            }
+            else if (duixiang.Equals("普通索引句"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                    }
+                }
+            }
 
             return result;
         }
