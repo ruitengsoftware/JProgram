@@ -688,8 +688,8 @@ namespace 文本解析系统.JJController
                     foreach (Paragraph para in sec.Body.Paragraphs)
                     {
                         bool juhao = Regex.IsMatch(para.Range.Text, $@"[\s\S]+。[\S\s]");
-                        bool shouduan = para==myword.FirstSection.Body.FirstParagraph;
-                        bool moduan = para==myword.FirstSection.Body.FirstParagraph;
+                        bool shouduan = para == myword.FirstSection.Body.FirstParagraph;
+                        bool moduan = para == myword.FirstSection.Body.FirstParagraph;
                         if (juhao && !shouduan && !moduan)
                         {
                             result += para.Range.Text;
@@ -703,7 +703,7 @@ namespace 文本解析系统.JJController
                 {
                     foreach (Paragraph para in sec.Body.Paragraphs)
                     {
-                        bool juwei = Regex.IsMatch(para.Range.Text,$@"[\s\S]+(?![;。；……？！?!:])");
+                        bool juwei = Regex.IsMatch(para.Range.Text, $@"[\s\S]+(?![;。；……？！?!:])");
                         if (!juwei)
                         {
                             result += para.Range.Text;
@@ -731,11 +731,9 @@ namespace 文本解析系统.JJController
                 {
                     foreach (Paragraph para in sec.Body.Paragraphs)
                     {
-                        //判断是否为段首标准句
-
-
-
-
+                        //获得所有标准句,取第一个集合为段首标准句
+                        var matches = Regex.Matches(para.Range.Text, $@"[\s\S]+(?![。……？！?!:])");
+                        result += matches[0].Value;
                     }
                 }
             }
@@ -745,107 +743,413 @@ namespace 文本解析系统.JJController
                 {
                     foreach (Paragraph para in sec.Body.Paragraphs)
                     {
+                        //获得所有标准句,取第一个集合为段首标准句
+                        var matches = Regex.Matches(para.Range.Text, $@"[\s\S]+(?![。……？！?!:])");
+                        for (int i = 1; i < matches.Count; i++)
+                        {
+                            result += matches[i].Value;
+                        }
 
                     }
                 }
             }
             else if (duixiang.Equals("文件名索引句"))
             {
-                foreach (Section sec in myword.Sections)
+                string filename = myword.OriginalFileName;
+                var matches = Regex.Matches(filename, $@"(?<[、，,])[\s\S]+、?(?=[，,])");
+                foreach (Match item in matches)
                 {
-                    foreach (Paragraph para in sec.Body.Paragraphs)
-                    {
-
-                    }
+                    result += item.Value;
                 }
             }
             else if (duixiang.Equals("主标题索引据"))
             {
+                string mystr = string.Empty;
+                bool get = false;//记录是否已经捕捉到第一个居中的自然段
+
                 foreach (Section sec in myword.Sections)
                 {
                     foreach (Paragraph para in sec.Body.Paragraphs)
                     {
-
+                        //获得主标题
+                        if (!get && !para.Range.Text.Trim().Equals(string.Empty) && para.ParagraphFormat.Alignment == ParagraphAlignment.Center)
+                        {
+                            if (Regex.IsMatch(para.Range.Text, $@"[\s\S]+[。;；]$"))//判断结尾是否含有标点符号
+                            {
+                                mystr += para.Range.Text;
+                                get = true;//如果已经找到第一个居中不为零的自然段，那么就记录下来
+                            }
+                        }
+                        else if (!para.Range.Text.Trim().Equals(string.Empty) && para.ParagraphFormat.Alignment != ParagraphAlignment.Center)
+                        {
+                            var matches0 = Regex.Matches(para.Range.Text.Trim(), $@"^第[\s\S]+[编章][\s\S]+");
+                            foreach (Match item in matches0)
+                            {
+                                mystr += item.Value;
+                            }
+                        }
                     }
+                }
+                //对主标题文本开始匹配
+                var matches = Regex.Matches(mystr, $@"(?<[、，,])[\s\S]+、?(?=[，,])");
+                foreach (Match item in matches)
+                {
+                    result += item.Value;
                 }
             }
             else if (duixiang.Equals("副标题索引句"))
             {
+                string mystr = string.Empty;//用于记录副标题
+                bool get1 = false;//记录是否已经捕捉到第一个居中的自然段
+                bool get2 = false;//记录是否已经捕捉到第二个居中的自然段
                 foreach (Section sec in myword.Sections)
                 {
                     foreach (Paragraph para in sec.Body.Paragraphs)
                     {
+                        //判断结尾是否为标点
+                        bool jieweifuhao = Regex.IsMatch(para.Range.Text, $@"[\s\S]+[。;；]$");
+                        //判断段落的居中
+                        var alignment = para.ParagraphFormat.Alignment == ParagraphAlignment.Center;
+                        //判断是否以第一节
+                        bool kaitou1 = Regex.IsMatch(para.Range.Text.Trim(), $@"^第[\s\S]+节[\s\S]+");
+                        //是否以目录前言开始
+                        bool kaitou2 = Regex.IsMatch(para.Range.Text.Trim(), $@"^(目录|前言)[\s\S]+");
+                        //判断文字是否为空
+                        bool empty = para.Range.Text.Trim().Equals(string.Empty);
+                        if (!empty && alignment && jieweifuhao)
+                        {
+                            if (!get1)//判断和标记第一个居中自然段
+                            {
+                                get1 = true;//如果已经找到第一个居中不为零的自然段，那么就记录下来
+                            }
+                            else if (!get2)
+                            {
+                                mystr += para.Range.Text;
+                                get2 = true;
+                            }
 
+                        }
+                        else if (kaitou1 && !jieweifuhao)
+                        {
+                            var matches0 = Regex.Matches(para.Range.Text.Trim(), $@"^第[\s\S]+节[\s\S]+");
+                            foreach (Match item in matches0)
+                            {
+                                mystr += item.Value;
+                            }
+                        }
+                        else if (kaitou2 && !jieweifuhao)
+                        {
+                            var matches0 = Regex.Matches(para.Range.Text.Trim(), $@"^(目录|前言)[\s\S]+");
+                            foreach (Match item in matches0)
+                            {
+                                mystr += item.Value;
+                            }
+                        }
                     }
+                }
+                //对副标题文本开始匹配
+                var matches = Regex.Matches(mystr, $@"(?<[、，,])[\s\S]+、?(?=[，,])");
+                foreach (Match item in matches)
+                {
+                    result += item.Value;
                 }
             }
             else if (duixiang.Equals("一级标题索引据"))
             {
+                string mystr = string.Empty;
+                //获得一级标题
                 foreach (Section sec in myword.Sections)
                 {
                     foreach (Paragraph para in sec.Body.Paragraphs)
                     {
-
+                        bool kaitou = Regex.IsMatch(para.Range.Text, $@"^[一二三四五六七八九十]+、[\s\S]+(?![；。;])");
+                        bool juhao = Regex.IsMatch(para.Range.Text, $@"!(?!<。)[\s\S]+(?!。)$");
+                        if (kaitou && juhao)
+                        {
+                            mystr += para.Range.Text;
+                        }
                     }
                 }
+                //获得一级标题索引
+                var matches = Regex.Matches(mystr, $@"(?<[、，,])[\s\S]+、?(?=[，,])");
+                foreach (Match item in matches)
+                {
+                    result += item.Value;
+                }
+
+
             }
             else if (duixiang.Equals("二级标题索引句"))
             {
+                string mystr = string.Empty;
+                //获得二级标题
                 foreach (Section sec in myword.Sections)
                 {
                     foreach (Paragraph para in sec.Body.Paragraphs)
                     {
-
+                        bool kaitou = Regex.IsMatch(para.Range.Text, $@"^[(（][一二三四五六七八九十][)）][\s\S]+");
+                        bool juhao = Regex.IsMatch(para.Range.Text, $@"[\s\S]+[。;]$");
+                        if (kaitou && juhao)
+                        {
+                            mystr += para.Range.Text;
+                        }
                     }
+                }
+                //对二级标题开始匹配
+                var matches = Regex.Matches(mystr, $@"(?<[、，,])[\s\S]+、?(?=[，,])");
+                foreach (Match item in matches)
+                {
+                    result += item.Value;
                 }
             }
             else if (duixiang.Equals("三级标题索引句"))
             {
+                string mystr = string.Empty;
                 foreach (Section sec in myword.Sections)
                 {
                     foreach (Paragraph para in sec.Body.Paragraphs)
                     {
+                        bool kaitou1 = Regex.IsMatch(para.Range.Text, $@"^[一二三四五六七八九十]+是要[\s\S]+");
+                        bool kaitou2 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+[,，][\s\S]+");
+                        bool kaitou3 = Regex.IsMatch(para.Range.Text, $@"^首先[\s\S]+");
+                        bool kaitou4 = Regex.IsMatch(para.Range.Text, $@"^其次[\s\S]+");
+                        bool kaitou5 = Regex.IsMatch(para.Range.Text, $@"^[(（]\d+[)）][\s\S]+");
+                        bool kaitou6 = Regex.IsMatch(para.Range.Text, $@"^[(（][①②③④⑤⑥⑦⑧⑨⑩][)）][\s\S]+");
+                        bool kaitou7 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+条[\s\S]+");
+                        bool kaitou8 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+款[\s\S]+");
+                        bool kaitou9 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+项[\s\S]+");
+                        if (kaitou1 || kaitou2 || kaitou3 || kaitou4 || kaitou5 || kaitou6 || kaitou7 | kaitou8 | kaitou9)
+                        {
+                           mystr += para.Range.Text;
+                        }
 
                     }
+                }
+                //对三级标题开始匹配
+                var matches = Regex.Matches(mystr, $@"(?<[、，,])[\s\S]+、?(?=[，,])");
+                foreach (Match item in matches)
+                {
+                    result += item.Value;
                 }
             }
             else if (duixiang.Equals("段首索引句"))
             {
+                //这里的段首索引句提取了整个文章的每一段的第一个索引句
                 foreach (Section sec in myword.Sections)
                 {
                     foreach (Paragraph para in sec.Body.Paragraphs)
                     {
+                        var matches = Regex.Matches(para.Range.Text, $@"(?<=[、，,])[\s\S]+、?(?=[，,])");
+                        if (matches.Count>0)
+                        {
+                       result += matches[0].Value;
 
+                        }
                     }
                 }
+                
             }
-            else if (duixiang.Equals("法条索引句"))
+            else if (duixiang.Equals("法条索引句"))//以后在做
             {
-                foreach (Section sec in myword.Sections)
-                {
-                    foreach (Paragraph para in sec.Body.Paragraphs)
-                    {
-
-                    }
-                }
+                
             }
-            else if (duixiang.Equals("政策条款索引句"))
+            else if (duixiang.Equals("政策条款索引句"))//以后再做
             {
-                foreach (Section sec in myword.Sections)
-                {
-                    foreach (Paragraph para in sec.Body.Paragraphs)
-                    {
-
-                    }
-                }
+                
             }
             else if (duixiang.Equals("普通索引句"))
             {
+                List<string> list_all = new List<string>();
+                //获得全部的索引据
                 foreach (Section sec in myword.Sections)
                 {
                     foreach (Paragraph para in sec.Body.Paragraphs)
                     {
+                        var matches0 = Regex.Matches(para.Range.Text, $@"(?<[、，,])[\s\S]+、?(?=[，,])");
+                        foreach (Match item in matches0)
+                        {
+                            list_all.Add(item.Value);
+                        }
+                    }
+                }
 
+                //建立一个字段集合，存储之前获得的所有非普通索引据
+                List<string> list = new List<string>();
+                //获得文件名索引句
+                string filename = myword.OriginalFileName;
+                var matches = Regex.Matches(filename, $@"(?<[、，,])[\s\S]+、?(?=[，,])");
+                foreach (Match item in matches)
+                {
+                    list.Add(item.Value);
+                }
+                //获得主标题索引句
+                string mystr = string.Empty;
+                bool get = false;//记录是否已经捕捉到第一个居中的自然段
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        //获得主标题
+                        if (!get && !para.Range.Text.Trim().Equals(string.Empty) && para.ParagraphFormat.Alignment == ParagraphAlignment.Center)
+                        {
+                            if (Regex.IsMatch(para.Range.Text, $@"[\s\S]+[。;；]$"))//判断结尾是否含有标点符号
+                            {
+                                mystr += para.Range.Text;
+                                get = true;//如果已经找到第一个居中不为零的自然段，那么就记录下来
+                            }
+                        }
+                        else if (!para.Range.Text.Trim().Equals(string.Empty) && para.ParagraphFormat.Alignment != ParagraphAlignment.Center)
+                        {
+                            var matches0 = Regex.Matches(para.Range.Text.Trim(), $@"^第[\s\S]+[编章][\s\S]+");
+                            foreach (Match item in matches0)
+                            {
+                                mystr += item.Value;
+                            }
+                        }
+                    }
+                }
+                matches = Regex.Matches(mystr, $@"(?<[、，,])[\s\S]+、?(?=[，,])");
+                foreach (Match item in matches)
+                {
+                    list.Add(item.Value);
+                }
+                //获得副标题索引句
+                 mystr = string.Empty;//用于记录副标题
+                bool get1 = false;//记录是否已经捕捉到第一个居中的自然段
+                bool get2 = false;//记录是否已经捕捉到第二个居中的自然段
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        //判断结尾是否为标点
+                        bool jieweifuhao = Regex.IsMatch(para.Range.Text, $@"[\s\S]+[。;；]$");
+                        //判断段落的居中
+                        var alignment = para.ParagraphFormat.Alignment == ParagraphAlignment.Center;
+                        //判断是否以第一节
+                        bool kaitou1 = Regex.IsMatch(para.Range.Text.Trim(), $@"^第[\s\S]+节[\s\S]+");
+                        //是否以目录前言开始
+                        bool kaitou2 = Regex.IsMatch(para.Range.Text.Trim(), $@"^(目录|前言)[\s\S]+");
+                        //判断文字是否为空
+                        bool empty = para.Range.Text.Trim().Equals(string.Empty);
+                        if (!empty && alignment && jieweifuhao)
+                        {
+                            if (!get1)//判断和标记第一个居中自然段
+                            {
+                                get1 = true;//如果已经找到第一个居中不为零的自然段，那么就记录下来
+                            }
+                            else if (!get2)
+                            {
+                                mystr += para.Range.Text;
+                                get2 = true;
+                            }
+
+                        }
+                        else if (kaitou1 && !jieweifuhao)
+                        {
+                            var matches0 = Regex.Matches(para.Range.Text.Trim(), $@"^第[\s\S]+节[\s\S]+");
+                            foreach (Match item in matches0)
+                            {
+                                mystr += item.Value;
+                            }
+                        }
+                        else if (kaitou2 && !jieweifuhao)
+                        {
+                            var matches0 = Regex.Matches(para.Range.Text.Trim(), $@"^(目录|前言)[\s\S]+");
+                            foreach (Match item in matches0)
+                            {
+                                mystr += item.Value;
+                            }
+                        }
+                    }
+                }
+                matches = Regex.Matches(mystr, $@"(?<[、，,])[\s\S]+、?(?=[，,])");
+                foreach (Match item in matches)
+                {
+                    list.Add(item.Value);
+                }
+                //一级标题索引句
+                mystr = string.Empty;
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        bool kaitou = Regex.IsMatch(para.Range.Text, $@"^[一二三四五六七八九十]+、[\s\S]+(?![；。;])");
+                        bool juhao = Regex.IsMatch(para.Range.Text, $@"!(?!<。)[\s\S]+(?!。)$");
+                        if (kaitou && juhao)
+                        {
+                            mystr += para.Range.Text;
+                        }
+                    }
+                }
+                matches = Regex.Matches(mystr, $@"(?<[、，,])[\s\S]+、?(?=[，,])");
+                foreach (Match item in matches)
+                {
+                    list.Add(item.Value);
+                }
+                //二级标题索引句
+                mystr = string.Empty;
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        bool kaitou = Regex.IsMatch(para.Range.Text, $@"^[(（][一二三四五六七八九十][)）][\s\S]+");
+                        bool juhao = Regex.IsMatch(para.Range.Text, $@"[\s\S]+[。;]$");
+                        if (kaitou && juhao)
+                        {
+                            mystr += para.Range.Text;
+                        }
+                    }
+                }
+                matches = Regex.Matches(mystr, $@"(?<[、，,])[\s\S]+、?(?=[，,])");
+                foreach (Match item in matches)
+                {
+                    list.Add(item.Value);
+                }
+                //三级标题索引句
+                 mystr = string.Empty;
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        bool kaitou1 = Regex.IsMatch(para.Range.Text, $@"^[一二三四五六七八九十]+是要[\s\S]+");
+                        bool kaitou2 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+[,，][\s\S]+");
+                        bool kaitou3 = Regex.IsMatch(para.Range.Text, $@"^首先[\s\S]+");
+                        bool kaitou4 = Regex.IsMatch(para.Range.Text, $@"^其次[\s\S]+");
+                        bool kaitou5 = Regex.IsMatch(para.Range.Text, $@"^[(（]\d+[)）][\s\S]+");
+                        bool kaitou6 = Regex.IsMatch(para.Range.Text, $@"^[(（][①②③④⑤⑥⑦⑧⑨⑩][)）][\s\S]+");
+                        bool kaitou7 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+条[\s\S]+");
+                        bool kaitou8 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+款[\s\S]+");
+                        bool kaitou9 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+项[\s\S]+");
+                        if (kaitou1 || kaitou2 || kaitou3 || kaitou4 || kaitou5 || kaitou6 || kaitou7 | kaitou8 | kaitou9)
+                        {
+                            mystr += para.Range.Text;
+                        }
+
+                    }
+                }
+                //对三级标题开始匹配
+                matches = Regex.Matches(mystr, $@"(?<[、，,])[\s\S]+、?(?=[，,])");
+                foreach (Match item in matches)
+                {
+                    list.Add(item.Value);
+                }
+                //段首索引句
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        var matches0 = Regex.Matches(para.Range.Text, $@"(?<[、，,])[\s\S]+、?(?=[，,])");
+                        list.Add(matches[0].Value);
+                    }
+                }
+                //法条索引句，以后做
+                //政策条款索引句，以后做
+                //排除所有的非普通索引句
+                foreach(string str in list_all)
+                {
+                    if (!list.Contains(str))
+                    {
+                        result += str;
                     }
                 }
             }
