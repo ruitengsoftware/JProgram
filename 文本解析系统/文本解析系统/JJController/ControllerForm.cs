@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.XPath;
 using 文本解析系统.JJCommon;
 using 文本解析系统.JJModel;
 
@@ -209,7 +210,8 @@ namespace 文本解析系统.JJController
         /// <returns></returns>
         public async Task<string> JiexiAsync(string filename, string formatname)
         {
-            return await Task.Run(()=> {
+            return await Task.Run(() =>
+            {
                 //构造aspose.words.document ，在之前需要判断文件名是否合法
                 Aspose.Words.Document myword = new Aspose.Words.Document(filename);
                 //获得他要用到的格式
@@ -279,43 +281,68 @@ namespace 文本解析系统.JJController
                     {
                         RuleDetail myrd = jiexiguize.ruleinfo[j];
                         //获得以自然段为单位的特征对象(匹配对象)
-                        var pipeiduixiang = GetPipeiduixiang(myword, myrd.duixiangxuanze);
-                        //对每一个自然段进行匹配
-                        foreach (Paragraph para in pipeiduixiang)
+                        string pipeiduixiang = GetPipeiduixiangStr(myword, myrd.duixiangxuanze);
+                        //对 特征对象进行匹配
+                        string strresult = string.Empty;
+                        if (myrd.wenbentezhengjieguo.Equals("仅文本"))
                         {
-                            //获得自然段文本
-                            string para_str = para.Range.Text;
-                            //获得自然段文本结果
-                            bool exist = Regex.IsMatch(para_str, myrd.wenbentezheng);
-                            //如果包含的话，得到文本特征结果
-                            if (exist)
-                            {
-                                //这里需要判断，如果文本特征结果是自定义的那么返回自定义值，如果不是自定义的（整句），那么就提取整句
-                                string strresult = string.Empty;
-                                if (myrd.wenbentezhengjieguo.Equals("仅文本"))
-                                {
-                                    strresult = Regex.Match(para_str, myrd.wenbentezheng).Value.ToString();
-                                }
-                                else if (myrd.wenbentezhengjieguo.Equals("整句"))
-                                {
-                                    strresult = Regex.Match(para_str, $@"(?<=[^。；;])[\s\S]*{myrd.wenbentezheng}[\s\S]*(?=[。；;])").Value.ToString();
-                                }
-                                else
-                                {
-                                    strresult = myrd.wenbentezhengjieguo;
-                                }
-                                //添加赋值结果和赋值类型到dictionary中
-                                if (dic_result.Keys.Contains(myrd.fuzhileixing))
-                                {
-                                    dic_result[myrd.fuzhileixing] += strresult;
-                                }
-                                else
-                                {
-                                    dic_result.Add(myrd.fuzhileixing, strresult);
-
-                                }
-                            }
+                            strresult = Regex.Match(pipeiduixiang, myrd.wenbentezheng).Value.ToString();
                         }
+                        else if (myrd.wenbentezhengjieguo.Equals("整句"))
+                        {
+                            strresult = Regex.Match(pipeiduixiang, $@"(?<=[^。；;])[\s\S]*{myrd.wenbentezheng}[\s\S]*(?=[。；;])").Value.ToString();
+                        }
+                        else//返回自定义的文本特征结果
+                        {
+                            strresult = myrd.wenbentezhengjieguo;
+                        }
+                        //添加赋值结果和赋值类型到dictionary中
+                        if (dic_result.Keys.Contains(myrd.fuzhileixing))
+                        {
+                            dic_result[myrd.fuzhileixing] += strresult;
+                        }
+                        else
+                        {
+                            dic_result.Add(myrd.fuzhileixing, strresult);
+                        }
+                        #region 旧的匹配方法，循环对自然段进行匹配
+                        //foreach (Paragraph para in pipeiduixiang)
+                        //{
+                        //    //获得自然段文本
+                        //    string para_str = para.Range.Text;
+                        //    //获得自然段文本结果
+                        //    bool exist = Regex.IsMatch(para_str, myrd.wenbentezheng);
+                        //    //如果包含的话，得到文本特征结果
+                        //    if (exist)
+                        //    {
+                        //        //这里需要判断，如果文本特征结果是自定义的那么返回自定义值，如果不是自定义的（整句），那么就提取整句
+                        //        string strresult = string.Empty;
+                        //        if (myrd.wenbentezhengjieguo.Equals("仅文本"))
+                        //        {
+                        //            strresult = Regex.Match(para_str, myrd.wenbentezheng).Value.ToString();
+                        //        }
+                        //        else if (myrd.wenbentezhengjieguo.Equals("整句"))
+                        //        {
+                        //            strresult = Regex.Match(para_str, $@"(?<=[^。；;])[\s\S]*{myrd.wenbentezheng}[\s\S]*(?=[。；;])").Value.ToString();
+                        //        }
+                        //        else//返回自定义的文本特征结果
+                        //        {
+                        //            strresult = myrd.wenbentezhengjieguo;
+                        //        }
+                        //        //添加赋值结果和赋值类型到dictionary中
+                        //        if (dic_result.Keys.Contains(myrd.fuzhileixing))
+                        //        {
+                        //            dic_result[myrd.fuzhileixing] += strresult;
+                        //        }
+                        //        else
+                        //        {
+                        //            dic_result.Add(myrd.fuzhileixing, strresult);
+
+                        //        }
+                        //    }
+                        //}
+
+                        #endregion
                     }
                 }
                 //判断是否需要写入MD5值向全文/正文表格中去,如果md5选中了，那么判断正文/全文是否选中，插入到数据库中对应的表
@@ -378,6 +405,145 @@ namespace 文本解析系统.JJController
 
             });
 
+        }
+
+        /// <summary>
+        /// 获得以自然段为单位组成的文本特征集合
+        /// </summary>
+        /// <param name="myword"></param>
+        /// <param name="duixiang"></param>
+        /// <returns></returns>
+        public string GetPipeiduixiangStr(Aspose.Words.Document myword, string duixiang)
+        {
+            string result = string.Empty;
+            //获得全文
+            if (duixiang.Equals("全文"))
+            {
+
+
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        if (!para.Range.Text.Trim().Equals(string.Empty))
+                        {
+                            result += para.Range.Text;
+                        }
+                    }
+                }
+
+            }
+            //获得正文
+            else if (duixiang.Equals("正文"))
+            {
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        if (!para.Range.Text.Trim().Equals(string.Empty) && para.ParagraphFormat.Alignment != ParagraphAlignment.Center)
+                        {
+                            result += para.Range.Text;
+                        }
+                    }
+                }
+            }
+            else if (duixiang.Equals("文件名"))//获得文件名
+            {
+                result = myword.OriginalFileName;
+
+            }
+            else if (duixiang.Equals("主标题"))//获得主标题
+            {
+                bool get = false;//记录是否已经捕捉到第一个居中的自然段
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+
+                        if (!get && !para.Range.Text.Trim().Equals(string.Empty) && para.ParagraphFormat.Alignment == ParagraphAlignment.Center)
+                        {
+                            if (Regex.IsMatch(para.Range.Text, $@"[\s\S]+[。;；]$"))//判断结尾是否含有标点符号
+                            {
+                                result += para.Range.Text;
+                                get = true;//如果已经找到第一个居中不为零的自然段，那么就记录下来
+                            }
+                        }
+                        else if (!para.Range.Text.Trim().Equals(string.Empty) && para.ParagraphFormat.Alignment != ParagraphAlignment.Center)
+                        {
+                            var matches = Regex.Matches(para.Range.Text.Trim(), $@"^第[\s\S]+[编章][\s\S]+");
+                            foreach (Match item in matches)
+                            {
+                                result += item.Value;
+                            }
+                        }
+                    }
+                }
+            }
+            else if (duixiang.Equals("副标题"))//获得副标题
+            {
+                bool get1 = false;//记录是否已经捕捉到第一个居中的自然段
+                bool get2 = false;//记录是否已经捕捉到第二个居中的自然段
+                foreach (Section sec in myword.Sections)
+                {
+                    foreach (Paragraph para in sec.Body.Paragraphs)
+                    {
+                        //判断结尾是否为标点
+                        bool jieweifuhao = Regex.IsMatch(para.Range.Text, $@"[\s\S]+[。;；]$");
+                        //判断段落的居中
+                        var alignment = para.ParagraphFormat.Alignment == ParagraphAlignment.Center;
+                        //判断是否以第一节
+                        bool kaitou1 = Regex.IsMatch(para.Range.Text.Trim(), $@"^第[\s\S]+节[\s\S]+");
+                        //是否以目录前言开始
+                        bool kaitou2 = Regex.IsMatch(para.Range.Text.Trim(), $@"^(目录|前言)[\s\S]+");
+                        //判断文字是否为空
+                        bool empty = para.Range.Text.Trim().Equals(string.Empty);
+                        if (!empty && alignment && jieweifuhao)
+                        {
+                            if (!get1)//判断和标记第一个居中自然段
+                            {
+                                get1 = true;//如果已经找到第一个居中不为零的自然段，那么就记录下来
+                            }
+                            else
+                            {
+                                result += para.Range.Text;
+                            }
+                        }
+                        else if (kaitou1 && !jieweifuhao)
+                        {
+                            var matches = Regex.Matches(para.Range.Text.Trim(), $@"^第[\s\S]+节[\s\S]+");
+                            foreach (Match item in matches)
+                            {
+                                result += item.Value;
+                            }
+                        }
+                        else if (kaitou2 && !jieweifuhao)
+                        {
+                            var matches = Regex.Matches(para.Range.Text.Trim(), $@"^(目录|前言)[\s\S]+");
+                            foreach (Match item in matches)
+                            {
+                                result += item.Value;
+                            }
+
+                        }
+                    }
+                }
+
+            }
+            else if (duixiang.Equals("一级标题"))
+            {
+
+            }
+            else if (duixiang.Equals("二级标题"))
+            {
+
+            }
+            else if (duixiang.Equals("三级标题"))
+            {
+
+            }
+
+
+            return result;
         }
 
         /// <summary>
