@@ -198,6 +198,24 @@ namespace 文本解析系统.JJController
                 mydgv.Rows[index].Cells[2].Value = mydt.Rows[i]["创建人"].ToString();
                 mydgv.Rows[index].Cells[3].Value = mydt.Rows[i]["创建时间"].ToString();
             }
+            //让所有基础解析规则固定在解析规则的第一位
+            foreach (DataGridViewRow item in mydgv.Rows)
+            {
+                string name = item.Cells["jiexiguizemingcheng"].Value.ToString();
+                if (name.Contains("基础解析规则"))
+                {
+                    //获得行索引
+                    var index = item.Index;
+                    //复制这一行
+                    mydgv.Rows.Remove(item);
+                    //在指定位置重新插入第一行
+                    mydgv.Rows.Insert(0, item);
+                }
+
+
+            }
+
+
         }
 
 
@@ -920,7 +938,7 @@ namespace 文本解析系统.JJController
                         bool kaitou9 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+项[\s\S]+");
                         if (kaitou1 || kaitou2 || kaitou3 || kaitou4 || kaitou5 || kaitou6 || kaitou7 | kaitou8 | kaitou9)
                         {
-                           mystr += para.Range.Text;
+                            mystr += para.Range.Text;
                         }
 
                     }
@@ -940,22 +958,22 @@ namespace 文本解析系统.JJController
                     foreach (Paragraph para in sec.Body.Paragraphs)
                     {
                         var matches = Regex.Matches(para.Range.Text, $@"(?<=[、，,])[\s\S]+、?(?=[，,])");
-                        if (matches.Count>0)
+                        if (matches.Count > 0)
                         {
-                       result += matches[0].Value;
+                            result += matches[0].Value;
 
                         }
                     }
                 }
-                
+
             }
             else if (duixiang.Equals("法条索引句"))//以后在做
             {
-                
+
             }
             else if (duixiang.Equals("政策条款索引句"))//以后再做
             {
-                
+
             }
             else if (duixiang.Equals("普通索引句"))
             {
@@ -1014,7 +1032,7 @@ namespace 文本解析系统.JJController
                     list.Add(item.Value);
                 }
                 //获得副标题索引句
-                 mystr = string.Empty;//用于记录副标题
+                mystr = string.Empty;//用于记录副标题
                 bool get1 = false;//记录是否已经捕捉到第一个居中的自然段
                 bool get2 = false;//记录是否已经捕捉到第二个居中的自然段
                 foreach (Section sec in myword.Sections)
@@ -1106,7 +1124,7 @@ namespace 文本解析系统.JJController
                     list.Add(item.Value);
                 }
                 //三级标题索引句
-                 mystr = string.Empty;
+                mystr = string.Empty;
                 foreach (Section sec in myword.Sections)
                 {
                     foreach (Paragraph para in sec.Body.Paragraphs)
@@ -1145,7 +1163,7 @@ namespace 文本解析系统.JJController
                 //法条索引句，以后做
                 //政策条款索引句，以后做
                 //排除所有的非普通索引句
-                foreach(string str in list_all)
+                foreach (string str in list_all)
                 {
                     if (!list.Contains(str))
                     {

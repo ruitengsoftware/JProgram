@@ -69,33 +69,39 @@ namespace 文本解析系统
         /// <param name="e"></param>
         private void dgv_jiexiguize_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //点击button按钮事件
+            //点击button按钮事件,注意如果是基础规则那么点击无效
             if (dgv_jiexiguize.Columns[e.ColumnIndex].Name == "bianjianniu" && e.RowIndex >= 0)
             {
                 //从数据库中获得该规则对应的文本特征，显示到新打开的winformguize中
                 string rulename = dgv_jiexiguize.Rows[e.RowIndex].Cells["jiexiguizemingcheng"].Value.ToString();
+                if (rulename.Contains("基础解析规则"))
+                {
+                    MessageBox.Show("不可编辑基础规则！");
+                    return;
+                }
                 //构造一个winformguize
                 JJWinForm.WinFormGuize mywin = new JJWinForm.WinFormGuize(rulename);
                 mywin.StartPosition = FormStartPosition.CenterParent;
                 if (mywin.ShowDialog() == DialogResult.OK)
                 {
-
                     //刷新数据
                     _mycontroller.UpdateDGV(dgv_jiexiguize);
-
                 }
-
             }
-            //点击删除按钮事件
+            //点击删除按钮事件,注意如果是基础规则那么点击无效
             if (dgv_jiexiguize.Columns[e.ColumnIndex].Name == "shanchuanniu" && e.RowIndex >= 0)
             {
                 //获得规则名称
                 string rulename = dgv_jiexiguize.Rows[e.RowIndex].Cells["jiexiguizemingcheng"].Value.ToString();
+                if (rulename.Contains("基础解析规则"))//基础规则点击无效
+                {
+                    MessageBox.Show("不可删除基础规则！");
+                    return;
+                }
                 //规则信息表该条规则的删除字段赋值为1
                 _mycontroller.DeleteGuize(rulename);
                 //刷新数据
                 _mycontroller.UpdateDGV(dgv_jiexiguize);
-
             }
             //点击选择按钮
             //if (dgv_jiexiguize.Columns[e.ColumnIndex].Name == "xuanze" && e.RowIndex >= 0)
@@ -129,9 +135,6 @@ namespace 文本解析系统
         {
 
             _mycontroller.UpdateDGV(dgv_jiexiguize);
-
-
-
         }
         /// <summary>
         /// 点击删除格式按钮时触发的事件
