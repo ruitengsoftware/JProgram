@@ -32,7 +32,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tlpmain = new System.Windows.Forms.TableLayoutPanel();
             this.mypanel = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlp_button = new System.Windows.Forms.TableLayoutPanel();
             this.lbldata = new System.Windows.Forms.Label();
             this.lblupdatename = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tlpmain.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tlp_button.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -73,7 +73,7 @@
             this.tlpmain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.tlpmain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpmain.Controls.Add(this.mypanel, 1, 1);
-            this.tlpmain.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tlpmain.Controls.Add(this.tlp_button, 0, 1);
             this.tlpmain.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tlpmain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpmain.Location = new System.Drawing.Point(0, 0);
@@ -94,39 +94,39 @@
             this.mypanel.Size = new System.Drawing.Size(902, 518);
             this.mypanel.TabIndex = 1;
             // 
-            // tableLayoutPanel2
+            // tlp_button
             // 
-            this.tableLayoutPanel2.BackColor = System.Drawing.Color.LightSlateGray;
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.lbldata, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.lblupdatename, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.lblupdate, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.lbl_neirongchuli, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lbl_tupianchuli, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.lbl_fenlei, 0, 6);
-            this.tableLayoutPanel2.Controls.Add(this.lblcreate, 0, 9);
-            this.tableLayoutPanel2.Controls.Add(this.lbl_, 0, 7);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 8);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 60);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 11;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(90, 520);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.tlp_button.BackColor = System.Drawing.Color.LightSlateGray;
+            this.tlp_button.ColumnCount = 1;
+            this.tlp_button.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_button.Controls.Add(this.lbldata, 0, 3);
+            this.tlp_button.Controls.Add(this.lblupdatename, 0, 2);
+            this.tlp_button.Controls.Add(this.label1, 0, 4);
+            this.tlp_button.Controls.Add(this.lblupdate, 0, 1);
+            this.tlp_button.Controls.Add(this.lbl_neirongchuli, 0, 0);
+            this.tlp_button.Controls.Add(this.lbl_tupianchuli, 0, 5);
+            this.tlp_button.Controls.Add(this.lbl_fenlei, 0, 6);
+            this.tlp_button.Controls.Add(this.lblcreate, 0, 9);
+            this.tlp_button.Controls.Add(this.lbl_, 0, 7);
+            this.tlp_button.Controls.Add(this.label3, 0, 8);
+            this.tlp_button.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlp_button.Location = new System.Drawing.Point(0, 60);
+            this.tlp_button.Margin = new System.Windows.Forms.Padding(0);
+            this.tlp_button.Name = "tlp_button";
+            this.tlp_button.RowCount = 11;
+            this.tlp_button.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlp_button.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlp_button.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlp_button.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlp_button.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlp_button.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlp_button.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlp_button.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlp_button.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlp_button.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlp_button.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_button.Size = new System.Drawing.Size(90, 520);
+            this.tlp_button.TabIndex = 0;
             // 
             // lbldata
             // 
@@ -340,8 +340,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tlpmain.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.tlp_button.ResumeLayout(false);
+            this.tlp_button.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -352,7 +352,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tlpmain;
         private System.Windows.Forms.Panel mypanel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tlp_button;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbldata;

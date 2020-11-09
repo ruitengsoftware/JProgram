@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Xml;
 using WindowsFormsApp2.Common;
 using WindowsFormsApp2.UC;
 
@@ -17,10 +17,11 @@ namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
     {
-       //测试git同步
+        //测试git同步
         public Form1()
         {
             InitializeComponent();
+           
         }
         /// <summary>
         /// 点击批量改名按钮触发的事件
@@ -28,10 +29,17 @@ namespace WindowsFormsApp2
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void label2_Click(object sender, EventArgs e)
-        {
+        {            //按钮高亮显示
+            foreach (Control item in tlp_button.Controls)
+            {
+                item.BackColor = Color.LightSlateGray;
+                item.ForeColor = Color.White;
+            }
+            (sender as Control).BackColor = Color.White;
+            (sender as Control).ForeColor = Color.Black;
+
             UCUpdateName ucun = new UCUpdateName();
             PAddControls(ucun);
-
         }
 
 
@@ -53,21 +61,37 @@ namespace WindowsFormsApp2
 
         private void label3_MouseLeave(object sender, EventArgs e)
         {
- int margin =((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender,new Padding(margin+1));
-        
+            int margin = ((Control)sender).Margin.Top;
+            mydrawer.UpdateCSize((Control)sender, new Padding(margin + 1));
+
         }
         #endregion
-
+        /// <summary>
+        /// 点击格式调整按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblupdate_Click(object sender, EventArgs e)
-        {
-            if (ucgszh == null)
+        {            //按钮高亮显示
+            foreach (Control item in tlp_button.Controls)
             {
-                ucgszh = new UCgeshitiaozheng();
-
+                item.BackColor = Color.LightSlateGray;
+                item.ForeColor = Color.White;
             }
-
-            PAddControls(ucgszh);
+            try
+            {
+                lblupdate.BackColor = Color.White;
+                lblupdate.ForeColor = Color.Black;
+            }
+            catch { }
+            finally
+            {
+                if (ucgszh == null)
+                {
+                    ucgszh = new UCgeshitiaozheng();
+                }
+                PAddControls(ucgszh);
+            }
         }
 
         private void lblcreate_Click(object sender, EventArgs e)
@@ -78,21 +102,35 @@ namespace WindowsFormsApp2
         }
 
         private void label4_Click(object sender, EventArgs e)
-        {
+        {            //按钮高亮显示
+            foreach (Control item in tlp_button.Controls)
+            {
+                item.BackColor = Color.LightSlateGray;
+                item.ForeColor = Color.White;
+            }
+            (sender as Control).BackColor = Color.White;
+            (sender as Control).ForeColor = Color.Black;
+
             UCdata ucdt = new UCdata();
             PAddControls(ucdt);
         }
-
+        /// <summary>
+        /// 主窗口加载时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (lblcreate.Visible == true)
-            {
-                lblcreate_Click(null, null);
-            }
-            else
-            {
+            //if (lblcreate.Visible == true)
+            //{
+            //    lblcreate_Click(null, null);
+            //}
+            //else
+            //{
+
                 lblupdate_Click(null, null);
-            }
+
+            //}
         }
         UC.UCExcelSplit myucsplit = null;
         /// <summary>
@@ -101,7 +139,15 @@ namespace WindowsFormsApp2
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void label1_Click(object sender, EventArgs e)
-        {
+        {            //按钮高亮显示
+            foreach (Control item in tlp_button.Controls)
+            {
+                item.BackColor = Color.LightSlateGray;
+                item.ForeColor = Color.White;
+            }
+            (sender as Control).BackColor = Color.White;
+            (sender as Control).ForeColor = Color.Black;
+
             if (myucsplit == null)
             {
                 myucsplit = new UC.UCExcelSplit();
@@ -113,10 +159,17 @@ namespace WindowsFormsApp2
         }
 
         private void Label2_Click_1(object sender, EventArgs e)
-        {
+        {            //按钮高亮显示
+            foreach (Control item in tlp_button.Controls)
+            {
+                item.BackColor = Color.LightSlateGray;
+                item.ForeColor = Color.White;
+            }
+            (sender as Control).BackColor = Color.White;
+            (sender as Control).ForeColor = Color.Black;
+
             UC.UCYiZhanShi myuc = new UC.UCYiZhanShi();
             PAddControls(myuc);
-
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -129,6 +182,14 @@ namespace WindowsFormsApp2
         UCNeirongchuli uc_neirongchuli = new UCNeirongchuli();
         private void Lbl_neirongchuli_Click(object sender, EventArgs e)
         {
+            //按钮高亮显示
+            foreach (Control item in tlp_button.Controls)
+            {
+                item.BackColor = Color.LightSlateGray;
+                item.ForeColor = Color.White;
+            }
+            (sender as Control).BackColor = Color.White;
+            (sender as Control).ForeColor = Color.Black;
             if (uc_neirongchuli == null)
             {
                 uc_neirongchuli = new UCNeirongchuli();
@@ -137,10 +198,19 @@ namespace WindowsFormsApp2
             mypanel.Controls.Clear();
             mypanel.Controls.Add(uc_neirongchuli);
 
+
         }
         UCTupianChuli uc_tupian = null;
         private void Lbl_tupianchuli_Click(object sender, EventArgs e)
-        {
+        {            //按钮高亮显示
+            foreach (Control item in tlp_button.Controls)
+            {
+                item.BackColor = Color.LightSlateGray;
+                item.ForeColor = Color.White;
+            }
+            (sender as Control).BackColor = Color.White;
+            (sender as Control).ForeColor = Color.Black;
+
             if (uc_tupian == null)
             {
                 uc_tupian = new UCTupianChuli();
@@ -151,7 +221,15 @@ namespace WindowsFormsApp2
         }
         UCFenlei _ucfenlei = null;
         private void Lbl_fenlei_Click(object sender, EventArgs e)
-        {
+        {            //按钮高亮显示
+            foreach (Control item in tlp_button.Controls)
+            {
+                item.BackColor = Color.LightSlateGray;
+                item.ForeColor = Color.White;
+            }
+            (sender as Control).BackColor = Color.White;
+            (sender as Control).ForeColor = Color.Black;
+
             if (_ucfenlei == null)
             {
                 _ucfenlei = new UCFenlei();
