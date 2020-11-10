@@ -816,6 +816,7 @@ namespace WindowsFormsApp2
         /// <param name="dic_format"></param>
         public void SetStrFormat(Aspose.Words.Paragraph mypara, Dictionary<string, Format> dic_format)
         {
+            Regex regex = null;
             //格式的设置包括那几个方面，字体大小，字体名称，斜体，加粗，倾斜，下划线等,缩进，对齐，行距值
             //1、将整个段落的格式设置成正文
             //获得正文格式
@@ -825,7 +826,8 @@ namespace WindowsFormsApp2
             options.Direction = FindReplaceDirection.Backward;
             //调整文字
             options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["一级标题"].fontname, dic_format["一级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
-            Regex regex = new Regex(@"((?<!。).)*[一二三四五六七八九十]、((?!。)[\s\S])*$", RegexOptions.IgnoreCase);
+            regex = new Regex(@"((?<!。).)*[一二三四五六七八九十]、[\s\S]*$", RegexOptions.IgnoreCase);
+
             mypara.Range.Replace(regex, "", options);
 
 
@@ -833,7 +835,7 @@ namespace WindowsFormsApp2
             //3、提取二级标题，设置格式
             //调整文字
             options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["二级标题"].fontname, dic_format["二级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
-            regex = new Regex(@"^[（\(][一二三四五六七八九十][\)）][\s\S]+[。;；]", RegexOptions.IgnoreCase);
+            regex = new Regex(@"^[（\(][一二三四五六七八九十][\)）][\s\S]*$", RegexOptions.IgnoreCase);
             mypara.Range.Replace(regex, "", options);
 
 
@@ -841,9 +843,18 @@ namespace WindowsFormsApp2
 
             //调整文字
             options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["三级标题"].fontname, dic_format["三级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
-            regex = new Regex(@"第[一二三四五六七八九十]+?(?=，|、|,)|第[\s\S]+?[条款项]|首先|其次|.是要|（\([123456789]\)）|①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿", RegexOptions.IgnoreCase);
+            regex = new Regex(@"第[一二三四五六七八九十]+?(?=，|、|,)[\s\S]*", RegexOptions.IgnoreCase);
             mypara.Range.Replace(regex, "", options);
-
+            regex = new Regex(@"第[\s\S]+?[条款项][\s\S]*");
+            mypara.Range.Replace(regex, "", options);
+            regex = new Regex(@"^(首先|其次)[\s\S]*");
+            mypara.Range.Replace(regex, "", options);
+            regex = new Regex(@".*?是要[\s\S]*");
+            mypara.Range.Replace(regex, "", options);
+            regex = new Regex(@"（\([123456789]\)）[\s\S]*");
+            mypara.Range.Replace(regex, "", options);
+            regex = new Regex(@"^[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿][\s\S]*");
+            mypara.Range.Replace(regex, "", options);
 
 
 
