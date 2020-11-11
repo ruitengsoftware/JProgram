@@ -335,7 +335,7 @@
             this.MinimumSize = new System.Drawing.Size(1010, 550);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "挖潜智库·综合文档工具 6.3.1版 2020年10月26日";
+            this.Text = "挖潜智库·综合文档工具 6.3.2版 2020年11月10日";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -79,10 +79,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aspose.Cells">
-      <HintPath>G:\OneDrive - mail.dlut.edu.cn\C#类库\ASPOSEdll\Aspose.Cells.dll</HintPath>
+      <HintPath>..\..\..\..\OneDrive - mail.dlut.edu.cn\C#类库\ASPOSEdll\Aspose.Cells.dll</HintPath>
     </Reference>
     <Reference Include="Aspose.Words">
-      <HintPath>G:\OneDrive - mail.dlut.edu.cn\C#类库\ASPOSEdll\Aspose.Words.dll</HintPath>
+      <HintPath>..\..\..\..\OneDrive - mail.dlut.edu.cn\C#类库\ASPOSEdll\Aspose.Words.dll</HintPath>
     </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -122,7 +122,7 @@
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
     <Reference Include="RuitengDll">
-      <HintPath>G:\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
+      <HintPath>..\..\..\..\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
     </Reference>
     <Reference Include="Spire.Barcode, Version=3.7.0.11040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
       <HintPath>..\packages\Spire.Office.4.9.0\lib\net40\Spire.Barcode.dll</HintPath>
@@ -216,7 +216,7 @@
       <HintPath>..\packages\MySql.Data.8.0.21\lib\net452\Ubiety.Dns.Core.dll</HintPath>
     </Reference>
     <Reference Include="ZhuceDll">
-      <HintPath>G:\OneDrive - mail.dlut.edu.cn\C#类库\ZhuceDll.dll</HintPath>
+      <HintPath>..\..\..\..\OneDrive - mail.dlut.edu.cn\C#类库\ZhuceDll.dll</HintPath>
     </Reference>
     <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.21\lib\net452\Zstandard.Net.dll</HintPath>

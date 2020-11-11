@@ -726,32 +726,25 @@ namespace WindowsFormsApp2
             var paras = mydoc.FirstSection.Body.Paragraphs;//获得文档所有的自然段
             for (int i = 0; i < paras.Count; i++)
             {
+                //去掉段内的空格              
                 var para = paras[i];
-                string str_text = para.Range.Text.Trim();
+                para.Range.Replace(new Regex(@"\s"), "",new FindReplaceOptions());
+                string str_text = para.Range.Text;
                 myjpara = new Jpara();
-
-
-
-
                 if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center && !_existdabiaoti)
                 {
                     _existdabiaoti = true;
                     SetParaFormat(para, dic_format["大标题"]);
                     continue;
                 }
-
-
                 //判断自然段是否为大标题
-
                 bool bb1 = Regex.IsMatch(str_text, "^(第一编|第一章).*");//是否以指定文字开头
-                                                                   //var bb2 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
+                //var bb2 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
                 if (bb1)
                 {
                     SetParaFormat(para, dic_format["大标题"]);
                     continue;
                 }
-
-
                 //判断自然段是否为副标题
                 if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center)
                 {
@@ -765,13 +758,12 @@ namespace WindowsFormsApp2
                         _existfubiaoti = true;
                         SetParaFormat(para, dic_format["副标题"]);
                         continue;
-
                     }
                 }
                 //判断是否是正文或各级标题
                 if (para.ParagraphFormat.Alignment != ParagraphAlignment.Center)
                 {
-                   SetStrFormat(para, dic_format);
+                    SetStrFormat(para, dic_format);
 
                 }
                 //myjdoc._jparacollection.Add(myjpara);
@@ -810,7 +802,7 @@ namespace WindowsFormsApp2
             return file;
         }
         /// <summary>
-        /// 调整段落内的各段匹配文字的央样式
+        /// 调整段落内的各段匹配文字的样式
         /// </summary>
         /// <param name="mypara"></param>
         /// <param name="dic_format"></param>
@@ -827,7 +819,6 @@ namespace WindowsFormsApp2
             //调整文字
             options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["一级标题"].fontname, dic_format["一级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
             regex = new Regex(@"((?<!。).)*[一二三四五六七八九十]、[\s\S]*$", RegexOptions.IgnoreCase);
-
             mypara.Range.Replace(regex, "", options);
 
 
@@ -869,7 +860,7 @@ namespace WindowsFormsApp2
         {
             Run myrun = mypara.Runs[0];
 
-            if (!f.enable || myrun==null)
+            if (!f.enable || myrun == null)
             {
                 return;
             }
@@ -883,6 +874,7 @@ namespace WindowsFormsApp2
             myrun.Font.Bold = f.bold == 1;
             //设置缩进
             //mypara.ParagraphFormat.FirstLineIndent = f.suojin;
+
             myrun.ParentParagraph.ParagraphFormat.FirstLineIndent = f.suojin;
             //设置对齐
             string juzhong = f.juzhong;
@@ -909,7 +901,7 @@ namespace WindowsFormsApp2
             //mypara.ParagraphFormat.LineSpacingRule = Aspose.Words.LineSpacingRule.Exactly;
             myrun.ParentParagraph.ParagraphFormat.LineSpacingRule = Aspose.Words.LineSpacingRule.Exactly;
 
-           // mypara.ParagraphFormat.LineSpacing = f.lsvalue;
+            // mypara.ParagraphFormat.LineSpacing = f.lsvalue;
             myrun.ParentParagraph.ParagraphFormat.LineSpacing = f.lsvalue;
 
         }

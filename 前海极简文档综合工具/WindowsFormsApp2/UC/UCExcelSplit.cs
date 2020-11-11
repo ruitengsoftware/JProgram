@@ -681,6 +681,7 @@ namespace WindowsFormsApp2.UC
             //string str_statue = "正在生成第{0}个，共{1}个……";
             //UpdateStatue(string.Format(str_statue, rowindex - 1, lastrow - 1));
             ///载入一个空白文档
+            
             spdoc.LoadFromFile(Environment.CurrentDirectory + @"\newdoc.docx");
             //向word空白文档加入内容
             for (int i = Global.list_myuc.Count - 1; i >= 0; i--)
