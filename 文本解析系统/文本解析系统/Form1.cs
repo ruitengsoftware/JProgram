@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 文本解析系统.JJModel;
+using 文本解析系统.JJWinForm;
 
 namespace 文本解析系统
 {
@@ -251,11 +253,11 @@ namespace 文本解析系统
             //excel存放赋值
             if (myfi._excelpath.Equals(string.Empty))
             {
-                cb_moren.Checked = true;
+                rb_moren.Checked = true;
             }
             else
             {
-                cb_qita.Checked = true;
+                rb_qita.Checked = true;
                 tb_savepath.Text = myfi._excelpath;
             }
 
@@ -306,6 +308,19 @@ namespace 文本解析系统
                     dgv_chulizhong.Rows[index].Cells[3].Value = str_jiexijieguo;
                 }
             }
+            //判断是否选中完成后关机
+            //如果是，那么弹出倒计时10秒提示框，并在及时完成后关机
+            if (cb_guanji.Checked)
+            {
+                WinFormGuanji mywin = new WinFormGuanji();
+                if (mywin.ShowDialog()==DialogResult.OK)
+                {
+Process.Start("shutdown.exe", "-s");
+
+                }
+
+            }
+
         }
         /// <summary>
         /// 点击excel存放文件夹图片时触发的事件

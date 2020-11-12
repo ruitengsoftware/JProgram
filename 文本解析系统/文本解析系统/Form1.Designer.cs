@@ -64,8 +64,6 @@
             this.cb_md5 = new System.Windows.Forms.CheckBox();
             this.tlp_excel = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.cb_moren = new System.Windows.Forms.CheckBox();
-            this.cb_qita = new System.Windows.Forms.CheckBox();
             this.tb_savepath = new System.Windows.Forms.TextBox();
             this.pb_path = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -86,6 +84,9 @@
             this.tb_search = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.rb_moren = new System.Windows.Forms.RadioButton();
+            this.rb_qita = new System.Windows.Forms.RadioButton();
+            this.cb_guanji = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -123,8 +124,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(798, 506);
-            this.splitContainer1.SplitterDistance = 264;
+            this.splitContainer1.Size = new System.Drawing.Size(941, 628);
+            this.splitContainer1.SplitterDistance = 311;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -132,18 +133,19 @@
             // 
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel8.Controls.Add(this.btn_xinzengrenwu, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.groupBox3, 0, 2);
             this.tableLayoutPanel8.Controls.Add(this.groupBox2, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.cb_guanji, 0, 3);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 3;
+            this.tableLayoutPanel8.RowCount = 4;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(264, 506);
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(311, 628);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // btn_xinzengrenwu
@@ -151,7 +153,7 @@
             this.btn_xinzengrenwu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_xinzengrenwu.Location = new System.Drawing.Point(3, 3);
             this.btn_xinzengrenwu.Name = "btn_xinzengrenwu";
-            this.btn_xinzengrenwu.Size = new System.Drawing.Size(258, 34);
+            this.btn_xinzengrenwu.Size = new System.Drawing.Size(305, 34);
             this.btn_xinzengrenwu.TabIndex = 0;
             this.btn_xinzengrenwu.Text = "新增任务";
             this.btn_xinzengrenwu.UseVisualStyleBackColor = true;
@@ -161,9 +163,9 @@
             // 
             this.groupBox3.Controls.Add(this.dgv_chulizhong);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 276);
+            this.groupBox3.Location = new System.Drawing.Point(3, 322);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(258, 227);
+            this.groupBox3.Size = new System.Drawing.Size(305, 273);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "处理中任务列表";
@@ -184,7 +186,7 @@
             this.dgv_chulizhong.Name = "dgv_chulizhong";
             this.dgv_chulizhong.RowHeadersVisible = false;
             this.dgv_chulizhong.RowTemplate.Height = 23;
-            this.dgv_chulizhong.Size = new System.Drawing.Size(252, 205);
+            this.dgv_chulizhong.Size = new System.Drawing.Size(299, 251);
             this.dgv_chulizhong.TabIndex = 1;
             // 
             // xuhao2
@@ -213,7 +215,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 43);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(258, 227);
+            this.groupBox2.Size = new System.Drawing.Size(305, 273);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "待处理任务列表";
@@ -235,7 +237,7 @@
             this.dgv_daichuli.Name = "dgv_daichuli";
             this.dgv_daichuli.RowHeadersVisible = false;
             this.dgv_daichuli.RowTemplate.Height = 23;
-            this.dgv_daichuli.Size = new System.Drawing.Size(252, 205);
+            this.dgv_daichuli.Size = new System.Drawing.Size(299, 251);
             this.dgv_daichuli.TabIndex = 0;
             this.dgv_daichuli.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_daichuli_CellMouseClick);
             // 
@@ -287,7 +289,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(529, 506);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(625, 628);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -473,10 +475,10 @@
             this.tlp_excel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlp_excel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlp_excel.Controls.Add(this.label3, 0, 0);
-            this.tlp_excel.Controls.Add(this.cb_moren, 1, 0);
-            this.tlp_excel.Controls.Add(this.cb_qita, 2, 0);
             this.tlp_excel.Controls.Add(this.tb_savepath, 3, 0);
             this.tlp_excel.Controls.Add(this.pb_path, 4, 0);
+            this.tlp_excel.Controls.Add(this.rb_moren, 1, 0);
+            this.tlp_excel.Controls.Add(this.rb_qita, 2, 0);
             this.tlp_excel.Location = new System.Drawing.Point(3, 123);
             this.tlp_excel.Name = "tlp_excel";
             this.tlp_excel.RowCount = 1;
@@ -492,26 +494,6 @@
             this.label3.Size = new System.Drawing.Size(73, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "excel存放：";
-            // 
-            // cb_moren
-            // 
-            this.cb_moren.AutoSize = true;
-            this.cb_moren.Location = new System.Drawing.Point(103, 3);
-            this.cb_moren.Name = "cb_moren";
-            this.cb_moren.Size = new System.Drawing.Size(75, 21);
-            this.cb_moren.TabIndex = 1;
-            this.cb_moren.Text = "默认位置";
-            this.cb_moren.UseVisualStyleBackColor = true;
-            // 
-            // cb_qita
-            // 
-            this.cb_qita.AutoSize = true;
-            this.cb_qita.Location = new System.Drawing.Point(203, 3);
-            this.cb_qita.Name = "cb_qita";
-            this.cb_qita.Size = new System.Drawing.Size(75, 21);
-            this.cb_qita.TabIndex = 1;
-            this.cb_qita.Text = "其他位置";
-            this.cb_qita.UseVisualStyleBackColor = true;
             // 
             // tb_savepath
             // 
@@ -537,7 +519,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 163);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(523, 340);
+            this.groupBox1.Size = new System.Drawing.Size(619, 462);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "解析规则列表";
@@ -556,7 +538,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(517, 318);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(613, 440);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -636,7 +618,7 @@
             this.dgv_jiexiguize.Name = "dgv_jiexiguize";
             this.dgv_jiexiguize.RowHeadersVisible = false;
             this.dgv_jiexiguize.RowTemplate.Height = 23;
-            this.dgv_jiexiguize.Size = new System.Drawing.Size(511, 232);
+            this.dgv_jiexiguize.Size = new System.Drawing.Size(607, 354);
             this.dgv_jiexiguize.TabIndex = 1;
             this.dgv_jiexiguize.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_jiexiguize_CellContentClick);
             // 
@@ -725,12 +707,44 @@
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn1.Width = 59;
             // 
+            // rb_moren
+            // 
+            this.rb_moren.AutoSize = true;
+            this.rb_moren.Location = new System.Drawing.Point(103, 3);
+            this.rb_moren.Name = "rb_moren";
+            this.rb_moren.Size = new System.Drawing.Size(74, 21);
+            this.rb_moren.TabIndex = 4;
+            this.rb_moren.TabStop = true;
+            this.rb_moren.Text = "默认位置";
+            this.rb_moren.UseVisualStyleBackColor = true;
+            // 
+            // rb_qita
+            // 
+            this.rb_qita.AutoSize = true;
+            this.rb_qita.Location = new System.Drawing.Point(203, 3);
+            this.rb_qita.Name = "rb_qita";
+            this.rb_qita.Size = new System.Drawing.Size(74, 21);
+            this.rb_qita.TabIndex = 5;
+            this.rb_qita.TabStop = true;
+            this.rb_qita.Text = "其他位置";
+            this.rb_qita.UseVisualStyleBackColor = true;
+            // 
+            // cb_guanji
+            // 
+            this.cb_guanji.AutoSize = true;
+            this.cb_guanji.Location = new System.Drawing.Point(3, 601);
+            this.cb_guanji.Name = "cb_guanji";
+            this.cb_guanji.Size = new System.Drawing.Size(87, 21);
+            this.cb_guanji.TabIndex = 2;
+            this.cb_guanji.Text = "完成后关机";
+            this.cb_guanji.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(798, 506);
+            this.ClientSize = new System.Drawing.Size(941, 628);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -743,6 +757,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_chulizhong)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -788,8 +803,6 @@
         private System.Windows.Forms.CheckBox cb_md5;
         private System.Windows.Forms.TableLayoutPanel tlp_excel;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox cb_moren;
-        private System.Windows.Forms.CheckBox cb_qita;
         private System.Windows.Forms.TextBox tb_savepath;
         private System.Windows.Forms.PictureBox pb_path;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -825,6 +838,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn jiexigeshi;
         private System.Windows.Forms.DataGridViewTextBoxColumn wanchenghou;
         private System.Windows.Forms.DataGridViewImageColumn shanchu;
+        private System.Windows.Forms.RadioButton rb_moren;
+        private System.Windows.Forms.RadioButton rb_qita;
+        private System.Windows.Forms.CheckBox cb_guanji;
     }
 }
 

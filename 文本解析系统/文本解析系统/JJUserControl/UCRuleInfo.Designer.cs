@@ -39,7 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
             this.tb_wenbentezheng = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -206,7 +205,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 32);
             this.label3.TabIndex = 0;
-            this.label3.Text = "文本特征结果";
+            this.label3.Text = "赋值";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -237,34 +236,21 @@
             // 
             // tableLayoutPanel7
             // 
-            this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.75956F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.24044F));
-            this.tableLayoutPanel7.Controls.Add(this.label5, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.tb_wenbentezheng, 1, 0);
+            this.tableLayoutPanel7.ColumnCount = 1;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.Controls.Add(this.tb_wenbentezheng, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(576, 34);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(1, 1);
-            this.label5.Margin = new System.Windows.Forms.Padding(1);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 32);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "文本特征";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // tb_wenbentezheng
             // 
-            this.tb_wenbentezheng.Location = new System.Drawing.Point(105, 3);
+            this.tb_wenbentezheng.Location = new System.Drawing.Point(3, 3);
             this.tb_wenbentezheng.Name = "tb_wenbentezheng";
             this.tb_wenbentezheng.Size = new System.Drawing.Size(468, 23);
             this.tb_wenbentezheng.TabIndex = 1;
@@ -916,7 +902,6 @@
         public System.Windows.Forms.TextBox tb_zidingyijieguo;
         public System.Windows.Forms.CheckBox cb_zidingyijieguo;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        public System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox tb_wenbentezheng;
         public System.Windows.Forms.FlowLayoutPanel flp_duixiangxuanze;
         public System.Windows.Forms.CheckBox checkBox4;

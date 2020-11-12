@@ -98,6 +98,8 @@
             // cb_wu
             // 
             this.cb_wu.AutoSize = true;
+            this.cb_wu.Checked = true;
+            this.cb_wu.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_wu.Location = new System.Drawing.Point(146, 131);
             this.cb_wu.Name = "cb_wu";
             this.cb_wu.Size = new System.Drawing.Size(39, 21);

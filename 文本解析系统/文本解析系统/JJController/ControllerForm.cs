@@ -414,7 +414,7 @@ namespace 文本解析系统.JJController
                     mysht.Cells[row, 0].Value = kv.Key;
                     mysht.Cells[row, 1].Value = kv.Value;
                 }
-                mywbk.Save($@"{myfi._excelpath}\测试结果表.xlsx");
+                mywbk.Save($@"{myfi._excelpath}\{Path.GetFileNameWithoutExtension(filename)}.xlsx");
                 //MessageBox.Show("解析完成");
                 return "完成";
 

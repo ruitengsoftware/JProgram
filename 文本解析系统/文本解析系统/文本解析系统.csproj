@@ -92,6 +92,12 @@
     <Compile Include="JJUserControl\UCRuleInfo.Designer.cs">
       <DependentUpon>UCRuleInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="JJWinForm\WinFormGuanji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JJWinForm\WinFormGuanji.Designer.cs">
+      <DependentUpon>WinFormGuanji.cs</DependentUpon>
+    </Compile>
     <Compile Include="JJWinForm\WinFormGuize.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JJUserControl\UCRuleInfo.resx">
       <DependentUpon>UCRuleInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JJWinForm\WinFormGuanji.resx">
+      <DependentUpon>WinFormGuanji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JJWinForm\WinFormGuize.resx">
       <DependentUpon>WinFormGuize.cs</DependentUpon>
