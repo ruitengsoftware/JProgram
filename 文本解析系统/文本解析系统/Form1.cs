@@ -154,10 +154,6 @@ namespace 文本解析系统
                 MessageBox.Show("格式已删除！");
             }
             //显示该格式上一条名称，如果没有格式，不显示，所有得设置为空
-
-
-
-
         }
         /// <summary>
         /// 点击保存按钮时触发的事件
@@ -304,7 +300,7 @@ namespace 文本解析系统
                     string jindu = (Convert.ToDouble(j + 1) * 100 / Convert.ToDouble(files.Count)).ToString("00.00");
                     dgv_chulizhong.Rows[index].Cells[2].Value = $"{jindu}%";
                     //获得解析结果，如果成功显示处理完成，完成，重复
-                    string str_jiexijieguo =await  _mycontroller.JiexiAsync(files[j], formatname);
+                    string str_jiexijieguo = await _mycontroller.JiexiAsync(files[j], formatname);
                     dgv_chulizhong.Rows[index].Cells[3].Value = str_jiexijieguo;
                 }
             }
@@ -313,14 +309,11 @@ namespace 文本解析系统
             if (cb_guanji.Checked)
             {
                 WinFormGuanji mywin = new WinFormGuanji();
-                if (mywin.ShowDialog()==DialogResult.OK)
+                if (mywin.ShowDialog() == DialogResult.OK)
                 {
-Process.Start("shutdown.exe", "-s");
-
+                    Process.Start("shutdown.exe", "-s");
                 }
-
             }
-
         }
         /// <summary>
         /// 点击excel存放文件夹图片时触发的事件

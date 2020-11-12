@@ -211,11 +211,7 @@ namespace 文本解析系统.JJController
                     //在指定位置重新插入第一行
                     mydgv.Rows.Insert(0, item);
                 }
-
-
             }
-
-
         }
 
 
