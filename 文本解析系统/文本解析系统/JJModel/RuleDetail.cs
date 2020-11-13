@@ -26,7 +26,7 @@ namespace 文本解析系统.JJModel
         public string fuzhileixing { get; set; }
     }
 
-    public class JiexiGuize
+    public class WenbenTezheng
     {
         /// <summary>
         /// 
