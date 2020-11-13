@@ -41,11 +41,7 @@
             this.zhuangtai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_daichuli = new System.Windows.Forms.DataGridView();
-            this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mubiaowenjianjia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jiexigeshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wanchenghou = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
+            this.cb_guanji = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_kaishi = new System.Windows.Forms.Button();
@@ -66,6 +62,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tb_savepath = new System.Windows.Forms.TextBox();
             this.pb_path = new System.Windows.Forms.PictureBox();
+            this.rb_moren = new System.Windows.Forms.RadioButton();
+            this.rb_qita = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -84,9 +82,11 @@
             this.tb_search = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.rb_moren = new System.Windows.Forms.RadioButton();
-            this.rb_qita = new System.Windows.Forms.RadioButton();
-            this.cb_guanji = new System.Windows.Forms.CheckBox();
+            this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mubiaowenjianjia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jiexigeshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wanchenghou = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -241,34 +241,15 @@
             this.dgv_daichuli.TabIndex = 0;
             this.dgv_daichuli.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_daichuli_CellMouseClick);
             // 
-            // xuhao
+            // cb_guanji
             // 
-            this.xuhao.HeaderText = "序号";
-            this.xuhao.Name = "xuhao";
-            // 
-            // mubiaowenjianjia
-            // 
-            this.mubiaowenjianjia.HeaderText = "目标文件夹";
-            this.mubiaowenjianjia.Name = "mubiaowenjianjia";
-            // 
-            // jiexigeshi
-            // 
-            this.jiexigeshi.HeaderText = "解析格式";
-            this.jiexigeshi.Name = "jiexigeshi";
-            // 
-            // wanchenghou
-            // 
-            this.wanchenghou.HeaderText = "完成后";
-            this.wanchenghou.Name = "wanchenghou";
-            // 
-            // shanchu
-            // 
-            this.shanchu.HeaderText = "";
-            this.shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
-            this.shanchu.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.shanchu.Name = "shanchu";
-            this.shanchu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.shanchu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cb_guanji.AutoSize = true;
+            this.cb_guanji.Location = new System.Drawing.Point(3, 601);
+            this.cb_guanji.Name = "cb_guanji";
+            this.cb_guanji.Size = new System.Drawing.Size(87, 21);
+            this.cb_guanji.TabIndex = 2;
+            this.cb_guanji.Text = "完成后关机";
+            this.cb_guanji.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -513,6 +494,28 @@
             this.pb_path.TabStop = false;
             this.pb_path.Click += new System.EventHandler(this.pb_path_Click);
             // 
+            // rb_moren
+            // 
+            this.rb_moren.AutoSize = true;
+            this.rb_moren.Location = new System.Drawing.Point(103, 3);
+            this.rb_moren.Name = "rb_moren";
+            this.rb_moren.Size = new System.Drawing.Size(74, 21);
+            this.rb_moren.TabIndex = 4;
+            this.rb_moren.TabStop = true;
+            this.rb_moren.Text = "默认位置";
+            this.rb_moren.UseVisualStyleBackColor = true;
+            // 
+            // rb_qita
+            // 
+            this.rb_qita.AutoSize = true;
+            this.rb_qita.Location = new System.Drawing.Point(203, 3);
+            this.rb_qita.Name = "rb_qita";
+            this.rb_qita.Size = new System.Drawing.Size(74, 21);
+            this.rb_qita.TabIndex = 5;
+            this.rb_qita.TabStop = true;
+            this.rb_qita.Text = "其他位置";
+            this.rb_qita.UseVisualStyleBackColor = true;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel6);
@@ -707,37 +710,35 @@
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn1.Width = 59;
             // 
-            // rb_moren
+            // xuhao
             // 
-            this.rb_moren.AutoSize = true;
-            this.rb_moren.Location = new System.Drawing.Point(103, 3);
-            this.rb_moren.Name = "rb_moren";
-            this.rb_moren.Size = new System.Drawing.Size(74, 21);
-            this.rb_moren.TabIndex = 4;
-            this.rb_moren.TabStop = true;
-            this.rb_moren.Text = "默认位置";
-            this.rb_moren.UseVisualStyleBackColor = true;
+            this.xuhao.HeaderText = "序号";
+            this.xuhao.Name = "xuhao";
             // 
-            // rb_qita
+            // mubiaowenjianjia
             // 
-            this.rb_qita.AutoSize = true;
-            this.rb_qita.Location = new System.Drawing.Point(203, 3);
-            this.rb_qita.Name = "rb_qita";
-            this.rb_qita.Size = new System.Drawing.Size(74, 21);
-            this.rb_qita.TabIndex = 5;
-            this.rb_qita.TabStop = true;
-            this.rb_qita.Text = "其他位置";
-            this.rb_qita.UseVisualStyleBackColor = true;
+            this.mubiaowenjianjia.HeaderText = "目标文件夹";
+            this.mubiaowenjianjia.Name = "mubiaowenjianjia";
             // 
-            // cb_guanji
+            // jiexigeshi
             // 
-            this.cb_guanji.AutoSize = true;
-            this.cb_guanji.Location = new System.Drawing.Point(3, 601);
-            this.cb_guanji.Name = "cb_guanji";
-            this.cb_guanji.Size = new System.Drawing.Size(87, 21);
-            this.cb_guanji.TabIndex = 2;
-            this.cb_guanji.Text = "完成后关机";
-            this.cb_guanji.UseVisualStyleBackColor = true;
+            this.jiexigeshi.HeaderText = "解析格式";
+            this.jiexigeshi.Name = "jiexigeshi";
+            // 
+            // wanchenghou
+            // 
+            this.wanchenghou.HeaderText = "完成后";
+            this.wanchenghou.Name = "wanchenghou";
+            this.wanchenghou.Visible = false;
+            // 
+            // shanchu
+            // 
+            this.shanchu.HeaderText = "";
+            this.shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
+            this.shanchu.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.shanchu.Name = "shanchu";
+            this.shanchu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.shanchu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Form1
             // 
@@ -833,14 +834,14 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.TextBox tb_search;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.RadioButton rb_moren;
+        private System.Windows.Forms.RadioButton rb_qita;
+        private System.Windows.Forms.CheckBox cb_guanji;
         private System.Windows.Forms.DataGridViewTextBoxColumn xuhao;
         private System.Windows.Forms.DataGridViewTextBoxColumn mubiaowenjianjia;
         private System.Windows.Forms.DataGridViewTextBoxColumn jiexigeshi;
         private System.Windows.Forms.DataGridViewTextBoxColumn wanchenghou;
         private System.Windows.Forms.DataGridViewImageColumn shanchu;
-        private System.Windows.Forms.RadioButton rb_moren;
-        private System.Windows.Forms.RadioButton rb_qita;
-        private System.Windows.Forms.CheckBox cb_guanji;
     }
 }
 

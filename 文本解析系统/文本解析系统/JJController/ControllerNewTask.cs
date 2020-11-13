@@ -26,10 +26,6 @@ namespace 文本解析系统.JJController
                 list.Add(item["格式名称"].ToString());
             }
             return list;
-
         }
-
-
-
     }
 }
