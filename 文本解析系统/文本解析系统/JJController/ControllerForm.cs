@@ -409,7 +409,22 @@ namespace 文本解析系统.JJController
                     mysht.Cells[row, 0].Value = kv.Key;
                     mysht.Cells[row, 1].Value = kv.Value;
                 }
-                mywbk.Save($@"{myfi._excelpath}\{Path.GetFileNameWithoutExtension(filename)}.xlsx");
+                //构造保存文件名
+                string savepath = $@"{myfi._excelpath}\{Path.GetFileNameWithoutExtension(filename)}.xlsx";
+                //判断该文件是否存在，如果存在，提取（）中的数字加1存储
+                bool exist = File.Exists(savepath);
+                if (exist)
+                {
+                    //获得不带扩展名的文件名
+                    string filenamewithoutex = Path.GetFileNameWithoutExtension(savepath);
+                    //提取括号中的数字
+                    int num =Convert.ToInt32( Regex.Match(filenamewithoutex, @"(?<[（\(])\d+(?=[）\)])$").Value);
+                    num++;
+                    filenamewithoutex = Regex.Replace(filenamewithoutex,$@"[\(（]\d+[\)）]$", $@"[\(（]{num}[\)）]$");
+                    savepath = Regex.Replace(savepath,Path.GetFileNameWithoutExtension(savepath),filenamewithoutex);
+                }
+              
+                mywbk.Save(savepath);
                 //MessageBox.Show("解析完成");
                 return "完成";
             });
