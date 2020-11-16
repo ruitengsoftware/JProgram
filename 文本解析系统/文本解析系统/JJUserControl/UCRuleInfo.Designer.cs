@@ -35,6 +35,41 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_wenbentezheng = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBox46 = new System.Windows.Forms.CheckBox();
+            this.checkBox47 = new System.Windows.Forms.CheckBox();
+            this.checkBox48 = new System.Windows.Forms.CheckBox();
+            this.checkBox49 = new System.Windows.Forms.CheckBox();
+            this.checkBox50 = new System.Windows.Forms.CheckBox();
+            this.checkBox51 = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBox56 = new System.Windows.Forms.CheckBox();
+            this.checkBox55 = new System.Windows.Forms.CheckBox();
+            this.checkBox54 = new System.Windows.Forms.CheckBox();
+            this.checkBox53 = new System.Windows.Forms.CheckBox();
+            this.checkBox52 = new System.Windows.Forms.CheckBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBox63 = new System.Windows.Forms.CheckBox();
+            this.checkBox64 = new System.Windows.Forms.CheckBox();
+            this.checkBox65 = new System.Windows.Forms.CheckBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBox57 = new System.Windows.Forms.CheckBox();
+            this.checkBox58 = new System.Windows.Forms.CheckBox();
+            this.checkBox59 = new System.Windows.Forms.CheckBox();
+            this.checkBox60 = new System.Windows.Forms.CheckBox();
+            this.checkBox61 = new System.Windows.Forms.CheckBox();
+            this.checkBox62 = new System.Windows.Forms.CheckBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.flp_duixiangxuanze = new System.Windows.Forms.FlowLayoutPanel();
@@ -73,6 +108,9 @@
             this.panel_biaozhunduan = new System.Windows.Forms.Panel();
             this.tb_cixu = new System.Windows.Forms.TextBox();
             this.cb_shunshu = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cb_daoshu = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.flp_fuzhileixing = new System.Windows.Forms.FlowLayoutPanel();
@@ -92,44 +130,6 @@
             this.tb_zidingyileixing = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.pb_shanchu = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.cb_daoshu = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBox46 = new System.Windows.Forms.CheckBox();
-            this.checkBox47 = new System.Windows.Forms.CheckBox();
-            this.checkBox48 = new System.Windows.Forms.CheckBox();
-            this.checkBox49 = new System.Windows.Forms.CheckBox();
-            this.checkBox50 = new System.Windows.Forms.CheckBox();
-            this.checkBox51 = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBox56 = new System.Windows.Forms.CheckBox();
-            this.checkBox55 = new System.Windows.Forms.CheckBox();
-            this.checkBox54 = new System.Windows.Forms.CheckBox();
-            this.checkBox53 = new System.Windows.Forms.CheckBox();
-            this.checkBox52 = new System.Windows.Forms.CheckBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBox57 = new System.Windows.Forms.CheckBox();
-            this.checkBox58 = new System.Windows.Forms.CheckBox();
-            this.checkBox59 = new System.Windows.Forms.CheckBox();
-            this.checkBox60 = new System.Windows.Forms.CheckBox();
-            this.checkBox61 = new System.Windows.Forms.CheckBox();
-            this.checkBox62 = new System.Windows.Forms.CheckBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBox63 = new System.Windows.Forms.CheckBox();
-            this.checkBox64 = new System.Windows.Forms.CheckBox();
-            this.checkBox65 = new System.Windows.Forms.CheckBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
@@ -145,26 +145,26 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.flp_duixiangxuanze.SuspendLayout();
-            this.panel_biaozhunduan.SuspendLayout();
-            this.tableLayoutPanel8.SuspendLayout();
-            this.flp_fuzhileixing.SuspendLayout();
-            this.tableLayoutPanel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).BeginInit();
-            this.panel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.flp_duixiangxuanze.SuspendLayout();
+            this.panel_biaozhunduan.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            this.flp_fuzhileixing.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).BeginInit();
             this.tableLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
@@ -271,6 +271,379 @@
             this.tb_wenbentezheng.Name = "tb_wenbentezheng";
             this.tb_wenbentezheng.Size = new System.Drawing.Size(766, 23);
             this.tb_wenbentezheng.TabIndex = 1;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.groupBox1, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.groupBox2, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.groupBox4, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.groupBox3, 0, 2);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(126, 30);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 4;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(772, 352);
+            this.tableLayoutPanel5.TabIndex = 2;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.flowLayoutPanel1);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(766, 78);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "提取文本";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.checkBox46);
+            this.flowLayoutPanel1.Controls.Add(this.checkBox47);
+            this.flowLayoutPanel1.Controls.Add(this.checkBox48);
+            this.flowLayoutPanel1.Controls.Add(this.checkBox49);
+            this.flowLayoutPanel1.Controls.Add(this.checkBox50);
+            this.flowLayoutPanel1.Controls.Add(this.checkBox51);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 19);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(760, 56);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // checkBox46
+            // 
+            this.checkBox46.AutoSize = true;
+            this.checkBox46.Location = new System.Drawing.Point(3, 3);
+            this.checkBox46.Name = "checkBox46";
+            this.checkBox46.Size = new System.Drawing.Size(87, 21);
+            this.checkBox46.TabIndex = 0;
+            this.checkBox46.Text = "所在索引句";
+            this.checkBox46.UseVisualStyleBackColor = true;
+            // 
+            // checkBox47
+            // 
+            this.checkBox47.AutoSize = true;
+            this.checkBox47.Location = new System.Drawing.Point(96, 3);
+            this.checkBox47.Name = "checkBox47";
+            this.checkBox47.Size = new System.Drawing.Size(87, 21);
+            this.checkBox47.TabIndex = 1;
+            this.checkBox47.Text = "所在标准句";
+            this.checkBox47.UseVisualStyleBackColor = true;
+            // 
+            // checkBox48
+            // 
+            this.checkBox48.AutoSize = true;
+            this.checkBox48.Location = new System.Drawing.Point(189, 3);
+            this.checkBox48.Name = "checkBox48";
+            this.checkBox48.Size = new System.Drawing.Size(87, 21);
+            this.checkBox48.TabIndex = 2;
+            this.checkBox48.Text = "所在标准段";
+            this.checkBox48.UseVisualStyleBackColor = true;
+            // 
+            // checkBox49
+            // 
+            this.checkBox49.AutoSize = true;
+            this.checkBox49.Location = new System.Drawing.Point(282, 3);
+            this.checkBox49.Name = "checkBox49";
+            this.checkBox49.Size = new System.Drawing.Size(159, 21);
+            this.checkBox49.TabIndex = 3;
+            this.checkBox49.Text = "文本特征后字段至索引句";
+            this.checkBox49.UseVisualStyleBackColor = true;
+            // 
+            // checkBox50
+            // 
+            this.checkBox50.AutoSize = true;
+            this.checkBox50.Location = new System.Drawing.Point(447, 3);
+            this.checkBox50.Name = "checkBox50";
+            this.checkBox50.Size = new System.Drawing.Size(159, 21);
+            this.checkBox50.TabIndex = 4;
+            this.checkBox50.Text = "文本特征后字段至标准句";
+            this.checkBox50.UseVisualStyleBackColor = true;
+            // 
+            // checkBox51
+            // 
+            this.checkBox51.AutoSize = true;
+            this.checkBox51.Location = new System.Drawing.Point(3, 30);
+            this.checkBox51.Name = "checkBox51";
+            this.checkBox51.Size = new System.Drawing.Size(159, 21);
+            this.checkBox51.TabIndex = 5;
+            this.checkBox51.Text = "文本特征后字段至标准段";
+            this.checkBox51.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.flowLayoutPanel2);
+            this.groupBox2.Location = new System.Drawing.Point(3, 87);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(766, 49);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "提取时间";
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.checkBox56);
+            this.flowLayoutPanel2.Controls.Add(this.checkBox55);
+            this.flowLayoutPanel2.Controls.Add(this.checkBox54);
+            this.flowLayoutPanel2.Controls.Add(this.checkBox53);
+            this.flowLayoutPanel2.Controls.Add(this.checkBox52);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 19);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(760, 27);
+            this.flowLayoutPanel2.TabIndex = 0;
+            // 
+            // checkBox56
+            // 
+            this.checkBox56.AutoSize = true;
+            this.checkBox56.Location = new System.Drawing.Point(3, 3);
+            this.checkBox56.Name = "checkBox56";
+            this.checkBox56.Size = new System.Drawing.Size(87, 21);
+            this.checkBox56.TabIndex = 9;
+            this.checkBox56.Text = "所在索引句";
+            this.checkBox56.UseVisualStyleBackColor = true;
+            // 
+            // checkBox55
+            // 
+            this.checkBox55.AutoSize = true;
+            this.checkBox55.Location = new System.Drawing.Point(96, 3);
+            this.checkBox55.Name = "checkBox55";
+            this.checkBox55.Size = new System.Drawing.Size(87, 21);
+            this.checkBox55.TabIndex = 8;
+            this.checkBox55.Text = "所在标准句";
+            this.checkBox55.UseVisualStyleBackColor = true;
+            // 
+            // checkBox54
+            // 
+            this.checkBox54.AutoSize = true;
+            this.checkBox54.Location = new System.Drawing.Point(189, 3);
+            this.checkBox54.Name = "checkBox54";
+            this.checkBox54.Size = new System.Drawing.Size(87, 21);
+            this.checkBox54.TabIndex = 7;
+            this.checkBox54.Text = "所在标准段";
+            this.checkBox54.UseVisualStyleBackColor = true;
+            // 
+            // checkBox53
+            // 
+            this.checkBox53.AutoSize = true;
+            this.checkBox53.Location = new System.Drawing.Point(282, 3);
+            this.checkBox53.Name = "checkBox53";
+            this.checkBox53.Size = new System.Drawing.Size(87, 21);
+            this.checkBox53.TabIndex = 6;
+            this.checkBox53.Text = "X年X月X日";
+            this.checkBox53.UseVisualStyleBackColor = true;
+            // 
+            // checkBox52
+            // 
+            this.checkBox52.AutoSize = true;
+            this.checkBox52.Location = new System.Drawing.Point(375, 3);
+            this.checkBox52.Name = "checkBox52";
+            this.checkBox52.Size = new System.Drawing.Size(59, 21);
+            this.checkBox52.TabIndex = 5;
+            this.checkBox52.Text = "月X日";
+            this.checkBox52.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.flowLayoutPanel4);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(3, 272);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(766, 77);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "自定义文本";
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.checkBox63);
+            this.flowLayoutPanel4.Controls.Add(this.checkBox64);
+            this.flowLayoutPanel4.Controls.Add(this.checkBox65);
+            this.flowLayoutPanel4.Controls.Add(this.groupBox6);
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 19);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(760, 55);
+            this.flowLayoutPanel4.TabIndex = 0;
+            // 
+            // checkBox63
+            // 
+            this.checkBox63.AutoSize = true;
+            this.checkBox63.Location = new System.Drawing.Point(3, 3);
+            this.checkBox63.Name = "checkBox63";
+            this.checkBox63.Size = new System.Drawing.Size(87, 21);
+            this.checkBox63.TabIndex = 0;
+            this.checkBox63.Text = "所在索引句";
+            this.checkBox63.UseVisualStyleBackColor = true;
+            // 
+            // checkBox64
+            // 
+            this.checkBox64.AutoSize = true;
+            this.checkBox64.Location = new System.Drawing.Point(96, 3);
+            this.checkBox64.Name = "checkBox64";
+            this.checkBox64.Size = new System.Drawing.Size(87, 21);
+            this.checkBox64.TabIndex = 1;
+            this.checkBox64.Text = "所在标准句";
+            this.checkBox64.UseVisualStyleBackColor = true;
+            // 
+            // checkBox65
+            // 
+            this.checkBox65.AutoSize = true;
+            this.checkBox65.Location = new System.Drawing.Point(189, 3);
+            this.checkBox65.Name = "checkBox65";
+            this.checkBox65.Size = new System.Drawing.Size(87, 21);
+            this.checkBox65.TabIndex = 2;
+            this.checkBox65.Text = "所在标准段";
+            this.checkBox65.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.textBox2);
+            this.groupBox6.Location = new System.Drawing.Point(282, 3);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(162, 45);
+            this.groupBox6.TabIndex = 6;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "自定义内容";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox2.Location = new System.Drawing.Point(3, 19);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(156, 23);
+            this.textBox2.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.flowLayoutPanel3);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(3, 142);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(766, 124);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "提取数值";
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.checkBox57);
+            this.flowLayoutPanel3.Controls.Add(this.checkBox58);
+            this.flowLayoutPanel3.Controls.Add(this.checkBox59);
+            this.flowLayoutPanel3.Controls.Add(this.checkBox60);
+            this.flowLayoutPanel3.Controls.Add(this.checkBox61);
+            this.flowLayoutPanel3.Controls.Add(this.checkBox62);
+            this.flowLayoutPanel3.Controls.Add(this.groupBox5);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 19);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(760, 102);
+            this.flowLayoutPanel3.TabIndex = 0;
+            // 
+            // checkBox57
+            // 
+            this.checkBox57.AutoSize = true;
+            this.checkBox57.Location = new System.Drawing.Point(3, 3);
+            this.checkBox57.Name = "checkBox57";
+            this.checkBox57.Size = new System.Drawing.Size(87, 21);
+            this.checkBox57.TabIndex = 0;
+            this.checkBox57.Text = "所在索引句";
+            this.checkBox57.UseVisualStyleBackColor = true;
+            // 
+            // checkBox58
+            // 
+            this.checkBox58.AutoSize = true;
+            this.checkBox58.Location = new System.Drawing.Point(96, 3);
+            this.checkBox58.Name = "checkBox58";
+            this.checkBox58.Size = new System.Drawing.Size(87, 21);
+            this.checkBox58.TabIndex = 1;
+            this.checkBox58.Text = "所在标准句";
+            this.checkBox58.UseVisualStyleBackColor = true;
+            // 
+            // checkBox59
+            // 
+            this.checkBox59.AutoSize = true;
+            this.checkBox59.Location = new System.Drawing.Point(189, 3);
+            this.checkBox59.Name = "checkBox59";
+            this.checkBox59.Size = new System.Drawing.Size(87, 21);
+            this.checkBox59.TabIndex = 2;
+            this.checkBox59.Text = "所在标准段";
+            this.checkBox59.UseVisualStyleBackColor = true;
+            // 
+            // checkBox60
+            // 
+            this.checkBox60.AutoSize = true;
+            this.checkBox60.Location = new System.Drawing.Point(282, 3);
+            this.checkBox60.Name = "checkBox60";
+            this.checkBox60.Size = new System.Drawing.Size(159, 21);
+            this.checkBox60.TabIndex = 3;
+            this.checkBox60.Text = "文本特征后字段至索引句";
+            this.checkBox60.UseVisualStyleBackColor = true;
+            // 
+            // checkBox61
+            // 
+            this.checkBox61.AutoSize = true;
+            this.checkBox61.Location = new System.Drawing.Point(447, 3);
+            this.checkBox61.Name = "checkBox61";
+            this.checkBox61.Size = new System.Drawing.Size(159, 21);
+            this.checkBox61.TabIndex = 4;
+            this.checkBox61.Text = "文本特征后字段至标准句";
+            this.checkBox61.UseVisualStyleBackColor = true;
+            // 
+            // checkBox62
+            // 
+            this.checkBox62.AutoSize = true;
+            this.checkBox62.Location = new System.Drawing.Point(3, 30);
+            this.checkBox62.Name = "checkBox62";
+            this.checkBox62.Size = new System.Drawing.Size(159, 21);
+            this.checkBox62.TabIndex = 5;
+            this.checkBox62.Text = "文本特征后字段至标准段";
+            this.checkBox62.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.flowLayoutPanel5);
+            this.groupBox5.Location = new System.Drawing.Point(168, 30);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(362, 54);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "数值类型";
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Controls.Add(this.checkBox2);
+            this.flowLayoutPanel5.Controls.Add(this.checkBox3);
+            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 19);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(356, 32);
+            this.flowLayoutPanel5.TabIndex = 0;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(3, 3);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(87, 21);
+            this.checkBox2.TabIndex = 0;
+            this.checkBox2.Text = "阿拉伯数字";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(96, 3);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(75, 21);
+            this.checkBox3.TabIndex = 1;
+            this.checkBox3.Text = "中文数字";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
@@ -689,6 +1062,32 @@
             this.cb_shunshu.Text = "标准段顺数次序";
             this.cb_shunshu.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.cb_daoshu);
+            this.panel1.Location = new System.Drawing.Point(159, 111);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(150, 21);
+            this.panel1.TabIndex = 32;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(120, 1);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(26, 23);
+            this.textBox1.TabIndex = 1;
+            // 
+            // cb_daoshu
+            // 
+            this.cb_daoshu.AutoSize = true;
+            this.cb_daoshu.Location = new System.Drawing.Point(3, 3);
+            this.cb_daoshu.Name = "cb_daoshu";
+            this.cb_daoshu.Size = new System.Drawing.Size(111, 21);
+            this.cb_daoshu.TabIndex = 0;
+            this.cb_daoshu.Text = "标准段倒数次序";
+            this.cb_daoshu.UseVisualStyleBackColor = true;
+            // 
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 2;
@@ -700,7 +1099,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(776, 65);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
@@ -904,405 +1303,6 @@
             this.pb_shanchu.TabStop = false;
             this.pb_shanchu.Click += new System.EventHandler(this.pb_shanchu_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.cb_daoshu);
-            this.panel1.Location = new System.Drawing.Point(159, 111);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(150, 21);
-            this.panel1.TabIndex = 32;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(120, 1);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(26, 23);
-            this.textBox1.TabIndex = 1;
-            // 
-            // cb_daoshu
-            // 
-            this.cb_daoshu.AutoSize = true;
-            this.cb_daoshu.Location = new System.Drawing.Point(3, 3);
-            this.cb_daoshu.Name = "cb_daoshu";
-            this.cb_daoshu.Size = new System.Drawing.Size(111, 21);
-            this.cb_daoshu.TabIndex = 0;
-            this.cb_daoshu.Text = "标准段倒数次序";
-            this.cb_daoshu.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.groupBox1, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.groupBox2, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.groupBox4, 0, 3);
-            this.tableLayoutPanel5.Controls.Add(this.groupBox3, 0, 2);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(126, 30);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 4;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(772, 352);
-            this.tableLayoutPanel5.TabIndex = 2;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.flowLayoutPanel1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(766, 78);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "提取文本";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.checkBox46);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox47);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox48);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox49);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox50);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox51);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 19);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(760, 56);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // checkBox46
-            // 
-            this.checkBox46.AutoSize = true;
-            this.checkBox46.Location = new System.Drawing.Point(3, 3);
-            this.checkBox46.Name = "checkBox46";
-            this.checkBox46.Size = new System.Drawing.Size(87, 21);
-            this.checkBox46.TabIndex = 0;
-            this.checkBox46.Text = "所在索引句";
-            this.checkBox46.UseVisualStyleBackColor = true;
-            // 
-            // checkBox47
-            // 
-            this.checkBox47.AutoSize = true;
-            this.checkBox47.Location = new System.Drawing.Point(96, 3);
-            this.checkBox47.Name = "checkBox47";
-            this.checkBox47.Size = new System.Drawing.Size(87, 21);
-            this.checkBox47.TabIndex = 1;
-            this.checkBox47.Text = "所在标准句";
-            this.checkBox47.UseVisualStyleBackColor = true;
-            // 
-            // checkBox48
-            // 
-            this.checkBox48.AutoSize = true;
-            this.checkBox48.Location = new System.Drawing.Point(189, 3);
-            this.checkBox48.Name = "checkBox48";
-            this.checkBox48.Size = new System.Drawing.Size(87, 21);
-            this.checkBox48.TabIndex = 2;
-            this.checkBox48.Text = "所在标准段";
-            this.checkBox48.UseVisualStyleBackColor = true;
-            // 
-            // checkBox49
-            // 
-            this.checkBox49.AutoSize = true;
-            this.checkBox49.Location = new System.Drawing.Point(282, 3);
-            this.checkBox49.Name = "checkBox49";
-            this.checkBox49.Size = new System.Drawing.Size(159, 21);
-            this.checkBox49.TabIndex = 3;
-            this.checkBox49.Text = "文本特征后字段至索引句";
-            this.checkBox49.UseVisualStyleBackColor = true;
-            // 
-            // checkBox50
-            // 
-            this.checkBox50.AutoSize = true;
-            this.checkBox50.Location = new System.Drawing.Point(447, 3);
-            this.checkBox50.Name = "checkBox50";
-            this.checkBox50.Size = new System.Drawing.Size(159, 21);
-            this.checkBox50.TabIndex = 4;
-            this.checkBox50.Text = "文本特征后字段至标准句";
-            this.checkBox50.UseVisualStyleBackColor = true;
-            // 
-            // checkBox51
-            // 
-            this.checkBox51.AutoSize = true;
-            this.checkBox51.Location = new System.Drawing.Point(3, 30);
-            this.checkBox51.Name = "checkBox51";
-            this.checkBox51.Size = new System.Drawing.Size(159, 21);
-            this.checkBox51.TabIndex = 5;
-            this.checkBox51.Text = "文本特征后字段至标准段";
-            this.checkBox51.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.flowLayoutPanel2);
-            this.groupBox2.Location = new System.Drawing.Point(3, 87);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(766, 49);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "提取时间";
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.checkBox56);
-            this.flowLayoutPanel2.Controls.Add(this.checkBox55);
-            this.flowLayoutPanel2.Controls.Add(this.checkBox54);
-            this.flowLayoutPanel2.Controls.Add(this.checkBox53);
-            this.flowLayoutPanel2.Controls.Add(this.checkBox52);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 19);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(760, 27);
-            this.flowLayoutPanel2.TabIndex = 0;
-            // 
-            // checkBox56
-            // 
-            this.checkBox56.AutoSize = true;
-            this.checkBox56.Location = new System.Drawing.Point(3, 3);
-            this.checkBox56.Name = "checkBox56";
-            this.checkBox56.Size = new System.Drawing.Size(87, 21);
-            this.checkBox56.TabIndex = 9;
-            this.checkBox56.Text = "所在索引句";
-            this.checkBox56.UseVisualStyleBackColor = true;
-            // 
-            // checkBox55
-            // 
-            this.checkBox55.AutoSize = true;
-            this.checkBox55.Location = new System.Drawing.Point(96, 3);
-            this.checkBox55.Name = "checkBox55";
-            this.checkBox55.Size = new System.Drawing.Size(87, 21);
-            this.checkBox55.TabIndex = 8;
-            this.checkBox55.Text = "所在标准句";
-            this.checkBox55.UseVisualStyleBackColor = true;
-            // 
-            // checkBox54
-            // 
-            this.checkBox54.AutoSize = true;
-            this.checkBox54.Location = new System.Drawing.Point(189, 3);
-            this.checkBox54.Name = "checkBox54";
-            this.checkBox54.Size = new System.Drawing.Size(87, 21);
-            this.checkBox54.TabIndex = 7;
-            this.checkBox54.Text = "所在标准段";
-            this.checkBox54.UseVisualStyleBackColor = true;
-            // 
-            // checkBox53
-            // 
-            this.checkBox53.AutoSize = true;
-            this.checkBox53.Location = new System.Drawing.Point(282, 3);
-            this.checkBox53.Name = "checkBox53";
-            this.checkBox53.Size = new System.Drawing.Size(87, 21);
-            this.checkBox53.TabIndex = 6;
-            this.checkBox53.Text = "X年X月X日";
-            this.checkBox53.UseVisualStyleBackColor = true;
-            // 
-            // checkBox52
-            // 
-            this.checkBox52.AutoSize = true;
-            this.checkBox52.Location = new System.Drawing.Point(375, 3);
-            this.checkBox52.Name = "checkBox52";
-            this.checkBox52.Size = new System.Drawing.Size(59, 21);
-            this.checkBox52.TabIndex = 5;
-            this.checkBox52.Text = "月X日";
-            this.checkBox52.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.flowLayoutPanel3);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 142);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(766, 124);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "提取数值";
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.checkBox57);
-            this.flowLayoutPanel3.Controls.Add(this.checkBox58);
-            this.flowLayoutPanel3.Controls.Add(this.checkBox59);
-            this.flowLayoutPanel3.Controls.Add(this.checkBox60);
-            this.flowLayoutPanel3.Controls.Add(this.checkBox61);
-            this.flowLayoutPanel3.Controls.Add(this.checkBox62);
-            this.flowLayoutPanel3.Controls.Add(this.groupBox5);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 19);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(760, 102);
-            this.flowLayoutPanel3.TabIndex = 0;
-            // 
-            // checkBox57
-            // 
-            this.checkBox57.AutoSize = true;
-            this.checkBox57.Location = new System.Drawing.Point(3, 3);
-            this.checkBox57.Name = "checkBox57";
-            this.checkBox57.Size = new System.Drawing.Size(87, 21);
-            this.checkBox57.TabIndex = 0;
-            this.checkBox57.Text = "所在索引句";
-            this.checkBox57.UseVisualStyleBackColor = true;
-            // 
-            // checkBox58
-            // 
-            this.checkBox58.AutoSize = true;
-            this.checkBox58.Location = new System.Drawing.Point(96, 3);
-            this.checkBox58.Name = "checkBox58";
-            this.checkBox58.Size = new System.Drawing.Size(87, 21);
-            this.checkBox58.TabIndex = 1;
-            this.checkBox58.Text = "所在标准句";
-            this.checkBox58.UseVisualStyleBackColor = true;
-            // 
-            // checkBox59
-            // 
-            this.checkBox59.AutoSize = true;
-            this.checkBox59.Location = new System.Drawing.Point(189, 3);
-            this.checkBox59.Name = "checkBox59";
-            this.checkBox59.Size = new System.Drawing.Size(87, 21);
-            this.checkBox59.TabIndex = 2;
-            this.checkBox59.Text = "所在标准段";
-            this.checkBox59.UseVisualStyleBackColor = true;
-            // 
-            // checkBox60
-            // 
-            this.checkBox60.AutoSize = true;
-            this.checkBox60.Location = new System.Drawing.Point(282, 3);
-            this.checkBox60.Name = "checkBox60";
-            this.checkBox60.Size = new System.Drawing.Size(159, 21);
-            this.checkBox60.TabIndex = 3;
-            this.checkBox60.Text = "文本特征后字段至索引句";
-            this.checkBox60.UseVisualStyleBackColor = true;
-            // 
-            // checkBox61
-            // 
-            this.checkBox61.AutoSize = true;
-            this.checkBox61.Location = new System.Drawing.Point(447, 3);
-            this.checkBox61.Name = "checkBox61";
-            this.checkBox61.Size = new System.Drawing.Size(159, 21);
-            this.checkBox61.TabIndex = 4;
-            this.checkBox61.Text = "文本特征后字段至标准句";
-            this.checkBox61.UseVisualStyleBackColor = true;
-            // 
-            // checkBox62
-            // 
-            this.checkBox62.AutoSize = true;
-            this.checkBox62.Location = new System.Drawing.Point(3, 30);
-            this.checkBox62.Name = "checkBox62";
-            this.checkBox62.Size = new System.Drawing.Size(159, 21);
-            this.checkBox62.TabIndex = 5;
-            this.checkBox62.Text = "文本特征后字段至标准段";
-            this.checkBox62.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.flowLayoutPanel4);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(3, 272);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(766, 77);
-            this.groupBox4.TabIndex = 0;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "自定义文本";
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.Controls.Add(this.checkBox63);
-            this.flowLayoutPanel4.Controls.Add(this.checkBox64);
-            this.flowLayoutPanel4.Controls.Add(this.checkBox65);
-            this.flowLayoutPanel4.Controls.Add(this.groupBox6);
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 19);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(760, 55);
-            this.flowLayoutPanel4.TabIndex = 0;
-            // 
-            // checkBox63
-            // 
-            this.checkBox63.AutoSize = true;
-            this.checkBox63.Location = new System.Drawing.Point(3, 3);
-            this.checkBox63.Name = "checkBox63";
-            this.checkBox63.Size = new System.Drawing.Size(87, 21);
-            this.checkBox63.TabIndex = 0;
-            this.checkBox63.Text = "所在索引句";
-            this.checkBox63.UseVisualStyleBackColor = true;
-            // 
-            // checkBox64
-            // 
-            this.checkBox64.AutoSize = true;
-            this.checkBox64.Location = new System.Drawing.Point(96, 3);
-            this.checkBox64.Name = "checkBox64";
-            this.checkBox64.Size = new System.Drawing.Size(87, 21);
-            this.checkBox64.TabIndex = 1;
-            this.checkBox64.Text = "所在标准句";
-            this.checkBox64.UseVisualStyleBackColor = true;
-            // 
-            // checkBox65
-            // 
-            this.checkBox65.AutoSize = true;
-            this.checkBox65.Location = new System.Drawing.Point(189, 3);
-            this.checkBox65.Name = "checkBox65";
-            this.checkBox65.Size = new System.Drawing.Size(87, 21);
-            this.checkBox65.TabIndex = 2;
-            this.checkBox65.Text = "所在标准段";
-            this.checkBox65.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.flowLayoutPanel5);
-            this.groupBox5.Location = new System.Drawing.Point(168, 30);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(362, 54);
-            this.groupBox5.TabIndex = 6;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "数值类型";
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.Controls.Add(this.checkBox2);
-            this.flowLayoutPanel5.Controls.Add(this.checkBox3);
-            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 19);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(356, 32);
-            this.flowLayoutPanel5.TabIndex = 0;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(3, 3);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(87, 21);
-            this.checkBox2.TabIndex = 0;
-            this.checkBox2.Text = "阿拉伯数字";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(96, 3);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(75, 21);
-            this.checkBox3.TabIndex = 1;
-            this.checkBox3.Text = "中文数字";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.textBox2);
-            this.groupBox6.Location = new System.Drawing.Point(282, 3);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(162, 45);
-            this.groupBox6.TabIndex = 6;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "自定义内容";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(3, 19);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 23);
-            this.textBox2.TabIndex = 0;
-            // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 2;
@@ -1314,7 +1314,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(776, 65);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
@@ -1443,20 +1443,6 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.flp_duixiangxuanze.ResumeLayout(false);
-            this.flp_duixiangxuanze.PerformLayout();
-            this.panel_biaozhunduan.ResumeLayout(false);
-            this.panel_biaozhunduan.PerformLayout();
-            this.tableLayoutPanel8.ResumeLayout(false);
-            this.tableLayoutPanel8.PerformLayout();
-            this.flp_fuzhileixing.ResumeLayout(false);
-            this.flp_fuzhileixing.PerformLayout();
-            this.tableLayoutPanel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -1464,17 +1450,31 @@
             this.groupBox2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.flp_duixiangxuanze.ResumeLayout(false);
+            this.flp_duixiangxuanze.PerformLayout();
+            this.panel_biaozhunduan.ResumeLayout(false);
+            this.panel_biaozhunduan.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
+            this.flp_fuzhileixing.ResumeLayout(false);
+            this.flp_fuzhileixing.PerformLayout();
+            this.tableLayoutPanel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.flowLayoutPanel6.ResumeLayout(false);
