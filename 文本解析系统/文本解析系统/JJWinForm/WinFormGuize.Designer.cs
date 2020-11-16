@@ -64,7 +64,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(724, 626);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(500, 531);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -79,7 +79,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(718, 34);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(494, 34);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label1
@@ -99,7 +99,7 @@
             this.tb_guizemingcheng.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_guizemingcheng.Location = new System.Drawing.Point(103, 3);
             this.tb_guizemingcheng.Name = "tb_guizemingcheng";
-            this.tb_guizemingcheng.Size = new System.Drawing.Size(612, 23);
+            this.tb_guizemingcheng.Size = new System.Drawing.Size(388, 23);
             this.tb_guizemingcheng.TabIndex = 1;
             // 
             // groupBox1
@@ -108,7 +108,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(718, 94);
+            this.groupBox1.Size = new System.Drawing.Size(494, 94);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "规则说明";
@@ -120,7 +120,7 @@
             this.tb_shuoming.Multiline = true;
             this.tb_shuoming.Name = "tb_shuoming";
             this.tb_shuoming.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_shuoming.Size = new System.Drawing.Size(712, 72);
+            this.tb_shuoming.Size = new System.Drawing.Size(488, 72);
             this.tb_shuoming.TabIndex = 0;
             // 
             // groupBox2
@@ -129,7 +129,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 143);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(718, 440);
+            this.groupBox2.Size = new System.Drawing.Size(494, 345);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "文本特征";
@@ -146,14 +146,14 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(712, 418);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(488, 323);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // btn_xinzeng
             // 
-            this.btn_xinzeng.Location = new System.Drawing.Point(3, 391);
+            this.btn_xinzeng.Location = new System.Drawing.Point(3, 296);
             this.btn_xinzeng.Name = "btn_xinzeng";
-            this.btn_xinzeng.Size = new System.Drawing.Size(557, 24);
+            this.btn_xinzeng.Size = new System.Drawing.Size(482, 24);
             this.btn_xinzeng.TabIndex = 0;
             this.btn_xinzeng.Text = "新增文本特征组";
             this.btn_xinzeng.UseVisualStyleBackColor = true;
@@ -165,14 +165,14 @@
             this.panel_wenbentezheng.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_wenbentezheng.Location = new System.Drawing.Point(3, 3);
             this.panel_wenbentezheng.Name = "panel_wenbentezheng";
-            this.panel_wenbentezheng.Size = new System.Drawing.Size(706, 382);
+            this.panel_wenbentezheng.Size = new System.Drawing.Size(482, 287);
             this.panel_wenbentezheng.TabIndex = 1;
             // 
             // btn_baocun
             // 
-            this.btn_baocun.Location = new System.Drawing.Point(3, 589);
+            this.btn_baocun.Location = new System.Drawing.Point(3, 494);
             this.btn_baocun.Name = "btn_baocun";
-            this.btn_baocun.Size = new System.Drawing.Size(569, 34);
+            this.btn_baocun.Size = new System.Drawing.Size(494, 34);
             this.btn_baocun.TabIndex = 4;
             this.btn_baocun.Text = "保存";
             this.btn_baocun.UseVisualStyleBackColor = true;
@@ -183,7 +183,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(724, 626);
+            this.ClientSize = new System.Drawing.Size(500, 531);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

@@ -189,7 +189,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(901, 762);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(791, 657);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -208,7 +208,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.246377F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.75362F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(901, 385);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(791, 385);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // label3
@@ -218,7 +218,7 @@
             this.label3.Location = new System.Drawing.Point(1, 28);
             this.label3.Margin = new System.Windows.Forms.Padding(1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 356);
+            this.label3.Size = new System.Drawing.Size(106, 356);
             this.label3.TabIndex = 0;
             this.label3.Text = "赋值";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -230,7 +230,7 @@
             this.label2.Location = new System.Drawing.Point(1, 1);
             this.label2.Margin = new System.Windows.Forms.Padding(1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 25);
+            this.label2.Size = new System.Drawing.Size(106, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "文本特征";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -241,13 +241,13 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel7, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(123, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(108, 0);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(778, 27);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(683, 27);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // tableLayoutPanel7
@@ -261,7 +261,7 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(772, 34);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(677, 34);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // tb_wenbentezheng
@@ -269,7 +269,7 @@
             this.tb_wenbentezheng.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_wenbentezheng.Location = new System.Drawing.Point(3, 3);
             this.tb_wenbentezheng.Name = "tb_wenbentezheng";
-            this.tb_wenbentezheng.Size = new System.Drawing.Size(766, 23);
+            this.tb_wenbentezheng.Size = new System.Drawing.Size(671, 23);
             this.tb_wenbentezheng.TabIndex = 1;
             // 
             // tableLayoutPanel5
@@ -281,14 +281,14 @@
             this.tableLayoutPanel5.Controls.Add(this.groupBox4, 0, 3);
             this.tableLayoutPanel5.Controls.Add(this.groupBox3, 0, 2);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(126, 30);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(111, 30);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 4;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(772, 352);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(677, 352);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // groupBox1
@@ -296,7 +296,7 @@
             this.groupBox1.Controls.Add(this.flowLayoutPanel1);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(766, 78);
+            this.groupBox1.Size = new System.Drawing.Size(671, 78);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "提取文本";
@@ -312,7 +312,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 19);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(760, 56);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(665, 56);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // checkBox46
@@ -380,7 +380,7 @@
             this.groupBox2.Controls.Add(this.flowLayoutPanel2);
             this.groupBox2.Location = new System.Drawing.Point(3, 87);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(766, 49);
+            this.groupBox2.Size = new System.Drawing.Size(671, 49);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "提取时间";
@@ -395,7 +395,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 19);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(760, 27);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(665, 27);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // checkBox56
@@ -454,7 +454,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 272);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(766, 77);
+            this.groupBox4.Size = new System.Drawing.Size(671, 77);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "自定义文本";
@@ -468,7 +468,7 @@
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 19);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(760, 55);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(665, 55);
             this.flowLayoutPanel4.TabIndex = 0;
             // 
             // checkBox63
@@ -525,7 +525,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 142);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(766, 124);
+            this.groupBox3.Size = new System.Drawing.Size(671, 124);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "提取数值";
@@ -542,7 +542,7 @@
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 19);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(760, 102);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(665, 102);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
             // checkBox57
@@ -658,7 +658,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 166F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(895, 166);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(785, 166);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label1
@@ -707,9 +707,9 @@
             this.flp_duixiangxuanze.Controls.Add(this.panel_biaozhunduan);
             this.flp_duixiangxuanze.Controls.Add(this.panel1);
             this.flp_duixiangxuanze.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flp_duixiangxuanze.Location = new System.Drawing.Point(125, 3);
+            this.flp_duixiangxuanze.Location = new System.Drawing.Point(110, 3);
             this.flp_duixiangxuanze.Name = "flp_duixiangxuanze";
-            this.flp_duixiangxuanze.Size = new System.Drawing.Size(767, 160);
+            this.flp_duixiangxuanze.Size = new System.Drawing.Size(672, 160);
             this.flp_duixiangxuanze.TabIndex = 1;
             // 
             // cb_wenjianming
@@ -805,7 +805,7 @@
             // checkBox12
             // 
             this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(648, 3);
+            this.checkBox12.Location = new System.Drawing.Point(3, 30);
             this.checkBox12.Name = "checkBox12";
             this.checkBox12.Size = new System.Drawing.Size(99, 21);
             this.checkBox12.TabIndex = 8;
@@ -815,7 +815,7 @@
             // checkBox13
             // 
             this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(3, 30);
+            this.checkBox13.Location = new System.Drawing.Point(108, 30);
             this.checkBox13.Name = "checkBox13";
             this.checkBox13.Size = new System.Drawing.Size(99, 21);
             this.checkBox13.TabIndex = 9;
@@ -826,7 +826,7 @@
             // 
             this.checkBox14.AutoSize = true;
             this.checkBox14.Enabled = false;
-            this.checkBox14.Location = new System.Drawing.Point(108, 30);
+            this.checkBox14.Location = new System.Drawing.Point(213, 30);
             this.checkBox14.Name = "checkBox14";
             this.checkBox14.Size = new System.Drawing.Size(51, 21);
             this.checkBox14.TabIndex = 10;
@@ -837,7 +837,7 @@
             // 
             this.checkBox15.AutoSize = true;
             this.checkBox15.Enabled = false;
-            this.checkBox15.Location = new System.Drawing.Point(165, 30);
+            this.checkBox15.Location = new System.Drawing.Point(270, 30);
             this.checkBox15.Name = "checkBox15";
             this.checkBox15.Size = new System.Drawing.Size(99, 21);
             this.checkBox15.TabIndex = 11;
@@ -847,7 +847,7 @@
             // checkBox16
             // 
             this.checkBox16.AutoSize = true;
-            this.checkBox16.Location = new System.Drawing.Point(270, 30);
+            this.checkBox16.Location = new System.Drawing.Point(375, 30);
             this.checkBox16.Name = "checkBox16";
             this.checkBox16.Size = new System.Drawing.Size(99, 21);
             this.checkBox16.TabIndex = 12;
@@ -857,7 +857,7 @@
             // checkBox17
             // 
             this.checkBox17.AutoSize = true;
-            this.checkBox17.Location = new System.Drawing.Point(375, 30);
+            this.checkBox17.Location = new System.Drawing.Point(480, 30);
             this.checkBox17.Name = "checkBox17";
             this.checkBox17.Size = new System.Drawing.Size(51, 21);
             this.checkBox17.TabIndex = 13;
@@ -867,7 +867,7 @@
             // checkBox18
             // 
             this.checkBox18.AutoSize = true;
-            this.checkBox18.Location = new System.Drawing.Point(432, 30);
+            this.checkBox18.Location = new System.Drawing.Point(537, 30);
             this.checkBox18.Name = "checkBox18";
             this.checkBox18.Size = new System.Drawing.Size(51, 21);
             this.checkBox18.TabIndex = 14;
@@ -877,7 +877,7 @@
             // checkBox19
             // 
             this.checkBox19.AutoSize = true;
-            this.checkBox19.Location = new System.Drawing.Point(489, 30);
+            this.checkBox19.Location = new System.Drawing.Point(594, 30);
             this.checkBox19.Name = "checkBox19";
             this.checkBox19.Size = new System.Drawing.Size(63, 21);
             this.checkBox19.TabIndex = 15;
@@ -887,7 +887,7 @@
             // checkBox20
             // 
             this.checkBox20.AutoSize = true;
-            this.checkBox20.Location = new System.Drawing.Point(558, 30);
+            this.checkBox20.Location = new System.Drawing.Point(3, 57);
             this.checkBox20.Name = "checkBox20";
             this.checkBox20.Size = new System.Drawing.Size(87, 21);
             this.checkBox20.TabIndex = 16;
@@ -897,7 +897,7 @@
             // checkBox21
             // 
             this.checkBox21.AutoSize = true;
-            this.checkBox21.Location = new System.Drawing.Point(651, 30);
+            this.checkBox21.Location = new System.Drawing.Point(96, 57);
             this.checkBox21.Name = "checkBox21";
             this.checkBox21.Size = new System.Drawing.Size(99, 21);
             this.checkBox21.TabIndex = 17;
@@ -907,7 +907,7 @@
             // checkBox22
             // 
             this.checkBox22.AutoSize = true;
-            this.checkBox22.Location = new System.Drawing.Point(3, 57);
+            this.checkBox22.Location = new System.Drawing.Point(201, 57);
             this.checkBox22.Name = "checkBox22";
             this.checkBox22.Size = new System.Drawing.Size(99, 21);
             this.checkBox22.TabIndex = 18;
@@ -917,7 +917,7 @@
             // checkBox23
             // 
             this.checkBox23.AutoSize = true;
-            this.checkBox23.Location = new System.Drawing.Point(108, 57);
+            this.checkBox23.Location = new System.Drawing.Point(306, 57);
             this.checkBox23.Name = "checkBox23";
             this.checkBox23.Size = new System.Drawing.Size(87, 21);
             this.checkBox23.TabIndex = 19;
@@ -927,7 +927,7 @@
             // checkBox24
             // 
             this.checkBox24.AutoSize = true;
-            this.checkBox24.Location = new System.Drawing.Point(201, 57);
+            this.checkBox24.Location = new System.Drawing.Point(399, 57);
             this.checkBox24.Name = "checkBox24";
             this.checkBox24.Size = new System.Drawing.Size(87, 21);
             this.checkBox24.TabIndex = 20;
@@ -937,7 +937,7 @@
             // checkBox25
             // 
             this.checkBox25.AutoSize = true;
-            this.checkBox25.Location = new System.Drawing.Point(294, 57);
+            this.checkBox25.Location = new System.Drawing.Point(492, 57);
             this.checkBox25.Name = "checkBox25";
             this.checkBox25.Size = new System.Drawing.Size(99, 21);
             this.checkBox25.TabIndex = 21;
@@ -947,7 +947,7 @@
             // checkBox26
             // 
             this.checkBox26.AutoSize = true;
-            this.checkBox26.Location = new System.Drawing.Point(399, 57);
+            this.checkBox26.Location = new System.Drawing.Point(3, 84);
             this.checkBox26.Name = "checkBox26";
             this.checkBox26.Size = new System.Drawing.Size(99, 21);
             this.checkBox26.TabIndex = 22;
@@ -957,7 +957,7 @@
             // checkBox27
             // 
             this.checkBox27.AutoSize = true;
-            this.checkBox27.Location = new System.Drawing.Point(504, 57);
+            this.checkBox27.Location = new System.Drawing.Point(108, 84);
             this.checkBox27.Name = "checkBox27";
             this.checkBox27.Size = new System.Drawing.Size(99, 21);
             this.checkBox27.TabIndex = 23;
@@ -967,7 +967,7 @@
             // checkBox28
             // 
             this.checkBox28.AutoSize = true;
-            this.checkBox28.Location = new System.Drawing.Point(609, 57);
+            this.checkBox28.Location = new System.Drawing.Point(213, 84);
             this.checkBox28.Name = "checkBox28";
             this.checkBox28.Size = new System.Drawing.Size(111, 21);
             this.checkBox28.TabIndex = 24;
@@ -977,7 +977,7 @@
             // checkBox29
             // 
             this.checkBox29.AutoSize = true;
-            this.checkBox29.Location = new System.Drawing.Point(3, 84);
+            this.checkBox29.Location = new System.Drawing.Point(330, 84);
             this.checkBox29.Name = "checkBox29";
             this.checkBox29.Size = new System.Drawing.Size(111, 21);
             this.checkBox29.TabIndex = 25;
@@ -987,7 +987,7 @@
             // checkBox30
             // 
             this.checkBox30.AutoSize = true;
-            this.checkBox30.Location = new System.Drawing.Point(120, 84);
+            this.checkBox30.Location = new System.Drawing.Point(447, 84);
             this.checkBox30.Name = "checkBox30";
             this.checkBox30.Size = new System.Drawing.Size(111, 21);
             this.checkBox30.TabIndex = 26;
@@ -997,7 +997,7 @@
             // checkBox31
             // 
             this.checkBox31.AutoSize = true;
-            this.checkBox31.Location = new System.Drawing.Point(237, 84);
+            this.checkBox31.Location = new System.Drawing.Point(564, 84);
             this.checkBox31.Name = "checkBox31";
             this.checkBox31.Size = new System.Drawing.Size(87, 21);
             this.checkBox31.TabIndex = 27;
@@ -1008,7 +1008,7 @@
             // 
             this.checkBox32.AutoSize = true;
             this.checkBox32.Enabled = false;
-            this.checkBox32.Location = new System.Drawing.Point(330, 84);
+            this.checkBox32.Location = new System.Drawing.Point(3, 111);
             this.checkBox32.Name = "checkBox32";
             this.checkBox32.Size = new System.Drawing.Size(87, 21);
             this.checkBox32.TabIndex = 28;
@@ -1019,7 +1019,7 @@
             // 
             this.checkBox33.AutoSize = true;
             this.checkBox33.Enabled = false;
-            this.checkBox33.Location = new System.Drawing.Point(423, 84);
+            this.checkBox33.Location = new System.Drawing.Point(96, 111);
             this.checkBox33.Name = "checkBox33";
             this.checkBox33.Size = new System.Drawing.Size(111, 21);
             this.checkBox33.TabIndex = 29;
@@ -1029,7 +1029,7 @@
             // checkBox34
             // 
             this.checkBox34.AutoSize = true;
-            this.checkBox34.Location = new System.Drawing.Point(540, 84);
+            this.checkBox34.Location = new System.Drawing.Point(213, 111);
             this.checkBox34.Name = "checkBox34";
             this.checkBox34.Size = new System.Drawing.Size(87, 21);
             this.checkBox34.TabIndex = 30;
@@ -1040,7 +1040,7 @@
             // 
             this.panel_biaozhunduan.Controls.Add(this.tb_cixu);
             this.panel_biaozhunduan.Controls.Add(this.cb_shunshu);
-            this.panel_biaozhunduan.Location = new System.Drawing.Point(3, 111);
+            this.panel_biaozhunduan.Location = new System.Drawing.Point(306, 111);
             this.panel_biaozhunduan.Name = "panel_biaozhunduan";
             this.panel_biaozhunduan.Size = new System.Drawing.Size(150, 21);
             this.panel_biaozhunduan.TabIndex = 31;
@@ -1066,7 +1066,7 @@
             // 
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.cb_daoshu);
-            this.panel1.Location = new System.Drawing.Point(159, 111);
+            this.panel1.Location = new System.Drawing.Point(462, 111);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(150, 21);
             this.panel1.TabIndex = 32;
@@ -1282,19 +1282,19 @@
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel11.Controls.Add(this.pb_shanchu, 1, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 732);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 627);
             this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(901, 30);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(791, 30);
             this.tableLayoutPanel11.TabIndex = 1;
             // 
             // pb_shanchu
             // 
             this.pb_shanchu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
-            this.pb_shanchu.Location = new System.Drawing.Point(435, 0);
+            this.pb_shanchu.Location = new System.Drawing.Point(380, 0);
             this.pb_shanchu.Margin = new System.Windows.Forms.Padding(0);
             this.pb_shanchu.Name = "pb_shanchu";
             this.pb_shanchu.Size = new System.Drawing.Size(30, 30);
@@ -1315,7 +1315,7 @@
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(776, 65);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(776, 1);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // label5
@@ -1325,7 +1325,7 @@
             this.label5.Location = new System.Drawing.Point(1, 1);
             this.label5.Margin = new System.Windows.Forms.Padding(1);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 63);
+            this.label5.Size = new System.Drawing.Size(104, 1);
             this.label5.TabIndex = 0;
             this.label5.Text = "赋值覆盖范围";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1343,7 +1343,7 @@
             this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel6.Location = new System.Drawing.Point(109, 3);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(664, 59);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(664, 1);
             this.flowLayoutPanel6.TabIndex = 0;
             // 
             // checkBox41
@@ -1436,7 +1436,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UCRuleInfo";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Size = new System.Drawing.Size(911, 772);
+            this.Size = new System.Drawing.Size(801, 667);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
