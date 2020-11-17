@@ -78,6 +78,6 @@ namespace 文本解析系统.JJUserControl
             this.Dispose();
         }
 
-    
+
     }
 }

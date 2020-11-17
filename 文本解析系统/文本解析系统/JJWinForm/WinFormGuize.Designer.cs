@@ -132,7 +132,7 @@
             this.groupBox2.Size = new System.Drawing.Size(494, 345);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "文本特征";
+            this.groupBox2.Text = "规则详情";
             // 
             // tableLayoutPanel3
             // 
@@ -155,7 +155,7 @@
             this.btn_xinzeng.Name = "btn_xinzeng";
             this.btn_xinzeng.Size = new System.Drawing.Size(482, 24);
             this.btn_xinzeng.TabIndex = 0;
-            this.btn_xinzeng.Text = "新增文本特征组";
+            this.btn_xinzeng.Text = "新增规则详情";
             this.btn_xinzeng.UseVisualStyleBackColor = true;
             this.btn_xinzeng.Click += new System.EventHandler(this.btn_xinzeng_Click);
             // 
