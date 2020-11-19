@@ -298,17 +298,17 @@ namespace 文本解析系统.JJController
                         string pipeiduixiang = GetPipeiduixiangStr(myword, myrd.duixiangxuanze);
                         //对 特征对象进行匹配
                         string strresult = string.Empty;
-                        if (myrd.wenbentezhengjieguo.Equals("仅文本"))
+                        if (myrd.fuzhi.Equals("仅文本"))
                         {
                             strresult = Regex.Match(pipeiduixiang, myrd.wenbentezheng).Value.ToString();
                         }
-                        else if (myrd.wenbentezhengjieguo.Equals("整句"))
+                        else if (myrd.fuzhi.Equals("整句"))
                         {
                             strresult = Regex.Match(pipeiduixiang, $@"(?<=[^。；;])[\s\S]*{myrd.wenbentezheng}[\s\S]*(?=[。；;])").Value.ToString();
                         }
                         else//返回自定义的文本特征结果
                         {
-                            strresult = myrd.wenbentezhengjieguo;
+                            strresult = myrd.fuzhi;
                         }
                         //添加赋值结果和赋值类型到dictionary中
                         if (dic_result.Keys.Contains(myrd.fuzhileixing))

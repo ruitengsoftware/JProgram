@@ -102,12 +102,12 @@ namespace 文本解析系统.JJWinForm
                     {
                         if (item.Text.Equals("自定义"))
                         {
-                            ri.wenbentezhengjieguo = myuc.tb_zidingyijieguo.Text;
+                            ri.fuzhi = myuc.tb_zidingyijieguo.Text;
                             break;
                         }
                         else
                         {
-                            ri.wenbentezhengjieguo = item.Text;
+                            ri.fuzhi = item.Text;
                             break;
                         }
                     }

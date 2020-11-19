@@ -37,7 +37,7 @@ namespace 文本解析系统.JJUserControl
             bool zidingyi = true;
             foreach (Control item in flp_jieguo.Controls)
             {
-                if (item is CheckBox && item.Text.Equals(ruledetail.wenbentezhengjieguo))
+                if (item is CheckBox && item.Text.Equals(ruledetail.fuzhi))
                 {
                     (item as CheckBox).Checked = true;
                     zidingyi = false;//由于识别到了选中项，就取消了自定义的勾选
@@ -48,7 +48,7 @@ namespace 文本解析系统.JJUserControl
             if (zidingyi)
             {
                 cb_zidingyijieguo.Checked = true;
-                tb_zidingyijieguo.Text = ruledetail.wenbentezhengjieguo;
+                tb_zidingyijieguo.Text = ruledetail.fuzhi;
             }
             //赋值类型
             zidingyi = true;
