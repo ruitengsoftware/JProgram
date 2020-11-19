@@ -439,7 +439,7 @@ namespace 文本解析系统.JJController
                     {
                         if (!para.Range.Text.Trim().Equals(string.Empty))
                         {
-                            result += para.Range.Text;
+                            result += para.Range.Text+"\r\n";
                         }
                     }
                 }
@@ -453,7 +453,7 @@ namespace 文本解析系统.JJController
                     {
                         if (!para.Range.Text.Trim().Equals(string.Empty) && para.ParagraphFormat.Alignment != ParagraphAlignment.Center)
                         {
-                            result += para.Range.Text;
+                            result += para.Range.Text+"\r\n";
                         }
                     }
                 }
@@ -475,7 +475,7 @@ namespace 文本解析系统.JJController
                         {
                             if (Regex.IsMatch(para.Range.Text, $@"[\s\S]+[。;；]$"))//判断结尾是否含有标点符号
                             {
-                                result += para.Range.Text;
+                                result += para.Range.Text+"\r\n";
                                 get = true;//如果已经找到第一个居中不为零的自然段，那么就记录下来
                             }
                         }
@@ -516,7 +516,7 @@ namespace 文本解析系统.JJController
                             }
                             else if (!get2)
                             {
-                                result += para.Range.Text;
+                                result += para.Range.Text+"\r\n";
                                 get2 = true;
                             }
 
@@ -551,7 +551,7 @@ namespace 文本解析系统.JJController
                         bool juhao = Regex.IsMatch(para.Range.Text, $@"!(?!<。)[\s\S]+(?!。)$");
                         if (kaitou && juhao)
                         {
-                            result += para.Range.Text;
+                            result += para.Range.Text+"\r\n";
                         }
                     }
                 }
@@ -566,7 +566,7 @@ namespace 文本解析系统.JJController
                         bool juhao = Regex.IsMatch(para.Range.Text, $@"[\s\S]+[。;]$");
                         if (kaitou && juhao)
                         {
-                            result += para.Range.Text;
+                            result += para.Range.Text+"\r\n";
                         }
                     }
                 }
@@ -588,7 +588,7 @@ namespace 文本解析系统.JJController
                         bool kaitou9 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+项[\s\S]+");
                         if (kaitou1 || kaitou2 || kaitou3 || kaitou4 || kaitou5 || kaitou6 || kaitou7 | kaitou8 | kaitou9)
                         {
-                            result += para.Range.Text;
+                            result += para.Range.Text+"\r\n";
                         }
 
                     }
@@ -604,7 +604,7 @@ namespace 文本解析系统.JJController
                         bool jibie = para.ListFormat.ListLevelNumber == 1;
                         if (jibie)
                         {
-                            result += para.Range.Text;
+                            result += para.Range.Text+"\r\n";
                         }
                     }
                 }
@@ -619,7 +619,7 @@ namespace 文本解析系统.JJController
                         bool jibie = para.ListFormat.ListLevelNumber == 2;
                         if (jibie)
                         {
-                            result += para.Range.Text;
+                            result += para.Range.Text+"\r\n";
                         }
                     }
                 }
@@ -634,7 +634,7 @@ namespace 文本解析系统.JJController
                         bool jibie = para.ListFormat.ListLevelNumber == 3;
                         if (jibie)
                         {
-                            result += para.Range.Text;
+                            result += para.Range.Text+"\r\n";
                         }
                     }
                 }
@@ -690,7 +690,7 @@ namespace 文本解析系统.JJController
                         bool juhao = Regex.IsMatch(para.Range.Text, $@"[\s\S]+。[\S\s]");
                         if (!juhao)
                         {
-                            result += para.Range.Text;
+                            result += para.Range.Text+"\r\n";
                         }
                     }
                 }
@@ -706,7 +706,7 @@ namespace 文本解析系统.JJController
                         bool moduan = para == myword.FirstSection.Body.FirstParagraph;
                         if (juhao && !shouduan && !moduan)
                         {
-                            result += para.Range.Text;
+                            result += para.Range.Text+"\r\n";
                         }
                     }
                 }
@@ -720,7 +720,7 @@ namespace 文本解析系统.JJController
                         bool juwei = Regex.IsMatch(para.Range.Text, $@"[\s\S]+(?![;。；……？！?!:])");
                         if (!juwei)
                         {
-                            result += para.Range.Text;
+                            result += para.Range.Text+"\r\n";
                         }
                     }
                 }
@@ -734,7 +734,7 @@ namespace 文本解析系统.JJController
                         bool juwei = Regex.IsMatch(para.Range.Text, $@"[\s\S]+(?![。……？！?!:])");
                         if (juwei)
                         {
-                            result += para.Range.Text;
+                            result += para.Range.Text+"\r\n";
                         }
                     }
                 }
