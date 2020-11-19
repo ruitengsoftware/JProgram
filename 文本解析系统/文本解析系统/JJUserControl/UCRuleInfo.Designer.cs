@@ -30,77 +30,77 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCRuleInfo));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBox38 = new System.Windows.Forms.CheckBox();
-            this.checkBox37 = new System.Windows.Forms.CheckBox();
-            this.checkBox36 = new System.Windows.Forms.CheckBox();
-            this.checkBox35 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox35 = new System.Windows.Forms.CheckBox();
+            this.checkBox36 = new System.Windows.Forms.CheckBox();
+            this.checkBox37 = new System.Windows.Forms.CheckBox();
+            this.checkBox38 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.pb_shanchu = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tb_zidingyifuzhi = new System.Windows.Forms.TextBox();
-            this.checkBox51 = new System.Windows.Forms.CheckBox();
-            this.checkBox50 = new System.Windows.Forms.CheckBox();
-            this.checkBox49 = new System.Windows.Forms.CheckBox();
-            this.checkBox48 = new System.Windows.Forms.CheckBox();
-            this.checkBox47 = new System.Windows.Forms.CheckBox();
             this.checkBox46 = new System.Windows.Forms.CheckBox();
+            this.checkBox47 = new System.Windows.Forms.CheckBox();
+            this.checkBox48 = new System.Windows.Forms.CheckBox();
+            this.checkBox49 = new System.Windows.Forms.CheckBox();
+            this.checkBox50 = new System.Windows.Forms.CheckBox();
+            this.checkBox51 = new System.Windows.Forms.CheckBox();
+            this.tb_zidingyifuzhi = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.cbb_fuzhileixing = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_wenbentezheng = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.flp_duixiangxuanze = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cb_daoshu = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel_biaozhunduan = new System.Windows.Forms.Panel();
-            this.cb_shunshu = new System.Windows.Forms.CheckBox();
-            this.tb_cixu = new System.Windows.Forms.TextBox();
-            this.checkBox34 = new System.Windows.Forms.CheckBox();
-            this.checkBox33 = new System.Windows.Forms.CheckBox();
-            this.checkBox32 = new System.Windows.Forms.CheckBox();
-            this.checkBox31 = new System.Windows.Forms.CheckBox();
-            this.checkBox30 = new System.Windows.Forms.CheckBox();
-            this.checkBox29 = new System.Windows.Forms.CheckBox();
-            this.checkBox28 = new System.Windows.Forms.CheckBox();
-            this.checkBox27 = new System.Windows.Forms.CheckBox();
-            this.checkBox26 = new System.Windows.Forms.CheckBox();
-            this.checkBox25 = new System.Windows.Forms.CheckBox();
-            this.checkBox24 = new System.Windows.Forms.CheckBox();
-            this.checkBox23 = new System.Windows.Forms.CheckBox();
-            this.checkBox22 = new System.Windows.Forms.CheckBox();
-            this.checkBox21 = new System.Windows.Forms.CheckBox();
-            this.checkBox20 = new System.Windows.Forms.CheckBox();
-            this.checkBox19 = new System.Windows.Forms.CheckBox();
-            this.checkBox18 = new System.Windows.Forms.CheckBox();
-            this.checkBox17 = new System.Windows.Forms.CheckBox();
-            this.checkBox16 = new System.Windows.Forms.CheckBox();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.cb_quanwengangyao = new System.Windows.Forms.CheckBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.cb_wenjianming = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.flp_duixiangxuanze = new System.Windows.Forms.FlowLayoutPanel();
+            this.cb_wenjianming = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.cb_quanwengangyao = new System.Windows.Forms.CheckBox();
+            this.checkBox12 = new System.Windows.Forms.CheckBox();
+            this.checkBox13 = new System.Windows.Forms.CheckBox();
+            this.checkBox14 = new System.Windows.Forms.CheckBox();
+            this.checkBox15 = new System.Windows.Forms.CheckBox();
+            this.checkBox16 = new System.Windows.Forms.CheckBox();
+            this.checkBox17 = new System.Windows.Forms.CheckBox();
+            this.checkBox18 = new System.Windows.Forms.CheckBox();
+            this.checkBox19 = new System.Windows.Forms.CheckBox();
+            this.checkBox20 = new System.Windows.Forms.CheckBox();
+            this.checkBox21 = new System.Windows.Forms.CheckBox();
+            this.checkBox22 = new System.Windows.Forms.CheckBox();
+            this.checkBox23 = new System.Windows.Forms.CheckBox();
+            this.checkBox24 = new System.Windows.Forms.CheckBox();
+            this.checkBox25 = new System.Windows.Forms.CheckBox();
+            this.checkBox26 = new System.Windows.Forms.CheckBox();
+            this.checkBox27 = new System.Windows.Forms.CheckBox();
+            this.checkBox28 = new System.Windows.Forms.CheckBox();
+            this.checkBox29 = new System.Windows.Forms.CheckBox();
+            this.checkBox30 = new System.Windows.Forms.CheckBox();
+            this.checkBox31 = new System.Windows.Forms.CheckBox();
+            this.checkBox32 = new System.Windows.Forms.CheckBox();
+            this.checkBox33 = new System.Windows.Forms.CheckBox();
+            this.checkBox34 = new System.Windows.Forms.CheckBox();
+            this.panel_biaozhunduan = new System.Windows.Forms.Panel();
+            this.tb_cixu = new System.Windows.Forms.TextBox();
+            this.cb_shunshu = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cb_daoshu = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -114,8 +114,8 @@
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flp_duixiangxuanze.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel_biaozhunduan.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,9 +131,21 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(640, 34);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Location = new System.Drawing.Point(1, 1);
+            this.label5.Margin = new System.Windows.Forms.Padding(1);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 32);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "赋值覆盖类型";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel2
             // 
@@ -151,65 +163,15 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(547, 28);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
-            // checkBox38
+            // checkBox2
             // 
-            this.checkBox38.AutoSize = true;
-            this.checkBox38.Location = new System.Drawing.Point(462, 3);
-            this.checkBox38.Name = "checkBox38";
-            this.checkBox38.Size = new System.Drawing.Size(63, 21);
-            this.checkBox38.TabIndex = 7;
-            this.checkBox38.Text = "副标题";
-            this.checkBox38.UseVisualStyleBackColor = true;
-            // 
-            // checkBox37
-            // 
-            this.checkBox37.AutoSize = true;
-            this.checkBox37.Location = new System.Drawing.Point(393, 3);
-            this.checkBox37.Name = "checkBox37";
-            this.checkBox37.Size = new System.Drawing.Size(63, 21);
-            this.checkBox37.TabIndex = 6;
-            this.checkBox37.Text = "主标题";
-            this.checkBox37.UseVisualStyleBackColor = true;
-            // 
-            // checkBox36
-            // 
-            this.checkBox36.AutoSize = true;
-            this.checkBox36.Location = new System.Drawing.Point(324, 3);
-            this.checkBox36.Name = "checkBox36";
-            this.checkBox36.Size = new System.Drawing.Size(63, 21);
-            this.checkBox36.TabIndex = 5;
-            this.checkBox36.Text = "文件名";
-            this.checkBox36.UseVisualStyleBackColor = true;
-            // 
-            // checkBox35
-            // 
-            this.checkBox35.AutoSize = true;
-            this.checkBox35.Location = new System.Drawing.Point(267, 3);
-            this.checkBox35.Name = "checkBox35";
-            this.checkBox35.Size = new System.Drawing.Size(51, 21);
-            this.checkBox35.TabIndex = 4;
-            this.checkBox35.Text = "正文";
-            this.checkBox35.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(198, 3);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(63, 21);
-            this.checkBox7.TabIndex = 3;
-            this.checkBox7.Text = "标准段";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(129, 3);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(63, 21);
-            this.checkBox6.TabIndex = 2;
-            this.checkBox6.Text = "标准句";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(3, 3);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(51, 21);
+            this.checkBox2.TabIndex = 0;
+            this.checkBox2.Text = "全部";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // checkBox3
             // 
@@ -221,27 +183,65 @@
             this.checkBox3.Text = "索引句";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBox6
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(3, 3);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(51, 21);
-            this.checkBox2.TabIndex = 0;
-            this.checkBox2.Text = "全部";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(129, 3);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(63, 21);
+            this.checkBox6.TabIndex = 2;
+            this.checkBox6.Text = "标准句";
+            this.checkBox6.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // checkBox7
             // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(1, 1);
-            this.label5.Margin = new System.Windows.Forms.Padding(1);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 32);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "赋值覆盖类型";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(198, 3);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(63, 21);
+            this.checkBox7.TabIndex = 3;
+            this.checkBox7.Text = "标准段";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // checkBox35
+            // 
+            this.checkBox35.AutoSize = true;
+            this.checkBox35.Location = new System.Drawing.Point(267, 3);
+            this.checkBox35.Name = "checkBox35";
+            this.checkBox35.Size = new System.Drawing.Size(51, 21);
+            this.checkBox35.TabIndex = 4;
+            this.checkBox35.Text = "正文";
+            this.checkBox35.UseVisualStyleBackColor = true;
+            // 
+            // checkBox36
+            // 
+            this.checkBox36.AutoSize = true;
+            this.checkBox36.Location = new System.Drawing.Point(324, 3);
+            this.checkBox36.Name = "checkBox36";
+            this.checkBox36.Size = new System.Drawing.Size(63, 21);
+            this.checkBox36.TabIndex = 5;
+            this.checkBox36.Text = "文件名";
+            this.checkBox36.UseVisualStyleBackColor = true;
+            // 
+            // checkBox37
+            // 
+            this.checkBox37.AutoSize = true;
+            this.checkBox37.Location = new System.Drawing.Point(393, 3);
+            this.checkBox37.Name = "checkBox37";
+            this.checkBox37.Size = new System.Drawing.Size(63, 21);
+            this.checkBox37.TabIndex = 6;
+            this.checkBox37.Text = "主标题";
+            this.checkBox37.UseVisualStyleBackColor = true;
+            // 
+            // checkBox38
+            // 
+            this.checkBox38.AutoSize = true;
+            this.checkBox38.Location = new System.Drawing.Point(462, 3);
+            this.checkBox38.Name = "checkBox38";
+            this.checkBox38.Size = new System.Drawing.Size(63, 21);
+            this.checkBox38.TabIndex = 7;
+            this.checkBox38.Text = "副标题";
+            this.checkBox38.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel11
             // 
@@ -285,18 +285,6 @@
             this.tableLayoutPanel10.Size = new System.Drawing.Size(640, 68);
             this.tableLayoutPanel10.TabIndex = 2;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(1, 1);
-            this.label3.Margin = new System.Windows.Forms.Padding(1);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 66);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "赋值";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.checkBox46);
@@ -312,52 +300,15 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(549, 62);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // tb_zidingyifuzhi
+            // checkBox46
             // 
-            this.tb_zidingyifuzhi.Location = new System.Drawing.Point(333, 30);
-            this.tb_zidingyifuzhi.Name = "tb_zidingyifuzhi";
-            this.tb_zidingyifuzhi.Size = new System.Drawing.Size(108, 23);
-            this.tb_zidingyifuzhi.TabIndex = 6;
-            // 
-            // checkBox51
-            // 
-            this.checkBox51.AutoSize = true;
-            this.checkBox51.Location = new System.Drawing.Point(168, 30);
-            this.checkBox51.Name = "checkBox51";
-            this.checkBox51.Size = new System.Drawing.Size(159, 21);
-            this.checkBox51.TabIndex = 5;
-            this.checkBox51.Text = "文本特征后字段至标准段";
-            this.checkBox51.UseVisualStyleBackColor = true;
-            // 
-            // checkBox50
-            // 
-            this.checkBox50.AutoSize = true;
-            this.checkBox50.Location = new System.Drawing.Point(3, 30);
-            this.checkBox50.Name = "checkBox50";
-            this.checkBox50.Size = new System.Drawing.Size(159, 21);
-            this.checkBox50.TabIndex = 4;
-            this.checkBox50.Text = "文本特征后字段至标准句";
-            this.checkBox50.UseVisualStyleBackColor = true;
-            // 
-            // checkBox49
-            // 
-            this.checkBox49.AutoSize = true;
-            this.checkBox49.Location = new System.Drawing.Point(282, 3);
-            this.checkBox49.Name = "checkBox49";
-            this.checkBox49.Size = new System.Drawing.Size(159, 21);
-            this.checkBox49.TabIndex = 3;
-            this.checkBox49.Text = "文本特征后字段至索引句";
-            this.checkBox49.UseVisualStyleBackColor = true;
-            // 
-            // checkBox48
-            // 
-            this.checkBox48.AutoSize = true;
-            this.checkBox48.Location = new System.Drawing.Point(189, 3);
-            this.checkBox48.Name = "checkBox48";
-            this.checkBox48.Size = new System.Drawing.Size(87, 21);
-            this.checkBox48.TabIndex = 2;
-            this.checkBox48.Text = "所在标准段";
-            this.checkBox48.UseVisualStyleBackColor = true;
+            this.checkBox46.AutoSize = true;
+            this.checkBox46.Location = new System.Drawing.Point(3, 3);
+            this.checkBox46.Name = "checkBox46";
+            this.checkBox46.Size = new System.Drawing.Size(87, 21);
+            this.checkBox46.TabIndex = 0;
+            this.checkBox46.Text = "所在索引句";
+            this.checkBox46.UseVisualStyleBackColor = true;
             // 
             // checkBox47
             // 
@@ -369,15 +320,64 @@
             this.checkBox47.Text = "所在标准句";
             this.checkBox47.UseVisualStyleBackColor = true;
             // 
-            // checkBox46
+            // checkBox48
             // 
-            this.checkBox46.AutoSize = true;
-            this.checkBox46.Location = new System.Drawing.Point(3, 3);
-            this.checkBox46.Name = "checkBox46";
-            this.checkBox46.Size = new System.Drawing.Size(87, 21);
-            this.checkBox46.TabIndex = 0;
-            this.checkBox46.Text = "所在索引句";
-            this.checkBox46.UseVisualStyleBackColor = true;
+            this.checkBox48.AutoSize = true;
+            this.checkBox48.Location = new System.Drawing.Point(189, 3);
+            this.checkBox48.Name = "checkBox48";
+            this.checkBox48.Size = new System.Drawing.Size(87, 21);
+            this.checkBox48.TabIndex = 2;
+            this.checkBox48.Text = "所在标准段";
+            this.checkBox48.UseVisualStyleBackColor = true;
+            // 
+            // checkBox49
+            // 
+            this.checkBox49.AutoSize = true;
+            this.checkBox49.Location = new System.Drawing.Point(282, 3);
+            this.checkBox49.Name = "checkBox49";
+            this.checkBox49.Size = new System.Drawing.Size(159, 21);
+            this.checkBox49.TabIndex = 3;
+            this.checkBox49.Text = "文本特征后字段至索引句";
+            this.checkBox49.UseVisualStyleBackColor = true;
+            // 
+            // checkBox50
+            // 
+            this.checkBox50.AutoSize = true;
+            this.checkBox50.Location = new System.Drawing.Point(3, 30);
+            this.checkBox50.Name = "checkBox50";
+            this.checkBox50.Size = new System.Drawing.Size(159, 21);
+            this.checkBox50.TabIndex = 4;
+            this.checkBox50.Text = "文本特征后字段至标准句";
+            this.checkBox50.UseVisualStyleBackColor = true;
+            // 
+            // checkBox51
+            // 
+            this.checkBox51.AutoSize = true;
+            this.checkBox51.Location = new System.Drawing.Point(168, 30);
+            this.checkBox51.Name = "checkBox51";
+            this.checkBox51.Size = new System.Drawing.Size(159, 21);
+            this.checkBox51.TabIndex = 5;
+            this.checkBox51.Text = "文本特征后字段至标准段";
+            this.checkBox51.UseVisualStyleBackColor = true;
+            // 
+            // tb_zidingyifuzhi
+            // 
+            this.tb_zidingyifuzhi.Location = new System.Drawing.Point(333, 30);
+            this.tb_zidingyifuzhi.Name = "tb_zidingyifuzhi";
+            this.tb_zidingyifuzhi.Size = new System.Drawing.Size(108, 23);
+            this.tb_zidingyifuzhi.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Location = new System.Drawing.Point(1, 1);
+            this.label3.Margin = new System.Windows.Forms.Padding(1);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 66);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "赋值";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel8
             // 
@@ -390,7 +390,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(640, 37);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
@@ -442,6 +442,18 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(646, 40);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(1, 1);
+            this.label2.Margin = new System.Windows.Forms.Padding(1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 38);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "文本特征";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
@@ -479,18 +491,6 @@
             this.tb_wenbentezheng.Size = new System.Drawing.Size(546, 23);
             this.tb_wenbentezheng.TabIndex = 1;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(1, 1);
-            this.label2.Margin = new System.Windows.Forms.Padding(1);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 38);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "文本特征";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
@@ -503,9 +503,18 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 166F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 194F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(640, 194);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "对象选择";
             // 
             // flp_duixiangxuanze
             // 
@@ -549,260 +558,115 @@
             this.flp_duixiangxuanze.Size = new System.Drawing.Size(547, 188);
             this.flp_duixiangxuanze.TabIndex = 1;
             // 
-            // panel1
+            // cb_wenjianming
             // 
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.cb_daoshu);
-            this.panel1.Location = new System.Drawing.Point(162, 165);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(150, 33);
-            this.panel1.TabIndex = 32;
+            this.cb_wenjianming.AutoSize = true;
+            this.cb_wenjianming.Location = new System.Drawing.Point(3, 3);
+            this.cb_wenjianming.Name = "cb_wenjianming";
+            this.cb_wenjianming.Size = new System.Drawing.Size(63, 21);
+            this.cb_wenjianming.TabIndex = 0;
+            this.cb_wenjianming.Text = "文件名";
+            this.cb_wenjianming.UseVisualStyleBackColor = true;
             // 
-            // cb_daoshu
+            // checkBox4
             // 
-            this.cb_daoshu.AutoSize = true;
-            this.cb_daoshu.Location = new System.Drawing.Point(3, 3);
-            this.cb_daoshu.Name = "cb_daoshu";
-            this.cb_daoshu.Size = new System.Drawing.Size(111, 21);
-            this.cb_daoshu.TabIndex = 0;
-            this.cb_daoshu.Text = "标准段倒数次序";
-            this.cb_daoshu.UseVisualStyleBackColor = true;
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(72, 3);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(51, 21);
+            this.checkBox4.TabIndex = 0;
+            this.checkBox4.Text = "全文";
+            this.checkBox4.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // checkBox5
             // 
-            this.textBox1.Location = new System.Drawing.Point(120, 1);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(26, 23);
-            this.textBox1.TabIndex = 1;
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(129, 3);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(51, 21);
+            this.checkBox5.TabIndex = 1;
+            this.checkBox5.Text = "正文";
+            this.checkBox5.UseVisualStyleBackColor = true;
             // 
-            // panel_biaozhunduan
+            // checkBox1
             // 
-            this.panel_biaozhunduan.Controls.Add(this.tb_cixu);
-            this.panel_biaozhunduan.Controls.Add(this.cb_shunshu);
-            this.panel_biaozhunduan.Location = new System.Drawing.Point(3, 165);
-            this.panel_biaozhunduan.Name = "panel_biaozhunduan";
-            this.panel_biaozhunduan.Size = new System.Drawing.Size(153, 33);
-            this.panel_biaozhunduan.TabIndex = 31;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(186, 3);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(63, 21);
+            this.checkBox1.TabIndex = 2;
+            this.checkBox1.Text = "主标题";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // cb_shunshu
+            // checkBox8
             // 
-            this.cb_shunshu.AutoSize = true;
-            this.cb_shunshu.Location = new System.Drawing.Point(3, 3);
-            this.cb_shunshu.Name = "cb_shunshu";
-            this.cb_shunshu.Size = new System.Drawing.Size(111, 21);
-            this.cb_shunshu.TabIndex = 0;
-            this.cb_shunshu.Text = "标准段顺数次序";
-            this.cb_shunshu.UseVisualStyleBackColor = true;
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(255, 3);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(63, 21);
+            this.checkBox8.TabIndex = 3;
+            this.checkBox8.Text = "副标题";
+            this.checkBox8.UseVisualStyleBackColor = true;
             // 
-            // tb_cixu
+            // checkBox9
             // 
-            this.tb_cixu.Location = new System.Drawing.Point(120, 1);
-            this.tb_cixu.Name = "tb_cixu";
-            this.tb_cixu.Size = new System.Drawing.Size(26, 23);
-            this.tb_cixu.TabIndex = 1;
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Location = new System.Drawing.Point(324, 3);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(75, 21);
+            this.checkBox9.TabIndex = 4;
+            this.checkBox9.Text = "一级标题";
+            this.checkBox9.UseVisualStyleBackColor = true;
             // 
-            // checkBox34
+            // checkBox10
             // 
-            this.checkBox34.AutoSize = true;
-            this.checkBox34.Location = new System.Drawing.Point(306, 138);
-            this.checkBox34.Name = "checkBox34";
-            this.checkBox34.Size = new System.Drawing.Size(87, 21);
-            this.checkBox34.TabIndex = 30;
-            this.checkBox34.Text = "普通索引据";
-            this.checkBox34.UseVisualStyleBackColor = true;
+            this.checkBox10.AutoSize = true;
+            this.checkBox10.Location = new System.Drawing.Point(405, 3);
+            this.checkBox10.Name = "checkBox10";
+            this.checkBox10.Size = new System.Drawing.Size(75, 21);
+            this.checkBox10.TabIndex = 5;
+            this.checkBox10.Text = "二级标题";
+            this.checkBox10.UseVisualStyleBackColor = true;
             // 
-            // checkBox33
+            // checkBox11
             // 
-            this.checkBox33.AutoSize = true;
-            this.checkBox33.Enabled = false;
-            this.checkBox33.Location = new System.Drawing.Point(189, 138);
-            this.checkBox33.Name = "checkBox33";
-            this.checkBox33.Size = new System.Drawing.Size(111, 21);
-            this.checkBox33.TabIndex = 29;
-            this.checkBox33.Text = "政策条款索引句";
-            this.checkBox33.UseVisualStyleBackColor = true;
+            this.checkBox11.AutoSize = true;
+            this.checkBox11.Location = new System.Drawing.Point(3, 30);
+            this.checkBox11.Name = "checkBox11";
+            this.checkBox11.Size = new System.Drawing.Size(75, 21);
+            this.checkBox11.TabIndex = 6;
+            this.checkBox11.Text = "三级标题";
+            this.checkBox11.UseVisualStyleBackColor = true;
             // 
-            // checkBox32
+            // cb_quanwengangyao
             // 
-            this.checkBox32.AutoSize = true;
-            this.checkBox32.Enabled = false;
-            this.checkBox32.Location = new System.Drawing.Point(96, 138);
-            this.checkBox32.Name = "checkBox32";
-            this.checkBox32.Size = new System.Drawing.Size(87, 21);
-            this.checkBox32.TabIndex = 28;
-            this.checkBox32.Text = "法条索引句";
-            this.checkBox32.UseVisualStyleBackColor = true;
+            this.cb_quanwengangyao.AutoSize = true;
+            this.cb_quanwengangyao.Location = new System.Drawing.Point(84, 30);
+            this.cb_quanwengangyao.Name = "cb_quanwengangyao";
+            this.cb_quanwengangyao.Size = new System.Drawing.Size(75, 21);
+            this.cb_quanwengangyao.TabIndex = 7;
+            this.cb_quanwengangyao.Text = "全文纲要";
+            this.cb_quanwengangyao.UseVisualStyleBackColor = true;
             // 
-            // checkBox31
+            // checkBox12
             // 
-            this.checkBox31.AutoSize = true;
-            this.checkBox31.Location = new System.Drawing.Point(3, 138);
-            this.checkBox31.Name = "checkBox31";
-            this.checkBox31.Size = new System.Drawing.Size(87, 21);
-            this.checkBox31.TabIndex = 27;
-            this.checkBox31.Text = "段首索引句";
-            this.checkBox31.UseVisualStyleBackColor = true;
+            this.checkBox12.AutoSize = true;
+            this.checkBox12.Location = new System.Drawing.Point(165, 30);
+            this.checkBox12.Name = "checkBox12";
+            this.checkBox12.Size = new System.Drawing.Size(99, 21);
+            this.checkBox12.TabIndex = 8;
+            this.checkBox12.Text = "二级标题纲要";
+            this.checkBox12.UseVisualStyleBackColor = true;
             // 
-            // checkBox30
+            // checkBox13
             // 
-            this.checkBox30.AutoSize = true;
-            this.checkBox30.Location = new System.Drawing.Point(342, 111);
-            this.checkBox30.Name = "checkBox30";
-            this.checkBox30.Size = new System.Drawing.Size(111, 21);
-            this.checkBox30.TabIndex = 26;
-            this.checkBox30.Text = "三级标题索引句";
-            this.checkBox30.UseVisualStyleBackColor = true;
-            // 
-            // checkBox29
-            // 
-            this.checkBox29.AutoSize = true;
-            this.checkBox29.Location = new System.Drawing.Point(225, 111);
-            this.checkBox29.Name = "checkBox29";
-            this.checkBox29.Size = new System.Drawing.Size(111, 21);
-            this.checkBox29.TabIndex = 25;
-            this.checkBox29.Text = "二级标题索引句";
-            this.checkBox29.UseVisualStyleBackColor = true;
-            // 
-            // checkBox28
-            // 
-            this.checkBox28.AutoSize = true;
-            this.checkBox28.Location = new System.Drawing.Point(108, 111);
-            this.checkBox28.Name = "checkBox28";
-            this.checkBox28.Size = new System.Drawing.Size(111, 21);
-            this.checkBox28.TabIndex = 24;
-            this.checkBox28.Text = "一级标题索引据";
-            this.checkBox28.UseVisualStyleBackColor = true;
-            // 
-            // checkBox27
-            // 
-            this.checkBox27.AutoSize = true;
-            this.checkBox27.Location = new System.Drawing.Point(3, 111);
-            this.checkBox27.Name = "checkBox27";
-            this.checkBox27.Size = new System.Drawing.Size(99, 21);
-            this.checkBox27.TabIndex = 23;
-            this.checkBox27.Text = "副标题索引据";
-            this.checkBox27.UseVisualStyleBackColor = true;
-            // 
-            // checkBox26
-            // 
-            this.checkBox26.AutoSize = true;
-            this.checkBox26.Location = new System.Drawing.Point(399, 84);
-            this.checkBox26.Name = "checkBox26";
-            this.checkBox26.Size = new System.Drawing.Size(99, 21);
-            this.checkBox26.TabIndex = 22;
-            this.checkBox26.Text = "主标题索引据";
-            this.checkBox26.UseVisualStyleBackColor = true;
-            // 
-            // checkBox25
-            // 
-            this.checkBox25.AutoSize = true;
-            this.checkBox25.Location = new System.Drawing.Point(294, 84);
-            this.checkBox25.Name = "checkBox25";
-            this.checkBox25.Size = new System.Drawing.Size(99, 21);
-            this.checkBox25.TabIndex = 21;
-            this.checkBox25.Text = "文件名索引句";
-            this.checkBox25.UseVisualStyleBackColor = true;
-            // 
-            // checkBox24
-            // 
-            this.checkBox24.AutoSize = true;
-            this.checkBox24.Location = new System.Drawing.Point(201, 84);
-            this.checkBox24.Name = "checkBox24";
-            this.checkBox24.Size = new System.Drawing.Size(87, 21);
-            this.checkBox24.TabIndex = 20;
-            this.checkBox24.Text = "普通标准句";
-            this.checkBox24.UseVisualStyleBackColor = true;
-            // 
-            // checkBox23
-            // 
-            this.checkBox23.AutoSize = true;
-            this.checkBox23.Location = new System.Drawing.Point(108, 84);
-            this.checkBox23.Name = "checkBox23";
-            this.checkBox23.Size = new System.Drawing.Size(87, 21);
-            this.checkBox23.TabIndex = 19;
-            this.checkBox23.Text = "首段标准句";
-            this.checkBox23.UseVisualStyleBackColor = true;
-            // 
-            // checkBox22
-            // 
-            this.checkBox22.AutoSize = true;
-            this.checkBox22.Location = new System.Drawing.Point(3, 84);
-            this.checkBox22.Name = "checkBox22";
-            this.checkBox22.Size = new System.Drawing.Size(99, 21);
-            this.checkBox22.TabIndex = 18;
-            this.checkBox22.Text = "有标点标准句";
-            this.checkBox22.UseVisualStyleBackColor = true;
-            // 
-            // checkBox21
-            // 
-            this.checkBox21.AutoSize = true;
-            this.checkBox21.Location = new System.Drawing.Point(384, 57);
-            this.checkBox21.Name = "checkBox21";
-            this.checkBox21.Size = new System.Drawing.Size(99, 21);
-            this.checkBox21.TabIndex = 17;
-            this.checkBox21.Text = "无标点标准句";
-            this.checkBox21.UseVisualStyleBackColor = true;
-            // 
-            // checkBox20
-            // 
-            this.checkBox20.AutoSize = true;
-            this.checkBox20.Location = new System.Drawing.Point(291, 57);
-            this.checkBox20.Name = "checkBox20";
-            this.checkBox20.Size = new System.Drawing.Size(87, 21);
-            this.checkBox20.TabIndex = 16;
-            this.checkBox20.Text = "普通标准段";
-            this.checkBox20.UseVisualStyleBackColor = true;
-            // 
-            // checkBox19
-            // 
-            this.checkBox19.AutoSize = true;
-            this.checkBox19.Location = new System.Drawing.Point(222, 57);
-            this.checkBox19.Name = "checkBox19";
-            this.checkBox19.Size = new System.Drawing.Size(63, 21);
-            this.checkBox19.TabIndex = 15;
-            this.checkBox19.Text = "单句段";
-            this.checkBox19.UseVisualStyleBackColor = true;
-            // 
-            // checkBox18
-            // 
-            this.checkBox18.AutoSize = true;
-            this.checkBox18.Location = new System.Drawing.Point(165, 57);
-            this.checkBox18.Name = "checkBox18";
-            this.checkBox18.Size = new System.Drawing.Size(51, 21);
-            this.checkBox18.TabIndex = 14;
-            this.checkBox18.Text = "尾段";
-            this.checkBox18.UseVisualStyleBackColor = true;
-            // 
-            // checkBox17
-            // 
-            this.checkBox17.AutoSize = true;
-            this.checkBox17.Location = new System.Drawing.Point(108, 57);
-            this.checkBox17.Name = "checkBox17";
-            this.checkBox17.Size = new System.Drawing.Size(51, 21);
-            this.checkBox17.TabIndex = 13;
-            this.checkBox17.Text = "首段";
-            this.checkBox17.UseVisualStyleBackColor = true;
-            // 
-            // checkBox16
-            // 
-            this.checkBox16.AutoSize = true;
-            this.checkBox16.Location = new System.Drawing.Point(3, 57);
-            this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(99, 21);
-            this.checkBox16.TabIndex = 12;
-            this.checkBox16.Text = "语义统计分析";
-            this.checkBox16.UseVisualStyleBackColor = true;
-            // 
-            // checkBox15
-            // 
-            this.checkBox15.AutoSize = true;
-            this.checkBox15.Enabled = false;
-            this.checkBox15.Location = new System.Drawing.Point(432, 30);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(99, 21);
-            this.checkBox15.TabIndex = 11;
-            this.checkBox15.Text = "政策文件条款";
-            this.checkBox15.UseVisualStyleBackColor = true;
+            this.checkBox13.AutoSize = true;
+            this.checkBox13.Location = new System.Drawing.Point(270, 30);
+            this.checkBox13.Name = "checkBox13";
+            this.checkBox13.Size = new System.Drawing.Size(99, 21);
+            this.checkBox13.TabIndex = 9;
+            this.checkBox13.Text = "三级标题纲要";
+            this.checkBox13.UseVisualStyleBackColor = true;
             // 
             // checkBox14
             // 
@@ -815,124 +679,260 @@
             this.checkBox14.Text = "法条";
             this.checkBox14.UseVisualStyleBackColor = true;
             // 
-            // checkBox13
+            // checkBox15
             // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(270, 30);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(99, 21);
-            this.checkBox13.TabIndex = 9;
-            this.checkBox13.Text = "三级标题纲要";
-            this.checkBox13.UseVisualStyleBackColor = true;
+            this.checkBox15.AutoSize = true;
+            this.checkBox15.Enabled = false;
+            this.checkBox15.Location = new System.Drawing.Point(432, 30);
+            this.checkBox15.Name = "checkBox15";
+            this.checkBox15.Size = new System.Drawing.Size(99, 21);
+            this.checkBox15.TabIndex = 11;
+            this.checkBox15.Text = "政策文件条款";
+            this.checkBox15.UseVisualStyleBackColor = true;
             // 
-            // checkBox12
+            // checkBox16
             // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(165, 30);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(99, 21);
-            this.checkBox12.TabIndex = 8;
-            this.checkBox12.Text = "二级标题纲要";
-            this.checkBox12.UseVisualStyleBackColor = true;
+            this.checkBox16.AutoSize = true;
+            this.checkBox16.Location = new System.Drawing.Point(3, 57);
+            this.checkBox16.Name = "checkBox16";
+            this.checkBox16.Size = new System.Drawing.Size(99, 21);
+            this.checkBox16.TabIndex = 12;
+            this.checkBox16.Text = "语义统计分析";
+            this.checkBox16.UseVisualStyleBackColor = true;
             // 
-            // cb_quanwengangyao
+            // checkBox17
             // 
-            this.cb_quanwengangyao.AutoSize = true;
-            this.cb_quanwengangyao.Location = new System.Drawing.Point(84, 30);
-            this.cb_quanwengangyao.Name = "cb_quanwengangyao";
-            this.cb_quanwengangyao.Size = new System.Drawing.Size(75, 21);
-            this.cb_quanwengangyao.TabIndex = 7;
-            this.cb_quanwengangyao.Text = "全文纲要";
-            this.cb_quanwengangyao.UseVisualStyleBackColor = true;
+            this.checkBox17.AutoSize = true;
+            this.checkBox17.Location = new System.Drawing.Point(108, 57);
+            this.checkBox17.Name = "checkBox17";
+            this.checkBox17.Size = new System.Drawing.Size(51, 21);
+            this.checkBox17.TabIndex = 13;
+            this.checkBox17.Text = "首段";
+            this.checkBox17.UseVisualStyleBackColor = true;
             // 
-            // checkBox11
+            // checkBox18
             // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(3, 30);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(75, 21);
-            this.checkBox11.TabIndex = 6;
-            this.checkBox11.Text = "三级标题";
-            this.checkBox11.UseVisualStyleBackColor = true;
+            this.checkBox18.AutoSize = true;
+            this.checkBox18.Location = new System.Drawing.Point(165, 57);
+            this.checkBox18.Name = "checkBox18";
+            this.checkBox18.Size = new System.Drawing.Size(51, 21);
+            this.checkBox18.TabIndex = 14;
+            this.checkBox18.Text = "尾段";
+            this.checkBox18.UseVisualStyleBackColor = true;
             // 
-            // checkBox10
+            // checkBox19
             // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(405, 3);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(75, 21);
-            this.checkBox10.TabIndex = 5;
-            this.checkBox10.Text = "二级标题";
-            this.checkBox10.UseVisualStyleBackColor = true;
+            this.checkBox19.AutoSize = true;
+            this.checkBox19.Location = new System.Drawing.Point(222, 57);
+            this.checkBox19.Name = "checkBox19";
+            this.checkBox19.Size = new System.Drawing.Size(63, 21);
+            this.checkBox19.TabIndex = 15;
+            this.checkBox19.Text = "单句段";
+            this.checkBox19.UseVisualStyleBackColor = true;
             // 
-            // checkBox9
+            // checkBox20
             // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(324, 3);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(75, 21);
-            this.checkBox9.TabIndex = 4;
-            this.checkBox9.Text = "一级标题";
-            this.checkBox9.UseVisualStyleBackColor = true;
+            this.checkBox20.AutoSize = true;
+            this.checkBox20.Location = new System.Drawing.Point(291, 57);
+            this.checkBox20.Name = "checkBox20";
+            this.checkBox20.Size = new System.Drawing.Size(87, 21);
+            this.checkBox20.TabIndex = 16;
+            this.checkBox20.Text = "普通标准段";
+            this.checkBox20.UseVisualStyleBackColor = true;
             // 
-            // checkBox8
+            // checkBox21
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(255, 3);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(63, 21);
-            this.checkBox8.TabIndex = 3;
-            this.checkBox8.Text = "副标题";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.checkBox21.AutoSize = true;
+            this.checkBox21.Location = new System.Drawing.Point(384, 57);
+            this.checkBox21.Name = "checkBox21";
+            this.checkBox21.Size = new System.Drawing.Size(99, 21);
+            this.checkBox21.TabIndex = 17;
+            this.checkBox21.Text = "无标点标准句";
+            this.checkBox21.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // checkBox22
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(186, 3);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(63, 21);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "主标题";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox22.AutoSize = true;
+            this.checkBox22.Location = new System.Drawing.Point(3, 84);
+            this.checkBox22.Name = "checkBox22";
+            this.checkBox22.Size = new System.Drawing.Size(99, 21);
+            this.checkBox22.TabIndex = 18;
+            this.checkBox22.Text = "有标点标准句";
+            this.checkBox22.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // checkBox23
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(129, 3);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(51, 21);
-            this.checkBox5.TabIndex = 1;
-            this.checkBox5.Text = "正文";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox23.AutoSize = true;
+            this.checkBox23.Location = new System.Drawing.Point(108, 84);
+            this.checkBox23.Name = "checkBox23";
+            this.checkBox23.Size = new System.Drawing.Size(87, 21);
+            this.checkBox23.TabIndex = 19;
+            this.checkBox23.Text = "首段标准句";
+            this.checkBox23.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // checkBox24
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(72, 3);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(51, 21);
-            this.checkBox4.TabIndex = 0;
-            this.checkBox4.Text = "全文";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox24.AutoSize = true;
+            this.checkBox24.Location = new System.Drawing.Point(201, 84);
+            this.checkBox24.Name = "checkBox24";
+            this.checkBox24.Size = new System.Drawing.Size(87, 21);
+            this.checkBox24.TabIndex = 20;
+            this.checkBox24.Text = "普通标准句";
+            this.checkBox24.UseVisualStyleBackColor = true;
             // 
-            // cb_wenjianming
+            // checkBox25
             // 
-            this.cb_wenjianming.AutoSize = true;
-            this.cb_wenjianming.Location = new System.Drawing.Point(3, 3);
-            this.cb_wenjianming.Name = "cb_wenjianming";
-            this.cb_wenjianming.Size = new System.Drawing.Size(63, 21);
-            this.cb_wenjianming.TabIndex = 0;
-            this.cb_wenjianming.Text = "文件名";
-            this.cb_wenjianming.UseVisualStyleBackColor = true;
+            this.checkBox25.AutoSize = true;
+            this.checkBox25.Location = new System.Drawing.Point(294, 84);
+            this.checkBox25.Name = "checkBox25";
+            this.checkBox25.Size = new System.Drawing.Size(99, 21);
+            this.checkBox25.TabIndex = 21;
+            this.checkBox25.Text = "文件名索引句";
+            this.checkBox25.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // checkBox26
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "对象选择";
+            this.checkBox26.AutoSize = true;
+            this.checkBox26.Location = new System.Drawing.Point(399, 84);
+            this.checkBox26.Name = "checkBox26";
+            this.checkBox26.Size = new System.Drawing.Size(99, 21);
+            this.checkBox26.TabIndex = 22;
+            this.checkBox26.Text = "主标题索引据";
+            this.checkBox26.UseVisualStyleBackColor = true;
+            // 
+            // checkBox27
+            // 
+            this.checkBox27.AutoSize = true;
+            this.checkBox27.Location = new System.Drawing.Point(3, 111);
+            this.checkBox27.Name = "checkBox27";
+            this.checkBox27.Size = new System.Drawing.Size(99, 21);
+            this.checkBox27.TabIndex = 23;
+            this.checkBox27.Text = "副标题索引据";
+            this.checkBox27.UseVisualStyleBackColor = true;
+            // 
+            // checkBox28
+            // 
+            this.checkBox28.AutoSize = true;
+            this.checkBox28.Location = new System.Drawing.Point(108, 111);
+            this.checkBox28.Name = "checkBox28";
+            this.checkBox28.Size = new System.Drawing.Size(111, 21);
+            this.checkBox28.TabIndex = 24;
+            this.checkBox28.Text = "一级标题索引据";
+            this.checkBox28.UseVisualStyleBackColor = true;
+            // 
+            // checkBox29
+            // 
+            this.checkBox29.AutoSize = true;
+            this.checkBox29.Location = new System.Drawing.Point(225, 111);
+            this.checkBox29.Name = "checkBox29";
+            this.checkBox29.Size = new System.Drawing.Size(111, 21);
+            this.checkBox29.TabIndex = 25;
+            this.checkBox29.Text = "二级标题索引句";
+            this.checkBox29.UseVisualStyleBackColor = true;
+            // 
+            // checkBox30
+            // 
+            this.checkBox30.AutoSize = true;
+            this.checkBox30.Location = new System.Drawing.Point(342, 111);
+            this.checkBox30.Name = "checkBox30";
+            this.checkBox30.Size = new System.Drawing.Size(111, 21);
+            this.checkBox30.TabIndex = 26;
+            this.checkBox30.Text = "三级标题索引句";
+            this.checkBox30.UseVisualStyleBackColor = true;
+            // 
+            // checkBox31
+            // 
+            this.checkBox31.AutoSize = true;
+            this.checkBox31.Location = new System.Drawing.Point(3, 138);
+            this.checkBox31.Name = "checkBox31";
+            this.checkBox31.Size = new System.Drawing.Size(87, 21);
+            this.checkBox31.TabIndex = 27;
+            this.checkBox31.Text = "段首索引句";
+            this.checkBox31.UseVisualStyleBackColor = true;
+            // 
+            // checkBox32
+            // 
+            this.checkBox32.AutoSize = true;
+            this.checkBox32.Enabled = false;
+            this.checkBox32.Location = new System.Drawing.Point(96, 138);
+            this.checkBox32.Name = "checkBox32";
+            this.checkBox32.Size = new System.Drawing.Size(87, 21);
+            this.checkBox32.TabIndex = 28;
+            this.checkBox32.Text = "法条索引句";
+            this.checkBox32.UseVisualStyleBackColor = true;
+            // 
+            // checkBox33
+            // 
+            this.checkBox33.AutoSize = true;
+            this.checkBox33.Enabled = false;
+            this.checkBox33.Location = new System.Drawing.Point(189, 138);
+            this.checkBox33.Name = "checkBox33";
+            this.checkBox33.Size = new System.Drawing.Size(111, 21);
+            this.checkBox33.TabIndex = 29;
+            this.checkBox33.Text = "政策条款索引句";
+            this.checkBox33.UseVisualStyleBackColor = true;
+            // 
+            // checkBox34
+            // 
+            this.checkBox34.AutoSize = true;
+            this.checkBox34.Location = new System.Drawing.Point(306, 138);
+            this.checkBox34.Name = "checkBox34";
+            this.checkBox34.Size = new System.Drawing.Size(87, 21);
+            this.checkBox34.TabIndex = 30;
+            this.checkBox34.Text = "普通索引据";
+            this.checkBox34.UseVisualStyleBackColor = true;
+            // 
+            // panel_biaozhunduan
+            // 
+            this.panel_biaozhunduan.Controls.Add(this.tb_cixu);
+            this.panel_biaozhunduan.Controls.Add(this.cb_shunshu);
+            this.panel_biaozhunduan.Location = new System.Drawing.Point(3, 165);
+            this.panel_biaozhunduan.Name = "panel_biaozhunduan";
+            this.panel_biaozhunduan.Size = new System.Drawing.Size(153, 33);
+            this.panel_biaozhunduan.TabIndex = 31;
+            // 
+            // tb_cixu
+            // 
+            this.tb_cixu.Location = new System.Drawing.Point(120, 1);
+            this.tb_cixu.Name = "tb_cixu";
+            this.tb_cixu.Size = new System.Drawing.Size(26, 23);
+            this.tb_cixu.TabIndex = 1;
+            // 
+            // cb_shunshu
+            // 
+            this.cb_shunshu.AutoSize = true;
+            this.cb_shunshu.Location = new System.Drawing.Point(3, 3);
+            this.cb_shunshu.Name = "cb_shunshu";
+            this.cb_shunshu.Size = new System.Drawing.Size(111, 21);
+            this.cb_shunshu.TabIndex = 0;
+            this.cb_shunshu.Text = "标准段顺数次序";
+            this.cb_shunshu.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.cb_daoshu);
+            this.panel1.Location = new System.Drawing.Point(162, 165);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(150, 33);
+            this.panel1.TabIndex = 32;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(120, 1);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(26, 23);
+            this.textBox1.TabIndex = 1;
+            // 
+            // cb_daoshu
+            // 
+            this.cb_daoshu.AutoSize = true;
+            this.cb_daoshu.Location = new System.Drawing.Point(3, 3);
+            this.cb_daoshu.Name = "cb_daoshu";
+            this.cb_daoshu.Size = new System.Drawing.Size(111, 21);
+            this.cb_daoshu.TabIndex = 0;
+            this.cb_daoshu.Text = "标准段倒数次序";
+            this.cb_daoshu.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel9
             // 
@@ -990,10 +990,10 @@
             this.tableLayoutPanel2.PerformLayout();
             this.flp_duixiangxuanze.ResumeLayout(false);
             this.flp_duixiangxuanze.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel_biaozhunduan.ResumeLayout(false);
             this.panel_biaozhunduan.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
