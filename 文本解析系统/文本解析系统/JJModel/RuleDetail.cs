@@ -13,23 +13,31 @@ namespace 文本解析系统.JJModel
         /// </summary>
         public string duixiangxuanze { get; set; }
         /// <summary>
-        /// 文本特征
+        /// 文本特征(正则表达式)
         /// </summary>
         public string wenbentezheng { get; set; }
         /// <summary>
-        /// 文本特征结果
+        /// 赋值
         /// </summary>
-        public string wenbentezhengjieguo { get; set; }
+        public string fuzhi { get; set; }
         /// <summary>
         /// 赋值类型
         /// </summary>
         public string fuzhileixing { get; set; }
+        /// <summary>
+        /// 赋值覆盖范围
+        /// </summary>
+        public List<string> fanwei = new List<string>();
+        /// <summary>
+        /// 赋值结果
+        /// </summary>
+        public string fuzhijieguo = string.Empty;
     }
 
-    public class WenbenTezheng
+    public class JiexiGuize
     {
         /// <summary>
-        /// 
+        /// 解析规则详情集合
         /// </summary>
         public List<RuleDetail> ruleinfo = new List<RuleDetail>();
     }

@@ -60,19 +60,11 @@ namespace 团队任务台账管理系统.Controller
         /// <returns></returns>
         public Image ConvertBase64ToImage(string base64String)
         {
-            try
-            {
             byte[] imageBytes = Convert.FromBase64String(base64String);
             using (MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
             {
                 ms.Write(imageBytes, 0, imageBytes.Length);
                 return Image.FromStream(ms, true);
-            }
-
-            }
-            catch 
-            {
-                return Properties.Resources.touxiang;
             }
         }
 

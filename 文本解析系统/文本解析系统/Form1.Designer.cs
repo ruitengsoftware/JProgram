@@ -41,11 +41,6 @@
             this.zhuangtai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_daichuli = new System.Windows.Forms.DataGridView();
-            this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mubiaowenjianjia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jiexigeshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wanchenghou = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
             this.cb_guanji = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -87,6 +82,11 @@
             this.tb_search = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mubiaowenjianjia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jiexigeshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wanchenghou = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -124,8 +124,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(835, 483);
-            this.splitContainer1.SplitterDistance = 275;
+            this.splitContainer1.Size = new System.Drawing.Size(941, 628);
+            this.splitContainer1.SplitterDistance = 311;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -145,7 +145,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(275, 483);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(311, 628);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // btn_xinzengrenwu
@@ -153,7 +153,7 @@
             this.btn_xinzengrenwu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_xinzengrenwu.Location = new System.Drawing.Point(3, 3);
             this.btn_xinzengrenwu.Name = "btn_xinzengrenwu";
-            this.btn_xinzengrenwu.Size = new System.Drawing.Size(269, 34);
+            this.btn_xinzengrenwu.Size = new System.Drawing.Size(305, 34);
             this.btn_xinzengrenwu.TabIndex = 0;
             this.btn_xinzengrenwu.Text = "新增任务";
             this.btn_xinzengrenwu.UseVisualStyleBackColor = true;
@@ -163,9 +163,9 @@
             // 
             this.groupBox3.Controls.Add(this.dgv_chulizhong);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 249);
+            this.groupBox3.Location = new System.Drawing.Point(3, 322);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(269, 200);
+            this.groupBox3.Size = new System.Drawing.Size(305, 273);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "处理中任务列表";
@@ -186,7 +186,7 @@
             this.dgv_chulizhong.Name = "dgv_chulizhong";
             this.dgv_chulizhong.RowHeadersVisible = false;
             this.dgv_chulizhong.RowTemplate.Height = 23;
-            this.dgv_chulizhong.Size = new System.Drawing.Size(263, 178);
+            this.dgv_chulizhong.Size = new System.Drawing.Size(299, 251);
             this.dgv_chulizhong.TabIndex = 1;
             // 
             // xuhao2
@@ -215,7 +215,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 43);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(269, 200);
+            this.groupBox2.Size = new System.Drawing.Size(305, 273);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "待处理任务列表";
@@ -237,50 +237,18 @@
             this.dgv_daichuli.Name = "dgv_daichuli";
             this.dgv_daichuli.RowHeadersVisible = false;
             this.dgv_daichuli.RowTemplate.Height = 23;
-            this.dgv_daichuli.Size = new System.Drawing.Size(263, 178);
+            this.dgv_daichuli.Size = new System.Drawing.Size(299, 251);
             this.dgv_daichuli.TabIndex = 0;
             this.dgv_daichuli.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_daichuli_CellMouseClick);
-            // 
-            // xuhao
-            // 
-            this.xuhao.HeaderText = "序号";
-            this.xuhao.Name = "xuhao";
-            // 
-            // mubiaowenjianjia
-            // 
-            this.mubiaowenjianjia.HeaderText = "目标文件夹";
-            this.mubiaowenjianjia.Name = "mubiaowenjianjia";
-            // 
-            // jiexigeshi
-            // 
-            this.jiexigeshi.HeaderText = "解析格式";
-            this.jiexigeshi.Name = "jiexigeshi";
-            // 
-            // wanchenghou
-            // 
-            this.wanchenghou.HeaderText = "完成后";
-            this.wanchenghou.Name = "wanchenghou";
-            this.wanchenghou.Visible = false;
-            // 
-            // shanchu
-            // 
-            this.shanchu.HeaderText = "";
-            this.shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
-            this.shanchu.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.shanchu.Name = "shanchu";
-            this.shanchu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.shanchu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // cb_guanji
             // 
             this.cb_guanji.AutoSize = true;
-            this.cb_guanji.Dock = System.Windows.Forms.DockStyle.Right;
-            this.cb_guanji.Location = new System.Drawing.Point(137, 455);
+            this.cb_guanji.Location = new System.Drawing.Point(3, 601);
             this.cb_guanji.Name = "cb_guanji";
-            this.cb_guanji.Size = new System.Drawing.Size(135, 25);
+            this.cb_guanji.Size = new System.Drawing.Size(87, 21);
             this.cb_guanji.TabIndex = 2;
-            this.cb_guanji.Text = "全部任务完成后关机";
-            this.cb_guanji.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cb_guanji.Text = "完成后关机";
             this.cb_guanji.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
@@ -302,7 +270,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(555, 483);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(625, 628);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -554,7 +522,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 163);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(549, 317);
+            this.groupBox1.Size = new System.Drawing.Size(619, 462);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "解析规则列表";
@@ -573,7 +541,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(543, 295);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(613, 440);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -653,7 +621,7 @@
             this.dgv_jiexiguize.Name = "dgv_jiexiguize";
             this.dgv_jiexiguize.RowHeadersVisible = false;
             this.dgv_jiexiguize.RowTemplate.Height = 23;
-            this.dgv_jiexiguize.Size = new System.Drawing.Size(537, 209);
+            this.dgv_jiexiguize.Size = new System.Drawing.Size(607, 354);
             this.dgv_jiexiguize.TabIndex = 1;
             this.dgv_jiexiguize.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_jiexiguize_CellContentClick);
             // 
@@ -742,12 +710,42 @@
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn1.Width = 59;
             // 
+            // xuhao
+            // 
+            this.xuhao.HeaderText = "序号";
+            this.xuhao.Name = "xuhao";
+            // 
+            // mubiaowenjianjia
+            // 
+            this.mubiaowenjianjia.HeaderText = "目标文件夹";
+            this.mubiaowenjianjia.Name = "mubiaowenjianjia";
+            // 
+            // jiexigeshi
+            // 
+            this.jiexigeshi.HeaderText = "解析格式";
+            this.jiexigeshi.Name = "jiexigeshi";
+            // 
+            // wanchenghou
+            // 
+            this.wanchenghou.HeaderText = "完成后";
+            this.wanchenghou.Name = "wanchenghou";
+            this.wanchenghou.Visible = false;
+            // 
+            // shanchu
+            // 
+            this.shanchu.HeaderText = "";
+            this.shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
+            this.shanchu.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.shanchu.Name = "shanchu";
+            this.shanchu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.shanchu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(835, 483);
+            this.ClientSize = new System.Drawing.Size(941, 628);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;

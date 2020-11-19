@@ -228,7 +228,7 @@ namespace 文本解析系统.JJController
             {
                 //构造aspose.words.document ，在之前需要判断文件名是否合法
                 Aspose.Words.Document myword = new Aspose.Words.Document(filename);
-                //获得他要用到的格式，这个格式包含了若干解析规则
+                //获得他要用到的格式
                 FormatInfo myfi = GetFormatInfo(formatname);
 
                 //是否查重
@@ -288,12 +288,12 @@ namespace 文本解析系统.JJController
                 {
                     //获得规则信息 ruleinfo
                     RuleInfo myri = GetRuleInfo(myfi.list_jiexiguize[i]);
-                    //把规则详情json反编译得到所有文本特征
-                    WenbenTezheng wenbentezheng = JsonConvert.DeserializeObject<WenbenTezheng>(myri._wenbentezheng);
+                    //把规则详情json反编译得到所有jiexiguize
+                    JiexiGuize jiexiguize = JsonConvert.DeserializeObject<JiexiGuize>(myri._wenbentezheng);
                     //循环对特征详情进行解析
-                    for (int j = 0; j < wenbentezheng.ruleinfo.Count; j++)
+                    for (int j = 0; j < jiexiguize.ruleinfo.Count; j++)
                     {
-                        RuleDetail myrd = wenbentezheng.ruleinfo[j];
+                        RuleDetail myrd = jiexiguize.ruleinfo[j];
                         //获得以自然段为单位的特征对象(匹配对象)
                         string pipeiduixiang = GetPipeiduixiangStr(myword, myrd.duixiangxuanze);
                         //对 特征对象进行匹配
@@ -389,12 +389,13 @@ namespace 文本解析系统.JJController
                         }
                         string str_sql = $"insert into 全文MD5表 values(@md5值,@记录文件名,@上传时间,@上传人,@删除)";
                         mysqlhelper.ExecuteNonQuery(str_sql, new MySqlParameter[] {
-                        new MySqlParameter("@md5值",Md5Helper.Md5(str_quanwen)),
-                        new MySqlParameter("@记录文件名",filename),
-                        new MySqlParameter("@上传时间",DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss")),
-                        new MySqlParameter("@上传人",UserInfo._username),
-                        new MySqlParameter("@删除",0)
-                        });
+                    new MySqlParameter("@md5值",Md5Helper.Md5(str_quanwen)),
+                    new MySqlParameter("@记录文件名",filename),
+                    new MySqlParameter("@上传时间",DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss")),
+                    new MySqlParameter("@上传人",UserInfo._username),
+                    new MySqlParameter("@删除",0)
+                    });
+
                     }
                 }
                 //生成excel表格
@@ -409,24 +410,13 @@ namespace 文本解析系统.JJController
                     mysht.Cells[row, 0].Value = kv.Key;
                     mysht.Cells[row, 1].Value = kv.Value;
                 }
-                //构造保存文件名
-                string savepath = $@"{myfi._excelpath}\{Path.GetFileNameWithoutExtension(filename)}.xlsx";
-                //判断该文件是否存在，如果存在，提取（）中的数字加1存储
-                bool exist = File.Exists(savepath);
-                if (exist)
-                {
-                    //获得不带扩展名的文件名
-                    string filenamewithoutex = Path.GetFileNameWithoutExtension(savepath);
-                    //提取括号中的数字
-                    int num =Convert.ToInt32( Regex.Match(filenamewithoutex, @"(?<[（\(])\d+(?=[）\)])$").Value);
-                    num++;
-                    filenamewithoutex = Regex.Replace(filenamewithoutex,$@"[\(（]\d+[\)）]$", $@"[\(（]{num}[\)）]$");
-                    savepath = Regex.Replace(savepath,Path.GetFileNameWithoutExtension(savepath),filenamewithoutex);
-                }
-              
-                mywbk.Save(savepath);
+                mywbk.Save($@"{myfi._excelpath}\{Path.GetFileNameWithoutExtension(filename)}.xlsx");
                 //MessageBox.Show("解析完成");
                 return "完成";
+
+
+
+
             });
 
         }

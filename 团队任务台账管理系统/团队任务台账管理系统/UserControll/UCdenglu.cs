@@ -23,7 +23,7 @@ namespace 团队任务台账管理系统.UserControll
         ControllerDenglu mycontroller = new ControllerDenglu();
         private void btn_denglu_Click(object sender, EventArgs e)
         {
-            string name = cbb_yonghuming.Text.Trim();
+            string name = tb_yonghuming.Text.Trim();
             string pwd = tb_mima.Text.Trim();
             bool successlogin = mycontroller.Login(name, pwd);//登录，并返回成功失败
 
@@ -73,7 +73,7 @@ namespace 团队任务台账管理系统.UserControll
             cb_jizhuwo.Checked = Settings.Default.jizhuwo;
             if (Settings.Default.jizhuwo)
             {
-                cbb_yonghuming.Text = Settings.Default.huaming;
+                tb_yonghuming.Text = Settings.Default.huaming;
                 tb_mima.Text = Settings.Default.mima;
             }
             cb_zidongdenlgu.Checked = Settings.Default.zidongdenglu;
@@ -86,12 +86,12 @@ namespace 团队任务台账管理系统.UserControll
 
         private void lbl_denglu_MouseEnter(object sender, EventArgs e)
         {
-            ((Control)sender).BackColor = Color.DodgerBlue;
+            ((Control)sender).BackColor = Color.MediumSeaGreen;
         }
 
         private void lbl_denglu_MouseLeave(object sender, EventArgs e)
         {
-            ((Control)sender).BackColor = Color.DeepSkyBlue;
+            ((Control)sender).BackColor = Color.SeaGreen;
 
         }
 

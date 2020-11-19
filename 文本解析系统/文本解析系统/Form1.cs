@@ -304,7 +304,8 @@ namespace 文本解析系统
                     dgv_chulizhong.Rows[index].Cells[3].Value = str_jiexijieguo;
                 }
             }
-            //判断是否选中完成后关机。如果是，那么弹出倒计时10秒提示框，并在及时完成后关机
+            //判断是否选中完成后关机
+            //如果是，那么弹出倒计时10秒提示框，并在及时完成后关机
             if (cb_guanji.Checked)
             {
                 WinFormGuanji mywin = new WinFormGuanji();

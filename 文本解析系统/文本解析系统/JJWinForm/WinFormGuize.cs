@@ -34,7 +34,7 @@ namespace 文本解析系统.JJWinForm
             //规则说明赋值
             tb_shuoming.Text = myri._guizeshuoming;
             //文本特征集合转化成jigexiguize类，构造uc，添加到panel中
-            WenbenTezheng myjiexiguize = JsonConvert.DeserializeObject<WenbenTezheng>(myri._wenbentezheng);
+            JiexiGuize myjiexiguize = JsonConvert.DeserializeObject<JiexiGuize>(myri._wenbentezheng);
             for (int i = myjiexiguize.ruleinfo.Count-1; i >= 0; i--)
             {
                 UCRuleInfo myuc = new UCRuleInfo(myjiexiguize.ruleinfo[i]);
@@ -77,7 +77,7 @@ namespace 文本解析系统.JJWinForm
             //获得规则说明
             string guizeshuoming = tb_shuoming.Text;
             //获得规则详情
-            WenbenTezheng jiexiguize = new WenbenTezheng();
+            JiexiGuize jiexiguize = new JiexiGuize();
             foreach (UserControl uc in panel_wenbentezheng.Controls)
             {
                 var myuc = uc as UCRuleInfo;

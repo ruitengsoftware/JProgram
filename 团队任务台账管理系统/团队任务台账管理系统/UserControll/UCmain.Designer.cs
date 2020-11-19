@@ -30,6 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pb_my = new System.Windows.Forms.PictureBox();
             this.flp_my = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
@@ -45,12 +46,11 @@
             this.btn_shouquan = new System.Windows.Forms.Button();
             this.btn_ziliao = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.pb_my = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_my)).BeginInit();
             this.flp_my.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_my)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -86,6 +86,16 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(769, 243);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // pb_my
+            // 
+            this.pb_my.BackColor = System.Drawing.Color.LightGray;
+            this.pb_my.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_my.Location = new System.Drawing.Point(3, 3);
+            this.pb_my.Name = "pb_my";
+            this.pb_my.Size = new System.Drawing.Size(378, 237);
+            this.pb_my.TabIndex = 0;
+            this.pb_my.TabStop = false;
             // 
             // flp_my
             // 
@@ -210,7 +220,7 @@
             this.btn_rizhi.Name = "btn_rizhi";
             this.btn_rizhi.Size = new System.Drawing.Size(187, 116);
             this.btn_rizhi.TabIndex = 0;
-            this.btn_rizhi.Text = "工作清单";
+            this.btn_rizhi.Text = "日志";
             this.btn_rizhi.UseVisualStyleBackColor = true;
             this.btn_rizhi.Click += new System.EventHandler(this.btn_rizhi_Click);
             // 
@@ -232,7 +242,7 @@
             this.btn_xiaoxiang.Name = "btn_xiaoxiang";
             this.btn_xiaoxiang.Size = new System.Drawing.Size(186, 116);
             this.btn_xiaoxiang.TabIndex = 0;
-            this.btn_xiaoxiang.Text = "历史资料";
+            this.btn_xiaoxiang.Text = "销项";
             this.btn_xiaoxiang.UseVisualStyleBackColor = true;
             this.btn_xiaoxiang.Click += new System.EventHandler(this.btn_xiaoxiang_Click);
             // 
@@ -254,7 +264,7 @@
             this.btn_ziliao.Name = "btn_ziliao";
             this.btn_ziliao.Size = new System.Drawing.Size(187, 116);
             this.btn_ziliao.TabIndex = 0;
-            this.btn_ziliao.Text = "共享资料(暂无功能)";
+            this.btn_ziliao.Text = "资料(暂无功能)";
             this.btn_ziliao.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -269,16 +279,6 @@
             this.label1.Text = "XXX团队任务台账记录";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pb_my
-            // 
-            this.pb_my.BackColor = System.Drawing.Color.LightGray;
-            this.pb_my.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_my.Location = new System.Drawing.Point(3, 3);
-            this.pb_my.Name = "pb_my";
-            this.pb_my.Size = new System.Drawing.Size(378, 237);
-            this.pb_my.TabIndex = 0;
-            this.pb_my.TabStop = false;
-            // 
             // UCmain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -292,10 +292,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_my)).EndInit();
             this.flp_my.ResumeLayout(false);
             this.flp_my.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_my)).EndInit();
             this.ResumeLayout(false);
 
         }
