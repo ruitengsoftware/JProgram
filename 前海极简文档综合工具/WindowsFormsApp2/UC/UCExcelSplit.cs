@@ -681,7 +681,7 @@ namespace WindowsFormsApp2.UC
             //string str_statue = "正在生成第{0}个，共{1}个……";
             //UpdateStatue(string.Format(str_statue, rowindex - 1, lastrow - 1));
             ///载入一个空白文档
-            
+
             spdoc.LoadFromFile(Environment.CurrentDirectory + @"\newdoc.docx");
             //向word空白文档加入内容
             for (int i = Global.list_myuc.Count - 1; i >= 0; i--)
@@ -1908,44 +1908,53 @@ namespace WindowsFormsApp2.UC
                 var para = paras[i];
                 string str_text = para.Range.Text.Trim();
                 myjpara = new Jpara();
-                if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center && !_existdabiaoti)
+                if (dic_format["大标题"].enable)//判断大标题格式是否启用
                 {
-                    _existdabiaoti = true;
-                    SetParaFormat(para, dic_format["大标题"]);
-                    continue;
-                }
-
-
-                //判断自然段是否为大标题
-
-                bool bb1 = Regex.IsMatch(str_text, "^(第一编|第一章).*");//是否以指定文字开头
-                                                                   //var bb2 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
-                if (bb1)
-                {
-                    SetParaFormat(para, dic_format["大标题"]);
-                    continue;
-                }
-
-
-                //判断自然段是否为副标题
-                if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center)
-                {
-                    bool b1 = Regex.IsMatch(str_text, @"^(第一节|目\s*录|前\s*言)");//是否以指定文字开头
-                    bool b2 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
-                    if (_existdabiaoti && b1 && !b2)
+                    if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center && !_existdabiaoti)
                     {
-                        //myjpara._leixing = "副标题";
-                        //myjdoc._existfubiaoti = true;
-                        //myjpara._asposepara = para;
-                        _existfubiaoti = true;
-                        SetParaFormat(para, dic_format["副标题"]);
+                        _existdabiaoti = true;
+                        SetParaFormat(para, dic_format["大标题"]);
                         continue;
+                    }
 
+
+                    //判断自然段是否为大标题
+
+                    bool bb1 = Regex.IsMatch(str_text, "^(第一编|第一章).*");//是否以指定文字开头
+                                                                       //var bb2 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
+                    if (bb1)
+                    {
+                        SetParaFormat(para, dic_format["大标题"]);
+                        continue;
+                    }
+
+
+                }
+
+                if (dic_format["副标题"].enable)
+                {
+                    //判断自然段是否为副标题
+                    if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center)
+                    {
+                        bool b1 = Regex.IsMatch(str_text, @"^(第一节|目\s*录|前\s*言)");//是否以指定文字开头
+                        bool b2 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
+                        if (_existdabiaoti && b1 && !b2)
+                        {
+                            //myjpara._leixing = "副标题";
+                            //myjdoc._existfubiaoti = true;
+                            //myjpara._asposepara = para;
+                            _existfubiaoti = true;
+                            SetParaFormat(para, dic_format["副标题"]);
+                            continue;
+
+                        }
                     }
                 }
+
                 //判断是否是正文或各级标题
                 if (para.ParagraphFormat.Alignment != ParagraphAlignment.Center)
                 {
+
                     SetStrFormat(para, dic_format);
 
                     ////是否为一级标题
@@ -2035,44 +2044,57 @@ namespace WindowsFormsApp2.UC
         public void SetStrFormat(Aspose.Words.Paragraph mypara, Dictionary<string, Format> dic_format)
         {
             Regex regex = null;
+            FindReplaceOptions options = new FindReplaceOptions();
             //格式的设置包括那几个方面，字体大小，字体名称，斜体，加粗，倾斜，下划线等,缩进，对齐，行距值
             //1、将整个段落的格式设置成正文
             //获得正文格式
-            SetParaFormat(mypara, dic_format["正文"]);
+            if (dic_format["正文"].enable)
+            {
+                SetParaFormat(mypara, dic_format["正文"]);
+
+            }
             //2、提取一级标题，设置格式
-            FindReplaceOptions options = new FindReplaceOptions();
-            options.Direction = FindReplaceDirection.Backward;
-            //调整文字
-            options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["一级标题"].fontname, dic_format["一级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
-            regex = new Regex(@"((?<!。).)*[一二三四五六七八九十]、[\s\S]*$", RegexOptions.IgnoreCase);
+            if (dic_format["一级标题"].enable)
+            {
+                
+                options.Direction = FindReplaceDirection.Backward;
+                //调整文字
+                options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["一级标题"].fontname, dic_format["一级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
+                regex = new Regex(@"((?<!。).)*[一二三四五六七八九十]、[\s\S]*$", RegexOptions.IgnoreCase);
 
-            mypara.Range.Replace(regex, "", options);
+                mypara.Range.Replace(regex, "", options);
 
+            }
 
+            if (dic_format["二级标题"].enable)
+            {
+                //3、提取二级标题，设置格式
+                //调整文字
+                options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["二级标题"].fontname, dic_format["二级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
+                regex = new Regex(@"^[（\(][一二三四五六七八九十][\)）][\s\S]*$", RegexOptions.IgnoreCase);
+                mypara.Range.Replace(regex, "", options);
 
-            //3、提取二级标题，设置格式
-            //调整文字
-            options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["二级标题"].fontname, dic_format["二级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
-            regex = new Regex(@"^[（\(][一二三四五六七八九十][\)）][\s\S]*$", RegexOptions.IgnoreCase);
-            mypara.Range.Replace(regex, "", options);
-
+            }
 
             //4、提取三级标题，设置格式
+            if (dic_format["三级标题"].enable)
+            {
+                //调整文字
+                options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["三级标题"].fontname, dic_format["三级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
+                regex = new Regex(@"第[一二三四五六七八九十]+?[,，][\s\S]*", RegexOptions.IgnoreCase);
+                mypara.Range.Replace(regex, "", options);
+                regex = new Regex(@"第[一二三四五六七八九十]((?![,，]).)*(项|款|条)[\s\S]*");
+                mypara.Range.Replace(regex, "", options);
+                regex = new Regex(@"^(首先|其次)[\s\S]*");
+                mypara.Range.Replace(regex, "", options);
+                regex = new Regex(@".*?是要[\s\S]*");
+                mypara.Range.Replace(regex, "", options);
+                regex = new Regex(@"（\([123456789]\)）[\s\S]*");
+                mypara.Range.Replace(regex, "", options);
+                regex = new Regex(@"^[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿][\s\S]*");
+                mypara.Range.Replace(regex, "", options);
 
-            //调整文字
-            options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["三级标题"].fontname, dic_format["三级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
-            regex = new Regex(@"第[一二三四五六七八九十]+?(?=，|、|,)[\s\S]*", RegexOptions.IgnoreCase);
-            mypara.Range.Replace(regex, "", options);
-            regex = new Regex(@"第[\s\S]+?[条款项][\s\S]*");
-            mypara.Range.Replace(regex, "", options);
-            regex = new Regex(@"^(首先|其次)[\s\S]*");
-            mypara.Range.Replace(regex, "", options);
-            regex = new Regex(@".*?是要[\s\S]*");
-            mypara.Range.Replace(regex, "", options);
-            regex = new Regex(@"（\([123456789]\)）[\s\S]*");
-            mypara.Range.Replace(regex, "", options);
-            regex = new Regex(@"^[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿][\s\S]*");
-            mypara.Range.Replace(regex, "", options);
+            }
 
 
 

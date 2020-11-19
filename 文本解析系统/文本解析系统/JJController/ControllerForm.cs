@@ -430,6 +430,7 @@ namespace 文本解析系统.JJController
         public string GetPipeiduixiangStr(Aspose.Words.Document myword, string duixiang)
         {
             string result = string.Empty;
+            //对word中的所有自然段，通过格式等判断方式
             //获得全文
             if (duixiang.Equals("全文"))
             {

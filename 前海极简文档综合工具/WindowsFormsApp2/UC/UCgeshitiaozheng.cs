@@ -834,7 +834,7 @@ namespace WindowsFormsApp2
 
             //调整文字
             options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["三级标题"].fontname, dic_format["三级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
-            regex = new Regex(@"第[一二三四五六七八九十]+?(?=，|、|,)[\s\S]*", RegexOptions.IgnoreCase);
+            regex = new Regex(@"第[一二三四五六七八九十]+?[,，][\s\S]*", RegexOptions.IgnoreCase);
             mypara.Range.Replace(regex, "", options);
             regex = new Regex(@"第[\s\S]+?[条款项][\s\S]*");
             mypara.Range.Replace(regex, "", options);
