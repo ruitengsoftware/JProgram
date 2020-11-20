@@ -51,22 +51,23 @@ namespace 文本解析系统.JJUserControl
                 tb_zidingyijieguo.Text = ruledetail.fuzhi;
             }
             //赋值类型
-            zidingyi = true;
-            foreach (Control item in flp_fuzhileixing.Controls)
-            {
-                if (item is CheckBox && item.Text.Equals(ruledetail.fuzhileixing))
-                {
-                    (item as CheckBox).Checked = true;
-                    zidingyi = false;
-                    break;
-                }
-            }
-            if (zidingyi)
-            {
-                cb_zidingyileixing.Checked = true;
-                tb_zidingyileixing.Text = ruledetail.fuzhileixing;
+            cbb_fuzhileixing.Text = ruledetail.fuzhileixing;
+            //zidingyi = true;
+            //foreach (Control item in flp_fuzhileixing.Controls)
+            //{
+            //    if (item is CheckBox && item.Text.Equals(ruledetail.fuzhileixing))
+            //    {
+            //        (item as CheckBox).Checked = true;
+            //        zidingyi = false;
+            //        break;
+            //    }
+            //}
+            //if (zidingyi)
+            //{
+            //    cb_zidingyileixing.Checked = true;
+            //    tb_zidingyileixing.Text = ruledetail.fuzhileixing;
 
-            }
+            //}
 
 
 

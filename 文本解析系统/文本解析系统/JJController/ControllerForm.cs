@@ -294,7 +294,7 @@ namespace 文本解析系统.JJController
                     for (int j = 0; j < jiexiguize.ruleinfo.Count; j++)
                     {
                         RuleDetail myrd = jiexiguize.ruleinfo[j];
-                        //获得以自然段为单位的特征对象(匹配对象)
+                        //获得文本形式的特征对象(匹配对象)，而不是自然段集合
                         string pipeiduixiang = GetPipeiduixiangStr(myword, myrd.duixiangxuanze);
                         //对 特征对象进行匹配
                         string strresult = string.Empty;
@@ -401,6 +401,16 @@ namespace 文本解析系统.JJController
                 //生成excel表格
                 Aspose.Cells.Workbook mywbk = new Aspose.Cells.Workbook();
                 Aspose.Cells.Worksheet mysht = mywbk.Worksheets[0];
+                //生成基础解析格式部分
+                //获得文档除了空自然段之外的所有文字，段落和段落之间用
+
+
+
+
+
+
+
+                //生成基础解析格式之外的部分
                 int row = 0; //用于表格行计数
                 mysht.Cells[0, 0].Value = "赋值类型";
                 mysht.Cells[0, 1].Value = "文本特征结果";
@@ -440,7 +450,7 @@ namespace 文本解析系统.JJController
                     {
                         if (!para.Range.Text.Trim().Equals(string.Empty))
                         {
-                            result += para.Range.Text+"\r\n";
+                            result += para.Range.Text + "\r\n";
                         }
                     }
                 }
@@ -454,7 +464,7 @@ namespace 文本解析系统.JJController
                     {
                         if (!para.Range.Text.Trim().Equals(string.Empty) && para.ParagraphFormat.Alignment != ParagraphAlignment.Center)
                         {
-                            result += para.Range.Text+"\r\n";
+                            result += para.Range.Text + "\r\n";
                         }
                     }
                 }
@@ -476,7 +486,7 @@ namespace 文本解析系统.JJController
                         {
                             if (Regex.IsMatch(para.Range.Text, $@"[\s\S]+[。;；]$"))//判断结尾是否含有标点符号
                             {
-                                result += para.Range.Text+"\r\n";
+                                result += para.Range.Text + "\r\n";
                                 get = true;//如果已经找到第一个居中不为零的自然段，那么就记录下来
                             }
                         }
@@ -517,7 +527,7 @@ namespace 文本解析系统.JJController
                             }
                             else if (!get2)
                             {
-                                result += para.Range.Text+"\r\n";
+                                result += para.Range.Text + "\r\n";
                                 get2 = true;
                             }
 
@@ -552,7 +562,7 @@ namespace 文本解析系统.JJController
                         bool juhao = Regex.IsMatch(para.Range.Text, $@"!(?!<。)[\s\S]+(?!。)$");
                         if (kaitou && juhao)
                         {
-                            result += para.Range.Text+"\r\n";
+                            result += para.Range.Text + "\r\n";
                         }
                     }
                 }
@@ -567,7 +577,7 @@ namespace 文本解析系统.JJController
                         bool juhao = Regex.IsMatch(para.Range.Text, $@"[\s\S]+[。;]$");
                         if (kaitou && juhao)
                         {
-                            result += para.Range.Text+"\r\n";
+                            result += para.Range.Text + "\r\n";
                         }
                     }
                 }
@@ -589,13 +599,17 @@ namespace 文本解析系统.JJController
                         bool kaitou9 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+项[\s\S]+");
                         if (kaitou1 || kaitou2 || kaitou3 || kaitou4 || kaitou5 || kaitou6 || kaitou7 | kaitou8 | kaitou9)
                         {
-                            result += para.Range.Text+"\r\n";
+                            result += para.Range.Text + "\r\n";
                         }
 
                     }
                 }
             }
-            else if (duixiang.Equals("全文纲要"))
+            else if (duixiang.Equals("正文纲要"))//全文纲要改名为正文纲要
+            {
+                //正文纲要和
+            }
+            else if (duixiang.Equals("一级标题纲要"))
             {
                 foreach (Section sec in myword.Sections)
                 {
@@ -605,7 +619,7 @@ namespace 文本解析系统.JJController
                         bool jibie = para.ListFormat.ListLevelNumber == 1;
                         if (jibie)
                         {
-                            result += para.Range.Text+"\r\n";
+                            result += para.Range.Text + "\r\n";
                         }
                     }
                 }
@@ -620,7 +634,7 @@ namespace 文本解析系统.JJController
                         bool jibie = para.ListFormat.ListLevelNumber == 2;
                         if (jibie)
                         {
-                            result += para.Range.Text+"\r\n";
+                            result += para.Range.Text + "\r\n";
                         }
                     }
                 }
@@ -635,7 +649,7 @@ namespace 文本解析系统.JJController
                         bool jibie = para.ListFormat.ListLevelNumber == 3;
                         if (jibie)
                         {
-                            result += para.Range.Text+"\r\n";
+                            result += para.Range.Text + "\r\n";
                         }
                     }
                 }
@@ -691,7 +705,7 @@ namespace 文本解析系统.JJController
                         bool juhao = Regex.IsMatch(para.Range.Text, $@"[\s\S]+。[\S\s]");
                         if (!juhao)
                         {
-                            result += para.Range.Text+"\r\n";
+                            result += para.Range.Text + "\r\n";
                         }
                     }
                 }
@@ -707,7 +721,7 @@ namespace 文本解析系统.JJController
                         bool moduan = para == myword.FirstSection.Body.FirstParagraph;
                         if (juhao && !shouduan && !moduan)
                         {
-                            result += para.Range.Text+"\r\n";
+                            result += para.Range.Text + "\r\n";
                         }
                     }
                 }
@@ -721,7 +735,7 @@ namespace 文本解析系统.JJController
                         bool juwei = Regex.IsMatch(para.Range.Text, $@"[\s\S]+(?![;。；……？！?!:])");
                         if (!juwei)
                         {
-                            result += para.Range.Text+"\r\n";
+                            result += para.Range.Text + "\r\n";
                         }
                     }
                 }
@@ -735,7 +749,7 @@ namespace 文本解析系统.JJController
                         bool juwei = Regex.IsMatch(para.Range.Text, $@"[\s\S]+(?![。……？！?!:])");
                         if (juwei)
                         {
-                            result += para.Range.Text+"\r\n";
+                            result += para.Range.Text + "\r\n";
                         }
                     }
                 }

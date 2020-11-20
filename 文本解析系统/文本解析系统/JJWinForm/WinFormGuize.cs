@@ -113,23 +113,24 @@ namespace 文本解析系统.JJWinForm
                     }
                 }
                 //获得赋值类型
-                foreach (Control item in myuc.flp_fuzhileixing.Controls)
-                {
+                //foreach (Control item in myuc.flp_fuzhileixing.Controls)
+                //{
 
-                    if (item is CheckBox && (item as CheckBox).Checked)
-                    {
-                        if (item.Text.Equals("自定义"))
-                        {
-                            ri.fuzhileixing = myuc.tb_zidingyileixing.Text;
-                            break;
-                        }
-                        else
-                        {
-                            ri.fuzhileixing = item.Text;
-                            break;
-                        }
-                    }
-                }
+                //    if (item is CheckBox && (item as CheckBox).Checked)
+                //    {
+                //        if (item.Text.Equals("自定义"))
+                //        {
+                //            ri.fuzhileixing = myuc.tb_zidingyileixing.Text;
+                //            break;
+                //        }
+                //        else
+                //        {
+                //            ri.fuzhileixing = item.Text;
+                //            break;
+                //        }
+                //    }
+                //}
+                ri.fuzhileixing = myuc.cbb_fuzhileixing.Text;
                 jiexiguize.ruleinfo.Add(ri);
             }
             //将解析规则转为json格式

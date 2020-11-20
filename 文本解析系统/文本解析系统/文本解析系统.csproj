@@ -83,6 +83,7 @@
     <Compile Include="JJController\ControllerGuize.cs" />
     <Compile Include="JJController\ControllerForm.cs" />
     <Compile Include="JJController\ControllerNewTask.cs" />
+    <Compile Include="JJModel\BaseInfo.cs" />
     <Compile Include="JJModel\FormatInfo.cs" />
     <Compile Include="JJModel\RuleDetail.cs" />
     <Compile Include="JJModel\RuleInfo.cs" />
