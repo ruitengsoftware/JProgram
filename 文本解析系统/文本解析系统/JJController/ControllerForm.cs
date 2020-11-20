@@ -403,7 +403,8 @@ namespace 文本解析系统.JJController
                 Aspose.Cells.Worksheet mysht = mywbk.Worksheets[0];
                 //生成基础解析格式部分
                 //获得文档除了空自然段之外的所有文字，段落和段落之间用
-
+                //使用一个方法获得word文档的的所有基础解系对象集合
+                var list_baseinfo
 
 
 
@@ -430,6 +431,56 @@ namespace 文本解析系统.JJController
             });
 
         }
+        /// <summary>
+        /// 获得一篇word文档中所有的基础对象
+        /// </summary>
+        /// <param name="myword"></param>
+        /// <returns></returns>
+
+        public List<BaseInfo> GetBaseInfos(Aspose.Words.Document myword)
+        {
+            List<BaseInfo> result = new List<BaseInfo>();
+
+
+            //获得文件名，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            string wenjianming = myword.OriginalFileName;
+            string wenben = wenjianming;
+            string md5value = JJCommon.Md5Helper.Md5(wenjianming);
+            int zishu = wenjianming.Length;
+            int redu = Regex.Matches(myword.Range.Text, $@"{wenjianming}").Count;
+            string biaozhunduan = wenjianming;
+
+
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
+
+
+
+
+            return result;
+        }
+
+
 
         /// <summary>
         /// 获得以自然段为单位组成的文本特征集合
