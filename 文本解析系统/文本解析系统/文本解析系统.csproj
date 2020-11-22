@@ -87,6 +87,7 @@
     <Compile Include="JJModel\FormatInfo.cs" />
     <Compile Include="JJModel\RuleDetail.cs" />
     <Compile Include="JJModel\RuleInfo.cs" />
+    <Compile Include="JJModel\WordInfo.cs" />
     <Compile Include="JJUserControl\UCRuleInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
