@@ -68,7 +68,7 @@ namespace 文本解析系统.JJModel
         /// <summary>
         /// 标准段集合
         /// </summary>
-        public List<Aspose.Words.Paragraph> _biaozhunduan = new List<Aspose.Words.Paragraph>();
+        public List<string> _biaozhunduan = new List<string> ();
         /// <summary>
         /// 标准句集合
         /// </summary>
@@ -273,15 +273,39 @@ namespace 文本解析系统.JJModel
 
         }
 
-        public void GetBiaozhunduan()
-        { 
-        
+        public void GetBiaozhunduan()//不知道是否包含主,副标题
+        {
+            foreach (Section sec in _myword.Sections)
+            {
+                foreach (Paragraph paragraph in sec.Body.Paragraphs)
+                {
+                    string paratext = paragraph.Range.Text.Trim();
+                    if (!paratext.Equals(string.Empty))
+                    {
+                        _biaozhunduan.Add(paratext);
+                    }
+
+
+
+                }
+            }
         
         }
 
         public void GetBiaozhunju()
-        { 
-        
+        {
+            foreach (Section sec in _myword.Sections)
+            {
+                foreach (Paragraph para in sec.Body.Paragraphs)
+                {
+
+                    string paratext = para.Range.Text;
+                    //拆分标准句
+                    MatchCollection mc = Regex.Matches(paratext,@"(?<[。：])");
+
+
+                }
+            }
         
         
         }
