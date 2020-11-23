@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using 文本解析系统.JJCommon;
 
 namespace 文本解析系统.JJModel
 {
@@ -68,7 +69,7 @@ namespace 文本解析系统.JJModel
         /// <summary>
         /// 标准段集合
         /// </summary>
-        public List<string> _biaozhunduan = new List<string> ();
+        public List<string> _biaozhunduan = new List<string>();
         /// <summary>
         /// 标准句集合
         /// </summary>
@@ -128,6 +129,63 @@ namespace 文本解析系统.JJModel
         {
             _myword = new Aspose.Words.Document(filename);
         }
+        BaseInfo wenjianminginfo = new BaseInfo();
+        BaseInfo zhubiaotiinfo = new BaseInfo();
+        BaseInfo fubiaotiinfo = new BaseInfo();
+        BaseInfo yijibiaoti = new BaseInfo();
+        BaseInfo erjibiaoti = new BaseInfo();
+        BaseInfo sanjibiaoti = new BaseInfo();
+        BaseInfo zhengwen = new BaseInfo();
+        BaseInfo biaozhunduan = new BaseInfo();
+        BaseInfo biaozhunju = new BaseInfo();
+        BaseInfo duanshoubiaozhunju = new BaseInfo();
+        BaseInfo wenjianmingsuoyinju = new BaseInfo();
+        BaseInfo zhubiaotisuoyinju = new BaseInfo();
+        BaseInfo fubiaotisuoyinju = new BaseInfo();
+        BaseInfo yijibiaotisuoyinju = new BaseInfo();
+        BaseInfo erjibiaotisuoyinju = new BaseInfo();
+        BaseInfo sanjibiaotisuoyinju = new BaseInfo();
+        BaseInfo duanshoubiaozhunjusuoyinju = new BaseInfo();
+        BaseInfo putongsuoyinju = new BaseInfo();
+        /// <summary>
+        /// 分析文档，得到所有的兑现和他的相关信息
+        /// </summary>
+        public void AnalysisInfo()
+        {
+            MatchCollection mc = null;//用于保存热度结果
+
+            //1、文件名
+            wenjianminginfo._mingncheng = "文件名";
+            wenjianminginfo._wenben = _wenjianming;
+            wenjianminginfo._MD5 = Md5Helper.Md5(_wenjianming);
+         mc=Regex.Matches()
+            //2、主标题
+
+            //3、副标题
+            //4、一级标题
+            //5、二级标题
+            //6、三级标题
+            //7、正文
+            //8、标准段
+            //9、标准句
+            //10、段首标准句
+            //11、文件名索引句
+            //12、主标题索引句
+
+            //13、副标题索引句
+            //14、一级标题索引句
+            //15、二级标题索引句
+            //16、三级标题索引句
+            //17、段首标准局索引句
+            //18、普通索引句
+
+
+
+
+        }
+
+
+
         /// <summary>
         /// 获得文件名字段值
         /// </summary>
@@ -136,7 +194,7 @@ namespace 文本解析系统.JJModel
             _wenjianming = _myword.OriginalFileName;
         }
         /// <summary>
-        /// 获得主标题
+        /// 获得主标题集合
         /// </summary>
         public void GetZhubiaoti()
         {
@@ -173,7 +231,7 @@ namespace 文本解析系统.JJModel
 
         }
         /// <summary>
-        /// 获得副标题
+        /// 获得副标题集合
         /// </summary>
         public void GetFubiaoti()
         {
@@ -272,7 +330,9 @@ namespace 文本解析系统.JJModel
 
 
         }
-
+        /// <summary>
+        /// 获得标准段
+        /// </summary>
         public void GetBiaozhunduan()//不知道是否包含主,副标题
         {
             foreach (Section sec in _myword.Sections)
@@ -289,9 +349,11 @@ namespace 文本解析系统.JJModel
 
                 }
             }
-        
-        }
 
+        }
+        /// <summary>
+        /// 获得标准句
+        /// </summary>
         public void GetBiaozhunju()
         {
             foreach (Section sec in _myword.Sections)
@@ -301,22 +363,34 @@ namespace 文本解析系统.JJModel
 
                     string paratext = para.Range.Text;
                     //拆分标准句
-                    MatchCollection mc = Regex.Matches(paratext,@"(?<[。：])");
-
+                    MatchCollection mc = Regex.Matches(paratext, @"(?<[。？！；：……!?;:])\s\S+(?=[。？！；：……!?;:$])");
+                    foreach (Match m in mc)
+                    {
+                        _biaozhunju.Add(m.Value);
+                    }
 
                 }
             }
-        
-        
         }
 
 
-
+        /// <summary>
+        /// 获得段首标准句
+        /// </summary>
         public void GetDuanshoubiaozhunju()
-        { 
-        
-        
-        
+        {
+            foreach (Section sec in _myword.Sections)
+            {
+                foreach (Paragraph para in sec.Body.Paragraphs)
+                {
+
+                    string paratext = para.Range.Text;
+                    //拆分标准句
+                    MatchCollection mc = Regex.Matches(paratext, @"(?<[。？！；：……!?;:])\s\S+(?=[。？！；：……!?;:$])");
+
+                    _duanshoubiaozhunju.Add(mc[0].Value);
+                }
+            }
         }
 
 
@@ -409,7 +483,15 @@ namespace 文本解析系统.JJModel
             }
 
             //段首标准句索引句
+            foreach (string str in _duanshoubiaozhunju)
 
+            {
+                mc = Regex.Matches(str, @"(?<[,，、。])[\s\S]+?(?=[,，、。])");
+                foreach (Match match in mc)
+                {
+                    _duanshoubiaozhunjusuoyinju.Add(match.Value);
+                }
+            }
 
 
 
@@ -417,11 +499,32 @@ namespace 文本解析系统.JJModel
 
 
             //普通索引句
+            //获得全文所有的标准句，排除主标题索引句，副标题索引句，一级二级三级标题索引句，段首标准句索引句之后的索引句
+            List<string> list_temp = new List<string>();
+            foreach (string str in _biaozhunduan)
+            {
+                mc = Regex.Matches(str, @"(?<[,，、。])[\s\S]+?(?=[,，、。])");
+                foreach (Match match in mc)
+                {
+                    list_temp.Add(match.Value);
+                }
+
+            }
+            foreach (string str in list_temp)
+            {
+                bool b1 = _zhubiaotisuoyinju.Contains(str);
+                bool b2 = _fubiaotisuoyinju.Contains(str);
+                bool b3 = _yijibiaotisuoyinju.Contains(str);
+                bool b4 = _erjibiaotisuoyinju.Contains(str);
+                bool b5 = _sanjibiaotisuoyinju.Contains(str);
+                bool b6 = _duanshoubiaozhunjusuoyinju.Contains(str);
+                if (!b1 && !b2 && b3 && !b4 && !b5 && !b6)
+                {
+                    _putongsuoyinju.Add(str);
+                }
 
 
-
-
-
+            }
         }
 
 
