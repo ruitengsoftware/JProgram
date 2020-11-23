@@ -110,8 +110,10 @@ namespace 文本解析系统.JJModel
         /// 普通索引句集合
         /// </summary>
         public List<string> _putongsuoyinju = new List<string>();
-
-
+        /// <summary>
+        /// 用于存放所有基础信息的集合
+        /// </summary>
+        public List<BaseInfo> list_baseinfo = new List<BaseInfo>();
 
 
 
@@ -154,11 +156,13 @@ namespace 文本解析系统.JJModel
         {
             MatchCollection mc = null;//用于保存热度结果
 
-            //1、文件名
+            ///1、文件名
             wenjianminginfo._mingncheng = "文件名";
             wenjianminginfo._wenben = _wenjianming;
             wenjianminginfo._MD5 = Md5Helper.Md5(_wenjianming);
-         mc=Regex.Matches()
+            mc = Regex.Matches(_myword.Range.Text, $@"{_wenjianming}");
+            wenjianminginfo._zishu = _wenjianming.Length;
+
             //2、主标题
 
             //3、副标题
@@ -331,7 +335,7 @@ namespace 文本解析系统.JJModel
 
         }
         /// <summary>
-        /// 获得标准段
+        /// 获得标准段（包括主标题）
         /// </summary>
         public void GetBiaozhunduan()//不知道是否包含主,副标题
         {

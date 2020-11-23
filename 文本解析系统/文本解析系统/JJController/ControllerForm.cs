@@ -404,8 +404,15 @@ namespace 文本解析系统.JJController
                 //生成基础解析格式部分
                 //获得文档除了空自然段之外的所有文字，段落和段落之间用
                 //使用一个方法获得word文档的的所有基础解系对象集合
-                var list_baseinfo
-
+                mysht.Cells[0, 0].Value = "名称";
+                mysht.Cells[0, 1].Value = "文本";
+                mysht.Cells[0, 2].Value = "MD5值";
+                mysht.Cells[0, 3].Value = "热度";
+                mysht.Cells[0, 4].Value =  "字数";
+                mysht.Cells[0,5].Value =   "位置关联信息";
+                mysht.Cells[0, 6].Value = "内容关联信息";
+                mysht.Cells[0, 7].Value = "关联标准段";
+                
 
 
 
