@@ -402,22 +402,26 @@ namespace 文本解析系统.JJController
                 Aspose.Cells.Workbook mywbk = new Aspose.Cells.Workbook();
                 Aspose.Cells.Worksheet mysht = mywbk.Worksheets[0];
                 //生成基础解析格式部分
-                //获得文档除了空自然段之外的所有文字，段落和段落之间用
+                WordInfo mywordinfo = new WordInfo(filename) ;
+                //获得文档除了空自然段之外的所有文字，段落和段落之间用/r/n隔开
                 //使用一个方法获得word文档的的所有基础解系对象集合
+
+                //赋值字段名称
                 mysht.Cells[0, 0].Value = "名称";
                 mysht.Cells[0, 1].Value = "文本";
                 mysht.Cells[0, 2].Value = "MD5值";
                 mysht.Cells[0, 3].Value = "热度";
-                mysht.Cells[0, 4].Value =  "字数";
-                mysht.Cells[0,5].Value =   "位置关联信息";
-                mysht.Cells[0, 6].Value = "内容关联信息";
+                mysht.Cells[0, 4].Value = "字数";
+                mysht.Cells[0, 5].Value = "位置类关联信息";
+                mysht.Cells[0, 6].Value = "内容类关联信息";
                 mysht.Cells[0, 7].Value = "关联标准段";
-                
+                //循环所有的baseinfo对象到excel表中去
+                for (int i = 0; i < mywordinfo.list_baseinfo.Count; i++)
+                {
 
 
 
-
-
+                }
                 //生成基础解析格式之外的部分
                 int row = 0; //用于表格行计数
                 mysht.Cells[0, 0].Value = "赋值类型";

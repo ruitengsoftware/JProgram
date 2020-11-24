@@ -27,7 +27,7 @@ namespace 文本解析系统.JJModel
         /// <summary>
         /// 热度
         /// </summary>
-        public string _redu = string.Empty;
+        public int _redu = 0;
 
 
         /// <summary>

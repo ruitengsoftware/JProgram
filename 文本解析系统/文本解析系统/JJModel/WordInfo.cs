@@ -114,15 +114,6 @@ namespace 文本解析系统.JJModel
         /// 用于存放所有基础信息的集合
         /// </summary>
         public List<BaseInfo> list_baseinfo = new List<BaseInfo>();
-
-
-
-
-
-
-
-
-
         /// <summary>
         /// 传入一个word文件名，在构造函数中分解成基本信息
         /// </summary>
@@ -131,26 +122,26 @@ namespace 文本解析系统.JJModel
         {
             _myword = new Aspose.Words.Document(filename);
         }
-        BaseInfo wenjianminginfo = new BaseInfo();
-        BaseInfo zhubiaotiinfo = new BaseInfo();
-        BaseInfo fubiaotiinfo = new BaseInfo();
-        BaseInfo yijibiaoti = new BaseInfo();
-        BaseInfo erjibiaoti = new BaseInfo();
-        BaseInfo sanjibiaoti = new BaseInfo();
-        BaseInfo zhengwen = new BaseInfo();
-        BaseInfo biaozhunduan = new BaseInfo();
-        BaseInfo biaozhunju = new BaseInfo();
-        BaseInfo duanshoubiaozhunju = new BaseInfo();
-        BaseInfo wenjianmingsuoyinju = new BaseInfo();
-        BaseInfo zhubiaotisuoyinju = new BaseInfo();
-        BaseInfo fubiaotisuoyinju = new BaseInfo();
-        BaseInfo yijibiaotisuoyinju = new BaseInfo();
-        BaseInfo erjibiaotisuoyinju = new BaseInfo();
-        BaseInfo sanjibiaotisuoyinju = new BaseInfo();
-        BaseInfo duanshoubiaozhunjusuoyinju = new BaseInfo();
-        BaseInfo putongsuoyinju = new BaseInfo();
+        public BaseInfo wenjianminginfo = new BaseInfo();
+        public BaseInfo zhubiaotiinfo = new BaseInfo();
+        public BaseInfo fubiaotiinfo = new BaseInfo();
+        public BaseInfo yijibiaoti = new BaseInfo();
+        public BaseInfo erjibiaoti = new BaseInfo();
+        public BaseInfo sanjibiaoti = new BaseInfo();
+        public BaseInfo zhengwen = new BaseInfo();
+        public BaseInfo biaozhunduan = new BaseInfo();
+        public BaseInfo biaozhunju = new BaseInfo();
+        public BaseInfo duanshoubiaozhunju = new BaseInfo();
+        public BaseInfo wenjianmingsuoyinju = new BaseInfo();
+        public BaseInfo zhubiaotisuoyinju = new BaseInfo();
+        public BaseInfo fubiaotisuoyinju = new BaseInfo();
+        public BaseInfo yijibiaotisuoyinju = new BaseInfo();
+        public BaseInfo erjibiaotisuoyinju = new BaseInfo();
+        public BaseInfo sanjibiaotisuoyinju = new BaseInfo();
+        public BaseInfo duanshoubiaozhunjusuoyinju = new BaseInfo();
+        public BaseInfo putongsuoyinju = new BaseInfo();
         /// <summary>
-        /// 分析文档，得到所有的兑现和他的相关信息
+        /// 分析文档，得到所有的对象和他的相关信息，包括文本，MD5值，热度，字数，位置关联信息，内容关联信息，关联标准段
         /// </summary>
         public void AnalysisInfo()
         {
@@ -161,7 +152,12 @@ namespace 文本解析系统.JJModel
             wenjianminginfo._wenben = _wenjianming;
             wenjianminginfo._MD5 = Md5Helper.Md5(_wenjianming);
             mc = Regex.Matches(_myword.Range.Text, $@"{_wenjianming}");
+            wenjianminginfo._redu = mc.Count;
             wenjianminginfo._zishu = _wenjianming.Length;
+            wenjianminginfo._neirongguanlian = string.Join(@"|", _zhengwengangyao);
+            //从全文中提取所在的标准段
+            wenjianminginfo._guanlianbiaozhunduan = Regex.Match(_quanwen, $@"(?<[^\r\n]){_wenjianming}(?=\r\n)").Value;
+
 
             //2、主标题
 
@@ -173,6 +169,7 @@ namespace 文本解析系统.JJModel
             //8、标准段
             //9、标准句
             //10、段首标准句
+            //10-1、首段标准句
             //11、文件名索引句
             //12、主标题索引句
 
@@ -213,12 +210,9 @@ namespace 文本解析系统.JJModel
                     {
                         list_para.Add(para);
                     }
-
-
                 }
             }
             _zhubiaoti.Add(list_para[0].Range.Text);
-
             foreach (Section sec in _myword.Sections)
             {
                 foreach (Paragraph para in sec.Body.Paragraphs)
@@ -231,8 +225,6 @@ namespace 文本解析系统.JJModel
                     }
                 }
             }
-
-
         }
         /// <summary>
         /// 获得副标题集合
@@ -335,7 +327,7 @@ namespace 文本解析系统.JJModel
 
         }
         /// <summary>
-        /// 获得标准段（包括主标题）
+        /// 获得标准段和全文字符串（包括主标题）
         /// </summary>
         public void GetBiaozhunduan()//不知道是否包含主,副标题
         {
@@ -347,13 +339,10 @@ namespace 文本解析系统.JJModel
                     if (!paratext.Equals(string.Empty))
                     {
                         _biaozhunduan.Add(paratext);
+                        _quanwen += paratext + "\r";
                     }
-
-
-
                 }
             }
-
         }
         /// <summary>
         /// 获得标准句
