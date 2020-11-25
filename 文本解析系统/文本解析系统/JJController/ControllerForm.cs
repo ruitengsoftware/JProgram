@@ -227,6 +227,10 @@ namespace 文本解析系统.JJController
             return await Task.Run(() =>
             {
                 //构造aspose.words.document ，在之前需要判断文件名是否合法
+                if (filename.Contains())
+                {
+
+                }
                 Aspose.Words.Document myword = new Aspose.Words.Document(filename);
                 //获得他要用到的格式
                 FormatInfo myfi = GetFormatInfo(formatname);
@@ -425,11 +429,22 @@ namespace 文本解析系统.JJController
 
                         #endregion
                         ///在解析结果表中添加相应的赋值类型和赋值结果
-                      
-
-
-
-
+                        ///生成基础解析格式之外的部分
+                        //获得最后一列索引
+                            int lastcol = mysht.Cells.LastCell.Column;
+                        mysht.Cells[0, lastcol].Value = myrd.fuzhileixing;
+                        //判断赋值覆盖范围
+                        //获得最后一行索引
+                        int lastrow = mysht.Cells.LastCell.Row;
+                        for (int r = 1; r < lastrow; r++)
+                        {
+                            //如果对象名称存在于赋值范围，那么赋值到复制类型列
+                            string mingcheng = mysht.Cells[r, 0].StringValue;
+                            if (myrd.fuzhifanwei.Contains(mingcheng))
+                            {
+                                mysht.Cells[r, lastcol].Value = myrd.fuzhijieguo;
+                            }
+                        }
                     }
                 }
                 //判断是否需要写入MD5值向全文/正文表格中去,如果md5选中了，那么判断正文/全文是否选中，插入到数据库中对应的表
@@ -471,28 +486,10 @@ namespace 文本解析系统.JJController
 
                     }
                 }
-
-                ///生成基础解析格式之外的部分
-                //获得最后一列索引
-                foreach (KeyValuePair<string, string> kv in dic_result)
-                {
-                    int lastcol = mysht.Cells.LastCell.Column;
-                    mysht.Cells[0, lastcol].Value = kv.Key;
-                    //判断赋值覆盖范围
-
-
-                    mysht.Cells[row, 0].Value = kv.Key;
-                    mysht.Cells[row, 1].Value = kv.Value;
-                }
                 mywbk.Save($@"{myfi._excelpath}\{Path.GetFileNameWithoutExtension(filename)}.xlsx");
                 //MessageBox.Show("解析完成");
                 return "完成";
-
-
-
-
             });
-
         }
 
 

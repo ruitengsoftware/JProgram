@@ -27,7 +27,7 @@ namespace 文本解析系统.JJModel
         /// <summary>
         /// 赋值覆盖范围
         /// </summary>
-        public List<string> fanwei = new List<string>();
+        public List<string> fuzhifanwei = new List<string>();
         /// <summary>
         /// 赋值结果，用于存放所有匹配结果
         /// </summary>
