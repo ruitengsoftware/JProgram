@@ -332,41 +332,60 @@ namespace 文本解析系统.JJController
                         string pipeiduixiang = GetPipeiduixiangStr(myword, myrd.duixiangxuanze);
 
                         //在匹配对象中获得结果
-                        foreach (Match mymatch in mc)
+                        MatchCollection mymc = null;
+                        if (myrd.fuzhi.Equals("索引句"))
                         {
-                            if (myrd.fuzhi.Equals("索引句"))
+                            mymc = Regex.Matches(pipeiduixiang, $@"(?<[，、,。]){myrd.wenbentezheng}(?=[，、,。])");
+                            foreach (Match mymatch in mymc)
                             {
-                                MatchCollection mymc=Regex.Match()
-                            }
-                            else if (myrd.fuzhi.Equals("标准句"))
-                            {
-                                strresult = Regex.Match(pipeiduixiang, $@"(?<=[^。；;])[\s\S]*{myrd.wenbentezheng}[\s\S]*(?=[。；;])").Value.ToString();
-                            }
-                            else if(myrd.fuzhi.Equals("标准段"))//返回自定义的文本特征结果
-                            {
-                                strresult = myrd.fuzhi;
-                            }
-                            else if (myrd.fuzhi.Equals("后索引句"))//返回自定义的文本特征结果
-                            {
-                                strresult = myrd.fuzhi;
-                            }
-                            else if (myrd.fuzhi.Equals("后标准句"))//返回自定义的文本特征结果
-                            {
-                                strresult = myrd.fuzhi;
-                            }
-                            else if (myrd.fuzhi.Equals("后标准段"))//返回自定义的文本特征结果
-                            {
-                                strresult = myrd.fuzhi;
-                            }
-                            else if (myrd.fuzhi.Equals("自定义值"))//返回自定义的文本特征结果
-                            {
-                                strresult = myrd.fuzhi;
+                                myrd.fuzhijieguo.Add(mymatch.Value);
                             }
                         }
+                        else if (myrd.fuzhi.Equals("标准句"))
+                        {
+                            mymc = Regex.Matches(pipeiduixiang, $@"(?<=[^。；;])[\s\S]*{myrd.wenbentezheng}[\s\S]*(?=[。；;])");
+                            foreach (Match mymatch in mymc)
+                            {
+                                myrd.fuzhijieguo.Add(mymatch.Value);
+                            }
+                        }
+                        else if (myrd.fuzhi.Equals("标准段"))//返回自定义的文本特征结果
+                        {
+                            mymc = Regex.Matches(pipeiduixiang, $@"(?<=[^\r\n])[\s\S]*{myrd.wenbentezheng}[\s\S]*(?=[\r\n])");
+                            foreach (Match mymatch in mymc)
+                            {
+                                myrd.fuzhijieguo.Add(mymatch.Value);
+                            }
+                        }
+                        else if (myrd.fuzhi.Equals("后索引句"))//返回自定义的文本特征结果
+                        {
+                            mymc = Regex.Matches(pipeiduixiang, $@"(?<{myrd.wenbentezheng}[\s\S]*[,，、。])[\s\S]+?(?=[,，、。])");
+                            foreach (Match mymatch in mymc)
+                            {
+                                myrd.fuzhijieguo.Add(mymatch.Value);
+                            }
+                        }
+                        else if (myrd.fuzhi.Equals("后标准句"))//返回自定义的文本特征结果
+                        {
+                            mymc = Regex.Matches(pipeiduixiang, $@"(?<{myrd.wenbentezheng}[\s\S]*[,，、。])[\s\S]+?(?=[。；：;:！!……])");
+                            foreach (Match mymatch in mymc)
+                            {
+                                myrd.fuzhijieguo.Add(mymatch.Value);
+                            }
+                        }
+                        else if (myrd.fuzhi.Equals("后标准段"))//返回自定义的文本特征结果
+                        {
+                            mymc = Regex.Matches(pipeiduixiang, $@"(?<{myrd.wenbentezheng}[\s\S]*[,，、。])[\s\S]+?(?=\r\n)");
+                            foreach (Match mymatch in mymc)
+                            {
+                                myrd.fuzhijieguo.Add(mymatch.Value);
+                            }
 
-
-
-
+                        }
+                        else if (myrd.fuzhi.Equals("自定义值"))//返回自定义的文本特征结果
+                        {
+                            myrd.fuzhijieguo.Add(myrd._zidingyivalue);
+                        }
                         #region 旧的匹配方法，循环对自然段进行匹配
                         //foreach (Paragraph para in pipeiduixiang)
                         //{
@@ -405,6 +424,12 @@ namespace 文本解析系统.JJController
                         //}
 
                         #endregion
+                        ///在解析结果表中添加相应的赋值类型和赋值结果
+                      
+
+
+
+
                     }
                 }
                 //判断是否需要写入MD5值向全文/正文表格中去,如果md5选中了，那么判断正文/全文是否选中，插入到数据库中对应的表
@@ -454,7 +479,7 @@ namespace 文本解析系统.JJController
                     int lastcol = mysht.Cells.LastCell.Column;
                     mysht.Cells[0, lastcol].Value = kv.Key;
                     //判断赋值覆盖范围
-                    
+
 
                     mysht.Cells[row, 0].Value = kv.Key;
                     mysht.Cells[row, 1].Value = kv.Value;

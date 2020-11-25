@@ -32,6 +32,18 @@ namespace 文本解析系统.JJModel
         /// 赋值结果，用于存放所有匹配结果
         /// </summary>
         public List<string> fuzhijieguo = new List<string>();
+        /// <summary>
+        /// 自定义赋值
+        /// </summary>
+        public string _zidingyivalue = string.Empty;
+        /// <summary>
+        /// 顺数标准段索引
+        /// </summary>
+        public int _shunshu = 0;
+        /// <summary>
+        /// 倒数标准段索引
+        /// </summary>
+        public int _daoshu = 0;
     }
 
     public class JiexiGuize
