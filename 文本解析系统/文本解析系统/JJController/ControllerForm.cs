@@ -327,12 +327,11 @@ namespace 文本解析系统.JJController
                     for (int j = 0; j < jiexiguize.ruleinfo.Count; j++)
                     {
                         RuleDetail myrd = jiexiguize.ruleinfo[j];
-                        //获得文本形式的特征对象(匹配对象)，而不是自然段集合
-                        string pipeiduixiang = GetPipeiduixiangStr(myword, myrd.duixiangxuanze);
-                        //再匹配对象结果中对进行匹配得到所有短文本
-                        MatchCollection mc = Regex.Matches(mywordinfo._quanwen, $@"{myrd.wenbentezheng}");
+                        //获得文本形式的特征对象(匹配对象)，而不是自然段集合，各段落之间用“\r\n”分隔
 
-                        //循环所有的match，在全文中获得所有赋值结果
+                        string pipeiduixiang = GetPipeiduixiangStr(myword, myrd.duixiangxuanze);
+
+                        //在匹配对象中获得结果
                         foreach (Match mymatch in mc)
                         {
                             if (myrd.fuzhi.Equals("索引句"))
@@ -363,12 +362,6 @@ namespace 文本解析系统.JJController
                             {
                                 strresult = myrd.fuzhi;
                             }
-
-
-
-
-
-
                         }
 
 
@@ -461,7 +454,7 @@ namespace 文本解析系统.JJController
                     int lastcol = mysht.Cells.LastCell.Column;
                     mysht.Cells[0, lastcol].Value = kv.Key;
                     //判断赋值覆盖范围
-
+                    
 
                     mysht.Cells[row, 0].Value = kv.Key;
                     mysht.Cells[row, 1].Value = kv.Value;
