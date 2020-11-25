@@ -282,7 +282,40 @@ namespace 文本解析系统.JJController
                     int num = Convert.ToInt32(mysqlhelper.ExecuteScalar(str_sql, null));
                     if (num > 0) return "重复";
                 }
-                //开始解析,得到复制类型和文本解析结果的dic
+
+
+
+                //开始解析,先解析基础规则，然后根据复制文本范围向sheet赋值
+                //赋值基础规则
+                //生成excel表格
+                Aspose.Cells.Workbook mywbk = new Aspose.Cells.Workbook();
+                Aspose.Cells.Worksheet mysht = mywbk.Worksheets[0];
+                //生成基础解析格式部分
+                WordInfo mywordinfo = new WordInfo(filename);
+                //使用一个方法获得word文档的的所有基础解系对象集合
+
+                //赋值字段名称
+                mysht.Cells[0, 0].Value = "名称";
+                mysht.Cells[0, 1].Value = "文本";
+                mysht.Cells[0, 2].Value = "MD5值";
+                mysht.Cells[0, 3].Value = "热度";
+                mysht.Cells[0, 4].Value = "字数";
+                mysht.Cells[0, 5].Value = "位置类关联信息";
+                mysht.Cells[0, 6].Value = "内容类关联信息";
+                mysht.Cells[0, 7].Value = "关联标准段";
+                //循环所有的baseinfo对象到excel表中去
+                for (int i = 0; i < mywordinfo.list_baseinfo.Count; i++)
+                {
+                    mysht.Cells[i + 1, 0].Value = mywordinfo.list_baseinfo[i]._mingncheng;
+                    mysht.Cells[i + 1, 1].Value = mywordinfo.list_baseinfo[i]._wenben;
+                    mysht.Cells[i + 1, 2].Value = mywordinfo.list_baseinfo[i]._MD5;
+                    mysht.Cells[i + 1, 3].Value = mywordinfo.list_baseinfo[i]._redu;
+                    mysht.Cells[i + 1, 4].Value = mywordinfo.list_baseinfo[i]._zishu;
+                    mysht.Cells[i + 1, 5].Value = mywordinfo.list_baseinfo[i]._weizhiguanlian;
+                    mysht.Cells[i + 1, 6].Value = mywordinfo.list_baseinfo[i]._neirongguanlian;
+                    mysht.Cells[i + 1, 7].Value = mywordinfo.list_baseinfo[i]._guanlianbiaozhunduan;
+                }
+                //赋值其他解析信息
                 Dictionary<string, string> dic_result = new Dictionary<string, string>();
                 for (int i = 0; i < myfi.list_jiexiguize.Count; i++)
                 {
@@ -296,29 +329,51 @@ namespace 文本解析系统.JJController
                         RuleDetail myrd = jiexiguize.ruleinfo[j];
                         //获得文本形式的特征对象(匹配对象)，而不是自然段集合
                         string pipeiduixiang = GetPipeiduixiangStr(myword, myrd.duixiangxuanze);
-                        //对 特征对象进行匹配
-                        string strresult = string.Empty;
-                        if (myrd.fuzhi.Equals("仅文本"))
+                        //再匹配对象结果中对进行匹配得到所有短文本
+                        MatchCollection mc = Regex.Matches(mywordinfo._quanwen, $@"{myrd.wenbentezheng}");
+
+                        //循环所有的match，在全文中获得所有赋值结果
+                        foreach (Match mymatch in mc)
                         {
-                            strresult = Regex.Match(pipeiduixiang, myrd.wenbentezheng).Value.ToString();
+                            if (myrd.fuzhi.Equals("索引句"))
+                            {
+                                MatchCollection mymc=Regex.Match()
+                            }
+                            else if (myrd.fuzhi.Equals("标准句"))
+                            {
+                                strresult = Regex.Match(pipeiduixiang, $@"(?<=[^。；;])[\s\S]*{myrd.wenbentezheng}[\s\S]*(?=[。；;])").Value.ToString();
+                            }
+                            else if(myrd.fuzhi.Equals("标准段"))//返回自定义的文本特征结果
+                            {
+                                strresult = myrd.fuzhi;
+                            }
+                            else if (myrd.fuzhi.Equals("后索引句"))//返回自定义的文本特征结果
+                            {
+                                strresult = myrd.fuzhi;
+                            }
+                            else if (myrd.fuzhi.Equals("后标准句"))//返回自定义的文本特征结果
+                            {
+                                strresult = myrd.fuzhi;
+                            }
+                            else if (myrd.fuzhi.Equals("后标准段"))//返回自定义的文本特征结果
+                            {
+                                strresult = myrd.fuzhi;
+                            }
+                            else if (myrd.fuzhi.Equals("自定义值"))//返回自定义的文本特征结果
+                            {
+                                strresult = myrd.fuzhi;
+                            }
+
+
+
+
+
+
                         }
-                        else if (myrd.fuzhi.Equals("整句"))
-                        {
-                            strresult = Regex.Match(pipeiduixiang, $@"(?<=[^。；;])[\s\S]*{myrd.wenbentezheng}[\s\S]*(?=[。；;])").Value.ToString();
-                        }
-                        else//返回自定义的文本特征结果
-                        {
-                            strresult = myrd.fuzhi;
-                        }
-                        //添加赋值结果和赋值类型到dictionary中
-                        if (dic_result.Keys.Contains(myrd.fuzhileixing))
-                        {
-                            dic_result[myrd.fuzhileixing] += strresult;
-                        }
-                        else
-                        {
-                            dic_result.Add(myrd.fuzhileixing, strresult);
-                        }
+
+
+
+
                         #region 旧的匹配方法，循环对自然段进行匹配
                         //foreach (Paragraph para in pipeiduixiang)
                         //{
@@ -398,37 +453,16 @@ namespace 文本解析系统.JJController
 
                     }
                 }
-                //生成excel表格
-                Aspose.Cells.Workbook mywbk = new Aspose.Cells.Workbook();
-                Aspose.Cells.Worksheet mysht = mywbk.Worksheets[0];
-                //生成基础解析格式部分
-                WordInfo mywordinfo = new WordInfo(filename) ;
-                //获得文档除了空自然段之外的所有文字，段落和段落之间用/r/n隔开
-                //使用一个方法获得word文档的的所有基础解系对象集合
 
-                //赋值字段名称
-                mysht.Cells[0, 0].Value = "名称";
-                mysht.Cells[0, 1].Value = "文本";
-                mysht.Cells[0, 2].Value = "MD5值";
-                mysht.Cells[0, 3].Value = "热度";
-                mysht.Cells[0, 4].Value = "字数";
-                mysht.Cells[0, 5].Value = "位置类关联信息";
-                mysht.Cells[0, 6].Value = "内容类关联信息";
-                mysht.Cells[0, 7].Value = "关联标准段";
-                //循环所有的baseinfo对象到excel表中去
-                for (int i = 0; i < mywordinfo.list_baseinfo.Count; i++)
-                {
-
-
-
-                }
-                //生成基础解析格式之外的部分
-                int row = 0; //用于表格行计数
-                mysht.Cells[0, 0].Value = "赋值类型";
-                mysht.Cells[0, 1].Value = "文本特征结果";
+                ///生成基础解析格式之外的部分
+                //获得最后一列索引
                 foreach (KeyValuePair<string, string> kv in dic_result)
                 {
-                    row++;
+                    int lastcol = mysht.Cells.LastCell.Column;
+                    mysht.Cells[0, lastcol].Value = kv.Key;
+                    //判断赋值覆盖范围
+
+
                     mysht.Cells[row, 0].Value = kv.Key;
                     mysht.Cells[row, 1].Value = kv.Value;
                 }
@@ -441,54 +475,6 @@ namespace 文本解析系统.JJController
 
             });
 
-        }
-        /// <summary>
-        /// 获得一篇word文档中所有的基础对象
-        /// </summary>
-        /// <param name="myword"></param>
-        /// <returns></returns>
-
-        public List<BaseInfo> GetBaseInfos(Aspose.Words.Document myword)
-        {
-            List<BaseInfo> result = new List<BaseInfo>();
-
-
-            //获得文件名，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            string wenjianming = myword.OriginalFileName;
-            string wenben = wenjianming;
-            string md5value = JJCommon.Md5Helper.Md5(wenjianming);
-            int zishu = wenjianming.Length;
-            int redu = Regex.Matches(myword.Range.Text, $@"{wenjianming}").Count;
-            string biaozhunduan = wenjianming;
-
-
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-            //获得，计算文本，md5，热度，字数，位置关联信息，内容关联信息，关联标准段
-
-
-
-
-            return result;
         }
 
 

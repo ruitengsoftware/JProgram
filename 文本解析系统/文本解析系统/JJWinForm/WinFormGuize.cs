@@ -35,7 +35,7 @@ namespace 文本解析系统.JJWinForm
             tb_shuoming.Text = myri._guizeshuoming;
             //文本特征集合转化成jigexiguize类，构造uc，添加到panel中
             JiexiGuize myjiexiguize = JsonConvert.DeserializeObject<JiexiGuize>(myri._wenbentezheng);
-            for (int i = myjiexiguize.ruleinfo.Count-1; i >= 0; i--)
+            for (int i = myjiexiguize.ruleinfo.Count - 1; i >= 0; i--)
             {
                 UCRuleInfo myuc = new UCRuleInfo(myjiexiguize.ruleinfo[i]);
                 myuc.Dock = DockStyle.Top;
@@ -53,17 +53,17 @@ namespace 文本解析系统.JJWinForm
         {
             //构造规则UC
             UCRuleInfo myuc = new UCRuleInfo();
-          
+
             //添加到panel中，dock属性为top
             myuc.Dock = DockStyle.Top;
-         panel_wenbentezheng.Controls.Add(myuc);
+            panel_wenbentezheng.Controls.Add(myuc);
             panel_wenbentezheng.Controls.SetChildIndex(myuc, 0);
-   
+
         }
 
         private void WinFormGuize_Load(object sender, EventArgs e)
         {
-            
+
         }
         /// <summary>
         /// 点击保存按钮时触发的事件
@@ -134,11 +134,11 @@ namespace 文本解析系统.JJWinForm
                 jiexiguize.ruleinfo.Add(ri);
             }
             //将解析规则转为json格式
-            string json = JsonConvert.SerializeObject(jiexiguize,Formatting.None);
+            string json = JsonConvert.SerializeObject(jiexiguize, Formatting.None);
             //在保存之前先删除
             mycontroller.DeleteRule(guizemingcheng);
             //保存规则
-           bool b= mycontroller.SaveRule(guizemingcheng, guizeshuoming, json);
+            bool b = mycontroller.SaveRule(guizemingcheng, guizeshuoming, json);
             if (b)
             {
                 MessageBox.Show("保存规则成功！");

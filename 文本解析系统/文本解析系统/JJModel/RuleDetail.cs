@@ -29,9 +29,9 @@ namespace 文本解析系统.JJModel
         /// </summary>
         public List<string> fanwei = new List<string>();
         /// <summary>
-        /// 赋值结果
+        /// 赋值结果，用于存放所有匹配结果
         /// </summary>
-        public string fuzhijieguo = string.Empty;
+        public List<string> fuzhijieguo = new List<string>();
     }
 
     public class JiexiGuize
