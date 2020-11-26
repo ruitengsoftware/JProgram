@@ -76,61 +76,47 @@ namespace 文本解析系统.JJWinForm
             string guizemingcheng = tb_guizemingcheng.Text;
             //获得规则说明
             string guizeshuoming = tb_shuoming.Text;
-            //获得规则详情
+            //获得规则详情集合，循环获得panel_wenbentezheng中所有的control,转换成ucruleinfo，获得信息
             JiexiGuize jiexiguize = new JiexiGuize();
             foreach (UserControl uc in panel_wenbentezheng.Controls)
             {
                 var myuc = uc as UCRuleInfo;
                 RuleDetail ri = new RuleDetail();
+
+                ri._shunshu = myuc.tb_shunshu.Text.Trim().Equals(string.Empty)?0: Convert.ToInt32( myuc.tb_shunshu.Text);
+                ri._daoshu = myuc.tb_daoshu.Text.Trim().Equals(string.Empty) ? 0 : Convert.ToInt32(myuc.tb_daoshu.Text);
                 //获得对象选择，myuc.flp_duixiangxuanze中checked=true的text
                 foreach (Control item in myuc.flp_duixiangxuanze.Controls)
                 {
 
                     if (item is CheckBox && (item as CheckBox).Checked)
                     {
-                        ri.duixiangxuanze = item.Text;
-                        break;
+                        ri.duixiangxuanze.Add(item.Text);
+                       
                     }
                 }
                 //获得文本特征
                 ri.wenbentezheng = myuc.tb_wenbentezheng.Text;
                 //获得文本特征结果
-                foreach (Control item in myuc.flp_jieguo.Controls)
+                ri._zidingyivalue = myuc.tb_zidingyijieguo.Text;
+                foreach (Control item in myuc.flp_juzhi.Controls)
                 {
 
                     if (item is CheckBox && (item as CheckBox).Checked)
                     {
-                        if (item.Text.Equals("自定义"))
-                        {
-                            ri.fuzhi = myuc.tb_zidingyijieguo.Text;
-                            break;
-                        }
-                        else
-                        {
-                            ri.fuzhi = item.Text;
-                            break;
-                        }
+                            ri.fuzhi.Add(item.Text);
                     }
                 }
                 //获得赋值类型
-                //foreach (Control item in myuc.flp_fuzhileixing.Controls)
-                //{
-
-                //    if (item is CheckBox && (item as CheckBox).Checked)
-                //    {
-                //        if (item.Text.Equals("自定义"))
-                //        {
-                //            ri.fuzhileixing = myuc.tb_zidingyileixing.Text;
-                //            break;
-                //        }
-                //        else
-                //        {
-                //            ri.fuzhileixing = item.Text;
-                //            break;
-                //        }
-                //    }
-                //}
                 ri.fuzhileixing = myuc.cbb_fuzhileixing.Text;
+                //获得赋值覆盖范围
+                foreach (Control mycontrol in myuc.flp_fugaifanwei.Controls)
+                {
+                    if ((mycontrol as CheckBox).Checked)
+                    {
+                        ri.fuzhifanwei.Add(mycontrol.Text);
+                    }
+                }
                 jiexiguize.ruleinfo.Add(ri);
             }
             //将解析规则转为json格式

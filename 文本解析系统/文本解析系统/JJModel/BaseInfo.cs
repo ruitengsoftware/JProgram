@@ -15,7 +15,7 @@ namespace 文本解析系统.JJModel
         /// <summary>
         /// 名称
         /// </summary>
-        public string _mingncheng = string.Empty;
+        public string _mingcheng = string.Empty;
         /// <summary>
         /// 文本
         /// </summary>

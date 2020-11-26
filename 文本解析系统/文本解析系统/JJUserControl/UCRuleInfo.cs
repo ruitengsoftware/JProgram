@@ -23,53 +23,35 @@ namespace 文本解析系统.JJUserControl
         {
             InitializeComponent();
             //选中checkbox
-            foreach (CheckBox item in flp_duixiangxuanze.Controls)
+            foreach (Control item in flp_duixiangxuanze.Controls)
             {
-                if (item.Text.Equals(ruledetail.duixiangxuanze))
+                if (ruledetail.duixiangxuanze.Contains(item.Text))
                 {
-                    item.Checked = true;
-                    break;
+                    (item as CheckBox).Checked = true;
+                    
                 }
             }
             //赋值文本特征
             tb_wenbentezheng.Text = ruledetail.wenbentezheng;
             //赋值文本特征结果
-            bool zidingyi = true;
-            foreach (Control item in flp_jieguo.Controls)
+            tb_zidingyijieguo.Text = ruledetail._zidingyivalue;
+            foreach (Control item in flp_juzhi.Controls)
             {
-                if (item is CheckBox && item.Text.Equals(ruledetail.fuzhi))
+                if (item is CheckBox && ruledetail.fuzhi.Contains(item.Text))
                 {
                     (item as CheckBox).Checked = true;
-                    zidingyi = false;//由于识别到了选中项，就取消了自定义的勾选
-                    break;
                 }
-            }
-            //判断是否为自定义
-            if (zidingyi)
-            {
-                cb_zidingyijieguo.Checked = true;
-                tb_zidingyijieguo.Text = ruledetail.fuzhi;
             }
             //赋值类型
             cbb_fuzhileixing.Text = ruledetail.fuzhileixing;
-            //zidingyi = true;
-            //foreach (Control item in flp_fuzhileixing.Controls)
-            //{
-            //    if (item is CheckBox && item.Text.Equals(ruledetail.fuzhileixing))
-            //    {
-            //        (item as CheckBox).Checked = true;
-            //        zidingyi = false;
-            //        break;
-            //    }
-            //}
-            //if (zidingyi)
-            //{
-            //    cb_zidingyileixing.Checked = true;
-            //    tb_zidingyileixing.Text = ruledetail.fuzhileixing;
-
-            //}
-
-
+            //赋值覆盖范围
+            foreach (Control control in flp_fugaifanwei.Controls)
+            {
+                if (ruledetail.fuzhifanwei.Contains(control.Text))
+                {
+                    (control as CheckBox).Checked = true;
+                }
+            }
 
         }
 

@@ -71,7 +71,7 @@ namespace 文本解析系统
         /// <param name="e"></param>
         private void dgv_jiexiguize_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //点击button按钮事件,注意如果是基础规则那么点击无效
+            //点击编辑按钮事件,注意如果是基础规则那么点击无效
             if (dgv_jiexiguize.Columns[e.ColumnIndex].Name == "bianjianniu" && e.RowIndex >= 0)
             {
                 //从数据库中获得该规则对应的文本特征，显示到新打开的winformguize中
@@ -281,7 +281,7 @@ namespace 文本解析系统
         /// <param name="e"></param>
         private async void btn_kaishi_Click(object sender, EventArgs e)
         {
-            //清楚处理中dgv的所有任务
+             //清楚处理中dgv的所有任务
             dgv_chulizhong.Rows.Clear();
             for (int i = 0; i < dgv_daichuli.Rows.Count; i++)
             {
@@ -300,6 +300,11 @@ namespace 文本解析系统
                     string jindu = (Convert.ToDouble(j + 1) * 100 / Convert.ToDouble(files.Count)).ToString("00.00");
                     dgv_chulizhong.Rows[index].Cells[2].Value = $"{jindu}%";
                     //获得解析结果，如果成功显示处理完成，完成，重复
+                    //判断文件名是否合法，不应含有$
+                    if (files[j].Contains("$"))
+                    {
+                        continue;
+                    }
                     string str_jiexijieguo = await _mycontroller.JiexiAsync(files[j], formatname);
                     dgv_chulizhong.Rows[index].Cells[3].Value = str_jiexijieguo;
                 }

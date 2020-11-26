@@ -9,21 +9,21 @@ namespace 文本解析系统.JJModel
     public class RuleDetail
     {
         /// <summary>
-        /// 对象选择
+        /// 对象选择集合
         /// </summary>
-        public string duixiangxuanze { get; set; }
+        public List<string> duixiangxuanze = new List<string>();
         /// <summary>
         /// 文本特征(正则表达式)
         /// </summary>
-        public string wenbentezheng { get; set; }
+        public string wenbentezheng = string.Empty;
         /// <summary>
-        /// 赋值
+        /// 赋值集合
         /// </summary>
-        public string fuzhi { get; set; }
+        public List<string> fuzhi = new List<string>();
         /// <summary>
         /// 赋值类型
         /// </summary>
-        public string fuzhileixing { get; set; }
+        public string fuzhileixing = string.Empty;
         /// <summary>
         /// 赋值覆盖范围
         /// </summary>
