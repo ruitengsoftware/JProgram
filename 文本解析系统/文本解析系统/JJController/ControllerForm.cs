@@ -330,17 +330,22 @@ namespace 文本解析系统.JJController
                         RuleDetail myrd = jiexiguize.ruleinfo[j];
                         //获得文本形式的特征对象(匹配对象)，而不是自然段集合，各段落之间用“\r\n”分隔
 
-                        string pipeiduixiang = GetPipeiduixiangStr(myword, myrd.duixiangxuanze,myrd._shunshu,myrd._daoshu);
+                        string pipeiduixiang = GetPipeiduixiangStr(myword, myrd.duixiangxuanze, myrd._shunshu, myrd._daoshu);
 
                         //在匹配对象中获得结果
                         MatchCollection mymc = null;
-                        if (myrd.fuzhi.Equals("索引句"))
+                        if (myrd.fuzhi.Contains("索引句"))
                         {
-                            mymc = Regex.Matches(pipeiduixiang, $@"(?<[，、,。]){myrd.wenbentezheng}(?=[，、,。])");
-                            foreach (Match mymatch in mymc)
+                            //获得匹配对象的所有索引句，将包括文本特征的集合提取出来
+                            string[] suoyinju = Regex.Split(pipeiduixiang, @"[#,。，、]");
+                            foreach (string mystr in suoyinju)
                             {
-                                myrd.fuzhijieguo.Add(mymatch.Value);
+                                if (Regex.IsMatch(mystr, myrd.wenbentezheng))
+                                {
+                                    myrd.fuzhijieguo.Add(mystr);
+                                }
                             }
+
                         }
                         else if (myrd.fuzhi.Equals("标准句"))
                         {
@@ -429,7 +434,7 @@ namespace 文本解析系统.JJController
                         ///生成基础解析格式之外的部分
                         //获得最后一列索引
                         int lastcol = mysht.Cells.LastCell.Column;
-                        mysht.Cells[0, lastcol+1].Value = myrd.fuzhileixing;
+                        mysht.Cells[0, lastcol + 1].Value = myrd.fuzhileixing;
                         //判断赋值覆盖范围
                         //获得最后一行索引
                         int lastrow = mysht.Cells.LastCell.Row;
@@ -439,7 +444,7 @@ namespace 文本解析系统.JJController
                             string mingcheng = mysht.Cells[r, 0].StringValue;
                             if (myrd.fuzhifanwei.Contains(mingcheng))
                             {
-                                mysht.Cells[r, lastcol+1].Value = myrd.fuzhijieguo;
+                                mysht.Cells[r, lastcol + 1].Value = myrd.fuzhijieguo;
                             }
                         }
                     }
@@ -457,12 +462,12 @@ namespace 文本解析系统.JJController
                         }
                         string str_sql = $"insert into 正文MD5表 values(@md5值,@记录文件名,@上传时间,@上传人,@删除)";
                         mysqlhelper.ExecuteNonQuery(str_sql, new MySqlParameter[] {
-                    new MySqlParameter("@md5值",Md5Helper.Md5(str_zhengwen)),
-                    new MySqlParameter("@记录文件名",filename),
-                    new MySqlParameter("@上传时间",DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss")),
-                    new MySqlParameter("@上传人",UserInfo._username),
-                    new MySqlParameter("@删除",0)
-                    });
+                        new MySqlParameter("@md5值",Md5Helper.Md5(str_zhengwen)),
+                        new MySqlParameter("@记录文件名",filename),
+                        new MySqlParameter("@上传时间",DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss")),
+                        new MySqlParameter("@上传人",UserInfo._username),
+                        new MySqlParameter("@删除",0)
+                        });
                     }
                     else if (myfi._chachongchuli.Equals("全文"))
                     {
@@ -474,12 +479,12 @@ namespace 文本解析系统.JJController
                         }
                         string str_sql = $"insert into 全文MD5表 values(@md5值,@记录文件名,@上传时间,@上传人,@删除)";
                         mysqlhelper.ExecuteNonQuery(str_sql, new MySqlParameter[] {
-                    new MySqlParameter("@md5值",Md5Helper.Md5(str_quanwen)),
-                    new MySqlParameter("@记录文件名",filename),
-                    new MySqlParameter("@上传时间",DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss")),
-                    new MySqlParameter("@上传人",UserInfo._username),
-                    new MySqlParameter("@删除",0)
-                    });
+                        new MySqlParameter("@md5值",Md5Helper.Md5(str_quanwen)),
+                        new MySqlParameter("@记录文件名",filename),
+                        new MySqlParameter("@上传时间",DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss")),
+                        new MySqlParameter("@上传人",UserInfo._username),
+                        new MySqlParameter("@删除",0)
+                        });
 
                     }
                 }
@@ -497,7 +502,7 @@ namespace 文本解析系统.JJController
         /// <param name="myword"></param>
         /// <param name="duixiang"></param>
         /// <returns></returns>
-        public string GetPipeiduixiangStr(Aspose.Words.Document myword, List<string> duixiang,int shunshu,int daoshu)
+        public string GetPipeiduixiangStr(Aspose.Words.Document myword, List<string> duixiang, int shunshu, int daoshu)
         {
             List<string> result = new List<string>();
             foreach (string str in duixiang)
@@ -514,7 +519,7 @@ namespace 文本解析系统.JJController
                         {
                             if (!para.Range.Text.Trim().Equals(string.Empty))
                             {
-                                result.Add(para.Range.Text);
+                                result.Add(para.Range.Text.Trim());
                             }
                         }
                     }
@@ -528,14 +533,14 @@ namespace 文本解析系统.JJController
                         {
                             if (!para.Range.Text.Trim().Equals(string.Empty) && para.ParagraphFormat.Alignment != ParagraphAlignment.Center)
                             {
-                                result.Add(para.Range.Text);
+                                result.Add(para.Range.Text.Trim());
                             }
                         }
                     }
                 }
                 else if (duixiang.Equals("文件名"))//获得文件名
                 {
-                    result.Add(myword.OriginalFileName);
+                    result.Add(Path.GetFileNameWithoutExtension(myword.OriginalFileName));
 
                 }
                 else if (duixiang.Equals("主标题"))//获得主标题
@@ -552,7 +557,7 @@ namespace 文本解析系统.JJController
                             }
                         }
                     }
-                    result.Add(list_para[0].Range.Text);
+                    result.Add(list_para[0].Range.Text.Trim());
                     //循环所有自然段，匹配正则表达式  第一章/编
                     foreach (Section sec in myword.Sections)
                     {
@@ -561,7 +566,7 @@ namespace 文本解析系统.JJController
                             if (!para.Range.Text.Trim().Equals(string.Empty) && para.ParagraphFormat.Alignment != ParagraphAlignment.Center)
                             {
                                 bool b = Regex.IsMatch(para.Range.Text.Trim(), $@"^第[\s\S]+[编章][\s\S]+");
-                                result.Add(para.Range.Text);
+                                result.Add(para.Range.Text.Trim());
                             }
                         }
                     }
@@ -587,7 +592,7 @@ namespace 文本解析系统.JJController
                     }
                     for (int i = 1; i < list_para.Count; i++)
                     {
-                        result.Add(list_para[i].Range.Text);
+                        result.Add(list_para[i].Range.Text.Trim());
                     }
                     foreach (Section sec in myword.Sections)
                     {
@@ -605,7 +610,7 @@ namespace 文本解析系统.JJController
                             bool empty = para.Range.Text.Trim().Equals(string.Empty);
                             if ((!empty && !alignment && !jieweifuhao) || kaitou1 || kaitou2)
                             {
-                                result.Add(para.Range.Text);
+                                result.Add(para.Range.Text.Trim());
                             }
                         }
                     }
@@ -621,7 +626,7 @@ namespace 文本解析系统.JJController
                             //bool juhao = Regex.IsMatch(para.Range.Text, $@"!(?!<。)[\s\S]+(?!。)$");
                             if (kaitou)
                             {
-                                result.Add(para.Range.Text);
+                                result.Add(para.Range.Text.Trim());
                             }
                         }
                     }
@@ -636,7 +641,7 @@ namespace 文本解析系统.JJController
                             // bool juhao = Regex.IsMatch(para.Range.Text, $@"[\s\S]+[。;]$");
                             if (kaitou)
                             {
-                                result.Add(para.Range.Text);
+                                result.Add(para.Range.Text.Trim());
                             }
                         }
                     }
@@ -658,7 +663,7 @@ namespace 文本解析系统.JJController
                             bool kaitou9 = Regex.IsMatch(para.Range.Text, $@"^第[一二三四五六七八九十]+?项[\s\S]+");
                             if (kaitou1 || kaitou2 || kaitou3 || kaitou4 || kaitou5 || kaitou6 || kaitou7 | kaitou8 | kaitou9)
                             {
-                                result.Add(para.Range.Text);
+                                result.Add(para.Range.Text.Trim());
                             }
 
                         }
@@ -666,7 +671,21 @@ namespace 文本解析系统.JJController
                 }
                 else if (duixiang.Equals("正文纲要"))//全文纲要改名为正文纲要
                 {
-                    //正文纲要和
+                    //暂时使用和一级标题完全相同的获得方式
+                    foreach (Section sec in myword.Sections)
+                    {
+                        foreach (Paragraph para in sec.Body.Paragraphs)
+                        {
+                            //判断标题级别是否为1
+                            bool jibie = para.ListFormat.ListLevelNumber == 1;
+                            if (jibie)
+                            {
+                                result.Add(para.Range.Text.Trim());
+                            }
+                        }
+                    }
+
+
                 }
                 else if (duixiang.Equals("一级标题纲要"))
                 {
@@ -678,7 +697,7 @@ namespace 文本解析系统.JJController
                             bool jibie = para.ListFormat.ListLevelNumber == 1;
                             if (jibie)
                             {
-                                result.Add(para.Range.Text);
+                                result.Add(para.Range.Text.Trim());
                             }
                         }
                     }
@@ -905,7 +924,7 @@ namespace 文本解析系统.JJController
                             var matches = Regex.Matches(para.Range.Text, $@"[\s\S]+(?![。……？！?!:])");
                             for (int i = 1; i < matches.Count; i++)
                             {
-                                result.Add( matches[i].Value);
+                                result.Add(matches[i].Value);
                             }
 
                         }
@@ -917,7 +936,7 @@ namespace 文本解析系统.JJController
                     var matches = Regex.Matches(filename, $@"(?<[、，,。])[\s\S]+、?(?=[，,。、])");
                     foreach (Match item in matches)
                     {
-                        result.Add( item.Value);
+                        result.Add(item.Value);
                     }
                 }
                 else if (duixiang.Equals("主标题索引据"))
@@ -1009,7 +1028,7 @@ namespace 文本解析系统.JJController
                     var matches = Regex.Matches(mystr, $@"(?<[、，,])[\s\S]+、?(?=[，,])");
                     foreach (Match item in matches)
                     {
-                        result.Add( item.Value);
+                        result.Add(item.Value);
                     }
                 }
                 else if (duixiang.Equals("一级标题索引据"))
@@ -1307,7 +1326,7 @@ namespace 文本解析系统.JJController
                     {
                         if (!list.Contains(mystr1))
                         {
-                            result .Add(mystr1);
+                            result.Add(mystr1);
                         }
                     }
                 }
@@ -1350,7 +1369,7 @@ namespace 文本解析系统.JJController
 
 
             }
-            string str_result = string.Join("|", result);
+            string str_result = string.Join("#", result);
             return str_result;
         }
 

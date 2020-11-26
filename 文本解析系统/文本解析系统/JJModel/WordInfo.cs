@@ -186,22 +186,40 @@ namespace 文本解析系统.JJModel
         /// </summary>
         private void GetShouduanbiaozhunju()
         {
+            string shouduan = string.Empty;
             //获得首段
-            foreach (Section    sec  in _myword.Sections)
+            foreach (Section sec in _myword.Sections)
             {
-                foreach (Paragraph para in sec.Body.Paragraphs)
+                for (int i = 0; i < sec.Body.Paragraphs.Count; i++)
                 {
-
-
-
-
+                    bool center = sec.Body.Paragraphs[i].ParagraphFormat.Alignment == ParagraphAlignment.Center;
+                    bool empty = sec.Body.Paragraphs[i].Range.Text.Trim().Equals(string.Empty);
+                    if (!empty && center)
+                    {
+                        //获得下一段的文本，如果是空，就再向下滚动
+                        string nextparatext;
+                        do
+                        {
+                            i++;
+                            nextparatext = sec.Body.Paragraphs[i].Range.Text.Trim();
+                        } while (nextparatext.Equals(string.Empty));
+                        shouduan=nextparatext;
+                        break;
+                    }
                 }
             }
-
             //拆分为标准句子
+            string[] mymc = Regex.Split(shouduan, $@"[。：；？！……;:?!]");
+            foreach (string mymatch in mymc)
+            {
+                _shouduanbiaozhunju.Add(mymatch);
+            }
 
 
-            
+
+
+
+
         }
 
 
