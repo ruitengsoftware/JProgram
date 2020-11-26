@@ -442,9 +442,15 @@ namespace 文本解析系统.JJController
                         {
                             //如果对象名称存在于赋值范围，那么赋值到复制类型列
                             string mingcheng = mysht.Cells[r, 0].StringValue;
-                            if (myrd.fuzhifanwei.Contains(mingcheng))
+
+                            //循环所有的赋值覆盖范围，如果名称包括了范围，那么赋值
+                            foreach (string     mystr in myrd.fuzhifanwei)
                             {
-                                mysht.Cells[r, lastcol + 1].Value = myrd.fuzhijieguo;
+                                if (mingcheng.Contains(mystr))
+                                {
+                                    mysht.Cells[r, lastcol + 1].Value =string.Join("|", myrd.fuzhijieguo);
+
+                                }
                             }
                         }
                     }
