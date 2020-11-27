@@ -16,7 +16,7 @@ namespace 文本解析系统.JJModel
         /// <summary>
         /// 用于存放计算好的对象基础信息
         /// </summary>
-        List<BaseInfo> _list_baseinfo = new List<BaseInfo>();
+       public List<BaseInfo> _list_baseinfo = new List<BaseInfo>();
         /// <summary>
         /// 文件名
         /// </summary>
@@ -40,15 +40,15 @@ namespace 文本解析系统.JJModel
         /// <summary>
         /// 正文纲要
         /// </summary>
-        public List<string> _zhengwengangyao = new List<string>();
+        public string _zhengwengangyao = string.Empty;
         /// <summary>
         /// 一级标题集合
         /// </summary>
         public List<string> _yijibiaoti = new List<string>();
         /// <summary>
-        /// 一级标题纲要集合
+        /// 一级标题纲要
         /// </summary>
-        public List<string> _yijibiaotigangyao = new List<string>();
+        public string _yijibiaotigangyao = string.Empty;
         /// <summary>
         /// 二级标题集合
         /// </summary>
@@ -58,7 +58,7 @@ namespace 文本解析系统.JJModel
         /// <summary>
         /// 二级标题纲要
         /// </summary>
-        public List<string> _erjibiaotigangyao = new List<string>();
+        public string _erjibiaotigangyao = string.Empty;
         /// <summary>
         /// 三级标题集合
         /// </summary>
@@ -66,7 +66,7 @@ namespace 文本解析系统.JJModel
         /// <summary>
         /// 三级标题纲要集合
         /// </summary>
-        public List<string> _sanjibiaotigangyao = new List<string>();
+        public string _sanjibiaotigangyao = string.Empty;
         /// <summary>
         /// 标准段集合
         /// </summary>
@@ -117,10 +117,6 @@ namespace 文本解析系统.JJModel
         /// </summary>
         public List<string> _putongsuoyinju = new List<string>();
         /// <summary>
-        /// 用于存放所有基础信息的集合
-        /// </summary>
-        public List<BaseInfo> list_baseinfo = new List<BaseInfo>();
-        /// <summary>
         /// 传入一个word文件名，在构造函数中分解成基本信息
         /// </summary>
         /// <param name="filename"></param>
@@ -128,29 +124,29 @@ namespace 文本解析系统.JJModel
         {
             _myword = new Aspose.Words.Document(filename);
         }
-        public BaseInfo wenjianminginfo = new BaseInfo();
-        public BaseInfo zhubiaotiinfo = new BaseInfo();
-        public BaseInfo fubiaotiinfo = new BaseInfo();
-        public BaseInfo yijibiaotiinfo = new BaseInfo();
-        public BaseInfo erjibiaotiinfo = new BaseInfo();
-        public BaseInfo sanjibiaotiinfo = new BaseInfo();
-        public BaseInfo zhengweninfo = new BaseInfo();
-        public BaseInfo biaozhunduaninfo = new BaseInfo();
-        public BaseInfo biaozhunjuinfo = new BaseInfo();
-        public BaseInfo duanshoubiaozhunjuinfo = new BaseInfo();
-        public BaseInfo shouduanbiaozhunjuinfo = new BaseInfo();
-        public BaseInfo wenjianmingsuoyinjuinfo = new BaseInfo();
-        public BaseInfo zhubiaotisuoyinjuinfo = new BaseInfo();
-        public BaseInfo fubiaotisuoyinjuinfo = new BaseInfo();
-        public BaseInfo yijibiaotisuoyinjuinfo = new BaseInfo();
-        public BaseInfo erjibiaotisuoyinjuinfo = new BaseInfo();
-        public BaseInfo sanjibiaotisuoyinjuinfo = new BaseInfo();
-        public BaseInfo duanshoubiaozhunjusuoyinjuinfo = new BaseInfo();
-        public BaseInfo putongsuoyinjuinfo = new BaseInfo();
-        public BaseInfo zhengwengangyaoinfo = new BaseInfo();
-        public BaseInfo yijibiaotigangyaoinfo = new BaseInfo();
-        public BaseInfo erjibiaotigangyaoinfo = new BaseInfo();
-        public BaseInfo sanjibiaotigangyaoinfo = new BaseInfo();
+        //public BaseInfo wenjianminginfo = new BaseInfo();
+        //public BaseInfo zhubiaotiinfo = new BaseInfo();
+        //public BaseInfo fubiaotiinfo = new BaseInfo();
+        //public BaseInfo yijibiaotiinfo = new BaseInfo();
+        //public BaseInfo erjibiaotiinfo = new BaseInfo();
+        //public BaseInfo sanjibiaotiinfo = new BaseInfo();
+        //public BaseInfo zhengweninfo = new BaseInfo();
+        //public BaseInfo biaozhunduaninfo = new BaseInfo();
+        //public BaseInfo biaozhunjuinfo = new BaseInfo();
+        //public BaseInfo duanshoubiaozhunjuinfo = new BaseInfo();
+        //public BaseInfo shouduanbiaozhunjuinfo = new BaseInfo();
+        //public BaseInfo wenjianmingsuoyinjuinfo = new BaseInfo();
+        //public BaseInfo zhubiaotisuoyinjuinfo = new BaseInfo();
+        //public BaseInfo fubiaotisuoyinjuinfo = new BaseInfo();
+        //public BaseInfo yijibiaotisuoyinjuinfo = new BaseInfo();
+        //public BaseInfo erjibiaotisuoyinjuinfo = new BaseInfo();
+        //public BaseInfo sanjibiaotisuoyinjuinfo = new BaseInfo();
+        //public BaseInfo duanshoubiaozhunjusuoyinjuinfo = new BaseInfo();
+        //public BaseInfo putongsuoyinjuinfo = new BaseInfo();
+        //public BaseInfo zhengwengangyaoinfo = new BaseInfo();
+        //public BaseInfo yijibiaotigangyaoinfo = new BaseInfo();
+        //public BaseInfo erjibiaotigangyaoinfo = new BaseInfo();
+        //public BaseInfo sanjibiaotigangyaoinfo = new BaseInfo();
 
         /// <summary>
         /// 获得所有的文本
@@ -203,7 +199,7 @@ namespace 文本解析系统.JJModel
                             i++;
                             nextparatext = sec.Body.Paragraphs[i].Range.Text.Trim();
                         } while (nextparatext.Equals(string.Empty));
-                        shouduan=nextparatext;
+                        shouduan = nextparatext;
                         break;
                     }
                 }
@@ -251,7 +247,7 @@ namespace 文本解析系统.JJModel
                 bool b5 = _zhubiaotisuoyinju.Contains(mystr);
                 bool b6 = _fubiaotisuoyinju.Contains(mystr);
                 bool b7 = _wenjianmingsuoyinju.Contains(mystr);
-                if (!b1&&!b2 && !b3 && !b4 && !b5 && !b6 && !b7)
+                if (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7)
                 {
                     _putongsuoyinju.Add(mystr);
                 }
@@ -384,6 +380,7 @@ namespace 文本解析系统.JJModel
         /// </summary>
         private void GetSanjibiaotigangyao()
         {
+            _sanjibiaotigangyao = string.Join("|", _sanjibiaoti);
         }
 
         /// <summary>
@@ -391,6 +388,7 @@ namespace 文本解析系统.JJModel
         /// </summary>
         private void GetErjibiaotigangyao()
         {
+            _erjibiaotigangyao = string.Join("|", _erjibiaoti);
         }
 
         /// <summary>
@@ -398,6 +396,7 @@ namespace 文本解析系统.JJModel
         /// </summary>
         private void GetYijibiaotigangyao()
         {
+            _yijibiaotigangyao = string.Join("|", _yijibiaoti);
         }
 
 
@@ -413,49 +412,135 @@ namespace 文本解析系统.JJModel
             MatchCollection mc = null;//用于保存热度结果
 
             ///1、文件名
-            wenjianminginfo._mingcheng = "文件名";
-            wenjianminginfo._wenben = _wenjianming;
-            wenjianminginfo._MD5 = Md5Helper.Md5(_wenjianming);
-            mc = Regex.Matches(_quanwen, "{_wenjianming}");
-            wenjianminginfo._redu = mc.Count;
-            wenjianminginfo._zishu = _wenjianming.Length;
-            wenjianminginfo._neirongguanlian = string.Join(@"|", _zhengwengangyao);
+
+            BaseInfo newbi = new BaseInfo();
+            newbi._mingcheng = "文件名";
+            newbi._wenben=_wenjianming;
+
+            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            mc = Regex.Matches(_quanwen, $"{_wenjianming}");
+            newbi._redu = mc.Count;
+            newbi._zishu = _wenjianming.Length;
+            //提取内容标准段
+            newbi._neirongguanlian = string.Join(@"|", _zhengwengangyao);
             //从全文中提取所在的标准段
-            wenjianminginfo._guanlianbiaozhunduan = Regex.Match(_quanwen, "{_wenjianming}?(?=\r)").Value;
+            newbi._guanlianbiaozhunduan = Regex.Match(_quanwen, $"{_wenjianming}?(?=\r)").Value;
+            _list_baseinfo.Add(newbi);
+
 
 
             //2、主标题
-            zhubiaotiinfo._wenben = string.Join("|", _zhubiaoti);
-            zhubiaotiinfo._MD5 = Md5Helper.Md5(zhubiaotiinfo._wenben);
-            zhubiaotiinfo._mingcheng = "主标题";
-            zhubiaotiinfo._zishu = zhubiaotiinfo._wenben.Length;
-            //3、副标题
-            fubiaotiinfo._mingcheng = "副标题";
-            fubiaotiinfo._wenben = string.Join("|", _fubiaoti);
-            fubiaotiinfo._MD5 = Md5Helper.Md5(fubiaotiinfo._wenben);
-            fubiaotiinfo._zishu = fubiaotiinfo._wenben.Length;
-            //4、一级标题
-            yijibiaotiinfo._mingcheng = "一级标题";
-            yijibiaotiinfo._wenben = string.Join("|", _yijibiaoti);
-            yijibiaotiinfo._MD5 = Md5Helper.Md5(yijibiaotiinfo._wenben);
-            yijibiaotiinfo._zishu = yijibiaotiinfo._wenben.Length;
-            //4-1 一级标题纲要
-            yijibiaotigangyaoinfo._mingcheng = "一级标题纲要";
-            yijibiaotigangyaoinfo._wenben = string.Join("|", _yijibiaotigangyao);
-            yijibiaotigangyaoinfo._MD5 = Md5Helper.Md5(yijibiaotigangyaoinfo._wenben);
-            yijibiaotigangyaoinfo._zishu = yijibiaotigangyaoinfo._wenben.Length;
+            foreach (string item in _zhubiaoti)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "主标题";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
 
+                //内容关联
+
+                //标准段
+
+
+
+
+
+                _list_baseinfo.Add(newbi);
+            }
+            //3、副标题
+            foreach (string item in _fubiaoti)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "副标题";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
+
+                //内容关联
+
+                //标准段
+
+
+
+
+
+                _list_baseinfo.Add(newbi);
+            }
+            //4、一级标题
+            foreach (string item in _yijibiaoti)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "一级标题";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
+
+                //内容关联
+
+                //标准段
+                _list_baseinfo.Add(newbi);
+            }
+            //4-1 一级标题纲要
+            newbi = new BaseInfo();
+            newbi._mingcheng = "一级标题纲要";
+            newbi._wenben = _yijibiaotigangyao;
+            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            newbi._redu = 1;
+            newbi._zishu = newbi._wenben.Length;
+            _list_baseinfo.Add(newbi);
 
             //5、二级标题
-            erjibiaotiinfo._mingcheng = "二级标题";
-            erjibiaotiinfo._wenben = string.Join("|", _erjibiaoti);
-            erjibiaotiinfo._MD5 = Md5Helper.Md5(erjibiaotiinfo._wenben);
-            erjibiaotiinfo._zishu = erjibiaotiinfo._wenben.Length;
+            foreach (string item in _erjibiaoti)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "二级标题";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
+
+                //内容关联
+
+                //标准段
+                _list_baseinfo.Add(newbi);
+            }
+
             //5-1二级标题纲要
-            erjibiaotigangyaoinfo._mingcheng = "二级标题纲要";
-            erjibiaotigangyaoinfo._wenben = string.Join("|", _erjibiaotigangyao);
-            erjibiaotigangyaoinfo._MD5 = Md5Helper.Md5(yijibiaotigangyaoinfo._wenben);
-            erjibiaotigangyaoinfo._zishu = erjibiaotigangyaoinfo._wenben.Length;
+            newbi = new BaseInfo();
+            newbi._mingcheng = "二级标题纲要";
+            newbi._wenben = _erjibiaotigangyao;
+            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            newbi._redu = 1;
+            newbi._zishu = newbi._wenben.Length;
+            _list_baseinfo.Add(newbi);
 
             //6、三级标题
             sanjibiaotiinfo._mingcheng = "三级标题";
@@ -581,6 +666,29 @@ namespace 文本解析系统.JJModel
         /// </summary>
         public void GetZhengwengangyao()
         {
+
+
+            //如果有多个zhu标题，就等于主标题集合
+            if (_zhubiaoti.Count > 1)
+            {
+                _zhengwengangyao = string.Join("|", _zhubiaoti);
+                return;
+            }
+
+            //如果一级标题只有一个就等一一级标题
+            if (_zhubiaoti.Count == 1)
+            {
+                _zhengwengangyao = string.Join("|", _yijibiaoti);
+                return;
+            }
+
+            //如果一级标题为空，就等于段首标准句
+            if (_yijibiaoti.Count == 0)
+            {
+                _zhengwengangyao = string.Join("|", _duanshoubiaozhunju);
+                return;
+
+            }
 
         }
 

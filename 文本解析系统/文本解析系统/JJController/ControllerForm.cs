@@ -312,16 +312,17 @@ namespace 文本解析系统.JJController
                         mysht.Cells[0, 6].Value = "内容类关联信息";
                         mysht.Cells[0, 7].Value = "关联标准段";
                         //循环所有的baseinfo对象到excel表中去
-                        for (int b = 0; b < mywordinfo.list_baseinfo.Count; b++)
+                        for (int b = 0; b < mywordinfo._list_baseinfo.Count; b++)
                         {
-                            mysht.Cells[b + 1, 0].Value = mywordinfo.list_baseinfo[b]._mingcheng;
-                            mysht.Cells[b + 1, 1].Value = mywordinfo.list_baseinfo[b]._wenben;
-                            mysht.Cells[b + 1, 2].Value = mywordinfo.list_baseinfo[b]._MD5;
-                            mysht.Cells[b + 1, 3].Value = mywordinfo.list_baseinfo[b]._redu;
-                            mysht.Cells[b + 1, 4].Value = mywordinfo.list_baseinfo[b]._zishu;
-                            mysht.Cells[b + 1, 5].Value = mywordinfo.list_baseinfo[b]._weizhiguanlian;
-                            mysht.Cells[b + 1, 6].Value = mywordinfo.list_baseinfo[b]._neirongguanlian;
-                            mysht.Cells[b + 1, 7].Value = mywordinfo.list_baseinfo[b]._guanlianbiaozhunduan;
+
+                            mysht.Cells[b + 1, 0].Value = mywordinfo._list_baseinfo[b]._mingcheng;
+                            mysht.Cells[b + 1, 1].Value = mywordinfo._list_baseinfo[b]._wenben;
+                            mysht.Cells[b + 1, 2].Value = mywordinfo._list_baseinfo[b]._MD5;
+                            mysht.Cells[b + 1, 3].Value = mywordinfo._list_baseinfo[b]._redu;
+                            mysht.Cells[b + 1, 4].Value = mywordinfo._list_baseinfo[b]._zishu;
+                            mysht.Cells[b + 1, 5].Value = mywordinfo._list_baseinfo[b]._weizhiguanlian;
+                            mysht.Cells[b + 1, 6].Value = mywordinfo._list_baseinfo[b]._neirongguanlian;
+                            mysht.Cells[b + 1, 7].Value = mywordinfo._list_baseinfo[b]._guanlianbiaozhunduan;
                         }
                     }
                     else//赋值其他信息
