@@ -33,9 +33,6 @@
             this.pb_folder = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbb_jiexigeshi = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cb_wu = new System.Windows.Forms.CheckBox();
-            this.cb_guanji = new System.Windows.Forms.CheckBox();
             this.btn_query = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_folder)).BeginInit();
@@ -86,37 +83,6 @@
             this.cbb_jiexigeshi.TabIndex = 4;
             this.cbb_jiexigeshi.DropDown += new System.EventHandler(this.cbb_jiexigeshi_DropDown);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 136);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 17);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "解析完成后操作";
-            // 
-            // cb_wu
-            // 
-            this.cb_wu.AutoSize = true;
-            this.cb_wu.Checked = true;
-            this.cb_wu.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_wu.Location = new System.Drawing.Point(146, 131);
-            this.cb_wu.Name = "cb_wu";
-            this.cb_wu.Size = new System.Drawing.Size(39, 21);
-            this.cb_wu.TabIndex = 6;
-            this.cb_wu.Text = "无";
-            this.cb_wu.UseVisualStyleBackColor = true;
-            // 
-            // cb_guanji
-            // 
-            this.cb_guanji.AutoSize = true;
-            this.cb_guanji.Location = new System.Drawing.Point(264, 131);
-            this.cb_guanji.Name = "cb_guanji";
-            this.cb_guanji.Size = new System.Drawing.Size(51, 21);
-            this.cb_guanji.TabIndex = 6;
-            this.cb_guanji.Text = "关机";
-            this.cb_guanji.UseVisualStyleBackColor = true;
-            // 
             // btn_query
             // 
             this.btn_query.Location = new System.Drawing.Point(150, 189);
@@ -145,9 +111,6 @@
             this.ClientSize = new System.Drawing.Size(572, 261);
             this.Controls.Add(this.btn_close);
             this.Controls.Add(this.btn_query);
-            this.Controls.Add(this.cb_guanji);
-            this.Controls.Add(this.cb_wu);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.cbb_jiexigeshi);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pb_folder);
@@ -170,9 +133,6 @@
         private System.Windows.Forms.PictureBox pb_folder;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbb_jiexigeshi;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox cb_wu;
-        private System.Windows.Forms.CheckBox cb_guanji;
         private System.Windows.Forms.Button btn_query;
         private System.Windows.Forms.Button btn_close;
     }

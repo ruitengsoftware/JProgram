@@ -42,16 +42,7 @@ namespace 文本解析系统.JJWinForm
         {
             _folder = tb_folder.Text;
             _ruler = cbb_jiexigeshi.Text;
-            if (cb_wu.Checked)
-            {
-                _action = "无";
-            }
-            if (cb_guanji.Checked)
-            {
-                _action = "关机";
-            }
-
-
+           
             this.DialogResult = DialogResult.OK;
         }
 

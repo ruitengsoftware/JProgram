@@ -471,7 +471,7 @@ namespace 文本解析系统.JJModel
             sanjibiaotigangyaoinfo._zishu = sanjibiaotigangyaoinfo._wenben.Length;
             //7、正文
             zhengweninfo._mingcheng = "正文";
-            zhengweninfo._wenben = string.Join("|", _zhengwen);
+            zhengweninfo._wenben = string.Join("", _zhengwen);
 
             zhengweninfo._MD5 = Md5Helper.Md5(zhengweninfo._wenben);
             zhengweninfo._zishu = zhengweninfo._wenben.Length;
