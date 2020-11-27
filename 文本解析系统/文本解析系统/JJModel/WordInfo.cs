@@ -16,7 +16,7 @@ namespace 文本解析系统.JJModel
         /// <summary>
         /// 用于存放计算好的对象基础信息
         /// </summary>
-       public List<BaseInfo> _list_baseinfo = new List<BaseInfo>();
+        public List<BaseInfo> _list_baseinfo = new List<BaseInfo>();
         /// <summary>
         /// 文件名
         /// </summary>
@@ -208,14 +208,11 @@ namespace 文本解析系统.JJModel
             string[] mymc = Regex.Split(shouduan, $@"[。：；？！……;:?!]");
             foreach (string mymatch in mymc)
             {
-                _shouduanbiaozhunju.Add(mymatch);
+                if (!mymatch.Trim().Equals(string.Empty))
+                {
+                    _shouduanbiaozhunju.Add(mymatch);
+                }
             }
-
-
-
-
-
-
         }
 
 
@@ -415,7 +412,7 @@ namespace 文本解析系统.JJModel
 
             BaseInfo newbi = new BaseInfo();
             newbi._mingcheng = "文件名";
-            newbi._wenben=_wenjianming;
+            newbi._wenben = _wenjianming;
 
             newbi._MD5 = Md5Helper.Md5(newbi._wenben);
             mc = Regex.Matches(_quanwen, $"{_wenjianming}");
@@ -543,123 +540,305 @@ namespace 文本解析系统.JJModel
             _list_baseinfo.Add(newbi);
 
             //6、三级标题
-            sanjibiaotiinfo._mingcheng = "三级标题";
-            sanjibiaotiinfo._wenben = string.Join("|", _sanjibiaoti);
+            foreach (string item in _sanjibiaoti)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "三级标题";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
 
-            sanjibiaotiinfo._MD5 = Md5Helper.Md5(sanjibiaotiinfo._wenben);
-            sanjibiaotiinfo._zishu = sanjibiaotiinfo._wenben.Length;
+                //内容关联
+
+                //标准段
+                _list_baseinfo.Add(newbi);
+            }
+
             //6-1、三级标题纲要
-            sanjibiaotigangyaoinfo._mingcheng = "三级标题纲要";
-            sanjibiaotigangyaoinfo._wenben = string.Join("|", _sanjibiaotigangyao);
-
-            sanjibiaotigangyaoinfo._MD5 = Md5Helper.Md5(sanjibiaotigangyaoinfo._wenben);
-            sanjibiaotigangyaoinfo._zishu = sanjibiaotigangyaoinfo._wenben.Length;
+            newbi = new BaseInfo();
+            newbi._mingcheng = "三级标题纲要";
+            newbi._wenben = _sanjibiaotigangyao;
+            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            newbi._redu = 1;
+            newbi._zishu = newbi._wenben.Length;
+            _list_baseinfo.Add(newbi);
             //7、正文
-            zhengweninfo._mingcheng = "正文";
-            zhengweninfo._wenben = string.Join("", _zhengwen);
-
-            zhengweninfo._MD5 = Md5Helper.Md5(zhengweninfo._wenben);
-            zhengweninfo._zishu = zhengweninfo._wenben.Length;
+            newbi = new BaseInfo();
+            newbi._mingcheng = "正文";
+            newbi._wenben = string.Join("", _zhengwen);
+            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            newbi._redu = 1;
+            newbi._zishu = newbi._wenben.Length;
+            _list_baseinfo.Add(newbi);
             //7-1、正文纲要
-            zhengwengangyaoinfo._mingcheng = "正文纲要";
-            zhengwengangyaoinfo._wenben = string.Join("|", zhengwengangyaoinfo._wenben);
-            zhengwengangyaoinfo._MD5 = Md5Helper.Md5(zhengwengangyaoinfo._wenben);
-            zhengwengangyaoinfo._zishu = zhengwengangyaoinfo._wenben.Length;
+            newbi = new BaseInfo();
+            newbi._mingcheng = "正文";
+            newbi._wenben = _zhengwengangyao;
+            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            newbi._redu = 1;
+            newbi._zishu = newbi._wenben.Length;
+            _list_baseinfo.Add(newbi);
             //8、标准段
-            biaozhunduaninfo._mingcheng = "标准段";
-            biaozhunduaninfo._wenben = string.Join("|", _biaozhunduan);
-            biaozhunduaninfo._MD5 = Md5Helper.Md5(biaozhunduaninfo._wenben);
-            biaozhunduaninfo._zishu = biaozhunduaninfo._wenben.Length;
+            foreach (string item in _biaozhunduan)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "标准段";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
+
+                //内容关联
+
+                //标准段
+                _list_baseinfo.Add(newbi);
+            }
             //9、标准句
-            biaozhunjuinfo._mingcheng = "标准句";
-            biaozhunjuinfo._wenben = string.Join("|", _biaozhunju);
-            biaozhunjuinfo._MD5 = Md5Helper.Md5(biaozhunjuinfo._wenben);
-            biaozhunjuinfo._zishu = biaozhunjuinfo._wenben.Length;
+            foreach (string item in _biaozhunju)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "标准句";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
+
+                //内容关联
+
+                //标准段
+                _list_baseinfo.Add(newbi);
+            }
+
             //10、段首标准句
-            duanshoubiaozhunjuinfo._mingcheng = "段首标准句";
-            duanshoubiaozhunjuinfo._wenben = string.Join("|", _duanshoubiaozhunju);
+            foreach (string item in _duanshoubiaozhunju)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "段首标准句";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
 
-            duanshoubiaozhunjuinfo._MD5 = Md5Helper.Md5(duanshoubiaozhunjuinfo._wenben);
-            duanshoubiaozhunjuinfo._zishu = duanshoubiaozhunjuinfo._wenben.Length;
+                //内容关联
+
+                //标准段
+                _list_baseinfo.Add(newbi);
+            }
             //10-1、首段标准句
-            shouduanbiaozhunjuinfo._mingcheng = "首段标准句";
-            shouduanbiaozhunjuinfo._wenben = string.Join("|", _shouduanbiaozhunju);
+            foreach (string item in _shouduanbiaozhunju)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "首段标准句";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
 
-            shouduanbiaozhunjuinfo._MD5 = Md5Helper.Md5(shouduanbiaozhunjuinfo._wenben);
-            shouduanbiaozhunjuinfo._zishu = shouduanbiaozhunjuinfo._wenben.Length;
+                //内容关联
+
+                //标准段
+                _list_baseinfo.Add(newbi);
+            }
             //11、文件名索引句
-            wenjianmingsuoyinjuinfo._mingcheng = "文件名索引句";
-            wenjianmingsuoyinjuinfo._wenben = string.Join("|", _wenjianmingsuoyinju);
+            foreach (string item in _wenjianmingsuoyinju)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "文件名索引句";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
 
-            wenjianmingsuoyinjuinfo._MD5 = Md5Helper.Md5(wenjianmingsuoyinjuinfo._wenben);
-            wenjianmingsuoyinjuinfo._zishu = wenjianmingsuoyinjuinfo._wenben.Length;
+                //内容关联
+
+                //标准段
+                _list_baseinfo.Add(newbi);
+            }
             //12、主标题索引句
-            zhubiaotisuoyinjuinfo._mingcheng = "主标题索引句";
-            zhubiaotisuoyinjuinfo._wenben = string.Join("|", _zhubiaotisuoyinju);
+            foreach (string item in _zhubiaotisuoyinju)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "主标题索引句";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
 
-            zhubiaotisuoyinjuinfo._MD5 = Md5Helper.Md5(zhubiaotisuoyinjuinfo._wenben);
-            zhubiaotisuoyinjuinfo._zishu = zhubiaotisuoyinjuinfo._wenben.Length;
+                //内容关联
+
+                //标准段
+                _list_baseinfo.Add(newbi);
+            }
             //13、副标题索引句
-            fubiaotisuoyinjuinfo._mingcheng = "副标题索引句";
-            fubiaotisuoyinjuinfo._wenben = string.Join("|", _fubiaotisuoyinju);
+            foreach (string item in _fubiaotisuoyinju)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "副标题索引句";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
 
-            fubiaotisuoyinjuinfo._MD5 = Md5Helper.Md5(fubiaotisuoyinjuinfo._wenben);
-            fubiaotisuoyinjuinfo._zishu = fubiaotisuoyinjuinfo._wenben.Length;
+                //内容关联
+
+                //标准段
+                _list_baseinfo.Add(newbi);
+            }
             //14、一级标题索引句
-            yijibiaotisuoyinjuinfo._mingcheng = "一级标题索引句";
-            yijibiaotisuoyinjuinfo._wenben = string.Join("|", _yijibiaotisuoyinju);
+            foreach (string item in _yijibiaotisuoyinju)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "一级标题索引句";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
 
-            yijibiaotisuoyinjuinfo._MD5 = Md5Helper.Md5(yijibiaotisuoyinjuinfo._wenben);
-            yijibiaotisuoyinjuinfo._zishu = yijibiaotisuoyinjuinfo._wenben.Length;
+                //内容关联
+
+                //标准段
+                _list_baseinfo.Add(newbi);
+            }
             //15、二级标题索引句
-            erjibiaotisuoyinjuinfo._mingcheng = "二级标题索引句";
-            erjibiaotisuoyinjuinfo._wenben = string.Join("|", _erjibiaotisuoyinju);
+            foreach (string item in _erjibiaotisuoyinju)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "二级标题索引句";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
 
-            erjibiaotisuoyinjuinfo._MD5 = Md5Helper.Md5(erjibiaotisuoyinjuinfo._wenben);
-            erjibiaotisuoyinjuinfo._zishu = erjibiaotisuoyinjuinfo._wenben.Length;
+                //内容关联
+
+                //标准段
+                _list_baseinfo.Add(newbi);
+            }
             //16、三级标题索引句
-            sanjibiaotisuoyinjuinfo._mingcheng = "三级标题索引句";
-            sanjibiaotisuoyinjuinfo._wenben = string.Join("|", _sanjibiaotisuoyinju);
+            foreach (string item in _sanjibiaotisuoyinju)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "三级标题索引句";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
 
-            sanjibiaotisuoyinjuinfo._MD5 = Md5Helper.Md5(sanjibiaotisuoyinjuinfo._wenben);
-            sanjibiaotisuoyinjuinfo._zishu = sanjibiaotisuoyinjuinfo._wenben.Length;
+                //内容关联
+
+                //标准段
+                _list_baseinfo.Add(newbi);
+            }
             //17、段首标准局索引句
-            duanshoubiaozhunjusuoyinjuinfo._mingcheng = "段首标准句索引句";
-            duanshoubiaozhunjusuoyinjuinfo._wenben = string.Join("|", _duanshoubiaozhunjusuoyinju);
+            foreach (string item in _duanshoubiaozhunjusuoyinju)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "段首标准局索引句";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
 
-            duanshoubiaozhunjusuoyinjuinfo._MD5 = Md5Helper.Md5(duanshoubiaozhunjusuoyinjuinfo._wenben);
-            duanshoubiaozhunjusuoyinjuinfo._zishu = duanshoubiaozhunjusuoyinjuinfo._wenben.Length;
+                //内容关联
+
+                //标准段
+                _list_baseinfo.Add(newbi);
+            }
             //18、普通索引句
-            putongsuoyinjuinfo._mingcheng = "普通索引句";
-            putongsuoyinjuinfo._wenben = string.Join("|", _putongsuoyinju);
+            foreach (string item in _putongsuoyinju)
+            {
 
-            putongsuoyinjuinfo._MD5 = Md5Helper.Md5(putongsuoyinjuinfo._wenben);
-            putongsuoyinjuinfo._zishu = putongsuoyinjuinfo._wenben.Length;
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "普通索引句";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
 
-            ///把所有的baseinfo存入集合
-            list_baseinfo.Add(wenjianminginfo);
-            list_baseinfo.Add(zhubiaotiinfo);
-            list_baseinfo.Add(fubiaotiinfo);
-            list_baseinfo.Add(zhengweninfo);
-            list_baseinfo.Add(zhengwengangyaoinfo);
-            list_baseinfo.Add(yijibiaotiinfo);
-            list_baseinfo.Add(yijibiaotigangyaoinfo);
-            list_baseinfo.Add(erjibiaotiinfo);
-            list_baseinfo.Add(erjibiaotigangyaoinfo);
-            list_baseinfo.Add(sanjibiaotiinfo);
-            list_baseinfo.Add(sanjibiaotigangyaoinfo);
-            list_baseinfo.Add(biaozhunduaninfo);
-            list_baseinfo.Add(biaozhunjuinfo);
-            list_baseinfo.Add(duanshoubiaozhunjuinfo);
-            list_baseinfo.Add(wenjianmingsuoyinjuinfo);
-            list_baseinfo.Add(zhubiaotisuoyinjuinfo);
-            list_baseinfo.Add(fubiaotisuoyinjuinfo);
-            list_baseinfo.Add(yijibiaotisuoyinjuinfo);
-            list_baseinfo.Add(erjibiaotisuoyinjuinfo);
-            list_baseinfo.Add(sanjibiaotisuoyinjuinfo);
-            list_baseinfo.Add(duanshoubiaozhunjusuoyinjuinfo);
-            list_baseinfo.Add(putongsuoyinjuinfo);
-            list_baseinfo.Add(shouduanbiaozhunjuinfo);
+                //内容关联
+
+                //标准段
+                _list_baseinfo.Add(newbi);
+            }
         }
         /// <summary>
         /// 获得正文纲要
@@ -795,7 +974,7 @@ namespace 文本解析系统.JJModel
                 foreach (Paragraph paragraph in section.Body.Paragraphs)
                 {
                     string paratext = paragraph.Range.Text.Trim();
-                    bool b1 = Regex.IsMatch(paratext, @"^[\(（]一二三四五六七八九十]+[\)）]、[\s\S]+");
+                    bool b1 = Regex.IsMatch(paratext, @"^[\(（][一二三四五六七八九十]+?[\)）]、?[\s\S]+");
                     if (b1)
                     {
                         _erjibiaoti.Add(paratext);
@@ -814,15 +993,17 @@ namespace 文本解析系统.JJModel
                 {
                     string paratext = paragraph.Range.Text.Trim();
                     bool b1 = Regex.IsMatch(paratext, @"^[一二三四五六七八九十]要是[\s\S]+");
+                    bool b1_1 = Regex.IsMatch(paratext, @"[一二三四五六七八九十]是[\s\S]+?。");
+
                     bool b2 = Regex.IsMatch(paratext, @"^第[一二三四五六七八九十]+？[,，][\s\S]+");
                     bool b3 = Regex.IsMatch(paratext, @"^首先[\s\S]+");
                     bool b4 = Regex.IsMatch(paratext, @"^其次[\s\S]+");
-                    bool b5 = Regex.IsMatch(paratext, @"^[\(（]\d+?[）\)][\s\S]+");
+                    bool b5 = Regex.IsMatch(paratext, @"^[\(（]\d+?[）\)][，,][\s\S]+");
                     bool b6 = Regex.IsMatch(paratext, @"^①②③④⑤⑥⑦⑧⑨⑩[\s\S]+");
                     bool b7 = Regex.IsMatch(paratext, @"^第[一二三四五六七八九十]条[\s\S]+");
                     bool b8 = Regex.IsMatch(paratext, @"^第[一二三四五六七八九十]条第[一二三四五六七八九十]款");
                     bool b9 = Regex.IsMatch(paratext, @"^第[一二三四五六七八九十]条第[一二三四五六七八九十]款第[一二三四五六七八九十]条[\s\S]+");
-                    if (b1 || b2 || b3 || b4 || b5 || b6 || b7 || b8 || b9)
+                    if (b1 ||b1_1|| b2 || b3 || b4 || b5 || b6 || b7 || b8 || b9)
                     {
                         _sanjibiaoti.Add(paratext);
                     }
@@ -930,7 +1111,7 @@ namespace 文本解析系统.JJModel
         {
             MatchCollection mc = null;
             //文件名索引据
-            mc = Regex.Matches(_wenjianming, @"(?<[,，、。])[\s\S]+?(?=[,，、。])");
+            mc = Regex.Matches(_wenjianming, @"(?<=[,，、。])[\s\S]+?(?=[,，、。])");
             foreach (Match match in mc)
             {
                 _wenjianmingsuoyinju.Add(match.Value);
@@ -938,7 +1119,7 @@ namespace 文本解析系统.JJModel
             //副标题索引句
             foreach (string str in _fubiaoti)
             {
-                mc = Regex.Matches(str, @"(?<[,，、。])[\s\S]+?(?=[,，、。])");
+                mc = Regex.Matches(str, @"(?<=[,，、。])[\s\S]+?(?=[,，、。])");
                 foreach (Match match in mc)
                 {
                     _fubiaotisuoyinju.Add(match.Value);
@@ -947,7 +1128,7 @@ namespace 文本解析系统.JJModel
             //主标题索引据
             foreach (string str in _zhubiaoti)
             {
-                mc = Regex.Matches(str, @"(?<[,，、。])[\s\S]+?(?=[,，、。])");
+                mc = Regex.Matches(str, @"(?<=[,，、。])[\s\S]+?(?=[,，、。])");
                 foreach (Match match in mc)
                 {
                     _zhubiaotisuoyinju.Add(match.Value);
@@ -956,7 +1137,7 @@ namespace 文本解析系统.JJModel
             //一级标题索引句
             foreach (string str in _yijibiaoti)
             {
-                mc = Regex.Matches(str, @"(?<[,，、。])[\s\S]+?(?=[,，、。])");
+                mc = Regex.Matches(str, @"(?<=[,，、。])[\s\S]+?(?=[,，、。])");
                 foreach (Match match in mc)
                 {
                     _yijibiaotisuoyinju.Add(match.Value);
@@ -966,7 +1147,7 @@ namespace 文本解析系统.JJModel
             foreach (string str in _erjibiaoti)
 
             {
-                mc = Regex.Matches(str, @"(?<[,，、。])[\s\S]+?(?=[,，、。])");
+                mc = Regex.Matches(str, @"(?<=[,，、。])[\s\S]+?(?=[,，、。])");
                 foreach (Match match in mc)
                 {
                     _erjibiaotisuoyinju.Add(match.Value);
@@ -977,7 +1158,7 @@ namespace 文本解析系统.JJModel
             foreach (string str in _sanjibiaoti)
 
             {
-                mc = Regex.Matches(str, @"(?<[,，、。])[\s\S]+?(?=[,，、。])");
+                mc = Regex.Matches(str, @"(?<=[,，、。])[\s\S]+?(?=[,，、。])");
                 foreach (Match match in mc)
                 {
                     _sanjibiaotisuoyinju.Add(match.Value);
@@ -988,7 +1169,7 @@ namespace 文本解析系统.JJModel
             foreach (string str in _duanshoubiaozhunju)
 
             {
-                mc = Regex.Matches(str, @"(?<[,，、。])[\s\S]+?(?=[,，、。])");
+                mc = Regex.Matches(str, @"(?<=[,，、。])[\s\S]+?(?=[,，、。])");
                 foreach (Match match in mc)
                 {
                     _duanshoubiaozhunjusuoyinju.Add(match.Value);
@@ -1005,7 +1186,7 @@ namespace 文本解析系统.JJModel
             List<string> list_temp = new List<string>();
             foreach (string str in _biaozhunduan)
             {
-                mc = Regex.Matches(str, @"(?<[,，、。])[\s\S]+?(?=[,，、。])");
+                mc = Regex.Matches(str, @"(?<=[,，、。])[\s\S]+?(?=[,，、。])");
                 foreach (Match match in mc)
                 {
                     list_temp.Add(match.Value);
