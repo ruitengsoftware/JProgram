@@ -68,7 +68,12 @@ namespace 文本解析系统.JJModel
         /// </summary>
         public string _sanjibiaotigangyao = string.Empty;
         /// <summary>
-        /// 标准段集合
+        /// word文档的所有自然段集合
+        /// </summary>
+        public List<string> _ziranduan = new List<string>();
+
+        /// <summary>
+        /// 标准段集合,每个标准段都含有1个以上的标准句
         /// </summary>
         public List<string> _biaozhunduan = new List<string>();
         /// <summary>
@@ -80,9 +85,9 @@ namespace 文本解析系统.JJModel
         /// </summary>
         public List<string> _duanshoubiaozhunju = new List<string>();
         /// <summary>
-        /// 首段标准局集合
+        /// 正文首个标准段集合
         /// </summary>
-        public List<string> _shouduanbiaozhunju = new List<string>();
+        public List<string> _zhengwenshougebiaozhunju = new List<string>();
 
         /// <summary>
         /// 文件名索引句集合
@@ -153,11 +158,11 @@ namespace 文本解析系统.JJModel
         /// </summary>
         public void GetAllWenben()
         {
+            GetZiranduan();
             GetWenjianming();
             GetZhubiaoti();
             GetFubiaoti();
             GetZhengwen();
-            GetZhengwengangyao();
             GetYijibiaoti();
             GetYijibiaotigangyao();
             GetErjibiaoti();
@@ -165,6 +170,8 @@ namespace 文本解析系统.JJModel
             GetSanjibiaoti();
             GetSanjibiaotigangyao();
             GetBiaozhunduan();
+            GetZhengwenshouduanbiaozhunju();
+
             GetBiaozhunju();
             GetDuanshoubiaozhunju();
             GetWenjianmingsuoyinju();
@@ -174,45 +181,35 @@ namespace 文本解析系统.JJModel
             GetErjibiaotisuoyinju();
             GetSanjibiaotisuoyinju();
             GetDuanshoubiaozhunjusuoyinju();
+            GetZhengwengangyao();
+
             GetPutongsuoyinju();
-            GetShouduanbiaozhunju();
         }
         /// <summary>
         /// 首段标准句
         /// </summary>
-        private void GetShouduanbiaozhunju()
+        private void GetZhengwenshouduanbiaozhunju()
         {
-            string shouduan = string.Empty;
-            //获得首段
-            foreach (Section sec in _myword.Sections)
+            //循环所有自然段，如果自然段的文本是副标题，那么下一个自然段就是首段，进行标准句拆分，不等于空的句子都是正文首个标准句
+            for (int i = 0; i < _ziranduan.Count; i++)
             {
-                for (int i = 0; i < sec.Body.Paragraphs.Count; i++)
+                string wenben = _ziranduan[i];
+                if (wenben.Equals(_fubiaoti[0]))
                 {
-                    bool center = sec.Body.Paragraphs[i].ParagraphFormat.Alignment == ParagraphAlignment.Center;
-                    bool empty = sec.Body.Paragraphs[i].Range.Text.Trim().Equals(string.Empty);
-                    if (!empty && center)
+                    var biaozhunju = Regex.Split(_ziranduan[i + 1], @"[,!?。]");
+                    foreach (string item in biaozhunju)
                     {
-                        //获得下一段的文本，如果是空，就再向下滚动
-                        string nextparatext;
-                        do
+                        if (!item.Trim().Equals(string.Empty))
                         {
-                            i++;
-                            nextparatext = sec.Body.Paragraphs[i].Range.Text.Trim();
-                        } while (nextparatext.Equals(string.Empty));
-                        shouduan = nextparatext;
-                        break;
+                            _zhengwenshougebiaozhunju.Add(item);
+                        }
                     }
+                    break;
                 }
+
             }
-            //拆分为标准句子
-            string[] mymc = Regex.Split(shouduan, $@"[。：；？！……;:?!]");
-            foreach (string mymatch in mymc)
-            {
-                if (!mymatch.Trim().Equals(string.Empty))
-                {
-                    _shouduanbiaozhunju.Add(mymatch);
-                }
-            }
+
+
         }
 
 
@@ -226,9 +223,9 @@ namespace 文本解析系统.JJModel
         private void GetPutongsuoyinju()
         {
             List<string> list_temp = new List<string>();
-            foreach (string item in _biaozhunduan)
+            foreach (string item in _ziranduan)
             {
-                string[] mymc = Regex.Split(item, $@"[,，、。]");
+                string[] mymc = Regex.Split(item, $@"[:：,，、。]");
                 foreach (string mymatch in mymc)
                 {
                     list_temp.Add(mymatch);
@@ -244,7 +241,8 @@ namespace 文本解析系统.JJModel
                 bool b5 = _zhubiaotisuoyinju.Contains(mystr);
                 bool b6 = _fubiaotisuoyinju.Contains(mystr);
                 bool b7 = _wenjianmingsuoyinju.Contains(mystr);
-                if (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7)
+                bool length = mystr.Length > 2;
+                if (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7 && length)
                 {
                     _putongsuoyinju.Add(mystr);
                 }
@@ -282,7 +280,7 @@ namespace 文本解析系统.JJModel
         {
             foreach (string item in _sanjibiaoti)
             {
-                string[] mymc = Regex.Split(item, $@"[,，、。]");
+                string[] mymc = Regex.Split(item, $@"[:：,，、。]");
                 foreach (string mymatch in mymc)
                 {
                     _sanjibiaotisuoyinju.Add(mymatch);
@@ -299,10 +297,14 @@ namespace 文本解析系统.JJModel
         {
             foreach (string item in _erjibiaoti)
             {
-                string[] mymc = Regex.Split(item, $@"[,，、。]");
+                string[] mymc = Regex.Split(item, $@"[:：,，、。]");
                 foreach (string mymatch in mymc)
                 {
-                    _erjibiaotisuoyinju.Add(mymatch);
+                    if (mymatch.Length >= 2)
+                    {
+                        _erjibiaotisuoyinju.Add(mymatch);
+
+                    }
                 }
 
             }
@@ -319,7 +321,11 @@ namespace 文本解析系统.JJModel
                 string[] mymc = Regex.Split(item, $@"[,，、。]");
                 foreach (string mymatch in mymc)
                 {
-                    _yijibiaotisuoyinju.Add(mymatch);
+                    if (mymatch.Length >= 2)
+                    {
+                        _yijibiaotisuoyinju.Add(mymatch);
+                    }
+
                 }
 
             }
@@ -416,12 +422,24 @@ namespace 文本解析系统.JJModel
 
             newbi._MD5 = Md5Helper.Md5(newbi._wenben);
             mc = Regex.Matches(_quanwen, $"{_wenjianming}");
-            newbi._redu = mc.Count;
+            newbi._redu = 1;
             newbi._zishu = _wenjianming.Length;
-            //提取内容标准段
-            newbi._neirongguanlian = string.Join(@"|", _zhengwengangyao);
-            //从全文中提取所在的标准段
-            newbi._guanlianbiaozhunduan = Regex.Match(_quanwen, $"{_wenjianming}?(?=\r)").Value;
+            //位置关联
+
+            for (int i = 0; i < _biaozhunju.Count; i++)
+            {
+                if (_biaozhunju[i].Contains(_wenjianming))
+                {
+                    if (i == _biaozhunju.Count - 1)
+                    {
+                        newbi._weizhiguanlian = _biaozhunju[i + 1];
+                    }
+
+                }
+            }
+
+            //内容关联
+            newbi._neirongguanlian = _zhengwengangyao;
             _list_baseinfo.Add(newbi);
 
 
@@ -442,14 +460,24 @@ namespace 文本解析系统.JJModel
                 newbi._zishu = newbi._wenben.Length;
                 //位置关联
 
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            newbi._weizhiguanlian = _biaozhunju[i + 1];
+                        }
+
+                    }
+                }
+
+
+
+
+
                 //内容关联
-
-                //标准段
-
-
-
-
-
+                newbi._neirongguanlian = _zhengwengangyao;
                 _list_baseinfo.Add(newbi);
             }
             //3、副标题
@@ -468,13 +496,19 @@ namespace 文本解析系统.JJModel
                 newbi._zishu = newbi._wenben.Length;
                 //位置关联
 
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            newbi._weizhiguanlian = _biaozhunju[i + 1];
+                        }
+
+                    }
+                }
                 //内容关联
-
-                //标准段
-
-
-
-
+                newbi._neirongguanlian = _zhengwengangyao;
 
                 _list_baseinfo.Add(newbi);
             }
@@ -494,9 +528,29 @@ namespace 文本解析系统.JJModel
                 newbi._zishu = newbi._wenben.Length;
                 //位置关联
 
-                //内容关联
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            newbi._weizhiguanlian = _biaozhunju[i + 1];
+                        }
 
-                //标准段
+                    }
+                }
+
+                //内容关联
+                newbi._neirongguanlian = _yijibiaotigangyao;
+                //关联标准段
+                foreach (string mystr in _biaozhunduan)
+                {
+                    //判断是否包含了文本内容
+                    if (mystr.Contains(item))
+                    {
+                        newbi._guanlianbiaozhunduan = mystr;
+                    }
+                }
                 _list_baseinfo.Add(newbi);
             }
             //4-1 一级标题纲要
@@ -507,7 +561,6 @@ namespace 文本解析系统.JJModel
             newbi._redu = 1;
             newbi._zishu = newbi._wenben.Length;
             _list_baseinfo.Add(newbi);
-
             //5、二级标题
             foreach (string item in _erjibiaoti)
             {
@@ -522,11 +575,32 @@ namespace 文本解析系统.JJModel
                 newbi._redu = 1;
                 //字数
                 newbi._zishu = newbi._wenben.Length;
-                //位置关联
+                //位置关联 
+
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            newbi._weizhiguanlian = _biaozhunju[i + 1];
+                        }
+
+                    }
+                }
 
                 //内容关联
+                newbi._neirongguanlian = _erjibiaotigangyao;
+                //关联标准段
+                foreach (string mystr in _biaozhunduan)
+                {
+                    //判断是否包含了文本内容
+                    if (mystr.Contains(item))
+                    {
+                        newbi._guanlianbiaozhunduan = mystr;
+                    }
+                }
 
-                //标准段
                 _list_baseinfo.Add(newbi);
             }
 
@@ -538,7 +612,6 @@ namespace 文本解析系统.JJModel
             newbi._redu = 1;
             newbi._zishu = newbi._wenben.Length;
             _list_baseinfo.Add(newbi);
-
             //6、三级标题
             foreach (string item in _sanjibiaoti)
             {
@@ -553,11 +626,32 @@ namespace 文本解析系统.JJModel
                 newbi._redu = 1;
                 //字数
                 newbi._zishu = newbi._wenben.Length;
-                //位置关联
+                //位置关联信息
+
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            newbi._weizhiguanlian = _biaozhunju[i + 1];
+                        }
+
+                    }
+                }
 
                 //内容关联
+                newbi._neirongguanlian = _sanjibiaotigangyao;
+                //关联标准段
+                foreach (string mystr in _biaozhunduan)
+                {
+                    //判断是否包含了文本内容
+                    if (mystr.Contains(item))
+                    {
+                        newbi._guanlianbiaozhunduan = mystr;
+                    }
+                }
 
-                //标准段
                 _list_baseinfo.Add(newbi);
             }
 
@@ -569,6 +663,7 @@ namespace 文本解析系统.JJModel
             newbi._redu = 1;
             newbi._zishu = newbi._wenben.Length;
             _list_baseinfo.Add(newbi);
+
             //7、正文
             newbi = new BaseInfo();
             newbi._mingcheng = "正文";
@@ -577,14 +672,18 @@ namespace 文本解析系统.JJModel
             newbi._redu = 1;
             newbi._zishu = newbi._wenben.Length;
             _list_baseinfo.Add(newbi);
+
+
             //7-1、正文纲要
             newbi = new BaseInfo();
-            newbi._mingcheng = "正文";
+            newbi._mingcheng = "正文纲要";
             newbi._wenben = _zhengwengangyao;
             newbi._MD5 = Md5Helper.Md5(newbi._wenben);
             newbi._redu = 1;
             newbi._zishu = newbi._wenben.Length;
             _list_baseinfo.Add(newbi);
+
+
             //8、标准段
             foreach (string item in _biaozhunduan)
             {
@@ -601,11 +700,74 @@ namespace 文本解析系统.JJModel
                 newbi._zishu = newbi._wenben.Length;
                 //位置关联
 
-                //内容关联
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            newbi._weizhiguanlian = _biaozhunju[i + 1];
+                        }
 
-                //标准段
+                    }
+                }
+
+                //关联标准段
+                foreach (string mystr in _biaozhunduan)
+                {
+                    //判断是否包含了文本内容
+                    if (mystr.Contains(item))
+                    {
+                        newbi._guanlianbiaozhunduan = mystr;
+                    }
+                }
+
                 _list_baseinfo.Add(newbi);
             }
+            //8-1、正文首个标准句
+            foreach (string item in _zhengwenshougebiaozhunju)
+            {
+                newbi = new BaseInfo();
+                //名称
+                newbi._mingcheng = "正文首个标准句";
+                //文本
+                newbi._wenben = item;
+                //MD5
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                //热度
+                newbi._redu = 1;
+                //字数
+                newbi._zishu = newbi._wenben.Length;
+                //位置关联
+
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            newbi._weizhiguanlian = _biaozhunju[i + 1];
+                        }
+
+                    }
+                }
+
+
+                //关联标准段
+                foreach (string mystr in _biaozhunduan)
+                {
+                    //判断是否包含了文本内容
+                    if (mystr.Contains(item))
+                    {
+                        newbi._guanlianbiaozhunduan = mystr;
+                    }
+                }
+
+
+
+                _list_baseinfo.Add(newbi);
+            }
+
             //9、标准句
             foreach (string item in _biaozhunju)
             {
@@ -622,12 +784,30 @@ namespace 文本解析系统.JJModel
                 newbi._zishu = newbi._wenben.Length;
                 //位置关联
 
-                //内容关联
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            newbi._weizhiguanlian = _biaozhunju[i + 1];
+                        }
 
-                //标准段
+                    }
+                }
+
+                //关联标准段
+                foreach (string mystr in _biaozhunduan)
+                {
+                    //判断是否包含了文本内容
+                    if (mystr.Contains(item))
+                    {
+                        newbi._guanlianbiaozhunduan = mystr;
+                    }
+                }
+
                 _list_baseinfo.Add(newbi);
             }
-
             //10、段首标准句
             foreach (string item in _duanshoubiaozhunju)
             {
@@ -644,32 +824,31 @@ namespace 文本解析系统.JJModel
                 newbi._zishu = newbi._wenben.Length;
                 //位置关联
 
-                //内容关联
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            newbi._weizhiguanlian = _biaozhunju[i + 1];
+                        }
 
-                //标准段
+                    }
+                }
+                //关联标准段
+                foreach (string mystr in _biaozhunduan)
+                {
+                    //判断是否包含了文本内容
+                    if (mystr.Contains(item))
+                    {
+                        newbi._guanlianbiaozhunduan = mystr;
+                    }
+                }
+
                 _list_baseinfo.Add(newbi);
             }
-            //10-1、首段标准句
-            foreach (string item in _shouduanbiaozhunju)
-            {
-                newbi = new BaseInfo();
-                //名称
-                newbi._mingcheng = "首段标准句";
-                //文本
-                newbi._wenben = item;
-                //MD5
-                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
-                //热度
-                newbi._redu = 1;
-                //字数
-                newbi._zishu = newbi._wenben.Length;
-                //位置关联
 
-                //内容关联
 
-                //标准段
-                _list_baseinfo.Add(newbi);
-            }
             //11、文件名索引句
             foreach (string item in _wenjianmingsuoyinju)
             {
@@ -685,10 +864,50 @@ namespace 文本解析系统.JJModel
                 //字数
                 newbi._zishu = newbi._wenben.Length;
                 //位置关联
+                //获得包括索引句在内的两句话
+                //全部拆分为索引句
+                //从最后一句循环，知道本索引句结束
+                string liangju = string.Empty;
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            liangju = _biaozhunju[i] +  _biaozhunju[i + 1];
+                        }
+                        else
+                        {
+                            liangju = _biaozhunju[i];
+                        }
+                        break;
+                    }
+                }
+                var list_suoyinju = Regex.Matches(liangju, @"[\s\S]+?[:,、。，：\r]");
+                for (int i = list_suoyinju.Count - 1; i >= 0; i--)
+                {
+                    if (list_suoyinju[i].Value.Contains (item))
+                    {
+                        break;
+                    }
+                    newbi._weizhiguanlian = list_suoyinju[i].Value + newbi._weizhiguanlian;
+                }
+
+
+
 
                 //内容关联
+                newbi._neirongguanlian = _zhengwengangyao;
+                //关联标准段
+                foreach (string mystr in _biaozhunduan)
+                {
+                    //判断是否包含了文本内容
+                    if (mystr.Contains(item))
+                    {
+                        newbi._guanlianbiaozhunduan = mystr;
+                    }
+                }
 
-                //标准段
                 _list_baseinfo.Add(newbi);
             }
             //12、主标题索引句
@@ -706,10 +925,49 @@ namespace 文本解析系统.JJModel
                 //字数
                 newbi._zishu = newbi._wenben.Length;
                 //位置关联
+                //获得包括索引句在内的两句话
+                //全部拆分为索引句
+                //从最后一句循环，知道本索引句结束
+                string liangju = string.Empty;
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            liangju = _biaozhunju[i] +  _biaozhunju[i + 1];
+                        }
+                        else
+                        {
+                            liangju = _biaozhunju[i];
+                        }
+                        break;
+                    }
+                }
+                var list_suoyinju = Regex.Matches(liangju, @"[\s\S]+?[:,、。，：\r]");
+                for (int i = list_suoyinju.Count - 1; i >= 0; i--)
+                {
+                    if (list_suoyinju[i].Value.Contains(item))
+                    {
+                        break;
+                    }
+                    newbi._weizhiguanlian = list_suoyinju[i].Value + newbi._weizhiguanlian;
+                }
+
 
                 //内容关联
+                newbi._neirongguanlian = _zhengwengangyao;
 
-                //标准段
+                //关联标准段
+                foreach (string mystr in _biaozhunduan)
+                {
+                    //判断是否包含了文本内容
+                    if (mystr.Contains(item))
+                    {
+                        newbi._guanlianbiaozhunduan = mystr;
+                    }
+                }
+
                 _list_baseinfo.Add(newbi);
             }
             //13、副标题索引句
@@ -727,10 +985,46 @@ namespace 文本解析系统.JJModel
                 //字数
                 newbi._zishu = newbi._wenben.Length;
                 //位置关联
-
+                //获得包括索引句在内的两句话
+                //全部拆分为索引句
+                //从最后一句循环，知道本索引句结束
+                string liangju = string.Empty;
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            liangju = _biaozhunju[i] +  _biaozhunju[i + 1];
+                        }
+                        else
+                        {
+                            liangju = _biaozhunju[i];
+                        }
+                        break;
+                    }
+                }
+                var list_suoyinju = Regex.Matches(liangju, @"[\s\S]+?[:,、。，：\r]");
+                for (int i = list_suoyinju.Count - 1; i >= 0; i--)
+                {
+                    if (list_suoyinju[i].Value.Contains(item))
+                    {
+                        break;
+                    }
+                    newbi._weizhiguanlian = list_suoyinju[i].Value + newbi._weizhiguanlian;
+                }
                 //内容关联
+                newbi._neirongguanlian = _zhengwengangyao;
+                //关联标准段
+                foreach (string mystr in _biaozhunduan)
+                {
+                    //判断是否包含了文本内容
+                    if (mystr.Contains(item))
+                    {
+                        newbi._guanlianbiaozhunduan = mystr;
+                    }
+                }
 
-                //标准段
                 _list_baseinfo.Add(newbi);
             }
             //14、一级标题索引句
@@ -748,10 +1042,49 @@ namespace 文本解析系统.JJModel
                 //字数
                 newbi._zishu = newbi._wenben.Length;
                 //位置关联
+                //获得包括索引句在内的两句话
+                //全部拆分为索引句
+                //从最后一句循环，知道本索引句结束
+                string liangju = string.Empty;
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            liangju = _biaozhunju[i] +  _biaozhunju[i + 1];
+                        }
+                        else
+                        {
+                            liangju = _biaozhunju[i];
+                        }
+                        break;
+                    }
+                }
+                var list_suoyinju = Regex.Matches(liangju, @"[\s\S]+?[:,、。，：\r]");
+                for (int i = list_suoyinju.Count - 1; i >= 0; i--)
+                {
+                    if (list_suoyinju[i].Value.Contains(item))
+                    {
+                        break;
+                    }
+                    newbi._weizhiguanlian = list_suoyinju[i].Value + newbi._weizhiguanlian;
+                }
+
 
                 //内容关联
+                newbi._neirongguanlian = _yijibiaotigangyao;
 
-                //标准段
+                //关联标准段
+                foreach (string mystr in _biaozhunduan)
+                {
+                    //判断是否包含了文本内容
+                    if (mystr.Contains(item))
+                    {
+                        newbi._guanlianbiaozhunduan = mystr;
+                    }
+                }
+
                 _list_baseinfo.Add(newbi);
             }
             //15、二级标题索引句
@@ -769,10 +1102,48 @@ namespace 文本解析系统.JJModel
                 //字数
                 newbi._zishu = newbi._wenben.Length;
                 //位置关联
+                //获得包括索引句在内的两句话
+                //全部拆分为索引句
+                //从最后一句循环，知道本索引句结束
+                string liangju = string.Empty;
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            liangju = _biaozhunju[i] + _biaozhunju[i + 1];
+                        }
+                        else
+                        {
+                            liangju = _biaozhunju[i];
+                        }
+                        break;
+                    }
+                }
+                var list_suoyinju = Regex.Matches(liangju, @"[\s\S]+?[:,、。，：\r]");
+                for (int i = list_suoyinju.Count - 1; i >= 0; i--)
+                {
+                    if (list_suoyinju[i].Value.Contains(item))
+                    {
+                        break;
+                    }
+                    newbi._weizhiguanlian = list_suoyinju[i].Value + newbi._weizhiguanlian;
+                }
+
 
                 //内容关联
+                newbi._neirongguanlian = _erjibiaotigangyao;
+                //关联标准段
+                foreach (string mystr in _biaozhunduan)
+                {
+                    //判断是否包含了文本内容
+                    if (mystr.Contains(item))
+                    {
+                        newbi._guanlianbiaozhunduan = mystr;
+                    }
+                }
 
-                //标准段
                 _list_baseinfo.Add(newbi);
             }
             //16、三级标题索引句
@@ -790,10 +1161,48 @@ namespace 文本解析系统.JJModel
                 //字数
                 newbi._zishu = newbi._wenben.Length;
                 //位置关联
+                //获得包括索引句在内的两句话
+                //全部拆分为索引句
+                //从最后一句循环，知道本索引句结束
+                string liangju = string.Empty;
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            liangju = _biaozhunju[i] + _biaozhunju[i + 1];
+                        }
+                        else
+                        {
+                            liangju = _biaozhunju[i];
+                        }
+                        break;
+                    }
+                }
+                var list_suoyinju = Regex.Matches(liangju, @"[\s\S]+?[:,、。，：\r]");
+                for (int i = list_suoyinju.Count - 1; i >= 0; i--)
+                {
+                    if (list_suoyinju[i].Value.Contains(item))
+                    {
+                        break;
+                    }
+                    newbi._weizhiguanlian = list_suoyinju[i].Value + newbi._weizhiguanlian;
+                }
+
 
                 //内容关联
+                newbi._neirongguanlian = _sanjibiaotigangyao;
+                //关联标准段
+                foreach (string mystr in _biaozhunduan)
+                {
+                    //判断是否包含了文本内容
+                    if (mystr.Contains(item))
+                    {
+                        newbi._guanlianbiaozhunduan = mystr;
+                    }
+                }
 
-                //标准段
                 _list_baseinfo.Add(newbi);
             }
             //17、段首标准局索引句
@@ -811,10 +1220,49 @@ namespace 文本解析系统.JJModel
                 //字数
                 newbi._zishu = newbi._wenben.Length;
                 //位置关联
+                //获得包括索引句在内的两句话
+                //全部拆分为索引句
+                //从最后一句循环，知道本索引句结束
+                string liangju = string.Empty;
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            liangju = _biaozhunju[i] + _biaozhunju[i + 1];
+                        }
+                        else
+                        {
+                            liangju = _biaozhunju[i];
+                        }
+                        break;
+                    }
+                }
+                var list_suoyinju = Regex.Matches(liangju, @"[\s\S]+?[:,、。，：\r]");
+                for (int i = list_suoyinju.Count - 1; i >= 0; i--)
+                {
+                    if (list_suoyinju[i].Value.Contains(item))
+                    {
+                        break;
+                    }
+                    newbi._weizhiguanlian = list_suoyinju[i].Value + newbi._weizhiguanlian;
+                }
+
 
                 //内容关联
+                newbi._neirongguanlian = _zhengwengangyao;
 
-                //标准段
+                //关联标准段
+                foreach (string mystr in _biaozhunduan)
+                {
+                    //判断是否包含了文本内容
+                    if (mystr.Contains(item))
+                    {
+                        newbi._guanlianbiaozhunduan = mystr;
+                    }
+                }
+
                 _list_baseinfo.Add(newbi);
             }
             //18、普通索引句
@@ -833,10 +1281,47 @@ namespace 文本解析系统.JJModel
                 //字数
                 newbi._zishu = newbi._wenben.Length;
                 //位置关联
+                //获得包括索引句在内的两句话
+                //全部拆分为索引句
+                //从最后一句循环，知道本索引句结束
+                string liangju = string.Empty;
+                for (int i = 0; i < _biaozhunju.Count; i++)
+                {
+                    if (_biaozhunju[i].Contains(item))
+                    {
+                        if (i < _biaozhunju.Count - 1)
+                        {
+                            liangju = _biaozhunju[i] + _biaozhunju[i + 1];
+                        }
+                        else
+                        {
+                            liangju = _biaozhunju[i];
+                        }
+                        break;
+                    }
+                }
+               MatchCollection list_suoyinju = Regex.Matches(liangju, @"[\s\S]+?[:,、。，：\r]");
+                for (int i = list_suoyinju.Count - 1; i >= 0; i--)
+                {
+                    if (list_suoyinju[i].Value.Contains(item))
+                    {
+                        break;
+                    }
+                    newbi._weizhiguanlian = list_suoyinju[i].Value + newbi._weizhiguanlian;
+                }
 
-                //内容关联
 
-                //标准段
+
+                //关联标准段
+                foreach (string mystr in _biaozhunduan)
+                {
+                    //判断是否包含了文本内容
+                    if (mystr.Contains(item))
+                    {
+                        newbi._guanlianbiaozhunduan = mystr;
+                    }
+                }
+
                 _list_baseinfo.Add(newbi);
             }
         }
@@ -897,7 +1382,7 @@ namespace 文本解析系统.JJModel
                     }
                 }
             }
-            _zhubiaoti.Add(list_para[0].Range.Text);
+            _zhubiaoti.Add(list_para[0].Range.Text.Trim());
             foreach (Section sec in _myword.Sections)
             {
                 foreach (Paragraph para in sec.Body.Paragraphs)
@@ -928,7 +1413,7 @@ namespace 文本解析系统.JJModel
                     }
                 }
             }
-            _fubiaoti.Add(list_para[1].Range.Text);
+            _fubiaoti.Add(list_para[1].Range.Text.Trim());
             foreach (Section sec in _myword.Sections)
             {
                 foreach (Paragraph para in sec.Body.Paragraphs)
@@ -1003,7 +1488,7 @@ namespace 文本解析系统.JJModel
                     bool b7 = Regex.IsMatch(paratext, @"^第[一二三四五六七八九十]条[\s\S]+");
                     bool b8 = Regex.IsMatch(paratext, @"^第[一二三四五六七八九十]条第[一二三四五六七八九十]款");
                     bool b9 = Regex.IsMatch(paratext, @"^第[一二三四五六七八九十]条第[一二三四五六七八九十]款第[一二三四五六七八九十]条[\s\S]+");
-                    if (b1 ||b1_1|| b2 || b3 || b4 || b5 || b6 || b7 || b8 || b9)
+                    if (b1 || b1_1 || b2 || b3 || b4 || b5 || b6 || b7 || b8 || b9)
                     {
                         _sanjibiaoti.Add(paratext);
                     }
@@ -1014,9 +1499,9 @@ namespace 文本解析系统.JJModel
 
         }
         /// <summary>
-        /// 获得标准段和全文字符串（包括主标题）
+        /// 获得word的自然段集合
         /// </summary>
-        public void GetBiaozhunduan()//不知道是否包含主,副标题
+        public void GetZiranduan()
         {
             foreach (Section sec in _myword.Sections)
             {
@@ -1025,12 +1510,35 @@ namespace 文本解析系统.JJModel
                     string paratext = paragraph.Range.Text.Trim();
                     if (!paratext.Equals(string.Empty))
                     {
-                        _biaozhunduan.Add(paratext);
+                        _ziranduan.Add(paratext);
                         _quanwen += paratext + "\r";
                     }
                 }
             }
         }
+
+        /// <summary>
+        /// 获得标准段（包括主标题）
+        /// </summary>
+        public void GetBiaozhunduan()//不知道是否包含主,副标题
+        {
+            foreach (Section sec in _myword.Sections)
+            {
+                foreach (Paragraph paragraph in sec.Body.Paragraphs)
+                {
+                    string paratext = paragraph.Range.Text.Trim();
+
+                    //拆分标准句，如果标准句的数量大于1，认定为标准段
+                    var biaozhunju = Regex.Matches(paratext, @"[\s\S]+?[。；？！……;!?$]");
+                    if (biaozhunju.Count > 1)
+                    {
+                        _biaozhunduan.Add(paratext);
+                    }
+                }
+
+            }
+        }
+        
         /// <summary>
         /// 获得标准句
         /// </summary>
@@ -1041,9 +1549,9 @@ namespace 文本解析系统.JJModel
                 foreach (Paragraph para in sec.Body.Paragraphs)
                 {
 
-                    string paratext = para.Range.Text.Trim();
+                    string paratext = para.Range.Text;
                     //拆分标准句
-                    MatchCollection mc = Regex.Matches(paratext, @"[\s\S]+?(?=[。？！；：……!?;:$])");
+                    var mc = Regex.Matches(paratext, @"[\s\S]+?[。；？！……;!?\r]");
                     foreach (Match m in mc)
                     {
                         _biaozhunju.Add(m.Value);
@@ -1059,20 +1567,11 @@ namespace 文本解析系统.JJModel
         /// </summary>
         public void GetDuanshoubiaozhunju()
         {
-            foreach (Section sec in _myword.Sections)
+            //循环标准段获得第一句
+            foreach (string item in _biaozhunduan)
             {
-                foreach (Paragraph para in sec.Body.Paragraphs)
-                {
-
-                    string paratext = para.Range.Text.Trim();
-                    //拆分标准句
-                    MatchCollection mc = Regex.Matches(paratext, @"[\s\S]+?(?=[。？！；：……!?;:$])");
-                    if (mc.Count > 0)
-                    {
-                        _duanshoubiaozhunju.Add(mc[0].Value);
-
-                    }
-                }
+                var biaozhunju = Regex.Split(item, @"[。？！；……!?;]").ToList();
+                _duanshoubiaozhunju.Add(biaozhunju[0]);
             }
         }
 
@@ -1086,7 +1585,7 @@ namespace 文本解析系统.JJModel
         /// </summary>
         public void GetZhengwen()
         {
-            //循环所有的自然段，如果主标题副标题，一级标题，二级标题，三级标题都不包括
+            //循环所有的自然段，主标题副标题，一级标题，二级标题，三级标题都不包括
             foreach (Section item in _myword.Sections)
             {
                 foreach (Paragraph paragraph in item.Body.Paragraphs)

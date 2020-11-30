@@ -25,7 +25,7 @@ namespace WindowsFormsApp2.Controller
         public bool _chicun = false;
         public bool _stop = false;
         public List<string> _selectpic = new List<string>();
-       public MySqlHelper _sqlhelper = new MySqlHelper();
+        public MySqlHelper _sqlhelper = new MySqlHelper();
         public ControllerPicture()
         {
         }
@@ -175,7 +175,7 @@ namespace WindowsFormsApp2.Controller
             //获得所有图片，开始循环
             NodeCollection shapes = myword.GetChildNodes(NodeType.Shape, true);
             zongshu = shapes.Count;
-            for (int i = shapes.Count-1; i>=0; i--)
+            for (int i = shapes.Count - 1; i >= 0; i--)
             {
                 try
                 {
@@ -215,13 +215,14 @@ namespace WindowsFormsApp2.Controller
                         }
                     }
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     //System.Windows.Forms.MessageBox.Show(ex.Message);
                 }
             }
             //判断是否还含有图片如果是，剪贴到指定文件夹，
             //如果图片数量大于0，保存文档到剪切路径
-            if (shanchu >0 && shanchu<zongshu)
+            if (shanchu > 0 && shanchu < zongshu)
             //if (shanchu!=zongshu)
 
             {
@@ -317,17 +318,25 @@ namespace WindowsFormsApp2.Controller
         {
             try
             {
-                Bitmap bmp = new Bitmap(Imagefilename);
-                MemoryStream ms = new MemoryStream();
-                bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                byte[] arr = new byte[ms.Length];
-                ms.Position = 0;
-                ms.Read(arr, 0, (int)ms.Length);
-                ms.Close();
-                return Convert.ToBase64String(arr);
+                using (Bitmap bmp = new Bitmap(Imagefilename))
+                {
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+  
+                    bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                    byte[] arr = new byte[ms.Length];
+                    ms.Position = 0;
+                    ms.Read(arr, 0, (int)ms.Length);
+                    ms.Close();
+                    return Convert.ToBase64String(arr);
+
+                    }
+                  
+                }
             }
-            catch
+            catch (Exception ex)
             {
+               // System.Windows.Forms.MessageBox.Show(ex.Message);
                 return string.Empty;
             }
         }

@@ -508,9 +508,10 @@ namespace 文本解析系统.JJController
                         new MySqlParameter("@上传人",UserInfo._username),
                         new MySqlParameter("@删除",0)
                         });
-
                     }
                 }
+                //调整表格列宽
+                //mysht.AutoFitColumns();
                 mywbk.Save($@"{myfi._excelpath}\{Path.GetFileNameWithoutExtension(filename)}.xlsx");
                 //MessageBox.Show("解析完成");
                 return "完成";

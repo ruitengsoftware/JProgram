@@ -31,7 +31,7 @@ namespace WindowsFormsApp2.UC
             lbl_name.Text = picinfo._picName;
             pb_xuanze.BackColor = Color.Transparent;
             pb_xuanze.Parent = pb_tupian;
-            uihelper.DrawRoundRect((Control)pb_tupian);
+            //uihelper.DrawRoundRect((Control)pb_tupian);
         }
         /// <summary>
         /// base64编码的文本转为图片
@@ -40,6 +40,11 @@ namespace WindowsFormsApp2.UC
         /// <param name="savePath"></param>
         public Image Base64StringToImage(string base64Str)
         {
+            if (base64Str.Equals(""))
+            {
+                return null;
+            }
+
             //将base64头部信息替换
             base64Str = base64Str.Replace("data:image/png;base64,", "").Replace("data:image/jgp;base64,", "")
                 .Replace("data:image/jpg;base64,", "").Replace("data:image/jpeg;base64,", "");
