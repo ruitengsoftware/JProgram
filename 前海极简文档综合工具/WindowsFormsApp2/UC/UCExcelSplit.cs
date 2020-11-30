@@ -1894,113 +1894,48 @@ namespace WindowsFormsApp2.UC
             Dictionary<string, Format> dic_format = dic["format"] as Dictionary<string, Format>;
 
             Aspose.Words.Document mydoc = new Aspose.Words.Document(file);
-            #region 在这里获得xml格式得word文档
-
-            //留空暂用
-
-
-            #endregion
-
-
             var paras = mydoc.FirstSection.Body.Paragraphs;//获得文档所有的自然段
             for (int i = 0; i < paras.Count; i++)
             {
+
+
+                //去掉段内的空格              
                 var para = paras[i];
-                string str_text = para.Range.Text.Trim();
-                myjpara = new Jpara();
-                if (dic_format["大标题"].enable)//判断大标题格式是否启用
+                para.Range.Replace(new Regex(@"\s"), "", new FindReplaceOptions());
+                string str_text = para.Range.Text;
+                //判断是否居中，以此来分别主副标题和其他类型段落
+                if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center)
                 {
-                    if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center && !_existdabiaoti)
+                    bool bb1 = Regex.IsMatch(str_text, @"^第[一二三四五六七八九十]+?[编章][\s\S]*");//是否以指定文字开头
+                    bool b1 = Regex.IsMatch(str_text, @"^第[一二三四五六七八九十]节[\s\S]*");//是否以指定文字开头
+                    bool b2 = Regex.IsMatch(str_text, @"目\s*录[\s\S]*");
+                    bool b3 = Regex.IsMatch(str_text, @"前\s*言[\s\S]*");
+                    //bool b4 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
+                    if (bb1 || !_existdabiaoti)
                     {
                         _existdabiaoti = true;
                         SetParaFormat(para, dic_format["大标题"]);
                         continue;
                     }
-
-
-                    //判断自然段是否为大标题
-
-                    bool bb1 = Regex.IsMatch(str_text, "^(第一编|第一章).*");//是否以指定文字开头
-                                                                       //var bb2 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
+                    if (_existdabiaoti || b1 || b2 || b3)
+                    {
+                        SetParaFormat(para, dic_format["副标题"]);
+                        continue;
+                    }
+                }
+                else
+                {
+                    //1、判断是否为大标题
+                    bool bb1 = Regex.IsMatch(str_text, @"^第[一二三四五六七八九十]+?[编章][\s\S]*");//是否以指定文字开头
                     if (bb1)
                     {
                         SetParaFormat(para, dic_format["大标题"]);
                         continue;
                     }
-
-
-                }
-
-                if (dic_format["副标题"].enable)
-                {
-                    //判断自然段是否为副标题
-                    if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center)
-                    {
-                        bool b1 = Regex.IsMatch(str_text, @"^(第一节|目\s*录|前\s*言)");//是否以指定文字开头
-                        bool b2 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
-                        if (_existdabiaoti && b1 && !b2)
-                        {
-                            //myjpara._leixing = "副标题";
-                            //myjdoc._existfubiaoti = true;
-                            //myjpara._asposepara = para;
-                            _existfubiaoti = true;
-                            SetParaFormat(para, dic_format["副标题"]);
-                            continue;
-
-                        }
-                    }
-                }
-
-                //判断是否是正文或各级标题
-                if (para.ParagraphFormat.Alignment != ParagraphAlignment.Center)
-                {
+                    //2、判断正文，一二三级标题
 
                     SetStrFormat(para, dic_format);
-
-                    ////是否为一级标题
-                    //bool b1 = Regex.IsMatch(str_text, @"^[一二三四五六七八九十].*[,，、]");//是否以指定文字开头
-                    ////bool b2 = Regex.IsMatch(str_text, @"[\s\S]+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
-                    ////bool b3 = Regex.IsMatch(str_text, @"。");//是否含有句号
-                    //if (b1 /*&& !b2 && !b3*/)
-                    //{
-                    //    //myjpara._leixing = "一级标题";
-                    //    //myjpara._asposepara = para;
-                    //    SetParaFormat(para, dic_format["一级标题"]);
-
-                    //    continue;
-                    //}
-                    ////是否为二级标题
-                    //bool c1 = Regex.IsMatch(str_text, @"^[\(（][一二三四五六七八九十].*?[\)）]");//是否以指定文字开头
-                    //bool c2 = Regex.IsMatch(str_text, @"[。;；\r\r\n]$");//是否含有句号
-                    //if (c1 && c2)
-                    //{
-                    //    //myjpara._leixing = "二级标题";
-                    //    //myjpara._asposepara = para;
-                    //    SetParaFormat(para, dic_format["二级标题"]);
-                    //    continue;
-                    //}
-                    ////是否为三级标题
-                    //bool t1 = Regex.IsMatch(str_text, @"^.*?是要");//是否以指定文字开头
-                    //bool t2 = Regex.IsMatch(str_text, @"^第[一二三四五六七八九].*?，,");
-                    //bool t3 = Regex.IsMatch(str_text, "^首先|其次");
-                    //bool t4 = Regex.IsMatch(str_text, @"^\([123456789].*?\)");
-                    //bool t5 = Regex.IsMatch(str_text, @"^[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿]");
-                    //bool t6 = Regex.IsMatch(str_text, @"^第\S*?[条|款|项].*");
-                    //if (t1 || t2 || t3 || t4 || t5 || t6)
-                    //{
-                    //    //myjpara._leixing = "三级标题";
-                    //    //myjpara._asposepara = para;
-                    //    SetParaFormat(para, dic_format["三级标题"]);
-
-                    //    continue;
-                    //}
-                    ////以上情况均不属于，那么判别为正文
-                    ////myjpara._leixing = "正文";
-                    ////myjpara._asposepara = para;
-                    //SetParaFormat(para, dic_format["正文"]);
-
                 }
-                //myjdoc._jparacollection.Add(myjpara);
             }
             /*设置页边距*/
             if (cbqiyong.Checked)
@@ -2035,7 +1970,6 @@ namespace WindowsFormsApp2.UC
             }
             return file;
         }
-
         /// <summary>
         /// 调整段落内的各段匹配文字的央样式
         /// </summary>

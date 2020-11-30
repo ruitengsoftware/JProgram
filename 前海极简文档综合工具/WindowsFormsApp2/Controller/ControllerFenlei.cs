@@ -28,9 +28,6 @@ namespace WindowsFormsApp2.Controller
         //新文件夹命名
         public string _wenjianjia = string.Empty;
 
-        //数据库
-        SqliteHelper mysqliter = null;
-        string dbfile = $"{Environment.CurrentDirectory}\\ruitengdb.db";
         public ControllerFenlei()
         {
             
