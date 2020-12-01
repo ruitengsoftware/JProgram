@@ -300,7 +300,9 @@ namespace 文本解析系统
 
             zanting = false;
             for (int i = startfolder; i < dgv_daichuli.Rows.Count; i++)
-            {
+            {//记录本次文件夹最终完成度，完成，未完成，重复
+
+                string str_jiexijieguo = string.Empty;
                 //记录正在执行的文件夹的位置
                 startfolder = i;
                 //获得文件夹名称
@@ -329,10 +331,9 @@ namespace 文本解析系统
                     {
                         continue;
                     }
-                    string str_jiexijieguo = await _mycontroller.JiexiAsync(files[j], formatname);
-                  dgv_chulizhong.Rows[index].Cells[3].Value = str_jiexijieguo;
-  
+                    str_jiexijieguo = await _mycontroller.JiexiAsync(files[j], formatname);
                 }
+                dgv_chulizhong.Rows[index].Cells[3].Value = str_jiexijieguo;
             }
             //判断是否选中完成后关机
             //如果是，那么弹出倒计时10秒提示框，并在及时完成后关机
