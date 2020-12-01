@@ -17,6 +17,10 @@ namespace 文本解析系统
 {
     public partial class Form1 : Form
     {
+        public bool zanting = false;//用来记录用户是否暂停
+        public bool tingzhi = false;//用来记录用户是否已经停止
+        public int startfolder = 0;//用于记录每次开始解析的文件夹的位置
+        public int startfile = 0;//用于记录每次开始解析的文件的位置
 
         JJController.ControllerForm _mycontroller = new JJController.ControllerForm();
         public Form1()
@@ -282,10 +286,19 @@ namespace 文本解析系统
         /// <param name="e"></param>
         private async void btn_kaishi_Click(object sender, EventArgs e)
         {
+            //点击开始的时候，暂停和停止的值自动变为false;
+            
+          
+            tingzhi = false;
+            //如果暂停状态是false,让开始文件夹，文件的序号等于0
+            
+
              //清楚处理中dgv的所有任务
             dgv_chulizhong.Rows.Clear();
-            for (int i = 0; i < dgv_daichuli.Rows.Count; i++)
+            for (int i = startfolder; i < dgv_daichuli.Rows.Count; i++)
             {
+                //记录正在执行的文件夹的位置
+                startfolder = i;
                 //获得文件夹名称
                 string foldername = dgv_daichuli.Rows[i].Cells[1].Value.ToString();
                 string formatname = dgv_daichuli.Rows[i].Cells[2].Value.ToString();
@@ -295,8 +308,14 @@ namespace 文本解析系统
                 dgv_chulizhong.Rows[index].Cells[3].Value = "未完成";
                 //获得该文件夹下的所有文件，开始解析该文档，同时更新解析进度
                 var files = Directory.GetFiles(foldername).ToList();
-                for (int j = 0; j < files.Count; j++)
+                for (int j = startfile; j < files.Count; j++)
                 {
+                    //记录正在执行的文件的位置
+                    startfile = j;
+                    //判断否人工停止,如果是，退出本方法
+                    if (tingzhi) return;
+                    if (zanting) return;
+                   
                     // 更新进度       
                     string jindu = (Convert.ToDouble(j + 1) * 100 / Convert.ToDouble(files.Count)).ToString("00.00");
                     dgv_chulizhong.Rows[index].Cells[2].Value = $"{jindu}%";
@@ -353,6 +372,39 @@ namespace 文本解析系统
         {
             UIHelper myuihelper = new UIHelper();
             myuihelper.DrawRoundRect((Control)sender);
+        }
+
+        private void lbl_piliangshanchu_Click(object sender, EventArgs e)
+        {
+            //获得所有选中的行
+            var selectrows=dgv_jiexiguize.SelectedRows;
+
+            //删除数据库中对应的解析规则，刷新数据
+            foreach (DataGridViewRow myrow in selectrows)
+            {
+                string guizename = myrow.Cells["jiexiguizemingcheng"].Value.ToString();
+                if (guizename.Contains("基础解析规则"))//基础规则点击无效
+                {
+                    MessageBox.Show("不可删除基础规则！");
+                    return;
+                }
+                //规则信息表该条规则的删除字段赋值为1
+                _mycontroller.DeleteGuize(guizename);
+                //刷新数据
+                _mycontroller.UpdateDGV(dgv_jiexiguize);
+
+            }
+        }
+
+        private void lbl_zanting_Click(object sender, EventArgs e)
+        {
+            zanting = true;
+           
+        }
+
+        private void lbl_tingzhi_Click(object sender, EventArgs e)
+        {
+            tingzhi = true;
         }
     }
 }

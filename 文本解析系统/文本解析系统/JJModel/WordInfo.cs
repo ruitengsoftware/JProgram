@@ -1479,7 +1479,6 @@ namespace 文本解析系统.JJModel
                     string paratext = paragraph.Range.Text.Trim();
                     bool b1 = Regex.IsMatch(paratext, @"^[一二三四五六七八九十]要是[\s\S]+");
                     bool b1_1 = Regex.IsMatch(paratext, @"[一二三四五六七八九十]是[\s\S]+?。");
-
                     bool b2 = Regex.IsMatch(paratext, @"^第[一二三四五六七八九十]+？[,，][\s\S]+");
                     bool b3 = Regex.IsMatch(paratext, @"^首先[\s\S]+");
                     bool b4 = Regex.IsMatch(paratext, @"^其次[\s\S]+");

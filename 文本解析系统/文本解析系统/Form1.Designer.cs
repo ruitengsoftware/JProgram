@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -56,8 +56,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_zanting = new System.Windows.Forms.Label();
+            this.lbl_tingzhi = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.cbb_jiexigeshi = new System.Windows.Forms.ComboBox();
@@ -173,28 +173,28 @@
             this.dgv_chulizhong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_chulizhong.BackgroundColor = System.Drawing.Color.White;
             this.dgv_chulizhong.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_chulizhong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_chulizhong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgv_chulizhong.ColumnHeadersHeight = 26;
             this.dgv_chulizhong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.xuhao2,
             this.renwuwenjianjia,
             this.jindu,
             this.zhuangtai});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_chulizhong.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_chulizhong.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgv_chulizhong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_chulizhong.EnableHeadersVisualStyles = false;
             this.dgv_chulizhong.Location = new System.Drawing.Point(3, 19);
@@ -242,14 +242,14 @@
             this.dgv_daichuli.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_daichuli.BackgroundColor = System.Drawing.Color.White;
             this.dgv_daichuli.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_daichuli.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_daichuli.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgv_daichuli.ColumnHeadersHeight = 26;
             this.dgv_daichuli.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.xuhao,
@@ -257,14 +257,14 @@
             this.jiexigeshi,
             this.wanchenghou,
             this.shanchu});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_daichuli.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_daichuli.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgv_daichuli.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_daichuli.EnableHeadersVisualStyles = false;
             this.dgv_daichuli.Location = new System.Drawing.Point(3, 19);
@@ -372,8 +372,8 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.label4, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label5, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label6, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbl_zanting, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbl_tingzhi, 3, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -401,41 +401,41 @@
             this.label4.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
             this.label4.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
-            // label5
+            // lbl_zanting
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Tomato;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Enabled = false;
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(269, 7);
-            this.label5.Margin = new System.Windows.Forms.Padding(7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 26);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "暂    停";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label5.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.label5.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            this.label5.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.lbl_zanting.AutoSize = true;
+            this.lbl_zanting.BackColor = System.Drawing.Color.Tomato;
+            this.lbl_zanting.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_zanting.ForeColor = System.Drawing.Color.White;
+            this.lbl_zanting.Location = new System.Drawing.Point(269, 7);
+            this.lbl_zanting.Margin = new System.Windows.Forms.Padding(7);
+            this.lbl_zanting.Name = "lbl_zanting";
+            this.lbl_zanting.Size = new System.Drawing.Size(86, 26);
+            this.lbl_zanting.TabIndex = 2;
+            this.lbl_zanting.Text = "暂    停";
+            this.lbl_zanting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_zanting.Click += new System.EventHandler(this.lbl_zanting_Click);
+            this.lbl_zanting.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.lbl_zanting.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.lbl_zanting.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
-            // label6
+            // lbl_tingzhi
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Tomato;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Enabled = false;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(369, 7);
-            this.label6.Margin = new System.Windows.Forms.Padding(7);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 26);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "停    止";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label6.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.label6.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            this.label6.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.lbl_tingzhi.AutoSize = true;
+            this.lbl_tingzhi.BackColor = System.Drawing.Color.Tomato;
+            this.lbl_tingzhi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_tingzhi.ForeColor = System.Drawing.Color.White;
+            this.lbl_tingzhi.Location = new System.Drawing.Point(369, 7);
+            this.lbl_tingzhi.Margin = new System.Windows.Forms.Padding(7);
+            this.lbl_tingzhi.Name = "lbl_tingzhi";
+            this.lbl_tingzhi.Size = new System.Drawing.Size(86, 26);
+            this.lbl_tingzhi.TabIndex = 2;
+            this.lbl_tingzhi.Text = "停    止";
+            this.lbl_tingzhi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_tingzhi.Click += new System.EventHandler(this.lbl_tingzhi_Click);
+            this.lbl_tingzhi.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.lbl_tingzhi.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.lbl_tingzhi.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
             // tableLayoutPanel3
             // 
@@ -760,7 +760,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 26);
             this.label10.TabIndex = 1;
-            this.label10.Text = "新    建";
+            this.label10.Text = "新建规则";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label10.Click += new System.EventHandler(this.btn_xinjian_Click);
             this.label10.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
@@ -808,7 +808,6 @@
             this.lbl_piliangshanchu.AutoSize = true;
             this.lbl_piliangshanchu.BackColor = System.Drawing.Color.Tomato;
             this.lbl_piliangshanchu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_piliangshanchu.Enabled = false;
             this.lbl_piliangshanchu.ForeColor = System.Drawing.Color.White;
             this.lbl_piliangshanchu.Location = new System.Drawing.Point(413, 7);
             this.lbl_piliangshanchu.Margin = new System.Windows.Forms.Padding(7);
@@ -817,6 +816,7 @@
             this.lbl_piliangshanchu.TabIndex = 2;
             this.lbl_piliangshanchu.Text = "批量删除";
             this.lbl_piliangshanchu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_piliangshanchu.Click += new System.EventHandler(this.lbl_piliangshanchu_Click);
             this.lbl_piliangshanchu.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             this.lbl_piliangshanchu.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
             this.lbl_piliangshanchu.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
@@ -827,14 +827,14 @@
             this.dgv_jiexiguize.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_jiexiguize.BackgroundColor = System.Drawing.Color.White;
             this.dgv_jiexiguize.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_jiexiguize.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_jiexiguize.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_jiexiguize.ColumnHeadersHeight = 26;
             this.dgv_jiexiguize.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.xuanze,
@@ -843,14 +843,14 @@
             this.shijian,
             this.bianjianniu,
             this.shanchuanniu});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_jiexiguize.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_jiexiguize.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgv_jiexiguize.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_jiexiguize.EnableHeadersVisualStyles = false;
             this.dgv_jiexiguize.Location = new System.Drawing.Point(3, 83);
@@ -889,18 +889,18 @@
             // bianjianniu
             // 
             this.bianjianniu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.NullValue = "编辑";
-            this.bianjianniu.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.NullValue = "编辑";
+            this.bianjianniu.DefaultCellStyle = dataGridViewCellStyle10;
             this.bianjianniu.HeaderText = "";
             this.bianjianniu.Name = "bianjianniu";
             this.bianjianniu.Text = "";
             // 
             // shanchuanniu
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.NullValue = "删除";
-            this.shanchuanniu.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.NullValue = "删除";
+            this.shanchuanniu.DefaultCellStyle = dataGridViewCellStyle11;
             this.shanchuanniu.HeaderText = "";
             this.shanchuanniu.Name = "shanchuanniu";
             this.shanchuanniu.Text = "";
@@ -1024,8 +1024,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl_zanting;
+        private System.Windows.Forms.Label lbl_tingzhi;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbb_jiexigeshi;

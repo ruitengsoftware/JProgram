@@ -18,6 +18,10 @@ namespace 文本解析系统.JJController
 {
     public class ControllerForm
     {
+
+
+
+
         public List<string> _childdirectories = new List<string>();
         /// <summary>
         /// 获得一个文件夹下所有的子文件夹
@@ -319,18 +323,18 @@ namespace 文本解析系统.JJController
                                 continue;
                             }
                             //获得最后一行
-                            int rowindex=mysht.Cells.LastCell.Row + 1;
-                                mysht.Cells[rowindex, 0].Value = mywordinfo._list_baseinfo[b]._mingcheng;
-                                mysht.Cells[rowindex, 1].Value = mywordinfo._list_baseinfo[b]._wenben;
-                                mysht.Cells[rowindex, 2].Value = mywordinfo._list_baseinfo[b]._MD5;
-                                mysht.Cells[rowindex, 3].Value = mywordinfo._list_baseinfo[b]._redu;
-                                mysht.Cells[rowindex, 4].Value = mywordinfo._list_baseinfo[b]._zishu;
-                                mysht.Cells[rowindex, 5].Value = mywordinfo._list_baseinfo[b]._weizhiguanlian;
-                                mysht.Cells[rowindex, 6].Value = mywordinfo._list_baseinfo[b]._neirongguanlian;
-                                mysht.Cells[rowindex, 7].Value = mywordinfo._list_baseinfo[b]._guanlianbiaozhunduan;
+                            int rowindex = mysht.Cells.LastCell.Row + 1;
+                            mysht.Cells[rowindex, 0].Value = mywordinfo._list_baseinfo[b]._mingcheng;
+                            mysht.Cells[rowindex, 1].Value = mywordinfo._list_baseinfo[b]._wenben;
+                            mysht.Cells[rowindex, 2].Value = mywordinfo._list_baseinfo[b]._MD5;
+                            mysht.Cells[rowindex, 3].Value = mywordinfo._list_baseinfo[b]._redu;
+                            mysht.Cells[rowindex, 4].Value = mywordinfo._list_baseinfo[b]._zishu;
+                            mysht.Cells[rowindex, 5].Value = mywordinfo._list_baseinfo[b]._weizhiguanlian;
+                            mysht.Cells[rowindex, 6].Value = mywordinfo._list_baseinfo[b]._neirongguanlian;
+                            mysht.Cells[rowindex, 7].Value = mywordinfo._list_baseinfo[b]._guanlianbiaozhunduan;
 
-                            
-                        
+
+
                         }
                     }
                     else//赋值其他信息
