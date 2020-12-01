@@ -31,6 +31,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel_my = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_info = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_mima = new System.Windows.Forms.TextBox();
             this.pb_xianshi = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel_my.SuspendLayout();
@@ -57,6 +57,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackgroundImage = global::文本解析系统.Properties.Resources.ChMkKV8fh6mIZaqKAEIGWUIz7hsAAANIgNvpdQAQgZx175;
             this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -72,7 +73,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 260F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(393, 520);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(865, 539);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // tableLayoutPanel3
@@ -83,13 +84,12 @@
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label4, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(-3, 90);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(232, 99);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(400, 80);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
@@ -107,12 +107,27 @@
             this.label3.Text = "写  手";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label4.Location = new System.Drawing.Point(1, 41);
+            this.label4.Margin = new System.Windows.Forms.Padding(1);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(398, 38);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "让天下没有难写的文章";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // panel_my
             // 
             this.panel_my.BackColor = System.Drawing.Color.Transparent;
             this.panel_my.Controls.Add(this.tableLayoutPanel2);
             this.panel_my.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_my.Location = new System.Drawing.Point(-3, 170);
+            this.panel_my.Location = new System.Drawing.Point(232, 179);
             this.panel_my.Margin = new System.Windows.Forms.Padding(0);
             this.panel_my.Name = "panel_my";
             this.panel_my.Padding = new System.Windows.Forms.Padding(30, 10, 30, 10);
@@ -148,6 +163,7 @@
             // 
             this.lbl_info.AutoSize = true;
             this.lbl_info.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_info.ForeColor = System.Drawing.Color.Gold;
             this.lbl_info.Location = new System.Drawing.Point(1, 211);
             this.lbl_info.Margin = new System.Windows.Forms.Padding(1);
             this.lbl_info.Name = "lbl_info";
@@ -161,6 +177,7 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(1, 1);
             this.label1.Margin = new System.Windows.Forms.Padding(1);
             this.label1.Name = "label1";
@@ -171,7 +188,9 @@
             // 
             // tb_yonghuming
             // 
-            this.tb_yonghuming.Location = new System.Drawing.Point(3, 53);
+            this.tb_yonghuming.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_yonghuming.Location = new System.Drawing.Point(3, 58);
+            this.tb_yonghuming.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.tb_yonghuming.Name = "tb_yonghuming";
             this.tb_yonghuming.Size = new System.Drawing.Size(334, 23);
             this.tb_yonghuming.TabIndex = 1;
@@ -210,27 +229,29 @@
             // 
             this.llbl_woyaozhuce.AutoSize = true;
             this.llbl_woyaozhuce.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.llbl_woyaozhuce.Location = new System.Drawing.Point(181, 1);
-            this.llbl_woyaozhuce.Margin = new System.Windows.Forms.Padding(1);
+            this.llbl_woyaozhuce.Location = new System.Drawing.Point(181, 4);
+            this.llbl_woyaozhuce.Margin = new System.Windows.Forms.Padding(1, 4, 1, 1);
             this.llbl_woyaozhuce.Name = "llbl_woyaozhuce";
-            this.llbl_woyaozhuce.Size = new System.Drawing.Size(78, 38);
+            this.llbl_woyaozhuce.Size = new System.Drawing.Size(78, 35);
             this.llbl_woyaozhuce.TabIndex = 3;
             this.llbl_woyaozhuce.TabStop = true;
             this.llbl_woyaozhuce.Text = "我要注册";
             this.llbl_woyaozhuce.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.llbl_woyaozhuce.Visible = false;
             // 
             // llbl_wangjimima
             // 
             this.llbl_wangjimima.AutoSize = true;
             this.llbl_wangjimima.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.llbl_wangjimima.Location = new System.Drawing.Point(261, 1);
-            this.llbl_wangjimima.Margin = new System.Windows.Forms.Padding(1);
+            this.llbl_wangjimima.Location = new System.Drawing.Point(261, 4);
+            this.llbl_wangjimima.Margin = new System.Windows.Forms.Padding(1, 4, 1, 1);
             this.llbl_wangjimima.Name = "llbl_wangjimima";
-            this.llbl_wangjimima.Size = new System.Drawing.Size(78, 38);
+            this.llbl_wangjimima.Size = new System.Drawing.Size(78, 35);
             this.llbl_wangjimima.TabIndex = 3;
             this.llbl_wangjimima.TabStop = true;
             this.llbl_wangjimima.Text = "忘记密码";
             this.llbl_wangjimima.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.llbl_wangjimima.Visible = false;
             // 
             // cb_zidongdenlgu
             // 
@@ -256,6 +277,8 @@
             this.lbl_denglu.Text = "登    录";
             this.lbl_denglu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_denglu.Click += new System.EventHandler(this.lbl_denglu_Click);
+            this.lbl_denglu.MouseEnter += new System.EventHandler(this.lbl_denglu_MouseEnter);
+            this.lbl_denglu.MouseLeave += new System.EventHandler(this.lbl_denglu_MouseLeave);
             // 
             // tableLayoutPanel5
             // 
@@ -275,48 +298,39 @@
             // 
             // tb_mima
             // 
-            this.tb_mima.Location = new System.Drawing.Point(3, 3);
+            this.tb_mima.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_mima.Location = new System.Drawing.Point(3, 8);
+            this.tb_mima.Margin = new System.Windows.Forms.Padding(3, 8, 0, 3);
             this.tb_mima.Name = "tb_mima";
             this.tb_mima.PasswordChar = '*';
-            this.tb_mima.Size = new System.Drawing.Size(294, 23);
+            this.tb_mima.Size = new System.Drawing.Size(297, 23);
             this.tb_mima.TabIndex = 1;
             // 
             // pb_xianshi
             // 
             this.pb_xianshi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_xianshi.Location = new System.Drawing.Point(303, 3);
+            this.pb_xianshi.Image = global::文本解析系统.Properties.Resources.xianshi;
+            this.pb_xianshi.Location = new System.Drawing.Point(306, 6);
+            this.pb_xianshi.Margin = new System.Windows.Forms.Padding(6);
             this.pb_xianshi.Name = "pb_xianshi";
-            this.pb_xianshi.Size = new System.Drawing.Size(34, 34);
+            this.pb_xianshi.Size = new System.Drawing.Size(28, 28);
             this.pb_xianshi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_xianshi.TabIndex = 2;
             this.pb_xianshi.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label4.Location = new System.Drawing.Point(1, 41);
-            this.label4.Margin = new System.Windows.Forms.Padding(1);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(398, 38);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "让天下没有难写的文章";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.pb_xianshi.Click += new System.EventHandler(this.pb_xianshi_Click);
             // 
             // WinFormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(393, 520);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(865, 539);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WinFormLogin";
-            this.Text = "WinFormLogin";
+            this.Text = "登录系统";
+            this.Load += new System.EventHandler(this.WinFormLogin_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -334,9 +348,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel_my;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label lbl_info;
@@ -348,9 +359,12 @@
         private System.Windows.Forms.LinkLabel llbl_wangjimima;
         private System.Windows.Forms.CheckBox cb_zidongdenlgu;
         private System.Windows.Forms.Label lbl_denglu;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TextBox tb_mima;
         private System.Windows.Forms.PictureBox pb_xianshi;
-        private System.Windows.Forms.Label label4;
     }
 }

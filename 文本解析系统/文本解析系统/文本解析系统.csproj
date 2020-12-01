@@ -46,6 +46,10 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RuitengDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -80,6 +84,7 @@
     <Compile Include="JJCommon\Md5Helper.cs" />
     <Compile Include="JJCommon\MySQLHelper.cs" />
     <Compile Include="JJCommon\UserInfo.cs" />
+    <Compile Include="JJController\ControllerDenglu.cs" />
     <Compile Include="JJController\ControllerGuize.cs" />
     <Compile Include="JJController\ControllerForm.cs" />
     <Compile Include="JJController\ControllerNewTask.cs" />
@@ -106,6 +111,12 @@
     <Compile Include="JJWinForm\WinFormGuize.Designer.cs">
       <DependentUpon>WinFormGuize.cs</DependentUpon>
     </Compile>
+    <Compile Include="JJWinForm\WinFormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JJWinForm\WinFormLogin.Designer.cs">
+      <DependentUpon>WinFormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="JJWinForm\WinFormNewTask.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JJWinForm\WinFormGuize.resx">
       <DependentUpon>WinFormGuize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JJWinForm\WinFormLogin.resx">
+      <DependentUpon>WinFormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JJWinForm\WinFormNewTask.resx">
       <DependentUpon>WinFormNewTask.cs</DependentUpon>
@@ -162,6 +176,14 @@
   <ItemGroup>
     <None Include="Resources\fangdajing1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\ChMkKV8fh6mIZaqKAEIGWUIz7hsAAANIgNvpdQAQgZx175.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\显示.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\隐藏.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

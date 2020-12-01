@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 文本解析系统.JJWinForm;
 
 namespace 文本解析系统
 {
@@ -16,7 +17,15 @@ namespace 文本解析系统
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            //先弹出登录窗体，如果成功返回dialogresult.ok 
+            WinFormLogin mywin = new WinFormLogin();
+            if (mywin.ShowDialog()==DialogResult.OK)
+            {
             Application.Run(new Form1());
+
+            }
+
 
            
 

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using RuiTengDll;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -135,6 +136,22 @@ namespace 文本解析系统.JJWinForm
                 MessageBox.Show("保存失败！");
             }
 
+
+        }
+        UIHelper myuihelper = new UIHelper();
+        private void label2_Paint(object sender, PaintEventArgs e)
+        {
+            myuihelper.DrawRoundRect((Control)sender);
+        }
+
+        private void label2_MouseEnter(object sender, EventArgs e)
+        {
+            myuihelper.UpdateCSize((Control)sender, -1);
+        }
+
+        private void label2_MouseLeave(object sender, EventArgs e)
+        {
+            myuihelper.UpdateCSize((Control)sender, 1);
 
         }
     }

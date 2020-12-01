@@ -30,9 +30,14 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_xinzengrenwu = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgv_chulizhong = new System.Windows.Forms.DataGridView();
             this.xuhao2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,18 +52,20 @@
             this.wanchenghou = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
             this.cb_guanji = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_kaishi = new System.Windows.Forms.Button();
-            this.btn_zanting = new System.Windows.Forms.Button();
-            this.btn_zhongzhi = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.cbb_jiexigeshi = new System.Windows.Forms.ComboBox();
-            this.btn_baocun = new System.Windows.Forms.Button();
-            this.btn_shanchu = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.tlp_chachong = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.cb_wu = new System.Windows.Forms.CheckBox();
             this.cb_quanwen = new System.Windows.Forms.CheckBox();
             this.cb_zhengwen = new System.Windows.Forms.CheckBox();
@@ -72,10 +79,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_xinjian = new System.Windows.Forms.Button();
-            this.btn_daoru = new System.Windows.Forms.Button();
-            this.btn_daochu = new System.Windows.Forms.Button();
-            this.btn_piliangshanchu = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lbl_daoru = new System.Windows.Forms.Label();
+            this.lbl_daochu = new System.Windows.Forms.Label();
+            this.lbl_piliangshanchu = new System.Windows.Forms.Label();
             this.dgv_jiexiguize = new System.Windows.Forms.DataGridView();
             this.xuanze = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.jiexiguizemingcheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,6 +107,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tlp_chachong.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.tlp_excel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_path)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -133,10 +141,10 @@
             // 
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Controls.Add(this.btn_xinzengrenwu, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.groupBox3, 0, 2);
             this.tableLayoutPanel8.Controls.Add(this.groupBox2, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.cb_guanji, 0, 3);
+            this.tableLayoutPanel8.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -147,17 +155,6 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(311, 628);
             this.tableLayoutPanel8.TabIndex = 0;
-            // 
-            // btn_xinzengrenwu
-            // 
-            this.btn_xinzengrenwu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_xinzengrenwu.Location = new System.Drawing.Point(3, 3);
-            this.btn_xinzengrenwu.Name = "btn_xinzengrenwu";
-            this.btn_xinzengrenwu.Size = new System.Drawing.Size(305, 34);
-            this.btn_xinzengrenwu.TabIndex = 0;
-            this.btn_xinzengrenwu.Text = "新增任务";
-            this.btn_xinzengrenwu.UseVisualStyleBackColor = true;
-            this.btn_xinzengrenwu.Click += new System.EventHandler(this.btn_xinzengrenwu_Click);
             // 
             // groupBox3
             // 
@@ -175,17 +172,36 @@
             this.dgv_chulizhong.AllowUserToAddRows = false;
             this.dgv_chulizhong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_chulizhong.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_chulizhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_chulizhong.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_chulizhong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_chulizhong.ColumnHeadersHeight = 26;
             this.dgv_chulizhong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.xuhao2,
             this.renwuwenjianjia,
             this.jindu,
             this.zhuangtai});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_chulizhong.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_chulizhong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_chulizhong.EnableHeadersVisualStyles = false;
             this.dgv_chulizhong.Location = new System.Drawing.Point(3, 19);
             this.dgv_chulizhong.Name = "dgv_chulizhong";
             this.dgv_chulizhong.RowHeadersVisible = false;
             this.dgv_chulizhong.RowTemplate.Height = 23;
+            this.dgv_chulizhong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_chulizhong.Size = new System.Drawing.Size(299, 251);
             this.dgv_chulizhong.TabIndex = 1;
             // 
@@ -225,34 +241,56 @@
             this.dgv_daichuli.AllowUserToAddRows = false;
             this.dgv_daichuli.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_daichuli.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_daichuli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_daichuli.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_daichuli.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_daichuli.ColumnHeadersHeight = 26;
             this.dgv_daichuli.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.xuhao,
             this.mubiaowenjianjia,
             this.jiexigeshi,
             this.wanchenghou,
             this.shanchu});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_daichuli.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_daichuli.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_daichuli.EnableHeadersVisualStyles = false;
             this.dgv_daichuli.Location = new System.Drawing.Point(3, 19);
             this.dgv_daichuli.Name = "dgv_daichuli";
             this.dgv_daichuli.RowHeadersVisible = false;
             this.dgv_daichuli.RowTemplate.Height = 23;
+            this.dgv_daichuli.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_daichuli.Size = new System.Drawing.Size(299, 251);
             this.dgv_daichuli.TabIndex = 0;
             this.dgv_daichuli.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_daichuli_CellMouseClick);
             // 
             // xuhao
             // 
+            this.xuhao.FillWeight = 113.0288F;
             this.xuhao.HeaderText = "序号";
             this.xuhao.Name = "xuhao";
             // 
             // mubiaowenjianjia
             // 
+            this.mubiaowenjianjia.FillWeight = 113.0288F;
             this.mubiaowenjianjia.HeaderText = "目标文件夹";
             this.mubiaowenjianjia.Name = "mubiaowenjianjia";
             // 
             // jiexigeshi
             // 
+            this.jiexigeshi.FillWeight = 113.0288F;
             this.jiexigeshi.HeaderText = "解析格式";
             this.jiexigeshi.Name = "jiexigeshi";
             // 
@@ -264,9 +302,10 @@
             // 
             // shanchu
             // 
+            this.shanchu.FillWeight = 60.9137F;
             this.shanchu.HeaderText = "";
             this.shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
-            this.shanchu.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.shanchu.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.shanchu.Name = "shanchu";
             this.shanchu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.shanchu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -274,12 +313,33 @@
             // cb_guanji
             // 
             this.cb_guanji.AutoSize = true;
-            this.cb_guanji.Location = new System.Drawing.Point(3, 601);
+            this.cb_guanji.Dock = System.Windows.Forms.DockStyle.Right;
+            this.cb_guanji.Location = new System.Drawing.Point(221, 601);
+            this.cb_guanji.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
             this.cb_guanji.Name = "cb_guanji";
-            this.cb_guanji.Size = new System.Drawing.Size(87, 21);
+            this.cb_guanji.Size = new System.Drawing.Size(87, 24);
             this.cb_guanji.TabIndex = 2;
             this.cb_guanji.Text = "完成后关机";
+            this.cb_guanji.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cb_guanji.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.SeaGreen;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(6, 6);
+            this.label7.Margin = new System.Windows.Forms.Padding(6);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(299, 28);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "新增任务";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label7.Click += new System.EventHandler(this.btn_xinzengrenwu_Click);
+            this.label7.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.label7.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.label7.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
             // tableLayoutPanel1
             // 
@@ -311,45 +371,71 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.btn_kaishi, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btn_zanting, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btn_zhongzhi, 3, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label5, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label6, 3, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(508, 34);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(625, 40);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // btn_kaishi
+            // label4
             // 
-            this.btn_kaishi.Location = new System.Drawing.Point(107, 3);
-            this.btn_kaishi.Name = "btn_kaishi";
-            this.btn_kaishi.Size = new System.Drawing.Size(94, 28);
-            this.btn_kaishi.TabIndex = 0;
-            this.btn_kaishi.Text = "开始";
-            this.btn_kaishi.UseVisualStyleBackColor = true;
-            this.btn_kaishi.Click += new System.EventHandler(this.btn_kaishi_Click);
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Tomato;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(169, 7);
+            this.label4.Margin = new System.Windows.Forms.Padding(7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(86, 26);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "开    始";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.Click += new System.EventHandler(this.btn_kaishi_Click);
+            this.label4.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.label4.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.label4.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
-            // btn_zanting
+            // label5
             // 
-            this.btn_zanting.Enabled = false;
-            this.btn_zanting.Location = new System.Drawing.Point(207, 3);
-            this.btn_zanting.Name = "btn_zanting";
-            this.btn_zanting.Size = new System.Drawing.Size(94, 28);
-            this.btn_zanting.TabIndex = 0;
-            this.btn_zanting.Text = "暂停";
-            this.btn_zanting.UseVisualStyleBackColor = true;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Tomato;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Enabled = false;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(269, 7);
+            this.label5.Margin = new System.Windows.Forms.Padding(7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 26);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "暂    停";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.label5.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.label5.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
-            // btn_zhongzhi
+            // label6
             // 
-            this.btn_zhongzhi.Enabled = false;
-            this.btn_zhongzhi.Location = new System.Drawing.Point(307, 3);
-            this.btn_zhongzhi.Name = "btn_zhongzhi";
-            this.btn_zhongzhi.Size = new System.Drawing.Size(94, 28);
-            this.btn_zhongzhi.TabIndex = 0;
-            this.btn_zhongzhi.Text = "终止";
-            this.btn_zhongzhi.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Tomato;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Enabled = false;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(369, 7);
+            this.label6.Margin = new System.Windows.Forms.Padding(7);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 26);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "停    止";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label6.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.label6.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.label6.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
             // tableLayoutPanel3
             // 
@@ -360,87 +446,130 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.cbb_jiexigeshi, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btn_baocun, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btn_shanchu, 3, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 43);
+            this.tableLayoutPanel3.Controls.Add(this.label8, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label9, 3, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 40);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(508, 34);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(625, 40);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.BackColor = System.Drawing.Color.Gray;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(7, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 17);
+            this.label1.Size = new System.Drawing.Size(86, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "解析格式";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbb_jiexigeshi
             // 
+            this.cbb_jiexigeshi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbb_jiexigeshi.FormattingEnabled = true;
-            this.cbb_jiexigeshi.Location = new System.Drawing.Point(103, 3);
+            this.cbb_jiexigeshi.Location = new System.Drawing.Point(103, 7);
+            this.cbb_jiexigeshi.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
             this.cbb_jiexigeshi.Name = "cbb_jiexigeshi";
-            this.cbb_jiexigeshi.Size = new System.Drawing.Size(202, 25);
+            this.cbb_jiexigeshi.Size = new System.Drawing.Size(319, 25);
             this.cbb_jiexigeshi.TabIndex = 1;
             this.cbb_jiexigeshi.DropDown += new System.EventHandler(this.cbb_jiexigeshi_DropDown);
             this.cbb_jiexigeshi.SelectedIndexChanged += new System.EventHandler(this.cbb_jiexigeshi_SelectedIndexChanged);
             // 
-            // btn_baocun
+            // label8
             // 
-            this.btn_baocun.Location = new System.Drawing.Point(311, 3);
-            this.btn_baocun.Name = "btn_baocun";
-            this.btn_baocun.Size = new System.Drawing.Size(94, 28);
-            this.btn_baocun.TabIndex = 2;
-            this.btn_baocun.Text = "保存";
-            this.btn_baocun.UseVisualStyleBackColor = true;
-            this.btn_baocun.Click += new System.EventHandler(this.btn_baocun_Click);
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Tomato;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(432, 7);
+            this.label8.Margin = new System.Windows.Forms.Padding(7);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 26);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "保    存";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.Click += new System.EventHandler(this.btn_baocun_Click);
+            this.label8.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.label8.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.label8.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
-            // btn_shanchu
+            // label9
             // 
-            this.btn_shanchu.Location = new System.Drawing.Point(411, 3);
-            this.btn_shanchu.Name = "btn_shanchu";
-            this.btn_shanchu.Size = new System.Drawing.Size(94, 28);
-            this.btn_shanchu.TabIndex = 2;
-            this.btn_shanchu.Text = "删除";
-            this.btn_shanchu.UseVisualStyleBackColor = true;
-            this.btn_shanchu.Click += new System.EventHandler(this.btn_shanchu_Click);
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Tomato;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(532, 7);
+            this.label9.Margin = new System.Windows.Forms.Padding(7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(86, 26);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "删    除";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label9.Click += new System.EventHandler(this.btn_shanchu_Click);
+            this.label9.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.label9.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.label9.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
             // tlp_chachong
             // 
-            this.tlp_chachong.ColumnCount = 5;
-            this.tlp_chachong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tlp_chachong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tlp_chachong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tlp_chachong.ColumnCount = 2;
             this.tlp_chachong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tlp_chachong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_chachong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_chachong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_chachong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlp_chachong.Controls.Add(this.label2, 0, 0);
-            this.tlp_chachong.Controls.Add(this.cb_wu, 1, 0);
-            this.tlp_chachong.Controls.Add(this.cb_quanwen, 2, 0);
-            this.tlp_chachong.Controls.Add(this.cb_zhengwen, 3, 0);
-            this.tlp_chachong.Controls.Add(this.cb_md5, 4, 0);
-            this.tlp_chachong.Location = new System.Drawing.Point(3, 83);
+            this.tlp_chachong.Controls.Add(this.flowLayoutPanel1, 1, 0);
+            this.tlp_chachong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlp_chachong.Location = new System.Drawing.Point(0, 80);
+            this.tlp_chachong.Margin = new System.Windows.Forms.Padding(0);
             this.tlp_chachong.Name = "tlp_chachong";
             this.tlp_chachong.RowCount = 1;
             this.tlp_chachong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_chachong.Size = new System.Drawing.Size(508, 34);
+            this.tlp_chachong.Size = new System.Drawing.Size(625, 40);
             this.tlp_chachong.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.BackColor = System.Drawing.Color.Gray;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(7, 7);
+            this.label2.Margin = new System.Windows.Forms.Padding(7);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 17);
+            this.label2.Size = new System.Drawing.Size(86, 26);
             this.label2.TabIndex = 0;
             this.label2.Text = "查重处理";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.cb_wu);
+            this.flowLayoutPanel1.Controls.Add(this.cb_quanwen);
+            this.flowLayoutPanel1.Controls.Add(this.cb_zhengwen);
+            this.flowLayoutPanel1.Controls.Add(this.cb_md5);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(103, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(519, 34);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // cb_wu
             // 
             this.cb_wu.AutoSize = true;
-            this.cb_wu.Location = new System.Drawing.Point(103, 3);
+            this.cb_wu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cb_wu.Location = new System.Drawing.Point(3, 8);
+            this.cb_wu.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.cb_wu.Name = "cb_wu";
             this.cb_wu.Size = new System.Drawing.Size(39, 21);
             this.cb_wu.TabIndex = 1;
@@ -450,7 +579,9 @@
             // cb_quanwen
             // 
             this.cb_quanwen.AutoSize = true;
-            this.cb_quanwen.Location = new System.Drawing.Point(203, 3);
+            this.cb_quanwen.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cb_quanwen.Location = new System.Drawing.Point(48, 8);
+            this.cb_quanwen.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.cb_quanwen.Name = "cb_quanwen";
             this.cb_quanwen.Size = new System.Drawing.Size(51, 21);
             this.cb_quanwen.TabIndex = 1;
@@ -460,7 +591,9 @@
             // cb_zhengwen
             // 
             this.cb_zhengwen.AutoSize = true;
-            this.cb_zhengwen.Location = new System.Drawing.Point(303, 3);
+            this.cb_zhengwen.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cb_zhengwen.Location = new System.Drawing.Point(105, 8);
+            this.cb_zhengwen.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.cb_zhengwen.Name = "cb_zhengwen";
             this.cb_zhengwen.Size = new System.Drawing.Size(51, 21);
             this.cb_zhengwen.TabIndex = 1;
@@ -470,9 +603,11 @@
             // cb_md5
             // 
             this.cb_md5.AutoSize = true;
-            this.cb_md5.Location = new System.Drawing.Point(403, 3);
+            this.cb_md5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cb_md5.Location = new System.Drawing.Point(162, 8);
+            this.cb_md5.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.cb_md5.Name = "cb_md5";
-            this.cb_md5.Size = new System.Drawing.Size(102, 21);
+            this.cb_md5.Size = new System.Drawing.Size(103, 21);
             this.cb_md5.TabIndex = 1;
             this.cb_md5.Text = "写入新MD5值";
             this.cb_md5.UseVisualStyleBackColor = true;
@@ -481,55 +616,71 @@
             // 
             this.tlp_excel.ColumnCount = 5;
             this.tlp_excel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tlp_excel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tlp_excel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tlp_excel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tlp_excel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tlp_excel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_excel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlp_excel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tlp_excel.Controls.Add(this.label3, 0, 0);
             this.tlp_excel.Controls.Add(this.tb_savepath, 3, 0);
             this.tlp_excel.Controls.Add(this.pb_path, 4, 0);
             this.tlp_excel.Controls.Add(this.rb_moren, 1, 0);
             this.tlp_excel.Controls.Add(this.rb_qita, 2, 0);
-            this.tlp_excel.Location = new System.Drawing.Point(3, 123);
+            this.tlp_excel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlp_excel.Location = new System.Drawing.Point(0, 120);
+            this.tlp_excel.Margin = new System.Windows.Forms.Padding(0);
             this.tlp_excel.Name = "tlp_excel";
             this.tlp_excel.RowCount = 1;
             this.tlp_excel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_excel.Size = new System.Drawing.Size(508, 34);
+            this.tlp_excel.Size = new System.Drawing.Size(625, 40);
             this.tlp_excel.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.BackColor = System.Drawing.Color.Gray;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(7, 7);
+            this.label3.Margin = new System.Windows.Forms.Padding(7);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 17);
+            this.label3.Size = new System.Drawing.Size(86, 26);
             this.label3.TabIndex = 0;
-            this.label3.Text = "excel存放：";
+            this.label3.Text = "excel存放";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tb_savepath
             // 
-            this.tb_savepath.Location = new System.Drawing.Point(303, 3);
+            this.tb_savepath.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_savepath.Location = new System.Drawing.Point(260, 8);
+            this.tb_savepath.Margin = new System.Windows.Forms.Padding(0, 8, 0, 0);
             this.tb_savepath.Name = "tb_savepath";
-            this.tb_savepath.Size = new System.Drawing.Size(172, 23);
+            this.tb_savepath.Size = new System.Drawing.Size(325, 23);
             this.tb_savepath.TabIndex = 2;
             // 
             // pb_path
             // 
+            this.pb_path.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_path.Image = global::文本解析系统.Properties.Resources.folderlv;
-            this.pb_path.Location = new System.Drawing.Point(481, 3);
+            this.pb_path.Location = new System.Drawing.Point(593, 10);
+            this.pb_path.Margin = new System.Windows.Forms.Padding(8, 10, 8, 10);
             this.pb_path.Name = "pb_path";
-            this.pb_path.Size = new System.Drawing.Size(24, 28);
+            this.pb_path.Size = new System.Drawing.Size(24, 20);
             this.pb_path.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_path.TabIndex = 3;
             this.pb_path.TabStop = false;
             this.pb_path.Click += new System.EventHandler(this.pb_path_Click);
+            this.pb_path.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.pb_path.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.pb_path.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
             // rb_moren
             // 
             this.rb_moren.AutoSize = true;
-            this.rb_moren.Location = new System.Drawing.Point(103, 3);
+            this.rb_moren.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rb_moren.Location = new System.Drawing.Point(103, 5);
+            this.rb_moren.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.rb_moren.Name = "rb_moren";
-            this.rb_moren.Size = new System.Drawing.Size(74, 21);
+            this.rb_moren.Size = new System.Drawing.Size(74, 32);
             this.rb_moren.TabIndex = 4;
             this.rb_moren.TabStop = true;
             this.rb_moren.Text = "默认位置";
@@ -538,9 +689,11 @@
             // rb_qita
             // 
             this.rb_qita.AutoSize = true;
-            this.rb_qita.Location = new System.Drawing.Point(203, 3);
+            this.rb_qita.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rb_qita.Location = new System.Drawing.Point(183, 5);
+            this.rb_qita.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.rb_qita.Name = "rb_qita";
-            this.rb_qita.Size = new System.Drawing.Size(74, 21);
+            this.rb_qita.Size = new System.Drawing.Size(74, 32);
             this.rb_qita.TabIndex = 5;
             this.rb_qita.TabStop = true;
             this.rb_qita.Text = "其他位置";
@@ -576,69 +729,113 @@
             // 
             // tableLayoutPanel7
             // 
-            this.tableLayoutPanel7.ColumnCount = 5;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.ColumnCount = 6;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel7.Controls.Add(this.btn_xinjian, 1, 0);
-            this.tableLayoutPanel7.Controls.Add(this.btn_daoru, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.btn_daochu, 3, 0);
-            this.tableLayoutPanel7.Controls.Add(this.btn_piliangshanchu, 4, 0);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.label10, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.lbl_daoru, 2, 0);
+            this.tableLayoutPanel7.Controls.Add(this.lbl_daochu, 3, 0);
+            this.tableLayoutPanel7.Controls.Add(this.lbl_piliangshanchu, 4, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(496, 34);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(613, 40);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
-            // btn_xinjian
+            // label10
             // 
-            this.btn_xinjian.Location = new System.Drawing.Point(99, 3);
-            this.btn_xinjian.Name = "btn_xinjian";
-            this.btn_xinjian.Size = new System.Drawing.Size(94, 28);
-            this.btn_xinjian.TabIndex = 0;
-            this.btn_xinjian.Text = "新建";
-            this.btn_xinjian.UseVisualStyleBackColor = true;
-            this.btn_xinjian.Click += new System.EventHandler(this.btn_xinjian_Click);
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Tomato;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(113, 7);
+            this.label10.Margin = new System.Windows.Forms.Padding(7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(86, 26);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "新    建";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label10.Click += new System.EventHandler(this.btn_xinjian_Click);
+            this.label10.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.label10.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.label10.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
-            // btn_daoru
+            // lbl_daoru
             // 
-            this.btn_daoru.Enabled = false;
-            this.btn_daoru.Location = new System.Drawing.Point(199, 3);
-            this.btn_daoru.Name = "btn_daoru";
-            this.btn_daoru.Size = new System.Drawing.Size(94, 28);
-            this.btn_daoru.TabIndex = 0;
-            this.btn_daoru.Text = "导入";
-            this.btn_daoru.UseVisualStyleBackColor = true;
+            this.lbl_daoru.AutoSize = true;
+            this.lbl_daoru.BackColor = System.Drawing.Color.Tomato;
+            this.lbl_daoru.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_daoru.Enabled = false;
+            this.lbl_daoru.ForeColor = System.Drawing.Color.White;
+            this.lbl_daoru.Location = new System.Drawing.Point(213, 7);
+            this.lbl_daoru.Margin = new System.Windows.Forms.Padding(7);
+            this.lbl_daoru.Name = "lbl_daoru";
+            this.lbl_daoru.Size = new System.Drawing.Size(86, 26);
+            this.lbl_daoru.TabIndex = 2;
+            this.lbl_daoru.Text = "导    入";
+            this.lbl_daoru.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_daoru.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.lbl_daoru.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.lbl_daoru.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
-            // btn_daochu
+            // lbl_daochu
             // 
-            this.btn_daochu.Enabled = false;
-            this.btn_daochu.Location = new System.Drawing.Point(299, 3);
-            this.btn_daochu.Name = "btn_daochu";
-            this.btn_daochu.Size = new System.Drawing.Size(94, 28);
-            this.btn_daochu.TabIndex = 0;
-            this.btn_daochu.Text = "导出";
-            this.btn_daochu.UseVisualStyleBackColor = true;
+            this.lbl_daochu.AutoSize = true;
+            this.lbl_daochu.BackColor = System.Drawing.Color.Tomato;
+            this.lbl_daochu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_daochu.Enabled = false;
+            this.lbl_daochu.ForeColor = System.Drawing.Color.White;
+            this.lbl_daochu.Location = new System.Drawing.Point(313, 7);
+            this.lbl_daochu.Margin = new System.Windows.Forms.Padding(7);
+            this.lbl_daochu.Name = "lbl_daochu";
+            this.lbl_daochu.Size = new System.Drawing.Size(86, 26);
+            this.lbl_daochu.TabIndex = 2;
+            this.lbl_daochu.Text = "导    出";
+            this.lbl_daochu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_daochu.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.lbl_daochu.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.lbl_daochu.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
-            // btn_piliangshanchu
+            // lbl_piliangshanchu
             // 
-            this.btn_piliangshanchu.Enabled = false;
-            this.btn_piliangshanchu.Location = new System.Drawing.Point(399, 3);
-            this.btn_piliangshanchu.Name = "btn_piliangshanchu";
-            this.btn_piliangshanchu.Size = new System.Drawing.Size(94, 28);
-            this.btn_piliangshanchu.TabIndex = 0;
-            this.btn_piliangshanchu.Text = "批量删除";
-            this.btn_piliangshanchu.UseVisualStyleBackColor = true;
+            this.lbl_piliangshanchu.AutoSize = true;
+            this.lbl_piliangshanchu.BackColor = System.Drawing.Color.Tomato;
+            this.lbl_piliangshanchu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_piliangshanchu.Enabled = false;
+            this.lbl_piliangshanchu.ForeColor = System.Drawing.Color.White;
+            this.lbl_piliangshanchu.Location = new System.Drawing.Point(413, 7);
+            this.lbl_piliangshanchu.Margin = new System.Windows.Forms.Padding(7);
+            this.lbl_piliangshanchu.Name = "lbl_piliangshanchu";
+            this.lbl_piliangshanchu.Size = new System.Drawing.Size(86, 26);
+            this.lbl_piliangshanchu.TabIndex = 2;
+            this.lbl_piliangshanchu.Text = "批量删除";
+            this.lbl_piliangshanchu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_piliangshanchu.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.lbl_piliangshanchu.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.lbl_piliangshanchu.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
             // dgv_jiexiguize
             // 
             this.dgv_jiexiguize.AllowUserToAddRows = false;
             this.dgv_jiexiguize.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_jiexiguize.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_jiexiguize.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_jiexiguize.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_jiexiguize.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgv_jiexiguize.ColumnHeadersHeight = 26;
             this.dgv_jiexiguize.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.xuanze,
             this.jiexiguizemingcheng,
@@ -646,11 +843,21 @@
             this.shijian,
             this.bianjianniu,
             this.shanchuanniu});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_jiexiguize.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_jiexiguize.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_jiexiguize.EnableHeadersVisualStyles = false;
             this.dgv_jiexiguize.Location = new System.Drawing.Point(3, 83);
             this.dgv_jiexiguize.Name = "dgv_jiexiguize";
             this.dgv_jiexiguize.RowHeadersVisible = false;
             this.dgv_jiexiguize.RowTemplate.Height = 23;
+            this.dgv_jiexiguize.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_jiexiguize.Size = new System.Drawing.Size(607, 354);
             this.dgv_jiexiguize.TabIndex = 1;
             this.dgv_jiexiguize.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_jiexiguize_CellContentClick);
@@ -681,18 +888,19 @@
             // 
             // bianjianniu
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "编辑";
-            this.bianjianniu.DefaultCellStyle = dataGridViewCellStyle1;
+            this.bianjianniu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.NullValue = "编辑";
+            this.bianjianniu.DefaultCellStyle = dataGridViewCellStyle6;
             this.bianjianniu.HeaderText = "";
             this.bianjianniu.Name = "bianjianniu";
             this.bianjianniu.Text = "";
             // 
             // shanchuanniu
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "删除";
-            this.shanchuanniu.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.NullValue = "删除";
+            this.shanchuanniu.DefaultCellStyle = dataGridViewCellStyle7;
             this.shanchuanniu.HeaderText = "";
             this.shanchuanniu.Name = "shanchuanniu";
             this.shanchuanniu.Text = "";
@@ -706,32 +914,42 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.Controls.Add(this.tb_search, 1, 0);
             this.tableLayoutPanel9.Controls.Add(this.pictureBox1, 2, 0);
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 43);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 40);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(496, 34);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(613, 40);
             this.tableLayoutPanel9.TabIndex = 2;
             // 
             // tb_search
             // 
-            this.tb_search.Location = new System.Drawing.Point(131, 3);
+            this.tb_search.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_search.Location = new System.Drawing.Point(189, 8);
+            this.tb_search.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.tb_search.Name = "tb_search";
             this.tb_search.Size = new System.Drawing.Size(194, 23);
             this.tb_search.TabIndex = 0;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::文本解析系统.Properties.Resources.fangdajing1;
-            this.pictureBox1.Location = new System.Drawing.Point(331, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(393, 7);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(7);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(34, 28);
+            this.pictureBox1.Size = new System.Drawing.Size(26, 26);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
             // dataGridViewImageColumn1
             // 
+            this.dataGridViewImageColumn1.FillWeight = 60.9137F;
             this.dataGridViewImageColumn1.HeaderText = "";
             this.dataGridViewImageColumn1.Image = global::文本解析系统.Properties.Resources.shanchu2;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -751,7 +969,8 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
-            this.Text = "文件解析系统beta1.0.4 2020年11月28日";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "文件解析系统beta1.1.1版 2020年11月30日";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -765,16 +984,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_daichuli)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tlp_chachong.ResumeLayout(false);
             this.tlp_chachong.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.tlp_excel.ResumeLayout(false);
             this.tlp_excel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_path)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jiexiguize)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
@@ -786,16 +1009,28 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dgv_daichuli;
+        private System.Windows.Forms.DataGridView dgv_chulizhong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn xuhao2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn renwuwenjianjia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jindu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zhuangtai;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.CheckBox cb_guanji;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button btn_kaishi;
-        private System.Windows.Forms.Button btn_zanting;
-        private System.Windows.Forms.Button btn_zhongzhi;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbb_jiexigeshi;
-        private System.Windows.Forms.Button btn_baocun;
-        private System.Windows.Forms.Button btn_shanchu;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tlp_chachong;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox cb_wu;
@@ -806,42 +1041,31 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tb_savepath;
         private System.Windows.Forms.PictureBox pb_path;
+        private System.Windows.Forms.RadioButton rb_moren;
+        private System.Windows.Forms.RadioButton rb_qita;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.Button btn_xinjian;
-        private System.Windows.Forms.Button btn_daoru;
-        private System.Windows.Forms.Button btn_daochu;
-        private System.Windows.Forms.Button btn_piliangshanchu;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.TextBox tb_search;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbl_daoru;
+        private System.Windows.Forms.Label lbl_daochu;
+        private System.Windows.Forms.Label lbl_piliangshanchu;
         private System.Windows.Forms.DataGridView dgv_jiexiguize;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private System.Windows.Forms.Button btn_xinzengrenwu;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgv_daichuli;
-        private System.Windows.Forms.DataGridView dgv_chulizhong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn xuhao2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn renwuwenjianjia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jindu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zhuangtai;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn xuhao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mubiaowenjianjia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jiexigeshi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wanchenghou;
+        private System.Windows.Forms.DataGridViewImageColumn shanchu;
         private System.Windows.Forms.DataGridViewCheckBoxColumn xuanze;
         private System.Windows.Forms.DataGridViewTextBoxColumn jiexiguizemingcheng;
         private System.Windows.Forms.DataGridViewTextBoxColumn chuangjianren;
         private System.Windows.Forms.DataGridViewTextBoxColumn shijian;
         private System.Windows.Forms.DataGridViewButtonColumn bianjianniu;
         private System.Windows.Forms.DataGridViewButtonColumn shanchuanniu;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.TextBox tb_search;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RadioButton rb_moren;
-        private System.Windows.Forms.RadioButton rb_qita;
-        private System.Windows.Forms.CheckBox cb_guanji;
-        private System.Windows.Forms.DataGridViewTextBoxColumn xuhao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mubiaowenjianjia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jiexigeshi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn wanchenghou;
-        private System.Windows.Forms.DataGridViewImageColumn shanchu;
     }
 }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RuiTengDll;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,7 +36,7 @@ namespace 文本解析系统.JJWinForm
             }
             else
             {
-                btn_guanji.Text = $@"关机（{second}）";
+                lbl_guanji.Text = $@"关机（{second}s）";
                 second--;
             }
 
@@ -49,6 +50,25 @@ namespace 文本解析系统.JJWinForm
         private void btn_guanji_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+        UIHelper myuihelper = new UIHelper();
+        private void lbl_quxiao_Paint(object sender, PaintEventArgs e)
+        {
+            myuihelper.DrawRoundRect((Control)sender);
+
+
+
+        }
+
+        private void lbl_quxiao_MouseLeave(object sender, EventArgs e)
+        {
+            myuihelper.UpdateCSize((Control)sender, 1);
+        }
+
+        private void lbl_quxiao_MouseEnter(object sender, EventArgs e)
+        {
+            myuihelper.UpdateCSize((Control)sender, -1);
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RuiTengDll;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -332,6 +333,26 @@ namespace 文本解析系统
             {
                 tb_savepath.Text = fbd.SelectedPath;
             }
+        }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            UIHelper myuihelper = new UIHelper();
+            myuihelper.UpdateCSize((Control)sender, -1);
+
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            UIHelper myuihelper = new UIHelper();
+            myuihelper.UpdateCSize((Control)sender, 1);
+
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            UIHelper myuihelper = new UIHelper();
+            myuihelper.DrawRoundRect((Control)sender);
         }
     }
 }

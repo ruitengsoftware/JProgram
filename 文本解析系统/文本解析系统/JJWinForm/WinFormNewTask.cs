@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RuiTengDll;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -66,6 +67,29 @@ namespace 文本解析系统.JJWinForm
             //加载cbb的item
             cbb_jiexigeshi.Items.Clear();
             cbb_jiexigeshi.Items.AddRange(list_format.ToArray());
+        }
+
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Paint(object sender, PaintEventArgs e)
+        {
+            UIHelper myuihelper = new UIHelper();
+            myuihelper.DrawRoundRect(((Control)sender));
+        }
+
+        private void label3_MouseEnter(object sender, EventArgs e)
+        {
+            UIHelper myuihelper = new UIHelper();
+            myuihelper.UpdateCSize((Control)sender,-1);
+        }
+
+        private void label3_MouseLeave(object sender, EventArgs e)
+        {
+            UIHelper myuihelper = new UIHelper();
+            myuihelper.UpdateCSize((Control)sender, 1);
         }
     }
 }
