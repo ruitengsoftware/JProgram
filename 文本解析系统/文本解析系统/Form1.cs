@@ -295,9 +295,6 @@ namespace 文本解析系统
                 //清楚处理中dgv的所有任务
                 dgv_chulizhong.Rows.Clear();
             }
-
-
-
             zanting = false;
             for (int i = startfolder; i < dgv_daichuli.Rows.Count; i++)
             {//记录本次文件夹最终完成度，完成，未完成，重复
@@ -309,7 +306,24 @@ namespace 文本解析系统
                 string foldername = dgv_daichuli.Rows[i].Cells[1].Value.ToString();
                 string formatname = dgv_daichuli.Rows[i].Cells[2].Value.ToString();
                 //显示在处理列表中，更改状态为处理中
-                int index = dgv_chulizhong.Rows.Add();
+                //判断待处理列表中是否已经包含本文件夹，如果包括，就令index等于这行，否则增加一行
+                bool existfolder = false;
+                int index = 0;
+                foreach (DataGridViewRow item in dgv_chulizhong.Rows)
+                {
+                    string renwumingcheng = item.Cells["renwuwenjianjia"].Value.ToString();
+                    if (renwumingcheng.Equals(foldername))
+                    {
+                        existfolder = true;
+                        index = item.Index;
+                        break;
+                    }
+                }
+                if (!existfolder)
+                {
+                                    index = dgv_chulizhong.Rows.Add();//这里如果是暂停的情况，就不需要新增一列了
+
+                }
                 dgv_chulizhong.Rows[index].Cells[1].Value = foldername;
                 dgv_chulizhong.Rows[index].Cells[3].Value = "未完成";
                 //获得该文件夹下的所有文件，开始解析该文档，同时更新解析进度
