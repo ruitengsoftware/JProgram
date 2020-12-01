@@ -736,13 +736,11 @@ namespace WindowsFormsApp2
                 if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center)
                 {
                     bool bb1 = Regex.IsMatch(str_text, @"^第[一二三四五六七八九十]+?[编章][\s\S]*");//是否以指定文字开头
-
-
                     bool b1 = Regex.IsMatch(str_text, @"^第[一二三四五六七八九十]节[\s\S]*");//是否以指定文字开头
                     bool b2 = Regex.IsMatch(str_text, @"目\s*录[\s\S]*");
                     bool b3 = Regex.IsMatch(str_text, @"前\s*言[\s\S]*");
                     //bool b4 = Regex.IsMatch(str_text, @"\s\S+[。.；;！!，,：:……~'”‘’？?""“]$");//是否以符号结尾
-                    if (bb1|| _existdabiaoti)
+                    if ( bb1||!_existdabiaoti)
                     {
                     _existdabiaoti = true;
                     SetParaFormat(para, dic_format["大标题"]);
@@ -753,10 +751,18 @@ namespace WindowsFormsApp2
                         SetParaFormat(para, dic_format["副标题"]);
                         continue;
                     }
-
                 }
                 else
                 {
+                    //1、判断是否为大标题
+                    bool bb1 = Regex.IsMatch(str_text, @"^第[一二三四五六七八九十]+?[编章][\s\S]*");//是否以指定文字开头
+                    if (bb1)
+                    {
+                        SetParaFormat(para, dic_format["大标题"]);
+                        continue;
+                    }
+                    //2、判断正文，一二三级标题
+
                     SetStrFormat(para, dic_format);
                 }
             }
@@ -805,8 +811,9 @@ namespace WindowsFormsApp2
             //1、将整个段落的格式设置成正文
             //获得正文格式
             SetParaFormat(mypara, dic_format["正文"]);
+         
             //2、提取一级标题，设置格式
-            FindReplaceOptions options = new FindReplaceOptions();
+           FindReplaceOptions options = new FindReplaceOptions();
             options.Direction = FindReplaceDirection.Backward;
             //调整文字
             options.ReplacingCallback = new ReplaceEvaluatorFindAndFont(dic_format["一级标题"].fontname, dic_format["一级标题"].fontsize, dic_format["三级标题"].bold == 1 ? true : false);
