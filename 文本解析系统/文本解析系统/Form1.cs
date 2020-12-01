@@ -43,12 +43,11 @@ namespace 文本解析系统
                 for (int i = 0; i < _mycontroller._childdirectories.Count; i++)
                 {
                     //在待处理人物列表增加行
-                    int index = dgv_daichuli.Rows.Add();
-                    var myrow = dgv_daichuli.Rows[index];
+                    int index = dgv_task.Rows.Add();
+                    var myrow = dgv_task.Rows[index];
                     myrow.Cells["xuhao"].Value = index + 1;
                     myrow.Cells["mubiaowenjianjia"].Value = _mycontroller._childdirectories[i];
                     myrow.Cells["jiexigeshi"].Value = jiexigeshi;
-                    myrow.Cells["wanchenghou"].Value = wanchenghou;
                 }
 
 
@@ -61,9 +60,9 @@ namespace 文本解析系统
         {
             try
             {
-                if (dgv_daichuli.CurrentCell.ValueType.ToString().ToLower().Equals("system.drawing.image"))
+                if (dgv_task.CurrentCell.ValueType.ToString().ToLower().Equals("system.drawing.image"))
                 {
-                    dgv_daichuli.Rows.RemoveAt(e.RowIndex);
+                    dgv_task.Rows.RemoveAt(e.RowIndex);
                 }
 
             }
@@ -286,59 +285,42 @@ namespace 文本解析系统
         /// <param name="e"></param>
         private async void btn_kaishi_Click(object sender, EventArgs e)
         {
-            //点击开始的时候，暂停和停止的值自动变为false;
-            tingzhi = false;
+            //更改软件状态
+            lbl_statue.Text = " 状态：正在解析";
             //如果暂停状态是false,让开始文件夹，文件的序号等于0
             if (!zanting)
             {
                 startfolder = startfile = 0;
-                //清楚处理中dgv的所有任务
-                dgv_chulizhong.Rows.Clear();
-            }
-            zanting = false;
-            for (int i = startfolder; i < dgv_daichuli.Rows.Count; i++)
-            {//记录本次文件夹最终完成度，完成，未完成，重复
+                //所有任务进度为0
+                for (int i = 0; i < dgv_task.Rows.Count; i++)
+                {
+                    dgv_task.Rows[i].Cells["jindu"].Value = "";
 
+                }
+            }
+            zanting = false;//暂停状态设置为false
+            tingzhi = false;//停止状态为false
+            for (int i = startfolder; i < dgv_task.Rows.Count; i++)
+            {//记录本次文件夹最终完成度，完成，未完成，重复
                 string str_jiexijieguo = string.Empty;
                 //记录正在执行的文件夹的位置
                 startfolder = i;
                 //获得文件夹名称
-                string foldername = dgv_daichuli.Rows[i].Cells[1].Value.ToString();
-                string formatname = dgv_daichuli.Rows[i].Cells[2].Value.ToString();
+                string foldername = dgv_task.Rows[i].Cells[1].Value.ToString();
+                string formatname = dgv_task.Rows[i].Cells[2].Value.ToString();
                 //显示在处理列表中，更改状态为处理中
-                //判断待处理列表中是否已经包含本文件夹，如果包括，就令index等于这行，否则增加一行
-                bool existfolder = false;
-                int index = 0;
-                foreach (DataGridViewRow item in dgv_chulizhong.Rows)
-                {
-                    string renwumingcheng = item.Cells["renwuwenjianjia"].Value.ToString();
-                    if (renwumingcheng.Equals(foldername))
-                    {
-                        existfolder = true;
-                        index = item.Index;
-                        break;
-                    }
-                }
-                if (!existfolder)
-                {
-                                    index = dgv_chulizhong.Rows.Add();//这里如果是暂停的情况，就不需要新增一列了
-
-                }
-                dgv_chulizhong.Rows[index].Cells[1].Value = foldername;
-                dgv_chulizhong.Rows[index].Cells[3].Value = "未完成";
+                dgv_task.Rows[i].Cells["zhuangtai"].Value = "未完成";
                 //获得该文件夹下的所有文件，开始解析该文档，同时更新解析进度
                 var files = Directory.GetFiles(foldername).ToList();
-                for (int j = startfile; j < files.Count; j++)
+                for (int j = 0; j < files.Count; j++)
                 {
-                    //记录正在执行的文件的位置
-                    startfile = j;
                     //判断否人工停止,如果是，退出本方法
                     if (tingzhi) return;
                     if (zanting) return;
 
                     // 更新进度       
                     string jindu = (Convert.ToDouble(j + 1) * 100 / Convert.ToDouble(files.Count)).ToString("00.00");
-                    dgv_chulizhong.Rows[index].Cells[2].Value = $"{jindu}%";
+                    dgv_task.Rows[i].Cells["jindu"].Value = $"{jindu}%";
                     //获得解析结果，如果成功显示处理完成，完成，重复
                     //判断文件名是否合法，不应含有$
                     if (files[j].Contains("$"))
@@ -347,8 +329,11 @@ namespace 文本解析系统
                     }
                     str_jiexijieguo = await _mycontroller.JiexiAsync(files[j], formatname);
                 }
-                dgv_chulizhong.Rows[index].Cells[3].Value = str_jiexijieguo;
+                dgv_task.Rows[i].Cells["zhuangtai"].Value = str_jiexijieguo;
             }
+            //更新软件状态
+            lbl_statue.Text = " 状态：等待执行";
+
             //判断是否选中完成后关机
             //如果是，那么弹出倒计时10秒提示框，并在及时完成后关机
             if (cb_guanji.Checked)
@@ -419,12 +404,16 @@ namespace 文本解析系统
 
         private void lbl_zanting_Click(object sender, EventArgs e)
         {
+            lbl_statue.Text = " 状态：暂停中";
+
             zanting = true;
 
         }
 
         private void lbl_tingzhi_Click(object sender, EventArgs e)
         {
+            lbl_statue.Text = " 状态：等待执行";
+
             tingzhi = true;
         }
 
@@ -451,6 +440,37 @@ namespace 文本解析系统
 
         private void lbl_daoru_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void pb_search_Click(object sender, EventArgs e)
+        {
+            //获得关键词
+            string keyword = tb_search.Text;
+            //刷新dgv
+            _mycontroller.UpdateDGV(dgv_jiexiguize, keyword);
+        }
+
+        private void pb_search_MouseEnter(object sender, EventArgs e)
+        {
+            ((PictureBox)sender).Image = Properties.Resources.fangdajing2;
+        }
+
+        private void pb_search_MouseLeave(object sender, EventArgs e)
+        {
+            ((PictureBox)sender).Image = Properties.Resources.fangdajing1;
+
+        }
+
+        private void pb_path_MouseEnter(object sender, EventArgs e)
+        {
+            ((PictureBox)sender).Image = Properties.Resources.folderenter;
+
+        }
+
+        private void pb_path_MouseLeave(object sender, EventArgs e)
+        {
+            ((PictureBox)sender).Image = Properties.Resources.folderlv;
 
         }
     }

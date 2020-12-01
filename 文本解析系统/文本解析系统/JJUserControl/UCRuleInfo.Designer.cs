@@ -87,7 +87,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cbb_fuzhileixing = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.pb_shanchu = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.flp_fugaifanwei = new System.Windows.Forms.FlowLayoutPanel();
@@ -99,6 +98,7 @@
             this.checkBox42 = new System.Windows.Forms.CheckBox();
             this.checkBox43 = new System.Windows.Forms.CheckBox();
             this.checkBox44 = new System.Windows.Forms.CheckBox();
+            this.pb_shanchu = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.flp_juzhi.SuspendLayout();
@@ -108,9 +108,9 @@
             this.flp_duixiangxuanze.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.flp_fugaifanwei.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -827,19 +827,6 @@
             this.tableLayoutPanel11.Size = new System.Drawing.Size(709, 30);
             this.tableLayoutPanel11.TabIndex = 1;
             // 
-            // pb_shanchu
-            // 
-            this.pb_shanchu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
-            this.pb_shanchu.Location = new System.Drawing.Point(339, 0);
-            this.pb_shanchu.Margin = new System.Windows.Forms.Padding(0);
-            this.pb_shanchu.Name = "pb_shanchu";
-            this.pb_shanchu.Size = new System.Drawing.Size(30, 30);
-            this.pb_shanchu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_shanchu.TabIndex = 0;
-            this.pb_shanchu.TabStop = false;
-            this.pb_shanchu.Click += new System.EventHandler(this.pb_shanchu_Click);
-            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
@@ -974,6 +961,21 @@
             this.checkBox44.Text = "副标题";
             this.checkBox44.UseVisualStyleBackColor = true;
             // 
+            // pb_shanchu
+            // 
+            this.pb_shanchu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_shanchu.Image = global::文本解析系统.Properties.Resources.delete3;
+            this.pb_shanchu.Location = new System.Drawing.Point(340, 1);
+            this.pb_shanchu.Margin = new System.Windows.Forms.Padding(1);
+            this.pb_shanchu.Name = "pb_shanchu";
+            this.pb_shanchu.Size = new System.Drawing.Size(28, 28);
+            this.pb_shanchu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_shanchu.TabIndex = 0;
+            this.pb_shanchu.TabStop = false;
+            this.pb_shanchu.Click += new System.EventHandler(this.pb_shanchu_Click);
+            this.pb_shanchu.MouseEnter += new System.EventHandler(this.pb_shanchu_MouseEnter);
+            this.pb_shanchu.MouseLeave += new System.EventHandler(this.pb_shanchu_MouseLeave);
+            // 
             // UCRuleInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1000,11 +1002,11 @@
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
             this.tableLayoutPanel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.flp_fugaifanwei.ResumeLayout(false);
             this.flp_fugaifanwei.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).EndInit();
             this.ResumeLayout(false);
 
         }

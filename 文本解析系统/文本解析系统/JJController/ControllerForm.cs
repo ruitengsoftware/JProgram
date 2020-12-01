@@ -60,6 +60,18 @@ namespace 文本解析系统.JJController
             return mysqlhelper.ExecuteDataTable(str_sql, null);
         }
         /// <summary>
+        /// 获得所有的规则
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetGuize(string keyword)
+        {
+            string str_sql = $"select * from 规则信息表 where 规则名称 like '%{keyword}%' and 删除=0";
+            return mysqlhelper.ExecuteDataTable(str_sql, null);
+        }
+
+
+
+        /// <summary>
         /// 删除规则
         /// </summary>
         /// <param name="name"></param>
@@ -217,6 +229,41 @@ namespace 文本解析系统.JJController
                 }
             }
         }
+
+
+        /// <summary>
+        /// 刷新dgv_jiexiguize的数据,带有指定字符串
+        /// </summary>
+        /// <param name="mydgv"></param>
+        public void UpdateDGV(DataGridView mydgv,string keywords)
+        {
+            mydgv.Rows.Clear();
+            //更新dgv_guize的数据
+            DataTable mydt = GetGuize(keywords);
+            for (int i = 0; i < mydt.Rows.Count; i++)
+            {
+                int index = mydgv.Rows.Add();
+                mydgv.Rows[index].Cells[1].Value = mydt.Rows[i]["规则名称"].ToString();
+                mydgv.Rows[index].Cells[2].Value = mydt.Rows[i]["创建人"].ToString();
+                mydgv.Rows[index].Cells[3].Value = mydt.Rows[i]["创建时间"].ToString();
+            }
+            //让所有基础解析规则固定在解析规则的第一位
+            foreach (DataGridViewRow item in mydgv.Rows)
+            {
+                string name = item.Cells["jiexiguizemingcheng"].Value.ToString();
+                if (name.Contains("基础解析规则"))
+                {
+                    //获得行索引
+                    var index = item.Index;
+                    //复制这一行
+                    mydgv.Rows.Remove(item);
+                    //在指定位置重新插入第一行
+                    mydgv.Rows.Insert(0, item);
+                }
+            }
+        }
+
+
 
 
         /// <summary>

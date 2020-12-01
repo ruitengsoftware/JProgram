@@ -146,12 +146,12 @@ namespace 文本解析系统.JJWinForm
 
         private void label2_MouseEnter(object sender, EventArgs e)
         {
-            myuihelper.UpdateCSize((Control)sender, -1);
+            myuihelper.UpdateCC((Control)sender, Color.Salmon,Color.White);
         }
 
         private void label2_MouseLeave(object sender, EventArgs e)
         {
-            myuihelper.UpdateCSize((Control)sender, 1);
+            myuihelper.UpdateCC((Control)sender, Color.Tomato, Color.White);
 
         }
     }

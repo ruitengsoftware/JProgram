@@ -61,6 +61,15 @@ namespace 文本解析系统.JJUserControl
             this.Dispose();
         }
 
-    
+        private void pb_shanchu_MouseEnter(object sender, EventArgs e)
+        {
+            ((PictureBox)sender).Image = Properties.Resources.delete4;
+        }
+
+        private void pb_shanchu_MouseLeave(object sender, EventArgs e)
+        {
+            ((PictureBox)sender).Image = Properties.Resources.delete3;
+
+        }
     }
 }

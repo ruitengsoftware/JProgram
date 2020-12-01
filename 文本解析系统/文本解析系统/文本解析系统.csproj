@@ -184,5 +184,20 @@
   <ItemGroup>
     <None Include="Resources\隐藏.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folderenter %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchenter %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchlv %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
