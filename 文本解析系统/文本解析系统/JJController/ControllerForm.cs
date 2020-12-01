@@ -318,6 +318,9 @@ namespace 文本解析系统.JJController
                         //循环所有的baseinfo对象到excel表中去
                         for (int b = 0; b < mywordinfo._list_baseinfo.Count; b++)
                         {
+                            //在这里做一个放错机制，防止正文过长等一些导致填充表格报错的情况
+                            try
+                            {
                             if (mywordinfo._list_baseinfo[b]._wenben.Trim().Equals(string.Empty))
                             {
                                 continue;
@@ -332,6 +335,10 @@ namespace 文本解析系统.JJController
                             mysht.Cells[rowindex, 5].Value = mywordinfo._list_baseinfo[b]._weizhiguanlian;
                             mysht.Cells[rowindex, 6].Value = mywordinfo._list_baseinfo[b]._neirongguanlian;
                             mysht.Cells[rowindex, 7].Value = mywordinfo._list_baseinfo[b]._guanlianbiaozhunduan;
+
+                            }
+                            catch { }
+
 
 
 

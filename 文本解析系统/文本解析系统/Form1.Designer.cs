@@ -398,8 +398,8 @@
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label4.Click += new System.EventHandler(this.btn_kaishi_Click);
             this.label4.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.label4.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            this.label4.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.label4.MouseEnter += new System.EventHandler(this.label4_MouseEnter);
+            this.label4.MouseLeave += new System.EventHandler(this.label4_MouseLeave);
             // 
             // lbl_zanting
             // 
@@ -416,8 +416,8 @@
             this.lbl_zanting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_zanting.Click += new System.EventHandler(this.lbl_zanting_Click);
             this.lbl_zanting.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.lbl_zanting.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            this.lbl_zanting.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.lbl_zanting.MouseEnter += new System.EventHandler(this.label4_MouseEnter);
+            this.lbl_zanting.MouseLeave += new System.EventHandler(this.label4_MouseLeave);
             // 
             // lbl_tingzhi
             // 
@@ -434,8 +434,8 @@
             this.lbl_tingzhi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_tingzhi.Click += new System.EventHandler(this.lbl_tingzhi_Click);
             this.lbl_tingzhi.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.lbl_tingzhi.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            this.lbl_tingzhi.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.lbl_tingzhi.MouseEnter += new System.EventHandler(this.label4_MouseEnter);
+            this.lbl_tingzhi.MouseLeave += new System.EventHandler(this.label4_MouseLeave);
             // 
             // tableLayoutPanel3
             // 
@@ -498,8 +498,8 @@
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label8.Click += new System.EventHandler(this.btn_baocun_Click);
             this.label8.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.label8.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            this.label8.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.label8.MouseEnter += new System.EventHandler(this.label4_MouseEnter);
+            this.label8.MouseLeave += new System.EventHandler(this.label4_MouseLeave);
             // 
             // label9
             // 
@@ -516,8 +516,8 @@
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label9.Click += new System.EventHandler(this.btn_shanchu_Click);
             this.label9.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.label9.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            this.label9.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.label9.MouseEnter += new System.EventHandler(this.label4_MouseEnter);
+            this.label9.MouseLeave += new System.EventHandler(this.label4_MouseLeave);
             // 
             // tlp_chachong
             // 
@@ -764,8 +764,8 @@
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label10.Click += new System.EventHandler(this.btn_xinjian_Click);
             this.label10.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.label10.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            this.label10.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.label10.MouseEnter += new System.EventHandler(this.label4_MouseEnter);
+            this.label10.MouseLeave += new System.EventHandler(this.label4_MouseLeave);
             // 
             // lbl_daoru
             // 
@@ -781,9 +781,10 @@
             this.lbl_daoru.TabIndex = 2;
             this.lbl_daoru.Text = "导    入";
             this.lbl_daoru.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_daoru.Click += new System.EventHandler(this.lbl_daoru_Click);
             this.lbl_daoru.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.lbl_daoru.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            this.lbl_daoru.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.lbl_daoru.MouseEnter += new System.EventHandler(this.label4_MouseEnter);
+            this.lbl_daoru.MouseLeave += new System.EventHandler(this.label4_MouseLeave);
             // 
             // lbl_daochu
             // 
@@ -799,9 +800,10 @@
             this.lbl_daochu.TabIndex = 2;
             this.lbl_daochu.Text = "导    出";
             this.lbl_daochu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_daochu.Click += new System.EventHandler(this.lbl_daochu_Click);
             this.lbl_daochu.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.lbl_daochu.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            this.lbl_daochu.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.lbl_daochu.MouseEnter += new System.EventHandler(this.label4_MouseEnter);
+            this.lbl_daochu.MouseLeave += new System.EventHandler(this.label4_MouseLeave);
             // 
             // lbl_piliangshanchu
             // 
@@ -818,8 +820,8 @@
             this.lbl_piliangshanchu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_piliangshanchu.Click += new System.EventHandler(this.lbl_piliangshanchu_Click);
             this.lbl_piliangshanchu.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.lbl_piliangshanchu.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            this.lbl_piliangshanchu.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.lbl_piliangshanchu.MouseEnter += new System.EventHandler(this.label4_MouseEnter);
+            this.lbl_piliangshanchu.MouseLeave += new System.EventHandler(this.label4_MouseLeave);
             // 
             // dgv_jiexiguize
             // 

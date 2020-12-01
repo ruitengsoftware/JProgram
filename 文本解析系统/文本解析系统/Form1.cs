@@ -287,14 +287,18 @@ namespace 文本解析系统
         private async void btn_kaishi_Click(object sender, EventArgs e)
         {
             //点击开始的时候，暂停和停止的值自动变为false;
-            
-          
             tingzhi = false;
             //如果暂停状态是false,让开始文件夹，文件的序号等于0
-            
+            if (!zanting)
+            {
+                startfolder = startfile = 0;
+                //清楚处理中dgv的所有任务
+                dgv_chulizhong.Rows.Clear();
+            }
 
-             //清楚处理中dgv的所有任务
-            dgv_chulizhong.Rows.Clear();
+
+
+            zanting = false;
             for (int i = startfolder; i < dgv_daichuli.Rows.Count; i++)
             {
                 //记录正在执行的文件夹的位置
@@ -315,7 +319,7 @@ namespace 文本解析系统
                     //判断否人工停止,如果是，退出本方法
                     if (tingzhi) return;
                     if (zanting) return;
-                   
+
                     // 更新进度       
                     string jindu = (Convert.ToDouble(j + 1) * 100 / Convert.ToDouble(files.Count)).ToString("00.00");
                     dgv_chulizhong.Rows[index].Cells[2].Value = $"{jindu}%";
@@ -326,7 +330,8 @@ namespace 文本解析系统
                         continue;
                     }
                     string str_jiexijieguo = await _mycontroller.JiexiAsync(files[j], formatname);
-                    dgv_chulizhong.Rows[index].Cells[3].Value = str_jiexijieguo;
+                  dgv_chulizhong.Rows[index].Cells[3].Value = str_jiexijieguo;
+  
                 }
             }
             //判断是否选中完成后关机
@@ -357,14 +362,15 @@ namespace 文本解析系统
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
             UIHelper myuihelper = new UIHelper();
-            myuihelper.UpdateCSize((Control)sender, -1);
-
+            //myuihelper.UpdateCSize((Control)sender, -1);
+            myuihelper.UpdateCC((Control)sender, Color.MediumSeaGreen, Color.White);
         }
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
             UIHelper myuihelper = new UIHelper();
-            myuihelper.UpdateCSize((Control)sender, 1);
+            // myuihelper.UpdateCSize((Control)sender, 1);
+            myuihelper.UpdateCC((Control)sender, Color.SeaGreen, Color.White);
 
         }
 
@@ -377,7 +383,7 @@ namespace 文本解析系统
         private void lbl_piliangshanchu_Click(object sender, EventArgs e)
         {
             //获得所有选中的行
-            var selectrows=dgv_jiexiguize.SelectedRows;
+            var selectrows = dgv_jiexiguize.SelectedRows;
 
             //删除数据库中对应的解析规则，刷新数据
             foreach (DataGridViewRow myrow in selectrows)
@@ -399,12 +405,38 @@ namespace 文本解析系统
         private void lbl_zanting_Click(object sender, EventArgs e)
         {
             zanting = true;
-           
+
         }
 
         private void lbl_tingzhi_Click(object sender, EventArgs e)
         {
             tingzhi = true;
+        }
+
+        private void label4_MouseEnter(object sender, EventArgs e)
+        {
+            UIHelper myuihelper = new UIHelper();
+            //myuihelper.UpdateCSize((Control)sender, -1);
+            myuihelper.UpdateCC((Control)sender, Color.Salmon, Color.White);
+
+        }
+
+        private void label4_MouseLeave(object sender, EventArgs e)
+        {
+            UIHelper myuihelper = new UIHelper();
+            //myuihelper.UpdateCSize((Control)sender, -1);
+            myuihelper.UpdateCC((Control)sender, Color.Tomato, Color.White);
+
+        }
+
+        private void lbl_daochu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_daoru_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
