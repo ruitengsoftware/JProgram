@@ -44,8 +44,11 @@
             this.jiexigeshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jindu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zhuangtai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cb_guanji = new System.Windows.Forms.CheckBox();
+            this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
             this.label7 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.cb_guanji = new System.Windows.Forms.CheckBox();
+            this.lbl_statue = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,6 +69,7 @@
             this.tlp_excel = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_savepath = new System.Windows.Forms.TextBox();
+            this.pb_path = new System.Windows.Forms.PictureBox();
             this.rb_moren = new System.Windows.Forms.RadioButton();
             this.rb_qita = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -82,12 +86,8 @@
             this.shanchuanniu = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_search = new System.Windows.Forms.TextBox();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pb_path = new System.Windows.Forms.PictureBox();
             this.pb_search = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_statue = new System.Windows.Forms.Label();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -95,20 +95,20 @@
             this.tableLayoutPanel8.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_task)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tlp_chachong.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tlp_excel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jiexiguize)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_search)).BeginInit();
-            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -230,18 +230,15 @@
             this.zhuangtai.HeaderText = "状态";
             this.zhuangtai.Name = "zhuangtai";
             // 
-            // cb_guanji
+            // shanchu
             // 
-            this.cb_guanji.AutoSize = true;
-            this.cb_guanji.Dock = System.Windows.Forms.DockStyle.Right;
-            this.cb_guanji.Location = new System.Drawing.Point(265, 3);
-            this.cb_guanji.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
-            this.cb_guanji.Name = "cb_guanji";
-            this.cb_guanji.Size = new System.Drawing.Size(87, 24);
-            this.cb_guanji.TabIndex = 2;
-            this.cb_guanji.Text = "完成后关机";
-            this.cb_guanji.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cb_guanji.UseVisualStyleBackColor = true;
+            this.shanchu.FillWeight = 76.14214F;
+            this.shanchu.HeaderText = "";
+            this.shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
+            this.shanchu.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.shanchu.Name = "shanchu";
+            this.shanchu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.shanchu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // label7
             // 
@@ -260,6 +257,49 @@
             this.label7.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             this.label7.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
             this.label7.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.tableLayoutPanel4.Controls.Add(this.cb_guanji, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.lbl_statue, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 598);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(355, 30);
+            this.tableLayoutPanel4.TabIndex = 4;
+            // 
+            // cb_guanji
+            // 
+            this.cb_guanji.AutoSize = true;
+            this.cb_guanji.Dock = System.Windows.Forms.DockStyle.Right;
+            this.cb_guanji.Location = new System.Drawing.Point(265, 3);
+            this.cb_guanji.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+            this.cb_guanji.Name = "cb_guanji";
+            this.cb_guanji.Size = new System.Drawing.Size(87, 24);
+            this.cb_guanji.TabIndex = 2;
+            this.cb_guanji.Text = "完成后关机";
+            this.cb_guanji.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cb_guanji.UseVisualStyleBackColor = true;
+            // 
+            // lbl_statue
+            // 
+            this.lbl_statue.AutoSize = true;
+            this.lbl_statue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_statue.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbl_statue.Location = new System.Drawing.Point(1, 1);
+            this.lbl_statue.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_statue.Name = "lbl_statue";
+            this.lbl_statue.Size = new System.Drawing.Size(125, 28);
+            this.lbl_statue.TabIndex = 3;
+            this.lbl_statue.Text = " 状态：等待执行";
+            this.lbl_statue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel1
             // 
@@ -577,6 +617,22 @@
             this.tb_savepath.Size = new System.Drawing.Size(461, 23);
             this.tb_savepath.TabIndex = 2;
             // 
+            // pb_path
+            // 
+            this.pb_path.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_path.Image = global::文本解析系统.Properties.Resources.folderlv;
+            this.pb_path.Location = new System.Drawing.Point(729, 10);
+            this.pb_path.Margin = new System.Windows.Forms.Padding(8, 10, 8, 10);
+            this.pb_path.Name = "pb_path";
+            this.pb_path.Size = new System.Drawing.Size(24, 20);
+            this.pb_path.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_path.TabIndex = 3;
+            this.pb_path.TabStop = false;
+            this.pb_path.Click += new System.EventHandler(this.pb_path_Click);
+            this.pb_path.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.pb_path.MouseEnter += new System.EventHandler(this.pb_path_MouseEnter);
+            this.pb_path.MouseLeave += new System.EventHandler(this.pb_path_MouseLeave);
+            // 
             // rb_moren
             // 
             this.rb_moren.AutoSize = true;
@@ -798,43 +854,6 @@
             this.tb_search.Size = new System.Drawing.Size(194, 23);
             this.tb_search.TabIndex = 0;
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.FillWeight = 60.9137F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::文本解析系统.Properties.Resources.shanchu2;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn1.Width = 59;
-            // 
-            // shanchu
-            // 
-            this.shanchu.FillWeight = 76.14214F;
-            this.shanchu.HeaderText = "";
-            this.shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
-            this.shanchu.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.shanchu.Name = "shanchu";
-            this.shanchu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.shanchu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // pb_path
-            // 
-            this.pb_path.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_path.Image = global::文本解析系统.Properties.Resources.folderlv;
-            this.pb_path.Location = new System.Drawing.Point(729, 10);
-            this.pb_path.Margin = new System.Windows.Forms.Padding(8, 10, 8, 10);
-            this.pb_path.Name = "pb_path";
-            this.pb_path.Size = new System.Drawing.Size(24, 20);
-            this.pb_path.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_path.TabIndex = 3;
-            this.pb_path.TabStop = false;
-            this.pb_path.Click += new System.EventHandler(this.pb_path_Click);
-            this.pb_path.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.pb_path.MouseEnter += new System.EventHandler(this.pb_path_MouseEnter);
-            this.pb_path.MouseLeave += new System.EventHandler(this.pb_path_MouseLeave);
-            // 
             // pb_search
             // 
             this.pb_search.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -851,35 +870,16 @@
             this.pb_search.MouseEnter += new System.EventHandler(this.pb_search_MouseEnter);
             this.pb_search.MouseLeave += new System.EventHandler(this.pb_search_MouseLeave);
             // 
-            // tableLayoutPanel4
+            // dataGridViewImageColumn1
             // 
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.cb_guanji, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.lbl_statue, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 598);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(355, 30);
-            this.tableLayoutPanel4.TabIndex = 4;
-            // 
-            // lbl_statue
-            // 
-            this.lbl_statue.AutoSize = true;
-            this.lbl_statue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_statue.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl_statue.Location = new System.Drawing.Point(1, 1);
-            this.lbl_statue.Margin = new System.Windows.Forms.Padding(1);
-            this.lbl_statue.Name = "lbl_statue";
-            this.lbl_statue.Size = new System.Drawing.Size(125, 28);
-            this.lbl_statue.TabIndex = 3;
-            this.lbl_statue.Text = " 状态：等待执行";
-            this.lbl_statue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dataGridViewImageColumn1.FillWeight = 60.9137F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::文本解析系统.Properties.Resources.shanchu2;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.Width = 59;
             // 
             // Form1
             // 
@@ -903,6 +903,8 @@
             this.tableLayoutPanel8.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_task)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -914,6 +916,7 @@
             this.flowLayoutPanel1.PerformLayout();
             this.tlp_excel.ResumeLayout(false);
             this.tlp_excel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
@@ -921,10 +924,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jiexiguize)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_search)).EndInit();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }

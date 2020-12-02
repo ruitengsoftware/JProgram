@@ -71,5 +71,23 @@ namespace 文本解析系统.JJUserControl
             ((PictureBox)sender).Image = Properties.Resources.delete3;
 
         }
+
+        private void pb_wenhao_MouseEnter(object sender, EventArgs e)
+        {
+            ((PictureBox)sender).Image = Properties.Resources.wenhao2;
+        }
+
+        private void pb_wenhao_MouseLeave(object sender, EventArgs e)
+        {
+            ((PictureBox)sender).Image = Properties.Resources.wenhao1;
+
+        }
+
+        private void pb_wenhao_Click(object sender, EventArgs e)
+        {
+            //打开网页，正则表达式的指引
+            System.Diagnostics.Process.Start("explorer.exe", "https://c.runoob.com/front-end/854");
+
+        }
     }
 }
