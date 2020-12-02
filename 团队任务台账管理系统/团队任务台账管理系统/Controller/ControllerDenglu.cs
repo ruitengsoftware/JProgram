@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using 团队任务台账管理系统.JJModel;
 
 namespace 团队任务台账管理系统.Controller
 {
@@ -21,15 +22,27 @@ namespace 团队任务台账管理系统.Controller
         }
 
         /// <summary>
-        /// 获得花名对应的头像图片
+        /// 获得花名对应的登陆人员信息
         /// </summary>
         /// <param name="huaming"></param>
         /// <returns></returns>
-        public Image GetTouxiang(string huaming)
+        public void GetLoginInfo(string huaming)
         {
-            string str_sql = $"select 头像 from jjperson where 花名='{huaming}'";
-            string str_touxiang = mysqlhelper.ExecuteScalar(str_sql).ToString();
-            return ConvertBase64ToImage(str_touxiang);
+            string str_sql = $"select * from jjperson where 花名='{huaming}'";
+
+            var mydr=mysqlhelper.ExecuteDataRow(str_sql);
+            JJPerson._huaming = mydr["花名"].ToString();
+            JJPerson._shiming = mydr["实名"].ToString();
+            JJPerson._bumen= mydr["部门"].ToString();
+            JJPerson._zhiji= mydr["职级"].ToString();
+            JJPerson._mima= mydr["密码"].ToString(); 
+            JJPerson._shoujihao= mydr["手机号"].ToString();
+            JJPerson._dianziyouxiang= mydr["电子邮箱"].ToString(); 
+            JJPerson._zidingyizhanghao= mydr["自定义账号"].ToString();
+            JJPerson._touxiang= mydr["头像"].ToString(); 
+            JJPerson._gongzuozhengjianzhao= mydr["工作证件照"].ToString();
+            JJPerson._weixinhao= mydr["微信号"].ToString();
+            JJPerson._gerenqianming= mydr["个人签名"].ToString();
         }
 
         //判断是否存在用户名和密码

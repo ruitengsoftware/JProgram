@@ -64,7 +64,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel_my);
             this.splitContainer1.Size = new System.Drawing.Size(757, 464);
-            this.splitContainer1.SplitterDistance = 110;
+            this.splitContainer1.SplitterDistance = 96;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -98,7 +98,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(110, 464);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(96, 464);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // pb_touxiang
@@ -109,7 +109,7 @@
             this.pb_touxiang.Location = new System.Drawing.Point(7, 7);
             this.pb_touxiang.Margin = new System.Windows.Forms.Padding(7);
             this.pb_touxiang.Name = "pb_touxiang";
-            this.pb_touxiang.Size = new System.Drawing.Size(96, 46);
+            this.pb_touxiang.Size = new System.Drawing.Size(82, 46);
             this.pb_touxiang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_touxiang.TabIndex = 0;
             this.pb_touxiang.TabStop = false;
@@ -117,9 +117,11 @@
             // 
             // btn_xinjian
             // 
-            this.btn_xinjian.Location = new System.Drawing.Point(3, 93);
+            this.btn_xinjian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_xinjian.Location = new System.Drawing.Point(1, 91);
+            this.btn_xinjian.Margin = new System.Windows.Forms.Padding(1);
             this.btn_xinjian.Name = "btn_xinjian";
-            this.btn_xinjian.Size = new System.Drawing.Size(104, 24);
+            this.btn_xinjian.Size = new System.Drawing.Size(94, 28);
             this.btn_xinjian.TabIndex = 2;
             this.btn_xinjian.Text = "新建";
             this.btn_xinjian.UseVisualStyleBackColor = true;
@@ -127,9 +129,11 @@
             // 
             // btn_daiban
             // 
-            this.btn_daiban.Location = new System.Drawing.Point(3, 123);
+            this.btn_daiban.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_daiban.Location = new System.Drawing.Point(1, 121);
+            this.btn_daiban.Margin = new System.Windows.Forms.Padding(1);
             this.btn_daiban.Name = "btn_daiban";
-            this.btn_daiban.Size = new System.Drawing.Size(104, 24);
+            this.btn_daiban.Size = new System.Drawing.Size(94, 28);
             this.btn_daiban.TabIndex = 2;
             this.btn_daiban.Text = "代办";
             this.btn_daiban.UseVisualStyleBackColor = true;
@@ -137,9 +141,11 @@
             // 
             // btn_tuandui
             // 
-            this.btn_tuandui.Location = new System.Drawing.Point(3, 153);
+            this.btn_tuandui.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_tuandui.Location = new System.Drawing.Point(1, 151);
+            this.btn_tuandui.Margin = new System.Windows.Forms.Padding(1);
             this.btn_tuandui.Name = "btn_tuandui";
-            this.btn_tuandui.Size = new System.Drawing.Size(104, 24);
+            this.btn_tuandui.Size = new System.Drawing.Size(94, 28);
             this.btn_tuandui.TabIndex = 2;
             this.btn_tuandui.Text = "团队";
             this.btn_tuandui.UseVisualStyleBackColor = true;
@@ -147,18 +153,22 @@
             // 
             // btn_tongxunlu
             // 
-            this.btn_tongxunlu.Location = new System.Drawing.Point(3, 183);
+            this.btn_tongxunlu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_tongxunlu.Location = new System.Drawing.Point(1, 181);
+            this.btn_tongxunlu.Margin = new System.Windows.Forms.Padding(1);
             this.btn_tongxunlu.Name = "btn_tongxunlu";
-            this.btn_tongxunlu.Size = new System.Drawing.Size(104, 24);
+            this.btn_tongxunlu.Size = new System.Drawing.Size(94, 28);
             this.btn_tongxunlu.TabIndex = 2;
             this.btn_tongxunlu.Text = "通讯录???";
             this.btn_tongxunlu.UseVisualStyleBackColor = true;
             // 
             // btn_lishiziliao
             // 
-            this.btn_lishiziliao.Location = new System.Drawing.Point(3, 213);
+            this.btn_lishiziliao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_lishiziliao.Location = new System.Drawing.Point(1, 211);
+            this.btn_lishiziliao.Margin = new System.Windows.Forms.Padding(1);
             this.btn_lishiziliao.Name = "btn_lishiziliao";
-            this.btn_lishiziliao.Size = new System.Drawing.Size(104, 24);
+            this.btn_lishiziliao.Size = new System.Drawing.Size(94, 28);
             this.btn_lishiziliao.TabIndex = 2;
             this.btn_lishiziliao.Text = "历史资料";
             this.btn_lishiziliao.UseVisualStyleBackColor = true;
@@ -166,19 +176,23 @@
             // 
             // btn_gongxiangziliao
             // 
+            this.btn_gongxiangziliao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_gongxiangziliao.Enabled = false;
-            this.btn_gongxiangziliao.Location = new System.Drawing.Point(3, 273);
+            this.btn_gongxiangziliao.Location = new System.Drawing.Point(1, 271);
+            this.btn_gongxiangziliao.Margin = new System.Windows.Forms.Padding(1);
             this.btn_gongxiangziliao.Name = "btn_gongxiangziliao";
-            this.btn_gongxiangziliao.Size = new System.Drawing.Size(104, 24);
+            this.btn_gongxiangziliao.Size = new System.Drawing.Size(94, 28);
             this.btn_gongxiangziliao.TabIndex = 0;
             this.btn_gongxiangziliao.Text = "共享资料";
             this.btn_gongxiangziliao.UseVisualStyleBackColor = true;
             // 
             // btn_shouquan
             // 
-            this.btn_shouquan.Location = new System.Drawing.Point(3, 243);
+            this.btn_shouquan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_shouquan.Location = new System.Drawing.Point(1, 241);
+            this.btn_shouquan.Margin = new System.Windows.Forms.Padding(1);
             this.btn_shouquan.Name = "btn_shouquan";
-            this.btn_shouquan.Size = new System.Drawing.Size(104, 24);
+            this.btn_shouquan.Size = new System.Drawing.Size(94, 28);
             this.btn_shouquan.TabIndex = 2;
             this.btn_shouquan.Text = "授权";
             this.btn_shouquan.UseVisualStyleBackColor = true;
@@ -186,9 +200,11 @@
             // 
             // btn_tuichu
             // 
-            this.btn_tuichu.Location = new System.Drawing.Point(3, 303);
+            this.btn_tuichu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_tuichu.Location = new System.Drawing.Point(1, 301);
+            this.btn_tuichu.Margin = new System.Windows.Forms.Padding(1);
             this.btn_tuichu.Name = "btn_tuichu";
-            this.btn_tuichu.Size = new System.Drawing.Size(104, 24);
+            this.btn_tuichu.Size = new System.Drawing.Size(94, 28);
             this.btn_tuichu.TabIndex = 3;
             this.btn_tuichu.Text = "退出";
             this.btn_tuichu.UseVisualStyleBackColor = true;
@@ -196,9 +212,11 @@
             // 
             // btn_home
             // 
-            this.btn_home.Location = new System.Drawing.Point(3, 63);
+            this.btn_home.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_home.Location = new System.Drawing.Point(1, 61);
+            this.btn_home.Margin = new System.Windows.Forms.Padding(1);
             this.btn_home.Name = "btn_home";
-            this.btn_home.Size = new System.Drawing.Size(104, 24);
+            this.btn_home.Size = new System.Drawing.Size(94, 28);
             this.btn_home.TabIndex = 4;
             this.btn_home.Text = "主页";
             this.btn_home.UseVisualStyleBackColor = true;
@@ -210,7 +228,7 @@
             this.panel_my.Location = new System.Drawing.Point(0, 0);
             this.panel_my.Margin = new System.Windows.Forms.Padding(0);
             this.panel_my.Name = "panel_my";
-            this.panel_my.Size = new System.Drawing.Size(643, 464);
+            this.panel_my.Size = new System.Drawing.Size(657, 464);
             this.panel_my.TabIndex = 0;
             // 
             // Form1

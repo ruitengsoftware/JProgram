@@ -62,7 +62,7 @@ namespace 团队任务台账管理系统.UserControll
                     WebClient myWebClient = new WebClient();
                     NetworkCredential credentials = new NetworkCredential("Administrator", "Lxr+850223");
                     myWebClient.Credentials = credentials;
-                    Uri myuri = new Uri("http://39.107.125.33/标准任务表.xlsx");
+                    Uri myuri = new Uri("http://49.233.40.109/标准任务表.xlsx");
                    myWebClient.DownloadFileAsync(myuri, sfd.FileName);
                     MessageBox.Show("表格下载成功！");
                 }
@@ -221,6 +221,15 @@ namespace 团队任务台账管理系统.UserControll
             WFxinjian wfxinjian = new WFxinjian();
             wfxinjian.StartPosition = FormStartPosition.CenterParent;
             wfxinjian.ShowDialog();
+        }
+
+        private void lbl_gongzuoqingdan_Click(object sender, EventArgs e)
+        {
+            WinForm.WinFormXinjiangongzuoqingdan mywinform = new WinForm.WinFormXinjiangongzuoqingdan();
+            if (mywinform.ShowDialog() == DialogResult.OK)
+            {
+               
+            }
         }
     }
 }

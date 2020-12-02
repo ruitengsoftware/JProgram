@@ -14,7 +14,7 @@
     <Setting Name="zidongdenglu" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="jizhuwo" Type="System.Boolean" Scope="User">
+    <Setting Name="jizhumima" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>

@@ -155,7 +155,7 @@
             this.llbl_wangjimima.Margin = new System.Windows.Forms.Padding(1, 4, 1, 1);
             this.llbl_wangjimima.Name = "llbl_wangjimima";
             this.llbl_wangjimima.Size = new System.Drawing.Size(63, 35);
-            this.llbl_wangjimima.TabIndex = 3;
+            this.llbl_wangjimima.TabIndex = 5;
             this.llbl_wangjimima.TabStop = true;
             this.llbl_wangjimima.Text = "找回密码";
             this.llbl_wangjimima.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -167,7 +167,7 @@
             this.cb_jizhuwo.Location = new System.Drawing.Point(93, 3);
             this.cb_jizhuwo.Name = "cb_jizhuwo";
             this.cb_jizhuwo.Size = new System.Drawing.Size(75, 21);
-            this.cb_jizhuwo.TabIndex = 2;
+            this.cb_jizhuwo.TabIndex = 4;
             this.cb_jizhuwo.Text = "记住密码";
             this.cb_jizhuwo.UseVisualStyleBackColor = true;
             // 
@@ -179,7 +179,7 @@
             this.cb_zidongdenlgu.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
             this.cb_zidongdenlgu.Name = "cb_zidongdenlgu";
             this.cb_zidongdenlgu.Size = new System.Drawing.Size(75, 21);
-            this.cb_zidongdenlgu.TabIndex = 4;
+            this.cb_zidongdenlgu.TabIndex = 3;
             this.cb_zidongdenlgu.Text = "自动登录";
             this.cb_zidongdenlgu.UseVisualStyleBackColor = true;
             // 
@@ -205,7 +205,7 @@
             this.tableLayoutPanel5.ColumnCount = 3;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel5.Controls.Add(this.tb_mima, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.pictureBox2, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.pb_xianshi, 2, 0);
@@ -225,8 +225,9 @@
             this.tb_mima.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.tb_mima.Name = "tb_mima";
             this.tb_mima.PasswordChar = '*';
-            this.tb_mima.Size = new System.Drawing.Size(180, 23);
-            this.tb_mima.TabIndex = 1;
+            this.tb_mima.Size = new System.Drawing.Size(186, 23);
+            this.tb_mima.TabIndex = 2;
+            this.tb_mima.Text = "xzc800920";
             // 
             // pictureBox2
             // 
@@ -244,10 +245,10 @@
             // 
             this.pb_xianshi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_xianshi.Image = global::团队任务台账管理系统.Properties.Resources.显示;
-            this.pb_xianshi.Location = new System.Drawing.Point(214, 4);
-            this.pb_xianshi.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_xianshi.Location = new System.Drawing.Point(216, 4);
+            this.pb_xianshi.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.pb_xianshi.Name = "pb_xianshi";
-            this.pb_xianshi.Size = new System.Drawing.Size(22, 22);
+            this.pb_xianshi.Size = new System.Drawing.Size(24, 22);
             this.pb_xianshi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_xianshi.TabIndex = 2;
             this.pb_xianshi.TabStop = false;
@@ -274,10 +275,11 @@
             this.cbb_yonghuming.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbb_yonghuming.FormattingEnabled = true;
             this.cbb_yonghuming.Location = new System.Drawing.Point(30, 3);
-            this.cbb_yonghuming.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.cbb_yonghuming.Margin = new System.Windows.Forms.Padding(0, 3, 24, 3);
             this.cbb_yonghuming.Name = "cbb_yonghuming";
-            this.cbb_yonghuming.Size = new System.Drawing.Size(207, 25);
-            this.cbb_yonghuming.TabIndex = 8;
+            this.cbb_yonghuming.Size = new System.Drawing.Size(186, 25);
+            this.cbb_yonghuming.TabIndex = 1;
+            this.cbb_yonghuming.Text = "昵称一号";
             // 
             // pictureBox1
             // 
@@ -295,7 +297,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label2.ForeColor = System.Drawing.Color.Gold;
             this.label2.Location = new System.Drawing.Point(3, 210);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(234, 120);

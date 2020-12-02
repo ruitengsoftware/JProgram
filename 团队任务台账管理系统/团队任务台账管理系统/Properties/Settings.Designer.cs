@@ -74,12 +74,12 @@ namespace 团队任务台账管理系统.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool jizhuwo {
+        public bool jizhumima {
             get {
-                return ((bool)(this["jizhuwo"]));
+                return ((bool)(this["jizhumima"]));
             }
             set {
-                this["jizhuwo"] = value;
+                this["jizhumima"] = value;
             }
         }
     }

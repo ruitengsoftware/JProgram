@@ -29,21 +29,27 @@ namespace 团队任务台账管理系统.UserControll
 
             if (successlogin)//如果登陆成功就进行
             {
+                //获得登录者信息
+                mycontroller.GetLoginInfo(name);
+
                 var parent = this.Parent;
                 parent.Controls.Clear();
                 UCmain uc_main = new UCmain();
                 uc_main.Dock = DockStyle.Fill;
                 parent.Controls.Add(uc_main);
                 ((SplitContainer)parent.Parent.Parent).Panel1Collapsed = false;
-                //获得花名对应的头像
-                var touxiang = mycontroller.GetTouxiang(name);
-                ((Form1)parent.Parent.Parent.Parent).pb_touxiang.Image = touxiang;
+                ((Form1)parent.Parent.Parent.Parent).pb_touxiang.Image = mycontroller.ConvertBase64ToImage(JJModel.JJPerson._touxiang);
                 //settings获得自动登录，记住我，姓名，密码
                 Settings.Default.huaming = name;
                 Settings.Default.mima = pwd;
-                Settings.Default.jizhuwo = cb_jizhuwo.Checked;
+                Settings.Default.jizhumima = cb_jizhuwo.Checked;
                 Settings.Default.zidongdenglu = cb_zidongdenlgu.Checked;
                 Settings.Default.Save();
+                //根据花名获得登录人员信息，静态
+               
+
+
+
             }
             else
             {
@@ -70,8 +76,8 @@ namespace 团队任务台账管理系统.UserControll
                 catch { }
             }
             //给记住我，姓名，密码 自动登录赋值
-            cb_jizhuwo.Checked = Settings.Default.jizhuwo;
-            if (Settings.Default.jizhuwo)
+            cb_jizhuwo.Checked = Settings.Default.jizhumima;
+            if (Settings.Default.jizhumima)
             {
                 cbb_yonghuming.Text = Settings.Default.huaming;
                 tb_mima.Text = Settings.Default.mima;
@@ -103,14 +109,14 @@ namespace 团队任务台账管理系统.UserControll
             //如果是隐藏，那么密码显示为星号，图片变成显示
             if (!xianshi)
             {
-                tb_mima.PasswordChar = '*';
-                pb_xianshi.Image = Properties.Resources.显示;
+                tb_mima.PasswordChar = new char();
+                pb_xianshi.Image = Properties.Resources.隐藏;
                 xianshi = true;
             }
             else if (xianshi)
             {
-                tb_mima.PasswordChar = new char();
-                pb_xianshi.Image = Properties.Resources.隐藏;
+                tb_mima.PasswordChar = '*';
+                pb_xianshi.Image = Properties.Resources.显示;
                 xianshi = false;
             }
 
