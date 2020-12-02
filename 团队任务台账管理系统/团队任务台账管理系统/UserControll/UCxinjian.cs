@@ -63,7 +63,7 @@ namespace 团队任务台账管理系统.UserControll
                     NetworkCredential credentials = new NetworkCredential("Administrator", "Lxr+850223");
                     myWebClient.Credentials = credentials;
                     Uri myuri = new Uri("http://39.107.125.33/标准任务表.xlsx");
-                    myWebClient.DownloadFileAsync(myuri, sfd.FileName);
+                   myWebClient.DownloadFileAsync(myuri, sfd.FileName);
                     MessageBox.Show("表格下载成功！");
                 }
 

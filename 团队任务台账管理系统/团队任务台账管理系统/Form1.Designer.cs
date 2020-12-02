@@ -30,28 +30,23 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pb_home = new System.Windows.Forms.PictureBox();
             this.pb_touxiang = new System.Windows.Forms.PictureBox();
-            this.pb_tuichu = new System.Windows.Forms.PictureBox();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_xinjian = new System.Windows.Forms.Button();
             this.btn_daiban = new System.Windows.Forms.Button();
-            this.btn_yanshou = new System.Windows.Forms.Button();
-            this.btn_shezhi = new System.Windows.Forms.Button();
+            this.btn_tuandui = new System.Windows.Forms.Button();
+            this.btn_tongxunlu = new System.Windows.Forms.Button();
+            this.btn_lishiziliao = new System.Windows.Forms.Button();
+            this.btn_gongxiangziliao = new System.Windows.Forms.Button();
+            this.btn_shouquan = new System.Windows.Forms.Button();
+            this.btn_tuichu = new System.Windows.Forms.Button();
+            this.btn_home = new System.Windows.Forms.Button();
             this.panel_my = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_home)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_touxiang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_tuichu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -67,135 +62,147 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(848, 464);
+            this.splitContainer1.Panel2.Controls.Add(this.panel_my);
+            this.splitContainer1.Size = new System.Drawing.Size(757, 464);
+            this.splitContainer1.SplitterDistance = 110;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.LightGray;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.pb_home, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.pb_touxiang, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pb_tuichu, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btn_xinjian, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btn_daiban, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btn_tuandui, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btn_tongxunlu, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btn_lishiziliao, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.btn_gongxiangziliao, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.btn_shouquan, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.btn_tuichu, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.btn_home, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowCount = 11;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(50, 464);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(110, 464);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // pb_home
-            // 
-            this.pb_home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pb_home.Image = global::团队任务台账管理系统.Properties.Resources.home;
-            this.pb_home.Location = new System.Drawing.Point(7, 47);
-            this.pb_home.Margin = new System.Windows.Forms.Padding(7);
-            this.pb_home.Name = "pb_home";
-            this.pb_home.Size = new System.Drawing.Size(26, 26);
-            this.pb_home.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_home.TabIndex = 0;
-            this.pb_home.TabStop = false;
-            this.pb_home.Click += new System.EventHandler(this.pb_home_Click);
             // 
             // pb_touxiang
             // 
             this.pb_touxiang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pb_touxiang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_touxiang.Image = global::团队任务台账管理系统.Properties.Resources.touxiang;
             this.pb_touxiang.Location = new System.Drawing.Point(7, 7);
             this.pb_touxiang.Margin = new System.Windows.Forms.Padding(7);
             this.pb_touxiang.Name = "pb_touxiang";
-            this.pb_touxiang.Size = new System.Drawing.Size(26, 26);
+            this.pb_touxiang.Size = new System.Drawing.Size(96, 46);
             this.pb_touxiang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_touxiang.TabIndex = 0;
             this.pb_touxiang.TabStop = false;
             this.pb_touxiang.Click += new System.EventHandler(this.pb_touxiang_Click);
             // 
-            // pb_tuichu
+            // btn_xinjian
             // 
-            this.pb_tuichu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_tuichu.Image = global::团队任务台账管理系统.Properties.Resources.退出;
-            this.pb_tuichu.Location = new System.Drawing.Point(3, 83);
-            this.pb_tuichu.Name = "pb_tuichu";
-            this.pb_tuichu.Size = new System.Drawing.Size(44, 34);
-            this.pb_tuichu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_tuichu.TabIndex = 1;
-            this.pb_tuichu.TabStop = false;
-            this.pb_tuichu.Click += new System.EventHandler(this.pb_tuichu_Click);
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer2.Panel1MinSize = 100;
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.panel_my);
-            this.splitContainer2.Size = new System.Drawing.Size(794, 464);
-            this.splitContainer2.SplitterDistance = 100;
-            this.splitContainer2.SplitterWidth = 1;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.btn_daiban, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btn_yanshou, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btn_shezhi, 0, 2);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 4;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(100, 464);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.btn_xinjian.Location = new System.Drawing.Point(3, 93);
+            this.btn_xinjian.Name = "btn_xinjian";
+            this.btn_xinjian.Size = new System.Drawing.Size(104, 24);
+            this.btn_xinjian.TabIndex = 2;
+            this.btn_xinjian.Text = "新建";
+            this.btn_xinjian.UseVisualStyleBackColor = true;
+            this.btn_xinjian.Click += new System.EventHandler(this.btn_xinjian_Click);
             // 
             // btn_daiban
             // 
-            this.btn_daiban.Location = new System.Drawing.Point(3, 3);
+            this.btn_daiban.Location = new System.Drawing.Point(3, 123);
             this.btn_daiban.Name = "btn_daiban";
-            this.btn_daiban.Size = new System.Drawing.Size(94, 34);
-            this.btn_daiban.TabIndex = 0;
-            this.btn_daiban.Text = "我的待办";
+            this.btn_daiban.Size = new System.Drawing.Size(104, 24);
+            this.btn_daiban.TabIndex = 2;
+            this.btn_daiban.Text = "代办";
             this.btn_daiban.UseVisualStyleBackColor = true;
             this.btn_daiban.Click += new System.EventHandler(this.btn_daiban_Click);
             // 
-            // btn_yanshou
+            // btn_tuandui
             // 
-            this.btn_yanshou.Location = new System.Drawing.Point(3, 43);
-            this.btn_yanshou.Name = "btn_yanshou";
-            this.btn_yanshou.Size = new System.Drawing.Size(94, 34);
-            this.btn_yanshou.TabIndex = 0;
-            this.btn_yanshou.Text = "我的验收";
-            this.btn_yanshou.UseVisualStyleBackColor = true;
-            this.btn_yanshou.Click += new System.EventHandler(this.btn_yanshou_Click);
+            this.btn_tuandui.Location = new System.Drawing.Point(3, 153);
+            this.btn_tuandui.Name = "btn_tuandui";
+            this.btn_tuandui.Size = new System.Drawing.Size(104, 24);
+            this.btn_tuandui.TabIndex = 2;
+            this.btn_tuandui.Text = "团队";
+            this.btn_tuandui.UseVisualStyleBackColor = true;
+            this.btn_tuandui.Click += new System.EventHandler(this.btn_tuandui_Click);
             // 
-            // btn_shezhi
+            // btn_tongxunlu
             // 
-            this.btn_shezhi.Location = new System.Drawing.Point(3, 83);
-            this.btn_shezhi.Name = "btn_shezhi";
-            this.btn_shezhi.Size = new System.Drawing.Size(94, 34);
-            this.btn_shezhi.TabIndex = 0;
-            this.btn_shezhi.Text = "用户设置";
-            this.btn_shezhi.UseVisualStyleBackColor = true;
-            this.btn_shezhi.Click += new System.EventHandler(this.btn_shezhi_Click);
+            this.btn_tongxunlu.Location = new System.Drawing.Point(3, 183);
+            this.btn_tongxunlu.Name = "btn_tongxunlu";
+            this.btn_tongxunlu.Size = new System.Drawing.Size(104, 24);
+            this.btn_tongxunlu.TabIndex = 2;
+            this.btn_tongxunlu.Text = "通讯录???";
+            this.btn_tongxunlu.UseVisualStyleBackColor = true;
+            // 
+            // btn_lishiziliao
+            // 
+            this.btn_lishiziliao.Location = new System.Drawing.Point(3, 213);
+            this.btn_lishiziliao.Name = "btn_lishiziliao";
+            this.btn_lishiziliao.Size = new System.Drawing.Size(104, 24);
+            this.btn_lishiziliao.TabIndex = 2;
+            this.btn_lishiziliao.Text = "历史资料";
+            this.btn_lishiziliao.UseVisualStyleBackColor = true;
+            this.btn_lishiziliao.Click += new System.EventHandler(this.btn_xiaoxiang_Click);
+            // 
+            // btn_gongxiangziliao
+            // 
+            this.btn_gongxiangziliao.Enabled = false;
+            this.btn_gongxiangziliao.Location = new System.Drawing.Point(3, 273);
+            this.btn_gongxiangziliao.Name = "btn_gongxiangziliao";
+            this.btn_gongxiangziliao.Size = new System.Drawing.Size(104, 24);
+            this.btn_gongxiangziliao.TabIndex = 0;
+            this.btn_gongxiangziliao.Text = "共享资料";
+            this.btn_gongxiangziliao.UseVisualStyleBackColor = true;
+            // 
+            // btn_shouquan
+            // 
+            this.btn_shouquan.Location = new System.Drawing.Point(3, 243);
+            this.btn_shouquan.Name = "btn_shouquan";
+            this.btn_shouquan.Size = new System.Drawing.Size(104, 24);
+            this.btn_shouquan.TabIndex = 2;
+            this.btn_shouquan.Text = "授权";
+            this.btn_shouquan.UseVisualStyleBackColor = true;
+            this.btn_shouquan.Click += new System.EventHandler(this.btn_shouquan_Click);
+            // 
+            // btn_tuichu
+            // 
+            this.btn_tuichu.Location = new System.Drawing.Point(3, 303);
+            this.btn_tuichu.Name = "btn_tuichu";
+            this.btn_tuichu.Size = new System.Drawing.Size(104, 24);
+            this.btn_tuichu.TabIndex = 3;
+            this.btn_tuichu.Text = "退出";
+            this.btn_tuichu.UseVisualStyleBackColor = true;
+            this.btn_tuichu.Click += new System.EventHandler(this.pb_tuichu_Click);
+            // 
+            // btn_home
+            // 
+            this.btn_home.Location = new System.Drawing.Point(3, 63);
+            this.btn_home.Name = "btn_home";
+            this.btn_home.Size = new System.Drawing.Size(104, 24);
+            this.btn_home.TabIndex = 4;
+            this.btn_home.Text = "主页";
+            this.btn_home.UseVisualStyleBackColor = true;
+            this.btn_home.Click += new System.EventHandler(this.pb_home_Click);
             // 
             // panel_my
             // 
@@ -203,7 +210,7 @@
             this.panel_my.Location = new System.Drawing.Point(0, 0);
             this.panel_my.Margin = new System.Windows.Forms.Padding(0);
             this.panel_my.Name = "panel_my";
-            this.panel_my.Size = new System.Drawing.Size(693, 464);
+            this.panel_my.Size = new System.Drawing.Size(643, 464);
             this.panel_my.TabIndex = 0;
             // 
             // Form1
@@ -212,7 +219,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(848, 464);
+            this.ClientSize = new System.Drawing.Size(757, 464);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -226,14 +233,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_home)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_touxiang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_tuichu)).EndInit();
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -242,15 +242,17 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox pb_home;
         public System.Windows.Forms.PictureBox pb_touxiang;
-        private System.Windows.Forms.PictureBox pb_tuichu;
-        private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Panel panel_my;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button btn_tongxunlu;
+        private System.Windows.Forms.Button btn_tuichu;
+        private System.Windows.Forms.Button btn_gongxiangziliao;
+        private System.Windows.Forms.Button btn_xinjian;
         private System.Windows.Forms.Button btn_daiban;
-        private System.Windows.Forms.Button btn_yanshou;
-        private System.Windows.Forms.Button btn_shezhi;
+        private System.Windows.Forms.Button btn_tuandui;
+        private System.Windows.Forms.Button btn_lishiziliao;
+        private System.Windows.Forms.Button btn_shouquan;
+        private System.Windows.Forms.Button btn_home;
     }
 }
 

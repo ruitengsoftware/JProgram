@@ -34,10 +34,10 @@ namespace 团队任务台账管理系统.UserControll
                 UCmain uc_main = new UCmain();
                 uc_main.Dock = DockStyle.Fill;
                 parent.Controls.Add(uc_main);
-                ((SplitContainer)parent.Parent.Parent.Parent.Parent).Panel1Collapsed = false;
+                ((SplitContainer)parent.Parent.Parent).Panel1Collapsed = false;
                 //获得花名对应的头像
                 var touxiang = mycontroller.GetTouxiang(name);
-                ((Form1)parent.Parent.Parent.Parent.Parent.Parent).pb_touxiang.Image = touxiang;
+                ((Form1)parent.Parent.Parent.Parent).pb_touxiang.Image = touxiang;
                 //settings获得自动登录，记住我，姓名，密码
                 Settings.Default.huaming = name;
                 Settings.Default.mima = pwd;
