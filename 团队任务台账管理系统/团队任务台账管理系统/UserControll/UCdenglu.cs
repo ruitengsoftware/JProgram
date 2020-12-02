@@ -23,7 +23,7 @@ namespace 团队任务台账管理系统.UserControll
         ControllerDenglu mycontroller = new ControllerDenglu();
         private void btn_denglu_Click(object sender, EventArgs e)
         {
-            string name = tb_yonghuming.Text.Trim();
+            string name = cbb_yonghuming.Text.Trim();
             string pwd = tb_mima.Text.Trim();
             bool successlogin = mycontroller.Login(name, pwd);//登录，并返回成功失败
 
@@ -73,7 +73,7 @@ namespace 团队任务台账管理系统.UserControll
             cb_jizhuwo.Checked = Settings.Default.jizhuwo;
             if (Settings.Default.jizhuwo)
             {
-                tb_yonghuming.Text = Settings.Default.huaming;
+                cbb_yonghuming.Text = Settings.Default.huaming;
                 tb_mima.Text = Settings.Default.mima;
             }
             cb_zidongdenlgu.Checked = Settings.Default.zidongdenglu;
