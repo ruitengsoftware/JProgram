@@ -61,11 +61,11 @@
             this.lbl_xiugai = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbl_name = new System.Windows.Forms.Label();
+            this.dgv_daiban = new System.Windows.Forms.DataGridView();
             this.cms_right = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.完成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgv_daiban = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
@@ -87,8 +87,8 @@
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.cms_right.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_daiban)).BeginInit();
+            this.cms_right.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -553,6 +553,22 @@
             this.lbl_name.Text = "label2";
             this.lbl_name.Click += new System.EventHandler(this.lbl_name_Click);
             // 
+            // dgv_daiban
+            // 
+            this.dgv_daiban.AllowUserToAddRows = false;
+            this.dgv_daiban.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_daiban.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_daiban.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_daiban.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_daiban.Location = new System.Drawing.Point(1, 388);
+            this.dgv_daiban.Margin = new System.Windows.Forms.Padding(1);
+            this.dgv_daiban.Name = "dgv_daiban";
+            this.dgv_daiban.RowHeadersVisible = false;
+            this.dgv_daiban.RowTemplate.Height = 23;
+            this.dgv_daiban.Size = new System.Drawing.Size(767, 148);
+            this.dgv_daiban.TabIndex = 2;
+            this.dgv_daiban.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_daiban_CellMouseClick);
+            // 
             // cms_right
             // 
             this.cms_right.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -579,21 +595,6 @@
             this.完成ToolStripMenuItem.Name = "完成ToolStripMenuItem";
             this.完成ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.完成ToolStripMenuItem.Text = "完成";
-            // 
-            // dgv_daiban
-            // 
-            this.dgv_daiban.AllowUserToAddRows = false;
-            this.dgv_daiban.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_daiban.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_daiban.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_daiban.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_daiban.Location = new System.Drawing.Point(1, 388);
-            this.dgv_daiban.Margin = new System.Windows.Forms.Padding(1);
-            this.dgv_daiban.Name = "dgv_daiban";
-            this.dgv_daiban.RowHeadersVisible = false;
-            this.dgv_daiban.RowTemplate.Height = 23;
-            this.dgv_daiban.Size = new System.Drawing.Size(767, 148);
-            this.dgv_daiban.TabIndex = 2;
             // 
             // UCmain
             // 
@@ -635,8 +636,8 @@
             this.tableLayoutPanel4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.cms_right.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_daiban)).EndInit();
+            this.cms_right.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

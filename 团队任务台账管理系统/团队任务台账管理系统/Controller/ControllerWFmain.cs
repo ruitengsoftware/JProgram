@@ -15,7 +15,7 @@ namespace 团队任务台账管理系统.Controller
 
         public bool UpdateGerenqianming(string qianming)
         {
-            string sql_sql = $"update jjperson set 个人签名='{qianming}' where 花名='{JJPerson._huaming}'";
+            string sql_sql = $"update jjperson set 个人签名='{qianming}' where 花名='{JJPersonInfo._huaming}'";
           int num=  _mysqlhelper.ExecuteNonQuery(sql_sql);
             return num > 0 ? true : false;
         
@@ -28,7 +28,7 @@ namespace 团队任务台账管理系统.Controller
         public DataTable GetRenwu(string xiangxian)
         {
             DataTable mydt = new DataTable();
-            string str_sql = $"select * from jjrenwu where 创建人='{JJPerson._shiming}' and 删除=0 and 象限='{xiangxian}' order by 完成时间";
+            string str_sql = $"select * from jjrenwu where 创建人='{JJPersonInfo._shiming}' and 删除=0 and 象限='{xiangxian}' order by 完成时间";
             mydt = _mysqlhelper.ExecuteDataTable(str_sql, null);
             return mydt;
         }

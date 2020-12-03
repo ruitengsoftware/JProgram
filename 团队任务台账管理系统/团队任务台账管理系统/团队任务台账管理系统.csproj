@@ -117,8 +117,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="JJModel\JJPerson.cs" />
-    <Compile Include="JJModel\JJRenwu.cs" />
+    <Compile Include="JJModel\JJPersonInfo.cs" />
+    <Compile Include="JJModel\JJTaskInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControll\UCdaiban.cs">

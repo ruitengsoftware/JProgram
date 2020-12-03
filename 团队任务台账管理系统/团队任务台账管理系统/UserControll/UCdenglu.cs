@@ -38,7 +38,7 @@ namespace 团队任务台账管理系统.UserControll
                 uc_main.Dock = DockStyle.Fill;
                 parent.Controls.Add(uc_main);
                 ((SplitContainer)parent.Parent.Parent).Panel1Collapsed = false;
-                ((Form1)parent.Parent.Parent.Parent).pb_touxiang.Image = mycontroller.ConvertBase64ToImage(JJModel.JJPerson._touxiang);
+                ((Form1)parent.Parent.Parent.Parent).pb_touxiang.Image = mycontroller.ConvertBase64ToImage(JJModel.JJPersonInfo._touxiang);
                 //settings获得自动登录，记住我，姓名，密码
                 Settings.Default.huaming = name;
                 Settings.Default.mima = pwd;

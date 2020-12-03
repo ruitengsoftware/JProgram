@@ -9,7 +9,7 @@ using 团队任务台账管理系统.JJModel;
 
 namespace 团队任务台账管理系统.Controller
 {
-   public class ControllerDenglu
+    public class ControllerDenglu
     {
 
         MySQLHelper mysqlhelper = null;
@@ -30,27 +30,27 @@ namespace 团队任务台账管理系统.Controller
         {
             string str_sql = $"select * from jjperson where 花名='{huaming}'";
 
-            var mydr=mysqlhelper.ExecuteDataRow(str_sql);
-            JJPerson._huaming = mydr["花名"].ToString();
-            JJPerson._shiming = mydr["实名"].ToString();
-            JJPerson._bumen= mydr["部门"].ToString();
-            JJPerson._zhiji= mydr["职级"].ToString();
-            JJPerson._mima= mydr["密码"].ToString(); 
-            JJPerson._shoujihao= mydr["手机号"].ToString();
-            JJPerson._dianziyouxiang= mydr["电子邮箱"].ToString(); 
-            JJPerson._zidingyizhanghao= mydr["自定义账号"].ToString();
-            JJPerson._touxiang= mydr["头像"].ToString(); 
-            JJPerson._gongzuozhengjianzhao= mydr["工作证件照"].ToString();
-            JJPerson._weixinhao= mydr["微信号"].ToString();
-            JJPerson._gerenqianming= mydr["个人签名"].ToString();
+            var mydr = mysqlhelper.ExecuteDataRow(str_sql);
+            JJPersonInfo._huaming = mydr["花名"].ToString();
+            JJPersonInfo._shiming = mydr["实名"].ToString();
+            JJPersonInfo._bumen = mydr["部门"].ToString();
+            JJPersonInfo._zhiji = mydr["职级"].ToString();
+            JJPersonInfo._mima = mydr["密码"].ToString();
+            JJPersonInfo._shoujihao = mydr["手机号"].ToString();
+            JJPersonInfo._dianziyouxiang = mydr["电子邮箱"].ToString();
+            JJPersonInfo._zidingyizhanghao = mydr["自定义账号"].ToString();
+            JJPersonInfo._touxiang = mydr["头像"].ToString();
+            JJPersonInfo._gongzuozhengjianzhao = mydr["工作证件照"].ToString();
+            JJPersonInfo._weixinhao = mydr["微信号"].ToString();
+            JJPersonInfo._gerenqianming = mydr["个人签名"].ToString();
         }
 
         //判断是否存在用户名和密码
-        public bool Login(string uid,string pwd) 
+        public bool Login(string uid, string pwd)
         {
             string str_sql = $"select count(*) from jjperson where 花名='{uid}' and 密码='{pwd}'";
-           int num=Convert.ToInt32( mysqlhelper.ExecuteScalar(str_sql, null));
-            return num > 0 ? true : false;        
+            int num = Convert.ToInt32(mysqlhelper.ExecuteScalar(str_sql, null));
+            return num > 0 ? true : false;
         }
         /// <summary>
         /// 将图片转换为base64编码
@@ -75,15 +75,16 @@ namespace 团队任务台账管理系统.Controller
         {
             try
             {
-            byte[] imageBytes = Convert.FromBase64String(base64String);
-            using (MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
-            {
-                ms.Write(imageBytes, 0, imageBytes.Length);
-                return Image.FromStream(ms, true);
-            }
+                byte[] imageBytes = Convert.FromBase64String(base64String);
+                using (MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+                {
+                    ms.Write(imageBytes, 0, imageBytes.Length);
+                    return Image.FromStream(ms, true);
+                }
 
             }
-            catch {
+            catch
+            {
                 return Properties.Resources.touxiang;
             }
         }

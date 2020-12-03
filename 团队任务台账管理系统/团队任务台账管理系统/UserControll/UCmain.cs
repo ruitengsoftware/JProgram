@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.JJModel;
 using 团队任务台账管理系统.Controller;
+using 团队任务台账管理系统.WinForm;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -99,8 +100,8 @@ namespace 团队任务台账管理系统.UserControll
         private void UCmain_Load(object sender, EventArgs e)
         {
             //加载ucmain的时候要提取登陆者信息，显示在界面中
-            lbl_name.Text = $"{JJModel.JJPerson._shiming}({JJPerson._huaming})";
-            tb_qianming.Text = JJPerson._gerenqianming;
+            lbl_name.Text = $"{JJModel.JJPersonInfo._shiming}({JJPersonInfo._huaming})";
+            tb_qianming.Text = JJPersonInfo._gerenqianming;
             /*加载登录者的任务*/
             //加载第一象限
             DataTable mydt = _mycontroller.GetRenwu("第一象限");
@@ -184,6 +185,28 @@ namespace 团队任务台账管理系统.UserControll
                     ((DataGridView)sender).CurrentCell = ((DataGridView)sender).Rows[e.RowIndex].Cells[e.ColumnIndex];
                    cms_right.Show(MousePosition.X, MousePosition.Y);//dgv_rightmenu是鼠标右键菜单控件
                 }
+            }
+        }
+
+        private void dgv_daiban_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //判断是否点击了任务名称列
+            bool b = ((DataGridView)sender).CurrentCell.OwningColumn.Name.Equals("任务名称");
+            //获得任务名称
+            string renwuming = ((DataGridView)sender).CurrentCell.Value.ToString();
+            //如果是的话弹出任务详情窗体
+            if (b)
+            {
+                WinFormRenwuxiangqing mywin = new WinFormRenwuxiangqing(renwuming);
+                if (mywin.ShowDialog()==DialogResult.OK)
+                {
+                    this.UCmain_Load(null, null);
+                }
+
+
+
+
+
             }
         }
     }

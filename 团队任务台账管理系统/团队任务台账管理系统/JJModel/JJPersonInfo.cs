@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace 团队任务台账管理系统.JJModel
 {
-    public class JJPerson
+    public class JJPersonInfo
     {/// <summary>
     /// 花名，相当于昵称
     /// </summary>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace 团队任务台账管理系统.JJModel
 {
-    public class JJRenwu
+    public class JJTaskInfo
     {
         /// <summary>
         /// 任务名称

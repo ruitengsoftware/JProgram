@@ -27,9 +27,9 @@ namespace 团队任务台账管理系统.WinForm
         private void lbl_queding_Click(object sender, EventArgs e)
         {
             //保存任务，构建一个任务对象，保存到数据库
-            JJRenwu myrenwu = new JJRenwu() {
+            JJTaskInfo myrenwu = new JJTaskInfo() {
                 _renwumingcheng = tb_renwumingcheng.Text,
-                _chuangjianren = JJPerson._shiming,
+                _chuangjianren = JJPersonInfo._shiming,
                 _zhubanren = tb_zhubanren.Text,
                 _wanchengshijian = dtp_wanchengshijian.Value.ToString("yyyy年MM月dd日 hh:mm:ss"),
             _xiangxian=cbb_xiangxian.Text
