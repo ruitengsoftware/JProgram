@@ -28,7 +28,10 @@ namespace 团队任务台账管理系统.JJModel
         /// 象限
         /// </summary>
         public string _xiangxian = string.Empty;
-
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public string _chuangjianshijian = string.Empty;
 
 
     }

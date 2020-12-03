@@ -21,7 +21,7 @@ namespace 团队任务台账管理系统.UserControll
             InitializeComponent();
 
         }
-        ControllerUCdaiban mycontroller = new ControllerUCdaiban();
+        ControllerWfRenwuxiangqing mycontroller = new ControllerWfRenwuxiangqing();
         private void UCdaiban_Load(object sender, EventArgs e)
         {
             //刷新数据

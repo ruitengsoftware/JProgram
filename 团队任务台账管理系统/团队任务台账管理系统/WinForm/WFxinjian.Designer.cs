@@ -45,9 +45,9 @@
             this.btn_quxiao = new System.Windows.Forms.Button();
             this.tb_renwumingcheng = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.rb_jinji = new System.Windows.Forms.RadioButton();
             this.rb_jijian = new System.Windows.Forms.RadioButton();
             this.rb_putong = new System.Windows.Forms.RadioButton();
+            this.rb_jinji = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_jutiyaoqiu = new System.Windows.Forms.TextBox();
             this.pb_paizhao = new System.Windows.Forms.PictureBox();
@@ -325,16 +325,6 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(443, 24);
             this.tableLayoutPanel6.TabIndex = 4;
             // 
-            // rb_jinji
-            // 
-            this.rb_jinji.AutoSize = true;
-            this.rb_jinji.Location = new System.Drawing.Point(163, 3);
-            this.rb_jinji.Name = "rb_jinji";
-            this.rb_jinji.Size = new System.Drawing.Size(50, 18);
-            this.rb_jinji.TabIndex = 0;
-            this.rb_jinji.Text = "特急";
-            this.rb_jinji.UseVisualStyleBackColor = true;
-            // 
             // rb_jijian
             // 
             this.rb_jijian.AutoSize = true;
@@ -356,6 +346,16 @@
             this.rb_putong.TabStop = true;
             this.rb_putong.Text = "普通";
             this.rb_putong.UseVisualStyleBackColor = true;
+            // 
+            // rb_jinji
+            // 
+            this.rb_jinji.AutoSize = true;
+            this.rb_jinji.Location = new System.Drawing.Point(163, 3);
+            this.rb_jinji.Name = "rb_jinji";
+            this.rb_jinji.Size = new System.Drawing.Size(50, 18);
+            this.rb_jinji.TabIndex = 0;
+            this.rb_jinji.Text = "特急";
+            this.rb_jinji.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel7
             // 

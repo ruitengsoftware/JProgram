@@ -8,7 +8,7 @@ using 团队任务台账管理系统.Properties;
 
 namespace 团队任务台账管理系统.Controller
 {
-    public class ControllerUCdaiban
+    public class ControllerWfRenwuxiangqing
     {
         MySQLHelper mysqlhelper = new MySQLHelper();
         public DataTable GetData()

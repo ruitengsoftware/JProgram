@@ -102,7 +102,7 @@
     <Compile Include="Controller\ControllerWFmain.cs" />
     <Compile Include="Controller\ControllerTuandui.cs" />
     <Compile Include="Controller\ControllerUCrizhi.cs" />
-    <Compile Include="Controller\ControllerUCdaiban.cs" />
+    <Compile Include="Controller\ControllerWfRenwuxiangqing.cs" />
     <Compile Include="Controller\ControllerUCshouquan.cs" />
     <Compile Include="Controller\ControllerUCxiaoxiang.cs" />
     <Compile Include="Controller\ControllerWFperson.cs" />
@@ -223,6 +223,12 @@
     <Compile Include="WinForm\WFzhuce.Designer.cs">
       <DependentUpon>WFzhuce.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\WinFormRenwuxiangqing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WinFormRenwuxiangqing.Designer.cs">
+      <DependentUpon>WinFormRenwuxiangqing.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\WinFormXinjiangongzuoqingdan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WFzhuce.resx">
       <DependentUpon>WFzhuce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WinFormRenwuxiangqing.resx">
+      <DependentUpon>WinFormRenwuxiangqing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WinFormXinjiangongzuoqingdan.resx">
       <DependentUpon>WinFormXinjiangongzuoqingdan.cs</DependentUpon>

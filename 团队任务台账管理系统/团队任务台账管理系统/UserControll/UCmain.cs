@@ -124,6 +124,10 @@ namespace 团队任务台账管理系统.UserControll
             dgv_d.DataSource = mydt;
             lbl_d.Text = $"不重要且不紧急-抽空做 {mydt.Rows.Count}项";
 
+            /*刷新待办任务*/
+          mydt=  _mycontroller.GetDaibanRenwu();
+            dgv_daiban.DataSource = null;
+            dgv_daiban.DataSource = mydt;
 
 
 

@@ -32,7 +32,17 @@ namespace 团队任务台账管理系统.Controller
             mydt = _mysqlhelper.ExecuteDataTable(str_sql, null);
             return mydt;
         }
+        /// <summary>
+        /// 获得待办任务 
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetDaibanRenwu()
+        {
+            string str_sql = $"select 紧急程度,任务名称,时限 from jjtask where 状态='未撤销'";
 
+            var data = _mysqlhelper.ExecuteDataTable(str_sql, null);
+            return data;
+        }
 
 
 
