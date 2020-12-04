@@ -32,7 +32,7 @@ namespace 团队任务台账管理系统.UserControll
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string str_uploadfile = ofd.FileName;
-                string webpath = $"http://39.107.125.33";
+                string webpath = $"http://49.233.40.109/haahah/";
                 string filepath = Path.GetDirectoryName(str_uploadfile);
                 string filename = Path.GetFileName(str_uploadfile);
                 UpLoadFile(str_uploadfile, webpath, false);//上传文件
@@ -60,9 +60,9 @@ namespace 团队任务台账管理系统.UserControll
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     WebClient myWebClient = new WebClient();
-                    NetworkCredential credentials = new NetworkCredential("Administrator", "Lxr+850223");
+                    NetworkCredential credentials = new NetworkCredential("Administrator", "lixingrui+850223");
                     myWebClient.Credentials = credentials;
-                    Uri myuri = new Uri("http://49.233.40.109/标准任务表.xlsx");
+                    Uri myuri = new Uri("http://49.233.40.109/标准表格.xlsx");
                    myWebClient.DownloadFileAsync(myuri, sfd.FileName);
                     MessageBox.Show("表格下载成功！");
                 }
@@ -93,7 +93,7 @@ namespace 团队任务台账管理系统.UserControll
             uriString = uriString + NewFileName;
             WebClient myWebClient = new WebClient();
             // myWebClient.Credentials = CredentialCache.DefaultCredentials;
-            NetworkCredential credentials = new NetworkCredential("Administrator", "Lxr+850223");
+            NetworkCredential credentials = new NetworkCredential("Administrator", "lixingrui+850223");
             myWebClient.Credentials = credentials;
             FileStream fs = new FileStream(fileNamePath, FileMode.Open, FileAccess.Read);
             //FileStream fs = OpenFile();  
@@ -216,19 +216,28 @@ namespace 团队任务台账管理系统.UserControll
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btn_xinjian_Click(object sender, EventArgs e)
+        private void lbl_changguishixiang_Click(object sender, EventArgs e)
         {
-            WFxinjian wfxinjian = new WFxinjian();
+            WFchangguishixiang wfxinjian = new WFchangguishixiang();
             wfxinjian.StartPosition = FormStartPosition.CenterParent;
             wfxinjian.ShowDialog();
         }
 
         private void lbl_gongzuoqingdan_Click(object sender, EventArgs e)
         {
-            WinForm.WinFormXinjiangongzuoqingdan mywinform = new WinForm.WinFormXinjiangongzuoqingdan();
+            WinForm.WFgongzuoqingdan mywinform = new WinForm.WFgongzuoqingdan();
             if (mywinform.ShowDialog() == DialogResult.OK)
             {
                
+            }
+        }
+
+        private void lbl_okrshixiang_Click(object sender, EventArgs e)
+        {
+            WFokrshixiang mywin = new WFokrshixiang();
+            if (mywin.ShowDialog()==DialogResult.OK)
+            {
+
             }
         }
     }

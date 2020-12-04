@@ -1,6 +1,6 @@
 ﻿namespace 团队任务台账管理系统.WinForm
 {
-    partial class WinFormXinjiangongzuoqingdan
+    partial class WFgongzuoqingdan
     {
         /// <summary>
         /// Required designer variable.

@@ -104,23 +104,23 @@ namespace 团队任务台账管理系统.UserControll
             tb_qianming.Text = JJPersonInfo._gerenqianming;
             /*加载登录者的任务*/
             //加载第一象限
-            DataTable mydt = _mycontroller.GetRenwu("第一象限");
+            DataTable mydt = _mycontroller.GetGongzuoqingdan("第一象限");
             dgv_a.DataSource = null;
             dgv_a.DataSource = mydt;
             lbl_a.Text = $"重要且紧急-立即做 {mydt.Rows.Count}项";
             //加载第二象限
-            mydt = _mycontroller.GetRenwu("第二象限");
+            mydt = _mycontroller.GetGongzuoqingdan("第二象限");
             dgv_b.DataSource = null;
             dgv_b.DataSource = mydt;
             lbl_b.Text = $"重要且不紧急-集中精力做 {mydt.Rows.Count}项";
 
             //加载第三象限
-            mydt = _mycontroller.GetRenwu("第三象限");
+            mydt = _mycontroller.GetGongzuoqingdan("第三象限");
             dgv_c.DataSource = null;
             dgv_c.DataSource = mydt;
             lbl_c.Text = $"不重要但紧急-找帮手做 {mydt.Rows.Count}项";
             //加载第四象限
-            mydt = _mycontroller.GetRenwu("第四象限");
+            mydt = _mycontroller.GetGongzuoqingdan("第四象限");
             dgv_d.DataSource = null;
             dgv_d.DataSource = mydt;
             lbl_d.Text = $"不重要且不紧急-抽空做 {mydt.Rows.Count}项";
@@ -164,7 +164,7 @@ namespace 团队任务台账管理系统.UserControll
         /// <param name="e"></param>
         private void pb_dingzi_Click(object sender, EventArgs e)
         {
-            WinForm.WinFormXinjiangongzuoqingdan mywinform = new WinForm.WinFormXinjiangongzuoqingdan();
+            WinForm.WFgongzuoqingdan mywinform = new WinForm.WFgongzuoqingdan();
             if (mywinform.ShowDialog()==DialogResult.OK)
             {
                 //更新任务内容
@@ -197,7 +197,7 @@ namespace 团队任务台账管理系统.UserControll
             //如果是的话弹出任务详情窗体
             if (b)
             {
-                WinFormRenwuxiangqing mywin = new WinFormRenwuxiangqing(renwuming);
+                WFRenwuxiangqing mywin = new WFRenwuxiangqing(renwuming);
                 if (mywin.ShowDialog()==DialogResult.OK)
                 {
                     this.UCmain_Load(null, null);

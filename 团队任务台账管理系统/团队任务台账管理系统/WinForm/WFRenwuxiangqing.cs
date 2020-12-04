@@ -13,10 +13,10 @@ using 团队任务台账管理系统.JJModel;
 
 namespace 团队任务台账管理系统.WinForm
 {
-    public partial class WinFormRenwuxiangqing : Form
+    public partial class WFRenwuxiangqing : Form
     {
         ControllerWfRenwuxiangqing _mycontroller = new ControllerWfRenwuxiangqing();
-        public WinFormRenwuxiangqing()
+        public WFRenwuxiangqing()
         {
             InitializeComponent();
         }
@@ -24,7 +24,7 @@ namespace 团队任务台账管理系统.WinForm
         /// 构造函数2
         /// </summary>
         /// <param name="renwuming">任务名称</param>
-        public WinFormRenwuxiangqing(string renwuming)
+        public WFRenwuxiangqing(string renwuming)
         {
             InitializeComponent();
             //获得任务详细信息,赋值到界面中

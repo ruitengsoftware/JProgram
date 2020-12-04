@@ -51,6 +51,9 @@
     <Reference Include="MySql.Data, Version=8.0.21.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.21\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
@@ -99,6 +102,8 @@
     </Compile>
     <Compile Include="Controller\ControllerDenglu.cs" />
     <Compile Include="Controller\ControllerFankui.cs" />
+    <Compile Include="Controller\ControllerOkrshixiang.cs" />
+    <Compile Include="Controller\ControllerRenwuxiangqing.cs" />
     <Compile Include="Controller\ControllerWFmain.cs" />
     <Compile Include="Controller\ControllerTuandui.cs" />
     <Compile Include="Controller\ControllerUCrizhi.cs" />
@@ -117,7 +122,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="JJModel\JJchengguoInfo.cs" />
+    <Compile Include="JJModel\JJOkrInfo.cs" />
     <Compile Include="JJModel\JJPersonInfo.cs" />
+    <Compile Include="JJModel\JJQingdanInfo.cs" />
     <Compile Include="JJModel\JJTaskInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,6 +152,12 @@
     </Compile>
     <Compile Include="UserControll\UCmain.Designer.cs">
       <DependentUpon>UCmain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\UCchengguo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCchengguo.Designer.cs">
+      <DependentUpon>UCchengguo.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControll\UCrizhi.cs">
       <SubType>UserControl</SubType>
@@ -181,6 +195,12 @@
     <Compile Include="WinForm\WFfankui.Designer.cs">
       <DependentUpon>WFfankui.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\WFokrshixiang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WFokrshixiang.Designer.cs">
+      <DependentUpon>WFokrshixiang.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\WFperson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,11 +225,11 @@
     <Compile Include="WinForm\WFtuandui.Designer.cs">
       <DependentUpon>WFtuandui.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForm\WFxinjian.cs">
+    <Compile Include="WinForm\WFchangguishixiang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForm\WFxinjian.Designer.cs">
-      <DependentUpon>WFxinjian.cs</DependentUpon>
+    <Compile Include="WinForm\WFchangguishixiang.Designer.cs">
+      <DependentUpon>WFchangguishixiang.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForm\WFzhiji.cs">
       <SubType>Form</SubType>
@@ -223,17 +243,17 @@
     <Compile Include="WinForm\WFzhuce.Designer.cs">
       <DependentUpon>WFzhuce.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForm\WinFormRenwuxiangqing.cs">
+    <Compile Include="WinForm\WFRenwuxiangqing.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForm\WinFormRenwuxiangqing.Designer.cs">
-      <DependentUpon>WinFormRenwuxiangqing.cs</DependentUpon>
+    <Compile Include="WinForm\WFRenwuxiangqing.Designer.cs">
+      <DependentUpon>WFRenwuxiangqing.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForm\WinFormXinjiangongzuoqingdan.cs">
+    <Compile Include="WinForm\WFgongzuoqingdan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForm\WinFormXinjiangongzuoqingdan.Designer.cs">
-      <DependentUpon>WinFormXinjiangongzuoqingdan.cs</DependentUpon>
+    <Compile Include="WinForm\WFgongzuoqingdan.Designer.cs">
+      <DependentUpon>WFgongzuoqingdan.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -260,6 +280,9 @@
     <EmbeddedResource Include="UserControll\UCmain.resx">
       <DependentUpon>UCmain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCchengguo.resx">
+      <DependentUpon>UCchengguo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCrizhi.resx">
       <DependentUpon>UCrizhi.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,6 +301,9 @@
     <EmbeddedResource Include="WinForm\WFfankui.resx">
       <DependentUpon>WFfankui.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WFokrshixiang.resx">
+      <DependentUpon>WFokrshixiang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WFperson.resx">
       <DependentUpon>WFperson.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,8 +316,8 @@
     <EmbeddedResource Include="WinForm\WFtuandui.resx">
       <DependentUpon>WFtuandui.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\WFxinjian.resx">
-      <DependentUpon>WFxinjian.cs</DependentUpon>
+    <EmbeddedResource Include="WinForm\WFchangguishixiang.resx">
+      <DependentUpon>WFchangguishixiang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WFzhiji.resx">
       <DependentUpon>WFzhiji.cs</DependentUpon>
@@ -299,11 +325,11 @@
     <EmbeddedResource Include="WinForm\WFzhuce.resx">
       <DependentUpon>WFzhuce.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\WinFormRenwuxiangqing.resx">
-      <DependentUpon>WinFormRenwuxiangqing.cs</DependentUpon>
+    <EmbeddedResource Include="WinForm\WFRenwuxiangqing.resx">
+      <DependentUpon>WFRenwuxiangqing.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\WinFormXinjiangongzuoqingdan.resx">
-      <DependentUpon>WinFormXinjiangongzuoqingdan.cs</DependentUpon>
+    <EmbeddedResource Include="WinForm\WFgongzuoqingdan.resx">
+      <DependentUpon>WFgongzuoqingdan.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -357,6 +383,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dingzi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

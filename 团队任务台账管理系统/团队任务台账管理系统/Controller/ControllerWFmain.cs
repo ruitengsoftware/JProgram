@@ -25,10 +25,10 @@ namespace 团队任务台账管理系统.Controller
     /// </summary>
     /// <param name="xiangxian">象限</param>
     /// <returns></returns>
-        public DataTable GetRenwu(string xiangxian)
+        public DataTable GetGongzuoqingdan(string xiangxian)
         {
             DataTable mydt = new DataTable();
-            string str_sql = $"select * from jjrenwu where 创建人='{JJPersonInfo._shiming}' and 删除=0 and 象限='{xiangxian}' order by 完成时间";
+            string str_sql = $"select * from jjgongzuoqingdan where 创建人='{JJPersonInfo._shiming}' and 删除=0 and 象限='{xiangxian}' order by 完成时间";
             mydt = _mysqlhelper.ExecuteDataTable(str_sql, null);
             return mydt;
         }

@@ -11,9 +11,9 @@ using 团队任务台账管理系统.Controller;
 
 namespace 团队任务台账管理系统.WinForm
 {
-    public partial class WFxinjian : Form
+    public partial class WFchangguishixiang : Form
     {
-        public WFxinjian()
+        public WFchangguishixiang()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace 团队任务台账管理系统.WinForm
 {
-    partial class WFxinjian
+    partial class WFchangguishixiang
     {
         /// <summary>
         /// Required designer variable.
@@ -544,7 +544,7 @@
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             // 
-            // WFxinjian
+            // WFchangguishixiang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -553,7 +553,7 @@
             this.Controls.Add(this.tableLayoutPanel4);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "WFxinjian";
+            this.Name = "WFchangguishixiang";
             this.Text = "WFxinjian";
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();

@@ -30,20 +30,20 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_xinjian = new System.Windows.Forms.Button();
-            this.btn_shangchuan = new System.Windows.Forms.Button();
-            this.btn_xiazai = new System.Windows.Forms.Button();
+            this.lbl_gongzuoqingdan = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_okrshixiang = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dgv_data = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_xiazai = new System.Windows.Forms.Button();
+            this.btn_shangchuan = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lbl_gongzuoqingdan = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -86,11 +86,11 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.lbl_gongzuoqingdan, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btn_xinjian, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbl_okrshixiang, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.label5, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.label6, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.label7, 6, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 40);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -100,35 +100,89 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(977, 30);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // btn_xinjian
+            // lbl_gongzuoqingdan
             // 
-            this.btn_xinjian.Location = new System.Drawing.Point(163, 3);
-            this.btn_xinjian.Name = "btn_xinjian";
-            this.btn_xinjian.Size = new System.Drawing.Size(74, 24);
-            this.btn_xinjian.TabIndex = 0;
-            this.btn_xinjian.Text = "常规事项";
-            this.btn_xinjian.UseVisualStyleBackColor = true;
-            this.btn_xinjian.Click += new System.EventHandler(this.btn_xinjian_Click);
+            this.lbl_gongzuoqingdan.AutoSize = true;
+            this.lbl_gongzuoqingdan.BackColor = System.Drawing.Color.Tomato;
+            this.lbl_gongzuoqingdan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_gongzuoqingdan.ForeColor = System.Drawing.Color.White;
+            this.lbl_gongzuoqingdan.Location = new System.Drawing.Point(83, 3);
+            this.lbl_gongzuoqingdan.Margin = new System.Windows.Forms.Padding(3);
+            this.lbl_gongzuoqingdan.Name = "lbl_gongzuoqingdan";
+            this.lbl_gongzuoqingdan.Size = new System.Drawing.Size(74, 24);
+            this.lbl_gongzuoqingdan.TabIndex = 8;
+            this.lbl_gongzuoqingdan.Text = "工作清单";
+            this.lbl_gongzuoqingdan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_gongzuoqingdan.Click += new System.EventHandler(this.lbl_gongzuoqingdan_Click);
             // 
-            // btn_shangchuan
+            // label3
             // 
-            this.btn_shangchuan.Location = new System.Drawing.Point(83, 3);
-            this.btn_shangchuan.Name = "btn_shangchuan";
-            this.btn_shangchuan.Size = new System.Drawing.Size(74, 24);
-            this.btn_shangchuan.TabIndex = 0;
-            this.btn_shangchuan.Text = "上传Excel";
-            this.btn_shangchuan.UseVisualStyleBackColor = true;
-            this.btn_shangchuan.Click += new System.EventHandler(this.btn_shangchuan_Click);
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Location = new System.Drawing.Point(1, 1);
+            this.label3.Margin = new System.Windows.Forms.Padding(1);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 28);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "批量导入";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btn_xiazai
+            // lbl_okrshixiang
             // 
-            this.btn_xiazai.Location = new System.Drawing.Point(163, 3);
-            this.btn_xiazai.Name = "btn_xiazai";
-            this.btn_xiazai.Size = new System.Drawing.Size(74, 24);
-            this.btn_xiazai.TabIndex = 0;
-            this.btn_xiazai.Text = "下载表格";
-            this.btn_xiazai.UseVisualStyleBackColor = true;
-            this.btn_xiazai.Click += new System.EventHandler(this.btn_xiazai_Click);
+            this.lbl_okrshixiang.AutoSize = true;
+            this.lbl_okrshixiang.BackColor = System.Drawing.Color.Tomato;
+            this.lbl_okrshixiang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_okrshixiang.ForeColor = System.Drawing.Color.White;
+            this.lbl_okrshixiang.Location = new System.Drawing.Point(243, 3);
+            this.lbl_okrshixiang.Margin = new System.Windows.Forms.Padding(3);
+            this.lbl_okrshixiang.Name = "lbl_okrshixiang";
+            this.lbl_okrshixiang.Size = new System.Drawing.Size(74, 24);
+            this.lbl_okrshixiang.TabIndex = 4;
+            this.lbl_okrshixiang.Text = "OKR事项";
+            this.lbl_okrshixiang.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_okrshixiang.Click += new System.EventHandler(this.lbl_okrshixiang_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Tomato;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(323, 3);
+            this.label5.Margin = new System.Windows.Forms.Padding(3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 24);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "通知公告";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Tomato;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(403, 3);
+            this.label6.Margin = new System.Windows.Forms.Padding(3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 24);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "请休假单";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Tomato;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(483, 3);
+            this.label7.Margin = new System.Windows.Forms.Padding(3);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 24);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "意见建议";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -185,6 +239,26 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(977, 30);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
+            // btn_xiazai
+            // 
+            this.btn_xiazai.Location = new System.Drawing.Point(163, 3);
+            this.btn_xiazai.Name = "btn_xiazai";
+            this.btn_xiazai.Size = new System.Drawing.Size(74, 24);
+            this.btn_xiazai.TabIndex = 0;
+            this.btn_xiazai.Text = "下载表格";
+            this.btn_xiazai.UseVisualStyleBackColor = true;
+            this.btn_xiazai.Click += new System.EventHandler(this.btn_xiazai_Click);
+            // 
+            // btn_shangchuan
+            // 
+            this.btn_shangchuan.Location = new System.Drawing.Point(83, 3);
+            this.btn_shangchuan.Name = "btn_shangchuan";
+            this.btn_shangchuan.Size = new System.Drawing.Size(74, 24);
+            this.btn_shangchuan.TabIndex = 0;
+            this.btn_shangchuan.Text = "上传Excel";
+            this.btn_shangchuan.UseVisualStyleBackColor = true;
+            this.btn_shangchuan.Click += new System.EventHandler(this.btn_shangchuan_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -197,88 +271,20 @@
             this.label2.Text = "批量导入";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(1, 1);
-            this.label3.Margin = new System.Windows.Forms.Padding(1);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 28);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "批量导入";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Tomato;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(242, 2);
-            this.label4.Margin = new System.Windows.Forms.Padding(2);
+            this.label4.Location = new System.Drawing.Point(163, 3);
+            this.label4.Margin = new System.Windows.Forms.Padding(3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 26);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "OKR事项";
+            this.label4.Size = new System.Drawing.Size(74, 24);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "常规事项";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Tomato;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(322, 2);
-            this.label5.Margin = new System.Windows.Forms.Padding(2);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 26);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "通知公告";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Tomato;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(402, 2);
-            this.label6.Margin = new System.Windows.Forms.Padding(2);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 26);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "请休假单";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Tomato;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(482, 2);
-            this.label7.Margin = new System.Windows.Forms.Padding(2);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 26);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "意见建议";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl_gongzuoqingdan
-            // 
-            this.lbl_gongzuoqingdan.AutoSize = true;
-            this.lbl_gongzuoqingdan.BackColor = System.Drawing.Color.Tomato;
-            this.lbl_gongzuoqingdan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_gongzuoqingdan.ForeColor = System.Drawing.Color.White;
-            this.lbl_gongzuoqingdan.Location = new System.Drawing.Point(82, 2);
-            this.lbl_gongzuoqingdan.Margin = new System.Windows.Forms.Padding(2);
-            this.lbl_gongzuoqingdan.Name = "lbl_gongzuoqingdan";
-            this.lbl_gongzuoqingdan.Size = new System.Drawing.Size(76, 26);
-            this.lbl_gongzuoqingdan.TabIndex = 8;
-            this.lbl_gongzuoqingdan.Text = "OKR事项";
-            this.lbl_gongzuoqingdan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_gongzuoqingdan.Click += new System.EventHandler(this.lbl_gongzuoqingdan_Click);
+            this.label4.Click += new System.EventHandler(this.lbl_changguishixiang_Click);
             // 
             // UCxinjian
             // 
@@ -306,7 +312,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button btn_xinjian;
         private System.Windows.Forms.Button btn_shangchuan;
         private System.Windows.Forms.Button btn_xiazai;
         private System.Windows.Forms.Label label1;
@@ -315,10 +320,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_okrshixiang;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbl_gongzuoqingdan;
+        private System.Windows.Forms.Label label4;
     }
 }
