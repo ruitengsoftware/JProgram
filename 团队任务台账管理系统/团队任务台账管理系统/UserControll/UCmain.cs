@@ -100,8 +100,8 @@ namespace 团队任务台账管理系统.UserControll
         private void UCmain_Load(object sender, EventArgs e)
         {
             //加载ucmain的时候要提取登陆者信息，显示在界面中
-            lbl_name.Text = $"{JJModel.JJPersonInfo._shiming}({JJPersonInfo._huaming})";
-            tb_qianming.Text = JJPersonInfo._gerenqianming;
+            lbl_name.Text = $"{JJModel.JJLoginInfo._shiming}({JJLoginInfo._huaming})";
+            tb_qianming.Text = JJLoginInfo._gerenqianming;
             /*加载登录者的任务*/
             //加载第一象限
             DataTable mydt = _mycontroller.GetGongzuoqingdan("第一象限");

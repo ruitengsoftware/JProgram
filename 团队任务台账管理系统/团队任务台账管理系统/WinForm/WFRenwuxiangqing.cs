@@ -68,7 +68,7 @@ namespace 团队任务台账管理系统.WinForm
             string yanshouren = tb_yanshouren.Text;
 
             //将任务名称和发送时间，办理人员存入数据库中jjtasksend
-            bool b = _mycontroller.TijiaoYanshou(renwumingcheng, JJPersonInfo._shiming);
+            bool b = _mycontroller.TijiaoYanshou(renwumingcheng, JJLoginInfo._shiming);
 
             if (b) MessageBox.Show("任务已提交验收！");
 
@@ -95,7 +95,7 @@ namespace 团队任务台账管理系统.WinForm
             string yanshouren = tb_yanshouren.Text;
 
             //将任务名称和发送时间，办理人员存入数据库中jjtasksend
-            bool b = _mycontroller.YanshouRenwu(renwumingcheng,JJPersonInfo._shiming);
+            bool b = _mycontroller.YanshouRenwu(renwumingcheng,JJLoginInfo._shiming);
 
             if (b) MessageBox.Show("任务已通过验收！");
 

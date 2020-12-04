@@ -104,6 +104,7 @@
     <Compile Include="Controller\ControllerFankui.cs" />
     <Compile Include="Controller\ControllerOkrshixiang.cs" />
     <Compile Include="Controller\ControllerRenwuxiangqing.cs" />
+    <Compile Include="Controller\ControllerUCtongxulu.cs" />
     <Compile Include="Controller\ControllerWFmain.cs" />
     <Compile Include="Controller\ControllerTuandui.cs" />
     <Compile Include="Controller\ControllerUCrizhi.cs" />
@@ -126,6 +127,7 @@
     </Compile>
     <Compile Include="JJModel\JJchengguoInfo.cs" />
     <Compile Include="JJModel\JJOkrInfo.cs" />
+    <Compile Include="JJModel\JJLoginInfo.cs" />
     <Compile Include="JJModel\JJPersonInfo.cs" />
     <Compile Include="JJModel\JJQingdanInfo.cs" />
     <Compile Include="JJModel\JJTaskInfo.cs" />
@@ -173,6 +175,18 @@
     </Compile>
     <Compile Include="UserControll\UCshouquan.Designer.cs">
       <DependentUpon>UCshouquan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\UCtongxunlu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCtongxunlu.Designer.cs">
+      <DependentUpon>UCtongxunlu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\UCtongxunluxiangqing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCtongxunluxiangqing.Designer.cs">
+      <DependentUpon>UCtongxunluxiangqing.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControll\UCtuandui.cs">
       <SubType>UserControl</SubType>
@@ -315,6 +329,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCshouquan.resx">
       <DependentUpon>UCshouquan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCtongxunlu.resx">
+      <DependentUpon>UCtongxunlu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCtongxunluxiangqing.resx">
+      <DependentUpon>UCtongxunluxiangqing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCtuandui.resx">
       <DependentUpon>UCtuandui.cs</DependentUpon>
