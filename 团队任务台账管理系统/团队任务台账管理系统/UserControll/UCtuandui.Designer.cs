@@ -31,10 +31,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_chuangjian = new System.Windows.Forms.Button();
-            this.btn_jiechutuandui = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.lbl_chuangjian = new System.Windows.Forms.Label();
+            this.lbl_jiechu = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.flp_tuandui = new System.Windows.Forms.FlowLayoutPanel();
@@ -114,10 +114,10 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.btn_chuangjian, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btn_jiechutuandui, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label5, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.label6, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lbl_chuangjian, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lbl_jiechu, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -126,26 +126,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(636, 30);
             this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // btn_chuangjian
-            // 
-            this.btn_chuangjian.Location = new System.Drawing.Point(3, 3);
-            this.btn_chuangjian.Name = "btn_chuangjian";
-            this.btn_chuangjian.Size = new System.Drawing.Size(74, 24);
-            this.btn_chuangjian.TabIndex = 0;
-            this.btn_chuangjian.Text = "创建团队";
-            this.btn_chuangjian.UseVisualStyleBackColor = true;
-            this.btn_chuangjian.Click += new System.EventHandler(this.btn_chuangjian_Click);
-            // 
-            // btn_jiechutuandui
-            // 
-            this.btn_jiechutuandui.Location = new System.Drawing.Point(83, 3);
-            this.btn_jiechutuandui.Name = "btn_jiechutuandui";
-            this.btn_jiechutuandui.Size = new System.Drawing.Size(74, 24);
-            this.btn_jiechutuandui.TabIndex = 0;
-            this.btn_jiechutuandui.Text = "解除团队";
-            this.btn_jiechutuandui.UseVisualStyleBackColor = true;
-            this.btn_jiechutuandui.Click += new System.EventHandler(this.btn_jiechutuandui_Click);
             // 
             // label5
             // 
@@ -160,6 +140,7 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "加入团队";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -174,6 +155,37 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "退出团队";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // lbl_chuangjian
+            // 
+            this.lbl_chuangjian.AutoSize = true;
+            this.lbl_chuangjian.BackColor = System.Drawing.Color.Tomato;
+            this.lbl_chuangjian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_chuangjian.ForeColor = System.Drawing.Color.White;
+            this.lbl_chuangjian.Location = new System.Drawing.Point(2, 2);
+            this.lbl_chuangjian.Margin = new System.Windows.Forms.Padding(2);
+            this.lbl_chuangjian.Name = "lbl_chuangjian";
+            this.lbl_chuangjian.Size = new System.Drawing.Size(76, 26);
+            this.lbl_chuangjian.TabIndex = 1;
+            this.lbl_chuangjian.Text = "创建团队";
+            this.lbl_chuangjian.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_chuangjian.Click += new System.EventHandler(this.lbl_chuangjian_Click);
+            // 
+            // lbl_jiechu
+            // 
+            this.lbl_jiechu.AutoSize = true;
+            this.lbl_jiechu.BackColor = System.Drawing.Color.Tomato;
+            this.lbl_jiechu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_jiechu.ForeColor = System.Drawing.Color.White;
+            this.lbl_jiechu.Location = new System.Drawing.Point(82, 2);
+            this.lbl_jiechu.Margin = new System.Windows.Forms.Padding(2);
+            this.lbl_jiechu.Name = "lbl_jiechu";
+            this.lbl_jiechu.Size = new System.Drawing.Size(76, 26);
+            this.lbl_jiechu.TabIndex = 1;
+            this.lbl_jiechu.Text = "解除团队";
+            this.lbl_jiechu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_jiechu.Click += new System.EventHandler(this.lbl_jiechu_Click);
             // 
             // label1
             // 
@@ -191,6 +203,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(1, 1);
             this.label2.Margin = new System.Windows.Forms.Padding(1);
             this.label2.Name = "label2";
@@ -235,11 +248,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button btn_chuangjian;
-        private System.Windows.Forms.Button btn_jiechutuandui;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.FlowLayoutPanel flp_tuandui;
+        private System.Windows.Forms.Label lbl_chuangjian;
+        private System.Windows.Forms.Label lbl_jiechu;
     }
 }

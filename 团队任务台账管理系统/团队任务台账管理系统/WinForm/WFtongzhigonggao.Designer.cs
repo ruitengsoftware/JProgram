@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_quxiao = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tb_neirong = new System.Windows.Forms.TextBox();
             this.tb_wenhao = new System.Windows.Forms.TextBox();
@@ -39,17 +39,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label6
+            // lbl_quxiao
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Tomato;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(236, 289);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 17);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "取消";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_quxiao.AutoSize = true;
+            this.lbl_quxiao.BackColor = System.Drawing.Color.Tomato;
+            this.lbl_quxiao.ForeColor = System.Drawing.Color.White;
+            this.lbl_quxiao.Location = new System.Drawing.Point(236, 289);
+            this.lbl_quxiao.Name = "lbl_quxiao";
+            this.lbl_quxiao.Size = new System.Drawing.Size(32, 17);
+            this.lbl_quxiao.TabIndex = 10;
+            this.lbl_quxiao.Text = "取消";
+            this.lbl_quxiao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_quxiao.Click += new System.EventHandler(this.lbl_quxiao_Click);
             // 
             // label5
             // 
@@ -62,6 +63,7 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "保存";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // tb_neirong
             // 
@@ -126,7 +128,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(363, 339);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lbl_quxiao);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tb_neirong);
             this.Controls.Add(this.tb_wenhao);
@@ -146,7 +148,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl_quxiao;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tb_neirong;
         private System.Windows.Forms.TextBox tb_wenhao;

@@ -30,6 +30,7 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pb_touxiang = new System.Windows.Forms.PictureBox();
             this.btn_xinjian = new System.Windows.Forms.Button();
             this.btn_daiban = new System.Windows.Forms.Button();
             this.btn_tuandui = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.btn_tuichu = new System.Windows.Forms.Button();
             this.btn_home = new System.Windows.Forms.Button();
             this.panel_my = new System.Windows.Forms.Panel();
-            this.pb_touxiang = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -87,7 +87,7 @@
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 11;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -101,10 +101,24 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(96, 464);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // pb_touxiang
+            // 
+            this.pb_touxiang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pb_touxiang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_touxiang.Image = global::团队任务台账管理系统.Properties.Resources.touxiang;
+            this.pb_touxiang.Location = new System.Drawing.Point(7, 7);
+            this.pb_touxiang.Margin = new System.Windows.Forms.Padding(7);
+            this.pb_touxiang.Name = "pb_touxiang";
+            this.pb_touxiang.Size = new System.Drawing.Size(82, 86);
+            this.pb_touxiang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_touxiang.TabIndex = 0;
+            this.pb_touxiang.TabStop = false;
+            this.pb_touxiang.Click += new System.EventHandler(this.pb_touxiang_Click);
+            // 
             // btn_xinjian
             // 
             this.btn_xinjian.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_xinjian.Location = new System.Drawing.Point(1, 91);
+            this.btn_xinjian.Location = new System.Drawing.Point(1, 131);
             this.btn_xinjian.Margin = new System.Windows.Forms.Padding(1);
             this.btn_xinjian.Name = "btn_xinjian";
             this.btn_xinjian.Size = new System.Drawing.Size(94, 28);
@@ -116,7 +130,7 @@
             // btn_daiban
             // 
             this.btn_daiban.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_daiban.Location = new System.Drawing.Point(1, 121);
+            this.btn_daiban.Location = new System.Drawing.Point(1, 161);
             this.btn_daiban.Margin = new System.Windows.Forms.Padding(1);
             this.btn_daiban.Name = "btn_daiban";
             this.btn_daiban.Size = new System.Drawing.Size(94, 28);
@@ -128,7 +142,7 @@
             // btn_tuandui
             // 
             this.btn_tuandui.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_tuandui.Location = new System.Drawing.Point(1, 151);
+            this.btn_tuandui.Location = new System.Drawing.Point(1, 191);
             this.btn_tuandui.Margin = new System.Windows.Forms.Padding(1);
             this.btn_tuandui.Name = "btn_tuandui";
             this.btn_tuandui.Size = new System.Drawing.Size(94, 28);
@@ -140,19 +154,19 @@
             // btn_tongxunlu
             // 
             this.btn_tongxunlu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_tongxunlu.Location = new System.Drawing.Point(1, 181);
+            this.btn_tongxunlu.Location = new System.Drawing.Point(1, 221);
             this.btn_tongxunlu.Margin = new System.Windows.Forms.Padding(1);
             this.btn_tongxunlu.Name = "btn_tongxunlu";
             this.btn_tongxunlu.Size = new System.Drawing.Size(94, 28);
             this.btn_tongxunlu.TabIndex = 2;
-            this.btn_tongxunlu.Text = "通讯录???";
+            this.btn_tongxunlu.Text = "通讯录";
             this.btn_tongxunlu.UseVisualStyleBackColor = true;
             this.btn_tongxunlu.Click += new System.EventHandler(this.btn_tongxunlu_Click);
             // 
             // btn_lishiziliao
             // 
             this.btn_lishiziliao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_lishiziliao.Location = new System.Drawing.Point(1, 211);
+            this.btn_lishiziliao.Location = new System.Drawing.Point(1, 251);
             this.btn_lishiziliao.Margin = new System.Windows.Forms.Padding(1);
             this.btn_lishiziliao.Name = "btn_lishiziliao";
             this.btn_lishiziliao.Size = new System.Drawing.Size(94, 28);
@@ -165,7 +179,7 @@
             // 
             this.btn_gongxiangziliao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_gongxiangziliao.Enabled = false;
-            this.btn_gongxiangziliao.Location = new System.Drawing.Point(1, 271);
+            this.btn_gongxiangziliao.Location = new System.Drawing.Point(1, 311);
             this.btn_gongxiangziliao.Margin = new System.Windows.Forms.Padding(1);
             this.btn_gongxiangziliao.Name = "btn_gongxiangziliao";
             this.btn_gongxiangziliao.Size = new System.Drawing.Size(94, 28);
@@ -176,7 +190,7 @@
             // btn_shouquan
             // 
             this.btn_shouquan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_shouquan.Location = new System.Drawing.Point(1, 241);
+            this.btn_shouquan.Location = new System.Drawing.Point(1, 281);
             this.btn_shouquan.Margin = new System.Windows.Forms.Padding(1);
             this.btn_shouquan.Name = "btn_shouquan";
             this.btn_shouquan.Size = new System.Drawing.Size(94, 28);
@@ -188,7 +202,7 @@
             // btn_tuichu
             // 
             this.btn_tuichu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_tuichu.Location = new System.Drawing.Point(1, 301);
+            this.btn_tuichu.Location = new System.Drawing.Point(1, 341);
             this.btn_tuichu.Margin = new System.Windows.Forms.Padding(1);
             this.btn_tuichu.Name = "btn_tuichu";
             this.btn_tuichu.Size = new System.Drawing.Size(94, 28);
@@ -200,7 +214,7 @@
             // btn_home
             // 
             this.btn_home.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_home.Location = new System.Drawing.Point(1, 61);
+            this.btn_home.Location = new System.Drawing.Point(1, 101);
             this.btn_home.Margin = new System.Windows.Forms.Padding(1);
             this.btn_home.Name = "btn_home";
             this.btn_home.Size = new System.Drawing.Size(94, 28);
@@ -217,20 +231,6 @@
             this.panel_my.Name = "panel_my";
             this.panel_my.Size = new System.Drawing.Size(657, 464);
             this.panel_my.TabIndex = 0;
-            // 
-            // pb_touxiang
-            // 
-            this.pb_touxiang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pb_touxiang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_touxiang.Image = global::团队任务台账管理系统.Properties.Resources.touxiang;
-            this.pb_touxiang.Location = new System.Drawing.Point(7, 7);
-            this.pb_touxiang.Margin = new System.Windows.Forms.Padding(7);
-            this.pb_touxiang.Name = "pb_touxiang";
-            this.pb_touxiang.Size = new System.Drawing.Size(82, 46);
-            this.pb_touxiang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_touxiang.TabIndex = 0;
-            this.pb_touxiang.TabStop = false;
-            this.pb_touxiang.Click += new System.EventHandler(this.pb_touxiang_Click);
             // 
             // Form1
             // 

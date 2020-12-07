@@ -297,13 +297,14 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.Gold;
             this.label2.Location = new System.Drawing.Point(3, 210);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(234, 120);
             this.label2.TabIndex = 9;
-            this.label2.Text = "时间就是金钱\r\nTime is money\r\n效率就是生命\r\nEfficiency is life\r\n细节决定成败\r\nDetails determine succ" +
-    "ess or failure";
+            this.label2.Text = "时间就是金钱\r\n效率就是生命\r\n细节决定成败\r\nTime is money,Efficiency is life,Details determine succes" +
+    "s or failure";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UCdenglu

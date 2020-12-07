@@ -15,7 +15,7 @@ namespace 团队任务台账管理系统.UserControll
 {
     public partial class UCtuandui : UserControl
     {
-        ControllerTuandui mycontroller = new ControllerTuandui();
+        ControllerTuandui _mycontroller = new ControllerTuandui();
 
 
         public UCtuandui()
@@ -79,8 +79,8 @@ namespace 团队任务台账管理系统.UserControll
         {
             //清空数据
             flp_tuandui.Controls.Clear();
-            //获得全部数据
-            DataTable mydt = mycontroller.GetTuandui();
+            //获得全部团队数据
+            DataTable mydt = _mycontroller.GetTuandui();
             //刷新显示数据，循环构造tuanduixinxi类uctuanduanxiangqing，加入到flp中
             for (int i = 0; i < mydt.Rows.Count; i++)
             {
@@ -92,17 +92,17 @@ namespace 团队任务台账管理系统.UserControll
                     _chengyuan = mydr["成员"].ToString(),
                     _chuangjianshijian = mydr["创建时间"].ToString(),
                     _zhuangtai = mydr["状态"].ToString(),
-                    _jiechushijian = mydr["解除时间"].ToString()
+                    _jiechushijian = mydr["解除时间"].ToString(),
+                    _tuanduitupian = mydr["团队图片"].ToString(),
+                    _gongzuolingyu = mydr["工作领域"].ToString()
                 };
 
                 UCtuanduixiagnqing myuc = new UCtuanduixiagnqing(mytuanduiinfo);
+                myuc.Updatedate += UCtuandui_Load;
+                //把刷新窗体事件传给myuc
+
                 flp_tuandui.Controls.Add(myuc);
             }
-
-
-
-
-
         }
 
         private void dgv_data_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -119,6 +119,112 @@ namespace 团队任务台账管理系统.UserControll
 
 
 
+        }
+        /// <summary>
+        /// 点击接触按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lbl_jiechu_Click(object sender, EventArgs e)
+        {
+            //获得选中的团队名称
+            List<string> list_name = new List<string>();
+            foreach (UCtuanduixiagnqing myuc in flp_tuandui.Controls)
+            {
+                if (myuc._checked)
+                {
+                    list_name.Add(myuc.lbl_tuanduimingcheng.Text);
+                }
+            }
+            //如果没有选中团队，要提示，然后退出
+            if (list_name.Count == 0)
+            {
+                MessageBox.Show("没有选中任何团队！");
+                return;
+            }
+            //从数据库中删除
+            bool b = _mycontroller.JiechuTuandui(list_name);
+            if (b)
+            {
+                //刷新前端显示
+                UCtuandui_Load(null, null);
+
+                MessageBox.Show("团队已解除！");
+            }
+
+        }
+        /// <summary>
+        /// 点击加入团队按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void label5_Click(object sender, EventArgs e)
+        {
+            //获得选中的团队名称
+            List<string> list_name = new List<string>();
+            foreach (UCtuanduixiagnqing myuc in flp_tuandui.Controls)
+            {
+                if (myuc._checked)
+                {
+                    list_name.Add(myuc.lbl_tuanduimingcheng.Text);
+                }
+            }
+
+            //添加到这个团队中
+
+
+            bool b = _mycontroller.JiaruTuandui(list_name);
+            if (b)
+            {
+                //刷新前端显示
+                UCtuandui_Load(null, null);
+
+                MessageBox.Show("已加入所选团队！");
+            }
+
+
+
+        }
+        /// <summary>
+        /// 点击退出团队按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void label6_Click(object sender, EventArgs e)
+        {
+            //获得选中的团队名称
+            List<string> list_name = new List<string>();
+            foreach (UCtuanduixiagnqing myuc in flp_tuandui.Controls)
+            {
+                if (myuc._checked)
+                {
+                    list_name.Add(myuc.lbl_tuanduimingcheng.Text);
+                }
+            }
+
+            //添加到这个团队中
+
+
+            bool b = _mycontroller.TuichuTuandui(list_name);
+            if (b)
+            {
+                //刷新前端显示
+                UCtuandui_Load(null, null);
+
+                MessageBox.Show("已退出所选团队！");
+            }
+
+        }
+
+        private void lbl_chuangjian_Click(object sender, EventArgs e)
+        {
+            WFtuandui mywin = new WFtuandui();
+            if (mywin.ShowDialog()==DialogResult.OK)
+            {
+                //刷新前端显示
+                UCtuandui_Load(null, null);
+
+            }
         }
     }
 }

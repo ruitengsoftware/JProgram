@@ -39,8 +39,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tb_jinzhan = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tb_fenjie = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_jutiyaoqiu = new System.Windows.Forms.TextBox();
@@ -53,7 +51,7 @@
             this.tb_renwumingcheng = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.tb_banliren = new System.Windows.Forms.TextBox();
+            this.tb_zerenren = new System.Windows.Forms.TextBox();
             this.pb_banli = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
@@ -67,7 +65,6 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
@@ -222,30 +219,12 @@
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.tb_fenjie, 1, 0);
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 83);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(326, 34);
             this.tableLayoutPanel6.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "分解";
-            // 
-            // tb_fenjie
-            // 
-            this.tb_fenjie.Location = new System.Drawing.Point(103, 3);
-            this.tb_fenjie.Name = "tb_fenjie";
-            this.tb_fenjie.Size = new System.Drawing.Size(220, 23);
-            this.tb_fenjie.TabIndex = 1;
             // 
             // tableLayoutPanel7
             // 
@@ -363,7 +342,7 @@
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel10.Controls.Add(this.label6, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.tb_banliren, 1, 0);
+            this.tableLayoutPanel10.Controls.Add(this.tb_zerenren, 1, 0);
             this.tableLayoutPanel10.Controls.Add(this.pb_banli, 2, 0);
             this.tableLayoutPanel10.Location = new System.Drawing.Point(0, 160);
             this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(0);
@@ -380,14 +359,14 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 17);
             this.label6.TabIndex = 0;
-            this.label6.Text = "办理人";
+            this.label6.Text = "责任人";
             // 
-            // tb_banliren
+            // tb_zerenren
             // 
-            this.tb_banliren.Location = new System.Drawing.Point(103, 3);
-            this.tb_banliren.Name = "tb_banliren";
-            this.tb_banliren.Size = new System.Drawing.Size(186, 23);
-            this.tb_banliren.TabIndex = 1;
+            this.tb_zerenren.Location = new System.Drawing.Point(103, 3);
+            this.tb_zerenren.Name = "tb_zerenren";
+            this.tb_zerenren.Size = new System.Drawing.Size(186, 23);
+            this.tb_zerenren.TabIndex = 1;
             // 
             // pb_banli
             // 
@@ -492,8 +471,6 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
@@ -523,8 +500,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tb_jinzhan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tb_fenjie;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_jutiyaoqiu;
@@ -537,7 +512,7 @@
         private System.Windows.Forms.TextBox tb_renwumingcheng;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tb_banliren;
+        private System.Windows.Forms.TextBox tb_zerenren;
         private System.Windows.Forms.PictureBox pb_banli;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Label label7;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_data = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -65,6 +66,14 @@
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.pb_zhengjianzhao = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lbl_zhucerenyuan = new System.Windows.Forms.Label();
+            this.cms_right = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbl_name = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -79,6 +88,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_touxiang)).BeginInit();
             this.tableLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_zhengjianzhao)).BeginInit();
+            this.tableLayoutPanel12.SuspendLayout();
+            this.cms_right.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -95,29 +106,34 @@
             // 
             // dgv_data
             // 
+            this.dgv_data.AllowUserToAddRows = false;
             this.dgv_data.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgv_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_data.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_data.Location = new System.Drawing.Point(3, 239);
+            this.dgv_data.Location = new System.Drawing.Point(3, 269);
             this.dgv_data.Name = "dgv_data";
+            this.dgv_data.RowHeadersVisible = false;
             this.dgv_data.RowTemplate.Height = 23;
-            this.dgv_data.Size = new System.Drawing.Size(895, 264);
+            this.dgv_data.Size = new System.Drawing.Size(895, 234);
             this.dgv_data.TabIndex = 1;
             this.dgv_data.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_data_CellMouseClick);
+            this.dgv_data.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_data_CellMouseDown);
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.dgv_data, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.dgv_data, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel12, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 196F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(901, 506);
             this.tableLayoutPanel1.TabIndex = 2;
@@ -131,12 +147,15 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel9, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel10, 2, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 43);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(895, 190);
             this.tableLayoutPanel2.TabIndex = 3;
+            this.tableLayoutPanel2.Visible = false;
             // 
             // tableLayoutPanel3
             // 
@@ -158,7 +177,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(670, 190);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(670, 160);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -451,7 +470,7 @@
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.49275F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.50725F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(104, 184);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(104, 154);
             this.tableLayoutPanel9.TabIndex = 2;
             // 
             // pb_touxiang
@@ -459,16 +478,16 @@
             this.pb_touxiang.Location = new System.Drawing.Point(0, 0);
             this.pb_touxiang.Margin = new System.Windows.Forms.Padding(0);
             this.pb_touxiang.Name = "pb_touxiang";
-            this.pb_touxiang.Size = new System.Drawing.Size(104, 118);
+            this.pb_touxiang.Size = new System.Drawing.Size(104, 99);
             this.pb_touxiang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_touxiang.TabIndex = 0;
             this.pb_touxiang.TabStop = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(3, 121);
+            this.button1.Location = new System.Drawing.Point(3, 102);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 60);
+            this.button1.Size = new System.Drawing.Size(98, 49);
             this.button1.TabIndex = 1;
             this.button1.Text = "更换头像";
             this.button1.UseVisualStyleBackColor = true;
@@ -485,7 +504,7 @@
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.49275F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.50725F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(109, 184);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(109, 154);
             this.tableLayoutPanel10.TabIndex = 2;
             // 
             // pb_zhengjianzhao
@@ -493,26 +512,122 @@
             this.pb_zhengjianzhao.Location = new System.Drawing.Point(0, 0);
             this.pb_zhengjianzhao.Margin = new System.Windows.Forms.Padding(0);
             this.pb_zhengjianzhao.Name = "pb_zhengjianzhao";
-            this.pb_zhengjianzhao.Size = new System.Drawing.Size(109, 118);
+            this.pb_zhengjianzhao.Size = new System.Drawing.Size(109, 99);
             this.pb_zhengjianzhao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_zhengjianzhao.TabIndex = 0;
             this.pb_zhengjianzhao.TabStop = false;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(3, 121);
+            this.button2.Location = new System.Drawing.Point(3, 102);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 60);
+            this.button2.Size = new System.Drawing.Size(103, 49);
             this.button2.TabIndex = 1;
             this.button2.Text = "更换证件照";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Visible = false;
+            // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 4;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel12.Controls.Add(this.label11, 0, 0);
+            this.tableLayoutPanel12.Controls.Add(this.label12, 1, 0);
+            this.tableLayoutPanel12.Controls.Add(this.lbl_zhucerenyuan, 2, 0);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 236);
+            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 1;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(901, 30);
+            this.tableLayoutPanel12.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Tomato;
+            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(3, 3);
+            this.label11.Margin = new System.Windows.Forms.Padding(3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(74, 24);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "授权管理员";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Tomato;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(83, 3);
+            this.label12.Margin = new System.Windows.Forms.Padding(3);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(74, 24);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "某个权限？";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_zhucerenyuan
+            // 
+            this.lbl_zhucerenyuan.AutoSize = true;
+            this.lbl_zhucerenyuan.BackColor = System.Drawing.Color.Tomato;
+            this.lbl_zhucerenyuan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_zhucerenyuan.ForeColor = System.Drawing.Color.White;
+            this.lbl_zhucerenyuan.Location = new System.Drawing.Point(163, 3);
+            this.lbl_zhucerenyuan.Margin = new System.Windows.Forms.Padding(3);
+            this.lbl_zhucerenyuan.Name = "lbl_zhucerenyuan";
+            this.lbl_zhucerenyuan.Size = new System.Drawing.Size(74, 24);
+            this.lbl_zhucerenyuan.TabIndex = 0;
+            this.lbl_zhucerenyuan.Text = "注册人员";
+            this.lbl_zhucerenyuan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_zhucerenyuan.Click += new System.EventHandler(this.lbl_zhucerenyuan_Click);
+            // 
+            // cms_right
+            // 
+            this.cms_right.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.编辑ToolStripMenuItem,
+            this.删除ToolStripMenuItem});
+            this.cms_right.Name = "cms_right";
+            this.cms_right.Size = new System.Drawing.Size(101, 48);
+            // 
+            // 编辑ToolStripMenuItem
+            // 
+            this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.编辑ToolStripMenuItem.Text = "编辑";
+            this.编辑ToolStripMenuItem.Click += new System.EventHandler(this.编辑ToolStripMenuItem_Click);
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.删除ToolStripMenuItem.Text = "删除";
+            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
+            // 
+            // lbl_name
+            // 
+            this.lbl_name.AutoSize = true;
+            this.lbl_name.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_name.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_name.Location = new System.Drawing.Point(858, 0);
+            this.lbl_name.Name = "lbl_name";
+            this.lbl_name.Size = new System.Drawing.Size(43, 17);
+            this.lbl_name.TabIndex = 4;
+            this.lbl_name.Text = "label2";
             // 
             // UCshouquan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lbl_name);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -539,12 +654,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_touxiang)).EndInit();
             this.tableLayoutPanel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_zhengjianzhao)).EndInit();
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.tableLayoutPanel12.PerformLayout();
+            this.cms_right.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgv_data;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -552,6 +670,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button btn_baocun;
+        private System.Windows.Forms.Button btn_shanchu;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_bumen;
@@ -581,6 +700,13 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.PictureBox pb_zhengjianzhao;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btn_shanchu;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lbl_zhucerenyuan;
+        private System.Windows.Forms.ContextMenuStrip cms_right;
+        private System.Windows.Forms.ToolStripMenuItem 编辑ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
+        private System.Windows.Forms.Label lbl_name;
     }
 }

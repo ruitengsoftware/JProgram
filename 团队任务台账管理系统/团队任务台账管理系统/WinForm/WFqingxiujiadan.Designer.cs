@@ -52,6 +52,7 @@
             this.lbl_quxiao.TabIndex = 19;
             this.lbl_quxiao.Text = "取消";
             this.lbl_quxiao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_quxiao.Click += new System.EventHandler(this.lbl_quxiao_Click);
             // 
             // lbl_baocun
             // 
@@ -64,6 +65,7 @@
             this.lbl_baocun.TabIndex = 20;
             this.lbl_baocun.Text = "保存";
             this.lbl_baocun.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_baocun.Click += new System.EventHandler(this.lbl_baocun_Click);
             // 
             // tb_weituoduixiang
             // 

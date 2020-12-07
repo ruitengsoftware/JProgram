@@ -7,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 团队任务台账管理系统.Controller;
+using 团队任务台账管理系统.JJModel;
 using 团队任务台账管理系统.Properties;
 using 团队任务台账管理系统.UserControll;
+using 团队任务台账管理系统.WinForm;
 
 namespace 团队任务台账管理系统
 {
     public partial class Form1 : Form
     {
+
+        ControllerForm1 _mycontroller = new ControllerForm1();
         public Form1()
         {
             InitializeComponent();
@@ -57,7 +62,17 @@ namespace 团队任务台账管理系统
 
         private void pb_touxiang_Click(object sender, EventArgs e)
         {
-            
+            //弹出注册窗体
+            WFzhuce mywin = new WFzhuce(0);
+            if (mywin.ShowDialog()==DialogResult.OK)
+            {
+                //更新头像
+                pb_touxiang.Image = _mycontroller.ConvertBase64ToImage(JJModel.JJLoginInfo._touxiang);
+
+                var myuc = new UCmain() { Dock=DockStyle.Fill};
+                panel_my.Controls.Clear();
+                panel_my.Controls.Add(myuc);
+            }
         }
 
         private void btn_wodedaiban_Click(object sender, EventArgs e)
@@ -143,7 +158,7 @@ namespace 团队任务台账管理系统
             var parent = this.Parent;
             panel_my.Controls.Clear();
 
-            panel_my.Controls.Add(new UCxiaoxiang() { Dock = DockStyle.Fill }); ;
+            panel_my.Controls.Add(new UClishiziliao() { Dock = DockStyle.Fill }); ;
 
         }
 

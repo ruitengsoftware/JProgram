@@ -31,8 +31,9 @@ namespace 团队任务台账管理系统.UserControll
                 var mydr = mydt.Rows[i];
                 JJPersonInfo mypersoninfo = new JJPersonInfo() {
                     _shiming = mydr["实名"].ToString(),
-                    _zhiji=mydr["职级"].ToString(),
-                _shoujihao=mydr["手机号"].ToString()
+                    _zhiji = mydr["职级"].ToString(),
+                    _shoujihao = mydr["手机号"].ToString(),
+                    _touxiang = mydr["头像"].ToString()
                 };
                 //构造uctongxunluxiangqing,加载到flp种
                 UCtongxunluxiangqing myuc = new UCtongxunluxiangqing(mypersoninfo);

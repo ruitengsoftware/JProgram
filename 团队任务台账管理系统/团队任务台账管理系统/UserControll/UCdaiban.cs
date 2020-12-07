@@ -11,6 +11,7 @@ using 团队任务台账管理系统.Controller;
 using 团队任务台账管理系统.WinForm;
 using System.Text.RegularExpressions;
 using 团队任务台账管理系统.Properties;
+using 团队任务台账管理系统.JJModel;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -21,7 +22,7 @@ namespace 团队任务台账管理系统.UserControll
             InitializeComponent();
 
         }
-        ControllerWfRenwuxiangqing mycontroller = new ControllerWfRenwuxiangqing();
+        ControllerWfdaiban mycontroller = new ControllerWfdaiban();
         private void UCdaiban_Load(object sender, EventArgs e)
         {
             //刷新数据
@@ -47,6 +48,8 @@ namespace 团队任务台账管理系统.UserControll
                     //Application.DoEvents();
                 }
             }
+            //选中第一行记录，显示详情
+            dgv_data_CellMouseClick(null, null);
         }
 
         /// <summary>
@@ -58,17 +61,17 @@ namespace 团队任务台账管理系统.UserControll
         {
             //获得选中行的任务具体要求
             string yaoqiu = dgv_data.CurrentRow.Cells["具体要求"].Value.ToString();
-            string fenjie = dgv_data.CurrentRow.Cells["分解"].Value.ToString();
-            string jinzhan = dgv_data.CurrentRow.Cells["进展"].Value.ToString();
+            //string fenjie = dgv_data.CurrentRow.Cells["分解"].Value.ToString();
+            string jinzhan = dgv_data.CurrentRow.Cells["进展情况"].Value.ToString();
             string mingcheng = dgv_data.CurrentRow.Cells["任务名称"].Value.ToString();
-            string banliren = dgv_data.CurrentRow.Cells["办理人"].Value.ToString();
+            string banliren = dgv_data.CurrentRow.Cells["责任人"].Value.ToString();
             string yanshouren = dgv_data.CurrentRow.Cells["验收人"].Value.ToString();
             //显示再窗体上
             tb_renwumingcheng.Text = mingcheng;
             tb_jutiyaoqiu.Text = yaoqiu;
-            tb_fenjie.Text = fenjie;
+            //tb_fenjie.Text = fenjie;
             tb_jinzhan.Text = jinzhan;
-            tb_banliren.Text = banliren;
+            tb_zerenren.Text = banliren;
             tb_yanshouren.Text = yanshouren;
 
             //判断记录是否为已读，如果未读更新该条记录为已读，并更新开始时间，如果已读不在执行
@@ -113,14 +116,15 @@ namespace 团队任务台账管理系统.UserControll
         /// <param name="e"></param>
         private void btn_gengxin_Click(object sender, EventArgs e)
         {
-            //获得 任务名称，具体要求，分解，进展
-            string mingcheng = tb_renwumingcheng.Text;
-            string yaoqiu = tb_jutiyaoqiu.Text;
-            string fenjie = tb_fenjie.Text;
-            string jinzhan = tb_jinzhan.Text;
-            string banliren = tb_banliren.Text;
-            string yanshouren = tb_yanshouren.Text;
-            bool b = mycontroller.UpdateTask(mingcheng, yaoqiu, fenjie, jinzhan, banliren,yanshouren);
+            JJchangguiInfo ci = new JJchangguiInfo()
+            {
+                _renwumingcheng = tb_renwumingcheng.Text,
+                _jutiyaoqiu = tb_jutiyaoqiu.Text,
+                _jinzhanqingkuang = tb_jinzhan.Text,
+                _zerenren = tb_zerenren.Text,
+                _yanshouren = tb_yanshouren.Text
+            };
+            bool b = mycontroller.UpdateTask(ci);
             //刷新数据
             int selectindex = dgv_data.SelectedRows[0].Index;
             UCdaiban_Load(null, null);
@@ -129,16 +133,20 @@ namespace 团队任务台账管理系统.UserControll
             if (b) MessageBox.Show("更新数据成功！");
 
         }
-
+        /// <summary>
+        /// 点击添加按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pb_tianjia_Click(object sender, EventArgs e)
         {
-            string str_person = tb_banliren.Text;
+            string str_person = tb_zerenren.Text;
             //打开人员表,选择人员并确认
             WFperson mywfperson = new WFperson(str_person);
             if (mywfperson.ShowDialog() == DialogResult.OK)
             {
                 string xingming = string.Join(",", mywfperson.list_person);
-                tb_banliren.Text = xingming;
+                tb_zerenren.Text = xingming;
             }
 
         }
@@ -153,7 +161,7 @@ namespace 团队任务台账管理系统.UserControll
             string yanshouren = tb_yanshouren.Text;
             //获得办理人员的名单
 
-            string banliren = tb_banliren.Text ;
+            string banliren = tb_zerenren.Text ;
             List<string> list_person = Regex.Split(banliren, @"[,，]").ToList();
 
             //将任务名称和发送时间，办理人员存入数据库中jjtasksend
@@ -182,13 +190,27 @@ namespace 团队任务台账管理系统.UserControll
         /// <param name="e"></param>
         private void btn_yanshou_Click(object sender, EventArgs e)
         {
-            string renwumingcheng = tb_renwumingcheng.Text;
-            string yanshouren = tb_yanshouren.Text;
-           
-            //将任务名称和发送时间，办理人员存入数据库中jjtasksend
-            bool b = mycontroller.TijiaoYanshou(renwumingcheng, Settings.Default.user);
 
-            if (b) MessageBox.Show("任务已提交验收！");
+            //将选中的任务构造jjchangguinifo实例
+            DataGridViewRow mydr = dgv_data.CurrentRow;
+            JJchangguiInfo info = new JJchangguiInfo()
+            {
+                _renwumingcheng=mydr.Cells["任务名称"].Value.ToString()
+            };
+            //将任务名称和发送时间，办理人员存入数据库中jjtasksend
+            bool b = mycontroller.TijiaoYanshou(info);
+
+            if (b)
+            {
+                //刷新数据
+                int selectindex = dgv_data.SelectedRows[0].Index;
+                UCdaiban_Load(null, null);
+                dgv_data.Rows[0].Selected = false;
+                dgv_data.Rows[selectindex].Selected = true;
+
+
+                MessageBox.Show("任务已提交验收！");
+            } 
         }
         /// <summary>
         /// 点击通过验收按钮时触发的事件
@@ -197,13 +219,26 @@ namespace 团队任务台账管理系统.UserControll
         /// <param name="e"></param>
         private void btn_tongguoyanshou_Click(object sender, EventArgs e)
         {
-            string renwumingcheng = tb_renwumingcheng.Text;
-            string yanshouren = tb_yanshouren.Text;
 
+            //将选中的任务构造jjchangguinifo实例
+            JJchangguiInfo info = new JJchangguiInfo()
+            {
+                _renwumingcheng = tb_renwumingcheng.Text
+            };
             //将任务名称和发送时间，办理人员存入数据库中jjtasksend
-            bool b = mycontroller.YanshouRenwu(renwumingcheng, Settings.Default.user);
+            bool b = mycontroller.YanshouRenwu(info);
 
-            if (b) MessageBox.Show("任务已通过验收！");
+            if (b)
+            {
+
+                //刷新数据
+                //刷新数据
+                int selectindex = dgv_data.SelectedRows[0].Index;
+                UCdaiban_Load(null, null);
+                dgv_data.Rows[0].Selected = false;
+                dgv_data.Rows[selectindex].Selected = true;
+                MessageBox.Show("任务已通过验收！");
+            }
         }
     }
 }

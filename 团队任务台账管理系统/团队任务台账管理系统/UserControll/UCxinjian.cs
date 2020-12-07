@@ -240,5 +240,35 @@ namespace 团队任务台账管理系统.UserControll
 
             }
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+          var  mywin = new WFtongzhigonggao();
+            if (mywin.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            var mywin = new WFqingxiujiadan();
+            if (mywin.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            var mywin = new WFyijianjianyi();
+            if (mywin.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+
+        }
     }
 }

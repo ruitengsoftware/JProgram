@@ -97,25 +97,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\JJImageHelper.cs" />
     <Compile Include="Common\JJpanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controller\ControllerDenglu.cs" />
     <Compile Include="Controller\ControllerFankui.cs" />
+    <Compile Include="Controller\ControllerForm1.cs" />
+    <Compile Include="Controller\ControllerLishiziliao.cs" />
     <Compile Include="Controller\ControllerOkrshixiang.cs" />
     <Compile Include="Controller\ControllerRenwuxiangqing.cs" />
     <Compile Include="Controller\ControllerUCtongxulu.cs" />
-    <Compile Include="Controller\ControllerWFmain.cs" />
+    <Compile Include="Controller\ControllerUCmain.cs" />
     <Compile Include="Controller\ControllerTuandui.cs" />
     <Compile Include="Controller\ControllerUCrizhi.cs" />
-    <Compile Include="Controller\ControllerWFqingxiujiadan.cs" />
-    <Compile Include="Controller\ControllerWfRenwuxiangqing.cs" />
+    <Compile Include="Controller\ControllerWFqingxiujia.cs" />
+    <Compile Include="Controller\ControllerWfdaiban.cs" />
     <Compile Include="Controller\ControllerUCshouquan.cs" />
     <Compile Include="Controller\ControllerUCxiaoxiang.cs" />
     <Compile Include="Controller\ControllerWFperson.cs" />
     <Compile Include="Controller\ControllerWFrizhi.cs" />
     <Compile Include="Controller\ControllerWFtongzhigonggao.cs" />
     <Compile Include="Controller\Controllerwfxinjian.cs" />
+    <Compile Include="Controller\ControllerWFyijian.cs" />
     <Compile Include="Controller\ControllerWFzhuce.cs" />
     <Compile Include="Controller\ControllerXinjiangongzuoqingdan.cs" />
     <Compile Include="Controller\MysqlHelper.cs" />
@@ -125,13 +129,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="JJModel\JJchangguiInfo.cs" />
     <Compile Include="JJModel\JJchengguoInfo.cs" />
     <Compile Include="JJModel\JJOkrInfo.cs" />
     <Compile Include="JJModel\JJLoginInfo.cs" />
     <Compile Include="JJModel\JJPersonInfo.cs" />
     <Compile Include="JJModel\JJQingdanInfo.cs" />
+    <Compile Include="JJModel\JJqingjiaInfo.cs" />
     <Compile Include="JJModel\JJTaskInfo.cs" />
+    <Compile Include="JJModel\JJTongzhiInfo.cs" />
     <Compile Include="JJModel\JJTuanduiInfo.cs" />
+    <Compile Include="JJModel\JJyijianInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControll\UCdaiban.cs">
@@ -151,6 +159,12 @@
     </Compile>
     <Compile Include="UserControll\UCfankui.Designer.cs">
       <DependentUpon>UCfankui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\UClishiziliao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UClishiziliao.Designer.cs">
+      <DependentUpon>UClishiziliao.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControll\UCmain.cs">
       <SubType>UserControl</SubType>
@@ -284,11 +298,11 @@
     <Compile Include="WinForm\WFzhuce.Designer.cs">
       <DependentUpon>WFzhuce.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForm\WFRenwuxiangqing.cs">
+    <Compile Include="WinForm\WFdaiban.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForm\WFRenwuxiangqing.Designer.cs">
-      <DependentUpon>WFRenwuxiangqing.cs</DependentUpon>
+    <Compile Include="WinForm\WFdaiban.Designer.cs">
+      <DependentUpon>WFdaiban.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForm\WFgongzuoqingdan.cs">
       <SubType>Form</SubType>
@@ -317,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCfankui.resx">
       <DependentUpon>UCfankui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UClishiziliao.resx">
+      <DependentUpon>UClishiziliao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCmain.resx">
       <DependentUpon>UCmain.cs</DependentUpon>
@@ -384,8 +401,8 @@
     <EmbeddedResource Include="WinForm\WFzhuce.resx">
       <DependentUpon>WFzhuce.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\WFRenwuxiangqing.resx">
-      <DependentUpon>WFRenwuxiangqing.cs</DependentUpon>
+    <EmbeddedResource Include="WinForm\WFdaiban.resx">
+      <DependentUpon>WFdaiban.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WFgongzuoqingdan.resx">
       <DependentUpon>WFgongzuoqingdan.cs</DependentUpon>
@@ -448,6 +465,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\对号.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\对号 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

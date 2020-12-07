@@ -1,6 +1,6 @@
 ﻿namespace 团队任务台账管理系统.UserControll
 {
-    partial class UCtongxunlu
+    partial class UClishiziliao
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -28,36 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flp_my = new System.Windows.Forms.FlowLayoutPanel();
+            this.dgv_data = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).BeginInit();
             this.SuspendLayout();
             // 
-            // flp_my
+            // dgv_data
             // 
-            this.flp_my.AutoScroll = true;
-            this.flp_my.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flp_my.Location = new System.Drawing.Point(0, 0);
-            this.flp_my.Name = "flp_my";
-            this.flp_my.Size = new System.Drawing.Size(498, 411);
-            this.flp_my.TabIndex = 0;
+            this.dgv_data.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_data.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_data.Location = new System.Drawing.Point(0, 0);
+            this.dgv_data.Name = "dgv_data";
+            this.dgv_data.RowTemplate.Height = 23;
+            this.dgv_data.Size = new System.Drawing.Size(512, 582);
+            this.dgv_data.TabIndex = 0;
             // 
-            // UCtongxunlu
+            // UClishiziliao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.flp_my);
+            this.Controls.Add(this.dgv_data);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "UCtongxunlu";
-            this.Size = new System.Drawing.Size(498, 411);
-            this.Load += new System.EventHandler(this.UCtongxunlu_Load);
+            this.Name = "UClishiziliao";
+            this.Size = new System.Drawing.Size(512, 582);
+            this.Load += new System.EventHandler(this.UClishiziliao_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flp_my;
+        private System.Windows.Forms.DataGridView dgv_data;
     }
 }

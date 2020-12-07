@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using 团队任务台账管理系统.JJModel;
 
 namespace 团队任务台账管理系统.Controller
 {
-   public class ControllerWFzhuce
+    public class ControllerWFzhuce
     {
         MySQLHelper mysqlhelper = new MySQLHelper();
         /// <summary>
@@ -20,9 +23,36 @@ namespace 团队任务台账管理系统.Controller
         {
             string str_sql = $"insert into jjperson values('{dic["花名"]}','{dic["实名"]}','{dic["部门"]}','{dic["职级"]}','{dic["密码"]}','{dic["手机号"]}','{dic["电子邮箱"]}'," +
                 $"'{dic["自定义账号"]}','{dic["头像"]}','{dic["工作证件照"]}','{dic["微信号"]}',0)";
-            int num=mysqlhelper.ExecuteNonQuery(str_sql, null);
+            int num = mysqlhelper.ExecuteNonQuery(str_sql, null);
             return num > 0 ? true : false;
         }
+        /// <summary>
+        /// 点击保存按钮时触发的事件
+        /// </summary>
+        /// <returns></returns>
+        public bool BaocunInfo(JJPersonInfo p)
+        {
+
+            //判断花名，如果已经存在，使用update语句，如果不存在使用insertinto语句
+            string str_sql = $"select count(*) from jjperson where 花名='{p._huaming}' and 删除=0";
+            int num0 = Convert.ToInt32(mysqlhelper.ExecuteScalar(str_sql));
+            if (num0>0)
+            {
+            str_sql = $"update jjperson set 实名='{p._shiming}',部门='{p._bumen}',职级='{p._zhiji}',密码='{p._mima}',手机号='{p._shoujihao}',电子邮箱='{p._dianziyouxiang}'," +
+                $"自定义账号='{p._zidingyizhanghao}',密码='{p._mima}',头像='{p._touxiang}',工作证件照='{p._gongzuozhengjianzhao}',微信号='{p._weixinhao}',个人签名='{p._gerenqianming}' where 花名='{JJLoginInfo._huaming}'";
+
+            }
+            else
+            {
+           str_sql = $"insert into jjperson values('{p._huaming}','{p._shiming}','{p._bumen}'," +
+                    $"'{p._zhiji}','{p._mima}','{p._shoujihao}','{p._dianziyouxiang}'," +
+                    $"'{p._zidingyizhanghao}','{p._touxiang}','{p._gongzuozhengjianzhao}','{p._weixinhao}',0,'{p._gerenqianming}')";
+
+            }
+            int num = mysqlhelper.ExecuteNonQuery(str_sql, null);
+            return num > 0 ? true : false;
+        }
+
 
         /// <summary>
         /// 判断花名是否已经有人注册
@@ -32,7 +62,7 @@ namespace 团队任务台账管理系统.Controller
         public bool ExistsHuaming(string huaming)
         {
             string str_sql = $"select count(*) from jjperson where 花名='{huaming}'";
-            int num =Convert.ToInt32( mysqlhelper.ExecuteScalar(str_sql, null));
+            int num = Convert.ToInt32(mysqlhelper.ExecuteScalar(str_sql, null));
             return num > 0 ? true : false;
 
         }
@@ -49,35 +79,6 @@ namespace 团队任务台账管理系统.Controller
 
         }
 
-
-        /// <summary>
-        /// 将图片转换为base64编码
-        /// </summary>
-        /// <param name="file"></param>
-        /// <returns></returns>
-        public string ConvertImageToBase64(Image file)
-        {
-            using (MemoryStream memoryStream = new MemoryStream())
-            {
-                file.Save(memoryStream, file.RawFormat);
-                byte[] imageBytes = memoryStream.ToArray();
-                return Convert.ToBase64String(imageBytes);
-            }
-        }
-        /// <summary>
-        /// 将64位编码转化成图片
-        /// </summary>
-        /// <param name="base64String"></param>
-        /// <returns></returns>
-        public Image ConvertBase64ToImage(string base64String)
-        {
-            byte[] imageBytes = Convert.FromBase64String(base64String);
-            using (MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
-            {
-                ms.Write(imageBytes, 0, imageBytes.Length);
-                return Image.FromStream(ms, true);
-            }
-        }
 
     }
 }

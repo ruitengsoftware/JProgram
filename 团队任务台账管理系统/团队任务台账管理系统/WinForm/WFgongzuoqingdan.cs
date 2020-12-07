@@ -18,7 +18,17 @@ namespace 团队任务台账管理系统.WinForm
         {
             InitializeComponent();
         }
+        public WFgongzuoqingdan(JJQingdanInfo q)
+        {
+            InitializeComponent();
+            tb_renwumingcheng.Text = q._renwumingcheng;
+            cbb_xiangxian.Text = q._xiangxian;
+            tb_zhubanren.Text = q._zhubanren;
+            dtp_wanchengshijian.Value = Convert.ToDateTime(q._wanchengshijian);
 
+
+
+        }
         private void lbl_quxiao_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -40,6 +50,11 @@ namespace 团队任务台账管理系统.WinForm
             _mycontroller.SaveGongzuoqingdan(myrenwu);
             this.DialogResult = DialogResult.OK;
 
+        }
+
+        private void WFgongzuoqingdan_Load(object sender, EventArgs e)
+        {
+            tb_zhubanren.Text = JJLoginInfo._shiming;
         }
     }
 }

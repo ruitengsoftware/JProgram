@@ -134,7 +134,7 @@
             this.dtp_wanchengshijian.Size = new System.Drawing.Size(192, 23);
             this.dtp_wanchengshijian.TabIndex = 9;
             // 
-            // WinFormXinjiangongzuoqingdan
+            // WFgongzuoqingdan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -152,8 +152,9 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "WinFormXinjiangongzuoqingdan";
+            this.Name = "WFgongzuoqingdan";
             this.Text = "新建工作清单";
+            this.Load += new System.EventHandler(this.WFgongzuoqingdan_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

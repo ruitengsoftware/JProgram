@@ -7,14 +7,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 团队任务台账管理系统.Controller;
+using 团队任务台账管理系统.JJModel;
 
 namespace 团队任务台账管理系统.WinForm
 {
     public partial class WFyijianjianyi : Form
     {
+        ControllerWFyijian _mycontroller = new ControllerWFyijian();
         public WFyijianjianyi()
         {
             InitializeComponent();
+        }
+
+        private void lbl_baocun_Click(object sender, EventArgs e)
+        {
+            //构造一个jjtongzhiinfo
+            JJyijianInfo myinfo = new JJyijianInfo
+            {
+                _biaoti = tb_biaoti.Text,
+                _fankuiren = JJLoginInfo._shiming,
+                _fankuiduixiang = tb_fankuiduixiang.Text,
+                _neirong = tb_neirong.Text,
+                _chuangjianishijian = DateTime.Now.ToString()
+            };
+            //保存jjtonzhiinfo
+            bool b = _mycontroller.SaveYijian(myinfo);
+            if (b)
+            {
+                MessageBox.Show("保存成功！");
+            }
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void lbl_quxiao_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
