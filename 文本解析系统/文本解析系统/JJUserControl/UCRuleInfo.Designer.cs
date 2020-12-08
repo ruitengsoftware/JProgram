@@ -41,6 +41,9 @@
             this.tb_zidingyijieguo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.tb_wenbentezheng = new System.Windows.Forms.TextBox();
+            this.pb_wenhao = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.flp_duixiangxuanze = new System.Windows.Forms.FlowLayoutPanel();
@@ -84,6 +87,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cbb_fuzhileixing = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.pb_shanchu = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.flp_fugaifanwei = new System.Windows.Forms.FlowLayoutPanel();
@@ -95,22 +99,18 @@
             this.checkBox42 = new System.Windows.Forms.CheckBox();
             this.checkBox43 = new System.Windows.Forms.CheckBox();
             this.checkBox44 = new System.Windows.Forms.CheckBox();
-            this.tb_wenbentezheng = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.pb_wenhao = new System.Windows.Forms.PictureBox();
-            this.pb_shanchu = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.flp_juzhi.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_wenhao)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.flp_duixiangxuanze.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.flp_fugaifanwei.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_wenhao)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -287,6 +287,46 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "文本特征";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel7.Controls.Add(this.tb_wenbentezheng, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.pb_wenhao, 1, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(97, 0);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(612, 35);
+            this.tableLayoutPanel7.TabIndex = 0;
+            // 
+            // tb_wenbentezheng
+            // 
+            this.tb_wenbentezheng.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_wenbentezheng.Location = new System.Drawing.Point(3, 6);
+            this.tb_wenbentezheng.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
+            this.tb_wenbentezheng.Name = "tb_wenbentezheng";
+            this.tb_wenbentezheng.Size = new System.Drawing.Size(574, 23);
+            this.tb_wenbentezheng.TabIndex = 1;
+            // 
+            // pb_wenhao
+            // 
+            this.pb_wenhao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_wenhao.Image = global::文本解析系统.Properties.Resources.wenhao1;
+            this.pb_wenhao.Location = new System.Drawing.Point(581, 4);
+            this.pb_wenhao.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_wenhao.Name = "pb_wenhao";
+            this.pb_wenhao.Size = new System.Drawing.Size(27, 27);
+            this.pb_wenhao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_wenhao.TabIndex = 2;
+            this.pb_wenhao.TabStop = false;
+            this.pb_wenhao.Click += new System.EventHandler(this.pb_wenhao_Click);
+            this.pb_wenhao.MouseEnter += new System.EventHandler(this.pb_wenhao_MouseEnter);
+            this.pb_wenhao.MouseLeave += new System.EventHandler(this.pb_wenhao_MouseLeave);
             // 
             // tableLayoutPanel2
             // 
@@ -788,6 +828,21 @@
             this.tableLayoutPanel11.Size = new System.Drawing.Size(709, 30);
             this.tableLayoutPanel11.TabIndex = 1;
             // 
+            // pb_shanchu
+            // 
+            this.pb_shanchu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_shanchu.Image = global::文本解析系统.Properties.Resources.delete3;
+            this.pb_shanchu.Location = new System.Drawing.Point(341, 2);
+            this.pb_shanchu.Margin = new System.Windows.Forms.Padding(2);
+            this.pb_shanchu.Name = "pb_shanchu";
+            this.pb_shanchu.Size = new System.Drawing.Size(26, 26);
+            this.pb_shanchu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_shanchu.TabIndex = 0;
+            this.pb_shanchu.TabStop = false;
+            this.pb_shanchu.Click += new System.EventHandler(this.pb_shanchu_Click);
+            this.pb_shanchu.MouseEnter += new System.EventHandler(this.pb_shanchu_MouseEnter);
+            this.pb_shanchu.MouseLeave += new System.EventHandler(this.pb_shanchu_MouseLeave);
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
@@ -922,61 +977,6 @@
             this.checkBox44.Text = "副标题";
             this.checkBox44.UseVisualStyleBackColor = true;
             // 
-            // tb_wenbentezheng
-            // 
-            this.tb_wenbentezheng.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_wenbentezheng.Location = new System.Drawing.Point(3, 6);
-            this.tb_wenbentezheng.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
-            this.tb_wenbentezheng.Name = "tb_wenbentezheng";
-            this.tb_wenbentezheng.Size = new System.Drawing.Size(574, 23);
-            this.tb_wenbentezheng.TabIndex = 1;
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel7.Controls.Add(this.tb_wenbentezheng, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.pb_wenhao, 1, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(97, 0);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(612, 35);
-            this.tableLayoutPanel7.TabIndex = 0;
-            // 
-            // pb_wenhao
-            // 
-            this.pb_wenhao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_wenhao.Image = global::文本解析系统.Properties.Resources.wenhao1;
-            this.pb_wenhao.Location = new System.Drawing.Point(581, 4);
-            this.pb_wenhao.Margin = new System.Windows.Forms.Padding(4);
-            this.pb_wenhao.Name = "pb_wenhao";
-            this.pb_wenhao.Size = new System.Drawing.Size(27, 27);
-            this.pb_wenhao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_wenhao.TabIndex = 2;
-            this.pb_wenhao.TabStop = false;
-            this.pb_wenhao.Click += new System.EventHandler(this.pb_wenhao_Click);
-            this.pb_wenhao.MouseEnter += new System.EventHandler(this.pb_wenhao_MouseEnter);
-            this.pb_wenhao.MouseLeave += new System.EventHandler(this.pb_wenhao_MouseLeave);
-            // 
-            // pb_shanchu
-            // 
-            this.pb_shanchu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_shanchu.Image = global::文本解析系统.Properties.Resources.delete3;
-            this.pb_shanchu.Location = new System.Drawing.Point(341, 2);
-            this.pb_shanchu.Margin = new System.Windows.Forms.Padding(2);
-            this.pb_shanchu.Name = "pb_shanchu";
-            this.pb_shanchu.Size = new System.Drawing.Size(26, 26);
-            this.pb_shanchu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_shanchu.TabIndex = 0;
-            this.pb_shanchu.TabStop = false;
-            this.pb_shanchu.Click += new System.EventHandler(this.pb_shanchu_Click);
-            this.pb_shanchu.MouseEnter += new System.EventHandler(this.pb_shanchu_MouseEnter);
-            this.pb_shanchu.MouseLeave += new System.EventHandler(this.pb_shanchu_MouseLeave);
-            // 
             // UCRuleInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -993,6 +993,9 @@
             this.tableLayoutPanel3.PerformLayout();
             this.flp_juzhi.ResumeLayout(false);
             this.flp_juzhi.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_wenhao)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.flp_duixiangxuanze.ResumeLayout(false);
@@ -1000,14 +1003,11 @@
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
             this.tableLayoutPanel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.flp_fugaifanwei.ResumeLayout(false);
             this.flp_fugaifanwei.PerformLayout();
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_wenhao)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).EndInit();
             this.ResumeLayout(false);
 
         }
