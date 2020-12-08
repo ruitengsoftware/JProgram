@@ -50,12 +50,12 @@ namespace 文本解析系统.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool jizhuwo {
+        public bool jizhumima {
             get {
-                return ((bool)(this["jizhuwo"]));
+                return ((bool)(this["jizhumima"]));
             }
             set {
-                this["jizhuwo"] = value;
+                this["jizhumima"] = value;
             }
         }
         
@@ -68,6 +68,30 @@ namespace 文本解析系统.Properties {
             }
             set {
                 this["zidongdenglu"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string user {
+            get {
+                return ((string)(this["user"]));
+            }
+            set {
+                this["user"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string loginnames {
+            get {
+                return ((string)(this["loginnames"]));
+            }
+            set {
+                this["loginnames"] = value;
             }
         }
     }

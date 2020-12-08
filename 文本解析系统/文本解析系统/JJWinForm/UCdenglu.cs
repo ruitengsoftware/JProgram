@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 文本解析系统.JJController;
@@ -13,9 +14,9 @@ using 文本解析系统.Properties;
 
 namespace 文本解析系统.JJWinForm
 {
-    public partial class WinFormLogin : Form
+    public partial class UCdenglu : Form
     {
-        public WinFormLogin()
+        public UCdenglu()
         {
             InitializeComponent();
         }
@@ -38,17 +39,23 @@ namespace 文本解析系统.JJWinForm
                 }
                 catch { }
             }
+            //加载登陆者到列表中去
+
+            cbb_yonghuming.Items.AddRange(Regex.Split(Properties.Settings.Default.loginnames, ","));
+            //显示上次登录的用户名
+            cbb_yonghuming.Text = Settings.Default.huaming;
             //给记住我，姓名，密码 自动登录赋值
-            cb_jizhuwo.Checked = Settings.Default.jizhuwo;
-            if (Settings.Default.jizhuwo)
+            if (Settings.Default.jizhumima)
             {
-                tb_yonghuming.Text = Settings.Default.huaming;
+
+                cb_jizhuwo.Checked = true;
                 tb_mima.Text = Settings.Default.mima;
             }
             cb_zidongdenlgu.Checked = Settings.Default.zidongdenglu;
             //如果自动登录打勾，那么
             if (cb_zidongdenlgu.Checked)
             {
+                tb_mima.Text = Settings.Default.mima;
                 lbl_denglu_Click(null, null);
             }
         }
@@ -56,25 +63,34 @@ namespace 文本解析系统.JJWinForm
 
         private void lbl_denglu_Click(object sender, EventArgs e)
         {
-            string name = tb_yonghuming.Text.Trim();
+            string name = cbb_yonghuming.Text.Trim();
             string pwd = tb_mima.Text.Trim();
             bool successlogin = mycontroller.Login(name, pwd);//登录，并返回成功失败
 
             if (successlogin)//如果登陆成功就进行
             {
+                //记录登录者信息
+                List<string> list = Regex.Split(Properties.Settings.Default.loginnames, ",").ToList();
+                if (!list.Contains(name))
+                {
+                    list.Add(name);
+                }
+                list.Remove("");
+                Properties.Settings.Default.loginnames = string.Join(",", list);
+                //获得登录者信息
+                 //mycontroller.GetLoginInfo(name);
+
                 //var parent = this.Parent;
                 //parent.Controls.Clear();
                 //UCmain uc_main = new UCmain();
                 //uc_main.Dock = DockStyle.Fill;
                 //parent.Controls.Add(uc_main);
-                //((SplitContainer)parent.Parent.Parent.Parent.Parent).Panel1Collapsed = false;
-                ////获得花名对应的头像
-                //var touxiang = mycontroller.GetTouxiang(name);
-                //((Form1)parent.Parent.Parent.Parent.Parent.Parent).pb_touxiang.Image = touxiang;
+                //((SplitContainer)parent.Parent.Parent).Panel1Collapsed = false;
+                //((Form1)parent.Parent.Parent.Parent).pb_touxiang.Image = mycontroller.ConvertBase64ToImage(JJModel.JJLoginInfo._touxiang);
                 //settings获得自动登录，记住我，姓名，密码
                 Settings.Default.huaming = name;
                 Settings.Default.mima = pwd;
-                Settings.Default.jizhuwo = cb_jizhuwo.Checked;
+                Settings.Default.jizhumima = cb_jizhuwo.Checked;
                 Settings.Default.zidongdenglu = cb_zidongdenlgu.Checked;
                 Settings.Default.Save();
                 this.DialogResult = DialogResult.OK;
@@ -83,7 +99,6 @@ namespace 文本解析系统.JJWinForm
             {
                 MessageBox.Show("登陆失败！");
             }
-
         }
 
         private void lbl_denglu_MouseEnter(object sender, EventArgs e)

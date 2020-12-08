@@ -54,11 +54,6 @@ namespace 团队任务台账管理系统.UserControll
                 Settings.Default.jizhumima = cb_jizhuwo.Checked;
                 Settings.Default.zidongdenglu = cb_zidongdenlgu.Checked;
                 Settings.Default.Save();
-                //根据花名获得登录人员信息，静态
-
-
-
-
             }
             else
             {
@@ -100,6 +95,8 @@ namespace 团队任务台账管理系统.UserControll
             //如果自动登录打勾，那么
             if (cb_zidongdenlgu.Checked)
             {
+                tb_mima.Text = Settings.Default.mima;
+
                 btn_denglu_Click(null, null);
             }
         }

@@ -19,7 +19,7 @@ namespace 文本解析系统
             Application.SetCompatibleTextRenderingDefault(false);
 
             //先弹出登录窗体，如果成功返回dialogresult.ok 
-            WinFormLogin mywin = new WinFormLogin();
+            UCdenglu mywin = new UCdenglu();
             if (mywin.ShowDialog()==DialogResult.OK)
             {
             Application.Run(new Form1());

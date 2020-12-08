@@ -110,11 +110,11 @@
     <Compile Include="JJWinForm\WinFormGuize.Designer.cs">
       <DependentUpon>WinFormGuize.cs</DependentUpon>
     </Compile>
-    <Compile Include="JJWinForm\WinFormLogin.cs">
+    <Compile Include="JJWinForm\UCdenglu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JJWinForm\WinFormLogin.Designer.cs">
-      <DependentUpon>WinFormLogin.cs</DependentUpon>
+    <Compile Include="JJWinForm\UCdenglu.Designer.cs">
+      <DependentUpon>UCdenglu.cs</DependentUpon>
     </Compile>
     <Compile Include="JJWinForm\WinFormNewTask.cs">
       <SubType>Form</SubType>
@@ -136,8 +136,8 @@
     <EmbeddedResource Include="JJWinForm\WinFormGuize.resx">
       <DependentUpon>WinFormGuize.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="JJWinForm\WinFormLogin.resx">
-      <DependentUpon>WinFormLogin.cs</DependentUpon>
+    <EmbeddedResource Include="JJWinForm\UCdenglu.resx">
+      <DependentUpon>UCdenglu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JJWinForm\WinFormNewTask.resx">
       <DependentUpon>WinFormNewTask.cs</DependentUpon>

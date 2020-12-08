@@ -473,5 +473,17 @@ namespace 文本解析系统
             ((PictureBox)sender).Image = Properties.Resources.folderlv;
 
         }
+
+        private void lbl_tuichu_Click(object sender, EventArgs e)
+        {
+            //关闭当前窗体，显示登录窗体，另自动登录的setting为false
+            this.Close();
+            Properties.Settings.Default.zidongdenglu = false;
+            UCdenglu mywin = new UCdenglu();
+            
+
+
+
+        }
     }
 }

@@ -88,6 +88,7 @@
             this.tb_search = new System.Windows.Forms.TextBox();
             this.pb_search = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lbl_tuichu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -305,21 +306,22 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tlp_chachong, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tlp_excel, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tlp_chachong, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tlp_excel, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_tuichu, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(761, 628);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -335,7 +337,7 @@
             this.tableLayoutPanel2.Controls.Add(this.lbl_zanting, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.lbl_tingzhi, 3, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 30);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -409,7 +411,7 @@
             this.tableLayoutPanel3.Controls.Add(this.label8, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.label9, 3, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 40);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 70);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
@@ -490,7 +492,7 @@
             this.tlp_chachong.Controls.Add(this.label2, 0, 0);
             this.tlp_chachong.Controls.Add(this.flowLayoutPanel1, 1, 0);
             this.tlp_chachong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlp_chachong.Location = new System.Drawing.Point(0, 80);
+            this.tlp_chachong.Location = new System.Drawing.Point(0, 110);
             this.tlp_chachong.Margin = new System.Windows.Forms.Padding(0);
             this.tlp_chachong.Name = "tlp_chachong";
             this.tlp_chachong.RowCount = 1;
@@ -586,7 +588,7 @@
             this.tlp_excel.Controls.Add(this.rb_moren, 1, 0);
             this.tlp_excel.Controls.Add(this.rb_qita, 2, 0);
             this.tlp_excel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlp_excel.Location = new System.Drawing.Point(0, 120);
+            this.tlp_excel.Location = new System.Drawing.Point(0, 150);
             this.tlp_excel.Margin = new System.Windows.Forms.Padding(0);
             this.tlp_excel.Name = "tlp_excel";
             this.tlp_excel.RowCount = 1;
@@ -663,9 +665,9 @@
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel6);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 163);
+            this.groupBox1.Location = new System.Drawing.Point(3, 193);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(755, 462);
+            this.groupBox1.Size = new System.Drawing.Size(755, 432);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "解析规则列表";
@@ -684,7 +686,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(749, 440);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(749, 410);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -780,7 +782,7 @@
             this.dgv_jiexiguize.RowHeadersVisible = false;
             this.dgv_jiexiguize.RowTemplate.Height = 23;
             this.dgv_jiexiguize.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_jiexiguize.Size = new System.Drawing.Size(743, 354);
+            this.dgv_jiexiguize.Size = new System.Drawing.Size(743, 324);
             this.dgv_jiexiguize.TabIndex = 1;
             this.dgv_jiexiguize.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_jiexiguize_CellContentClick);
             // 
@@ -880,6 +882,16 @@
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn1.Width = 59;
+            // 
+            // lbl_tuichu
+            // 
+            this.lbl_tuichu.Location = new System.Drawing.Point(3, 3);
+            this.lbl_tuichu.Name = "lbl_tuichu";
+            this.lbl_tuichu.Size = new System.Drawing.Size(190, 24);
+            this.lbl_tuichu.TabIndex = 5;
+            this.lbl_tuichu.Text = "退出登录";
+            this.lbl_tuichu.UseVisualStyleBackColor = true;
+            this.lbl_tuichu.Click += new System.EventHandler(this.lbl_tuichu_Click);
             // 
             // Form1
             // 
@@ -984,6 +996,7 @@
         private System.Windows.Forms.DataGridViewImageColumn shanchu;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label lbl_statue;
+        private System.Windows.Forms.Button lbl_tuichu;
     }
 }
 
