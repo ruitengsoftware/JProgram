@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 文本解析系统.JJCommon;
 using 文本解析系统.JJController;
 using 文本解析系统.Properties;
 
@@ -23,6 +24,8 @@ namespace 文本解析系统.JJWinForm
         UIHelper uihelper = new UIHelper();
         private void WinFormLogin_Load(object sender, EventArgs e)
         {
+            this.Size = new Size(310, 410);
+            uihelper.DrawRoundRect(this);
             uihelper.DrawRoundRect(lbl_denglu);
             uihelper.DrawRoundRect(panel_my);
             tableLayoutPanel2.BackColor = Color.FromArgb(0, 255, 255, 255);
@@ -77,6 +80,8 @@ namespace 文本解析系统.JJWinForm
                 }
                 list.Remove("");
                 Properties.Settings.Default.loginnames = string.Join(",", list);
+                //记录用户花名，用于在软件界面显示
+                UserInfo._huaming = name;
                 //获得登录者信息
                  //mycontroller.GetLoginInfo(name);
 
@@ -103,13 +108,11 @@ namespace 文本解析系统.JJWinForm
 
         private void lbl_denglu_MouseEnter(object sender, EventArgs e)
         {
-            //uihelper.UpdateCSize((Control)sender, -1);
             uihelper.UpdateCC((Control)sender, Color.MediumSeaGreen, Color.White);
         }
 
         private void lbl_denglu_MouseLeave(object sender, EventArgs e)
         {
-            //uihelper.UpdateCSize((Control)sender, 1);
             uihelper.UpdateCC((Control)sender, Color.SeaGreen, Color.White);
         }
         //判断密码的显示状态

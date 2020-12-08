@@ -101,5 +101,18 @@ namespace 文本解析系统.JJWinForm
             myuihelper.UpdateCC((Control)sender, Color.Tomato, Color.White);
 
         }
+
+        private void cbb_jiexigeshi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //记载格式为默认格式
+            Properties.Settings.Default.defaultformat = cbb_jiexigeshi.Text;
+            Properties.Settings.Default.Save();
+
+        }
+
+        private void WinFormNewTask_Load(object sender, EventArgs e)
+        {
+            cbb_jiexigeshi.Text = Properties.Settings.Default.defaultformat;
+        }
     }
 }

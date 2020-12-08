@@ -10,9 +10,9 @@ namespace 文本解析系统.JJCommon
     {
 
         /// <summary>
-        /// 用于记录软件登陆人员的信息
+        /// 登录人员花名
         /// </summary>
-        public static string _username = string.Empty;
+        public static string _huaming = string.Empty;
 
         
 

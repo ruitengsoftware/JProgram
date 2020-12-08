@@ -46,7 +46,8 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RuitengDll">
+    <Reference Include="RuitengDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>G:\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -204,6 +205,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\wenhao1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\suo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rentou.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

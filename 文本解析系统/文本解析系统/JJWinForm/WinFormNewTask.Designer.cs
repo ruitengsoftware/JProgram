@@ -35,17 +35,17 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_folder = new System.Windows.Forms.TextBox();
+            this.pb_folder = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.cbb_jiexigeshi = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.pb_folder = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_folder)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_folder)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -161,6 +161,21 @@
             this.tb_folder.Size = new System.Drawing.Size(210, 109);
             this.tb_folder.TabIndex = 1;
             // 
+            // pb_folder
+            // 
+            this.pb_folder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_folder.Image = global::文本解析系统.Properties.Resources.folderlv;
+            this.pb_folder.Location = new System.Drawing.Point(318, 10);
+            this.pb_folder.Margin = new System.Windows.Forms.Padding(8, 10, 8, 90);
+            this.pb_folder.Name = "pb_folder";
+            this.pb_folder.Size = new System.Drawing.Size(24, 20);
+            this.pb_folder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_folder.TabIndex = 2;
+            this.pb_folder.TabStop = false;
+            this.pb_folder.Click += new System.EventHandler(this.pb_folder_Click);
+            this.pb_folder.MouseEnter += new System.EventHandler(this.label3_MouseEnter);
+            this.pb_folder.MouseLeave += new System.EventHandler(this.label3_MouseLeave);
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 3;
@@ -203,6 +218,7 @@
             this.cbb_jiexigeshi.Size = new System.Drawing.Size(210, 25);
             this.cbb_jiexigeshi.TabIndex = 4;
             this.cbb_jiexigeshi.DropDown += new System.EventHandler(this.cbb_jiexigeshi_DropDown);
+            this.cbb_jiexigeshi.SelectedIndexChanged += new System.EventHandler(this.cbb_jiexigeshi_SelectedIndexChanged);
             // 
             // tableLayoutPanel5
             // 
@@ -221,21 +237,6 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(415, 397);
             this.tableLayoutPanel5.TabIndex = 9;
             // 
-            // pb_folder
-            // 
-            this.pb_folder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_folder.Image = global::文本解析系统.Properties.Resources.folderlv;
-            this.pb_folder.Location = new System.Drawing.Point(318, 10);
-            this.pb_folder.Margin = new System.Windows.Forms.Padding(8, 10, 8, 90);
-            this.pb_folder.Name = "pb_folder";
-            this.pb_folder.Size = new System.Drawing.Size(24, 20);
-            this.pb_folder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_folder.TabIndex = 2;
-            this.pb_folder.TabStop = false;
-            this.pb_folder.Click += new System.EventHandler(this.pb_folder_Click);
-            this.pb_folder.MouseEnter += new System.EventHandler(this.label3_MouseEnter);
-            this.pb_folder.MouseLeave += new System.EventHandler(this.label3_MouseLeave);
-            // 
             // WinFormNewTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -248,15 +249,16 @@
             this.Name = "WinFormNewTask";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "新建任务";
+            this.Load += new System.EventHandler(this.WinFormNewTask_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_folder)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_folder)).EndInit();
             this.ResumeLayout(false);
 
         }

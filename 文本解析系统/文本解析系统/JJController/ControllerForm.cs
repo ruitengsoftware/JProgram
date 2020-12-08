@@ -546,7 +546,7 @@ namespace 文本解析系统.JJController
                         new MySqlParameter("@md5值",Md5Helper.Md5(str_zhengwen)),
                         new MySqlParameter("@记录文件名",filename),
                         new MySqlParameter("@上传时间",DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss")),
-                        new MySqlParameter("@上传人",UserInfo._username),
+                        new MySqlParameter("@上传人",UserInfo._huaming),
                         new MySqlParameter("@删除",0)
                         });
                     }
@@ -563,7 +563,7 @@ namespace 文本解析系统.JJController
                         new MySqlParameter("@md5值",Md5Helper.Md5(str_quanwen)),
                         new MySqlParameter("@记录文件名",filename),
                         new MySqlParameter("@上传时间",DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss")),
-                        new MySqlParameter("@上传人",UserInfo._username),
+                        new MySqlParameter("@上传人",UserInfo._huaming),
                         new MySqlParameter("@删除",0)
                         });
                     }

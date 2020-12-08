@@ -94,5 +94,17 @@ namespace 文本解析系统.Properties {
                 this["loginnames"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string defaultformat {
+            get {
+                return ((string)(this["defaultformat"]));
+            }
+            set {
+                this["defaultformat"] = value;
+            }
+        }
     }
 }

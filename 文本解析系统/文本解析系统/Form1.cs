@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 文本解析系统.JJCommon;
 using 文本解析系统.JJModel;
 using 文本解析系统.JJWinForm;
 
@@ -139,7 +140,8 @@ namespace 文本解析系统
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //显示用户信息
+            lbl_userinfo.Text = $"用户：{UserInfo._huaming}";
             _mycontroller.UpdateDGV(dgv_jiexiguize);
         }
         /// <summary>
@@ -477,13 +479,22 @@ namespace 文本解析系统
         private void lbl_tuichu_Click(object sender, EventArgs e)
         {
             //关闭当前窗体，显示登录窗体，另自动登录的setting为false
-            this.Close();
+            this.Hide();
+
+            //this.Close();
             Properties.Settings.Default.zidongdenglu = false;
             UCdenglu mywin = new UCdenglu();
-            
+            if (mywin.ShowDialog()==DialogResult.OK)
+            {
+                (new Form1()).Show();
+            }
 
 
+        }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
