@@ -82,5 +82,17 @@ namespace 团队任务台账管理系统.Properties {
                 this["jizhumima"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string loginnames {
+            get {
+                return ((string)(this["loginnames"]));
+            }
+            set {
+                this["loginnames"] = value;
+            }
+        }
     }
 }

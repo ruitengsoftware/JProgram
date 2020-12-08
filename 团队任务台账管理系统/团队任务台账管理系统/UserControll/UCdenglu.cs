@@ -11,6 +11,7 @@ using 团队任务台账管理系统.Controller;
 using RuiTengDll;
 using 团队任务台账管理系统.WinForm;
 using 团队任务台账管理系统.Properties;
+using System.Text.RegularExpressions;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -29,6 +30,14 @@ namespace 团队任务台账管理系统.UserControll
 
             if (successlogin)//如果登陆成功就进行
             {
+                //记录登录者信息
+                List<string> list = Regex.Split(Properties.Settings.Default.loginnames, ",").ToList();
+                if (!list.Contains(name))
+                {
+                    list.Add(name);
+                }
+                list.Remove("");
+                Properties.Settings.Default.loginnames = string.Join(",", list);
                 //获得登录者信息
                 mycontroller.GetLoginInfo(name);
 
@@ -46,7 +55,7 @@ namespace 团队任务台账管理系统.UserControll
                 Settings.Default.zidongdenglu = cb_zidongdenlgu.Checked;
                 Settings.Default.Save();
                 //根据花名获得登录人员信息，静态
-               
+
 
 
 
@@ -75,11 +84,16 @@ namespace 团队任务台账管理系统.UserControll
                 }
                 catch { }
             }
+            //加载登陆者到列表中去
+
+            cbb_yonghuming.Items.AddRange(Regex.Split(Properties.Settings.Default.loginnames, ","));
+            //显示上次登录的用户名
+  cbb_yonghuming.Text = Settings.Default.huaming;
             //给记住我，姓名，密码 自动登录赋值
-            cb_jizhuwo.Checked = Settings.Default.jizhumima;
             if (Settings.Default.jizhumima)
             {
-                cbb_yonghuming.Text = Settings.Default.huaming;
+              
+                cb_jizhuwo.Checked = true;
                 tb_mima.Text = Settings.Default.mima;
             }
             cb_zidongdenlgu.Checked = Settings.Default.zidongdenglu;

@@ -157,6 +157,11 @@ namespace 团队任务台账管理系统.UserControll
         /// <param name="e"></param>
         private void btn_fasong_Click(object sender, EventArgs e)
         {
+
+
+
+
+
             string renwumingcheng = tb_renwumingcheng.Text;
             string yanshouren = tb_yanshouren.Text;
             //获得办理人员的名单

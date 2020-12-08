@@ -227,7 +227,6 @@
             this.tb_mima.PasswordChar = '*';
             this.tb_mima.Size = new System.Drawing.Size(186, 23);
             this.tb_mima.TabIndex = 2;
-            this.tb_mima.Text = "xzc800920";
             // 
             // pictureBox2
             // 
@@ -279,7 +278,6 @@
             this.cbb_yonghuming.Name = "cbb_yonghuming";
             this.cbb_yonghuming.Size = new System.Drawing.Size(186, 25);
             this.cbb_yonghuming.TabIndex = 1;
-            this.cbb_yonghuming.Text = "昵称一号";
             // 
             // pictureBox1
             // 
