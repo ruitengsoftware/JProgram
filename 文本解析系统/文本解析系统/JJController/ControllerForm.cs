@@ -235,7 +235,7 @@ namespace 文本解析系统.JJController
         /// 刷新dgv_jiexiguize的数据,带有指定字符串
         /// </summary>
         /// <param name="mydgv"></param>
-        public void UpdateDGV(DataGridView mydgv,string keywords)
+        public void UpdateDGV(DataGridView mydgv, string keywords)
         {
             mydgv.Rows.Clear();
             //更新dgv_guize的数据
@@ -368,20 +368,20 @@ namespace 文本解析系统.JJController
                             //在这里做一个放错机制，防止正文过长等一些导致填充表格报错的情况
                             try
                             {
-                            if (mywordinfo._list_baseinfo[b]._wenben.Trim().Equals(string.Empty))
-                            {
-                                continue;
-                            }
-                            //获得最后一行
-                            int rowindex = mysht.Cells.LastCell.Row + 1;
-                            mysht.Cells[rowindex, 0].Value = mywordinfo._list_baseinfo[b]._mingcheng;
-                            mysht.Cells[rowindex, 1].Value = mywordinfo._list_baseinfo[b]._wenben;
-                            mysht.Cells[rowindex, 2].Value = mywordinfo._list_baseinfo[b]._MD5;
-                            mysht.Cells[rowindex, 3].Value = mywordinfo._list_baseinfo[b]._redu;
-                            mysht.Cells[rowindex, 4].Value = mywordinfo._list_baseinfo[b]._zishu;
-                            mysht.Cells[rowindex, 5].Value = mywordinfo._list_baseinfo[b]._weizhiguanlian;
-                            mysht.Cells[rowindex, 6].Value = mywordinfo._list_baseinfo[b]._neirongguanlian;
-                            mysht.Cells[rowindex, 7].Value = mywordinfo._list_baseinfo[b]._guanlianbiaozhunduan;
+                                if (mywordinfo._list_baseinfo[b]._wenben.Trim().Equals(string.Empty))
+                                {
+                                    continue;
+                                }
+                                //获得最后一行
+                                int rowindex = mysht.Cells.LastCell.Row + 1;
+                                mysht.Cells[rowindex, 0].Value = mywordinfo._list_baseinfo[b]._mingcheng;
+                                mysht.Cells[rowindex, 1].Value = mywordinfo._list_baseinfo[b]._wenben;
+                                mysht.Cells[rowindex, 2].Value = mywordinfo._list_baseinfo[b]._MD5;
+                                mysht.Cells[rowindex, 3].Value = mywordinfo._list_baseinfo[b]._redu;
+                                mysht.Cells[rowindex, 4].Value = mywordinfo._list_baseinfo[b]._zishu;
+                                mysht.Cells[rowindex, 5].Value = mywordinfo._list_baseinfo[b]._weizhiguanlian;
+                                mysht.Cells[rowindex, 6].Value = mywordinfo._list_baseinfo[b]._neirongguanlian;
+                                mysht.Cells[rowindex, 7].Value = mywordinfo._list_baseinfo[b]._guanlianbiaozhunduan;
 
                             }
                             catch { }
@@ -570,6 +570,15 @@ namespace 文本解析系统.JJController
                 }
                 //调整表格列宽
                 //mysht.AutoFitColumns();
+                //保存解析结果表，如果为空表示默认位置
+                string savepath = string.Empty;
+                if (myfi._excelpath.Trim().Equals(string.Empty))
+                {
+                    myfi._excelpath = Path.GetDirectoryName(filename);
+                }
+
+
+
                 mywbk.Save($@"{myfi._excelpath}\{Path.GetFileNameWithoutExtension(filename)}.xlsx");
                 //MessageBox.Show("解析完成");
                 return "完成";

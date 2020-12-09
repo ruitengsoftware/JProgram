@@ -190,26 +190,38 @@ namespace 文本解析系统.JJModel
         /// </summary>
         private void GetZhengwenshouduanbiaozhunju()
         {
-            //循环所有自然段，如果自然段的文本是副标题，那么下一个自然段就是首段，进行标准句拆分，不等于空的句子都是正文首个标准句
-            for (int i = 0; i < _ziranduan.Count; i++)
+            if (_fubiaoti.Count > 0)
             {
-                string wenben = _ziranduan[i];
-                if (wenben.Equals(_fubiaoti[0]))
+                //循环所有自然段，如果自然段的文本是副标题，
+                for (int i = 0; i < _ziranduan.Count; i++)
                 {
-                    var biaozhunju = Regex.Split(_ziranduan[i + 1], @"[,!?。]");
-                    foreach (string item in biaozhunju)
+                    string wenben = _ziranduan[i];
+                    //定位副标题，那么下一个自然段就是首段，进行标准句拆分，不等于空的句子都是正文首个标准句
+                    if (wenben.Equals(_fubiaoti[0]))
                     {
-                        if (!item.Trim().Equals(string.Empty))
+                        var biaozhunju = Regex.Split(_ziranduan[i + 1], @"[,!?。]");
+                        foreach (string item in biaozhunju)
                         {
-                            _zhengwenshougebiaozhunju.Add(item);
+                            if (!item.Trim().Equals(string.Empty))
+                            {
+                                _zhengwenshougebiaozhunju.Add(item);
+                            }
                         }
+                        break;
                     }
-                    break;
                 }
-
             }
-
-
+            else//如果不存在副标题,那么从第二个自然段开始就都是正文首个标准句
+            {
+                var biaozhunju = Regex.Split(_ziranduan[1], @"[,!?。]");
+                foreach (string item in biaozhunju)
+                {
+                    if (!item.Trim().Equals(string.Empty))
+                    {
+                        _zhengwenshougebiaozhunju.Add(item);
+                    }
+                }
+            }
         }
 
 
@@ -874,7 +886,7 @@ namespace 文本解析系统.JJModel
                     {
                         if (i < _biaozhunju.Count - 1)
                         {
-                            liangju = _biaozhunju[i] +  _biaozhunju[i + 1];
+                            liangju = _biaozhunju[i] + _biaozhunju[i + 1];
                         }
                         else
                         {
@@ -886,7 +898,7 @@ namespace 文本解析系统.JJModel
                 var list_suoyinju = Regex.Matches(liangju, @"[\s\S]+?[:,、。，：\r]");
                 for (int i = list_suoyinju.Count - 1; i >= 0; i--)
                 {
-                    if (list_suoyinju[i].Value.Contains (item))
+                    if (list_suoyinju[i].Value.Contains(item))
                     {
                         break;
                     }
@@ -935,7 +947,7 @@ namespace 文本解析系统.JJModel
                     {
                         if (i < _biaozhunju.Count - 1)
                         {
-                            liangju = _biaozhunju[i] +  _biaozhunju[i + 1];
+                            liangju = _biaozhunju[i] + _biaozhunju[i + 1];
                         }
                         else
                         {
@@ -995,7 +1007,7 @@ namespace 文本解析系统.JJModel
                     {
                         if (i < _biaozhunju.Count - 1)
                         {
-                            liangju = _biaozhunju[i] +  _biaozhunju[i + 1];
+                            liangju = _biaozhunju[i] + _biaozhunju[i + 1];
                         }
                         else
                         {
@@ -1052,7 +1064,7 @@ namespace 文本解析系统.JJModel
                     {
                         if (i < _biaozhunju.Count - 1)
                         {
-                            liangju = _biaozhunju[i] +  _biaozhunju[i + 1];
+                            liangju = _biaozhunju[i] + _biaozhunju[i + 1];
                         }
                         else
                         {
@@ -1300,7 +1312,7 @@ namespace 文本解析系统.JJModel
                         break;
                     }
                 }
-               MatchCollection list_suoyinju = Regex.Matches(liangju, @"[\s\S]+?[:,、。，：\r]");
+                MatchCollection list_suoyinju = Regex.Matches(liangju, @"[\s\S]+?[:,、。，：\r]");
                 for (int i = list_suoyinju.Count - 1; i >= 0; i--)
                 {
                     if (list_suoyinju[i].Value.Contains(item))
@@ -1413,7 +1425,11 @@ namespace 文本解析系统.JJModel
                     }
                 }
             }
-            _fubiaoti.Add(list_para[1].Range.Text.Trim());
+            if (list_para.Count > 2)
+            {
+                _fubiaoti.Add(list_para[1].Range.Text.Trim());
+
+            }
             foreach (Section sec in _myword.Sections)
             {
                 foreach (Paragraph para in sec.Body.Paragraphs)
@@ -1537,7 +1553,7 @@ namespace 文本解析系统.JJModel
 
             }
         }
-        
+
         /// <summary>
         /// 获得标准句
         /// </summary>

@@ -159,7 +159,14 @@ namespace 文本解析系统
             {
                 MessageBox.Show("格式已删除！");
             }
-            //显示该格式上一条名称，如果没有格式，不显示，所有得设置为空
+            //重新加载格式
+            //获得所有解析格式的名称
+            List<string> list_format = _mycontroller.GetFormat();
+            //加载cbb的item
+            cbb_jiexigeshi.Items.Clear();
+            cbb_jiexigeshi.Items.AddRange(list_format.ToArray());
+            cbb_jiexigeshi.SelectedIndex = 0;
+
         }
         /// <summary>
         /// 点击保存按钮时触发的事件
@@ -329,6 +336,7 @@ namespace 文本解析系统
                     {
                         continue;
                     }
+                    //解析word文档
                     str_jiexijieguo = await _mycontroller.JiexiAsync(files[j], formatname);
                 }
                 dgv_task.Rows[i].Cells["zhuangtai"].Value = str_jiexijieguo;
@@ -495,6 +503,11 @@ namespace 文本解析系统
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void lbl_qingkong_Click(object sender, EventArgs e)
+        {
+            dgv_task.Rows.Clear();
         }
     }
 }
