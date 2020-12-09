@@ -15,9 +15,9 @@ using 文本解析系统.Properties;
 
 namespace 文本解析系统.JJWinForm
 {
-    public partial class UCdenglu : Form
+    public partial class WinFormdenglu : Form
     {
-        public UCdenglu()
+        public WinFormdenglu()
         {
             InitializeComponent();
         }
@@ -29,7 +29,7 @@ namespace 文本解析系统.JJWinForm
             uihelper.DrawRoundRect(lbl_denglu);
             uihelper.DrawRoundRect(panel_my);
             tableLayoutPanel2.BackColor = Color.FromArgb(0, 255, 255, 255);
-            panel_my.BackColor = Color.FromArgb(90, 255, 255, 255);
+            panel_my.BackColor = Color.FromArgb(100, 255, 255, 255);
             foreach (Control c in tableLayoutPanel2.Controls)
             {
                 if (c.Text.Contains("登    录"))

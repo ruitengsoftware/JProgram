@@ -126,11 +126,11 @@ namespace 文本解析系统
 
         private void btn_xinjian_Click(object sender, EventArgs e)
         {
-            JJWinForm.WinFormGuize mywin = new JJWinForm.WinFormGuize();
+            JJWinForm.WinFormCreateDB mywin = new WinFormCreateDB();
             mywin.StartPosition = FormStartPosition.CenterParent;
             if (mywin.ShowDialog() == DialogResult.OK)
             {
-                _mycontroller.UpdateDGV(dgv_jiexiguize);
+               //刷新查重库下拉列表
             }
         }
         /// <summary>
@@ -491,7 +491,7 @@ namespace 文本解析系统
 
             //this.Close();
             Properties.Settings.Default.zidongdenglu = false;
-            UCdenglu mywin = new UCdenglu();
+            WinFormdenglu mywin = new WinFormdenglu();
             if (mywin.ShowDialog()==DialogResult.OK)
             {
                 (new Form1()).Show();

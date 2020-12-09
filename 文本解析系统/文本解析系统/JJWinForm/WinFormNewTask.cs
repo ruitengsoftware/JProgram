@@ -41,12 +41,6 @@ namespace 文本解析系统.JJWinForm
 
         private void btn_query_Click(object sender, EventArgs e)
         {
-            //简查解析格式是否是空，如果是string.empty，弹出消息框
-            if (cbb_jiexigeshi.Text.Trim().Equals(string.Empty))
-            {
-                MessageBox.Show("请选择解析格式！");
-                return;
-            }
             _folder = tb_folder.Text;
             _ruler = cbb_jiexigeshi.Text;
            
