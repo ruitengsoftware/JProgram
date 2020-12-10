@@ -89,6 +89,7 @@
     <Compile Include="JJController\ControllerForm.cs" />
     <Compile Include="JJController\ControllerNewTask.cs" />
     <Compile Include="JJController\ControllerWFcreatedb.cs" />
+    <Compile Include="JJController\ControllerWFhoutai.cs" />
     <Compile Include="JJController\ControllerWFmydb.cs" />
     <Compile Include="JJModel\BaseInfo.cs" />
     <Compile Include="JJModel\ChachongbiaoInfo.cs" />
@@ -126,6 +127,12 @@
     <Compile Include="JJWinForm\WinFormdenglu.Designer.cs">
       <DependentUpon>WinFormdenglu.cs</DependentUpon>
     </Compile>
+    <Compile Include="JJWinForm\WinFormHoutaiguanli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JJWinForm\WinFormHoutaiguanli.Designer.cs">
+      <DependentUpon>WinFormHoutaiguanli.cs</DependentUpon>
+    </Compile>
     <Compile Include="JJWinForm\WinFormMyDB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JJWinForm\WinFormdenglu.resx">
       <DependentUpon>WinFormdenglu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JJWinForm\WinFormHoutaiguanli.resx">
+      <DependentUpon>WinFormHoutaiguanli.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JJWinForm\WinFormMyDB.resx">
       <DependentUpon>WinFormMyDB.cs</DependentUpon>

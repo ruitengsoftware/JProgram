@@ -80,9 +80,6 @@
             this.shanchuanniu = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_search = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_tuichu = new System.Windows.Forms.Button();
-            this.lbl_userinfo = new System.Windows.Forms.Label();
             this.tlp_chachong = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -99,6 +96,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.cbb_quanwen = new System.Windows.Forms.ComboBox();
@@ -113,12 +112,14 @@
             this.cbb_biaozhunju = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
+            this.lbl_tuichu = new System.Windows.Forms.Button();
+            this.btn_houtai = new System.Windows.Forms.Button();
+            this.lbl_userinfo = new System.Windows.Forms.Label();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
             this.pb_path = new System.Windows.Forms.PictureBox();
             this.pb_search = new System.Windows.Forms.PictureBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -137,7 +138,6 @@
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jiexiguize)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             this.tlp_chachong.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -150,6 +150,7 @@
             this.tableLayoutPanel17.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_path)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_search)).BeginInit();
             this.SuspendLayout();
@@ -438,9 +439,9 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tlp_chachong, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.groupBox3, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel3, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -831,45 +832,6 @@
             this.tb_search.Size = new System.Drawing.Size(194, 23);
             this.tb_search.TabIndex = 0;
             // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel5.Controls.Add(this.lbl_tuichu, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.lbl_userinfo, 1, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(1, 1);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(1);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(604, 28);
-            this.tableLayoutPanel5.TabIndex = 5;
-            // 
-            // lbl_tuichu
-            // 
-            this.lbl_tuichu.Location = new System.Drawing.Point(527, 3);
-            this.lbl_tuichu.Name = "lbl_tuichu";
-            this.lbl_tuichu.Size = new System.Drawing.Size(74, 22);
-            this.lbl_tuichu.TabIndex = 5;
-            this.lbl_tuichu.Text = "退出登录";
-            this.lbl_tuichu.UseVisualStyleBackColor = true;
-            this.lbl_tuichu.Click += new System.EventHandler(this.lbl_tuichu_Click);
-            // 
-            // lbl_userinfo
-            // 
-            this.lbl_userinfo.AutoSize = true;
-            this.lbl_userinfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_userinfo.Location = new System.Drawing.Point(263, 1);
-            this.lbl_userinfo.Margin = new System.Windows.Forms.Padding(1);
-            this.lbl_userinfo.Name = "lbl_userinfo";
-            this.lbl_userinfo.Size = new System.Drawing.Size(260, 26);
-            this.lbl_userinfo.TabIndex = 6;
-            this.lbl_userinfo.Text = "label5";
-            this.lbl_userinfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // tlp_chachong
             // 
             this.tlp_chachong.ColumnCount = 2;
@@ -1114,6 +1076,32 @@
             this.checkBox1.Text = "无";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.radioButton1.Location = new System.Drawing.Point(54, 10);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(114, 22);
+            this.radioButton1.TabIndex = 2;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "不写入新MD5值";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.radioButton2.Location = new System.Drawing.Point(178, 10);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(102, 22);
+            this.radioButton2.TabIndex = 2;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "写入新MD5值";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
             // tableLayoutPanel15
             // 
             this.tableLayoutPanel15.ColumnCount = 2;
@@ -1313,6 +1301,50 @@
             this.label5.Text = "内部系统 严禁非公司许可电脑安装使用 严禁对外传播";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lbl_tuichu
+            // 
+            this.lbl_tuichu.Location = new System.Drawing.Point(131, 3);
+            this.lbl_tuichu.Name = "lbl_tuichu";
+            this.lbl_tuichu.Size = new System.Drawing.Size(74, 24);
+            this.lbl_tuichu.TabIndex = 5;
+            this.lbl_tuichu.Text = "退出登录";
+            this.lbl_tuichu.UseVisualStyleBackColor = true;
+            this.lbl_tuichu.Click += new System.EventHandler(this.lbl_tuichu_Click);
+            // 
+            // btn_houtai
+            // 
+            this.btn_houtai.Location = new System.Drawing.Point(48, 3);
+            this.btn_houtai.Name = "btn_houtai";
+            this.btn_houtai.Size = new System.Drawing.Size(77, 24);
+            this.btn_houtai.TabIndex = 7;
+            this.btn_houtai.Text = "后台管理";
+            this.btn_houtai.UseVisualStyleBackColor = true;
+            this.btn_houtai.Click += new System.EventHandler(this.btn_houtai_Click);
+            // 
+            // lbl_userinfo
+            // 
+            this.lbl_userinfo.AutoSize = true;
+            this.lbl_userinfo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_userinfo.Location = new System.Drawing.Point(1, 1);
+            this.lbl_userinfo.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_userinfo.Name = "lbl_userinfo";
+            this.lbl_userinfo.Size = new System.Drawing.Size(43, 28);
+            this.lbl_userinfo.TabIndex = 6;
+            this.lbl_userinfo.Text = "label5";
+            this.lbl_userinfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.lbl_userinfo);
+            this.flowLayoutPanel3.Controls.Add(this.btn_houtai);
+            this.flowLayoutPanel3.Controls.Add(this.lbl_tuichu);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(606, 30);
+            this.flowLayoutPanel3.TabIndex = 7;
+            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.FillWeight = 60.9137F;
@@ -1366,32 +1398,6 @@
             this.pb_search.MouseEnter += new System.EventHandler(this.pb_search_MouseEnter);
             this.pb_search.MouseLeave += new System.EventHandler(this.pb_search_MouseLeave);
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.radioButton1.Location = new System.Drawing.Point(54, 10);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(114, 22);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "不写入新MD5值";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.radioButton2.Location = new System.Drawing.Point(178, 10);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(102, 22);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "写入新MD5值";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1431,8 +1437,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jiexiguize)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
             this.tlp_chachong.ResumeLayout(false);
             this.tlp_chachong.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -1455,6 +1459,8 @@
             this.tableLayoutPanel18.PerformLayout();
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_path)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_search)).EndInit();
             this.ResumeLayout(false);
@@ -1516,9 +1522,6 @@
         private System.Windows.Forms.DataGridViewImageColumn shanchu;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label lbl_statue;
-        private System.Windows.Forms.Button lbl_tuichu;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Label lbl_userinfo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
@@ -1547,6 +1550,10 @@
         private System.Windows.Forms.ComboBox cbb_biaozhunju;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label lbl_userinfo;
+        private System.Windows.Forms.Button btn_houtai;
+        private System.Windows.Forms.Button lbl_tuichu;
     }
 }
 

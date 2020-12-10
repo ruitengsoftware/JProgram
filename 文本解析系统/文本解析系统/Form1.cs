@@ -582,5 +582,14 @@ namespace 文本解析系统
 
 
         }
+
+        private void btn_houtai_Click(object sender, EventArgs e)
+        {
+            WinFormHoutaiguanli mywin = new WinFormHoutaiguanli();
+            if (mywin.ShowDialog()==DialogResult.OK)
+            {
+
+            }
+        }
     }
 }
