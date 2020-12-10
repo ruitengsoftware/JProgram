@@ -23,7 +23,7 @@ namespace 文本解析系统.JJWinForm
         private void cbb_leibie_SelectedIndexChanged(object sender, EventArgs e)
         {
             //更新数据，以登录信息和类型作为查找条件
-            string str_sql = $"select * from jjdbwenbenjiexi.查重库信息表 where 类型='{cbb_leibie.Text}' and 创建人='{UserInfo._huaming}'" +
+            string str_sql = $"select * from jjdbwenbenjiexi.查重库信息表 where 类型='{cbb_leibie.Text}' and 创建人='{LoginInfo._huaming}'" +
                 $" and 删除=0";
             DataTable dt = _mycontroller.GetChachongInfo(str_sql);
             dgv_data.DataSource = null;

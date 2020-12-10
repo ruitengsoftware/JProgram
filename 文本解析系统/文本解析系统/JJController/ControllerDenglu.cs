@@ -21,29 +21,6 @@ namespace 文本解析系统.JJController
             mysqlhelper = new MySQLHelper();
         }
 
-        /// <summary>
-        /// 获得花名对应的登陆人员信息
-        /// </summary>
-        /// <param name="huaming"></param>
-        /// <returns></returns>
-        public void GetLoginInfo(string huaming)
-        {
-            string str_sql = $"select * from jjperson where 花名='{huaming}'";
-
-            var mydr = mysqlhelper.ExecuteDataRow(str_sql);
-            //JJLoginInfo._huaming = mydr["花名"].ToString();
-            //JJLoginInfo._shiming = mydr["实名"].ToString();
-            //JJLoginInfo._bumen = mydr["部门"].ToString();
-            //JJLoginInfo._zhiji = mydr["职级"].ToString();
-            //JJLoginInfo._mima = mydr["密码"].ToString();
-            //JJLoginInfo._shoujihao = mydr["手机号"].ToString();
-            //JJLoginInfo._dianziyouxiang = mydr["电子邮箱"].ToString();
-            //JJLoginInfo._zidingyizhanghao = mydr["自定义账号"].ToString();
-            //JJLoginInfo._touxiang = mydr["头像"].ToString();
-            //JJLoginInfo._gongzuozhengjianzhao = mydr["工作证件照"].ToString();
-            //JJLoginInfo._weixinhao = mydr["微信号"].ToString();
-            //JJLoginInfo._gerenqianming = mydr["个人签名"].ToString();
-        }
 
         //判断是否存在用户名和密码
         public bool Login(string uid, string pwd)

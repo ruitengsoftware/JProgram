@@ -194,14 +194,14 @@ namespace WindowsFormsApp2.UC
         private void lbl_save_MouseEnter(object sender, EventArgs e)
         {
             int m = ((Control)sender).Margin.Top;
-            uihelper.UpdateCSize((Control)sender, new Padding(m - 1));
+            uihelper.UpdateCSize((Control)sender, -1);
 
         }
 
         private void lbl_save_MouseLeave(object sender, EventArgs e)
         {
             int m = ((Control)sender).Margin.Top;
-            uihelper.UpdateCSize((Control)sender, new Padding(m + 1));
+            uihelper.UpdateCSize((Control)sender, 1);
 
         }
 

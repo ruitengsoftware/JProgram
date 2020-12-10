@@ -77,13 +77,13 @@ namespace WindowsFormsApp2.UC
         private void Lblbaocun_MouseEnter(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, new Padding(margin - 1));
+            mydrawer.UpdateCSize((Control)sender, -1);
         }
 
         private void Lblbaocun_MouseLeave(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, new Padding(margin + 1));
+            mydrawer.UpdateCSize((Control)sender, 1);
 
         }
 

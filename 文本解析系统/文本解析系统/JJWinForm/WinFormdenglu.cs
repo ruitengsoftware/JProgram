@@ -80,10 +80,11 @@ namespace 文本解析系统.JJWinForm
                 }
                 list.Remove("");
                 Properties.Settings.Default.loginnames = string.Join(",", list);
-                //记录用户花名，用于在软件界面显示
-                UserInfo._huaming = name;
+
+
                 //获得登录者信息
-                 //mycontroller.GetLoginInfo(name);
+                LoginInfo.GetLoginInfo(name);
+                //显示登陆者花名
 
                 //var parent = this.Parent;
                 //parent.Controls.Clear();

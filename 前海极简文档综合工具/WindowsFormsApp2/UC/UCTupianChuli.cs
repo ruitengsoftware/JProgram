@@ -173,13 +173,13 @@ namespace WindowsFormsApp2.UC
         private void Label9_MouseEnter(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            uihelper.UpdateCSize((Control)sender, new Padding(margin - 1));
+            uihelper.UpdateCSize((Control)sender, -1);
         }
 
         private void Label9_MouseLeave(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            uihelper.UpdateCSize((Control)sender, new Padding(margin + 1));
+            uihelper.UpdateCSize((Control)sender, 1);
 
         }
 

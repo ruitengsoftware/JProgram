@@ -22,7 +22,7 @@ namespace 文本解析系统.JJController
         {
             string str_sql = $"insert into 规则信息表 (创建人,创建时间,规则名称,规则说明,文本特征,删除) values(@创建人,@创建时间,@规则名称,@规则说明,@文本特征,0)";
             int num = mysqlhelper.ExecuteNonQuery(str_sql,
-                new MySqlParameter("@创建人", UserInfo._huaming),
+                new MySqlParameter("@创建人", LoginInfo._huaming),
                 new MySqlParameter(@"创建时间", DateTime.Now.ToString()),
                 new MySqlParameter("@规则名称", mingcheng),
                 new MySqlParameter("@规则说明", shuoming),

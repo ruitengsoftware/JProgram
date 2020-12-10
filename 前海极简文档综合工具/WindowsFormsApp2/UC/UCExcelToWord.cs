@@ -606,7 +606,7 @@ namespace WindowsFormsApp2
         private void label1_MouseEnter(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, new Padding(margin - 1));
+            mydrawer.UpdateCSize((Control)sender, -1);
         }
         /// <summary>
         /// 鼠标离开按钮时触发的事件
@@ -615,7 +615,7 @@ namespace WindowsFormsApp2
         private void label1_MouseLeave(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, new Padding(margin + 1));
+            mydrawer.UpdateCSize((Control)sender, 1);
 
 
 

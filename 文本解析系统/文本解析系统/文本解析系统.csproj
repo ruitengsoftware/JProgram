@@ -83,7 +83,7 @@
     </Compile>
     <Compile Include="JJCommon\Md5Helper.cs" />
     <Compile Include="JJCommon\MySQLHelper.cs" />
-    <Compile Include="JJCommon\UserInfo.cs" />
+    <Compile Include="JJCommon\LoginInfo.cs" />
     <Compile Include="JJController\ControllerDenglu.cs" />
     <Compile Include="JJController\ControllerGuize.cs" />
     <Compile Include="JJController\ControllerForm.cs" />

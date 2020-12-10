@@ -27,7 +27,7 @@ namespace 文本解析系统.JJController
         /// <returns></returns>
         public bool DeletbMydb(string dbname)
         {
-            string str_sql = $"update jjdbwenbenjiexi.查重库信息表 set 删除=1 where 名称='{dbname}' and 创建人='{UserInfo._huaming}'";
+            string str_sql = $"update jjdbwenbenjiexi.查重库信息表 set 删除=1 where 名称='{dbname}' and 创建人='{LoginInfo._huaming}'";
             int num=_mysqlhelper.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
 

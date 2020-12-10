@@ -11,13 +11,32 @@ namespace 文本解析系统.JJController
     public class ControllerWFhoutai
     {
         MySQLHelper _mysqlhelper = new MySQLHelper();
-
-        public DataTable GetPerson()
+        /// <summary>
+        /// 获得所有人员信息
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetDataTable(string str)
         {
-            string str_sql = $"select * from jjdbrenwutaizhang.jjperson where 删除='0'";
-            DataTable mydt = _mysqlhelper.ExecuteDataTable(str_sql);
+            DataTable mydt = _mysqlhelper.ExecuteDataTable(str);
             return mydt;
         }
+        /// <summary>
+        /// 更新person表中删除规则或查重库的值
+        /// </summary>
+        /// <param name="s">更新值</param>
+        /// <param name="t">更新字段，规则或查重库</param>
+        /// <returns></returns>
+        public bool UpdateSuoding(string s,string t)
+        {
+            string str_sql = $"update jjdbrenwutaizhang.jjperson set {t}='{s}' where 删除=0";
+            int num = _mysqlhelper.ExecuteNonQuery(str_sql);
+            return num > 0 ? true : false;
+        
+        }
+
+
+
+
 
         /// <summary>
         /// 更新权限
@@ -29,10 +48,10 @@ namespace 文本解析系统.JJController
         /// <param name="s1">删除规则</param>
         /// <param name="s2">删除查重库</param>
         /// <returns></returns>
-        public bool UpdateShouquan(string huaming, int denglu, string d1, string d2, string s1, string s2)
+        public bool UpdateShouquan(PersonInfo p)
         {
-            string str_sql = $"update jjdbwenbenjiexi.jjperson set 登录权={denglu},调用规则='{d1}',调用查重库='{d2}',删除规则='{s1}',删除查重库='{s2}' " +
-                $"where 花名='{huaming}'";
+            string str_sql = $"update jjdbrenwutaizhang.jjperson set 登录权={p._dengluquan},权限='{p._quanxian}',调用规则='{p._diaoyongguize}',调用查重库='{p._diaoyongchachongku}'" +
+                $"where 花名='{p._huaming}'";
                 int num = _mysqlhelper.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
         }

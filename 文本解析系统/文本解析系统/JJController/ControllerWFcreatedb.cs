@@ -35,7 +35,7 @@ namespace 文本解析系统.JJController
             string str_sql = $"CREATE TABLE jjdbwenbenjiexi.{info._mingcheng} (md5 varchar(100) NULL)";
             _mysqlhelper.ExecuteNonQuery(str_sql);
             str_sql = $"insert into jjdbwenbenjiexi.查重库信息表 values('{info._mingcheng}'," +
-                    $"'{info._leixing}','{UserInfo._huaming}','{info._chuangjianshijian}',0)";
+                    $"'{info._leixing}','{LoginInfo._huaming}','{info._chuangjianshijian}',0)";
             int num = _mysqlhelper.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
         }

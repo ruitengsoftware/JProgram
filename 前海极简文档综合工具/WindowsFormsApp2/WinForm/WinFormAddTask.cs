@@ -126,12 +126,12 @@ namespace WindowsFormsApp2.WinForm
 
         private void Lbl_addtask_MouseEnter(object sender, EventArgs e)
         {
-            mydrawer.UpdateCSize((Control)sender, new Padding(7, 6, 7, 6));
+            mydrawer.UpdateCSize((Control)sender, -1);
         }
 
         private void Lbl_addtask_MouseLeave(object sender, EventArgs e)
         {
-            mydrawer.UpdateCSize((Control)sender, new Padding(8, 7, 8, 7));
+            mydrawer.UpdateCSize((Control)sender, 1);
 
         }
 

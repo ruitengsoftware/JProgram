@@ -316,13 +316,13 @@ namespace WindowsFormsApp2.UC
         private void Lbl_baocun_MouseEnter(object sender, EventArgs e)
         {
             int m = ((Control)sender).Margin.Top;
-            _uihelper.UpdateCSize((Control)sender, new Padding(m - 1));
+            _uihelper.UpdateCSize((Control)sender, -1);
         }
 
         private void Lbl_baocun_MouseLeave(object sender, EventArgs e)
         {
             int m = ((Control)sender).Margin.Top;
-            _uihelper.UpdateCSize((Control)sender, new Padding(m + 1));
+            _uihelper.UpdateCSize((Control)sender,1);
         }
 
         private void Pb_rizhi_MouseEnter(object sender, EventArgs e)

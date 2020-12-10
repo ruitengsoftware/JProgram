@@ -2293,12 +2293,12 @@ namespace WindowsFormsApp2.UC
 
         private void Lblbaocun_MouseEnter(object sender, EventArgs e)
         {
-            mydrawer.UpdateCSize((Control)sender, new Padding(1, 1, 1, 1));
+            mydrawer.UpdateCSize((Control)sender, -1);
         }
 
         private void Lblbaocun_MouseLeave(object sender, EventArgs e)
         {
-            mydrawer.UpdateCSize((Control)sender, new Padding(2, 2, 2, 2));
+            mydrawer.UpdateCSize((Control)sender, 1);
 
         }
         /// <summary>

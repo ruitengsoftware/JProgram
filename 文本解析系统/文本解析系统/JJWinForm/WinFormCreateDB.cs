@@ -49,7 +49,7 @@ namespace 文本解析系统.JJWinForm
             {
                 _mingcheng = tb_dbname.Text.Trim(),
                 _leixing = cbb_leixing.Text,
-                _chuangjianren = UserInfo._huaming,
+                _chuangjianren = LoginInfo._huaming,
                 _chuangjianshijian = DateTime.Now.ToString()
             };
             //创建数据表并向数据库汇总表中添加新建信息

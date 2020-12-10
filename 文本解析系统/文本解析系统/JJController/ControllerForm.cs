@@ -205,14 +205,22 @@ namespace 文本解析系统.JJController
         public void UpdateDGV(DataGridView mydgv)
         {
             mydgv.Rows.Clear();
+            //可调用规则list
+            List<string> list_diaoyong = Regex.Split(LoginInfo._diaoyongguize, ",").ToList();
+
             //更新dgv_guize的数据
             DataTable mydt = GetGuize();
             for (int i = 0; i < mydt.Rows.Count; i++)
             {
-                int index = mydgv.Rows.Add();
-                mydgv.Rows[index].Cells[1].Value = mydt.Rows[i]["名称"].ToString();
-                mydgv.Rows[index].Cells[2].Value = mydt.Rows[i]["创建人"].ToString();
-                mydgv.Rows[index].Cells[3].Value = mydt.Rows[i]["创建时间"].ToString();
+                //判断名称是否存在于可调用规则中
+                if (list_diaoyong.Contains(mydt.Rows[i]["名称"].ToString()))
+                {
+                    int index = mydgv.Rows.Add();
+                    mydgv.Rows[index].Cells[1].Value = mydt.Rows[i]["名称"].ToString();
+                    mydgv.Rows[index].Cells[2].Value = mydt.Rows[i]["创建人"].ToString();
+                    mydgv.Rows[index].Cells[3].Value = mydt.Rows[i]["创建时间"].ToString();
+
+                }
             }
             //让所有基础解析规则固定在解析规则的第一位
             foreach (DataGridViewRow item in mydgv.Rows)
@@ -546,7 +554,7 @@ namespace 文本解析系统.JJController
                         new MySqlParameter("@md5值",Md5Helper.Md5(str_zhengwen)),
                         new MySqlParameter("@记录文件名",filename),
                         new MySqlParameter("@上传时间",DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss")),
-                        new MySqlParameter("@上传人",UserInfo._huaming),
+                        new MySqlParameter("@上传人",LoginInfo._huaming),
                         new MySqlParameter("@删除",0)
                         });
                     }
@@ -563,7 +571,7 @@ namespace 文本解析系统.JJController
                         new MySqlParameter("@md5值",Md5Helper.Md5(str_quanwen)),
                         new MySqlParameter("@记录文件名",filename),
                         new MySqlParameter("@上传时间",DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss")),
-                        new MySqlParameter("@上传人",UserInfo._huaming),
+                        new MySqlParameter("@上传人",LoginInfo._huaming),
                         new MySqlParameter("@删除",0)
                         });
                     }
@@ -1520,8 +1528,8 @@ namespace 文本解析系统.JJController
             {
                 info = new ChachongbiaoInfo()
                 {
-                    _mingcheng=dr["名称"].ToString(),
-                    _leixing=dr["类型"].ToString()
+                    _mingcheng = dr["名称"].ToString(),
+                    _leixing = dr["类型"].ToString()
                 };
                 list.Add(info);
             }

@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 文本解析系统.JJCommon;
@@ -50,10 +51,6 @@ namespace 文本解析系统
                     myrow.Cells["mubiaowenjianjia"].Value = _mycontroller._childdirectories[i];
                     myrow.Cells["jiexigeshi"].Value = jiexigeshi;
                 }
-
-
-
-
             }
         }
 
@@ -65,7 +62,6 @@ namespace 文本解析系统
                 {
                     dgv_task.Rows.RemoveAt(e.RowIndex);
                 }
-
             }
             catch { }
         }
@@ -160,26 +156,30 @@ namespace 文本解析系统
         private void Form1_Load(object sender, EventArgs e)
         {
             //显示用户信息
-            lbl_userinfo.Text = $"用户：{UserInfo._huaming}";
+            lbl_userinfo.Text = $"用户：{LoginInfo._huaming}";
             _mycontroller.UpdateDGV(dgv_jiexiguize);
             //获得查重库列表
-          string str_sql = $"select * from 查重库信息表 where 删除=0";
-           var list = _mycontroller.GetChachongInfo(str_sql);
+            string str_sql = $"select * from 查重库信息表 where 删除=0";
+            var list = _mycontroller.GetChachongInfo(str_sql);
             cbb_quanwen.Items.Clear();
             cbb_zhengwen.Items.Clear();
             cbb_biaozhunduan.Items.Clear();
             cbb_biaozhunju.Items.Clear();
-
+            List<string> list_diaoyong = Regex.Split(LoginInfo._diaoyongchachongku, ",").ToList();
             foreach (ChachongbiaoInfo c in list)
             {
-                if (c._leixing.Equals("全文查重库"))
-                { cbb_quanwen.Items.Add(c._mingcheng); }
-                else if (c._leixing.Equals("正文查重库"))
-                { cbb_zhengwen.Items.Add(c._mingcheng); }
-                else if (c._leixing.Equals("标准段查重库"))
-                { cbb_biaozhunduan.Items.Add(c._mingcheng); }
-                else if (c._leixing.Equals("标准句查重库"))
-                { cbb_biaozhunju.Items.Add(c._mingcheng); }
+                //判断c.mingcheng是否在可调用库中,不在的话就continue
+                if (list_diaoyong.Contains(c._mingcheng))
+                {
+                    if (c._leixing.Equals("全文查重库"))
+                    { cbb_quanwen.Items.Add(c._mingcheng); }
+                    else if (c._leixing.Equals("正文查重库"))
+                    { cbb_zhengwen.Items.Add(c._mingcheng); }
+                    else if (c._leixing.Equals("标准段查重库"))
+                    { cbb_biaozhunduan.Items.Add(c._mingcheng); }
+                    else if (c._leixing.Equals("标准句查重库"))
+                    { cbb_biaozhunju.Items.Add(c._mingcheng); }
+                }
             }
 
         }
@@ -201,6 +201,8 @@ namespace 文本解析系统
             //重新加载格式
             //获得所有解析格式的名称
             List<string> list_format = _mycontroller.GetFormat();
+
+
             //加载cbb的item
             cbb_jiexigeshi.Items.Clear();
             cbb_jiexigeshi.Items.AddRange(list_format.ToArray());
@@ -551,8 +553,8 @@ namespace 文本解析系统
 
         private void lbl_shanchuku_Click(object sender, EventArgs e)
         {
-            WinFormMyDB mywin = new WinFormMyDB() {StartPosition=FormStartPosition.CenterParent };
-            if (mywin.ShowDialog()==DialogResult.OK)
+            WinFormMyDB mywin = new WinFormMyDB() { StartPosition = FormStartPosition.CenterParent };
+            if (mywin.ShowDialog() == DialogResult.OK)
             {
                 //刷新查重库下拉列表
                 //获得查重库列表
@@ -586,10 +588,15 @@ namespace 文本解析系统
         private void btn_houtai_Click(object sender, EventArgs e)
         {
             WinFormHoutaiguanli mywin = new WinFormHoutaiguanli();
-            if (mywin.ShowDialog()==DialogResult.OK)
+            if (mywin.ShowDialog() == DialogResult.OK)
             {
 
             }
+        }
+
+        private void btn_createdb_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
