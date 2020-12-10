@@ -35,8 +35,16 @@ namespace 文本解析系统.JJWinForm
         private void btn_query_Click(object sender, EventArgs e)
         {
 
-
-
+            //判断集中不能添加的情况
+            //信息为空，pberror可见
+            bool b1 = tb_dbname.Text.Trim().Equals(string.Empty);
+            bool b2 = cbb_leixing.Text.Trim().Equals(string.Empty);
+            bool b3 = pb_error.Visible;
+            if (b1 || b2|| b3)
+            {
+                MessageBox.Show("新建失败！");
+                return;
+            }
             ChachongbiaoInfo myinfo = new ChachongbiaoInfo()
             {
                 _mingcheng = tb_dbname.Text.Trim(),
@@ -44,10 +52,7 @@ namespace 文本解析系统.JJWinForm
                 _chuangjianren = UserInfo._huaming,
                 _chuangjianshijian = DateTime.Now.ToString()
             };
-            //创建数据表
-
-
-            //向数据库汇总表中添加新建信息
+            //创建数据表并向数据库汇总表中添加新建信息
            bool b= _mycontroller.CreateDB(myinfo);
             if (b)
             {

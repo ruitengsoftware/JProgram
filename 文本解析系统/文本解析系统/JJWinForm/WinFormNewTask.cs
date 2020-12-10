@@ -41,9 +41,8 @@ namespace 文本解析系统.JJWinForm
 
         private void btn_query_Click(object sender, EventArgs e)
         {
-            _folder = tb_folder.Text;
-            _ruler = cbb_jiexigeshi.Text;
-           
+            _folder = tb_folder.Text.Trim();
+            _ruler = cbb_jiexigeshi.Text.Trim();
             this.DialogResult = DialogResult.OK;
         }
 

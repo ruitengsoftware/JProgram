@@ -130,7 +130,26 @@ namespace 文本解析系统
             mywin.StartPosition = FormStartPosition.CenterParent;
             if (mywin.ShowDialog() == DialogResult.OK)
             {
-               //刷新查重库下拉列表
+                //刷新查重库下拉列表
+                //获得查重库列表
+                string str_sql = $"select * from 查重库信息表";
+                var list = _mycontroller.GetChachongInfo(str_sql);
+                cbb_quanwen.Items.Clear();
+                cbb_zhengwen.Items.Clear();
+                cbb_biaozhunduan.Items.Clear();
+                cbb_biaozhunju.Items.Clear();
+
+                foreach (ChachongbiaoInfo c in list)
+                {
+                    if (c._leixing.Equals("全文查重库"))
+                    { cbb_quanwen.Items.Add(c._mingcheng); }
+                    else if (c._leixing.Equals("正文查重库"))
+                    { cbb_zhengwen.Items.Add(c._mingcheng); }
+                    else if (c._leixing.Equals("标准段查重库"))
+                    { cbb_biaozhunduan.Items.Add(c._mingcheng); }
+                    else if (c._leixing.Equals("标准句查重库"))
+                    { cbb_biaozhunju.Items.Add(c._mingcheng); }
+                }
             }
         }
         /// <summary>
@@ -143,6 +162,26 @@ namespace 文本解析系统
             //显示用户信息
             lbl_userinfo.Text = $"用户：{UserInfo._huaming}";
             _mycontroller.UpdateDGV(dgv_jiexiguize);
+            //获得查重库列表
+          string str_sql = $"select * from 查重库信息表 where 删除=0";
+           var list = _mycontroller.GetChachongInfo(str_sql);
+            cbb_quanwen.Items.Clear();
+            cbb_zhengwen.Items.Clear();
+            cbb_biaozhunduan.Items.Clear();
+            cbb_biaozhunju.Items.Clear();
+
+            foreach (ChachongbiaoInfo c in list)
+            {
+                if (c._leixing.Equals("全文查重库"))
+                { cbb_quanwen.Items.Add(c._mingcheng); }
+                else if (c._leixing.Equals("正文查重库"))
+                { cbb_zhengwen.Items.Add(c._mingcheng); }
+                else if (c._leixing.Equals("标准段查重库"))
+                { cbb_biaozhunduan.Items.Add(c._mingcheng); }
+                else if (c._leixing.Equals("标准句查重库"))
+                { cbb_biaozhunju.Items.Add(c._mingcheng); }
+            }
+
         }
         /// <summary>
         /// 点击删除格式按钮时触发的事件
@@ -492,7 +531,7 @@ namespace 文本解析系统
             //this.Close();
             Properties.Settings.Default.zidongdenglu = false;
             WinFormdenglu mywin = new WinFormdenglu();
-            if (mywin.ShowDialog()==DialogResult.OK)
+            if (mywin.ShowDialog() == DialogResult.OK)
             {
                 (new Form1()).Show();
             }
@@ -508,6 +547,40 @@ namespace 文本解析系统
         private void lbl_qingkong_Click(object sender, EventArgs e)
         {
             dgv_task.Rows.Clear();
+        }
+
+        private void lbl_shanchuku_Click(object sender, EventArgs e)
+        {
+            WinFormMyDB mywin = new WinFormMyDB() {StartPosition=FormStartPosition.CenterParent };
+            if (mywin.ShowDialog()==DialogResult.OK)
+            {
+                //刷新查重库下拉列表
+                //获得查重库列表
+                string str_sql = $"select * from 查重库信息表 where 删除=0";
+                var list = _mycontroller.GetChachongInfo(str_sql);
+                cbb_quanwen.Items.Clear();
+                cbb_zhengwen.Items.Clear();
+                cbb_biaozhunduan.Items.Clear();
+                cbb_biaozhunju.Items.Clear();
+
+                foreach (ChachongbiaoInfo c in list)
+                {
+                    if (c._leixing.Equals("全文查重库"))
+                    { cbb_quanwen.Items.Add(c._mingcheng); }
+                    else if (c._leixing.Equals("正文查重库"))
+                    { cbb_zhengwen.Items.Add(c._mingcheng); }
+                    else if (c._leixing.Equals("标准段查重库"))
+                    { cbb_biaozhunduan.Items.Add(c._mingcheng); }
+                    else if (c._leixing.Equals("标准句查重库"))
+                    { cbb_biaozhunju.Items.Add(c._mingcheng); }
+                }
+
+
+
+            }
+
+
+
         }
     }
 }

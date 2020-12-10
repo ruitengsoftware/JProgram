@@ -1507,5 +1507,27 @@ namespace 文本解析系统.JJController
             }
             return result;
         }
+        /// <summary>
+        /// 获得查重表信息类集合
+        /// </summary>
+        /// <returns></returns>
+        public List<ChachongbiaoInfo> GetChachongInfo(string str)
+        {
+            List<ChachongbiaoInfo> list = new List<ChachongbiaoInfo>();
+            ChachongbiaoInfo info = null;
+            DataTable mydt = mysqlhelper.ExecuteDataTable(str);
+            foreach (DataRow dr in mydt.Rows)
+            {
+                info = new ChachongbiaoInfo()
+                {
+                    _mingcheng=dr["名称"].ToString(),
+                    _leixing=dr["类型"].ToString()
+                };
+                list.Add(info);
+            }
+            return list;
+        }
+
+
     }
 }

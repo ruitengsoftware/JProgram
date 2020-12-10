@@ -99,27 +99,26 @@
             this.label6 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbb_quanwen = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbb_zhengwen = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.label13 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbb_biaozhunduan = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cbb_biaozhunju = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
             this.pb_path = new System.Windows.Forms.PictureBox();
             this.pb_search = new System.Windows.Forms.PictureBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -921,8 +920,8 @@
             // 
             this.cb_wu.AutoSize = true;
             this.cb_wu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cb_wu.Location = new System.Drawing.Point(3, 8);
-            this.cb_wu.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.cb_wu.Location = new System.Drawing.Point(5, 11);
+            this.cb_wu.Margin = new System.Windows.Forms.Padding(5, 11, 5, 5);
             this.cb_wu.Name = "cb_wu";
             this.cb_wu.Size = new System.Drawing.Size(39, 21);
             this.cb_wu.TabIndex = 1;
@@ -933,8 +932,8 @@
             // 
             this.cb_quanwen.AutoSize = true;
             this.cb_quanwen.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cb_quanwen.Location = new System.Drawing.Point(48, 8);
-            this.cb_quanwen.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.cb_quanwen.Location = new System.Drawing.Point(54, 11);
+            this.cb_quanwen.Margin = new System.Windows.Forms.Padding(5, 11, 5, 5);
             this.cb_quanwen.Name = "cb_quanwen";
             this.cb_quanwen.Size = new System.Drawing.Size(51, 21);
             this.cb_quanwen.TabIndex = 1;
@@ -945,8 +944,8 @@
             // 
             this.cb_zhengwen.AutoSize = true;
             this.cb_zhengwen.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cb_zhengwen.Location = new System.Drawing.Point(105, 8);
-            this.cb_zhengwen.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.cb_zhengwen.Location = new System.Drawing.Point(115, 11);
+            this.cb_zhengwen.Margin = new System.Windows.Forms.Padding(5, 11, 5, 5);
             this.cb_zhengwen.Name = "cb_zhengwen";
             this.cb_zhengwen.Size = new System.Drawing.Size(51, 21);
             this.cb_zhengwen.TabIndex = 1;
@@ -957,8 +956,8 @@
             // 
             this.cb_md5.AutoSize = true;
             this.cb_md5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cb_md5.Location = new System.Drawing.Point(162, 8);
-            this.cb_md5.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.cb_md5.Location = new System.Drawing.Point(176, 11);
+            this.cb_md5.Margin = new System.Windows.Forms.Padding(5, 11, 5, 5);
             this.cb_md5.Name = "cb_md5";
             this.cb_md5.Size = new System.Drawing.Size(103, 21);
             this.cb_md5.TabIndex = 1;
@@ -1053,7 +1052,7 @@
             this.lbl_shanchuku.TabIndex = 2;
             this.lbl_shanchuku.Text = "批量删除";
             this.lbl_shanchuku.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_shanchuku.Click += new System.EventHandler(this.lbl_piliangshanchu_Click);
+            this.lbl_shanchuku.Click += new System.EventHandler(this.lbl_shanchuku_Click);
             this.lbl_shanchuku.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             this.lbl_shanchuku.MouseEnter += new System.EventHandler(this.label4_MouseEnter);
             this.lbl_shanchuku.MouseLeave += new System.EventHandler(this.label4_MouseLeave);
@@ -1094,9 +1093,8 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.checkBox1);
-            this.flowLayoutPanel2.Controls.Add(this.checkBox2);
-            this.flowLayoutPanel2.Controls.Add(this.checkBox3);
-            this.flowLayoutPanel2.Controls.Add(this.checkBox4);
+            this.flowLayoutPanel2.Controls.Add(this.radioButton1);
+            this.flowLayoutPanel2.Controls.Add(this.radioButton2);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(100, 0);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -1108,49 +1106,13 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox1.Location = new System.Drawing.Point(3, 8);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.checkBox1.Location = new System.Drawing.Point(5, 11);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(5, 11, 5, 5);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(39, 21);
             this.checkBox1.TabIndex = 1;
             this.checkBox1.Text = "无";
             this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox2.Location = new System.Drawing.Point(48, 8);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(115, 21);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "不写入新MD5值";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox3.Location = new System.Drawing.Point(169, 8);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(51, 21);
-            this.checkBox3.TabIndex = 1;
-            this.checkBox3.Text = "正文";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox4.Location = new System.Drawing.Point(226, 8);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(103, 21);
-            this.checkBox4.TabIndex = 1;
-            this.checkBox4.Text = "写入新MD5值";
-            this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel15
             // 
@@ -1160,7 +1122,7 @@
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel15.Controls.Add(this.label11, 0, 0);
-            this.tableLayoutPanel15.Controls.Add(this.comboBox1, 1, 0);
+            this.tableLayoutPanel15.Controls.Add(this.cbb_quanwen, 1, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel15.Location = new System.Drawing.Point(0, 80);
             this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(0);
@@ -1184,17 +1146,16 @@
             this.label11.Text = "全 文 库";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox1
+            // cbb_quanwen
             // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(103, 7);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(494, 25);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.DropDown += new System.EventHandler(this.cbb_jiexigeshi_DropDown);
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.cbb_jiexigeshi_SelectedIndexChanged);
+            this.cbb_quanwen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbb_quanwen.FormattingEnabled = true;
+            this.cbb_quanwen.Location = new System.Drawing.Point(103, 7);
+            this.cbb_quanwen.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.cbb_quanwen.Name = "cbb_quanwen";
+            this.cbb_quanwen.Size = new System.Drawing.Size(494, 25);
+            this.cbb_quanwen.TabIndex = 1;
+            this.cbb_quanwen.SelectedIndexChanged += new System.EventHandler(this.cbb_jiexigeshi_SelectedIndexChanged);
             // 
             // tableLayoutPanel16
             // 
@@ -1204,7 +1165,7 @@
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel16.Controls.Add(this.label12, 0, 0);
-            this.tableLayoutPanel16.Controls.Add(this.comboBox2, 1, 0);
+            this.tableLayoutPanel16.Controls.Add(this.cbb_zhengwen, 1, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 120);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(0);
@@ -1228,17 +1189,16 @@
             this.label12.Text = "正 文 库";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox2
+            // cbb_zhengwen
             // 
-            this.comboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(103, 7);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(494, 25);
-            this.comboBox2.TabIndex = 1;
-            this.comboBox2.DropDown += new System.EventHandler(this.cbb_jiexigeshi_DropDown);
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.cbb_jiexigeshi_SelectedIndexChanged);
+            this.cbb_zhengwen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbb_zhengwen.FormattingEnabled = true;
+            this.cbb_zhengwen.Location = new System.Drawing.Point(103, 7);
+            this.cbb_zhengwen.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.cbb_zhengwen.Name = "cbb_zhengwen";
+            this.cbb_zhengwen.Size = new System.Drawing.Size(494, 25);
+            this.cbb_zhengwen.TabIndex = 1;
+            this.cbb_zhengwen.SelectedIndexChanged += new System.EventHandler(this.cbb_jiexigeshi_SelectedIndexChanged);
             // 
             // tableLayoutPanel17
             // 
@@ -1248,7 +1208,7 @@
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel17.Controls.Add(this.label13, 0, 0);
-            this.tableLayoutPanel17.Controls.Add(this.comboBox3, 1, 0);
+            this.tableLayoutPanel17.Controls.Add(this.cbb_biaozhunduan, 1, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel17.Location = new System.Drawing.Point(0, 160);
             this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(0);
@@ -1272,17 +1232,16 @@
             this.label13.Text = "标准段库";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox3
+            // cbb_biaozhunduan
             // 
-            this.comboBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(103, 7);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(494, 25);
-            this.comboBox3.TabIndex = 1;
-            this.comboBox3.DropDown += new System.EventHandler(this.cbb_jiexigeshi_DropDown);
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.cbb_jiexigeshi_SelectedIndexChanged);
+            this.cbb_biaozhunduan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbb_biaozhunduan.FormattingEnabled = true;
+            this.cbb_biaozhunduan.Location = new System.Drawing.Point(103, 7);
+            this.cbb_biaozhunduan.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.cbb_biaozhunduan.Name = "cbb_biaozhunduan";
+            this.cbb_biaozhunduan.Size = new System.Drawing.Size(494, 25);
+            this.cbb_biaozhunduan.TabIndex = 1;
+            this.cbb_biaozhunduan.SelectedIndexChanged += new System.EventHandler(this.cbb_jiexigeshi_SelectedIndexChanged);
             // 
             // tableLayoutPanel18
             // 
@@ -1292,7 +1251,7 @@
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel18.Controls.Add(this.label14, 0, 0);
-            this.tableLayoutPanel18.Controls.Add(this.comboBox4, 1, 0);
+            this.tableLayoutPanel18.Controls.Add(this.cbb_biaozhunju, 1, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(0, 200);
             this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(0);
@@ -1316,17 +1275,16 @@
             this.label14.Text = "标准句库";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox4
+            // cbb_biaozhunju
             // 
-            this.comboBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(103, 7);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(494, 25);
-            this.comboBox4.TabIndex = 1;
-            this.comboBox4.DropDown += new System.EventHandler(this.cbb_jiexigeshi_DropDown);
-            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.cbb_jiexigeshi_SelectedIndexChanged);
+            this.cbb_biaozhunju.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbb_biaozhunju.FormattingEnabled = true;
+            this.cbb_biaozhunju.Location = new System.Drawing.Point(103, 7);
+            this.cbb_biaozhunju.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.cbb_biaozhunju.Name = "cbb_biaozhunju";
+            this.cbb_biaozhunju.Size = new System.Drawing.Size(494, 25);
+            this.cbb_biaozhunju.TabIndex = 1;
+            this.cbb_biaozhunju.SelectedIndexChanged += new System.EventHandler(this.cbb_jiexigeshi_SelectedIndexChanged);
             // 
             // tableLayoutPanel10
             // 
@@ -1407,6 +1365,32 @@
             this.pb_search.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             this.pb_search.MouseEnter += new System.EventHandler(this.pb_search_MouseEnter);
             this.pb_search.MouseLeave += new System.EventHandler(this.pb_search_MouseLeave);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.radioButton1.Location = new System.Drawing.Point(54, 10);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(114, 22);
+            this.radioButton1.TabIndex = 2;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "不写入新MD5值";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.radioButton2.Location = new System.Drawing.Point(178, 10);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(102, 22);
+            this.radioButton2.TabIndex = 2;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "写入新MD5值";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1549,21 +1533,20 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbb_quanwen;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbb_zhengwen;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbb_biaozhunduan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cbb_biaozhunju;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }
 

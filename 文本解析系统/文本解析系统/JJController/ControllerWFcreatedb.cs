@@ -19,9 +19,9 @@ namespace 文本解析系统.JJController
         /// <returns></returns>
         public bool IsExist(string dbname)
         {
-            
+
             string str_sql = $"select count(*) from jjdbwenbenjiexi.查重库信息表 where 名称='{dbname}'";
-            int num =Convert.ToInt32( _mysqlhelper.ExecuteScalar(str_sql));
+            int num = Convert.ToInt32(_mysqlhelper.ExecuteScalar(str_sql));
             return num > 0 ? true : false;
         }
 
@@ -32,12 +32,12 @@ namespace 文本解析系统.JJController
         /// <returns></returns>
         public bool CreateDB(ChachongbiaoInfo info)
         {
-            string str_sql = $"insert into jjdbwenbenjiexi.查重库信息表 values('{info._mingcheng}'," +
+            string str_sql = $"CREATE TABLE jjdbwenbenjiexi.{info._mingcheng} (md5 varchar(100) NULL)";
+            _mysqlhelper.ExecuteNonQuery(str_sql);
+            str_sql = $"insert into jjdbwenbenjiexi.查重库信息表 values('{info._mingcheng}'," +
                     $"'{info._leixing}','{UserInfo._huaming}','{info._chuangjianshijian}',0)";
             int num = _mysqlhelper.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
-        
-        
         }
 
 
