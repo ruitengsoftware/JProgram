@@ -89,6 +89,7 @@
     <Compile Include="JJController\ControllerForm.cs" />
     <Compile Include="JJController\ControllerNewTask.cs" />
     <Compile Include="JJController\ControllerWFcreatedb.cs" />
+    <Compile Include="JJController\ControllerWFdiaoyongguize.cs" />
     <Compile Include="JJController\ControllerWFhoutai.cs" />
     <Compile Include="JJController\ControllerWFmydb.cs" />
     <Compile Include="JJModel\BaseInfo.cs" />
@@ -108,6 +109,12 @@
     </Compile>
     <Compile Include="JJWinForm\WinFormCreateDB.Designer.cs">
       <DependentUpon>WinFormCreateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JJWinForm\WinFormSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JJWinForm\WinFormSelect.Designer.cs">
+      <DependentUpon>WinFormSelect.cs</DependentUpon>
     </Compile>
     <Compile Include="JJWinForm\WinFormGuanji.cs">
       <SubType>Form</SubType>
@@ -155,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JJWinForm\WinFormCreateDB.resx">
       <DependentUpon>WinFormCreateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JJWinForm\WinFormSelect.resx">
+      <DependentUpon>WinFormSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JJWinForm\WinFormGuanji.resx">
       <DependentUpon>WinFormGuanji.cs</DependentUpon>
@@ -242,6 +252,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rentou.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\编辑2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\编辑.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

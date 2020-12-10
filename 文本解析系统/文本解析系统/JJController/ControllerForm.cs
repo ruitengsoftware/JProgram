@@ -210,7 +210,7 @@ namespace 文本解析系统.JJController
             for (int i = 0; i < mydt.Rows.Count; i++)
             {
                 int index = mydgv.Rows.Add();
-                mydgv.Rows[index].Cells[1].Value = mydt.Rows[i]["规则名称"].ToString();
+                mydgv.Rows[index].Cells[1].Value = mydt.Rows[i]["名称"].ToString();
                 mydgv.Rows[index].Cells[2].Value = mydt.Rows[i]["创建人"].ToString();
                 mydgv.Rows[index].Cells[3].Value = mydt.Rows[i]["创建时间"].ToString();
             }

@@ -59,12 +59,32 @@ namespace 文本解析系统.JJWinForm
 
         private void lbl_baocun_Click(object sender, EventArgs e)
         {
-            //根据花名，更新数据库中人员的权限
+        }
+
+        private void pb_diaoyongguize_Click(object sender, EventArgs e)
+        {
+            WinFormSelect mywin = new WinFormSelect(tb_diaoyongguize.Text,"规则");
+            if (mywin.ShowDialog()==DialogResult.OK)
+            {
+                tb_diaoyongguize.Text = mywin._selectstr;
+            }
+        }
+
+        private void pb_shanchuguize_Click(object sender, EventArgs e)
+        {
 
 
 
 
+        }
 
+        private void pb_diaoyongku_Click(object sender, EventArgs e)
+        {
+            WinFormSelect mywin = new WinFormSelect(tb_diaoyongchachongku.Text,"查重");
+            if (mywin.ShowDialog() == DialogResult.OK)
+            {
+                tb_diaoyongchachongku.Text = mywin._selectstr;
+            }
 
         }
     }
