@@ -56,5 +56,16 @@ namespace 文本解析系统.JJWinForm
             }
 
         }
+
+        private void lbl_baocun_Click(object sender, EventArgs e)
+        {
+            //根据花名，更新数据库中人员的权限
+
+
+
+
+
+
+        }
     }
 }

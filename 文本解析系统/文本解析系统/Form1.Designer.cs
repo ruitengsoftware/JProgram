@@ -44,6 +44,7 @@
             this.jiexigeshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jindu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zhuangtai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.cb_guanji = new System.Windows.Forms.CheckBox();
             this.lbl_statue = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@
             this.tlp_excel = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_savepath = new System.Windows.Forms.TextBox();
+            this.pb_path = new System.Windows.Forms.PictureBox();
             this.rb_moren = new System.Windows.Forms.RadioButton();
             this.rb_qita = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -80,6 +82,7 @@
             this.shanchuanniu = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_search = new System.Windows.Forms.TextBox();
+            this.pb_search = new System.Windows.Forms.PictureBox();
             this.tlp_chachong = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -110,16 +113,13 @@
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
             this.cbb_biaozhunju = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbl_userinfo = new System.Windows.Forms.Label();
+            this.btn_houtai = new System.Windows.Forms.Button();
+            this.lbl_tuichu = new System.Windows.Forms.Button();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
-            this.lbl_tuichu = new System.Windows.Forms.Button();
-            this.btn_houtai = new System.Windows.Forms.Button();
-            this.lbl_userinfo = new System.Windows.Forms.Label();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pb_path = new System.Windows.Forms.PictureBox();
-            this.pb_search = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -131,6 +131,7 @@
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tlp_excel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -138,6 +139,7 @@
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jiexiguize)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_search)).BeginInit();
             this.tlp_chachong.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -149,10 +151,8 @@
             this.tableLayoutPanel16.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
-            this.tableLayoutPanel10.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_search)).BeginInit();
+            this.tableLayoutPanel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -273,6 +273,16 @@
             this.zhuangtai.FillWeight = 97.17514F;
             this.zhuangtai.HeaderText = "状态";
             this.zhuangtai.Name = "zhuangtai";
+            // 
+            // shanchu
+            // 
+            this.shanchu.FillWeight = 76.14214F;
+            this.shanchu.HeaderText = "";
+            this.shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
+            this.shanchu.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.shanchu.Name = "shanchu";
+            this.shanchu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.shanchu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // tableLayoutPanel4
             // 
@@ -500,6 +510,22 @@
             this.tb_savepath.Name = "tb_savepath";
             this.tb_savepath.Size = new System.Drawing.Size(306, 23);
             this.tb_savepath.TabIndex = 2;
+            // 
+            // pb_path
+            // 
+            this.pb_path.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_path.Image = global::文本解析系统.Properties.Resources.folderlv;
+            this.pb_path.Location = new System.Drawing.Point(574, 10);
+            this.pb_path.Margin = new System.Windows.Forms.Padding(8, 10, 8, 10);
+            this.pb_path.Name = "pb_path";
+            this.pb_path.Size = new System.Drawing.Size(24, 20);
+            this.pb_path.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_path.TabIndex = 3;
+            this.pb_path.TabStop = false;
+            this.pb_path.Click += new System.EventHandler(this.pb_path_Click);
+            this.pb_path.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.pb_path.MouseEnter += new System.EventHandler(this.pb_path_MouseEnter);
+            this.pb_path.MouseLeave += new System.EventHandler(this.pb_path_MouseLeave);
             // 
             // rb_moren
             // 
@@ -831,6 +857,22 @@
             this.tb_search.Name = "tb_search";
             this.tb_search.Size = new System.Drawing.Size(194, 23);
             this.tb_search.TabIndex = 0;
+            // 
+            // pb_search
+            // 
+            this.pb_search.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_search.Image = ((System.Drawing.Image)(resources.GetObject("pb_search.Image")));
+            this.pb_search.Location = new System.Drawing.Point(387, 7);
+            this.pb_search.Margin = new System.Windows.Forms.Padding(7);
+            this.pb_search.Name = "pb_search";
+            this.pb_search.Size = new System.Drawing.Size(26, 26);
+            this.pb_search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_search.TabIndex = 1;
+            this.pb_search.TabStop = false;
+            this.pb_search.Click += new System.EventHandler(this.pb_search_Click);
+            this.pb_search.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.pb_search.MouseEnter += new System.EventHandler(this.pb_search_MouseEnter);
+            this.pb_search.MouseLeave += new System.EventHandler(this.pb_search_MouseLeave);
             // 
             // tlp_chachong
             // 
@@ -1274,6 +1316,50 @@
             this.cbb_biaozhunju.TabIndex = 1;
             this.cbb_biaozhunju.SelectedIndexChanged += new System.EventHandler(this.cbb_jiexigeshi_SelectedIndexChanged);
             // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.lbl_userinfo);
+            this.flowLayoutPanel3.Controls.Add(this.btn_houtai);
+            this.flowLayoutPanel3.Controls.Add(this.lbl_tuichu);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(606, 30);
+            this.flowLayoutPanel3.TabIndex = 7;
+            // 
+            // lbl_userinfo
+            // 
+            this.lbl_userinfo.AutoSize = true;
+            this.lbl_userinfo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_userinfo.Location = new System.Drawing.Point(1, 1);
+            this.lbl_userinfo.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_userinfo.Name = "lbl_userinfo";
+            this.lbl_userinfo.Size = new System.Drawing.Size(43, 28);
+            this.lbl_userinfo.TabIndex = 6;
+            this.lbl_userinfo.Text = "label5";
+            this.lbl_userinfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btn_houtai
+            // 
+            this.btn_houtai.Location = new System.Drawing.Point(48, 3);
+            this.btn_houtai.Name = "btn_houtai";
+            this.btn_houtai.Size = new System.Drawing.Size(77, 24);
+            this.btn_houtai.TabIndex = 7;
+            this.btn_houtai.Text = "后台管理";
+            this.btn_houtai.UseVisualStyleBackColor = true;
+            this.btn_houtai.Click += new System.EventHandler(this.btn_houtai_Click);
+            // 
+            // lbl_tuichu
+            // 
+            this.lbl_tuichu.Location = new System.Drawing.Point(131, 3);
+            this.lbl_tuichu.Name = "lbl_tuichu";
+            this.lbl_tuichu.Size = new System.Drawing.Size(74, 24);
+            this.lbl_tuichu.TabIndex = 5;
+            this.lbl_tuichu.Text = "退出登录";
+            this.lbl_tuichu.UseVisualStyleBackColor = true;
+            this.lbl_tuichu.Click += new System.EventHandler(this.lbl_tuichu_Click);
+            // 
             // tableLayoutPanel10
             // 
             this.tableLayoutPanel10.ColumnCount = 1;
@@ -1301,50 +1387,6 @@
             this.label5.Text = "内部系统 严禁非公司许可电脑安装使用 严禁对外传播";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbl_tuichu
-            // 
-            this.lbl_tuichu.Location = new System.Drawing.Point(131, 3);
-            this.lbl_tuichu.Name = "lbl_tuichu";
-            this.lbl_tuichu.Size = new System.Drawing.Size(74, 24);
-            this.lbl_tuichu.TabIndex = 5;
-            this.lbl_tuichu.Text = "退出登录";
-            this.lbl_tuichu.UseVisualStyleBackColor = true;
-            this.lbl_tuichu.Click += new System.EventHandler(this.lbl_tuichu_Click);
-            // 
-            // btn_houtai
-            // 
-            this.btn_houtai.Location = new System.Drawing.Point(48, 3);
-            this.btn_houtai.Name = "btn_houtai";
-            this.btn_houtai.Size = new System.Drawing.Size(77, 24);
-            this.btn_houtai.TabIndex = 7;
-            this.btn_houtai.Text = "后台管理";
-            this.btn_houtai.UseVisualStyleBackColor = true;
-            this.btn_houtai.Click += new System.EventHandler(this.btn_houtai_Click);
-            // 
-            // lbl_userinfo
-            // 
-            this.lbl_userinfo.AutoSize = true;
-            this.lbl_userinfo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbl_userinfo.Location = new System.Drawing.Point(1, 1);
-            this.lbl_userinfo.Margin = new System.Windows.Forms.Padding(1);
-            this.lbl_userinfo.Name = "lbl_userinfo";
-            this.lbl_userinfo.Size = new System.Drawing.Size(43, 28);
-            this.lbl_userinfo.TabIndex = 6;
-            this.lbl_userinfo.Text = "label5";
-            this.lbl_userinfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.lbl_userinfo);
-            this.flowLayoutPanel3.Controls.Add(this.btn_houtai);
-            this.flowLayoutPanel3.Controls.Add(this.lbl_tuichu);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(606, 30);
-            this.flowLayoutPanel3.TabIndex = 7;
-            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.FillWeight = 60.9137F;
@@ -1355,48 +1397,6 @@
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn1.Width = 59;
-            // 
-            // shanchu
-            // 
-            this.shanchu.FillWeight = 76.14214F;
-            this.shanchu.HeaderText = "";
-            this.shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
-            this.shanchu.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.shanchu.Name = "shanchu";
-            this.shanchu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.shanchu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // pb_path
-            // 
-            this.pb_path.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_path.Image = global::文本解析系统.Properties.Resources.folderlv;
-            this.pb_path.Location = new System.Drawing.Point(574, 10);
-            this.pb_path.Margin = new System.Windows.Forms.Padding(8, 10, 8, 10);
-            this.pb_path.Name = "pb_path";
-            this.pb_path.Size = new System.Drawing.Size(24, 20);
-            this.pb_path.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_path.TabIndex = 3;
-            this.pb_path.TabStop = false;
-            this.pb_path.Click += new System.EventHandler(this.pb_path_Click);
-            this.pb_path.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.pb_path.MouseEnter += new System.EventHandler(this.pb_path_MouseEnter);
-            this.pb_path.MouseLeave += new System.EventHandler(this.pb_path_MouseLeave);
-            // 
-            // pb_search
-            // 
-            this.pb_search.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_search.Image = ((System.Drawing.Image)(resources.GetObject("pb_search.Image")));
-            this.pb_search.Location = new System.Drawing.Point(387, 7);
-            this.pb_search.Margin = new System.Windows.Forms.Padding(7);
-            this.pb_search.Name = "pb_search";
-            this.pb_search.Size = new System.Drawing.Size(26, 26);
-            this.pb_search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_search.TabIndex = 1;
-            this.pb_search.TabStop = false;
-            this.pb_search.Click += new System.EventHandler(this.pb_search_Click);
-            this.pb_search.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.pb_search.MouseEnter += new System.EventHandler(this.pb_search_MouseEnter);
-            this.pb_search.MouseLeave += new System.EventHandler(this.pb_search_MouseLeave);
             // 
             // Form1
             // 
@@ -1427,6 +1427,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tlp_excel.ResumeLayout(false);
             this.tlp_excel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -1437,6 +1438,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jiexiguize)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_search)).EndInit();
             this.tlp_chachong.ResumeLayout(false);
             this.tlp_chachong.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -1457,12 +1459,10 @@
             this.tableLayoutPanel17.PerformLayout();
             this.tableLayoutPanel18.ResumeLayout(false);
             this.tableLayoutPanel18.PerformLayout();
-            this.tableLayoutPanel10.ResumeLayout(false);
-            this.tableLayoutPanel10.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_search)).EndInit();
+            this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
