@@ -15,7 +15,9 @@ namespace 文本解析系统.JJWinForm
 {
     public partial class WinFormHoutaiguanli : Form
     {
+       public Action<DataGridView> _a = null;
         ControllerWFhoutai _mycontroller = new ControllerWFhoutai();
+       public DataGridView _dgv = null;
         public WinFormHoutaiguanli()
         {
             InitializeComponent();
@@ -25,19 +27,17 @@ namespace 文本解析系统.JJWinForm
         {
             //显示personinfo
             string str_sql = $"select * from jjdbrenwutaizhang.jjperson where 删除='0'";
-
             DataTable mydt = _mycontroller.GetDataTable(str_sql);
             dgv_person.DataSource = mydt;
             //模拟点击一次表格
             dgv_person_CellMouseClick(null, null);
             //模拟选中锁定规则
             rb_guize.Checked = true;
-
         }
 
         private void lbl_guanbi_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.DialogResult = DialogResult.OK;
         }
 
         private void dgv_person_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -68,6 +68,11 @@ namespace 文本解析系统.JJWinForm
         /// <param name="e"></param>
         private void lbl_baocun_Click(object sender, EventArgs e)
         {
+
+
+
+
+
             //实例化一个personinfo
             PersonInfo pi = new PersonInfo() {
                 _huaming = tb_huaming.Text,
@@ -77,7 +82,21 @@ namespace 文本解析系统.JJWinForm
                 _diaoyongchachongku=tb_diaoyongchachongku.Text
             
             };
-
+            //判断管理员数量,获得管理员名集合,如果管理员已经有3位并且不含有准备授权的花名，提示管理员数量已经到3位，return
+            List<string> list_guanliyuan = new List<string>();
+            foreach (DataGridViewRow dr in dgv_person.Rows)
+            {
+                string quanxian = dr.Cells["权限"].Value.ToString();
+                if (quanxian.Equals("管理员"))
+                {
+                    list_guanliyuan.Add(dr.Cells["花名"].Value.ToString());
+                }
+            }
+            if (!list_guanliyuan.Contains(pi._huaming) && list_guanliyuan.Count>=3)
+            {
+                MessageBox.Show("授权失败，管理员数量已达上限！");
+                return;
+            }
             //更新personinfo花名对应的登录权，权限，调用规则，调用查重库
             bool b = _mycontroller.UpdateShouquan(pi);
             if (b)
@@ -93,6 +112,8 @@ namespace 文本解析系统.JJWinForm
                 //更新登陆人员信息
                 LoginInfo.GetLoginInfo(LoginInfo._huaming);
 
+                //更新主界面的规则数据
+                _a(_dgv);
                 MessageBox.Show("授权成功！");
             }
 
@@ -113,7 +134,7 @@ namespace 文本解析系统.JJWinForm
             WinFormSelect mywin = new WinFormSelect(tb_diaoyongguize.Text, "规则");
             if (mywin.ShowDialog() == DialogResult.OK)
             {
-                tb_diaoyongguize.Text = mywin._selectstr;
+                tb_diaoyongguize.Text =string.Join(",", mywin.list_select);
             }
         }
 
@@ -130,9 +151,8 @@ namespace 文本解析系统.JJWinForm
             WinFormSelect mywin = new WinFormSelect(tb_diaoyongchachongku.Text, "查重");
             if (mywin.ShowDialog() == DialogResult.OK)
             {
-                tb_diaoyongchachongku.Text = mywin._selectstr;
+                tb_diaoyongchachongku.Text =string.Join(",", mywin.list_select);
             }
-
         }
 
         private void rb_guize_CheckedChanged(object sender, EventArgs e)

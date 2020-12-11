@@ -70,6 +70,11 @@ namespace 文本解析系统.JJWinForm
             string pwd = tb_mima.Text.Trim();
             bool successlogin = mycontroller.Login(name, pwd);//登录，并返回成功失败
 
+           
+
+
+
+
             if (successlogin)//如果登陆成功就进行
             {
                 //记录登录者信息
@@ -84,6 +89,15 @@ namespace 文本解析系统.JJWinForm
 
                 //获得登录者信息
                 LoginInfo.GetLoginInfo(name);
+                //判断登录权限，如果没有权限就要退出本方法
+                if (LoginInfo._denlguquan==0)
+                {
+                    MessageBox.Show("对不起，您暂无权限使用该系统！");
+                    return;
+                }
+
+
+
                 //显示登陆者花名
 
                 //var parent = this.Parent;

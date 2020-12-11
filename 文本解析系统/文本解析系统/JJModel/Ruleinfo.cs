@@ -9,7 +9,7 @@ namespace 文本解析系统.JJModel
    public class RuleInfo
     {
         /// <summary>
-        /// 规则名称
+        /// 名称
         /// </summary>
 
         public string _guizemingcheng = string.Empty;

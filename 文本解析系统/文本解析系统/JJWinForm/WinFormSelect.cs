@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 文本解析系统.JJController;
@@ -14,7 +15,7 @@ namespace 文本解析系统.JJWinForm
     public partial class WinFormSelect : Form
     {
         ControllerWFdiaoyongguize _mycontroller = new ControllerWFdiaoyongguize();
-        public string _selectstr = string.Empty;
+        public List<string> list_select = new List<string>();
         string _guizeorchachong = string.Empty;
         public WinFormSelect()
         {
@@ -29,7 +30,7 @@ namespace 文本解析系统.JJWinForm
         public WinFormSelect(string s,string r)
         {
             InitializeComponent();
-            _selectstr = s;
+            list_select= Regex.Split(s,",").ToList();
             _guizeorchachong = r;
         }
         private void WinFormDiaoyongguize_Load(object sender, EventArgs e)
@@ -42,7 +43,7 @@ namespace 文本解析系统.JJWinForm
             foreach (DataGridViewRow mydr in dgv_data.Rows)
             {
                 string name = mydr.Cells["名称"].Value.ToString();
-                if (_selectstr.Contains(name))
+                if (list_select.Contains(name))
                 {
                     mydr.Cells["xuanze"].Value = true;
                 }
@@ -51,7 +52,7 @@ namespace 文本解析系统.JJWinForm
 
         private void label1_Click(object sender, EventArgs e)
         {
-            //获得所有选中的规则名称组成字符串
+            //获得所有选中的名称组成字符串
             List<string> selectguize = new List<string>();
             foreach (DataGridViewRow dr in dgv_data.Rows)
             {
@@ -63,7 +64,7 @@ namespace 文本解析系统.JJWinForm
             }
 
             //字符串赋值给——guize
-            _selectstr = string.Join(",", selectguize);
+           list_select=selectguize;
             //关闭窗体
             this.DialogResult = DialogResult.OK;
         }

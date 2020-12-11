@@ -24,13 +24,13 @@ namespace 文本解析系统.JJWinForm
         /// <summary>
         /// 解析规则窗体的构造函数，带参数
         /// </summary>
-        /// <param name="rulename">规则名称</param>
+        /// <param name="rulename">名称</param>
         public WinFormGuize(string rulename)
         {
             InitializeComponent();
-            //获得数据库中rulename的对象，包括规则名称，规则说明，规则详情  
+            //获得数据库中rulename的对象，包括名称，规则说明，规则详情  
             RuleInfo myri = mycontroller.GetRuleInfo(rulename);
-            //规则名称赋值
+            //名称赋值
             tb_guizemingcheng.Text = myri._guizemingcheng;
             //规则说明赋值
             tb_shuoming.Text = myri._guizeshuoming;
@@ -73,7 +73,7 @@ namespace 文本解析系统.JJWinForm
         /// <param name="e"></param>
         private void btn_baocun_Click(object sender, EventArgs e)
         {
-            //获得规则名称
+            //获得名称
             string guizemingcheng = tb_guizemingcheng.Text;
             //获得规则说明
             string guizeshuoming = tb_shuoming.Text;

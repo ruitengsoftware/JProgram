@@ -94,7 +94,7 @@ namespace 文本解析系统
             //点击删除按钮事件,注意如果是基础规则那么点击无效
             if (dgv_jiexiguize.Columns[e.ColumnIndex].Name == "shanchuanniu" && e.RowIndex >= 0)
             {
-                //获得规则名称
+                //获得名称
                 string rulename = dgv_jiexiguize.Rows[e.RowIndex].Cells["jiexiguizemingcheng"].Value.ToString();
                 if (rulename.Contains("基础解析规则"))//基础规则点击无效
                 {
@@ -106,18 +106,6 @@ namespace 文本解析系统
                 //刷新数据
                 _mycontroller.UpdateDGV(dgv_jiexiguize);
             }
-            //点击选择按钮
-            //if (dgv_jiexiguize.Columns[e.ColumnIndex].Name == "xuanze" && e.RowIndex >= 0)
-            //{
-            //    if (Convert.ToBoolean( dgv_jiexiguize.Rows[e.RowIndex].Cells[0].FormattedValue) == true)
-            //    {
-            //        dgv_jiexiguize.Rows[e.RowIndex].Cells[0].Value = false;
-            //    }
-            //    else
-            //    {
-            //        dgv_jiexiguize.Rows[e.RowIndex].Cells[0].Value = true;
-            //    }
-            //}
         }
 
         private void btn_xinjian_Click(object sender, EventArgs e)
@@ -240,7 +228,7 @@ namespace 文本解析系统
             {
                 excelpath = tb_savepath.Text.Trim();
             }
-            //获得所有选中的规则名称
+            //获得所有选中的名称
             List<string> list_guize = new List<string>();
             foreach (DataGridViewRow item in dgv_jiexiguize.Rows)
             {
@@ -588,8 +576,11 @@ namespace 文本解析系统
         private void btn_houtai_Click(object sender, EventArgs e)
         {
             WinFormHoutaiguanli mywin = new WinFormHoutaiguanli();
+            mywin._a = _mycontroller.UpdateDGV;
+            mywin._dgv = dgv_jiexiguize;
             if (mywin.ShowDialog() == DialogResult.OK)
             {
+                //_mycontroller.UpdateDGV(dgv_jiexiguize);
 
             }
         }
@@ -597,6 +588,16 @@ namespace 文本解析系统
         private void btn_createdb_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lbl_xinjianguize_Click(object sender, EventArgs e)
+        {
+            JJWinForm.WinFormGuize mywin = new JJWinForm.WinFormGuize();
+            mywin.StartPosition = FormStartPosition.CenterParent;
+            if (mywin.ShowDialog() == DialogResult.OK)
+            {
+                _mycontroller.UpdateDGV(dgv_jiexiguize);
+            }
         }
     }
 }

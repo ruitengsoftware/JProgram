@@ -65,7 +65,7 @@ namespace 文本解析系统.JJController
         /// <returns></returns>
         public DataTable GetGuize(string keyword)
         {
-            string str_sql = $"select * from 规则信息表 where 规则名称 like '%{keyword}%' and 删除=0";
+            string str_sql = $"select * from 规则信息表 where 名称 like '%{keyword}%' and 删除=0";
             return mysqlhelper.ExecuteDataTable(str_sql, null);
         }
 
@@ -78,7 +78,16 @@ namespace 文本解析系统.JJController
         /// <returns></returns>
         public bool DeleteGuize(string name)
         {
-            string str_sql = $"update 规则信息表 set 删除=1 where 规则名称='{name}'";
+            //判断name是否在锁定规则之内
+            //如果在，那么弹窗锁定不许删除
+            List<string> list_suoding = Regex.Split(LoginInfo._suodingguize,",").ToList();
+            if (list_suoding.Contains(name))
+            {
+                MessageBox.Show($"不可删除锁定的规则 {name} !");
+                return false;
+            }
+
+            string str_sql = $"update 规则信息表 set 删除=1 where 名称='{name}'";
             int num = mysqlhelper.ExecuteNonQuery(str_sql, null);
             return num > 0 ? true : false;
         }
@@ -183,11 +192,11 @@ namespace 文本解析系统.JJController
         public RuleInfo GetRuleInfo(string rulename)
         {
             List<string> list = new List<string>();
-            string str_sql = $"select * from 规则信息表 where 规则名称='{rulename}' and 删除=0";
+            string str_sql = $"select * from 规则信息表 where 名称='{rulename}' and 删除=0";
             DataRow mydr = mysqlhelper.ExecuteDataRow(str_sql, null);
             return new RuleInfo()
             {
-                _guizemingcheng = mydr["规则名称"].ToString(),
+                _guizemingcheng = mydr["名称"].ToString(),
                 _guizeshuoming = mydr["规则说明"].ToString(),
                 _chuangjianren = mydr["创建人"].ToString(),
                 _chuangjianshijian = mydr["创建时间"].ToString(),
@@ -251,7 +260,7 @@ namespace 文本解析系统.JJController
             for (int i = 0; i < mydt.Rows.Count; i++)
             {
                 int index = mydgv.Rows.Add();
-                mydgv.Rows[index].Cells[1].Value = mydt.Rows[i]["规则名称"].ToString();
+                mydgv.Rows[index].Cells[1].Value = mydt.Rows[i]["名称"].ToString();
                 mydgv.Rows[index].Cells[2].Value = mydt.Rows[i]["创建人"].ToString();
                 mydgv.Rows[index].Cells[3].Value = mydt.Rows[i]["创建时间"].ToString();
             }

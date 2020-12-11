@@ -29,7 +29,7 @@ namespace 文本解析系统.JJCommon
 
         public static string _weixinhao = string.Empty;
         public static string _gerenqianming = string.Empty;
-        public static string _denlguquan = string.Empty;
+        public static int _denlguquan = 0;
         public static string _diaoyongguize = string.Empty;
         public static string _diaoyongchachongku = string.Empty;
         public static string _suodingguize = string.Empty;
@@ -57,7 +57,7 @@ namespace 文本解析系统.JJCommon
             LoginInfo._gongzuozhengjianzhao = mydr["工作证件照"].ToString();
             LoginInfo._weixinhao = mydr["微信号"].ToString();
             LoginInfo._gerenqianming = mydr["个人签名"].ToString();
-            LoginInfo._denlguquan = mydr["登录权"].ToString();
+            LoginInfo._denlguquan =Convert.ToInt32( mydr["登录权"].ToString());
             LoginInfo._diaoyongguize = mydr["调用规则"].ToString();
             LoginInfo._diaoyongchachongku = mydr["调用查重库"].ToString();
             LoginInfo._suodingguize = mydr["锁定规则"].ToString();
