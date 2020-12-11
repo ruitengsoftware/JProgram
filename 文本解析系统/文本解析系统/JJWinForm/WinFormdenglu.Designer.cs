@@ -47,6 +47,8 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_tuichu = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel_my.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -57,6 +59,7 @@
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -96,11 +99,11 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.lbl_denglu, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel7, 0, 4);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(30, 10);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -175,10 +178,10 @@
             this.lbl_denglu.BackColor = System.Drawing.Color.SeaGreen;
             this.lbl_denglu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_denglu.ForeColor = System.Drawing.Color.White;
-            this.lbl_denglu.Location = new System.Drawing.Point(5, 225);
+            this.lbl_denglu.Location = new System.Drawing.Point(5, 5);
             this.lbl_denglu.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_denglu.Name = "lbl_denglu";
-            this.lbl_denglu.Size = new System.Drawing.Size(230, 30);
+            this.lbl_denglu.Size = new System.Drawing.Size(110, 30);
             this.lbl_denglu.TabIndex = 6;
             this.lbl_denglu.Text = "登    录";
             this.lbl_denglu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -283,9 +286,10 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.Orange;
-            this.label2.Location = new System.Drawing.Point(3, 260);
+            this.label2.Location = new System.Drawing.Point(1, 261);
+            this.label2.Margin = new System.Windows.Forms.Padding(1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(234, 120);
+            this.label2.Size = new System.Drawing.Size(238, 118);
             this.label2.TabIndex = 9;
             this.label2.Text = "时间就是金钱\r\n效率就是生命\r\n数据左右盛衰\r\nTime is money,Efficiency is life,Data determine ups and d" +
     "owns";
@@ -335,12 +339,46 @@
             this.label3.Text = "文档解析系统";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.lbl_tuichu, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.lbl_denglu, 0, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 220);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(240, 40);
+            this.tableLayoutPanel7.TabIndex = 11;
+            // 
+            // lbl_tuichu
+            // 
+            this.lbl_tuichu.AutoSize = true;
+            this.lbl_tuichu.BackColor = System.Drawing.Color.SeaGreen;
+            this.lbl_tuichu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_tuichu.ForeColor = System.Drawing.Color.White;
+            this.lbl_tuichu.Location = new System.Drawing.Point(125, 5);
+            this.lbl_tuichu.Margin = new System.Windows.Forms.Padding(5);
+            this.lbl_tuichu.Name = "lbl_tuichu";
+            this.lbl_tuichu.Size = new System.Drawing.Size(110, 30);
+            this.lbl_tuichu.TabIndex = 7;
+            this.lbl_tuichu.Text = "退    出";
+            this.lbl_tuichu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_tuichu.Click += new System.EventHandler(this.lbl_tuichu_Click);
+            this.lbl_tuichu.Paint += new System.Windows.Forms.PaintEventHandler(this.lbl_tuichu_Paint);
+            this.lbl_tuichu.MouseEnter += new System.EventHandler(this.lbl_denglu_MouseEnter);
+            this.lbl_tuichu.MouseLeave += new System.EventHandler(this.lbl_denglu_MouseLeave);
+            // 
             // WinFormdenglu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.DarkGray;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(301, 402);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -365,6 +403,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -390,5 +430,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Label lbl_tuichu;
     }
 }

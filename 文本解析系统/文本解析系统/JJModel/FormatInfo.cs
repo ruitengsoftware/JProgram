@@ -29,5 +29,34 @@ namespace 文本解析系统.JJModel
         /// 新Md5值
         /// </summary>
         public bool _newmd5 = false;
+        /// <summary>
+        /// 查重处理“无”选项
+        /// </summary>
+        public bool _wu2 = false;
+        /// <summary>
+        /// 查重MD5值
+        /// </summary>
+        public bool _chachongmd5 = false;
+        /// <summary>
+        /// 全文库
+        /// </summary>
+        public string _quanwenku = string.Empty;
+        /// <summary>
+        /// 正文库
+        /// </summary>
+        public string _zhengwenku = string.Empty;
+        /// <summary>
+        /// 标准段库
+        /// </summary>
+        public string _biaozhunduanku = string.Empty;
+        /// <summary>
+        /// 标准句库
+        /// </summary>
+        public string _biaozhunjuku = string.Empty; 
+
+
+
+
+
     }
 }

@@ -204,13 +204,12 @@ namespace 文本解析系统
         /// <param name="e"></param>
         private void btn_baocun_Click(object sender, EventArgs e)
         {
+
             //获得解析格式名称
             string formatname = cbb_jiexigeshi.Text;
-            //删除解析格式
-            _mycontroller.RealDeleteFormat(formatname);
             //获得查重处理
             string chachong = string.Empty;
-            foreach (Control item in tlp_chachong.Controls)
+            foreach (Control item in flp_chachongchuli.Controls)
             {
                 if (item is CheckBox && (item as CheckBox).Checked)
                 {
@@ -240,8 +239,33 @@ namespace 文本解析系统
             }
             //获得是否新MD5
             bool newmd5 = cb_md5.Checked;
+
+            //构造一个解析格式类实例 
+            FormatInfo myfi = new FormatInfo()
+            {
+                _formatname = formatname,
+                _chachongchuli = chachong,
+                _excelpath = excelpath,
+                list_jiexiguize = list_guize,
+                _newmd5 = newmd5,
+                _wu2 = cb_wu2.Checked,
+                _chachongmd5 = rb_xieru.Checked,
+                _quanwenku = cbb_quanwen.Text,
+                _zhengwenku = cbb_zhengwen.Text,
+                _biaozhunduanku = cbb_biaozhunduan.Text,
+                _biaozhunjuku = cbb_biaozhunju.Text
+            };
+
+
+
+
+
+
+
+
+
             //保存解析格式
-            bool b = _mycontroller.SaveFormat(formatname, chachong, excelpath, newmd5, list_guize);
+            bool b = _mycontroller.SaveFormat(myfi);
             if (b) MessageBox.Show("解析格式保存成功！");
         }
         /// <summary>
@@ -264,53 +288,67 @@ namespace 文本解析系统
         /// <param name="e"></param>
         private void cbb_jiexigeshi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //获得格式名称
-            string formatname = cbb_jiexigeshi.Text;
-
-            //获得格式名称对应的格式信息
-            FormatInfo myfi = _mycontroller.GetFormatInfo(formatname);
-
-            //查重处理赋值
-            foreach (Control item in tlp_chachong.Controls)
+            try
             {
+                //获得格式名称
+                string formatname = cbb_jiexigeshi.Text;
 
-                if (item is CheckBox && item.Text.Equals(myfi._chachongchuli))
+                //获得格式名称对应的格式信息
+                FormatInfo myfi = _mycontroller.GetFormatInfo(formatname);
+
+                //查重处理赋值
+                foreach (Control item in flp_chachongchuli.Controls)
                 {
-                    (item as CheckBox).Checked = true;
+
+                    if (item is CheckBox && item.Text.Equals(myfi._chachongchuli))
+                    {
+                        (item as CheckBox).Checked = true;
+                    }
+                    else if (item is CheckBox && !item.Text.Equals(myfi._chachongchuli))
+                    {
+                        (item as CheckBox).Checked = false;
+                    }
                 }
-                else if (item is CheckBox && !item.Text.Equals(myfi._chachongchuli))
+                //新MD5复制
+                if (myfi._newmd5)
                 {
-                    (item as CheckBox).Checked = false;
+                    cb_md5.Checked = true;
                 }
-            }
-            //新MD5复制
-            if (myfi._newmd5)
-            {
-                cb_md5.Checked = true;
-            }
-            //excel存放赋值
-            if (myfi._excelpath.Equals(string.Empty))
-            {
-                rb_moren.Checked = true;
-            }
-            else
-            {
-                rb_qita.Checked = true;
-                tb_savepath.Text = myfi._excelpath;
-            }
-
-
-            //把选中规则前面的对号打上
-
-            foreach (DataGridViewRow item in dgv_jiexiguize.Rows)
-            {
-                item.Cells[0].Value = false;
-                string name = item.Cells[1].Value.ToString();
-                if (myfi.list_jiexiguize.Contains(name))
+                //excel存放赋值
+                if (myfi._excelpath.Equals(string.Empty))
                 {
-                    item.Cells[0].Value = true;
+                    rb_moren.Checked = true;
                 }
+                else
+                {
+                    rb_qita.Checked = true;
+                    tb_savepath.Text = myfi._excelpath;
+                }
+                //把查重库列表相关信息显示在界面上
+
+                cb_wu2.Checked = Convert.ToBoolean(myfi._wu2);
+                rb_xieru.Checked = Convert.ToBoolean(myfi._chachongmd5);
+                cbb_quanwen.Text = myfi._quanwenku;
+                cbb_zhengwen.Text = myfi._zhengwenku;
+                cbb_biaozhunduan.Text = myfi._biaozhunduanku;
+                cbb_biaozhunju.Text = myfi._biaozhunjuku;
+
+
+
+                //把选中规则前面的对号打上
+
+                foreach (DataGridViewRow item in dgv_jiexiguize.Rows)
+                {
+                    item.Cells[0].Value = false;
+                    string name = item.Cells[1].Value.ToString();
+                    if (myfi.list_jiexiguize.Contains(name))
+                    {
+                        item.Cells[0].Value = true;
+                    }
+                }
+
             }
+            catch { }
 
 
 

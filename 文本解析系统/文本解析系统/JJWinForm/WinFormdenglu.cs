@@ -149,5 +149,15 @@ namespace 文本解析系统.JJWinForm
                 xianshi =true;
             }
         }
+
+        private void lbl_tuichu_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void lbl_tuichu_Paint(object sender, PaintEventArgs e)
+        {
+            uihelper.DrawRoundRect((Control)sender);
+        }
     }
 }

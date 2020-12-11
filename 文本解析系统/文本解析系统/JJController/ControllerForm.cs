@@ -111,22 +111,15 @@ namespace 文本解析系统.JJController
         /// <returns></returns>
         public bool RealDeleteFormat(string name)
         {
-            string str_sql = $"delete from 解析格式表 where 格式名称='{name}'";
-            int num = mysqlhelper.ExecuteNonQuery(str_sql, null);
+            string str_sql = $"delete from 解析格式表 where 格式名称='{name}' and 删除=0";
+            int num = mysqlhelper.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
         }
 
-        /// <summary>
-        /// 保存解析格式
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="chachong"></param>
-        /// <param name="excel"></param>
-        /// <param name="guize"></param>
-        /// <returns></returns>
-        public bool SaveFormat(string name, string chachong, string excel, bool newmd5, List<string> guize)
+        public bool SaveFormat(FormatInfo fi)
         {
-            string str_guize = string.Join("|", guize);
+            //删掉名称相同的解析格式
+            RealDeleteFormat(fi._formatname);
             //保存之前判断格式名称是否重复
             //string str_sql = $"select count(*) from 解析格式表 where 格式名称='{name}' and 删除=0";
             //int formatnum =Convert.ToInt32 (mysqlhelper.ExecuteScalar(str_sql,null));
@@ -136,17 +129,12 @@ namespace 文本解析系统.JJController
             //    return false;
             //}
             //保存格式
-            string str_sql = $"insert into 解析格式表 values('{name}','{chachong}',@excel,'{str_guize}',0,@newmd5)";
-
-
-
-
-            int num = mysqlhelper.ExecuteNonQuery(str_sql, new MySqlParameter[] {
-            new MySqlParameter("@excel",excel),
-            new MySqlParameter("@newmd5",newmd5)
-            });
+            string str_sql = $"insert into 解析格式表 values('{fi._formatname}','{fi._chachongchuli}'," +
+                $"'{fi._excelpath}','{string.Join("|", fi.list_jiexiguize)}',0,{fi._newmd5},{fi._wu2}," +
+                $"{fi._chachongmd5},'{fi._quanwenku}','{fi._zhengwenku}','{fi._biaozhunduanku}'," +
+                $"'{fi._biaozhunjuku}')";
+            int num = mysqlhelper.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
-
         }
         /// <summary>
         /// 获得数据库中所有解析格式的名称
@@ -171,6 +159,8 @@ namespace 文本解析系统.JJController
         /// <returns></returns>
         public FormatInfo GetFormatInfo(string formatname)
         {
+            try
+            {
             List<string> list = new List<string>();
             string str_sql = $"select * from 解析格式表 where 格式名称='{formatname}' and 删除=0";
             DataRow mydr = mysqlhelper.ExecuteDataRow(str_sql, null);
@@ -180,8 +170,19 @@ namespace 文本解析系统.JJController
                 _chachongchuli = mydr["查重处理"].ToString(),
                 _excelpath = mydr["excel存放"].ToString(),
                 list_jiexiguize = Regex.Split(mydr["解析规则"].ToString(), @"\|").ToList(),
-                _newmd5 = Convert.ToBoolean(mydr["newmd5"])
+                _newmd5 = Convert.ToBoolean(mydr["newmd5"]),
+                _wu2 = Convert.ToInt32(mydr["查重无"]) == 1 ? true : false,
+                _chachongmd5 = Convert.ToInt32(mydr["查重md5"]) == 1 ? true : false,
+                _quanwenku =mydr["全文库"].ToString(),
+                _zhengwenku=mydr["正文库"].ToString(),
+                _biaozhunduanku=mydr["标准段库"].ToString(),
+                _biaozhunjuku=mydr["标准句库"].ToString()
             };
+
+            }
+            catch {
+                return null;
+            }
 
         }
         /// <summary>
