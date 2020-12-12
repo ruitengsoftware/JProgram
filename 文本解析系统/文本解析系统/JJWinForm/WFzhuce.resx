@@ -117,56 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ChMkKV8fh6mIZaqKAEIGWUIz7hsAAANIgNvpdQAQgZx175" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ChMkKV8fh6mIZaqKAEIGWUIz7hsAAANIgNvpdQAQgZx175.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="delete3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="delete4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fangdajing1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\searchlv (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fangdajing2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\searchenter (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="folderenter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\folderenter (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="folderlv" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\folderlv.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="rentou" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rentou.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="shanchu2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\shanchu2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="suo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\suo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wenhao1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wenhao1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wenhao2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wenhao2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="xianshi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\显示.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="yincang" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\隐藏.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="没有图片" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\没有图片.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="编辑" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\编辑.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="编辑2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\编辑2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

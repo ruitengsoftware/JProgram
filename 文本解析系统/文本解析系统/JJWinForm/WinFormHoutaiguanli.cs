@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 团队任务台账管理系统.WinForm;
 using 文本解析系统.JJCommon;
 using 文本解析系统.JJController;
 
@@ -244,6 +245,30 @@ namespace 文本解析系统.JJWinForm
                 MessageBox.Show("锁定成功！");
             }
 
+
+        }
+
+        private void lbl_tianjiayonghu_Click(object sender, EventArgs e)
+        {
+            //显示注册用户窗体
+            WFzhuce mywin = new WFzhuce() {
+                StartPosition = FormStartPosition.CenterParent
+            
+            };
+            if (mywin.ShowDialog()==DialogResult.OK)
+            {
+                //刷新人员
+                //显示personinfo
+                string str_sql = $"select * from jjdbrenwutaizhang.jjperson where 删除='0'";
+                DataTable mydt = _mycontroller.GetDataTable(str_sql);
+                dgv_person.DataSource = mydt;
+                //模拟点击一次表格
+                dgv_person_CellMouseClick(null, null);
+
+                //更新主界面的规则数据
+                MessageBox.Show("注册成功！");
+
+            }
 
         }
     }

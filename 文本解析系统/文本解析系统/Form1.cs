@@ -207,19 +207,6 @@ namespace 文本解析系统
 
             //获得解析格式名称
             string formatname = cbb_jiexigeshi.Text;
-            //获得查重处理
-            string chachong = string.Empty;
-            foreach (Control item in flp_chachongchuli.Controls)
-            {
-                if (item is CheckBox && (item as CheckBox).Checked)
-                {
-                    if (item.Text == "写入新MD5值")
-                    {
-                        continue;
-                    }
-                    chachong = item.Text;
-                }
-            }
 
             //获得excel存放位置
             string excelpath = string.Empty;
@@ -237,17 +224,13 @@ namespace 文本解析系统
                     list_guize.Add(item.Cells[1].Value.ToString());
                 }
             }
-            //获得是否新MD5
-            bool newmd5 = cb_md5.Checked;
 
             //构造一个解析格式类实例 
             FormatInfo myfi = new FormatInfo()
             {
                 _formatname = formatname,
-                _chachongchuli = chachong,
                 _excelpath = excelpath,
                 list_jiexiguize = list_guize,
-                _newmd5 = newmd5,
                 _wu2 = cb_wu2.Checked,
                 _chachongmd5 = rb_xieru.Checked,
                 _quanwenku = cbb_quanwen.Text,
@@ -255,15 +238,6 @@ namespace 文本解析系统
                 _biaozhunduanku = cbb_biaozhunduan.Text,
                 _biaozhunjuku = cbb_biaozhunju.Text
             };
-
-
-
-
-
-
-
-
-
             //保存解析格式
             bool b = _mycontroller.SaveFormat(myfi);
             if (b) MessageBox.Show("解析格式保存成功！");
@@ -296,24 +270,6 @@ namespace 文本解析系统
                 //获得格式名称对应的格式信息
                 FormatInfo myfi = _mycontroller.GetFormatInfo(formatname);
 
-                //查重处理赋值
-                foreach (Control item in flp_chachongchuli.Controls)
-                {
-
-                    if (item is CheckBox && item.Text.Equals(myfi._chachongchuli))
-                    {
-                        (item as CheckBox).Checked = true;
-                    }
-                    else if (item is CheckBox && !item.Text.Equals(myfi._chachongchuli))
-                    {
-                        (item as CheckBox).Checked = false;
-                    }
-                }
-                //新MD5复制
-                if (myfi._newmd5)
-                {
-                    cb_md5.Checked = true;
-                }
                 //excel存放赋值
                 if (myfi._excelpath.Equals(string.Empty))
                 {
@@ -377,7 +333,15 @@ namespace 文本解析系统
             zanting = false;//暂停状态设置为false
             tingzhi = false;//停止状态为false
             for (int i = startfolder; i < dgv_task.Rows.Count; i++)
-            {//记录本次文件夹最终完成度，完成，未完成，重复
+            {
+                //记录文件夹的全文重复数和正文重复数
+                Dictionary<string, int> dic = new Dictionary<string, int>() {
+                    {"全文重复",0 },
+                    {"正文重复",0  },
+                    { "完成",0}
+                };
+
+                //记录本次文件夹最终完成度，完成，未完成，重复
                 string str_jiexijieguo = string.Empty;
                 //记录正在执行的文件夹的位置
                 startfolder = i;
@@ -385,9 +349,9 @@ namespace 文本解析系统
                 string foldername = dgv_task.Rows[i].Cells[1].Value.ToString();
                 string formatname = dgv_task.Rows[i].Cells[2].Value.ToString();
                 //显示在处理列表中，更改状态为处理中
-                dgv_task.Rows[i].Cells["zhuangtai"].Value = "未完成";
                 //获得该文件夹下的所有文件，开始解析该文档，同时更新解析进度
                 var files = Directory.GetFiles(foldername).ToList();
+
                 for (int j = 0; j < files.Count; j++)
                 {
                     //判断否人工停止,如果是，退出本方法
@@ -405,8 +369,15 @@ namespace 文本解析系统
                     }
                     //解析word文档
                     str_jiexijieguo = await _mycontroller.JiexiAsync(files[j], formatname);
+                    //根据返回结果实时计算查重数量
+                    dic[str_jiexijieguo]++;
                 }
-                dgv_task.Rows[i].Cells["zhuangtai"].Value = str_jiexijieguo;
+                //赋值全文重复数量和正问问重复数量
+                dgv_task.Rows[i].Cells["quanwenchongfu"].Value = dic["全文重复"];
+                dgv_task.Rows[i].Cells["zhengwenchongfu"].Value = dic["正文重复"];
+
+
+
             }
             //更新软件状态
             lbl_statue.Text = " 状态：等待执行";
@@ -636,6 +607,34 @@ namespace 文本解析系统
             {
                 _mycontroller.UpdateDGV(dgv_jiexiguize);
             }
+        }
+
+        private void cb_wu2_CheckedChanged(object sender, EventArgs e)
+        {
+            bool b = cb_wu2.Checked;
+            if (b)
+            {
+                rb_buxieru.Enabled = false;
+                rb_xieru.Enabled = false;
+                cbb_quanwen.Enabled = false;
+                cbb_zhengwen.Enabled = false;
+                cbb_biaozhunduan.Enabled = false;
+                cbb_biaozhunju.Enabled = false;
+
+
+
+            }
+            else
+            {
+                rb_buxieru.Enabled = true;
+                rb_xieru.Enabled = true;
+                cbb_quanwen.Enabled = true;
+                cbb_zhengwen.Enabled = true;
+                cbb_biaozhunduan.Enabled = true;
+                cbb_biaozhunju.Enabled = true;
+            }
+
+
         }
     }
 }

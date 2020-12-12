@@ -81,6 +81,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="JJCommon\JJImageHelper.cs" />
     <Compile Include="JJCommon\Md5Helper.cs" />
     <Compile Include="JJCommon\MySQLHelper.cs" />
     <Compile Include="JJCommon\LoginInfo.cs" />
@@ -92,9 +93,12 @@
     <Compile Include="JJController\ControllerWFdiaoyongguize.cs" />
     <Compile Include="JJController\ControllerWFhoutai.cs" />
     <Compile Include="JJController\ControllerWFmydb.cs" />
+    <Compile Include="JJController\ControllerWFzhuce.cs" />
     <Compile Include="JJModel\BaseInfo.cs" />
     <Compile Include="JJModel\ChachongbiaoInfo.cs" />
     <Compile Include="JJModel\FormatInfo.cs" />
+    <Compile Include="JJModel\JJLoginInfo.cs" />
+    <Compile Include="JJModel\JJPersonInfo.cs" />
     <Compile Include="JJModel\RuleDetail.cs" />
     <Compile Include="JJModel\RuleInfo.cs" />
     <Compile Include="JJModel\WordInfo.cs" />
@@ -103,6 +107,20 @@
     </Compile>
     <Compile Include="JJUserControl\UCRuleInfo.Designer.cs">
       <DependentUpon>UCRuleInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JJWinForm\WFshenfen.cs" />
+    <Compile Include="JJWinForm\WFshenfen.designer.cs">
+      <DependentUpon>WFshenfen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JJWinForm\WFzhiji.cs" />
+    <Compile Include="JJWinForm\WFzhiji.designer.cs">
+      <DependentUpon>WFzhiji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JJWinForm\WFzhuce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JJWinForm\WFzhuce.designer.cs">
+      <DependentUpon>WFzhuce.cs</DependentUpon>
     </Compile>
     <Compile Include="JJWinForm\WinFormCreateDB.cs">
       <SubType>Form</SubType>
@@ -159,6 +177,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JJUserControl\UCRuleInfo.resx">
       <DependentUpon>UCRuleInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JJWinForm\WFshenfen.resx">
+      <DependentUpon>WFshenfen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JJWinForm\WFzhiji.resx">
+      <DependentUpon>WFzhiji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JJWinForm\WFzhuce.resx">
+      <DependentUpon>WFzhuce.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JJWinForm\WinFormCreateDB.resx">
       <DependentUpon>WinFormCreateDB.cs</DependentUpon>
@@ -258,6 +285,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\编辑.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\没有图片.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
