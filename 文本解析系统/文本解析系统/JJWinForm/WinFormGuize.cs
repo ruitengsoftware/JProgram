@@ -118,6 +118,8 @@ namespace 文本解析系统.JJWinForm
                         ri.fuzhifanwei.Add(mycontrol.Text);
                     }
                 }
+                //获得横.列名称
+                ri._liemingcheng = myuc.rb_liemingcheng.Checked;
                 jiexiguize.ruleinfo.Add(ri);
             }
             //将解析规则转为json格式

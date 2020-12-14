@@ -52,6 +52,10 @@ namespace 文本解析系统.JJUserControl
                     (control as CheckBox).Checked = true;
                 }
             }
+            //赋值解析表横，列名称
+
+            rb_liemingcheng.Checked = ruledetail._liemingcheng;
+            rb_hengmingcheng.Checked = !ruledetail._liemingcheng;
 
         }
 
@@ -88,6 +92,31 @@ namespace 文本解析系统.JJUserControl
             //打开网页，正则表达式的指引
             System.Diagnostics.Process.Start("explorer.exe", "https://c.runoob.com/front-end/854");
 
+        }
+
+        private void cbb_fuzhileixing_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //如果选中了自定义，就显示tb zidingyifuzhimingcheng
+            if (((Control)sender).Text.Contains("自定义"))
+            {
+                tb_zidingyifuzhimingcheng.Visible = true;
+            }
+            else
+            {
+                tb_zidingyifuzhimingcheng.Visible = false;
+            }
+        }
+
+        private void rb_liemingcheng_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((RadioButton)sender).Checked)
+            {
+                flp_fugaifanwei.Enabled = true;
+            }
+            else
+            {
+                flp_fugaifanwei.Enabled = false;
+            }
         }
     }
 }

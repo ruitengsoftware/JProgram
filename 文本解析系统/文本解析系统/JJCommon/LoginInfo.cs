@@ -8,7 +8,7 @@ namespace 文本解析系统.JJCommon
 {
     public class LoginInfo
     {
-      static  MySQLHelper _mysqlhelper = new MySQLHelper();
+        static MySQLHelper _mysqlhelper = new MySQLHelper();
         /// <summary>
         /// 登录人员花名
         /// </summary>
@@ -57,9 +57,28 @@ namespace 文本解析系统.JJCommon
             LoginInfo._gongzuozhengjianzhao = mydr["工作证件照"].ToString();
             LoginInfo._weixinhao = mydr["微信号"].ToString();
             LoginInfo._gerenqianming = mydr["个人签名"].ToString();
-            LoginInfo._denlguquan =Convert.ToInt32( mydr["登录权"].ToString());
-            LoginInfo._diaoyongguize = mydr["调用规则"].ToString();
-            LoginInfo._diaoyongchachongku = mydr["调用查重库"].ToString();
+            LoginInfo._denlguquan = Convert.ToInt32(mydr["登录权"].ToString());
+            //调用查重库和规则，暂时开放所有权限
+            //LoginInfo._diaoyongchachongku = mydr["调用查重库"].ToString();
+            //LoginInfo._diaoyongguize = mydr["调用规则"].ToString();
+            str_sql = $"select 名称 from jjdbwenbenjiexi.规则信息表 where 删除=0";
+           var dt= _mysqlhelper.ExecuteDataTable(str_sql);
+            List<string> list = new List<string>();
+            for (int i = 0; i <dt.Rows.Count ; i++)
+            {
+                list.Add(dt.Rows[i]["名称"].ToString());
+            }
+            LoginInfo._diaoyongguize = string.Join("|", list);
+            str_sql = $"select 名称 from jjdbwenbenjiexi.查重库信息表 where 删除=0";
+            dt = _mysqlhelper.ExecuteDataTable(str_sql);
+            list = new List<string>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                list.Add(dt.Rows[i]["名称"].ToString());
+            }
+            LoginInfo._diaoyongchachongku = string.Join("|", list);
+
+
             LoginInfo._suodingguize = mydr["锁定规则"].ToString();
             LoginInfo._suodingchachongku = mydr["锁定查重库"].ToString();
         }

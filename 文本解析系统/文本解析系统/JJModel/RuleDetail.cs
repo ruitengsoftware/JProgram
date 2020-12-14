@@ -8,6 +8,13 @@ namespace 文本解析系统.JJModel
 {
     public class RuleDetail
     {
+
+        /// <summary>
+        /// 解析表列名称是否选中
+        /// </summary>
+        public bool _liemingcheng = false;
+
+
         /// <summary>
         /// 对象选择集合
         /// </summary>

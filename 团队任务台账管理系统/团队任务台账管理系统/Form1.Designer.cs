@@ -63,7 +63,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel_my);
-            this.splitContainer1.Size = new System.Drawing.Size(757, 464);
+            this.splitContainer1.Size = new System.Drawing.Size(284, 411);
             this.splitContainer1.SplitterDistance = 96;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -98,7 +98,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(96, 464);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(96, 411);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // pb_touxiang
@@ -229,7 +229,7 @@
             this.panel_my.Location = new System.Drawing.Point(0, 0);
             this.panel_my.Margin = new System.Windows.Forms.Padding(0);
             this.panel_my.Name = "panel_my";
-            this.panel_my.Size = new System.Drawing.Size(657, 464);
+            this.panel_my.Size = new System.Drawing.Size(184, 411);
             this.panel_my.TabIndex = 0;
             // 
             // Form1
@@ -238,13 +238,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(757, 464);
+            this.ClientSize = new System.Drawing.Size(284, 411);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "写手任务台账管理系统V1.1.2 2020年12月7号";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

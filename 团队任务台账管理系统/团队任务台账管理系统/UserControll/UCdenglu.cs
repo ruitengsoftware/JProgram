@@ -30,6 +30,7 @@ namespace 团队任务台账管理系统.UserControll
 
             if (successlogin)//如果登陆成功就进行
             {
+                //
                 //记录登录者信息
                 List<string> list = Regex.Split(Properties.Settings.Default.loginnames, ",").ToList();
                 if (!list.Contains(name))
@@ -42,8 +43,12 @@ namespace 团队任务台账管理系统.UserControll
                 mycontroller.GetLoginInfo(name);
 
                 var parent = this.Parent;
+                this.ParentForm.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+                this.ParentForm.Width = 1000;
+                this.ParentForm.Height = 650;
                 parent.Controls.Clear();
-                UCmain uc_main = new UCmain();
+                UCmain uc_main = new UCmain() {};
                 uc_main.Dock = DockStyle.Fill;
                 parent.Controls.Add(uc_main);
                 ((SplitContainer)parent.Parent.Parent).Panel1Collapsed = false;

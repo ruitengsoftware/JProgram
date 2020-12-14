@@ -420,20 +420,13 @@ namespace 文本解析系统.JJModel
         /// </summary>
         public void AnalysisInfo()
         {
-
-
-
-
             MatchCollection mc = null;//用于保存热度结果
-
             ///1、文件名
-
             BaseInfo newbi = new BaseInfo();
             newbi._mingcheng = "文件名";
             newbi._wenben = _wenjianming;
 
             newbi._MD5 = Md5Helper.Md5(newbi._wenben);
-            mc = Regex.Matches(_quanwen, $"{_wenjianming}");
             newbi._redu = 1;
             newbi._zishu = _wenjianming.Length;
             //位置关联
@@ -453,6 +446,14 @@ namespace 文本解析系统.JJModel
             //内容关联
             newbi._neirongguanlian = _zhengwengangyao;
             _list_baseinfo.Add(newbi);
+            //1-1全文
+            ///1、文件名
+            newbi = new BaseInfo();
+            newbi._mingcheng = "全文";
+            newbi._quanwen = _quanwen;
+            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            newbi._redu = 1;
+            newbi._zishu = newbi._quanwen.Length;
 
 
 
@@ -483,13 +484,13 @@ namespace 文本解析系统.JJModel
 
                     }
                 }
-
-
-
-
-
                 //内容关联
                 newbi._neirongguanlian = _zhengwengangyao;
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian) ;
+
+
                 _list_baseinfo.Add(newbi);
             }
             //3、副标题
@@ -521,6 +522,10 @@ namespace 文本解析系统.JJModel
                 }
                 //内容关联
                 newbi._neirongguanlian = _zhengwengangyao;
+                //关联信息的MD5转换
+
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
 
                 _list_baseinfo.Add(newbi);
             }
@@ -563,6 +568,13 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
+                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
+                //处理文本内容，去掉序号和标点
+                newbi._wenben = Regex.Replace(newbi._wenben, @"[一二三四五六七八九十]+?、", "");
+                //newbi._wenben= Regex.Replace(newbi._wenben,@"[,.，。！？……、：;!?]","");
                 _list_baseinfo.Add(newbi);
             }
             //4-1 一级标题纲要
@@ -572,6 +584,10 @@ namespace 文本解析系统.JJModel
             newbi._MD5 = Md5Helper.Md5(newbi._wenben);
             newbi._redu = 1;
             newbi._zishu = newbi._wenben.Length;
+            //处理文本内容，去掉序号和标点
+
+            newbi._wenben = Regex.Replace(newbi._wenben, @"[一二三四五六七八九十]+?、", "");
+            // newbi._wenben = Regex.Replace(newbi._wenben, @"[,.，。！？……、：;!?]", "");
             _list_baseinfo.Add(newbi);
             //5、二级标题
             foreach (string item in _erjibiaoti)
@@ -612,6 +628,14 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
+                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
+
+                //处理文本内容，去掉序号和标点
+                newbi._wenben = Regex.Replace(newbi._wenben, @"[(（][一二三四五六七八九十]+?[)）]", "");
+                // newbi._wenben = Regex.Replace(newbi._wenben, @"[,.，。！？……、：;!?]", "");
 
                 _list_baseinfo.Add(newbi);
             }
@@ -623,6 +647,10 @@ namespace 文本解析系统.JJModel
             newbi._MD5 = Md5Helper.Md5(newbi._wenben);
             newbi._redu = 1;
             newbi._zishu = newbi._wenben.Length;
+            //处理文本内容，去掉序号和标点
+            newbi._wenben = Regex.Replace(newbi._wenben, @"[(（][一二三四五六七八九十]+?[)）]", "");
+            // newbi._wenben = Regex.Replace(newbi._wenben, @"[,.，。！？……、：;!?]", "");
+
             _list_baseinfo.Add(newbi);
             //6、三级标题
             foreach (string item in _sanjibiaoti)
@@ -663,6 +691,21 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
+                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
+
+                //处理文本内容，去掉序号和标点
+                newbi._wenben = Regex.Replace(newbi._wenben, @"[一二三四五六七八九十]+?是", "");
+                newbi._wenben = Regex.Replace(newbi._wenben, @"[一二三四五六七八九十]+?(?=要)", "");
+                newbi._wenben = Regex.Replace(newbi._wenben, @"第[一二三四五六七八九十]+?[，,]", "");
+                newbi._wenben = Regex.Replace(newbi._wenben, @"首先[，,]", "");
+                newbi._wenben = Regex.Replace(newbi._wenben, @"其次[，,]", "");
+                newbi._wenben = Regex.Replace(newbi._wenben, @"\d+?\.", "");
+                newbi._wenben = Regex.Replace(newbi._wenben, @"[(（]\d{1,3}?[)）]", "");
+                newbi._wenben = Regex.Replace(newbi._wenben, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
+                //newbi._wenben = Regex.Replace(newbi._wenben, @"[,.，。！？……、：;!?]", "");
 
                 _list_baseinfo.Add(newbi);
             }
@@ -674,6 +717,17 @@ namespace 文本解析系统.JJModel
             newbi._MD5 = Md5Helper.Md5(newbi._wenben);
             newbi._redu = 1;
             newbi._zishu = newbi._wenben.Length;
+            //处理文本内容，去掉序号和标点
+            newbi._wenben = Regex.Replace(newbi._wenben, @"[一二三四五六七八九十]+?是", "");
+            newbi._wenben = Regex.Replace(newbi._wenben, @"[一二三四五六七八九十]+?(?=要)", "");
+            newbi._wenben = Regex.Replace(newbi._wenben, @"第[一二三四五六七八九十]+?[，,]", "");
+            newbi._wenben = Regex.Replace(newbi._wenben, @"首先[，,]", "");
+            newbi._wenben = Regex.Replace(newbi._wenben, @"其次[，,]", "");
+            newbi._wenben = Regex.Replace(newbi._wenben, @"\d+?\.", "");
+            newbi._wenben = Regex.Replace(newbi._wenben, @"[(（]\d{1,3}?[)）]", "");
+            newbi._wenben = Regex.Replace(newbi._wenben, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
+            // newbi._wenben = Regex.Replace(newbi._wenben, @"[,.，。！？……、：;!?]", "");
+
             _list_baseinfo.Add(newbi);
 
             //7、正文
@@ -733,6 +787,9 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
 
                 _list_baseinfo.Add(newbi);
             }
@@ -774,6 +831,9 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
 
 
 
@@ -817,6 +877,9 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
 
                 _list_baseinfo.Add(newbi);
             }
@@ -856,6 +919,9 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
 
                 _list_baseinfo.Add(newbi);
             }
@@ -919,6 +985,10 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
+                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
 
                 _list_baseinfo.Add(newbi);
             }
@@ -979,6 +1049,10 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
+                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
 
                 _list_baseinfo.Add(newbi);
             }
@@ -1036,6 +1110,10 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
+                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
 
                 _list_baseinfo.Add(newbi);
             }
@@ -1096,6 +1174,10 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
+                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
 
                 _list_baseinfo.Add(newbi);
             }
@@ -1155,6 +1237,10 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
+                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
 
                 _list_baseinfo.Add(newbi);
             }
@@ -1214,6 +1300,10 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
+                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
 
                 _list_baseinfo.Add(newbi);
             }
@@ -1274,6 +1364,10 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
+                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
 
                 _list_baseinfo.Add(newbi);
             }
@@ -1333,6 +1427,9 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
+                //关联信息的MD5转换
+                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
+                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
 
                 _list_baseinfo.Add(newbi);
             }
@@ -1505,7 +1602,11 @@ namespace 文本解析系统.JJModel
                     bool b9 = Regex.IsMatch(paratext, @"^第[一二三四五六七八九十]条第[一二三四五六七八九十]款第[一二三四五六七八九十]条[\s\S]+");
                     if (b1 || b1_1 || b2 || b3 || b4 || b5 || b6 || b7 || b8 || b9)
                     {
-                        _sanjibiaoti.Add(paratext);
+                        //用句号拆分成几个句子
+                        List<string> list = Regex.Split(paratext, "。").ToList();
+                        //去除空值
+                        list.Remove(string.Empty);
+                        _sanjibiaoti.AddRange(list);
                     }
                 }
             }
@@ -1514,7 +1615,7 @@ namespace 文本解析系统.JJModel
 
         }
         /// <summary>
-        /// 获得word的自然段集合
+        /// 获得word的自然段集合,顺便获得了全文，以\r分隔
         /// </summary>
         public void GetZiranduan()
         {
@@ -1544,7 +1645,7 @@ namespace 文本解析系统.JJModel
                     string paratext = paragraph.Range.Text.Trim();
 
                     //拆分标准句，如果标准句的数量大于1，认定为标准段
-                    var biaozhunju = Regex.Matches(paratext, @"[\s\S]+?[。；？！……;!?$]");
+                    var biaozhunju = Regex.Matches(paratext, @"[\s\S]+?[。；:：？！……;!?$]");
                     if (biaozhunju.Count > 1)
                     {
                         _biaozhunduan.Add(paratext);

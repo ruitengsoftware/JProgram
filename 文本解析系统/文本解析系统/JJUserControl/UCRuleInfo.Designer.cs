@@ -30,16 +30,6 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.flp_juzhi = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.cb_zidingyijieguo = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox35 = new System.Windows.Forms.CheckBox();
-            this.checkBox36 = new System.Windows.Forms.CheckBox();
-            this.tb_zidingyijieguo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_wenbentezheng = new System.Windows.Forms.TextBox();
@@ -85,7 +75,9 @@
             this.tb_daoshu = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.cbb_fuzhileixing = new System.Windows.Forms.ComboBox();
+            this.tb_zidingyifuzhimingcheng = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.pb_shanchu = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -99,18 +91,38 @@
             this.checkBox42 = new System.Windows.Forms.CheckBox();
             this.checkBox43 = new System.Windows.Forms.CheckBox();
             this.checkBox44 = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.rb_liemingcheng = new System.Windows.Forms.RadioButton();
+            this.rb_hengmingcheng = new System.Windows.Forms.RadioButton();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.flp_juzhi = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.cb_zidingyijieguo = new System.Windows.Forms.CheckBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox35 = new System.Windows.Forms.CheckBox();
+            this.checkBox36 = new System.Windows.Forms.CheckBox();
+            this.tb_zidingyijieguo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.flp_juzhi.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_wenhao)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.flp_duixiangxuanze.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.flp_fugaifanwei.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.flp_juzhi.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -121,160 +133,39 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel8, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel11, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel11, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 0, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(709, 346);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(713, 375);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.68421F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.31579F));
-            this.tableLayoutPanel3.Controls.Add(this.flp_juzhi, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 1);
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel7, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 170);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.42857F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.57143F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(709, 70);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(713, 35);
             this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // flp_juzhi
-            // 
-            this.flp_juzhi.Controls.Add(this.checkBox2);
-            this.flp_juzhi.Controls.Add(this.checkBox3);
-            this.flp_juzhi.Controls.Add(this.cb_zidingyijieguo);
-            this.flp_juzhi.Controls.Add(this.checkBox6);
-            this.flp_juzhi.Controls.Add(this.checkBox7);
-            this.flp_juzhi.Controls.Add(this.checkBox35);
-            this.flp_juzhi.Controls.Add(this.checkBox36);
-            this.flp_juzhi.Controls.Add(this.tb_zidingyijieguo);
-            this.flp_juzhi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flp_juzhi.Location = new System.Drawing.Point(97, 35);
-            this.flp_juzhi.Margin = new System.Windows.Forms.Padding(0);
-            this.flp_juzhi.Name = "flp_juzhi";
-            this.flp_juzhi.Size = new System.Drawing.Size(612, 35);
-            this.flp_juzhi.TabIndex = 1;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox2.Location = new System.Drawing.Point(3, 8);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(63, 21);
-            this.checkBox2.TabIndex = 0;
-            this.checkBox2.Text = "索引句";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox3.Location = new System.Drawing.Point(72, 8);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(63, 21);
-            this.checkBox3.TabIndex = 1;
-            this.checkBox3.Text = "标准句";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // cb_zidingyijieguo
-            // 
-            this.cb_zidingyijieguo.AutoSize = true;
-            this.cb_zidingyijieguo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cb_zidingyijieguo.Location = new System.Drawing.Point(141, 8);
-            this.cb_zidingyijieguo.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.cb_zidingyijieguo.Name = "cb_zidingyijieguo";
-            this.cb_zidingyijieguo.Size = new System.Drawing.Size(63, 21);
-            this.cb_zidingyijieguo.TabIndex = 2;
-            this.cb_zidingyijieguo.Text = "标准段";
-            this.cb_zidingyijieguo.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox6.Location = new System.Drawing.Point(210, 8);
-            this.checkBox6.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(75, 21);
-            this.checkBox6.TabIndex = 3;
-            this.checkBox6.Text = "后索引句";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox7.Location = new System.Drawing.Point(291, 8);
-            this.checkBox7.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(75, 21);
-            this.checkBox7.TabIndex = 4;
-            this.checkBox7.Text = "后标准句";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox35
-            // 
-            this.checkBox35.AutoSize = true;
-            this.checkBox35.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox35.Location = new System.Drawing.Point(372, 8);
-            this.checkBox35.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.checkBox35.Name = "checkBox35";
-            this.checkBox35.Size = new System.Drawing.Size(75, 21);
-            this.checkBox35.TabIndex = 5;
-            this.checkBox35.Text = "后标准段";
-            this.checkBox35.UseVisualStyleBackColor = true;
-            // 
-            // checkBox36
-            // 
-            this.checkBox36.AutoSize = true;
-            this.checkBox36.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox36.Location = new System.Drawing.Point(453, 8);
-            this.checkBox36.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.checkBox36.Name = "checkBox36";
-            this.checkBox36.Size = new System.Drawing.Size(75, 21);
-            this.checkBox36.TabIndex = 6;
-            this.checkBox36.Text = "自定义值";
-            this.checkBox36.UseVisualStyleBackColor = true;
-            // 
-            // tb_zidingyijieguo
-            // 
-            this.tb_zidingyijieguo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tb_zidingyijieguo.Location = new System.Drawing.Point(534, 6);
-            this.tb_zidingyijieguo.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.tb_zidingyijieguo.Name = "tb_zidingyijieguo";
-            this.tb_zidingyijieguo.Size = new System.Drawing.Size(75, 23);
-            this.tb_zidingyijieguo.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(1, 36);
-            this.label3.Margin = new System.Windows.Forms.Padding(1);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 33);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "赋值";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -283,7 +174,7 @@
             this.label2.Location = new System.Drawing.Point(1, 1);
             this.label2.Margin = new System.Windows.Forms.Padding(1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 33);
+            this.label2.Size = new System.Drawing.Size(98, 33);
             this.label2.TabIndex = 0;
             this.label2.Text = "文本特征";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -296,12 +187,12 @@
             this.tableLayoutPanel7.Controls.Add(this.tb_wenbentezheng, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.pb_wenhao, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(97, 0);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(100, 0);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(612, 35);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(613, 35);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // tb_wenbentezheng
@@ -310,14 +201,14 @@
             this.tb_wenbentezheng.Location = new System.Drawing.Point(3, 6);
             this.tb_wenbentezheng.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.tb_wenbentezheng.Name = "tb_wenbentezheng";
-            this.tb_wenbentezheng.Size = new System.Drawing.Size(574, 23);
+            this.tb_wenbentezheng.Size = new System.Drawing.Size(575, 23);
             this.tb_wenbentezheng.TabIndex = 1;
             // 
             // pb_wenhao
             // 
             this.pb_wenhao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_wenhao.Image = global::文本解析系统.Properties.Resources.wenhao1;
-            this.pb_wenhao.Location = new System.Drawing.Point(581, 4);
+            this.pb_wenhao.Location = new System.Drawing.Point(582, 4);
             this.pb_wenhao.Margin = new System.Windows.Forms.Padding(4);
             this.pb_wenhao.Name = "pb_wenhao";
             this.pb_wenhao.Size = new System.Drawing.Size(27, 27);
@@ -331,8 +222,8 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.68421F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.31579F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.flp_duixiangxuanze, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -340,9 +231,8 @@
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(709, 170);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(713, 170);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label1
@@ -352,7 +242,7 @@
             this.label1.Location = new System.Drawing.Point(1, 1);
             this.label1.Margin = new System.Windows.Forms.Padding(1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 168);
+            this.label1.Size = new System.Drawing.Size(98, 168);
             this.label1.TabIndex = 0;
             this.label1.Text = "对象选择";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -396,10 +286,10 @@
             this.flp_duixiangxuanze.Controls.Add(this.cb_daoshu);
             this.flp_duixiangxuanze.Controls.Add(this.tb_daoshu);
             this.flp_duixiangxuanze.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flp_duixiangxuanze.Location = new System.Drawing.Point(97, 0);
+            this.flp_duixiangxuanze.Location = new System.Drawing.Point(100, 0);
             this.flp_duixiangxuanze.Margin = new System.Windows.Forms.Padding(0);
             this.flp_duixiangxuanze.Name = "flp_duixiangxuanze";
-            this.flp_duixiangxuanze.Size = new System.Drawing.Size(612, 170);
+            this.flp_duixiangxuanze.Size = new System.Drawing.Size(613, 170);
             this.flp_duixiangxuanze.TabIndex = 1;
             // 
             // cb_wenjianming
@@ -763,18 +653,17 @@
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 2;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.68421F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.31579F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.cbb_fuzhileixing, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel2, 1, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 240);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 205);
             this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(709, 40);
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(713, 35);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // label4
@@ -784,14 +673,25 @@
             this.label4.Location = new System.Drawing.Point(1, 1);
             this.label4.Margin = new System.Windows.Forms.Padding(1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 38);
+            this.label4.Size = new System.Drawing.Size(98, 33);
             this.label4.TabIndex = 0;
-            this.label4.Text = "赋值类型";
+            this.label4.Text = "赋值名称";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.cbb_fuzhileixing);
+            this.flowLayoutPanel2.Controls.Add(this.tb_zidingyifuzhimingcheng);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(100, 0);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(613, 35);
+            this.flowLayoutPanel2.TabIndex = 1;
             // 
             // cbb_fuzhileixing
             // 
-            this.cbb_fuzhileixing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbb_fuzhileixing.FormattingEnabled = true;
             this.cbb_fuzhileixing.Items.AddRange(new object[] {
             "文本内容",
@@ -806,11 +706,21 @@
             "地域",
             "位置关联信息",
             "内容关联信息"});
-            this.cbb_fuzhileixing.Location = new System.Drawing.Point(100, 8);
-            this.cbb_fuzhileixing.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.cbb_fuzhileixing.Location = new System.Drawing.Point(5, 5);
             this.cbb_fuzhileixing.Name = "cbb_fuzhileixing";
-            this.cbb_fuzhileixing.Size = new System.Drawing.Size(606, 25);
+            this.cbb_fuzhileixing.Size = new System.Drawing.Size(439, 25);
             this.cbb_fuzhileixing.TabIndex = 1;
+            this.cbb_fuzhileixing.SelectedIndexChanged += new System.EventHandler(this.cbb_fuzhileixing_SelectedIndexChanged);
+            // 
+            // tb_zidingyifuzhimingcheng
+            // 
+            this.tb_zidingyifuzhimingcheng.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tb_zidingyifuzhimingcheng.Location = new System.Drawing.Point(450, 6);
+            this.tb_zidingyifuzhimingcheng.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.tb_zidingyifuzhimingcheng.Name = "tb_zidingyifuzhimingcheng";
+            this.tb_zidingyifuzhimingcheng.Size = new System.Drawing.Size(142, 23);
+            this.tb_zidingyifuzhimingcheng.TabIndex = 2;
+            this.tb_zidingyifuzhimingcheng.Visible = false;
             // 
             // tableLayoutPanel11
             // 
@@ -820,19 +730,19 @@
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel11.Controls.Add(this.pb_shanchu, 1, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 316);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 345);
             this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(709, 30);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(713, 30);
             this.tableLayoutPanel11.TabIndex = 1;
             // 
             // pb_shanchu
             // 
             this.pb_shanchu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_shanchu.Image = global::文本解析系统.Properties.Resources.delete3;
-            this.pb_shanchu.Location = new System.Drawing.Point(341, 2);
+            this.pb_shanchu.Location = new System.Drawing.Point(343, 2);
             this.pb_shanchu.Margin = new System.Windows.Forms.Padding(2);
             this.pb_shanchu.Name = "pb_shanchu";
             this.pb_shanchu.Size = new System.Drawing.Size(26, 26);
@@ -846,18 +756,17 @@
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.68421F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.31579F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.flp_fugaifanwei, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 280);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 275);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(709, 36);
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(713, 35);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // label5
@@ -867,7 +776,7 @@
             this.label5.Location = new System.Drawing.Point(1, 1);
             this.label5.Margin = new System.Windows.Forms.Padding(1);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 34);
+            this.label5.Size = new System.Drawing.Size(98, 33);
             this.label5.TabIndex = 0;
             this.label5.Text = "赋值覆盖范围";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -883,10 +792,10 @@
             this.flp_fugaifanwei.Controls.Add(this.checkBox43);
             this.flp_fugaifanwei.Controls.Add(this.checkBox44);
             this.flp_fugaifanwei.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flp_fugaifanwei.Location = new System.Drawing.Point(97, 0);
+            this.flp_fugaifanwei.Location = new System.Drawing.Point(100, 0);
             this.flp_fugaifanwei.Margin = new System.Windows.Forms.Padding(0);
             this.flp_fugaifanwei.Name = "flp_fugaifanwei";
-            this.flp_fugaifanwei.Size = new System.Drawing.Size(612, 36);
+            this.flp_fugaifanwei.Size = new System.Drawing.Size(613, 35);
             this.flp_fugaifanwei.TabIndex = 1;
             // 
             // checkBox37
@@ -977,6 +886,207 @@
             this.checkBox44.Text = "副标题";
             this.checkBox44.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.label6, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel1, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 240);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(713, 35);
+            this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Location = new System.Drawing.Point(1, 1);
+            this.label6.Margin = new System.Windows.Forms.Padding(1);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(98, 33);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "赋值解析位置";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.rb_liemingcheng);
+            this.flowLayoutPanel1.Controls.Add(this.rb_hengmingcheng);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(100, 5);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(613, 30);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // rb_liemingcheng
+            // 
+            this.rb_liemingcheng.AutoSize = true;
+            this.rb_liemingcheng.Checked = true;
+            this.rb_liemingcheng.Location = new System.Drawing.Point(3, 3);
+            this.rb_liemingcheng.Name = "rb_liemingcheng";
+            this.rb_liemingcheng.Size = new System.Drawing.Size(98, 21);
+            this.rb_liemingcheng.TabIndex = 0;
+            this.rb_liemingcheng.TabStop = true;
+            this.rb_liemingcheng.Text = "解析表列名称";
+            this.rb_liemingcheng.UseVisualStyleBackColor = true;
+            this.rb_liemingcheng.CheckedChanged += new System.EventHandler(this.rb_liemingcheng_CheckedChanged);
+            // 
+            // rb_hengmingcheng
+            // 
+            this.rb_hengmingcheng.AutoSize = true;
+            this.rb_hengmingcheng.Location = new System.Drawing.Point(107, 3);
+            this.rb_hengmingcheng.Name = "rb_hengmingcheng";
+            this.rb_hengmingcheng.Size = new System.Drawing.Size(98, 21);
+            this.rb_hengmingcheng.TabIndex = 0;
+            this.rb_hengmingcheng.TabStop = true;
+            this.rb_hengmingcheng.Text = "解析表横名称";
+            this.rb_hengmingcheng.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.flp_juzhi, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 310);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(713, 35);
+            this.tableLayoutPanel6.TabIndex = 2;
+            // 
+            // flp_juzhi
+            // 
+            this.flp_juzhi.Controls.Add(this.checkBox2);
+            this.flp_juzhi.Controls.Add(this.checkBox3);
+            this.flp_juzhi.Controls.Add(this.cb_zidingyijieguo);
+            this.flp_juzhi.Controls.Add(this.checkBox6);
+            this.flp_juzhi.Controls.Add(this.checkBox7);
+            this.flp_juzhi.Controls.Add(this.checkBox35);
+            this.flp_juzhi.Controls.Add(this.checkBox36);
+            this.flp_juzhi.Controls.Add(this.tb_zidingyijieguo);
+            this.flp_juzhi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flp_juzhi.Location = new System.Drawing.Point(100, 0);
+            this.flp_juzhi.Margin = new System.Windows.Forms.Padding(0);
+            this.flp_juzhi.Name = "flp_juzhi";
+            this.flp_juzhi.Size = new System.Drawing.Size(613, 35);
+            this.flp_juzhi.TabIndex = 1;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox2.Location = new System.Drawing.Point(3, 8);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(63, 21);
+            this.checkBox2.TabIndex = 0;
+            this.checkBox2.Text = "索引句";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox3.Location = new System.Drawing.Point(72, 8);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(63, 21);
+            this.checkBox3.TabIndex = 1;
+            this.checkBox3.Text = "标准句";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // cb_zidingyijieguo
+            // 
+            this.cb_zidingyijieguo.AutoSize = true;
+            this.cb_zidingyijieguo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cb_zidingyijieguo.Location = new System.Drawing.Point(141, 8);
+            this.cb_zidingyijieguo.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.cb_zidingyijieguo.Name = "cb_zidingyijieguo";
+            this.cb_zidingyijieguo.Size = new System.Drawing.Size(63, 21);
+            this.cb_zidingyijieguo.TabIndex = 2;
+            this.cb_zidingyijieguo.Text = "标准段";
+            this.cb_zidingyijieguo.UseVisualStyleBackColor = true;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox6.Location = new System.Drawing.Point(210, 8);
+            this.checkBox6.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(75, 21);
+            this.checkBox6.TabIndex = 3;
+            this.checkBox6.Text = "后索引句";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox7.Location = new System.Drawing.Point(291, 8);
+            this.checkBox7.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(75, 21);
+            this.checkBox7.TabIndex = 4;
+            this.checkBox7.Text = "后标准句";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // checkBox35
+            // 
+            this.checkBox35.AutoSize = true;
+            this.checkBox35.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox35.Location = new System.Drawing.Point(372, 8);
+            this.checkBox35.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.checkBox35.Name = "checkBox35";
+            this.checkBox35.Size = new System.Drawing.Size(75, 21);
+            this.checkBox35.TabIndex = 5;
+            this.checkBox35.Text = "后标准段";
+            this.checkBox35.UseVisualStyleBackColor = true;
+            // 
+            // checkBox36
+            // 
+            this.checkBox36.AutoSize = true;
+            this.checkBox36.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox36.Location = new System.Drawing.Point(453, 8);
+            this.checkBox36.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.checkBox36.Name = "checkBox36";
+            this.checkBox36.Size = new System.Drawing.Size(75, 21);
+            this.checkBox36.TabIndex = 6;
+            this.checkBox36.Text = "自定义值";
+            this.checkBox36.UseVisualStyleBackColor = true;
+            // 
+            // tb_zidingyijieguo
+            // 
+            this.tb_zidingyijieguo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tb_zidingyijieguo.Location = new System.Drawing.Point(534, 6);
+            this.tb_zidingyijieguo.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.tb_zidingyijieguo.Name = "tb_zidingyijieguo";
+            this.tb_zidingyijieguo.Size = new System.Drawing.Size(75, 23);
+            this.tb_zidingyijieguo.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Location = new System.Drawing.Point(1, 1);
+            this.label3.Margin = new System.Windows.Forms.Padding(1);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 33);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "赋值内容";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // UCRuleInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -987,12 +1097,10 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UCRuleInfo";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Size = new System.Drawing.Size(719, 356);
+            this.Size = new System.Drawing.Size(723, 385);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.flp_juzhi.ResumeLayout(false);
-            this.flp_juzhi.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_wenhao)).EndInit();
@@ -1002,12 +1110,22 @@
             this.flp_duixiangxuanze.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.tableLayoutPanel11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.flp_fugaifanwei.ResumeLayout(false);
             this.flp_fugaifanwei.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
+            this.flp_juzhi.ResumeLayout(false);
+            this.flp_juzhi.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1070,7 +1188,6 @@
         public System.Windows.Forms.TextBox tb_shunshu;
         public System.Windows.Forms.CheckBox cb_daoshu;
         public System.Windows.Forms.TextBox tb_daoshu;
-        public System.Windows.Forms.ComboBox cbb_fuzhileixing;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.FlowLayoutPanel flp_fugaifanwei;
@@ -1082,8 +1199,17 @@
         private System.Windows.Forms.CheckBox checkBox42;
         private System.Windows.Forms.CheckBox checkBox43;
         private System.Windows.Forms.CheckBox checkBox44;
+        public System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        public System.Windows.Forms.Label label6;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        public System.Windows.Forms.RadioButton rb_liemingcheng;
+        private System.Windows.Forms.RadioButton rb_hengmingcheng;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         public System.Windows.Forms.TextBox tb_wenbentezheng;
         private System.Windows.Forms.PictureBox pb_wenhao;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        public System.Windows.Forms.ComboBox cbb_fuzhileixing;
+        private System.Windows.Forms.TextBox tb_zidingyifuzhimingcheng;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
     }
 }

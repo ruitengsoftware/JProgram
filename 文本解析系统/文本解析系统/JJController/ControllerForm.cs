@@ -216,9 +216,11 @@ namespace 文本解析系统.JJController
         /// <param name="mydgv"></param>
         public void UpdateDGV(DataGridView mydgv)
         {
+            //刷新logininfo信息
+            LoginInfo.GetLoginInfo(LoginInfo._huaming);
             mydgv.Rows.Clear();
             //可调用规则list
-            List<string> list_diaoyong = Regex.Split(LoginInfo._diaoyongguize, ",").ToList();
+            List<string> list_diaoyong = Regex.Split(LoginInfo._diaoyongguize, @"\|").ToList();
 
             //更新dgv_guize的数据
             DataTable mydt = GetGuize();
@@ -237,7 +239,7 @@ namespace 文本解析系统.JJController
             //让所有基础解析规则固定在解析规则的第一位
             foreach (DataGridViewRow item in mydgv.Rows)
             {
-                string name = item.Cells["jiexiguizemingcheng"].Value.ToString();
+                string name = item.Cells["jieximingcheng"].Value.ToString();
                 if (name.Contains("基础解析规则"))
                 {
                     //获得行索引
@@ -323,7 +325,7 @@ namespace 文本解析系统.JJController
                 string wordtext = myword.Range.Text;
                 //转化md5
                 string str_md5 = Md5Helper.Md5(wordtext);
-                string str_sql = $"select count(*) from {myfi._quanwenku} where MD5='{str_md5}'";
+                string str_sql = $"select count(*) from {myfi._quanwenku} where md5='{str_md5}'";
                 int num =Convert.ToInt32( mysqlhelper.ExecuteScalar(str_sql));
                 //判断是否重复
                 if (num > 0)//重复了
@@ -358,7 +360,7 @@ namespace 文本解析系统.JJController
                     wordtext = myword.Range.Text;
                     //转化md5
                     str_md5 = Md5Helper.Md5(wordtext);
-                    str_sql = $"select * from {myfi._zhengwenku} where MD5='{str_md5}'";
+                    str_sql = $"select count(*) from {myfi._zhengwenku} where md5='{str_md5}'";
                    num = Convert.ToInt32(mysqlhelper.ExecuteScalar(str_sql));
                     //判断正文是否重复
                     if (num > 0)//重复
@@ -388,15 +390,25 @@ namespace 文本解析系统.JJController
                                 mysht0.Cells[0, 6].Value = "内容类关联信息";
                                 mysht0.Cells[0, 7].Value = "关联标准段";
                                 //循环所有的baseinfo对象到excel表中去
+                                //在添入excel之前，判断是否出现过文本相同的记录，如果出现了就跳过，如果没出现，就添加这一行并且记录文本
+                                List<string> list_r = new List<string>();
+                                string wenben = string.Empty;
                                 for (int b = 0; b < mywordinfo._list_baseinfo.Count; b++)
                                 {
                                     //在这里做一个放错机制，防止正文过长等一些导致填充表格报错的情况
                                     try
                                     {
-                                        if (mywordinfo._list_baseinfo[b]._wenben.Trim().Equals(string.Empty))
+                                        wenben=mywordinfo._list_baseinfo[b]._wenben.Trim();
+                                        if (wenben.Equals(string.Empty))
                                         {
                                             continue;
                                         }
+                                        //判断是否重复
+                                        if (list_r.Contains(wenben))
+                                        {
+                                            continue;
+                                        }
+
                                         //获得最后一行
                                         int rowindex = mysht0.Cells.LastCell.Row + 1;
                                         mysht0.Cells[rowindex, 0].Value = mywordinfo._list_baseinfo[b]._mingcheng;
@@ -407,16 +419,13 @@ namespace 文本解析系统.JJController
                                         mysht0.Cells[rowindex, 5].Value = mywordinfo._list_baseinfo[b]._weizhiguanlian;
                                         mysht0.Cells[rowindex, 6].Value = mywordinfo._list_baseinfo[b]._neirongguanlian;
                                         mysht0.Cells[rowindex, 7].Value = mywordinfo._list_baseinfo[b]._guanlianbiaozhunduan;
-
+                                        //将文本保存在list_r中
+                                        list_r.Add(wenben);
                                     }
                                     catch { }
                                 }
                                 mysht0.Cells[mywordinfo._list_baseinfo.Count, 0].Value = "正文转载";
                                 mysht0.Cells[mywordinfo._list_baseinfo.Count, 1].Value = 1;
-
-
-
-
                             }
                         }
                         //保存解析结果表，如果为空表示默认位置
@@ -514,7 +523,7 @@ namespace 文本解析系统.JJController
                                         }
 
                                     }
-                                    else if (myrd.fuzhi.Equals("标准句"))
+                                    if (myrd.fuzhi.Contains("标准句"))
                                     {
                                         mymc = Regex.Matches(pipeiduixiang, $@"(?<=[^。；;])[\s\S]*{myrd.wenbentezheng}[\s\S]*(?=[。；;])");
                                         foreach (Match mymatch in mymc)
@@ -522,7 +531,7 @@ namespace 文本解析系统.JJController
                                             myrd.fuzhijieguo.Add(mymatch.Value);
                                         }
                                     }
-                                    else if (myrd.fuzhi.Equals("标准段"))//返回自定义的文本特征结果
+                                    if (myrd.fuzhi.Contains("标准段"))//返回自定义的文本特征结果
                                     {
                                         mymc = Regex.Matches(pipeiduixiang, $@"(?<=[^\r\n])[\s\S]*{myrd.wenbentezheng}[\s\S]*(?=[\r\n])");
                                         foreach (Match mymatch in mymc)
@@ -530,7 +539,7 @@ namespace 文本解析系统.JJController
                                             myrd.fuzhijieguo.Add(mymatch.Value);
                                         }
                                     }
-                                    else if (myrd.fuzhi.Equals("后索引句"))//返回自定义的文本特征结果
+                                    if (myrd.fuzhi.Contains("后索引句"))//返回自定义的文本特征结果
                                     {
                                         mymc = Regex.Matches(pipeiduixiang, $@"(?<{myrd.wenbentezheng}[\s\S]*[,，、。])[\s\S]+?(?=[,，、。])");
                                         foreach (Match mymatch in mymc)
@@ -538,7 +547,7 @@ namespace 文本解析系统.JJController
                                             myrd.fuzhijieguo.Add(mymatch.Value);
                                         }
                                     }
-                                    else if (myrd.fuzhi.Equals("后标准句"))//返回自定义的文本特征结果
+                                    if (myrd.fuzhi.Contains("后标准句"))//返回自定义的文本特征结果
                                     {
                                         mymc = Regex.Matches(pipeiduixiang, $@"(?<{myrd.wenbentezheng}[\s\S]*[,，、。])[\s\S]+?(?=[。；：;:！!……])");
                                         foreach (Match mymatch in mymc)
@@ -546,7 +555,7 @@ namespace 文本解析系统.JJController
                                             myrd.fuzhijieguo.Add(mymatch.Value);
                                         }
                                     }
-                                    else if (myrd.fuzhi.Equals("后标准段"))//返回自定义的文本特征结果
+                                    if (myrd.fuzhi.Contains("后标准段"))//返回自定义的文本特征结果
                                     {
                                         mymc = Regex.Matches(pipeiduixiang, $@"(?<{myrd.wenbentezheng}[\s\S]*[,，、。])[\s\S]+?(?=\r\n)");
                                         foreach (Match mymatch in mymc)
@@ -555,7 +564,7 @@ namespace 文本解析系统.JJController
                                         }
 
                                     }
-                                    else if (myrd.fuzhi.Equals("自定义值"))//返回自定义的文本特征结果
+                                    if (myrd.fuzhi.Contains("自定义值"))//返回自定义的文本特征结果
                                     {
                                         myrd.fuzhijieguo.Add(myrd._zidingyivalue);
                                     }
@@ -598,28 +607,49 @@ namespace 文本解析系统.JJController
 
                                     #endregion
                                     ///在解析结果表中添加相应的赋值类型和赋值结果
-                                    ///生成基础解析格式之外的部分
-                                    //获得最后一列索引
-                                    int lastcol = mysht1.Cells.LastCell.Column;
-                                    mysht1.Cells[0, lastcol + 1].Value = myrd.fuzhileixing;
-                                    //判断赋值覆盖范围
-                                    //获得最后一行索引
-                                    int lastrow = mysht1.Cells.LastCell.Row;
-                                    for (int r = 1; r < lastrow; r++)
+                                    //开始生成基础解析格式之外的部分
+
+                                    //判断是横名称或者列名称
+                                    if (myrd._liemingcheng)//列名称
                                     {
-                                        //如果对象名称存在于赋值范围，那么赋值到复制类型列
-                                        string mingcheng = mysht1.Cells[r, 0].StringValue;
-
-                                        //循环所有的赋值覆盖范围，如果名称包括了范围，那么赋值
-                                        foreach (string mystr in myrd.fuzhifanwei)
+                                        //获得最后一列索引,添加赋值类型
+                                        int lastcol = mysht1.Cells.LastCell.Column;
+                                        mysht1.Cells[0, lastcol + 1].Value = myrd.fuzhileixing;
+                                        //判断赋值覆盖范围
+                                        //获得最后一行索引
+                                        int lastrow = mysht1.Cells.LastCell.Row;
+                                        for (int r = 1; r < lastrow+2; r++)
                                         {
-                                            if (mingcheng.Contains(mystr))
-                                            {
-                                                mysht1.Cells[r, lastcol + 1].Value = string.Join("|", myrd.fuzhijieguo);
+                                            //如果对象名称存在于赋值范围，那么赋值到复制类型列
+                                            string mingcheng = mysht1.Cells[r, 0].StringValue;
 
+                                            //循环所有的赋值覆盖范围，如果名称包括了范围，那么赋值
+                                            foreach (string mystr in myrd.fuzhifanwei)
+                                            {
+                                                if (mingcheng.Contains(mystr))
+                                                {
+                                                    mysht1.Cells[r, lastcol + 1].Value = string.Join("|", myrd.fuzhijieguo);
+
+                                                }
                                             }
                                         }
+
                                     }
+                                    else
+                                    {
+                                        //获得最后一行索引
+                                        int lastrow = mysht1.Cells.LastCell.Row;
+                                        //增加一行,赋值名称，文本，md5
+                                        mysht1.Cells[lastrow + 2, 0].Value = myrd.fuzhileixing;
+                                        mysht1.Cells[lastrow + 2, 1].Value = string.Join("|", myrd.fuzhijieguo);
+                                        mysht1.Cells[lastrow + 2, 2].Value =Md5Helper.Md5( string.Join("|", myrd.fuzhijieguo));
+
+                                    }
+
+
+
+
+
                                 }
 
                             }

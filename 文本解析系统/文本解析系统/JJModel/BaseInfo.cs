@@ -8,7 +8,10 @@ namespace 文本解析系统.JJModel
 {
    public class BaseInfo
     {
-       
+        /// <summary>
+        /// 全文
+        /// </summary>
+        public string _quanwen = string.Empty;
 
 
 

@@ -274,8 +274,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(238, 118);
             this.label2.TabIndex = 9;
-            this.label2.Text = "时间就是金钱\r\n效率就是生命\r\n数据左右盛衰\r\nTime is money,Efficiency is life,Data determine ups and d" +
-    "owns";
+            this.label2.Text = "时间就是金钱  效率就是生命\r\n数据左右生兴";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel3

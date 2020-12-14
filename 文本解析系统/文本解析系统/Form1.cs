@@ -72,11 +72,27 @@ namespace 文本解析系统
         /// <param name="e"></param>
         private void dgv_jiexiguize_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //获得选中的规则名称
+            //List<string> list_select = new List<string>();
+            //foreach (DataGridViewRow dr in dgv_jiexiguize.Rows)
+            //{
+            //    bool b =Convert.ToBoolean( (dr.Cells[0] as DataGridViewCheckBoxCell).EditingCellFormattedValue);
+            //    if (b)
+            //    {
+            //        list_select.Add(dr.Cells["jieximingcheng"].Value.ToString());
+            //    }
+            //}
+            //获得cbb 解析格式的index \
+            string f = cbb_jiexigeshi.Text;
+
+
+
+
             //点击编辑按钮事件,注意如果是基础规则那么点击无效
             if (dgv_jiexiguize.Columns[e.ColumnIndex].Name == "bianjianniu" && e.RowIndex >= 0)
             {
                 //从数据库中获得该规则对应的文本特征，显示到新打开的winformguize中
-                string rulename = dgv_jiexiguize.Rows[e.RowIndex].Cells["jiexiguizemingcheng"].Value.ToString();
+                string rulename = dgv_jiexiguize.Rows[e.RowIndex].Cells["jieximingcheng"].Value.ToString();
                 if (rulename.Contains("基础解析规则"))
                 {
                     MessageBox.Show("不可编辑基础规则！");
@@ -90,6 +106,9 @@ namespace 文本解析系统
                     //刷新数据
                     _mycontroller.UpdateDGV(dgv_jiexiguize);
                 }
+                cbb_jiexigeshi.Text = string.Empty;
+                cbb_jiexigeshi.Text = f;
+
             }
             //点击删除按钮事件,注意如果是基础规则那么点击无效
             if (dgv_jiexiguize.Columns[e.ColumnIndex].Name == "shanchuanniu" && e.RowIndex >= 0)
@@ -105,7 +124,21 @@ namespace 文本解析系统
                 _mycontroller.DeleteGuize(rulename);
                 //刷新数据
                 _mycontroller.UpdateDGV(dgv_jiexiguize);
+                cbb_jiexigeshi.Text = string.Empty;
+                cbb_jiexigeshi.Text = f;
+
             }
+            //选中的规则前面打勾
+
+            //foreach (DataGridViewRow dr in dgv_jiexiguize.Rows)
+            //{
+            //    string str_rule = dr.Cells["jieximingcheng"].Value.ToString();
+            //    if (list_select.Contains(str_rule))
+            //    {
+            //        (dr.Cells[0] as DataGridViewCheckBoxCell).Value = true;
+            //    }
+            //}
+
         }
 
         private void btn_xinjian_Click(object sender, EventArgs e)
@@ -116,7 +149,7 @@ namespace 文本解析系统
             {
                 //刷新查重库下拉列表
                 //获得查重库列表
-                string str_sql = $"select * from 查重库信息表";
+                string str_sql = $"select * from 查重库信息表 where 删除=0";
                 var list = _mycontroller.GetChachongInfo(str_sql);
                 cbb_quanwen.Items.Clear();
                 cbb_zhengwen.Items.Clear();
@@ -145,6 +178,7 @@ namespace 文本解析系统
         {
             //显示用户信息
             lbl_userinfo.Text = $"用户：{LoginInfo._huaming}";
+            //显示解析规则
             _mycontroller.UpdateDGV(dgv_jiexiguize);
             //获得查重库列表
             string str_sql = $"select * from 查重库信息表 where 删除=0";
@@ -153,10 +187,10 @@ namespace 文本解析系统
             cbb_zhengwen.Items.Clear();
             cbb_biaozhunduan.Items.Clear();
             cbb_biaozhunju.Items.Clear();
-            List<string> list_diaoyong = Regex.Split(LoginInfo._diaoyongchachongku, ",").ToList();
+            List<string> list_diaoyong = Regex.Split(LoginInfo._diaoyongchachongku, @"\|").ToList();
             foreach (ChachongbiaoInfo c in list)
             {
-                //判断c.mingcheng是否在可调用库中,不在的话就continue
+                //根据类型把查重库名称显示在对应cbb中
                 if (list_diaoyong.Contains(c._mingcheng))
                 {
                     if (c._leixing.Equals("全文查重库"))
@@ -254,61 +288,6 @@ namespace 文本解析系统
             //加载cbb的item
             cbb_jiexigeshi.Items.Clear();
             cbb_jiexigeshi.Items.AddRange(list_format.ToArray());
-        }
-        /// <summary>
-        /// 切换解析格式名称下拉框时触发的事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cbb_jiexigeshi_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                //获得格式名称
-                string formatname = cbb_jiexigeshi.Text;
-
-                //获得格式名称对应的格式信息
-                FormatInfo myfi = _mycontroller.GetFormatInfo(formatname);
-
-                //excel存放赋值
-                if (myfi._excelpath.Equals(string.Empty))
-                {
-                    rb_moren.Checked = true;
-                }
-                else
-                {
-                    rb_qita.Checked = true;
-                    tb_savepath.Text = myfi._excelpath;
-                }
-                //把查重库列表相关信息显示在界面上
-
-                cb_wu2.Checked = Convert.ToBoolean(myfi._wu2);
-                rb_xieru.Checked = Convert.ToBoolean(myfi._chachongmd5);
-                cbb_quanwen.Text = myfi._quanwenku;
-                cbb_zhengwen.Text = myfi._zhengwenku;
-                cbb_biaozhunduan.Text = myfi._biaozhunduanku;
-                cbb_biaozhunju.Text = myfi._biaozhunjuku;
-
-
-
-                //把选中规则前面的对号打上
-
-                foreach (DataGridViewRow item in dgv_jiexiguize.Rows)
-                {
-                    item.Cells[0].Value = false;
-                    string name = item.Cells[1].Value.ToString();
-                    if (myfi.list_jiexiguize.Contains(name))
-                    {
-                        item.Cells[0].Value = true;
-                    }
-                }
-
-            }
-            catch { }
-
-
-
-
         }
         /// <summary>
         /// 点击开始按钮时触发的事件
@@ -634,6 +613,64 @@ namespace 文本解析系统
                 cbb_biaozhunju.Enabled = true;
             }
 
+
+        }
+
+        private void rb_moren_CheckedChanged(object sender, EventArgs e)
+        {
+            tb_savepath.Clear();
+        }
+
+        private void cbb_jiexigeshi_TextUpdate(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbb_jiexigeshi_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //获得格式名称
+                string formatname = cbb_jiexigeshi.Text;
+
+                //获得格式名称对应的格式信息
+                FormatInfo myfi = _mycontroller.GetFormatInfo(formatname);
+
+                //excel存放赋值
+                if (myfi._excelpath.Equals(string.Empty))
+                {
+                    rb_moren.Checked = true;
+                }
+                else
+                {
+                    rb_qita.Checked = true;
+                    tb_savepath.Text = myfi._excelpath;
+                }
+                //把查重库列表相关信息显示在界面上
+
+                cb_wu2.Checked = Convert.ToBoolean(myfi._wu2);
+                rb_xieru.Checked = Convert.ToBoolean(myfi._chachongmd5);
+                cbb_quanwen.Text = myfi._quanwenku;
+                cbb_zhengwen.Text = myfi._zhengwenku;
+                cbb_biaozhunduan.Text = myfi._biaozhunduanku;
+                cbb_biaozhunju.Text = myfi._biaozhunjuku;
+
+
+
+                //把选中规则前面的对号打上
+
+                foreach (DataGridViewRow item in dgv_jiexiguize.Rows)
+                {
+                    item.Cells[0].Value = false;
+                    string name = item.Cells[1].Value.ToString();
+                    if (myfi.list_jiexiguize.Contains(name))
+                    {
+                        item.Cells[0].Value = true;
+                    }
+                }
+
+            }
+            catch { }
 
         }
     }
