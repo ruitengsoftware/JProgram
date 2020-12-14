@@ -204,7 +204,19 @@ namespace 文本解析系统.JJModel
                         {
                             if (!item.Trim().Equals(string.Empty))
                             {
-                                _zhengwenshougebiaozhunju.Add(item);
+                                string mystr = item;
+                                //去除一二三级标题序号标点
+                                mystr = Regex.Replace(mystr, "[一二三四五六七八九十]+?、", "");
+                                mystr = Regex.Replace(mystr, "[(（][一二三四五六七八九十]+?[)）]", "");
+                                mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?是", "");
+                                mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?(?=要)", "");
+                                mystr = Regex.Replace(mystr, @"第[一二三四五六七八九十]+?[，,]", "");
+                                mystr = Regex.Replace(mystr, @"首先[，,]", "");
+                                mystr = Regex.Replace(mystr, @"其次[，,]", "");
+                                mystr = Regex.Replace(mystr, @"\d+?\.", "");
+                                mystr = Regex.Replace(mystr, @"[(（]\d{1,3}?[)）]", "");
+                                mystr = Regex.Replace(mystr, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
+                                _zhengwenshougebiaozhunju.Add(mystr);
                             }
                         }
                         break;
@@ -277,7 +289,23 @@ namespace 文本解析系统.JJModel
                 string[] mymc = Regex.Split(item, $@"[,，、。]");
                 foreach (string mymatch in mymc)
                 {
-                    _duanshoubiaozhunjusuoyinju.Add(mymatch);
+                    string mystr = mymatch;
+                    //去除一二三级标题序号标点
+                    mystr = Regex.Replace(mystr, "[一二三四五六七八九十]+?、", "");
+                    mystr = Regex.Replace(mystr, "[(（][一二三四五六七八九十]+?[)）]", "");
+                    mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?是", "");
+                    mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?(?=要)", "");
+                    mystr = Regex.Replace(mystr, @"第[一二三四五六七八九十]+?[，,]", "");
+                    mystr = Regex.Replace(mystr, @"首先[，,]", "");
+                    mystr = Regex.Replace(mystr, @"其次[，,]", "");
+                    mystr = Regex.Replace(mystr, @"\d+?\.", "");
+                    mystr = Regex.Replace(mystr, @"[(（]\d{1,3}?[)）]", "");
+                    mystr = Regex.Replace(mystr, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
+                    //判断索引句的字符数量，大于4个，留下
+                    if (mystr.Length >= 4)
+                    {
+                        _duanshoubiaozhunjusuoyinju.Add(mystr);
+                    }
                 }
 
             }
@@ -295,7 +323,24 @@ namespace 文本解析系统.JJModel
                 string[] mymc = Regex.Split(item, $@"[:：,，、。]");
                 foreach (string mymatch in mymc)
                 {
-                    _sanjibiaotisuoyinju.Add(mymatch);
+                    string mystr = mymatch;
+                    //去除一二三级标题序号标点
+                    mystr = Regex.Replace(mystr, "[一二三四五六七八九十]+?、", "");
+                    mystr = Regex.Replace(mystr, "[(（][一二三四五六七八九十]+?[)）]", "");
+                    mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?是", "");
+                    mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?(?=要)", "");
+                    mystr = Regex.Replace(mystr, @"第[一二三四五六七八九十]+?[，,]", "");
+                    mystr = Regex.Replace(mystr, @"首先[，,]", "");
+                    mystr = Regex.Replace(mystr, @"其次[，,]", "");
+                    mystr = Regex.Replace(mystr, @"\d+?\.", "");
+                    mystr = Regex.Replace(mystr, @"[(（]\d{1,3}?[)）]", "");
+                    mystr = Regex.Replace(mystr, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
+                    //判断索引句的字符数量，大于4个，留下
+                    if (mystr.Length >= 4)
+                    {
+
+                        _sanjibiaotisuoyinju.Add(mystr);
+                    }
                 }
 
             }
@@ -314,8 +359,24 @@ namespace 文本解析系统.JJModel
                 {
                     if (mymatch.Length >= 2)
                     {
-                        _erjibiaotisuoyinju.Add(mymatch);
+                        string mystr = mymatch;
+                        //去除一二三级标题序号标点
+                        mystr = Regex.Replace(mystr, "[一二三四五六七八九十]+?、", "");
+                        mystr = Regex.Replace(mystr, "[(（][一二三四五六七八九十]+?[)）]", "");
+                        mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?是", "");
+                        mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?(?=要)", "");
+                        mystr = Regex.Replace(mystr, @"第[一二三四五六七八九十]+?[，,]", "");
+                        mystr = Regex.Replace(mystr, @"首先[，,]", "");
+                        mystr = Regex.Replace(mystr, @"其次[，,]", "");
+                        mystr = Regex.Replace(mystr, @"\d+?\.", "");
+                        mystr = Regex.Replace(mystr, @"[(（]\d{1,3}?[)）]", "");
+                        mystr = Regex.Replace(mystr, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
+                        //判断索引句的字符数量，大于4个，留下
+                        if (mystr.Length >= 4)
+                        {
 
+                            _erjibiaotisuoyinju.Add(mystr);
+                        }
                     }
                 }
 
@@ -335,7 +396,24 @@ namespace 文本解析系统.JJModel
                 {
                     if (mymatch.Length >= 2)
                     {
-                        _yijibiaotisuoyinju.Add(mymatch);
+                        string mystr = mymatch;
+                        //去除一二三级标题序号标点
+                        mystr = Regex.Replace(mystr, "[一二三四五六七八九十]+?、", "");
+                        mystr = Regex.Replace(mystr, "[(（][一二三四五六七八九十]+?[)）]", "");
+                        mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?是", "");
+                        mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?(?=要)", "");
+                        mystr = Regex.Replace(mystr, @"第[一二三四五六七八九十]+?[，,]", "");
+                        mystr = Regex.Replace(mystr, @"首先[，,]", "");
+                        mystr = Regex.Replace(mystr, @"其次[，,]", "");
+                        mystr = Regex.Replace(mystr, @"\d+?\.", "");
+                        mystr = Regex.Replace(mystr, @"[(（]\d{1,3}?[)）]", "");
+                        mystr = Regex.Replace(mystr, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
+                        //判断索引句的字符数量，大于4个，留下
+                        if (mystr.Length >= 4)
+                        {
+
+                            _yijibiaotisuoyinju.Add(mystr);
+                        }
                     }
 
                 }
@@ -447,14 +525,15 @@ namespace 文本解析系统.JJModel
             newbi._neirongguanlian = _zhengwengangyao;
             _list_baseinfo.Add(newbi);
             //1-1全文
-            ///1、文件名
+
             newbi = new BaseInfo();
             newbi._mingcheng = "全文";
-            newbi._quanwen = _quanwen;
+            newbi._wenben = _quanwen;
             newbi._MD5 = Md5Helper.Md5(newbi._wenben);
             newbi._redu = 1;
             newbi._zishu = newbi._quanwen.Length;
 
+            _list_baseinfo.Add(newbi);
 
 
             //2、主标题
@@ -486,11 +565,6 @@ namespace 文本解析系统.JJModel
                 }
                 //内容关联
                 newbi._neirongguanlian = _zhengwengangyao;
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian) ;
-
-
                 _list_baseinfo.Add(newbi);
             }
             //3、副标题
@@ -522,11 +596,6 @@ namespace 文本解析系统.JJModel
                 }
                 //内容关联
                 newbi._neirongguanlian = _zhengwengangyao;
-                //关联信息的MD5转换
-
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
-
                 _list_baseinfo.Add(newbi);
             }
             //4、一级标题
@@ -568,10 +637,6 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
-                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
                 //处理文本内容，去掉序号和标点
                 newbi._wenben = Regex.Replace(newbi._wenben, @"[一二三四五六七八九十]+?、", "");
                 //newbi._wenben= Regex.Replace(newbi._wenben,@"[,.，。！？……、：;!?]","");
@@ -584,9 +649,6 @@ namespace 文本解析系统.JJModel
             newbi._MD5 = Md5Helper.Md5(newbi._wenben);
             newbi._redu = 1;
             newbi._zishu = newbi._wenben.Length;
-            //处理文本内容，去掉序号和标点
-
-            newbi._wenben = Regex.Replace(newbi._wenben, @"[一二三四五六七八九十]+?、", "");
             // newbi._wenben = Regex.Replace(newbi._wenben, @"[,.，。！？……、：;!?]", "");
             _list_baseinfo.Add(newbi);
             //5、二级标题
@@ -628,10 +690,6 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
-                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
 
                 //处理文本内容，去掉序号和标点
                 newbi._wenben = Regex.Replace(newbi._wenben, @"[(（][一二三四五六七八九十]+?[)）]", "");
@@ -691,11 +749,6 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
-                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
-
                 //处理文本内容，去掉序号和标点
                 newbi._wenben = Regex.Replace(newbi._wenben, @"[一二三四五六七八九十]+?是", "");
                 newbi._wenben = Regex.Replace(newbi._wenben, @"[一二三四五六七八九十]+?(?=要)", "");
@@ -787,10 +840,6 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
-
                 _list_baseinfo.Add(newbi);
             }
             //8-1、正文首个标准句
@@ -831,21 +880,15 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
-
-
-
                 _list_baseinfo.Add(newbi);
             }
 
-            //9、标准句
+            //9、普通标准句
             foreach (string item in _biaozhunju)
             {
                 newbi = new BaseInfo();
                 //名称
-                newbi._mingcheng = "标准句";
+                newbi._mingcheng = "普通标准句";
                 //文本
                 newbi._wenben = item;
                 //MD5
@@ -877,10 +920,6 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
-
                 _list_baseinfo.Add(newbi);
             }
             //10、段首标准句
@@ -919,10 +958,6 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
-
                 _list_baseinfo.Add(newbi);
             }
 
@@ -985,11 +1020,6 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
-                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
-
                 _list_baseinfo.Add(newbi);
             }
             //12、主标题索引句
@@ -1049,11 +1079,6 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
-                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
-
                 _list_baseinfo.Add(newbi);
             }
             //13、副标题索引句
@@ -1110,11 +1135,6 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
-                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
-
                 _list_baseinfo.Add(newbi);
             }
             //14、一级标题索引句
@@ -1174,11 +1194,6 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
-                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
-
                 _list_baseinfo.Add(newbi);
             }
             //15、二级标题索引句
@@ -1237,11 +1252,6 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
-                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
-
                 _list_baseinfo.Add(newbi);
             }
             //16、三级标题索引句
@@ -1300,11 +1310,6 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
-                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
-
                 _list_baseinfo.Add(newbi);
             }
             //17、段首标准局索引句
@@ -1364,11 +1369,6 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._neirongguanlian = Md5Helper.Md5(newbi._neirongguanlian);
-                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
-
                 _list_baseinfo.Add(newbi);
             }
             //18、普通索引句
@@ -1427,10 +1427,6 @@ namespace 文本解析系统.JJModel
                         newbi._guanlianbiaozhunduan = mystr;
                     }
                 }
-                //关联信息的MD5转换
-                newbi._weizhiguanlian = Md5Helper.Md5(newbi._weizhiguanlian);
-                newbi._guanlianbiaozhunduan = Md5Helper.Md5(newbi._guanlianbiaozhunduan);
-
                 _list_baseinfo.Add(newbi);
             }
         }
@@ -1444,6 +1440,10 @@ namespace 文本解析系统.JJModel
             //如果有多个zhu标题，就等于主标题集合
             if (_zhubiaoti.Count > 1)
             {
+
+
+
+
                 _zhengwengangyao = string.Join("|", _zhubiaoti);
                 return;
             }
@@ -1556,6 +1556,10 @@ namespace 文本解析系统.JJModel
                     bool b1 = Regex.IsMatch(paratext, @"^[一二三四五六七八九十]+、[\s\S]+");
                     if (b1)
                     {
+                        //处理文本内容，去掉序号和标点
+
+                        paratext = Regex.Replace(paratext, @"[一二三四五六七八九十]+?、", "");
+
                         _yijibiaoti.Add(paratext);
                     }
                 }
@@ -1648,7 +1652,14 @@ namespace 文本解析系统.JJModel
                     var biaozhunju = Regex.Matches(paratext, @"[\s\S]+?[。；:：？！……;!?$]");
                     if (biaozhunju.Count > 1)
                     {
-                        _biaozhunduan.Add(paratext);
+                        if (biaozhunju.Count == 2 && Regex.IsMatch(biaozhunju[0].Value, "[:：]"))
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            _biaozhunduan.Add(paratext);
+                        }
                     }
                 }
 
@@ -1670,7 +1681,27 @@ namespace 文本解析系统.JJModel
                     var mc = Regex.Matches(paratext, @"[\s\S]+?[。；？！……;!?\r]");
                     foreach (Match m in mc)
                     {
-                        _biaozhunju.Add(m.Value);
+
+                        string mystr = m.Value;
+                        //去除一二三级标题序号标点
+                        mystr = Regex.Replace(mystr, "[一二三四五六七八九十]+?、", "");
+                        mystr = Regex.Replace(mystr, "[(（][一二三四五六七八九十]+?[)）]", "");
+                        mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?是", "");
+                        mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?(?=要)", "");
+                        mystr = Regex.Replace(mystr, @"第[一二三四五六七八九十]+?[，,]", "");
+                        mystr = Regex.Replace(mystr, @"首先[，,]", "");
+                        mystr = Regex.Replace(mystr, @"其次[，,]", "");
+                        mystr = Regex.Replace(mystr, @"\d+?\.", "");
+                        mystr = Regex.Replace(mystr, @"[(（]\d{1,3}?[)）]", "");
+                        mystr = Regex.Replace(mystr, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
+
+
+
+
+
+
+
+                        _biaozhunju.Add(mystr);
                     }
 
                 }
@@ -1687,7 +1718,22 @@ namespace 文本解析系统.JJModel
             foreach (string item in _biaozhunduan)
             {
                 var biaozhunju = Regex.Split(item, @"[。？！；……!?;]").ToList();
-                _duanshoubiaozhunju.Add(biaozhunju[0]);
+
+                //去除序号等一二三级标题特点
+                string mystr = biaozhunju[0];
+
+                mystr = Regex.Replace(mystr, "[一二三四五六七八九十]+?、", "");
+                mystr = Regex.Replace(mystr, "[(（][一二三四五六七八九十]+?[)）]", "");
+                mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?是", "");
+                mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?(?=要)", "");
+                mystr = Regex.Replace(mystr, @"第[一二三四五六七八九十]+?[，,]", "");
+                mystr = Regex.Replace(mystr, @"首先[，,]", "");
+                mystr = Regex.Replace(mystr, @"其次[，,]", "");
+                mystr = Regex.Replace(mystr, @"\d+?\.", "");
+                mystr = Regex.Replace(mystr, @"[(（]\d{1,3}?[)）]", "");
+                mystr = Regex.Replace(mystr, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
+
+                _duanshoubiaozhunju.Add(mystr);
             }
         }
 

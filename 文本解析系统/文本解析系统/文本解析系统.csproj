@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="RuitengDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>G:\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
+      <HintPath>..\..\..\..\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
@@ -93,6 +93,7 @@
     <Compile Include="JJController\ControllerWFdiaoyongguize.cs" />
     <Compile Include="JJController\ControllerWFhoutai.cs" />
     <Compile Include="JJController\ControllerWFmydb.cs" />
+    <Compile Include="JJController\ControllerWFZhaohuimima.cs" />
     <Compile Include="JJController\ControllerWFzhuce.cs" />
     <Compile Include="JJModel\BaseInfo.cs" />
     <Compile Include="JJModel\ChachongbiaoInfo.cs" />
@@ -170,6 +171,12 @@
     <Compile Include="JJWinForm\WinFormNewTask.Designer.cs">
       <DependentUpon>WinFormNewTask.cs</DependentUpon>
     </Compile>
+    <Compile Include="JJWinForm\WinFormZhaohuimima.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JJWinForm\WinFormZhaohuimima.Designer.cs">
+      <DependentUpon>WinFormZhaohuimima.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -210,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JJWinForm\WinFormNewTask.resx">
       <DependentUpon>WinFormNewTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JJWinForm\WinFormZhaohuimima.resx">
+      <DependentUpon>WinFormZhaohuimima.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

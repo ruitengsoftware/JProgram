@@ -28,17 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_task = new System.Windows.Forms.DataGridView();
+            this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mubiaowenjianjia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jiexigeshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jindu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quanwenchongfu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zhengwenchongfu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.cb_guanji = new System.Windows.Forms.CheckBox();
             this.lbl_statue = new System.Windows.Forms.Label();
@@ -52,6 +59,7 @@
             this.tlp_excel = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_savepath = new System.Windows.Forms.TextBox();
+            this.pb_path = new System.Windows.Forms.PictureBox();
             this.rb_moren = new System.Windows.Forms.RadioButton();
             this.rb_qita = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -65,8 +73,15 @@
             this.lbl_xinjianguize = new System.Windows.Forms.Label();
             this.lbl_piliangshanchu = new System.Windows.Forms.Label();
             this.dgv_jiexiguize = new System.Windows.Forms.DataGridView();
+            this.xuanze = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.jieximingcheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chuangjianren = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shijian = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bianjianniu = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.shanchuanniu = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_search = new System.Windows.Forms.TextBox();
+            this.pb_search = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
@@ -92,26 +107,11 @@
             this.cbb_biaozhunju = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.lbl_userinfo = new System.Windows.Forms.Label();
-            this.btn_houtai = new System.Windows.Forms.Button();
-            this.lbl_tuichu = new System.Windows.Forms.Button();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
-            this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mubiaowenjianjia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jiexigeshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jindu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quanwenchongfu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zhengwenchongfu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pb_path = new System.Windows.Forms.PictureBox();
-            this.pb_search = new System.Windows.Forms.PictureBox();
-            this.xuanze = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.jieximingcheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chuangjianren = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shijian = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bianjianniu = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.shanchuanniu = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -123,12 +123,14 @@
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tlp_excel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jiexiguize)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_search)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
@@ -140,8 +142,6 @@
             this.tableLayoutPanel18.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_search)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -198,14 +198,14 @@
             this.dgv_task.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_task.BackgroundColor = System.Drawing.Color.White;
             this.dgv_task.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_task.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_task.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv_task.ColumnHeadersHeight = 26;
             this.dgv_task.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.xuhao,
@@ -215,14 +215,14 @@
             this.quanwenchongfu,
             this.zhengwenchongfu,
             this.shanchu});
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_task.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_task.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_task.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_task.EnableHeadersVisualStyles = false;
             this.dgv_task.Location = new System.Drawing.Point(3, 19);
@@ -233,6 +233,51 @@
             this.dgv_task.Size = new System.Drawing.Size(494, 689);
             this.dgv_task.TabIndex = 0;
             this.dgv_task.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_daichuli_CellMouseClick);
+            // 
+            // xuhao
+            // 
+            this.xuhao.FillWeight = 109.8359F;
+            this.xuhao.HeaderText = "序号";
+            this.xuhao.Name = "xuhao";
+            // 
+            // mubiaowenjianjia
+            // 
+            this.mubiaowenjianjia.FillWeight = 109.8359F;
+            this.mubiaowenjianjia.HeaderText = "目标文件夹";
+            this.mubiaowenjianjia.Name = "mubiaowenjianjia";
+            // 
+            // jiexigeshi
+            // 
+            this.jiexigeshi.FillWeight = 109.8359F;
+            this.jiexigeshi.HeaderText = "解析格式";
+            this.jiexigeshi.Name = "jiexigeshi";
+            // 
+            // jindu
+            // 
+            this.jindu.FillWeight = 97.17514F;
+            this.jindu.HeaderText = "进度";
+            this.jindu.Name = "jindu";
+            // 
+            // quanwenchongfu
+            // 
+            this.quanwenchongfu.HeaderText = "全文重复";
+            this.quanwenchongfu.Name = "quanwenchongfu";
+            // 
+            // zhengwenchongfu
+            // 
+            this.zhengwenchongfu.FillWeight = 97.17514F;
+            this.zhengwenchongfu.HeaderText = "正文重复";
+            this.zhengwenchongfu.Name = "zhengwenchongfu";
+            // 
+            // shanchu
+            // 
+            this.shanchu.FillWeight = 76.14214F;
+            this.shanchu.HeaderText = "";
+            this.shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
+            this.shanchu.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.shanchu.Name = "shanchu";
+            this.shanchu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.shanchu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // tableLayoutPanel4
             // 
@@ -459,6 +504,22 @@
             this.tb_savepath.Size = new System.Drawing.Size(306, 23);
             this.tb_savepath.TabIndex = 2;
             // 
+            // pb_path
+            // 
+            this.pb_path.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_path.Image = global::文本解析系统.Properties.Resources.folderlv;
+            this.pb_path.Location = new System.Drawing.Point(574, 10);
+            this.pb_path.Margin = new System.Windows.Forms.Padding(8, 10, 8, 10);
+            this.pb_path.Name = "pb_path";
+            this.pb_path.Size = new System.Drawing.Size(24, 20);
+            this.pb_path.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_path.TabIndex = 3;
+            this.pb_path.TabStop = false;
+            this.pb_path.Click += new System.EventHandler(this.pb_path_Click);
+            this.pb_path.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.pb_path.MouseEnter += new System.EventHandler(this.pb_path_MouseEnter);
+            this.pb_path.MouseLeave += new System.EventHandler(this.pb_path_MouseLeave);
+            // 
             // rb_moren
             // 
             this.rb_moren.AutoSize = true;
@@ -658,14 +719,14 @@
             this.dgv_jiexiguize.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_jiexiguize.BackgroundColor = System.Drawing.Color.White;
             this.dgv_jiexiguize.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_jiexiguize.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_jiexiguize.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_jiexiguize.ColumnHeadersHeight = 26;
             this.dgv_jiexiguize.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.xuanze,
@@ -674,14 +735,14 @@
             this.shijian,
             this.bianjianniu,
             this.shanchuanniu});
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle48.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_jiexiguize.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_jiexiguize.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgv_jiexiguize.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_jiexiguize.EnableHeadersVisualStyles = false;
             this.dgv_jiexiguize.Location = new System.Drawing.Point(3, 83);
@@ -692,6 +753,49 @@
             this.dgv_jiexiguize.Size = new System.Drawing.Size(594, 264);
             this.dgv_jiexiguize.TabIndex = 1;
             this.dgv_jiexiguize.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_jiexiguize_CellContentClick);
+            // 
+            // xuanze
+            // 
+            this.xuanze.HeaderText = "";
+            this.xuanze.Name = "xuanze";
+            // 
+            // jieximingcheng
+            // 
+            this.jieximingcheng.HeaderText = "解析名称";
+            this.jieximingcheng.Name = "jieximingcheng";
+            this.jieximingcheng.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.jieximingcheng.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // chuangjianren
+            // 
+            this.chuangjianren.HeaderText = "创建人";
+            this.chuangjianren.Name = "chuangjianren";
+            this.chuangjianren.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.chuangjianren.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // shijian
+            // 
+            this.shijian.HeaderText = "时间";
+            this.shijian.Name = "shijian";
+            // 
+            // bianjianniu
+            // 
+            this.bianjianniu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.NullValue = "编辑";
+            this.bianjianniu.DefaultCellStyle = dataGridViewCellStyle10;
+            this.bianjianniu.HeaderText = "";
+            this.bianjianniu.Name = "bianjianniu";
+            this.bianjianniu.Text = "";
+            // 
+            // shanchuanniu
+            // 
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.NullValue = "删除";
+            this.shanchuanniu.DefaultCellStyle = dataGridViewCellStyle11;
+            this.shanchuanniu.HeaderText = "";
+            this.shanchuanniu.Name = "shanchuanniu";
+            this.shanchuanniu.Text = "";
             // 
             // tableLayoutPanel9
             // 
@@ -719,6 +823,22 @@
             this.tb_search.Name = "tb_search";
             this.tb_search.Size = new System.Drawing.Size(194, 23);
             this.tb_search.TabIndex = 0;
+            // 
+            // pb_search
+            // 
+            this.pb_search.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_search.Image = ((System.Drawing.Image)(resources.GetObject("pb_search.Image")));
+            this.pb_search.Location = new System.Drawing.Point(387, 7);
+            this.pb_search.Margin = new System.Windows.Forms.Padding(7);
+            this.pb_search.Name = "pb_search";
+            this.pb_search.Size = new System.Drawing.Size(26, 26);
+            this.pb_search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_search.TabIndex = 1;
+            this.pb_search.TabStop = false;
+            this.pb_search.Click += new System.EventHandler(this.pb_search_Click);
+            this.pb_search.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.pb_search.MouseEnter += new System.EventHandler(this.pb_search_MouseEnter);
+            this.pb_search.MouseLeave += new System.EventHandler(this.pb_search_MouseLeave);
             // 
             // groupBox3
             // 
@@ -1069,8 +1189,8 @@
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.lbl_userinfo);
-            this.flowLayoutPanel3.Controls.Add(this.btn_houtai);
-            this.flowLayoutPanel3.Controls.Add(this.lbl_tuichu);
+            this.flowLayoutPanel3.Controls.Add(this.label2);
+            this.flowLayoutPanel3.Controls.Add(this.label10);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -1081,6 +1201,7 @@
             // lbl_userinfo
             // 
             this.lbl_userinfo.AutoSize = true;
+            this.lbl_userinfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_userinfo.Location = new System.Drawing.Point(1, 1);
             this.lbl_userinfo.Margin = new System.Windows.Forms.Padding(1);
             this.lbl_userinfo.Name = "lbl_userinfo";
@@ -1088,26 +1209,6 @@
             this.lbl_userinfo.TabIndex = 6;
             this.lbl_userinfo.Text = "label5";
             this.lbl_userinfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btn_houtai
-            // 
-            this.btn_houtai.Location = new System.Drawing.Point(48, 3);
-            this.btn_houtai.Name = "btn_houtai";
-            this.btn_houtai.Size = new System.Drawing.Size(77, 24);
-            this.btn_houtai.TabIndex = 7;
-            this.btn_houtai.Text = "后台管理";
-            this.btn_houtai.UseVisualStyleBackColor = true;
-            this.btn_houtai.Click += new System.EventHandler(this.btn_houtai_Click);
-            // 
-            // lbl_tuichu
-            // 
-            this.lbl_tuichu.Location = new System.Drawing.Point(131, 3);
-            this.lbl_tuichu.Name = "lbl_tuichu";
-            this.lbl_tuichu.Size = new System.Drawing.Size(74, 24);
-            this.lbl_tuichu.TabIndex = 5;
-            this.lbl_tuichu.Text = "退出登录";
-            this.lbl_tuichu.UseVisualStyleBackColor = true;
-            this.lbl_tuichu.Click += new System.EventHandler(this.lbl_tuichu_Click);
             // 
             // tableLayoutPanel10
             // 
@@ -1136,41 +1237,6 @@
             this.label5.Text = "内部系统 严禁非公司许可电脑安装使用 严禁对外传播";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // xuhao
-            // 
-            this.xuhao.FillWeight = 109.8359F;
-            this.xuhao.HeaderText = "序号";
-            this.xuhao.Name = "xuhao";
-            // 
-            // mubiaowenjianjia
-            // 
-            this.mubiaowenjianjia.FillWeight = 109.8359F;
-            this.mubiaowenjianjia.HeaderText = "目标文件夹";
-            this.mubiaowenjianjia.Name = "mubiaowenjianjia";
-            // 
-            // jiexigeshi
-            // 
-            this.jiexigeshi.FillWeight = 109.8359F;
-            this.jiexigeshi.HeaderText = "解析格式";
-            this.jiexigeshi.Name = "jiexigeshi";
-            // 
-            // jindu
-            // 
-            this.jindu.FillWeight = 97.17514F;
-            this.jindu.HeaderText = "进度";
-            this.jindu.Name = "jindu";
-            // 
-            // quanwenchongfu
-            // 
-            this.quanwenchongfu.HeaderText = "全文重复";
-            this.quanwenchongfu.Name = "quanwenchongfu";
-            // 
-            // zhengwenchongfu
-            // 
-            this.zhengwenchongfu.FillWeight = 97.17514F;
-            this.zhengwenchongfu.HeaderText = "正文重复";
-            this.zhengwenchongfu.Name = "zhengwenchongfu";
-            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.FillWeight = 60.9137F;
@@ -1182,90 +1248,30 @@
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn1.Width = 59;
             // 
-            // shanchu
+            // label2
             // 
-            this.shanchu.FillWeight = 76.14214F;
-            this.shanchu.HeaderText = "";
-            this.shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
-            this.shanchu.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.shanchu.Name = "shanchu";
-            this.shanchu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.shanchu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Tomato;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(48, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 19);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "后台管理";
+            this.label2.Click += new System.EventHandler(this.btn_houtai_Click);
             // 
-            // pb_path
+            // label10
             // 
-            this.pb_path.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_path.Image = global::文本解析系统.Properties.Resources.folderlv;
-            this.pb_path.Location = new System.Drawing.Point(574, 10);
-            this.pb_path.Margin = new System.Windows.Forms.Padding(8, 10, 8, 10);
-            this.pb_path.Name = "pb_path";
-            this.pb_path.Size = new System.Drawing.Size(24, 20);
-            this.pb_path.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_path.TabIndex = 3;
-            this.pb_path.TabStop = false;
-            this.pb_path.Click += new System.EventHandler(this.pb_path_Click);
-            this.pb_path.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.pb_path.MouseEnter += new System.EventHandler(this.pb_path_MouseEnter);
-            this.pb_path.MouseLeave += new System.EventHandler(this.pb_path_MouseLeave);
-            // 
-            // pb_search
-            // 
-            this.pb_search.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_search.Image = ((System.Drawing.Image)(resources.GetObject("pb_search.Image")));
-            this.pb_search.Location = new System.Drawing.Point(387, 7);
-            this.pb_search.Margin = new System.Windows.Forms.Padding(7);
-            this.pb_search.Name = "pb_search";
-            this.pb_search.Size = new System.Drawing.Size(26, 26);
-            this.pb_search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_search.TabIndex = 1;
-            this.pb_search.TabStop = false;
-            this.pb_search.Click += new System.EventHandler(this.pb_search_Click);
-            this.pb_search.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.pb_search.MouseEnter += new System.EventHandler(this.pb_search_MouseEnter);
-            this.pb_search.MouseLeave += new System.EventHandler(this.pb_search_MouseLeave);
-            // 
-            // xuanze
-            // 
-            this.xuanze.HeaderText = "";
-            this.xuanze.Name = "xuanze";
-            // 
-            // jieximingcheng
-            // 
-            this.jieximingcheng.HeaderText = "解析名称";
-            this.jieximingcheng.Name = "jieximingcheng";
-            this.jieximingcheng.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.jieximingcheng.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // chuangjianren
-            // 
-            this.chuangjianren.HeaderText = "创建人";
-            this.chuangjianren.Name = "chuangjianren";
-            this.chuangjianren.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.chuangjianren.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // shijian
-            // 
-            this.shijian.HeaderText = "时间";
-            this.shijian.Name = "shijian";
-            // 
-            // bianjianniu
-            // 
-            this.bianjianniu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle46.NullValue = "编辑";
-            this.bianjianniu.DefaultCellStyle = dataGridViewCellStyle46;
-            this.bianjianniu.HeaderText = "";
-            this.bianjianniu.Name = "bianjianniu";
-            this.bianjianniu.Text = "";
-            // 
-            // shanchuanniu
-            // 
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle47.NullValue = "删除";
-            this.shanchuanniu.DefaultCellStyle = dataGridViewCellStyle47;
-            this.shanchuanniu.HeaderText = "";
-            this.shanchuanniu.Name = "shanchuanniu";
-            this.shanchuanniu.Text = "";
+            this.label10.BackColor = System.Drawing.Color.Tomato;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(110, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(56, 19);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "退出登录";
+            this.label10.Click += new System.EventHandler(this.lbl_tuichu_Click);
             // 
             // Form1
             // 
@@ -1279,7 +1285,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "文件解析系统beta1.3.2版 2020年12月13日";
+            this.Text = "文件解析系统beta1.3.4版 2020年12月15日";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -1296,6 +1302,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tlp_excel.ResumeLayout(false);
             this.tlp_excel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -1305,6 +1312,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jiexiguize)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_search)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel13.ResumeLayout(false);
@@ -1325,8 +1333,6 @@
             this.flowLayoutPanel3.PerformLayout();
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_path)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_search)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1395,8 +1401,6 @@
         private System.Windows.Forms.RadioButton rb_xieru;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label lbl_userinfo;
-        private System.Windows.Forms.Button btn_houtai;
-        private System.Windows.Forms.Button lbl_tuichu;
         private System.Windows.Forms.DataGridViewTextBoxColumn xuhao;
         private System.Windows.Forms.DataGridViewTextBoxColumn mubiaowenjianjia;
         private System.Windows.Forms.DataGridViewTextBoxColumn jiexigeshi;
@@ -1410,6 +1414,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn shijian;
         private System.Windows.Forms.DataGridViewButtonColumn bianjianniu;
         private System.Windows.Forms.DataGridViewButtonColumn shanchuanniu;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label10;
     }
 }
 

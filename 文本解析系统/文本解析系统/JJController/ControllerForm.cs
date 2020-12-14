@@ -387,8 +387,11 @@ namespace 文本解析系统.JJController
                                 mysht0.Cells[0, 3].Value = "热度";
                                 mysht0.Cells[0, 4].Value = "字数";
                                 mysht0.Cells[0, 5].Value = "位置类关联信息";
-                                mysht0.Cells[0, 6].Value = "内容类关联信息";
-                                mysht0.Cells[0, 7].Value = "关联标准段";
+                                mysht0.Cells[0, 6].Value = "位置类关联信息MD5";
+                                mysht0.Cells[0, 7].Value = "内容类关联信息";
+                                mysht0.Cells[0, 8].Value = "内容类关联信息MD5";
+                                mysht0.Cells[0, 9].Value = "关联标准段";
+                                mysht0.Cells[0, 10].Value = "关联标准段MD5";
                                 //循环所有的baseinfo对象到excel表中去
                                 //在添入excel之前，判断是否出现过文本相同的记录，如果出现了就跳过，如果没出现，就添加这一行并且记录文本
                                 List<string> list_r = new List<string>();
@@ -417,8 +420,11 @@ namespace 文本解析系统.JJController
                                         mysht0.Cells[rowindex, 3].Value = mywordinfo._list_baseinfo[b]._redu;
                                         mysht0.Cells[rowindex, 4].Value = mywordinfo._list_baseinfo[b]._zishu;
                                         mysht0.Cells[rowindex, 5].Value = mywordinfo._list_baseinfo[b]._weizhiguanlian;
-                                        mysht0.Cells[rowindex, 6].Value = mywordinfo._list_baseinfo[b]._neirongguanlian;
-                                        mysht0.Cells[rowindex, 7].Value = mywordinfo._list_baseinfo[b]._guanlianbiaozhunduan;
+                                        mysht0.Cells[rowindex, 6].Value = Md5Helper.Md5(mywordinfo._list_baseinfo[b]._weizhiguanlian);
+                                        mysht0.Cells[rowindex, 7].Value = mywordinfo._list_baseinfo[b]._neirongguanlian;
+                                        mysht0.Cells[rowindex, 8].Value = Md5Helper.Md5(mywordinfo._list_baseinfo[b]._neirongguanlian);
+                                        mysht0.Cells[rowindex, 9].Value = mywordinfo._list_baseinfo[b]._guanlianbiaozhunduan;
+                                        mysht0.Cells[rowindex, 10].Value = Md5Helper.Md5(mywordinfo._list_baseinfo[b]._guanlianbiaozhunduan);
                                         //将文本保存在list_r中
                                         list_r.Add(wenben);
                                     }
@@ -468,15 +474,29 @@ namespace 文本解析系统.JJController
                                 mysht1.Cells[0, 3].Value = "热度";
                                 mysht1.Cells[0, 4].Value = "字数";
                                 mysht1.Cells[0, 5].Value = "位置类关联信息";
-                                mysht1.Cells[0, 6].Value = "内容类关联信息";
-                                mysht1.Cells[0, 7].Value = "关联标准段";
+                                mysht1.Cells[0, 6].Value = "位置类关联信息MD5";
+                                mysht1.Cells[0, 7].Value = "内容类关联信息";
+                                mysht1.Cells[0, 8].Value = "内容类关联信息MD5";
+                                mysht1.Cells[0, 9].Value = "关联标准段";
+                                mysht1.Cells[0, 10].Value = "关联标准段MD5";
                                 //循环所有的baseinfo对象到excel表中去
+                                //在添入excel之前，判断是否出现过文本相同的记录，如果出现了就跳过，如果没出现，就添加这一行并且记录文本
+                                List<string> list_r = new List<string>();
+                                string wenben = string.Empty;
+
                                 for (int b = 0; b < mywordinfo._list_baseinfo.Count; b++)
                                 {
                                     //在这里做一个放错机制，防止正文过长等一些导致填充表格报错的情况
                                     try
                                     {
+                                        wenben = mywordinfo._list_baseinfo[b]._wenben.Trim();
+
                                         if (mywordinfo._list_baseinfo[b]._wenben.Trim().Equals(string.Empty))
+                                        {
+                                            continue;
+                                        }
+                                        //判断是否重复
+                                        if (list_r.Contains(wenben))
                                         {
                                             continue;
                                         }
@@ -488,8 +508,13 @@ namespace 文本解析系统.JJController
                                         mysht1.Cells[rowindex, 3].Value = mywordinfo._list_baseinfo[b]._redu;
                                         mysht1.Cells[rowindex, 4].Value = mywordinfo._list_baseinfo[b]._zishu;
                                         mysht1.Cells[rowindex, 5].Value = mywordinfo._list_baseinfo[b]._weizhiguanlian;
-                                        mysht1.Cells[rowindex, 6].Value = mywordinfo._list_baseinfo[b]._neirongguanlian;
-                                        mysht1.Cells[rowindex, 7].Value = mywordinfo._list_baseinfo[b]._guanlianbiaozhunduan;
+                                        mysht1.Cells[rowindex, 6].Value =Md5Helper.Md5( mywordinfo._list_baseinfo[b]._weizhiguanlian);
+                                        mysht1.Cells[rowindex, 7].Value = mywordinfo._list_baseinfo[b]._neirongguanlian;
+                                        mysht1.Cells[rowindex, 8].Value =Md5Helper.Md5( mywordinfo._list_baseinfo[b]._neirongguanlian);
+                                        mysht1.Cells[rowindex, 9].Value = mywordinfo._list_baseinfo[b]._guanlianbiaozhunduan;
+                                        mysht1.Cells[rowindex, 10].Value =Md5Helper.Md5( mywordinfo._list_baseinfo[b]._guanlianbiaozhunduan);
+                                        //将文本保存在list_r中
+                                        list_r.Add(wenben);
                                     }
                                     catch { }
                                 }
@@ -643,13 +668,7 @@ namespace 文本解析系统.JJController
                                         mysht1.Cells[lastrow + 2, 0].Value = myrd.fuzhileixing;
                                         mysht1.Cells[lastrow + 2, 1].Value = string.Join("|", myrd.fuzhijieguo);
                                         mysht1.Cells[lastrow + 2, 2].Value =Md5Helper.Md5( string.Join("|", myrd.fuzhijieguo));
-
                                     }
-
-
-
-
-
                                 }
 
                             }
@@ -748,11 +767,6 @@ namespace 文本解析系统.JJController
                             }
                         }
                     }
-
-
-
-
-
                 }
                 else if (duixiang.Equals("副标题"))//获得副标题
                 {

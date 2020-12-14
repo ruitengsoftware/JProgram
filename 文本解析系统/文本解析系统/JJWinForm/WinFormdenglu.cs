@@ -258,5 +258,18 @@ namespace 文本解析系统.JJWinForm
         {
             uihelper.DrawRoundRect((Control)sender);
         }
+
+        private void llbl_wangjimima_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            WinFormZhaohuimima mywin = new WinFormZhaohuimima() {
+                StartPosition = FormStartPosition.CenterParent
+            };
+            if (mywin.ShowDialog()==DialogResult.OK)
+            {
+
+            }
+
+
+        }
     }
 }
