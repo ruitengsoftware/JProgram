@@ -250,7 +250,7 @@ namespace 文本解析系统.JJController
                     mydgv.Rows.Insert(0, item);
                 }
             }
-            
+
         }
 
 
@@ -394,6 +394,10 @@ namespace 文本解析系统.JJController
 
                                 //在匹配对象中获得结果
                                 MatchCollection mymc = null;
+
+
+
+
                                 if (myrd.fuzhi.Contains("索引句"))
                                 {
                                     //获得匹配对象的所有索引句，将包括文本特征的集合提取出来
@@ -504,17 +508,28 @@ namespace 文本解析系统.JJController
                                     int lastrow = mysht1.Cells.LastCell.Row;
                                     for (int r = 1; r < lastrow + 2; r++)
                                     {
+
                                         //如果对象名称存在于赋值范围，那么赋值到复制类型列
-                                        string mingcheng = mysht1.Cells[r, 0].StringValue;
-
-                                        //循环所有的赋值覆盖范围，如果名称包括了范围，那么赋值
-                                        foreach (string mystr in myrd.fuzhifanwei)
+                                        //如果赋值范围包括全部对象，那么所有的行都要赋值
+                                        if (myrd.fuzhifanwei.Contains("全部对象"))
                                         {
-                                            if (mingcheng.Contains(mystr))
-                                            {
-                                                mysht1.Cells[r, lastcol + 1].Value = string.Join("|", myrd.fuzhijieguo);
+                                            mysht1.Cells[r, lastcol + 1].Value = string.Join("|", myrd.fuzhijieguo);
+                                        }
+                                        else
+                                        {
+                                            string mingcheng = mysht1.Cells[r, 0].StringValue;
 
+                                            //循环所有的赋值覆盖范围，如果名称包括了范围，那么赋值
+                                            foreach (string mystr in myrd.fuzhifanwei)
+                                            {
+                                                if (mingcheng.Contains(mystr))
+                                                {
+                                                    mysht1.Cells[r, lastcol + 1].Value = string.Join("|", myrd.fuzhijieguo);
+
+                                                }
                                             }
+
+
                                         }
                                     }
 

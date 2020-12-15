@@ -49,6 +49,7 @@ namespace 文本解析系统
                     var myrow = dgv_task.Rows[index];
                     myrow.Cells["xuhao"].Value = index + 1;
                     myrow.Cells["mubiaowenjianjia"].Value = _mycontroller._childdirectories[i];
+                    myrow.Cells["wendangshuliang"].Value = Directory.GetFiles(_mycontroller._childdirectories[i]).Length;
                     myrow.Cells["jiexigeshi"].Value = jiexigeshi;
                 }
             }
@@ -82,12 +83,8 @@ namespace 文本解析系统
             //        list_select.Add(dr.Cells["jieximingcheng"].Value.ToString());
             //    }
             //}
-            //获得cbb 解析格式的index \
+            //获得cbb 解析格式的index 
             string f = cbb_jiexigeshi.Text;
-
-
-
-
             //点击编辑按钮事件,注意如果是基础规则那么点击无效
             if (dgv_jiexiguize.Columns[e.ColumnIndex].Name == "bianjianniu" && e.RowIndex >= 0)
             {
@@ -114,7 +111,7 @@ namespace 文本解析系统
             if (dgv_jiexiguize.Columns[e.ColumnIndex].Name == "shanchuanniu" && e.RowIndex >= 0)
             {
                 //获得名称
-                string rulename = dgv_jiexiguize.Rows[e.RowIndex].Cells["jiexiguizemingcheng"].Value.ToString();
+                string rulename = dgv_jiexiguize.Rows[e.RowIndex].Cells["jieximingcheng"].Value.ToString();
                 if (rulename.Contains("基础解析规则"))//基础规则点击无效
                 {
                     MessageBox.Show("不可删除基础规则！");
@@ -253,7 +250,7 @@ namespace 文本解析系统
             foreach (DataGridViewRow item in dgv_jiexiguize.Rows)
             {
                 //获得item是否选中
-                if ((bool)item.Cells[0].FormattedValue == true)
+                if (Convert.ToBoolean((item.Cells[0] as DataGridViewCheckBoxCell).EditingCellFormattedValue) == true)
                 {
                     list_guize.Add(item.Cells[1].Value.ToString());
                 }
@@ -628,75 +625,65 @@ namespace 文本解析系统
 
         private void cbb_jiexigeshi_TextChanged(object sender, EventArgs e)
         {
-            try
+
+            //获得格式名称
+            string formatname = cbb_jiexigeshi.Text;
+            //但是如果格式名为空，就不进行操作
+            if (formatname.Trim().Equals(string.Empty)) 
             {
-                //获得格式名称
-                string formatname = cbb_jiexigeshi.Text;
-
-                //获得格式名称对应的格式信息
-                FormatInfo myfi = _mycontroller.GetFormatInfo(formatname);
-
-                //excel存放赋值
-                if (myfi._excelpath.Equals(string.Empty))
-                {
-                    rb_moren.Checked = true;
-                }
-                else
-                {
-                    rb_qita.Checked = true;
-                    tb_savepath.Text = myfi._excelpath;
-                }
-                //把查重库列表相关信息显示在界面上
-
-                cb_wu2.Checked = Convert.ToBoolean(myfi._wu2);
-                rb_xieru.Checked = Convert.ToBoolean(myfi._chachongmd5);
-                cbb_quanwen.Text = myfi._quanwenku;
-                cbb_zhengwen.Text = myfi._zhengwenku;
-                cbb_biaozhunduan.Text = myfi._biaozhunduanku;
-                cbb_biaozhunju.Text = myfi._biaozhunjuku;
-
-
-
-                //把选中规则前面的对号打上
-                foreach (DataGridViewRow item in dgv_jiexiguize.Rows)
-                {
-                    item.Cells[0].Value = false;
-                    string name = item.Cells[1].Value.ToString();
-                    if (myfi.list_jiexiguize.Contains(name))
-                    {
-                        (item.Cells[0] as DataGridViewCheckBoxCell).EditingCellFormattedValue = true;
-                    }
-                }
-                //把所有打勾的选项置顶
-                for (int i = dgv_jiexiguize.Rows.Count - 1; i >= 0; i--)
-                {
-                    bool b = Convert.ToBoolean((dgv_jiexiguize.Rows[i].Cells[0] as DataGridViewCheckBoxCell).EditingCellFormattedValue);
-                    if (b)
-                    {
-                        //获得行索引
-                        var index = dgv_jiexiguize.Rows[i].Index;
-                        //复制这一行
-                        dgv_jiexiguize.Rows.Remove(dgv_jiexiguize.Rows[i]);
-                        //在指定位置重新插入第一行
-                        dgv_jiexiguize.Rows.Insert(0, dgv_jiexiguize.Rows[i]);
-
-                    }
-                }
-
-
-
-
-
-
-
+                return;
             }
-            catch { }
+            //获得格式名称对应的格式信息
+            FormatInfo myfi = _mycontroller.GetFormatInfo(formatname);
 
-        }
+            //excel存放赋值
+            if (myfi._excelpath.Equals(string.Empty))
+            {
+                rb_moren.Checked = true;
+            }
+            else
+            {
+                rb_qita.Checked = true;
+                tb_savepath.Text = myfi._excelpath;
+            }
+            //把查重库列表相关信息显示在界面上
 
-        private void dgv_jiexiguize_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-           
+            cb_wu2.Checked = Convert.ToBoolean(myfi._wu2);
+            rb_xieru.Checked = Convert.ToBoolean(myfi._chachongmd5);
+            cbb_quanwen.Text = myfi._quanwenku;
+            cbb_zhengwen.Text = myfi._zhengwenku;
+            cbb_biaozhunduan.Text = myfi._biaozhunduanku;
+            cbb_biaozhunju.Text = myfi._biaozhunjuku;
+
+            //把选中规则前面的对号打上
+            foreach (DataGridViewRow item in dgv_jiexiguize.Rows)
+            {
+                item.Cells[0].Value = false;
+                (item.Cells[0] as DataGridViewCheckBoxCell).EditingCellFormattedValue = false;
+
+                string name = item.Cells["jieximingcheng"].Value.ToString();
+                if (myfi.list_jiexiguize.Contains(name))
+                {
+                    item.Cells[0].Value = true;
+                    (item.Cells[0] as DataGridViewCheckBoxCell).EditingCellFormattedValue = true;
+                }
+            }
+            //把所有打勾的选项置顶
+            for (int i =0;i< dgv_jiexiguize.Rows.Count; i++)
+            {
+                bool b = Convert.ToBoolean((dgv_jiexiguize.Rows[i].Cells[0] as DataGridViewCheckBoxCell).EditingCellFormattedValue);
+                if (b)
+                {
+                    //获得行索引
+                    DataGridViewRow mydr = dgv_jiexiguize.Rows[i];
+                    int index = mydr.Index;
+                    dgv_jiexiguize.Rows.RemoveAt(index);
+
+                    dgv_jiexiguize.Rows.Insert(0, mydr);
+                }
+            }
+
+
         }
     }
 }

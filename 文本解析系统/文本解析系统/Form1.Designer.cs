@@ -39,13 +39,6 @@
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_task = new System.Windows.Forms.DataGridView();
-            this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mubiaowenjianjia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jiexigeshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jindu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quanwenchongfu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zhengwenchongfu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.cb_guanji = new System.Windows.Forms.CheckBox();
             this.lbl_statue = new System.Windows.Forms.Label();
@@ -112,6 +105,14 @@
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mubiaowenjianjia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wendangshuliang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jiexigeshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jindu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quanwenchongfu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zhengwenchongfu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shanchu = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -210,6 +211,7 @@
             this.dgv_task.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.xuhao,
             this.mubiaowenjianjia,
+            this.wendangshuliang,
             this.jiexigeshi,
             this.jindu,
             this.quanwenchongfu,
@@ -233,51 +235,6 @@
             this.dgv_task.Size = new System.Drawing.Size(494, 689);
             this.dgv_task.TabIndex = 0;
             this.dgv_task.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_daichuli_CellMouseClick);
-            // 
-            // xuhao
-            // 
-            this.xuhao.FillWeight = 109.8359F;
-            this.xuhao.HeaderText = "序号";
-            this.xuhao.Name = "xuhao";
-            // 
-            // mubiaowenjianjia
-            // 
-            this.mubiaowenjianjia.FillWeight = 109.8359F;
-            this.mubiaowenjianjia.HeaderText = "目标文件夹";
-            this.mubiaowenjianjia.Name = "mubiaowenjianjia";
-            // 
-            // jiexigeshi
-            // 
-            this.jiexigeshi.FillWeight = 109.8359F;
-            this.jiexigeshi.HeaderText = "解析格式";
-            this.jiexigeshi.Name = "jiexigeshi";
-            // 
-            // jindu
-            // 
-            this.jindu.FillWeight = 97.17514F;
-            this.jindu.HeaderText = "进度";
-            this.jindu.Name = "jindu";
-            // 
-            // quanwenchongfu
-            // 
-            this.quanwenchongfu.HeaderText = "全文重复";
-            this.quanwenchongfu.Name = "quanwenchongfu";
-            // 
-            // zhengwenchongfu
-            // 
-            this.zhengwenchongfu.FillWeight = 97.17514F;
-            this.zhengwenchongfu.HeaderText = "正文重复";
-            this.zhengwenchongfu.Name = "zhengwenchongfu";
-            // 
-            // shanchu
-            // 
-            this.shanchu.FillWeight = 76.14214F;
-            this.shanchu.HeaderText = "";
-            this.shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
-            this.shanchu.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.shanchu.Name = "shanchu";
-            this.shanchu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.shanchu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // tableLayoutPanel4
             // 
@@ -753,7 +710,6 @@
             this.dgv_jiexiguize.Size = new System.Drawing.Size(594, 264);
             this.dgv_jiexiguize.TabIndex = 1;
             this.dgv_jiexiguize.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_jiexiguize_CellContentClick);
-            this.dgv_jiexiguize.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_jiexiguize_RowsAdded);
             // 
             // xuanze
             // 
@@ -1274,6 +1230,56 @@
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn1.Width = 59;
             // 
+            // xuhao
+            // 
+            this.xuhao.FillWeight = 109.8359F;
+            this.xuhao.HeaderText = "序号";
+            this.xuhao.Name = "xuhao";
+            // 
+            // mubiaowenjianjia
+            // 
+            this.mubiaowenjianjia.FillWeight = 109.8359F;
+            this.mubiaowenjianjia.HeaderText = "目标文件夹";
+            this.mubiaowenjianjia.Name = "mubiaowenjianjia";
+            // 
+            // wendangshuliang
+            // 
+            this.wendangshuliang.HeaderText = "文档数量";
+            this.wendangshuliang.Name = "wendangshuliang";
+            // 
+            // jiexigeshi
+            // 
+            this.jiexigeshi.FillWeight = 109.8359F;
+            this.jiexigeshi.HeaderText = "解析格式";
+            this.jiexigeshi.Name = "jiexigeshi";
+            // 
+            // jindu
+            // 
+            this.jindu.FillWeight = 97.17514F;
+            this.jindu.HeaderText = "进度";
+            this.jindu.Name = "jindu";
+            // 
+            // quanwenchongfu
+            // 
+            this.quanwenchongfu.HeaderText = "全文重复";
+            this.quanwenchongfu.Name = "quanwenchongfu";
+            // 
+            // zhengwenchongfu
+            // 
+            this.zhengwenchongfu.FillWeight = 97.17514F;
+            this.zhengwenchongfu.HeaderText = "正文重复";
+            this.zhengwenchongfu.Name = "zhengwenchongfu";
+            // 
+            // shanchu
+            // 
+            this.shanchu.FillWeight = 76.14214F;
+            this.shanchu.HeaderText = "";
+            this.shanchu.Image = global::文本解析系统.Properties.Resources.shanchu2;
+            this.shanchu.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.shanchu.Name = "shanchu";
+            this.shanchu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.shanchu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1402,13 +1408,6 @@
         private System.Windows.Forms.RadioButton rb_xieru;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label lbl_userinfo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn xuhao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mubiaowenjianjia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jiexigeshi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jindu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quanwenchongfu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zhengwenchongfu;
-        private System.Windows.Forms.DataGridViewImageColumn shanchu;
         private System.Windows.Forms.DataGridViewCheckBoxColumn xuanze;
         private System.Windows.Forms.DataGridViewTextBoxColumn jieximingcheng;
         private System.Windows.Forms.DataGridViewTextBoxColumn chuangjianren;
@@ -1417,6 +1416,14 @@
         private System.Windows.Forms.DataGridViewButtonColumn shanchuanniu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn xuhao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mubiaowenjianjia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wendangshuliang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jiexigeshi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jindu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quanwenchongfu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zhengwenchongfu;
+        private System.Windows.Forms.DataGridViewImageColumn shanchu;
     }
 }
 
