@@ -126,9 +126,7 @@ namespace 文本解析系统.JJWinForm
             this.Size = new Size(310, 410);
             uihelper.DrawRoundRect(this);
             uihelper.DrawRoundRect(lbl_denglu);
-            uihelper.DrawRoundRect(panel_my);
             tableLayoutPanel2.BackColor = Color.FromArgb(0, 255, 255, 255);
-            panel_my.BackColor = Color.FromArgb(100, 255, 255, 255);
             foreach (Control c in tableLayoutPanel2.Controls)
             {
                 if (c.Text.Contains("登    录"))

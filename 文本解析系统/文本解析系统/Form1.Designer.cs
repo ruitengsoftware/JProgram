@@ -107,11 +107,11 @@
             this.cbb_biaozhunju = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.lbl_userinfo = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -753,6 +753,7 @@
             this.dgv_jiexiguize.Size = new System.Drawing.Size(594, 264);
             this.dgv_jiexiguize.TabIndex = 1;
             this.dgv_jiexiguize.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_jiexiguize_CellContentClick);
+            this.dgv_jiexiguize.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_jiexiguize_RowsAdded);
             // 
             // xuanze
             // 
@@ -1210,6 +1211,31 @@
             this.lbl_userinfo.Text = "label5";
             this.lbl_userinfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Tomato;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(48, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 19);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "后台管理";
+            this.label2.Click += new System.EventHandler(this.btn_houtai_Click);
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Tomato;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(110, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(56, 19);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "退出登录";
+            this.label10.Click += new System.EventHandler(this.lbl_tuichu_Click);
+            // 
             // tableLayoutPanel10
             // 
             this.tableLayoutPanel10.ColumnCount = 1;
@@ -1247,31 +1273,6 @@
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn1.Width = 59;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Tomato;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(48, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 19);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "后台管理";
-            this.label2.Click += new System.EventHandler(this.btn_houtai_Click);
-            // 
-            // label10
-            // 
-            this.label10.BackColor = System.Drawing.Color.Tomato;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(110, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 19);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "退出登录";
-            this.label10.Click += new System.EventHandler(this.lbl_tuichu_Click);
             // 
             // Form1
             // 

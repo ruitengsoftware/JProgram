@@ -658,20 +658,45 @@ namespace 文本解析系统
 
 
                 //把选中规则前面的对号打上
-
                 foreach (DataGridViewRow item in dgv_jiexiguize.Rows)
                 {
                     item.Cells[0].Value = false;
                     string name = item.Cells[1].Value.ToString();
                     if (myfi.list_jiexiguize.Contains(name))
                     {
-                        item.Cells[0].Value = true;
+                        (item.Cells[0] as DataGridViewCheckBoxCell).EditingCellFormattedValue = true;
                     }
                 }
+                //把所有打勾的选项置顶
+                for (int i = dgv_jiexiguize.Rows.Count - 1; i >= 0; i--)
+                {
+                    bool b = Convert.ToBoolean((dgv_jiexiguize.Rows[i].Cells[0] as DataGridViewCheckBoxCell).EditingCellFormattedValue);
+                    if (b)
+                    {
+                        //获得行索引
+                        var index = dgv_jiexiguize.Rows[i].Index;
+                        //复制这一行
+                        dgv_jiexiguize.Rows.Remove(dgv_jiexiguize.Rows[i]);
+                        //在指定位置重新插入第一行
+                        dgv_jiexiguize.Rows.Insert(0, dgv_jiexiguize.Rows[i]);
+
+                    }
+                }
+
+
+
+
+
+
 
             }
             catch { }
 
+        }
+
+        private void dgv_jiexiguize_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+           
         }
     }
 }
