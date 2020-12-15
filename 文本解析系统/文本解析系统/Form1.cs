@@ -323,7 +323,7 @@ namespace 文本解析系统
                 startfolder = i;
                 //获得文件夹名称
                 string foldername = dgv_task.Rows[i].Cells[1].Value.ToString();
-                string formatname = dgv_task.Rows[i].Cells[2].Value.ToString();
+                string formatname = dgv_task.Rows[i].Cells["jiexigeshi"].Value.ToString();
                 //显示在处理列表中，更改状态为处理中
                 //获得该文件夹下的所有文件，开始解析该文档，同时更新解析进度
                 var files = Directory.GetFiles(foldername).ToList();
@@ -629,7 +629,7 @@ namespace 文本解析系统
             //获得格式名称
             string formatname = cbb_jiexigeshi.Text;
             //但是如果格式名为空，就不进行操作
-            if (formatname.Trim().Equals(string.Empty)) 
+            if (formatname.Trim().Equals(string.Empty))
             {
                 return;
             }
@@ -666,24 +666,24 @@ namespace 文本解析系统
                 {
                     item.Cells[0].Value = true;
                     (item.Cells[0] as DataGridViewCheckBoxCell).EditingCellFormattedValue = true;
-                }
-            }
-            //把所有打勾的选项置顶
-            for (int i =0;i< dgv_jiexiguize.Rows.Count; i++)
-            {
-                bool b = Convert.ToBoolean((dgv_jiexiguize.Rows[i].Cells[0] as DataGridViewCheckBoxCell).EditingCellFormattedValue);
-                if (b)
-                {
                     //获得行索引
-                    DataGridViewRow mydr = dgv_jiexiguize.Rows[i];
-                    int index = mydr.Index;
+                    int index = item.Index;
                     dgv_jiexiguize.Rows.RemoveAt(index);
-
-                    dgv_jiexiguize.Rows.Insert(0, mydr);
+                    dgv_jiexiguize.Rows.Insert(0, item);
                 }
             }
+            //基础规则置顶
+            foreach (DataGridViewRow item in dgv_jiexiguize.Rows)
+            {
+                string name = item.Cells["jieximingcheng"].Value.ToString();
+                if (name.Trim().Contains("基础解析规则"))
+                {
+                    int index = item.Index;
+                    dgv_jiexiguize.Rows.RemoveAt(index);
+                    dgv_jiexiguize.Rows.Insert(0, item);
+                }
 
-
+            }
         }
     }
 }

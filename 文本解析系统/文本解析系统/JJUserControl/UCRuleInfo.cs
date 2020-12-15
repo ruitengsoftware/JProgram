@@ -22,7 +22,7 @@ namespace 文本解析系统.JJUserControl
         public UCRuleInfo(RuleDetail ruledetail)
         {
             InitializeComponent();
-            //选中checkbox
+            //复制对象选择，顺数标准段，倒数标准段
             foreach (Control item in flp_duixiangxuanze.Controls)
             {
                 if (ruledetail.duixiangxuanze.Contains(item.Text))
@@ -31,6 +31,8 @@ namespace 文本解析系统.JJUserControl
                     
                 }
             }
+            tb_shunshu.Text = ruledetail._shunshu.ToString();
+            tb_daoshu.Text = ruledetail._daoshu.ToString();
             //赋值文本特征
             tb_wenbentezheng.Text = ruledetail.wenbentezheng;
             //赋值文本特征结果
@@ -117,6 +119,27 @@ namespace 文本解析系统.JJUserControl
             {
                 flp_fugaifanwei.Enabled = false;
             }
+        }
+
+        private void cb_quanbuduixiang_CheckedChanged(object sender, EventArgs e)
+        {
+            //如果选中了全部对象，其他checkbox就变成不可选的状态
+            if (cb_quanbuduixiang.Checked)
+            {
+                foreach (Control c in flp_fugaifanwei.Controls)
+                {
+                    if (c.text)
+                    {
+
+                    }
+                }
+
+
+
+            }
+
+
+
         }
     }
 }

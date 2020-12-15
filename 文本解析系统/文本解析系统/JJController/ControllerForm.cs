@@ -160,11 +160,12 @@ namespace 文本解析系统.JJController
         /// <returns></returns>
         public FormatInfo GetFormatInfo(string formatname)
         {
-            try
-            {
+            
                 List<string> list = new List<string>();
-                string str_sql = $"select * from 解析格式表 where 格式名称='{formatname}' and 删除=0";
-                DataRow mydr = mysqlhelper.ExecuteDataRow(str_sql, null);
+                string str_sql = $"select * from 解析格式表 where 格式名称=@f and 删除=0";
+                DataRow mydr = mysqlhelper.ExecuteDataRow(str_sql, new MySqlParameter[] { 
+                new MySqlParameter("@f",formatname)
+                });
                 return new FormatInfo()
                 {
                     _formatname = mydr["格式名称"].ToString(),
@@ -180,11 +181,6 @@ namespace 文本解析系统.JJController
                     _biaozhunjuku = mydr["标准句库"].ToString()
                 };
 
-            }
-            catch
-            {
-                return null;
-            }
 
         }
         /// <summary>
@@ -308,7 +304,7 @@ namespace 文本解析系统.JJController
 
                 #region 新的解析过程
                 //判断是否进行查重处理，如果不查重处理，直接解析
-                if (myfi._wu2)//不查重处理
+                if (!myfi._wu2)//不查重处理
                 {
                     //开始解析,先解析基础规则，然后根据复制文本范围向sheet赋值
                     //赋值基础规则
@@ -413,10 +409,15 @@ namespace 文本解析系统.JJController
                                 }
                                 if (myrd.fuzhi.Contains("标准句"))
                                 {
-                                    mymc = Regex.Matches(pipeiduixiang, $@"(?<=[^。；;])[\s\S]*{myrd.wenbentezheng}[\s\S]*(?=[。；;])");
+                                    mymc = Regex.Matches(pipeiduixiang, @"(?<=[\r\n。：:;!?！？……；])[\s\S]*?(?=[\r\n。：:;!?！？……；])");
+
                                     foreach (Match mymatch in mymc)
                                     {
-                                        myrd.fuzhijieguo.Add(mymatch.Value);
+                                        if (Regex.IsMatch(mymatch.Value, myrd.wenbentezheng))
+                                        {
+                                            myrd.fuzhijieguo.Add(mymatch.Value);
+
+                                        }
                                     }
                                 }
                                 if (myrd.fuzhi.Contains("标准段"))//返回自定义的文本特征结果
@@ -660,7 +661,6 @@ namespace 文本解析系统.JJController
                                         {
                                             continue;
                                         }
-
                                         //获得最后一行
                                         int rowindex = mysht0.Cells.LastCell.Row + 1;
                                         mysht0.Cells[rowindex, 0].Value = mywordinfo._list_baseinfo[b]._mingcheng;
@@ -799,10 +799,15 @@ namespace 文本解析系统.JJController
                                     }
                                     if (myrd.fuzhi.Contains("标准句"))
                                     {
-                                        mymc = Regex.Matches(pipeiduixiang, $@"(?<=[^。；;])[\s\S]*{myrd.wenbentezheng}[\s\S]*(?=[。；;])");
+                                        mymc = Regex.Matches(pipeiduixiang, @"(?<=[\r\n。：:;!?！？……；])[\s\S]*?(?=[\r\n。：:;!?！？……；])");
+                                        
                                         foreach (Match mymatch in mymc)
                                         {
+                                            if (Regex.IsMatch(mymatch.Value,myrd.wenbentezheng))
+                                            {
                                             myrd.fuzhijieguo.Add(mymatch.Value);
+
+                                            }
                                         }
                                     }
                                     if (myrd.fuzhi.Contains("标准段"))//返回自定义的文本特征结果

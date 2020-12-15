@@ -83,7 +83,7 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.flp_fugaifanwei = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBox37 = new System.Windows.Forms.CheckBox();
+            this.cb_quanbuduixiang = new System.Windows.Forms.CheckBox();
             this.checkBox38 = new System.Windows.Forms.CheckBox();
             this.checkBox39 = new System.Windows.Forms.CheckBox();
             this.checkBox40 = new System.Windows.Forms.CheckBox();
@@ -791,7 +791,7 @@
             // 
             // flp_fugaifanwei
             // 
-            this.flp_fugaifanwei.Controls.Add(this.checkBox37);
+            this.flp_fugaifanwei.Controls.Add(this.cb_quanbuduixiang);
             this.flp_fugaifanwei.Controls.Add(this.checkBox38);
             this.flp_fugaifanwei.Controls.Add(this.checkBox39);
             this.flp_fugaifanwei.Controls.Add(this.checkBox40);
@@ -806,16 +806,17 @@
             this.flp_fugaifanwei.Size = new System.Drawing.Size(570, 34);
             this.flp_fugaifanwei.TabIndex = 1;
             // 
-            // checkBox37
+            // cb_quanbuduixiang
             // 
-            this.checkBox37.AutoSize = true;
-            this.checkBox37.Location = new System.Drawing.Point(3, 9);
-            this.checkBox37.Margin = new System.Windows.Forms.Padding(3, 9, 3, 3);
-            this.checkBox37.Name = "checkBox37";
-            this.checkBox37.Size = new System.Drawing.Size(75, 21);
-            this.checkBox37.TabIndex = 0;
-            this.checkBox37.Text = "全部对象";
-            this.checkBox37.UseVisualStyleBackColor = true;
+            this.cb_quanbuduixiang.AutoSize = true;
+            this.cb_quanbuduixiang.Location = new System.Drawing.Point(3, 9);
+            this.cb_quanbuduixiang.Margin = new System.Windows.Forms.Padding(3, 9, 3, 3);
+            this.cb_quanbuduixiang.Name = "cb_quanbuduixiang";
+            this.cb_quanbuduixiang.Size = new System.Drawing.Size(75, 21);
+            this.cb_quanbuduixiang.TabIndex = 0;
+            this.cb_quanbuduixiang.Text = "全部对象";
+            this.cb_quanbuduixiang.UseVisualStyleBackColor = true;
+            this.cb_quanbuduixiang.CheckedChanged += new System.EventHandler(this.cb_quanbuduixiang_CheckedChanged);
             // 
             // checkBox38
             // 
@@ -1204,7 +1205,7 @@
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.FlowLayoutPanel flp_fugaifanwei;
-        private System.Windows.Forms.CheckBox checkBox37;
+        private System.Windows.Forms.CheckBox cb_quanbuduixiang;
         private System.Windows.Forms.CheckBox checkBox38;
         private System.Windows.Forms.CheckBox checkBox39;
         private System.Windows.Forms.CheckBox checkBox40;
