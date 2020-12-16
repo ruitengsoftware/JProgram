@@ -38,10 +38,10 @@ namespace 团队任务台账管理系统.Controller
         /// 获得待办任务 
         /// </summary>
         /// <returns></returns>
-        public DataTable GetDaibanRenwu()
+        public DataTable GetDaibanRenwu(string s)
         {
-            string str_sql = $"select * from 常规事项表 where 删除=0";
-
+            string str_sql = $"select * from 常规事项表 where 任务名称 like '%{s}%' and 删除=0";
+            
             var data = _mysqlhelper.ExecuteDataTable(str_sql, null);
             return data;
         }

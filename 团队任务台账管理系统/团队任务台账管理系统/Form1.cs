@@ -16,9 +16,12 @@ using 团队任务台账管理系统.UserControll;
 using 团队任务台账管理系统.WinForm;
 
 namespace 团队任务台账管理系统
-{
+{       
+
     public partial class Form1 : Form
     {
+
+
         #region 窗体四周阴影
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -66,7 +69,7 @@ namespace 团队任务台账管理系统
                 CreateParams cp = base.CreateParams;
                 if (!m_aeroEnabled)
                     cp.ClassStyle |= CS_DROPSHADOW;
-
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -113,7 +116,6 @@ namespace 团队任务台账管理系统
         }
 
         #endregion
-
         ControllerForm1 _mycontroller = new ControllerForm1();
         public Form1()
         {

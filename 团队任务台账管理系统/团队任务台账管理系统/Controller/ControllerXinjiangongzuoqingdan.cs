@@ -22,7 +22,7 @@ namespace 团队任务台账管理系统.Controller
 
 
             //保存任务
-            str_sql = $"insert into jjgongzuoqingdan values('{renwu._renwumingcheng}','{JJLoginInfo._shiming}','{renwu._zhubanren}','{renwu._wanchengshijian}',0,'{renwu._xiangxian}','{renwu._chuangjianshijian}')";
+            str_sql = $"insert into jjgongzuoqingdan values('{renwu._renwumingcheng}','{JJLoginInfo._shiming}','{renwu._zhubanren}','{renwu._wanchengshijian}',0,'{renwu._xiangxian}','{renwu._chuangjianshijian}','未完成')";
            int num= _mysqlhelper.ExecuteNonQuery(str_sql);
 
             //返回值

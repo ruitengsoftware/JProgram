@@ -106,45 +106,96 @@ namespace 团队任务台账管理系统.UserControll
             /*加载登录者的任务*/
             int qingdannum = 0;//储存工作清单总数
             //加载第一象限
+            panel_gongzuoqingdan.Controls.Clear();
             DataTable mydt = _mycontroller.GetGongzuoqingdan("第一象限");
-            dgv_a.DataSource = null;
-            dgv_a.DataSource = mydt;
-            lbl_a.Text = $"重要且紧急-立即做 {mydt.Rows.Count}项";
-            qingdannum += mydt.Rows.Count;
+            //dgv_a.DataSource = null;
+            //dgv_a.DataSource = mydt;
+            //lbl_a.Text = $"重要且紧急-立即做 {mydt.Rows.Count}项";
+            //qingdannum += mydt.Rows.Count;
+            //循环对mydt的行形成ucmsg，加载到panel_gongzuoqingdan中
+            foreach (DataRow dr in mydt.Rows)
+            {
+                UCMessage myuc = new UCMessage("重要且紧急-立即做", dr["任务名称"].ToString(), Convert.ToDateTime(dr["完成时间"]).ToString("yyyy-MM-dd"));
+                myuc._msgtype = "工作清单";
+                panel_gongzuoqingdan.Controls.Add(myuc);
+            }
+            
+
+
+
+
+
             //加载第二象限
             mydt = _mycontroller.GetGongzuoqingdan("第二象限");
-            dgv_b.DataSource = null;
-            dgv_b.DataSource = mydt;
-            lbl_b.Text = $"重要且不紧急-集中精力做 {mydt.Rows.Count}项";
-            qingdannum += mydt.Rows.Count;
+            //dgv_b.DataSource = null;
+            //dgv_b.DataSource = mydt;
+            //lbl_b.Text = $"重要且不紧急-集中精力做 {mydt.Rows.Count}项";
+            //qingdannum += mydt.Rows.Count;
+            foreach (DataRow dr in mydt.Rows)
+            {
+                UCMessage myuc = new UCMessage("重要且不紧急-集中精力做", dr["任务名称"].ToString(), Convert.ToDateTime(dr["完成时间"]).ToString("yyyy-MM-dd"));
+                myuc._msgtype = "工作清单";
+                panel_gongzuoqingdan.Controls.Add(myuc);
+            }
 
             //加载第三象限
             mydt = _mycontroller.GetGongzuoqingdan("第三象限");
-            dgv_c.DataSource = null;
-            dgv_c.DataSource = mydt;
-            lbl_c.Text = $"不重要但紧急-找帮手做 {mydt.Rows.Count}项";
-            qingdannum += mydt.Rows.Count;
+            //dgv_c.DataSource = null;
+            //dgv_c.DataSource = mydt;
+            //lbl_c.Text = $"不重要但紧急-找帮手做 {mydt.Rows.Count}项";
+            //qingdannum += mydt.Rows.Count;
+            foreach (DataRow dr in mydt.Rows)
+            {
+                UCMessage myuc = new UCMessage("不重要但紧急-找帮手做", dr["任务名称"].ToString(), Convert.ToDateTime(dr["完成时间"]).ToString("yyyy-MM-dd"));
+                myuc._msgtype = "工作清单";
+                panel_gongzuoqingdan.Controls.Add(myuc);
+            }
 
             //加载第四象限
             mydt = _mycontroller.GetGongzuoqingdan("第四象限");
-            dgv_d.DataSource = null;
-            dgv_d.DataSource = mydt;
-            lbl_d.Text = $"不重要且不紧急-抽空做 {mydt.Rows.Count}项";
-            qingdannum += mydt.Rows.Count;
+            //dgv_d.DataSource = null;
+            //dgv_d.DataSource = mydt;
+            //lbl_d.Text = $"不重要且不紧急-抽空做 {mydt.Rows.Count}项";
+            //qingdannum += mydt.Rows.Count;
+            foreach (DataRow dr in mydt.Rows)
+            {
+                UCMessage myuc = new UCMessage("不重要且不紧急-抽空做", dr["任务名称"].ToString(), Convert.ToDateTime(dr["完成时间"]).ToString("yyyy-MM-dd"));
+                myuc._msgtype = "工作清单";
+                panel_gongzuoqingdan.Controls.Add(myuc);
+            }
 
             //刷新工作清单总数
-            lbl_gongzuoqingdan.Text = $"工作清单  {qingdannum}项";
-
+            //lbl_gongzuoqingdan.Text = $"工作清单  {qingdannum}项";
+            lbl_gongzuoqingdan.Text = $"工作清单  {panel_gongzuoqingdan.Controls.Count}项";
 
 
             /*刷新待办任务*/
-            mydt = _mycontroller.GetDaibanRenwu();
+            panel_daibanrenwu.Controls.Clear();
+            string keyword = tb_kw.Text;
+            mydt = _mycontroller.GetDaibanRenwu(keyword);
             dgv_daiban.DataSource = null;
             dgv_daiban.DataSource = mydt;
+            foreach (DataRow dr in mydt.Rows)
+            {
+                UCMessage myuc = new UCMessage(dr["紧急程度"].ToString(), dr["任务名称"].ToString(), Convert.ToDateTime(dr["时限"]).ToString("yyyy-MM-dd"));
+                myuc._msgtype = "待办任务";
+                panel_daibanrenwu.Controls.Add(myuc);
+            }
+
+
+
+
             /*刷新通知公告*/
+            panel_tongzhi.Controls.Clear();
             mydt = _mycontroller.GetTongzhi();
-            dgv_tongzhi.DataSource = null;
-            dgv_tongzhi.DataSource = mydt;
+            //dgv_tongzhi.DataSource = null;
+            //dgv_tongzhi.DataSource = mydt;
+            foreach (DataRow dr in mydt.Rows)
+            {
+                UCMessage myuc = new UCMessage(dr["状态"].ToString(), dr["标题"].ToString(), Convert.ToDateTime(dr["发布时间"]).ToString("yyyy-MM-dd"));
+                myuc._msgtype = "通知公告";
+                panel_tongzhi.Controls.Add(myuc);
+            }
 
 
         }
@@ -346,6 +397,37 @@ namespace 团队任务台账管理系统.UserControll
             }
             //刷新通知公告栏 数量
             lbl_gonggao.Text = $"通知公告 （{weidunum}）";
+
+        }
+
+        private void pb_search_Click(object sender, EventArgs e)
+        {
+            string keyword = tb_kw.Text;
+           DataTable mydt = _mycontroller.GetDaibanRenwu(keyword);
+            dgv_daiban.DataSource = null;
+            dgv_daiban.DataSource = mydt;
+
+        }
+
+        private void tb_kw_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_kw.Text.Trim().Equals(string.Empty))
+            {
+                DataTable mydt = _mycontroller.GetDaibanRenwu(string.Empty);
+                dgv_daiban.DataSource = null;
+                dgv_daiban.DataSource = mydt;
+
+            }
+        }
+
+        private void dgv_tongzhi_DataSourceChanged(object sender, EventArgs e)
+        {
+            //隐藏签发人，内容，删除，状态
+            //dgv_tongzhi.Columns["签发人"].Visible = false;
+            //dgv_tongzhi.Columns["内容"].Visible = false;
+            //dgv_tongzhi.Columns["删除"].Visible = false;
+            //dgv_tongzhi.Columns["状态"].Visible = false;
+
 
         }
     }

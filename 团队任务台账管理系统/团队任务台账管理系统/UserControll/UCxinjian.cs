@@ -218,14 +218,14 @@ namespace 团队任务台账管理系统.UserControll
         /// <param name="e"></param>
         private void lbl_changguishixiang_Click(object sender, EventArgs e)
         {
-            WFchangguishixiang wfxinjian = new WFchangguishixiang();
+            WFchangguishixiang wfxinjian = new WFchangguishixiang() { StartPosition = FormStartPosition.CenterParent };
             wfxinjian.StartPosition = FormStartPosition.CenterParent;
             wfxinjian.ShowDialog();
         }
 
         private void lbl_gongzuoqingdan_Click(object sender, EventArgs e)
         {
-            WinForm.WFgongzuoqingdan mywinform = new WinForm.WFgongzuoqingdan();
+            WinForm.WFgongzuoqingdan mywinform = new WinForm.WFgongzuoqingdan() { StartPosition=FormStartPosition.CenterParent};
             if (mywinform.ShowDialog() == DialogResult.OK)
             {
                
@@ -234,7 +234,7 @@ namespace 团队任务台账管理系统.UserControll
 
         private void lbl_okrshixiang_Click(object sender, EventArgs e)
         {
-            WFokrshixiang mywin = new WFokrshixiang();
+            WFokrshixiang mywin = new WFokrshixiang() { StartPosition = FormStartPosition.CenterParent };
             if (mywin.ShowDialog()==DialogResult.OK)
             {
 
@@ -243,7 +243,7 @@ namespace 团队任务台账管理系统.UserControll
 
         private void label5_Click(object sender, EventArgs e)
         {
-          var  mywin = new WFtongzhigonggao();
+          var  mywin = new WFtongzhigonggao() { StartPosition = FormStartPosition.CenterParent };
             if (mywin.ShowDialog() == DialogResult.OK)
             {
 
@@ -253,7 +253,7 @@ namespace 团队任务台账管理系统.UserControll
 
         private void label6_Click(object sender, EventArgs e)
         {
-            var mywin = new WFqingxiujiadan();
+            var mywin = new WFqingxiujiadan() { StartPosition = FormStartPosition.CenterParent };
             if (mywin.ShowDialog() == DialogResult.OK)
             {
 
@@ -263,7 +263,7 @@ namespace 团队任务台账管理系统.UserControll
 
         private void label7_Click(object sender, EventArgs e)
         {
-            var mywin = new WFyijianjianyi();
+            var mywin = new WFyijianjianyi() { StartPosition = FormStartPosition.CenterParent };
             if (mywin.ShowDialog() == DialogResult.OK)
             {
 

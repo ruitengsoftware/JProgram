@@ -61,6 +61,29 @@ namespace 团队任务台账管理系统.WinForm
 
         private void btn_baocun_Click(object sender, EventArgs e)
         {
+            //判断信息是否为空
+            bool b1 = tb_renwumingcheng.Text.Trim().Equals(string.Empty);
+            bool b2 = tb_jutiyaoqiu.Text.Trim().Equals(string.Empty);
+            bool b3 = tb_jinzhan.Text.Trim().Equals(string.Empty);
+            
+            if (b1)
+            {
+                MessageBox.Show("任务名称未填写！");
+                return;
+            }
+            if (b2)
+            {
+                MessageBox.Show("具体要求未填写！");
+                return;
+            }
+            if (b3)
+            {
+                MessageBox.Show("进展未填写！");
+                return;
+            }
+
+
+
             string jinjichengdu = string.Empty;
             if (rb_jinji.Checked)
             {

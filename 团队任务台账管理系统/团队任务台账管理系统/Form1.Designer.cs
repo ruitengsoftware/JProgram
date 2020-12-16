@@ -135,7 +135,7 @@
             this.btn_daiban.Name = "btn_daiban";
             this.btn_daiban.Size = new System.Drawing.Size(94, 28);
             this.btn_daiban.TabIndex = 2;
-            this.btn_daiban.Text = "代办";
+            this.btn_daiban.Text = "待办";
             this.btn_daiban.UseVisualStyleBackColor = true;
             this.btn_daiban.Click += new System.EventHandler(this.btn_daiban_Click);
             // 

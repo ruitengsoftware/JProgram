@@ -20,6 +20,21 @@ namespace 团队任务台账管理系统.WinForm
         {
             InitializeComponent();
         }
+
+        public WFtongzhigonggao(JJTongzhiInfo ti)
+        {
+            InitializeComponent();
+            tb_biaoti.Text = ti._biaoti;
+            tb_wenhao.Text = ti._qianfaren;
+            tb_neirong.Text = ti._neirong;
+
+
+
+
+        }
+
+
+
         /// <summary>
         /// 点击保存按钮时触发的事件
         /// </summary>

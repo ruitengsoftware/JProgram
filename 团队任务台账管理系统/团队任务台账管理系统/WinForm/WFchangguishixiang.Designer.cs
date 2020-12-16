@@ -50,10 +50,13 @@
             this.rb_jinji = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_jutiyaoqiu = new System.Windows.Forms.TextBox();
+            this.pb_paizhao = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_fenjie = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_jinzhan = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tb_zerenren = new System.Windows.Forms.ComboBox();
             this.tb_yanshouren = new System.Windows.Forms.ComboBox();
             this.tb_zixunshui = new System.Windows.Forms.ComboBox();
@@ -61,20 +64,17 @@
             this.dtp_shixian = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_beizhu = new System.Windows.Forms.TextBox();
-            this.pb_paizhao = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
-            this.tableLayoutPanel8.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
-            this.tableLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_paizhao)).BeginInit();
+            this.tableLayoutPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tableLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tableLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -382,6 +382,16 @@
             this.tb_jutiyaoqiu.Size = new System.Drawing.Size(413, 54);
             this.tb_jutiyaoqiu.TabIndex = 0;
             // 
+            // pb_paizhao
+            // 
+            this.pb_paizhao.Image = global::团队任务台账管理系统.Properties.Resources.upload1;
+            this.pb_paizhao.Location = new System.Drawing.Point(422, 3);
+            this.pb_paizhao.Name = "pb_paizhao";
+            this.pb_paizhao.Size = new System.Drawing.Size(24, 24);
+            this.pb_paizhao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_paizhao.TabIndex = 1;
+            this.pb_paizhao.TabStop = false;
+            // 
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 2;
@@ -407,6 +417,17 @@
             this.tb_fenjie.TabIndex = 0;
             this.tb_fenjie.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::团队任务台账管理系统.Properties.Resources.paizhao;
+            this.pictureBox1.Location = new System.Drawing.Point(422, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            // 
             // tableLayoutPanel9
             // 
             this.tableLayoutPanel9.ColumnCount = 2;
@@ -431,6 +452,17 @@
             this.tb_jinzhan.Size = new System.Drawing.Size(413, 23);
             this.tb_jinzhan.TabIndex = 0;
             this.tb_jinzhan.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::团队任务台账管理系统.Properties.Resources.paizhao;
+            this.pictureBox2.Location = new System.Drawing.Point(422, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
             // 
             // tb_zerenren
             // 
@@ -503,38 +535,6 @@
             this.tb_beizhu.Size = new System.Drawing.Size(413, 80);
             this.tb_beizhu.TabIndex = 0;
             // 
-            // pb_paizhao
-            // 
-            this.pb_paizhao.Image = global::团队任务台账管理系统.Properties.Resources.upload1;
-            this.pb_paizhao.Location = new System.Drawing.Point(422, 3);
-            this.pb_paizhao.Name = "pb_paizhao";
-            this.pb_paizhao.Size = new System.Drawing.Size(24, 24);
-            this.pb_paizhao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_paizhao.TabIndex = 1;
-            this.pb_paizhao.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::团队任务台账管理系统.Properties.Resources.paizhao;
-            this.pictureBox1.Location = new System.Drawing.Point(422, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::团队任务台账管理系统.Properties.Resources.paizhao;
-            this.pictureBox2.Location = new System.Drawing.Point(422, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::团队任务台账管理系统.Properties.Resources.upload1;
@@ -563,15 +563,15 @@
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_paizhao)).EndInit();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_paizhao)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 

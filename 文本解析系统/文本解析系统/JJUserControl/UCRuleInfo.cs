@@ -28,7 +28,7 @@ namespace 文本解析系统.JJUserControl
                 if (ruledetail.duixiangxuanze.Contains(item.Text))
                 {
                     (item as CheckBox).Checked = true;
-                    
+
                 }
             }
             tb_shunshu.Text = ruledetail._shunshu.ToString();
@@ -128,14 +128,19 @@ namespace 文本解析系统.JJUserControl
             {
                 foreach (Control c in flp_fugaifanwei.Controls)
                 {
-                    if (c.text)
+                    if (!c.Text.Equals("全部对象"))
                     {
-
+                        (c as CheckBox).Checked = false;
+                        c.Enabled = false;
                     }
                 }
-
-
-
+            }
+            else
+            {
+                foreach (Control c in flp_fugaifanwei.Controls)
+                {
+                    c.Enabled = true;
+                }
             }
 
 

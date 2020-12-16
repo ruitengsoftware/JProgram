@@ -24,15 +24,9 @@ namespace 团队任务台账管理系统.JJModel
         /// 状态，未读和已读
         /// </summary>
         public string _zhuangtai = string.Empty;
-
-
-
-
-
-
-
-
-
-
+        /// <summary>
+        /// 发布时间
+        /// </summary>
+        public string _fabushijian = string.Empty;
     }
 }

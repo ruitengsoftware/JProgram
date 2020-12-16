@@ -107,6 +107,7 @@
     <Compile Include="Controller\ControllerLishiziliao.cs" />
     <Compile Include="Controller\ControllerOkrshixiang.cs" />
     <Compile Include="Controller\ControllerRenwuxiangqing.cs" />
+    <Compile Include="Controller\ControllerUCmsg.cs" />
     <Compile Include="Controller\ControllerUCtongxulu.cs" />
     <Compile Include="Controller\ControllerUCmain.cs" />
     <Compile Include="Controller\ControllerTuandui.cs" />
@@ -177,6 +178,12 @@
     </Compile>
     <Compile Include="UserControll\UCchengguo.Designer.cs">
       <DependentUpon>UCchengguo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\UCMessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCMessage.Designer.cs">
+      <DependentUpon>UCMessage.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControll\UCrizhi.cs">
       <SubType>UserControl</SubType>
@@ -341,6 +348,9 @@
     <EmbeddedResource Include="UserControll\UCchengguo.resx">
       <DependentUpon>UCchengguo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCMessage.resx">
+      <DependentUpon>UCMessage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCrizhi.resx">
       <DependentUpon>UCrizhi.cs</DependentUpon>
     </EmbeddedResource>
@@ -477,6 +487,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\upload1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchenter %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

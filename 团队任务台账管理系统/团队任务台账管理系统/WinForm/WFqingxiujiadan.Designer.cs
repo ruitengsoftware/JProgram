@@ -106,7 +106,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 15;
-            this.label1.Text = "是由";
+            this.label1.Text = "事由";
             // 
             // dtp_start
             // 
