@@ -84,8 +84,8 @@ namespace 团队任务台账管理系统.UserControll
             if (this._msgtype.Equals("工作清单"))
 
             {
-                JJchangguiInfo ci = _myc.GetChangguiInfo(label2.Text);
-                WFchangguishixiang mywin = new WFchangguishixiang(ci);
+                JJQingdanInfo ci = _myc.GetQingdanInfo(label2.Text);
+                WFgongzuoqingdan mywin = new WFgongzuoqingdan(ci);
                 if (mywin.ShowDialog() == DialogResult.OK)
                 {
                     //刷新数据

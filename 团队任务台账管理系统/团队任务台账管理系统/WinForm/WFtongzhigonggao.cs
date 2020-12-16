@@ -24,6 +24,7 @@ namespace 团队任务台账管理系统.WinForm
         public WFtongzhigonggao(JJTongzhiInfo ti)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
             tb_biaoti.Text = ti._biaoti;
             tb_wenhao.Text = ti._qianfaren;
             tb_neirong.Text = ti._neirong;
@@ -61,6 +62,11 @@ namespace 团队任务台账管理系统.WinForm
         private void lbl_quxiao_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void WFtongzhigonggao_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

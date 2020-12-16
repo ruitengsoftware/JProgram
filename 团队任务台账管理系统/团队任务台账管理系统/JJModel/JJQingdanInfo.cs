@@ -35,7 +35,10 @@ namespace 团队任务台账管理系统.JJModel
         /// 创建时间
         /// </summary>
         public string _chuangjianshijian = string.Empty;
-
+        /// <summary>
+        /// 状态
+        /// </summary>
+        public string _zhuangtai = string.Empty;
 
     }
 }

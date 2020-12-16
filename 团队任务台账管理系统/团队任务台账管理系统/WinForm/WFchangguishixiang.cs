@@ -22,6 +22,8 @@ namespace 团队任务台账管理系统.WinForm
         public WFchangguishixiang(JJchangguiInfo myinfo)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             tb_renwumingcheng.Text = myinfo._renwumingcheng;
             if (myinfo._jinjichengdu.Equals("普遍"))
             {
@@ -115,6 +117,11 @@ namespace 团队任务台账管理系统.WinForm
 
 
 
+
+        }
+
+        private void WFchangguishixiang_Load(object sender, EventArgs e)
+        {
 
         }
     }

@@ -556,6 +556,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WFchangguishixiang";
             this.Text = "WFxinjian";
+            this.Load += new System.EventHandler(this.WFchangguishixiang_Load);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);

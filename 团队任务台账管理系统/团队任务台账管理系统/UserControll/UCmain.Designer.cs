@@ -33,9 +33,11 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_gonggao = new System.Windows.Forms.Label();
             this.dgv_tongzhi = new System.Windows.Forms.DataGridView();
+            this.lbl_gonggao = new System.Windows.Forms.Label();
+            this.panel_tongzhi = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_c = new System.Windows.Forms.Label();
@@ -49,8 +51,9 @@
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_a = new System.Windows.Forms.Label();
             this.dgv_a = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_gongzuoqingdan = new System.Windows.Forms.Label();
+            this.pb_dingzi = new System.Windows.Forms.PictureBox();
+            this.panel_gongzuoqingdan = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -59,26 +62,24 @@
             this.lbl_xiugai = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbl_name = new System.Windows.Forms.Label();
-            this.dgv_daiban = new System.Windows.Forms.DataGridView();
-            this.cms_right = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.完成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_kw = new System.Windows.Forms.TextBox();
-            this.pb_dingzi = new System.Windows.Forms.PictureBox();
+            this.dgv_daiban = new System.Windows.Forms.DataGridView();
             this.pb_search = new System.Windows.Forms.PictureBox();
-            this.panel_gongzuoqingdan = new System.Windows.Forms.Panel();
-            this.panel_tongzhi = new System.Windows.Forms.Panel();
             this.panel_daibanrenwu = new System.Windows.Forms.Panel();
+            this.cms_right = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.完成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tongzhi)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_c)).BeginInit();
@@ -88,18 +89,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_b)).BeginInit();
             this.tableLayoutPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_a)).BeginInit();
-            this.tableLayoutPanel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dingzi)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_daiban)).BeginInit();
-            this.cms_right.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_dingzi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_daiban)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_search)).BeginInit();
+            this.cms_right.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -170,18 +170,6 @@
             this.tableLayoutPanel18.Size = new System.Drawing.Size(257, 30);
             this.tableLayoutPanel18.TabIndex = 2;
             // 
-            // lbl_gonggao
-            // 
-            this.lbl_gonggao.AutoSize = true;
-            this.lbl_gonggao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_gonggao.Location = new System.Drawing.Point(54, 1);
-            this.lbl_gonggao.Margin = new System.Windows.Forms.Padding(1);
-            this.lbl_gonggao.Name = "lbl_gonggao";
-            this.lbl_gonggao.Size = new System.Drawing.Size(148, 28);
-            this.lbl_gonggao.TabIndex = 0;
-            this.lbl_gonggao.Text = "通知公告（1）";
-            this.lbl_gonggao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // dgv_tongzhi
             // 
             this.dgv_tongzhi.AllowUserToAddRows = false;
@@ -201,6 +189,28 @@
             this.dgv_tongzhi.DataSourceChanged += new System.EventHandler(this.dgv_tongzhi_DataSourceChanged);
             this.dgv_tongzhi.Paint += new System.Windows.Forms.PaintEventHandler(this.dgv_tongzhi_Paint);
             // 
+            // lbl_gonggao
+            // 
+            this.lbl_gonggao.AutoSize = true;
+            this.lbl_gonggao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_gonggao.Location = new System.Drawing.Point(54, 1);
+            this.lbl_gonggao.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_gonggao.Name = "lbl_gonggao";
+            this.lbl_gonggao.Size = new System.Drawing.Size(148, 28);
+            this.lbl_gonggao.TabIndex = 0;
+            this.lbl_gonggao.Text = "通知公告（1）";
+            this.lbl_gonggao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel_tongzhi
+            // 
+            this.panel_tongzhi.AutoScroll = true;
+            this.panel_tongzhi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_tongzhi.Location = new System.Drawing.Point(0, 30);
+            this.panel_tongzhi.Margin = new System.Windows.Forms.Padding(0);
+            this.panel_tongzhi.Name = "panel_tongzhi";
+            this.panel_tongzhi.Size = new System.Drawing.Size(257, 302);
+            this.panel_tongzhi.TabIndex = 3;
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 1;
@@ -216,6 +226,25 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(512, 332);
             this.tableLayoutPanel5.TabIndex = 2;
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 4;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel6, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.lbl_gongzuoqingdan, 1, 0);
+            this.tableLayoutPanel11.Controls.Add(this.pb_dingzi, 2, 0);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 1;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(512, 30);
+            this.tableLayoutPanel11.TabIndex = 2;
             // 
             // tableLayoutPanel6
             // 
@@ -420,25 +449,6 @@
             this.dgv_a.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_a_CellMouseDown);
             this.dgv_a.Paint += new System.Windows.Forms.PaintEventHandler(this.dgv_a_Paint);
             // 
-            // tableLayoutPanel11
-            // 
-            this.tableLayoutPanel11.ColumnCount = 4;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel6, 0, 0);
-            this.tableLayoutPanel11.Controls.Add(this.lbl_gongzuoqingdan, 1, 0);
-            this.tableLayoutPanel11.Controls.Add(this.pb_dingzi, 2, 0);
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 1;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(512, 30);
-            this.tableLayoutPanel11.TabIndex = 2;
-            // 
             // lbl_gongzuoqingdan
             // 
             this.lbl_gongzuoqingdan.AutoSize = true;
@@ -450,6 +460,29 @@
             this.lbl_gongzuoqingdan.TabIndex = 0;
             this.lbl_gongzuoqingdan.Text = "工作清单";
             this.lbl_gongzuoqingdan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pb_dingzi
+            // 
+            this.pb_dingzi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_dingzi.Image = global::团队任务台账管理系统.Properties.Resources.dingzi;
+            this.pb_dingzi.Location = new System.Drawing.Point(343, 2);
+            this.pb_dingzi.Margin = new System.Windows.Forms.Padding(2);
+            this.pb_dingzi.Name = "pb_dingzi";
+            this.pb_dingzi.Size = new System.Drawing.Size(26, 26);
+            this.pb_dingzi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_dingzi.TabIndex = 0;
+            this.pb_dingzi.TabStop = false;
+            this.pb_dingzi.Click += new System.EventHandler(this.pb_dingzi_Click);
+            // 
+            // panel_gongzuoqingdan
+            // 
+            this.panel_gongzuoqingdan.AutoScroll = true;
+            this.panel_gongzuoqingdan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_gongzuoqingdan.Location = new System.Drawing.Point(0, 30);
+            this.panel_gongzuoqingdan.Margin = new System.Windows.Forms.Padding(0);
+            this.panel_gongzuoqingdan.Name = "panel_gongzuoqingdan";
+            this.panel_gongzuoqingdan.Size = new System.Drawing.Size(512, 302);
+            this.panel_gongzuoqingdan.TabIndex = 3;
             // 
             // tableLayoutPanel3
             // 
@@ -556,52 +589,6 @@
             this.lbl_name.Text = "label2";
             this.lbl_name.Click += new System.EventHandler(this.lbl_name_Click);
             // 
-            // dgv_daiban
-            // 
-            this.dgv_daiban.AllowUserToAddRows = false;
-            this.dgv_daiban.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_daiban.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_daiban.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_daiban.Location = new System.Drawing.Point(1, 1);
-            this.dgv_daiban.Margin = new System.Windows.Forms.Padding(1);
-            this.dgv_daiban.Name = "dgv_daiban";
-            this.dgv_daiban.RowHeadersVisible = false;
-            this.dgv_daiban.RowTemplate.Height = 23;
-            this.dgv_daiban.Size = new System.Drawing.Size(169, 33);
-            this.dgv_daiban.TabIndex = 2;
-            this.dgv_daiban.Visible = false;
-            this.dgv_daiban.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_daiban_CellMouseClick);
-            // 
-            // cms_right
-            // 
-            this.cms_right.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.编辑ToolStripMenuItem,
-            this.删除ToolStripMenuItem,
-            this.完成ToolStripMenuItem});
-            this.cms_right.Name = "cms_right";
-            this.cms_right.Size = new System.Drawing.Size(101, 70);
-            // 
-            // 编辑ToolStripMenuItem
-            // 
-            this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
-            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.编辑ToolStripMenuItem.Text = "编辑";
-            this.编辑ToolStripMenuItem.Click += new System.EventHandler(this.编辑ToolStripMenuItem_Click);
-            // 
-            // 删除ToolStripMenuItem
-            // 
-            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.删除ToolStripMenuItem.Text = "删除";
-            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
-            // 
-            // 完成ToolStripMenuItem
-            // 
-            this.完成ToolStripMenuItem.Name = "完成ToolStripMenuItem";
-            this.完成ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.完成ToolStripMenuItem.Text = "完成";
-            this.完成ToolStripMenuItem.Click += new System.EventHandler(this.完成ToolStripMenuItem_Click);
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.tableLayoutPanel13);
@@ -658,18 +645,21 @@
             this.tb_kw.TabIndex = 0;
             this.tb_kw.TextChanged += new System.EventHandler(this.tb_kw_TextChanged);
             // 
-            // pb_dingzi
+            // dgv_daiban
             // 
-            this.pb_dingzi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_dingzi.Image = global::团队任务台账管理系统.Properties.Resources.dingzi;
-            this.pb_dingzi.Location = new System.Drawing.Point(343, 2);
-            this.pb_dingzi.Margin = new System.Windows.Forms.Padding(2);
-            this.pb_dingzi.Name = "pb_dingzi";
-            this.pb_dingzi.Size = new System.Drawing.Size(26, 26);
-            this.pb_dingzi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_dingzi.TabIndex = 0;
-            this.pb_dingzi.TabStop = false;
-            this.pb_dingzi.Click += new System.EventHandler(this.pb_dingzi_Click);
+            this.dgv_daiban.AllowUserToAddRows = false;
+            this.dgv_daiban.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_daiban.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_daiban.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_daiban.Location = new System.Drawing.Point(1, 1);
+            this.dgv_daiban.Margin = new System.Windows.Forms.Padding(1);
+            this.dgv_daiban.Name = "dgv_daiban";
+            this.dgv_daiban.RowHeadersVisible = false;
+            this.dgv_daiban.RowTemplate.Height = 23;
+            this.dgv_daiban.Size = new System.Drawing.Size(169, 33);
+            this.dgv_daiban.TabIndex = 2;
+            this.dgv_daiban.Visible = false;
+            this.dgv_daiban.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_daiban_CellMouseClick);
             // 
             // pb_search
             // 
@@ -683,26 +673,6 @@
             this.pb_search.TabStop = false;
             this.pb_search.Click += new System.EventHandler(this.pb_search_Click);
             // 
-            // panel_gongzuoqingdan
-            // 
-            this.panel_gongzuoqingdan.AutoScroll = true;
-            this.panel_gongzuoqingdan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_gongzuoqingdan.Location = new System.Drawing.Point(0, 30);
-            this.panel_gongzuoqingdan.Margin = new System.Windows.Forms.Padding(0);
-            this.panel_gongzuoqingdan.Name = "panel_gongzuoqingdan";
-            this.panel_gongzuoqingdan.Size = new System.Drawing.Size(512, 302);
-            this.panel_gongzuoqingdan.TabIndex = 3;
-            // 
-            // panel_tongzhi
-            // 
-            this.panel_tongzhi.AutoScroll = true;
-            this.panel_tongzhi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_tongzhi.Location = new System.Drawing.Point(0, 30);
-            this.panel_tongzhi.Margin = new System.Windows.Forms.Padding(0);
-            this.panel_tongzhi.Name = "panel_tongzhi";
-            this.panel_tongzhi.Size = new System.Drawing.Size(257, 302);
-            this.panel_tongzhi.TabIndex = 3;
-            // 
             // panel_daibanrenwu
             // 
             this.panel_daibanrenwu.AutoScroll = true;
@@ -712,6 +682,36 @@
             this.panel_daibanrenwu.Name = "panel_daibanrenwu";
             this.panel_daibanrenwu.Size = new System.Drawing.Size(757, 87);
             this.panel_daibanrenwu.TabIndex = 4;
+            // 
+            // cms_right
+            // 
+            this.cms_right.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.编辑ToolStripMenuItem,
+            this.删除ToolStripMenuItem,
+            this.完成ToolStripMenuItem});
+            this.cms_right.Name = "cms_right";
+            this.cms_right.Size = new System.Drawing.Size(101, 70);
+            // 
+            // 编辑ToolStripMenuItem
+            // 
+            this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.编辑ToolStripMenuItem.Text = "编辑";
+            this.编辑ToolStripMenuItem.Click += new System.EventHandler(this.编辑ToolStripMenuItem_Click);
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.删除ToolStripMenuItem.Text = "删除";
+            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
+            // 
+            // 完成ToolStripMenuItem
+            // 
+            this.完成ToolStripMenuItem.Name = "完成ToolStripMenuItem";
+            this.完成ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.完成ToolStripMenuItem.Text = "完成";
+            this.完成ToolStripMenuItem.Click += new System.EventHandler(this.完成ToolStripMenuItem_Click);
             // 
             // UCmain
             // 
@@ -731,6 +731,8 @@
             this.tableLayoutPanel18.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tongzhi)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel11.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
@@ -744,22 +746,20 @@
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_a)).EndInit();
-            this.tableLayoutPanel11.ResumeLayout(false);
-            this.tableLayoutPanel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dingzi)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_daiban)).EndInit();
-            this.cms_right.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel13.ResumeLayout(false);
             this.tableLayoutPanel14.ResumeLayout(false);
             this.tableLayoutPanel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_dingzi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_daiban)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_search)).EndInit();
+            this.cms_right.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

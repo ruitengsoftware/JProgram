@@ -21,12 +21,14 @@ namespace 团队任务台账管理系统.WinForm
         public WFgongzuoqingdan(JJQingdanInfo q)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             tb_renwumingcheng.Text = q._renwumingcheng;
             cbb_xiangxian.Text = q._xiangxian;
             tb_zhubanren.Text = q._zhubanren;
             dtp_wanchengshijian.Value = Convert.ToDateTime(q._wanchengshijian);
 
-
+         
 
         }
         private void lbl_quxiao_Click(object sender, EventArgs e)

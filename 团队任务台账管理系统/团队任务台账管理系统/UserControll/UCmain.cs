@@ -101,7 +101,7 @@ namespace 团队任务台账管理系统.UserControll
         private void UCmain_Load(object sender, EventArgs e)
         {
             //加载ucmain的时候要提取登陆者信息，显示在界面中
-            lbl_name.Text = $"{JJModel.JJLoginInfo._shiming}({JJLoginInfo._huaming})";
+            lbl_name.Text = $"职级:{JJLoginInfo._zhiji}  实名:{JJLoginInfo._shiming}({JJLoginInfo._huaming})";
             tb_qianming.Text = JJLoginInfo._gerenqianming;
             /*加载登录者的任务*/
             int qingdannum = 0;//储存工作清单总数

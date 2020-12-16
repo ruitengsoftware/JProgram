@@ -62,6 +62,22 @@ namespace 团队任务台账管理系统.Controller
 
         }
 
+        public JJQingdanInfo GetQingdanInfo(string s)
+        {
+            string str_sql = $"select * from jjdbrenwutaizhang.jjgongzuoqingdan where 任务名称='{s}' and 删除=0";
+            DataRow mydr = _sql.ExecuteDataRow(str_sql);
+            JJQingdanInfo ci = new JJQingdanInfo()
+            {
+                _renwumingcheng = mydr["任务名称"].ToString(),
+                 _chuangjianren= mydr["创建人"].ToString(),
+                _zhubanren = mydr["主办人"].ToString(),
+                _wanchengshijian = mydr["完成时间"].ToString(),
+                _xiangxian = mydr["象限"].ToString(),
+                _chuangjianshijian = mydr["创建时间"].ToString(),
+               _zhuangtai= mydr["状态"].ToString(),
+            };
+            return ci;
+        }
 
 
 
