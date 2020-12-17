@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "playwpf", "playwpf\playwpf.csproj", "{3EE7EC18-F44D-4CE2-B0BA-6B568C796DDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EE7EC18-F44D-4CE2-B0BA-6B568C796DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EE7EC18-F44D-4CE2-B0BA-6B568C796DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EE7EC18-F44D-4CE2-B0BA-6B568C796DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EE7EC18-F44D-4CE2-B0BA-6B568C796DDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7AA40122-49E1-4F09-9379-808580602567}
+	EndGlobalSection
+EndGlobal

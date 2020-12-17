@@ -256,8 +256,9 @@ namespace 文本解析系统.JJModel
                 }
             }
             //从list_temp中排除所有的段首标准句子，一，二，三级标题索引句，主，副标题索引句，文件名索引句
-            foreach (string mystr in list_temp)
+            for (int i = 0; i < list_temp.Count; i++)
             {
+                string mystr = list_temp[i];
                 bool b1 = _duanshoubiaozhunjusuoyinju.Contains(mystr);
                 bool b2 = _yijibiaotisuoyinju.Contains(mystr);
                 bool b3 = _erjibiaotisuoyinju.Contains(mystr);
@@ -268,6 +269,18 @@ namespace 文本解析系统.JJModel
                 bool length = mystr.Length > 2;
                 if (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7 && length)
                 {
+                    //去除序号等一二三级标题特点
+                    mystr = Regex.Replace(mystr, "[一二三四五六七八九十]+?、", "");
+                    mystr = Regex.Replace(mystr, "[(（][一二三四五六七八九十]+?[)）]", "");
+                    mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?是", "");
+                    mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?(?=要)", "");
+                    mystr = Regex.Replace(mystr, @"第[一二三四五六七八九十]+?[，,]", "");
+                    mystr = Regex.Replace(mystr, @"首先[，,]", "");
+                    mystr = Regex.Replace(mystr, @"其次[，,]", "");
+                    mystr = Regex.Replace(mystr, @"\d+?\.", "");
+                    mystr = Regex.Replace(mystr, @"[(（]\d{1,3}?[)）]", "");
+                    mystr = Regex.Replace(mystr, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
+
                     _putongsuoyinju.Add(mystr);
                 }
 
@@ -1557,10 +1570,20 @@ namespace 文本解析系统.JJModel
                     if (b1)
                     {
                         //处理文本内容，去掉序号和标点
+                        string mystr = paratext;
+                        //去除序号等一二三级标题特点
+                        mystr = Regex.Replace(mystr, "[一二三四五六七八九十]+?、", "");
+                        mystr = Regex.Replace(mystr, "[(（][一二三四五六七八九十]+?[)）]", "");
+                        mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?是", "");
+                        mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?(?=要)", "");
+                        mystr = Regex.Replace(mystr, @"第[一二三四五六七八九十]+?[，,]", "");
+                        mystr = Regex.Replace(mystr, @"首先[，,]", "");
+                        mystr = Regex.Replace(mystr, @"其次[，,]", "");
+                        mystr = Regex.Replace(mystr, @"\d+?\.", "");
+                        mystr = Regex.Replace(mystr, @"[(（]\d{1,3}?[)）]", "");
+                        mystr = Regex.Replace(mystr, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
 
-                        paratext = Regex.Replace(paratext, @"[一二三四五六七八九十]+?、", "");
-
-                        _yijibiaoti.Add(paratext);
+                        _yijibiaoti.Add(mystr);
                     }
                 }
             }
@@ -1579,7 +1602,20 @@ namespace 文本解析系统.JJModel
                     bool b1 = Regex.IsMatch(paratext, @"^[\(（][一二三四五六七八九十]+?[\)）]、?[\s\S]+");
                     if (b1)
                     {
-                        _erjibiaoti.Add(paratext);
+                        string mystr = paratext;
+                        //去除序号等一二三级标题特点
+                        mystr = Regex.Replace(mystr, "[一二三四五六七八九十]+?、", "");
+                        mystr = Regex.Replace(mystr, "[(（][一二三四五六七八九十]+?[)）]", "");
+                        mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?是", "");
+                        mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?(?=要)", "");
+                        mystr = Regex.Replace(mystr, @"第[一二三四五六七八九十]+?[，,]", "");
+                        mystr = Regex.Replace(mystr, @"首先[，,]", "");
+                        mystr = Regex.Replace(mystr, @"其次[，,]", "");
+                        mystr = Regex.Replace(mystr, @"\d+?\.", "");
+                        mystr = Regex.Replace(mystr, @"[(（]\d{1,3}?[)）]", "");
+                        mystr = Regex.Replace(mystr, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
+
+                        _erjibiaoti.Add(mystr);
                     }
                 }
             }
@@ -1610,7 +1646,28 @@ namespace 文本解析系统.JJModel
                         List<string> list = Regex.Split(paratext, "。").ToList();
                         //去除空值
                         list.Remove(string.Empty);
-                        _sanjibiaoti.AddRange(list);
+                        for (int j = 0; j < list.Count; j++)
+                        {
+                            string mystr = list[j];
+                            //去除序号等一二三级标题特点
+                            mystr = Regex.Replace(mystr, "[一二三四五六七八九十]+?、", "");
+                            mystr = Regex.Replace(mystr, "[(（][一二三四五六七八九十]+?[)）]", "");
+                            mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?是", "");
+                            mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?(?=要)", "");
+                            mystr = Regex.Replace(mystr, @"第[一二三四五六七八九十]+?[，,]", "");
+                            mystr = Regex.Replace(mystr, @"首先[，,]", "");
+                            mystr = Regex.Replace(mystr, @"其次[，,]", "");
+                            mystr = Regex.Replace(mystr, @"\d+?\.", "");
+                            mystr = Regex.Replace(mystr, @"[(（]\d{1,3}?[)）]", "");
+                            mystr = Regex.Replace(mystr, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
+
+
+
+                            _sanjibiaoti.Add(mystr);
+
+                        }
+
+
                     }
                 }
             }
@@ -1658,7 +1715,20 @@ namespace 文本解析系统.JJModel
                         }
                         else
                         {
-                            _biaozhunduan.Add(paratext);
+                            string mystr = paratext;
+                            //去除序号等一二三级标题特点
+                            mystr = Regex.Replace(mystr, "[一二三四五六七八九十]+?、", "");
+                            mystr = Regex.Replace(mystr, "[(（][一二三四五六七八九十]+?[)）]", "");
+                            mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?是", "");
+                            mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?(?=要)", "");
+                            mystr = Regex.Replace(mystr, @"第[一二三四五六七八九十]+?[，,]", "");
+                            mystr = Regex.Replace(mystr, @"首先[，,]", "");
+                            mystr = Regex.Replace(mystr, @"其次[，,]", "");
+                            mystr = Regex.Replace(mystr, @"\d+?\.", "");
+                            mystr = Regex.Replace(mystr, @"[(（]\d{1,3}?[)）]", "");
+                            mystr = Regex.Replace(mystr, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
+
+                            _biaozhunduan.Add(mystr);
                         }
                     }
                 }
@@ -1697,10 +1767,11 @@ namespace 文本解析系统.JJModel
 
 
 
-
-
-
-
+                        //判断其他条件
+                        //是否全部为数字
+                        bool b = Regex.IsMatch(mystr, @"^\d+$");
+                        if (b) continue;
+                       //添加到标准句集合中
                         _biaozhunju.Add(mystr);
                     }
 
@@ -1732,6 +1803,11 @@ namespace 文本解析系统.JJModel
                 mystr = Regex.Replace(mystr, @"\d+?\.", "");
                 mystr = Regex.Replace(mystr, @"[(（]\d{1,3}?[)）]", "");
                 mystr = Regex.Replace(mystr, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
+                //判断其他条件
+                //是否全部为数字
+                bool b = Regex.IsMatch(mystr, @"^\d+$");
+                if (b) continue;
+                //添加到标准句集合中
 
                 _duanshoubiaozhunju.Add(mystr);
             }
@@ -1854,17 +1930,31 @@ namespace 文本解析系统.JJModel
                 }
 
             }
-            foreach (string str in list_temp)
+            for (int i = 0; i < list_temp.Count; i++)
+
             {
-                bool b1 = _zhubiaotisuoyinju.Contains(str);
-                bool b2 = _fubiaotisuoyinju.Contains(str);
-                bool b3 = _yijibiaotisuoyinju.Contains(str);
-                bool b4 = _erjibiaotisuoyinju.Contains(str);
-                bool b5 = _sanjibiaotisuoyinju.Contains(str);
-                bool b6 = _duanshoubiaozhunjusuoyinju.Contains(str);
+                string mystr = list_temp[i];
+                bool b1 = _zhubiaotisuoyinju.Contains(mystr);
+                bool b2 = _fubiaotisuoyinju.Contains(mystr);
+                bool b3 = _yijibiaotisuoyinju.Contains(mystr);
+                bool b4 = _erjibiaotisuoyinju.Contains(mystr);
+                bool b5 = _sanjibiaotisuoyinju.Contains(mystr);
+                bool b6 = _duanshoubiaozhunjusuoyinju.Contains(mystr);
                 if (!b1 && !b2 && b3 && !b4 && !b5 && !b6)
                 {
-                    _putongsuoyinju.Add(str);
+                    //去除序号等一二三级标题特点
+                    mystr = Regex.Replace(mystr, "[一二三四五六七八九十]+?、", "");
+                    mystr = Regex.Replace(mystr, "[(（][一二三四五六七八九十]+?[)）]", "");
+                    mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?是", "");
+                    mystr = Regex.Replace(mystr, @"[一二三四五六七八九十]+?(?=要)", "");
+                    mystr = Regex.Replace(mystr, @"第[一二三四五六七八九十]+?[，,]", "");
+                    mystr = Regex.Replace(mystr, @"首先[，,]", "");
+                    mystr = Regex.Replace(mystr, @"其次[，,]", "");
+                    mystr = Regex.Replace(mystr, @"\d+?\.", "");
+                    mystr = Regex.Replace(mystr, @"[(（]\d{1,3}?[)）]", "");
+                    mystr = Regex.Replace(mystr, @"[①②③④⑤⑥⑦⑧⑨⑩]", "");
+
+                    _putongsuoyinju.Add(mystr);
                 }
 
 
