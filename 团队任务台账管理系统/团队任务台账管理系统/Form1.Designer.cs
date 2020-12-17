@@ -63,7 +63,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel_my);
-            this.splitContainer1.Size = new System.Drawing.Size(284, 411);
+            this.splitContainer1.Size = new System.Drawing.Size(535, 411);
             this.splitContainer1.SplitterDistance = 96;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -123,7 +123,7 @@
             this.btn_xinjian.Name = "btn_xinjian";
             this.btn_xinjian.Size = new System.Drawing.Size(94, 28);
             this.btn_xinjian.TabIndex = 2;
-            this.btn_xinjian.Text = "新建";
+            this.btn_xinjian.Text = "我的任务";
             this.btn_xinjian.UseVisualStyleBackColor = true;
             this.btn_xinjian.Click += new System.EventHandler(this.btn_xinjian_Click);
             // 
@@ -229,7 +229,7 @@
             this.panel_my.Location = new System.Drawing.Point(0, 0);
             this.panel_my.Margin = new System.Windows.Forms.Padding(0);
             this.panel_my.Name = "panel_my";
-            this.panel_my.Size = new System.Drawing.Size(184, 411);
+            this.panel_my.Size = new System.Drawing.Size(435, 411);
             this.panel_my.TabIndex = 0;
             // 
             // Form1
@@ -238,7 +238,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(284, 411);
+            this.ClientSize = new System.Drawing.Size(535, 411);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

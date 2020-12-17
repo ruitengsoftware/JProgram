@@ -82,12 +82,11 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.44954F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(872, 516);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(822, 364);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -102,7 +101,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(522, 510);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(491, 358);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // lbl_biaoti
@@ -111,7 +110,7 @@
             this.lbl_biaoti.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_biaoti.Location = new System.Drawing.Point(3, 0);
             this.lbl_biaoti.Name = "lbl_biaoti";
-            this.lbl_biaoti.Size = new System.Drawing.Size(516, 40);
+            this.lbl_biaoti.Size = new System.Drawing.Size(485, 40);
             this.lbl_biaoti.TabIndex = 0;
             this.lbl_biaoti.Text = "待办任务（ 3 项，未读 2 项）";
             this.lbl_biaoti.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -126,7 +125,7 @@
             this.dgv_data.RowHeadersVisible = false;
             this.dgv_data.RowTemplate.Height = 23;
             this.dgv_data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_data.Size = new System.Drawing.Size(516, 464);
+            this.dgv_data.Size = new System.Drawing.Size(485, 312);
             this.dgv_data.TabIndex = 1;
             this.dgv_data.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_data_CellMouseClick);
             // 
@@ -137,12 +136,12 @@
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(531, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(500, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(338, 510);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(319, 358);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // label1
@@ -152,7 +151,7 @@
             this.label1.Location = new System.Drawing.Point(1, 1);
             this.label1.Margin = new System.Windows.Forms.Padding(1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(336, 38);
+            this.label1.Size = new System.Drawing.Size(317, 38);
             this.label1.TabIndex = 3;
             this.label1.Text = "任务详情";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -181,7 +180,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(332, 464);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(313, 312);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
             // tableLayoutPanel5
@@ -195,7 +194,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(326, 34);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(307, 34);
             this.tableLayoutPanel5.TabIndex = 4;
             // 
             // label4
@@ -211,7 +210,7 @@
             // 
             this.tb_jinzhan.Location = new System.Drawing.Point(103, 3);
             this.tb_jinzhan.Name = "tb_jinzhan";
-            this.tb_jinzhan.Size = new System.Drawing.Size(220, 23);
+            this.tb_jinzhan.Size = new System.Drawing.Size(201, 23);
             this.tb_jinzhan.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -223,7 +222,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(326, 34);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(307, 34);
             this.tableLayoutPanel6.TabIndex = 4;
             // 
             // tableLayoutPanel7
@@ -237,7 +236,7 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(326, 34);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(307, 34);
             this.tableLayoutPanel7.TabIndex = 4;
             // 
             // label2
@@ -253,7 +252,7 @@
             // 
             this.tb_jutiyaoqiu.Location = new System.Drawing.Point(103, 3);
             this.tb_jutiyaoqiu.Name = "tb_jutiyaoqiu";
-            this.tb_jutiyaoqiu.Size = new System.Drawing.Size(220, 23);
+            this.tb_jutiyaoqiu.Size = new System.Drawing.Size(201, 23);
             this.tb_jutiyaoqiu.TabIndex = 1;
             // 
             // tableLayoutPanel8
@@ -266,17 +265,17 @@
             this.tableLayoutPanel8.Controls.Add(this.btn_gengxin, 1, 0);
             this.tableLayoutPanel8.Controls.Add(this.btn_fasong, 3, 0);
             this.tableLayoutPanel8.Controls.Add(this.btn_yanshou, 2, 0);
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 384);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 232);
             this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(332, 40);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(313, 40);
             this.tableLayoutPanel8.TabIndex = 5;
             // 
             // btn_gengxin
             // 
-            this.btn_gengxin.Location = new System.Drawing.Point(35, 3);
+            this.btn_gengxin.Location = new System.Drawing.Point(16, 3);
             this.btn_gengxin.Name = "btn_gengxin";
             this.btn_gengxin.Size = new System.Drawing.Size(94, 28);
             this.btn_gengxin.TabIndex = 0;
@@ -286,7 +285,7 @@
             // 
             // btn_fasong
             // 
-            this.btn_fasong.Location = new System.Drawing.Point(235, 3);
+            this.btn_fasong.Location = new System.Drawing.Point(216, 3);
             this.btn_fasong.Name = "btn_fasong";
             this.btn_fasong.Size = new System.Drawing.Size(94, 34);
             this.btn_fasong.TabIndex = 0;
@@ -296,7 +295,7 @@
             // 
             // btn_yanshou
             // 
-            this.btn_yanshou.Location = new System.Drawing.Point(154, 3);
+            this.btn_yanshou.Location = new System.Drawing.Point(135, 3);
             this.btn_yanshou.Name = "btn_yanshou";
             this.btn_yanshou.Size = new System.Drawing.Size(75, 34);
             this.btn_yanshou.TabIndex = 1;
@@ -315,7 +314,7 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(326, 34);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(307, 34);
             this.tableLayoutPanel9.TabIndex = 4;
             // 
             // label5
@@ -332,7 +331,7 @@
             this.tb_renwumingcheng.Enabled = false;
             this.tb_renwumingcheng.Location = new System.Drawing.Point(103, 3);
             this.tb_renwumingcheng.Name = "tb_renwumingcheng";
-            this.tb_renwumingcheng.Size = new System.Drawing.Size(220, 23);
+            this.tb_renwumingcheng.Size = new System.Drawing.Size(201, 23);
             this.tb_renwumingcheng.TabIndex = 1;
             // 
             // tableLayoutPanel10
@@ -349,7 +348,7 @@
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(332, 40);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(313, 40);
             this.tableLayoutPanel10.TabIndex = 4;
             // 
             // label6
@@ -365,14 +364,14 @@
             // 
             this.tb_zerenren.Location = new System.Drawing.Point(103, 3);
             this.tb_zerenren.Name = "tb_zerenren";
-            this.tb_zerenren.Size = new System.Drawing.Size(186, 23);
+            this.tb_zerenren.Size = new System.Drawing.Size(167, 23);
             this.tb_zerenren.TabIndex = 1;
             // 
             // pb_banli
             // 
             this.pb_banli.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_banli.Image = global::团队任务台账管理系统.Properties.Resources.addfieldlv;
-            this.pb_banli.Location = new System.Drawing.Point(295, 3);
+            this.pb_banli.Location = new System.Drawing.Point(276, 3);
             this.pb_banli.Name = "pb_banli";
             this.pb_banli.Size = new System.Drawing.Size(34, 34);
             this.pb_banli.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -394,7 +393,7 @@
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(332, 40);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(313, 40);
             this.tableLayoutPanel11.TabIndex = 4;
             // 
             // label7
@@ -410,14 +409,14 @@
             // 
             this.tb_yanshouren.Location = new System.Drawing.Point(103, 3);
             this.tb_yanshouren.Name = "tb_yanshouren";
-            this.tb_yanshouren.Size = new System.Drawing.Size(186, 23);
+            this.tb_yanshouren.Size = new System.Drawing.Size(167, 23);
             this.tb_yanshouren.TabIndex = 1;
             // 
             // pb_yanshou
             // 
             this.pb_yanshou.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_yanshou.Image = global::团队任务台账管理系统.Properties.Resources.addfieldlv;
-            this.pb_yanshou.Location = new System.Drawing.Point(295, 3);
+            this.pb_yanshou.Location = new System.Drawing.Point(276, 3);
             this.pb_yanshou.Name = "pb_yanshou";
             this.pb_yanshou.Size = new System.Drawing.Size(34, 34);
             this.pb_yanshou.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -433,17 +432,17 @@
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel12.Controls.Add(this.btn_tongguoyanshou, 3, 0);
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 424);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 272);
             this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(332, 40);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(313, 40);
             this.tableLayoutPanel12.TabIndex = 5;
             // 
             // btn_tongguoyanshou
             // 
-            this.btn_tongguoyanshou.Location = new System.Drawing.Point(235, 3);
+            this.btn_tongguoyanshou.Location = new System.Drawing.Point(216, 3);
             this.btn_tongguoyanshou.Name = "btn_tongguoyanshou";
             this.btn_tongguoyanshou.Size = new System.Drawing.Size(94, 34);
             this.btn_tongguoyanshou.TabIndex = 0;
