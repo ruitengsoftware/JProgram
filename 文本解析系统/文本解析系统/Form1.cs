@@ -41,15 +41,28 @@ namespace 文本解析系统
                 _mycontroller.GetDirectory(folder);//获得所有子文件夹
                 string jiexigeshi = mywin._ruler;
                 string wanchenghou = mywin._action;
+
                 //获得文件夹下所有的文件夹
                 for (int i = 0; i < _mycontroller._childdirectories.Count; i++)
                 {
+                    //获得文件夹下所有文件，转化成为list，去除带有~$的文件名
+                    List<string> list = Directory.GetFiles(_mycontroller._childdirectories[i]).ToList();
+                    for (int s = 0; s < list.Count; s++)
+                    {
+                        string str = list[s];
+                        if (str.Contains("~$"))
+                        {
+                            list.Remove(str);
+                        }
+
+                    }
+
                     //在待处理人物列表增加行
                     int index = dgv_task.Rows.Add();
                     var myrow = dgv_task.Rows[index];
                     myrow.Cells["xuhao"].Value = index + 1;
                     myrow.Cells["mubiaowenjianjia"].Value = _mycontroller._childdirectories[i];
-                    myrow.Cells["wendangshuliang"].Value = Directory.GetFiles(_mycontroller._childdirectories[i]).Length;
+                    myrow.Cells["wendangshuliang"].Value = list.Count;
                     myrow.Cells["jiexigeshi"].Value = jiexigeshi;
                 }
             }
@@ -338,8 +351,8 @@ namespace 文本解析系统
                     string jindu = (Convert.ToDouble(j + 1) * 100 / Convert.ToDouble(files.Count)).ToString("00.00");
                     dgv_task.Rows[i].Cells["jindu"].Value = $"{jindu}%";
                     //获得解析结果，如果成功显示处理完成，完成，重复
-                    //判断文件名是否合法，不应含有$
-                    if (files[j].Contains("$"))
+                    //判断文件名是否合法，不应含有$，且尾缀为doc或者docx
+                    if (files[j].Contains("$") || !Path.GetExtension(files[j]).Contains(".doc"))
                     {
                         continue;
                     }
@@ -577,11 +590,17 @@ namespace 文本解析系统
 
         private void lbl_xinjianguize_Click(object sender, EventArgs e)
         {
+            //获得cbb 解析格式的index 
+            string f = cbb_jiexigeshi.Text;
+
             JJWinForm.WinFormGuize mywin = new JJWinForm.WinFormGuize();
             mywin.StartPosition = FormStartPosition.CenterParent;
             if (mywin.ShowDialog() == DialogResult.OK)
             {
                 _mycontroller.UpdateDGV(dgv_jiexiguize);
+                cbb_jiexigeshi.Text = string.Empty;
+                cbb_jiexigeshi.Text = f;
+
             }
         }
 
@@ -596,9 +615,6 @@ namespace 文本解析系统
                 cbb_zhengwen.Enabled = false;
                 cbb_biaozhunduan.Enabled = false;
                 cbb_biaozhunju.Enabled = false;
-
-
-
             }
             else
             {

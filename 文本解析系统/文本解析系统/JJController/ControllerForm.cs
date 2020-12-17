@@ -296,6 +296,7 @@ namespace 文本解析系统.JJController
         {
             return await Task.Run(() =>
             {
+                
                 //构造aspose.words.document 
                 Aspose.Words.Document myword = new Aspose.Words.Document(filename);
                 //获得他要用到的格式
@@ -691,7 +692,7 @@ namespace 文本解析系统.JJController
                         mywbk0.Save($@"{myfi._excelpath}\{Path.GetFileNameWithoutExtension(filename)}.xlsx");
                         return "正文重复";
                     }
-                    else//不重复
+                    else//正文不重复
                     {
                         //判断是否写入新MD5值，如果是，写入
                         if (myfi._chachongmd5)
@@ -702,9 +703,21 @@ namespace 文本解析系统.JJController
 
                         //开始解析,先解析基础规则，然后根据复制文本范围向sheet赋值
                         //赋值基础规则
-                        //生成excel表格
+                        //生成excel表，赋值字段名称
                         Aspose.Cells.Workbook mywbk1 = new Aspose.Cells.Workbook();
                         Aspose.Cells.Worksheet mysht1 = mywbk1.Worksheets[0];
+                        mysht1.Cells[0, 0].Value = "名称";
+                        mysht1.Cells[0, 1].Value = "文本";
+                        mysht1.Cells[0, 2].Value = "MD5值";
+                        mysht1.Cells[0, 3].Value = "热度";
+                        mysht1.Cells[0, 4].Value = "字数";
+                        mysht1.Cells[0, 5].Value = "位置类关联信息";
+                        mysht1.Cells[0, 6].Value = "位置类关联信息MD5";
+                        mysht1.Cells[0, 7].Value = "内容类关联信息";
+                        mysht1.Cells[0, 8].Value = "内容类关联信息MD5";
+                        mysht1.Cells[0, 9].Value = "关联标准段";
+                        mysht1.Cells[0, 10].Value = "关联标准段MD5";
+
                         //开始赋值信息
                         for (int i = 0; i < myfi.list_jiexiguize.Count; i++)
                         {
@@ -716,18 +729,6 @@ namespace 文本解析系统.JJController
                                 //使用一个方法获得word文档的的所有基础解系对象集合
                                 mywordinfo.GetAllWenben();
                                 mywordinfo.AnalysisInfo();
-                                //赋值字段名称
-                                mysht1.Cells[0, 0].Value = "名称";
-                                mysht1.Cells[0, 1].Value = "文本";
-                                mysht1.Cells[0, 2].Value = "MD5值";
-                                mysht1.Cells[0, 3].Value = "热度";
-                                mysht1.Cells[0, 4].Value = "字数";
-                                mysht1.Cells[0, 5].Value = "位置类关联信息";
-                                mysht1.Cells[0, 6].Value = "位置类关联信息MD5";
-                                mysht1.Cells[0, 7].Value = "内容类关联信息";
-                                mysht1.Cells[0, 8].Value = "内容类关联信息MD5";
-                                mysht1.Cells[0, 9].Value = "关联标准段";
-                                mysht1.Cells[0, 10].Value = "关联标准段MD5";
                                 //循环所有的baseinfo对象到excel表中去
                                 //在添入excel之前，判断是否出现过文本相同的记录，如果出现了就跳过，如果没出现，就添加这一行并且记录文本
                                 List<string> list_r = new List<string>();
@@ -768,7 +769,7 @@ namespace 文本解析系统.JJController
                                     catch { }
                                 }
                             }
-                            else//赋值其他信息
+                            else//赋值自定义规则解析结果
                             {
                                 //获得规则信息 ruleinfo
                                 RuleInfo myri = GetRuleInfo(myfi.list_jiexiguize[i]);
@@ -886,8 +887,6 @@ namespace 文本解析系统.JJController
 
                                     #endregion
                                     ///在解析结果表中添加相应的赋值类型和赋值结果
-                                    //开始生成基础解析格式之外的部分
-
                                     //判断是横名称或者列名称
                                     if (myrd._liemingcheng)//列名称
                                     {
@@ -914,7 +913,7 @@ namespace 文本解析系统.JJController
                                         }
 
                                     }
-                                    else
+                                    else//横名称
                                     {
                                         //获得最后一行索引
                                         int lastrow = mysht1.Cells.LastCell.Row;
@@ -1934,7 +1933,8 @@ namespace 文本解析系统.JJController
                             }
                         }
                     }
-                    result.Add(list_paras[shunshu]);
+                    int z = shunshu + 1;
+                    result.Add(list_paras[z]);
                 }
                 else if (duixiang.Equals("倒数标准段"))
                 {
@@ -1950,7 +1950,10 @@ namespace 文本解析系统.JJController
                             }
                         }
                     }
-                    result.Add(list_paras[daoshu]);
+                    //把倒数转换成正数
+                    int d = list_paras.Count - daoshu + 1;
+
+                    result.Add(list_paras[d]);
                 }
 
 
