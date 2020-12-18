@@ -997,7 +997,7 @@ namespace 文本解析系统.JJController
                 }
                 else if (duixiang.Equals("文件名"))//获得文件名
                 {
-                    result.Add(Path.GetFileNameWithoutExtension(myword.OriginalFileName));
+                    result.Add(Path.GetFileName(myword.OriginalFileName));
 
                 }
                 else if (duixiang.Equals("主标题"))//获得主标题

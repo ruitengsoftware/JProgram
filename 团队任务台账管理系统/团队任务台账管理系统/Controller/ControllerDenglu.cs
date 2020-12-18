@@ -28,7 +28,7 @@ namespace 团队任务台账管理系统.Controller
         /// <returns></returns>
         public void GetLoginInfo(string huaming)
         {
-            string str_sql = $"select * from jjperson where 花名='{huaming}'";
+            string str_sql = $"select * from jjdbrenwutaizhang.jjperson where 花名='{huaming}'";
 
             var mydr = mysqlhelper.ExecuteDataRow(str_sql);
             JJLoginInfo._huaming = mydr["花名"].ToString();
@@ -48,7 +48,7 @@ namespace 团队任务台账管理系统.Controller
         //判断是否存在用户名和密码
         public bool Login(string uid, string pwd)
         {
-            string str_sql = $"select count(*) from jjperson where 花名='{uid}' and 密码='{pwd}'";
+            string str_sql = $"select count(*) from jjdbrenwutaizhang.jjperson where 花名='{uid}' and 密码='{pwd}'";
             int num = Convert.ToInt32(mysqlhelper.ExecuteScalar(str_sql, null));
             return num > 0 ? true : false;
         }

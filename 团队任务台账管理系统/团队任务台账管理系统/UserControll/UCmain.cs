@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using 团队任务台账管理系统.JJModel;
 using 团队任务台账管理系统.Controller;
 using 团队任务台账管理系统.WinForm;
+using System.Data.SqlClient;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -119,7 +120,7 @@ namespace 团队任务台账管理系统.UserControll
                 myuc._msgtype = "工作清单";
                 panel_gongzuoqingdan.Controls.Add(myuc);
             }
-            
+
 
 
 
@@ -196,8 +197,53 @@ namespace 团队任务台账管理系统.UserControll
                 myuc._msgtype = "通知公告";
                 panel_tongzhi.Controls.Add(myuc);
             }
+            //启动数据库的监听
+        SqlDependency.Start(str_con);
+
+            // SqlDependency.Stop(str_con);
+
+           
+            // sd.OnChange += new OnChangeEventHandler(dependency_OnChange);
+        }
+        string str_con = System.Configuration.ConfigurationManager.ConnectionStrings["connstr"].ToString();
+
+        SqlDependency dependency = new SqlDependency();
 
 
+        private void Update(string conn)
+        {
+            using (SqlConnection connection = new SqlConnection(conn))
+            {
+                //此处 要注意 不能使用*  表名要加[dbo]  否则会出现一直调用执行 OnChange
+                string sql = "select 删除 from jjdbrenwuqingdan.jjgongzuoqingdan";
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    connection.Open();
+                    command.CommandType = CommandType.Text;
+                    dependency = new SqlDependency(command);
+                    dependency.OnChange += new OnChangeEventHandler(dependency_OnChange);
+                    //必须要执行一下command
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("enenanananan啊啊啊");
+                }
+            }
+        }
+
+
+
+
+        /// <summary>
+        /// 数据发生变化时出发的时间
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void dependency_OnChange(object sender, SqlNotificationEventArgs e)
+        {
+            if (e.Type == SqlNotificationType.Change) //只有数据发生变化时,才重新获取并数据
+            {
+                MessageBox.Show("数据发生了变化");
+            }
         }
 
         private void lbl_name_Click(object sender, EventArgs e)
@@ -403,7 +449,7 @@ namespace 团队任务台账管理系统.UserControll
         private void pb_search_Click(object sender, EventArgs e)
         {
             string keyword = tb_kw.Text;
-           DataTable mydt = _mycontroller.GetDaibanRenwu(keyword);
+            DataTable mydt = _mycontroller.GetDaibanRenwu(keyword);
             dgv_daiban.DataSource = null;
             dgv_daiban.DataSource = mydt;
 

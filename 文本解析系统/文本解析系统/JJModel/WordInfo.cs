@@ -1483,7 +1483,7 @@ namespace 文本解析系统.JJModel
         /// </summary>
         public void GetWenjianming()
         {
-            _wenjianming = Path.GetFileNameWithoutExtension(_myword.OriginalFileName);
+            _wenjianming = Path.GetFileName(_myword.OriginalFileName);
 
         }
         /// <summary>

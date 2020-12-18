@@ -16,7 +16,7 @@ namespace 团队任务台账管理系统.Controller
 
         public bool UpdateGerenqianming(string qianming)
         {
-            string sql_sql = $"update jjperson set 个人签名='{qianming}' where 花名='{JJLoginInfo._huaming}'";
+            string sql_sql = $"update jjdbrenwutaizhang.jjperson set 个人签名='{qianming}' where 花名='{JJLoginInfo._huaming}'";
             int num = _mysqlhelper.ExecuteNonQuery(sql_sql);
             return num > 0 ? true : false;
 
@@ -29,8 +29,8 @@ namespace 团队任务台账管理系统.Controller
         public DataTable GetGongzuoqingdan(string xiangxian)
         {
             DataTable mydt = new DataTable();
-            string str_sql = $"select * from jjgongzuoqingdan where 创建人='{JJLoginInfo._shiming}' and 删除=0 and 象限='{xiangxian}' order by 完成时间";
-            str_sql = $"select * from jjgongzuoqingdan where  删除=0 and 象限='{xiangxian}' order by 完成时间";
+            string str_sql = $"select * from jjdbrenwutaizhang.jjgongzuoqingdan where 创建人='{JJLoginInfo._shiming}' and 删除=0 and 象限='{xiangxian}' order by 完成时间";
+            str_sql = $"select * from jjdbrenwutaizhang.jjgongzuoqingdan where  删除=0 and 象限='{xiangxian}' order by 完成时间";
             mydt = _mysqlhelper.ExecuteDataTable(str_sql, null);
             return mydt;
         }
@@ -40,7 +40,7 @@ namespace 团队任务台账管理系统.Controller
         /// <returns></returns>
         public DataTable GetDaibanRenwu(string s)
         {
-            string str_sql = $"select * from 常规事项表 where 任务名称 like '%{s}%' and 删除=0";
+            string str_sql = $"select * from jjdbrenwutaizhang.常规事项表 where 任务名称 like '%{s}%' and 删除=0";
             
             var data = _mysqlhelper.ExecuteDataTable(str_sql, null);
             return data;
@@ -51,7 +51,7 @@ namespace 团队任务台账管理系统.Controller
         /// <returns></returns>
         public DataTable GetTongzhi()
         {
-            string str_sql = $"select * from 通知公告表 where 删除=0";
+            string str_sql = $"select * from jjdbrenwutaizhang.通知公告表 where 删除=0";
 
             var data = _mysqlhelper.ExecuteDataTable(str_sql, null);
             return data;
