@@ -108,6 +108,7 @@
     <Compile Include="Controller\ControllerOkrshixiang.cs" />
     <Compile Include="Controller\ControllerRenwuxiangqing.cs" />
     <Compile Include="Controller\ControllerUCmsg.cs" />
+    <Compile Include="Controller\ControllerUCmytask.cs" />
     <Compile Include="Controller\ControllerUCtongxulu.cs" />
     <Compile Include="Controller\ControllerUCmain.cs" />
     <Compile Include="Controller\ControllerTuandui.cs" />
@@ -185,6 +186,12 @@
     <Compile Include="UserControll\UCMessage.Designer.cs">
       <DependentUpon>UCMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControll\UCMytask.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCMytask.Designer.cs">
+      <DependentUpon>UCMytask.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControll\UCrizhi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -196,6 +203,12 @@
     </Compile>
     <Compile Include="UserControll\UCshouquan.Designer.cs">
       <DependentUpon>UCshouquan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\UCTaskmsg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCTaskmsg.Designer.cs">
+      <DependentUpon>UCTaskmsg.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControll\UCtongxunlu.cs">
       <SubType>UserControl</SubType>
@@ -351,11 +364,17 @@
     <EmbeddedResource Include="UserControll\UCMessage.resx">
       <DependentUpon>UCMessage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCMytask.resx">
+      <DependentUpon>UCMytask.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCrizhi.resx">
       <DependentUpon>UCrizhi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCshouquan.resx">
       <DependentUpon>UCshouquan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCTaskmsg.resx">
+      <DependentUpon>UCTaskmsg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCtongxunlu.resx">
       <DependentUpon>UCtongxunlu.cs</DependentUpon>
@@ -490,6 +509,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\searchenter %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\历史2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\历史1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
