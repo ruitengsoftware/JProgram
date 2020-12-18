@@ -23,7 +23,15 @@ namespace 团队任务台账管理系统.UserControll
         {
             InitializeComponent();
         }
-
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
         private void btn_daiban_Click(object sender, EventArgs e)
         {
             var parent = this.Parent;
@@ -198,7 +206,7 @@ namespace 团队任务台账管理系统.UserControll
                 panel_tongzhi.Controls.Add(myuc);
             }
             //启动数据库的监听
-        SqlDependency.Start(str_con);
+       // SqlDependency.Start(str_con);
 
             // SqlDependency.Stop(str_con);
 

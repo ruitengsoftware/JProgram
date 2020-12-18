@@ -276,5 +276,12 @@ namespace 团队任务台账管理系统
             panel_my.Controls.Clear();
             panel_my.Controls.Add(new UCtongxunlu() {Dock=DockStyle.Fill });
         }
+
+        private void lbl_woderenwu_Click(object sender, EventArgs e)
+        {
+            UCMytask myuc = new UCMytask();
+            panel_my.Controls.Clear();
+            panel_my.Controls.Add(new UCMytask() { Dock = DockStyle.Fill });
+        }
     }
 }

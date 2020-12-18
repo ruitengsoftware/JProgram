@@ -23,12 +23,14 @@ namespace 团队任务台账管理系统.Controller
 
         public bool AddTask(JJchangguiInfo ci)
         {
+            //将常规事项的内容同时插入到常规事项表和    任务信息汇总表中
+            string str_sql = $"insert into jjdbrenwutaizhang.任务信息表 values('{ci._renwumingcheng}','常规事项')";
+            mysqlhelper.ExecuteNonQuery(str_sql);
             //判断该任务名是否存在，如果存在，使用update语句，否则
 
 
-
-            string str_sql = $"insert into 常规事项表 values('{ci._renwumingcheng}','{ci._jinjichengdu}','{ci._jutiyaoqiu}'," +
-                $"'{ci._zerenren}','{ci._yanshouren}','{ci._shixian}','{ci._jinzhanqingkuang}','进行中','','',0,'{DateTime.Now.ToString()}',0)";
+            str_sql = $"insert into 常规事项表 values('{ci._renwumingcheng}','{ci._jinjichengdu}','{ci._jutiyaoqiu}'," +
+                            $"'{ci._zerenren}','{ci._yanshouren}','{ci._shixian}','{ci._jinzhanqingkuang}','进行中','','',0,'{DateTime.Now.ToString()}',0)";
             int num = mysqlhelper.ExecuteNonQuery(str_sql, null);
             return num > 0 ? true : false;
 

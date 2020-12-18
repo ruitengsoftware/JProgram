@@ -26,6 +26,7 @@ namespace 团队任务台账管理系统.Controller
             {
                 myti = new JJTaskInfo() { 
                 _renwumingcheng=mydr["名称"].ToString(),
+                    _leixing=mydr["类型"].ToString()
                 };
                 list.Add(myti);
 

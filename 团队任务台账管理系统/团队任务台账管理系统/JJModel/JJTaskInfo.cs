@@ -39,8 +39,10 @@ namespace 团队任务台账管理系统.JJModel
         /// 进展情况
         /// </summary>
         public string _jinzhanqingkuang = string.Empty;
-
-
+        /// <summary>
+        /// 任务类型
+        /// </summary>
+        public string _leixing = string.Empty;
 
 
     }
