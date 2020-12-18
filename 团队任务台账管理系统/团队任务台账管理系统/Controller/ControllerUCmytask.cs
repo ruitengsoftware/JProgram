@@ -11,6 +11,11 @@ namespace 团队任务台账管理系统.Controller
    public class ControllerUCmytask
     {
         MySQLHelper mysql = new MySQLHelper();
+        /// <summary>
+        /// 获得需要的任务信息
+        /// </summary>
+        /// <param name="s">sql语句</param>
+        /// <returns></returns>
         public List<JJTaskInfo> GetTaskinfo(string s)
         {
             List<JJTaskInfo> list = new List<JJTaskInfo>();
@@ -21,14 +26,11 @@ namespace 团队任务台账管理系统.Controller
             {
                 myti = new JJTaskInfo() { 
                 _renwumingcheng=mydr["名称"].ToString(),
-                
-                
-                
                 };
-
+                list.Add(myti);
 
             }
-        
+            return list;
         
         
         }
