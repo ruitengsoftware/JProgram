@@ -36,7 +36,7 @@ namespace 团队任务台账管理系统.Controller
         /// <returns></returns>
         public bool UpdateTask(JJchangguiInfo ci)
         {
-            string str_sql = $"update 常规事项表 set 具体要求='{ci._jutiyaoqiu}',进展情况='{ci._jinzhanqingkuang}',责任人='{ci._zerenren}',验收人='{ci._yanshouren}' where 任务名称='{ci._renwumingcheng}'";
+            string str_sql = $"update 常规事项表 set 具体要求='{ci._xiangqing}',进展情况='{ci._jinzhanqingkuang}',责任人='{ci._fuzeren}',验收人='{ci._canjiaren}' where 任务名称='{ci._renwumingcheng}'";
             int num = mysqlhelper.ExecuteNonQuery(str_sql, null);
             return num > 0 ? true : false;
         }

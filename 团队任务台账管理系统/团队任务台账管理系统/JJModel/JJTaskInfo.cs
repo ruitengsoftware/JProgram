@@ -12,38 +12,53 @@ namespace 团队任务台账管理系统.JJModel
     public class JJTaskInfo
     {
         /// <summary>
-        /// 任务名称
+        /// 名称
         /// </summary>
-        public string _renwumingcheng = string.Empty;
+        public string _mingcheng = string.Empty;
         /// <summary>
         /// 紧急程度
         /// </summary>
         public string _jinjichengdu = string.Empty;
         /// <summary>
-        /// 具体要求
+        /// 详情
         /// </summary>
-        public string _jutiyaoqiu = string.Empty;
+        public string _xiangqing = string.Empty;
         /// <summary>
-        /// 责任人
+        /// 负责人
         /// </summary>
-        public string _zerenren= string.Empty;
+        public string _fuzeren= string.Empty;
         /// <summary>
-        /// 验收人
+        /// 参与人
         /// </summary>
-        public string _yanshouren = string.Empty;
+        public string _canyuren = string.Empty;
         /// <summary>
         /// 时限
         /// </summary>
         public string _shixian = string.Empty;
         /// <summary>
-        /// 进展情况
+        /// 状态
         /// </summary>
-        public string _jinzhanqingkuang = string.Empty;
+        public string _zhuangtai = string.Empty;
         /// <summary>
-        /// 任务类型
+        /// 类型
         /// </summary>
         public string _leixing = string.Empty;
-
+        /// <summary>
+        /// 创建人
+        /// </summary>
+        public string _chuangjianren = string.Empty;
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public string _chuangjianshijian = string.Empty;
+        /// <summary>
+        /// 读取时间
+        /// </summary>
+        public string _duqushijian = string.Empty;
+        /// <summary>
+        /// 删除
+        /// </summary>
+        public int _shanchu = 0;
 
     }
 }

@@ -25,8 +25,20 @@ namespace 团队任务台账管理系统.Controller
             foreach (DataRow mydr in mydt.Rows)
             {
                 myti = new JJTaskInfo() { 
-                _renwumingcheng=mydr["名称"].ToString(),
-                    _leixing=mydr["类型"].ToString()
+                _mingcheng=mydr["名称"].ToString(),
+                    _leixing=mydr["类型"].ToString(),
+                    _canyuren=mydr["参与人"].ToString(),
+                    _fuzeren=mydr["负责人"].ToString(),
+                    _zhuangtai=mydr["状态"].ToString(),
+                    _xiangqing=mydr["详情"].ToString(),
+                    _chuangjianren = mydr["创建人"].ToString(),
+                    _chuangjianshijian = mydr["创建时间"].ToString(),
+                    _duqushijian = mydr["读取时间"].ToString(),
+                    _shixian = mydr["时限"].ToString(),
+                    _jinjichengdu = mydr["紧急程度"].ToString(),
+                    _shanchu =Convert.ToInt32( mydr["删除"].ToString())
+
+
                 };
                 list.Add(myti);
 

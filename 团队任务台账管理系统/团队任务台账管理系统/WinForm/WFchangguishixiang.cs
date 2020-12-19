@@ -37,11 +37,11 @@ namespace 团队任务台账管理系统.WinForm
             {
                 rb_jinji.Checked = true;
             }
-            tb_jutiyaoqiu.Text = myinfo._jutiyaoqiu;
-            tb_zerenren.Text = myinfo._zerenren;
-            tb_yanshouren.Text = myinfo._yanshouren;
-            dtp_shixian.Value = Convert.ToDateTime(myinfo._shixian);
-            tb_jinzhan.Text = myinfo._jinzhanqingkuang;
+            //tb_xiangqing.Text = myinfo._jutiyaoqiu;
+            //tb_zerenren.Text = myinfo._zerenren;
+            //tb_canjiaren.Text = myinfo._yanshouren;
+            //dtp_shixian.Value = Convert.ToDateTime(myinfo._shixian);
+            //tb_jinzhan.Text = myinfo._jinzhanqingkuang;
 
 
         }
@@ -65,9 +65,8 @@ namespace 团队任务台账管理系统.WinForm
         {
             //判断信息是否为空
             bool b1 = tb_renwumingcheng.Text.Trim().Equals(string.Empty);
-            bool b2 = tb_jutiyaoqiu.Text.Trim().Equals(string.Empty);
-            bool b3 = tb_jinzhan.Text.Trim().Equals(string.Empty);
-            
+            bool b2 = tb_xiangqing.Text.Trim().Equals(string.Empty);
+
             if (b1)
             {
                 MessageBox.Show("任务名称未填写！");
@@ -76,11 +75,6 @@ namespace 团队任务台账管理系统.WinForm
             if (b2)
             {
                 MessageBox.Show("具体要求未填写！");
-                return;
-            }
-            if (b3)
-            {
-                MessageBox.Show("进展未填写！");
                 return;
             }
 
@@ -100,17 +94,25 @@ namespace 团队任务台账管理系统.WinForm
                 jinjichengdu = "普通";
             }
 
-            JJchangguiInfo ci = new JJchangguiInfo() {
-                _renwumingcheng = tb_renwumingcheng.Text,
-                _jinjichengdu = jinjichengdu,
-                _jutiyaoqiu=tb_jutiyaoqiu.Text,
-                _zerenren=tb_zerenren.Text,
-                _yanshouren=tb_yanshouren.Text,
-                _shixian=dtp_shixian.Value.ToString(),
-                _jinzhanqingkuang=tb_jinzhan.Text,
+            JJTaskInfo myt = new JJTaskInfo()
+            {
+                _mingcheng = tb_renwumingcheng.Text,
+                _leixing = "常规事项",
+                _fuzeren = tb_zerenren.Text,
+                _canyuren = tb_canjiaren.Text,
+                _zhuangtai = "未读",
+                _xiangqing = tb_xiangqing.Text,
+                _chuangjianren = JJLoginInfo._huaming,
+                _chuangjianshijian = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),
+                _duqushijian = "",
+                _shixian = Convert.ToDateTime(dtp_shixian.Value).ToString("yyyy-MM-dd hh:mm:ss"),
+                _jinjichengdu=jinjichengdu
             };
+
+
+
             //添加任务
-            bool b=mycontroller.AddTask(ci);
+            bool b = mycontroller.AddTask(myt);
             if (b) MessageBox.Show("添加任务成功！");
             this.DialogResult = DialogResult.OK;
 

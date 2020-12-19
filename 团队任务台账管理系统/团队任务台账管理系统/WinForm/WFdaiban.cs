@@ -29,10 +29,10 @@ namespace 团队任务台账管理系统.WinForm
             InitializeComponent();
             //获得任务详细信息,赋值到界面中
             tb_renwumingcheng.Text = ci._renwumingcheng;
-            tb_jutiyaoqiu.Text = ci._jutiyaoqiu;
-            tb_jinzhan.Text = ci._jinzhanqingkuang;
-            tb_zerenren.Text = ci._zerenren;
-            tb_yanshouren.Text = ci._yanshouren;
+            //tb_jutiyaoqiu.Text = ci._jutiyaoqiu;
+            //tb_jinzhan.Text = ci._jinzhanqingkuang;
+            //tb_zerenren.Text = ci._zerenren;
+            //tb_yanshouren.Text = ci._yanshouren;
 
 
         }
@@ -55,10 +55,10 @@ namespace 团队任务台账管理系统.WinForm
             JJchangguiInfo ci = new JJchangguiInfo()
             {
                 _renwumingcheng = tb_renwumingcheng.Text,
-                _jutiyaoqiu = tb_jutiyaoqiu.Text,
-                _jinzhanqingkuang = tb_jinzhan.Text,
-                _zerenren = tb_zerenren.Text,
-                _yanshouren = tb_yanshouren.Text
+                //_jutiyaoqiu = tb_jutiyaoqiu.Text,
+                //_jinzhanqingkuang = tb_jinzhan.Text,
+                //_zerenren = tb_zerenren.Text,
+                //_yanshouren = tb_yanshouren.Text
             };
 
 

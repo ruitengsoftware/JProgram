@@ -17,23 +17,16 @@ namespace 团队任务台账管理系统.Controller
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public JJchangguiInfo GetChangguiInfo(string s)
+        public JJTaskInfo GetChangguiInfo(string s)
         {
             string str_sql = $"select * from jjdbrenwutaizhang.常规事项表 where 任务名称='{s}' and 删除=0";
             DataRow mydr = _sql.ExecuteDataRow(str_sql);
-            JJchangguiInfo ci = new JJchangguiInfo()
-            {
-                _renwumingcheng =mydr["任务名称"].ToString(),
-                _jinjichengdu = mydr["紧急程度"].ToString(),
-                _jutiyaoqiu = mydr["具体要求"].ToString(),
-                _zerenren = mydr["责任人"].ToString(),
-                _yanshouren = mydr["验收人"].ToString(),
-                _shixian = mydr["时限"].ToString(),
-                _jinzhanqingkuang = mydr["进展情况"].ToString(),
-
-
+            JJTaskInfo myti = new JJTaskInfo() { 
+            
+            
+            
             };
-            return ci;
+            return myti;
 
 
         }

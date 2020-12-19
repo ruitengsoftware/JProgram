@@ -109,6 +109,7 @@
     <Compile Include="Controller\ControllerRenwuxiangqing.cs" />
     <Compile Include="Controller\ControllerUCmsg.cs" />
     <Compile Include="Controller\ControllerUCmytask.cs" />
+    <Compile Include="Controller\ControllerUCtaskinfo.cs" />
     <Compile Include="Controller\ControllerUCtongxulu.cs" />
     <Compile Include="Controller\ControllerUCmain.cs" />
     <Compile Include="Controller\ControllerTuandui.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="JJModel\JJyijianInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControll\ControllerUCmessage.cs" />
     <Compile Include="UserControll\UCdaiban.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -203,6 +205,12 @@
     </Compile>
     <Compile Include="UserControll\UCshouquan.Designer.cs">
       <DependentUpon>UCshouquan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\UCTaskInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCTaskInfo.Designer.cs">
+      <DependentUpon>UCTaskInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControll\UCTaskmsg.cs">
       <SubType>UserControl</SubType>
@@ -373,6 +381,9 @@
     <EmbeddedResource Include="UserControll\UCshouquan.resx">
       <DependentUpon>UCshouquan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCTaskInfo.resx">
+      <DependentUpon>UCTaskInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCTaskmsg.resx">
       <DependentUpon>UCTaskmsg.cs</DependentUpon>
     </EmbeddedResource>
@@ -515,6 +526,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\历史1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xiaoxi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\greenpoint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redpoint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

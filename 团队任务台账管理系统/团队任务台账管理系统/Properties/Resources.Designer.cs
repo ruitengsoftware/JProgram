@@ -63,6 +63,16 @@ namespace 团队任务台账管理系统.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap add {
+            get {
+                object obj = ResourceManager.GetObject("add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap addfieldlv {
             get {
                 object obj = ResourceManager.GetObject("addfieldlv", resourceCulture);
@@ -76,6 +86,16 @@ namespace 团队任务台账管理系统.Properties {
         internal static System.Drawing.Bitmap backgroud1 {
             get {
                 object obj = ResourceManager.GetObject("backgroud1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap delete1 {
+            get {
+                object obj = ResourceManager.GetObject("delete1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,6 +153,16 @@ namespace 团队任务台账管理系统.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap greenpoint {
+            get {
+                object obj = ResourceManager.GetObject("greenpoint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap home {
             get {
                 object obj = ResourceManager.GetObject("home", resourceCulture);
@@ -146,6 +176,16 @@ namespace 团队任务台账管理系统.Properties {
         internal static System.Drawing.Bitmap paizhao {
             get {
                 object obj = ResourceManager.GetObject("paizhao", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap redpoint {
+            get {
+                object obj = ResourceManager.GetObject("redpoint", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,6 +236,16 @@ namespace 团队任务台账管理系统.Properties {
         internal static System.Drawing.Bitmap upload2 {
             get {
                 object obj = ResourceManager.GetObject("upload2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap xiaoxi {
+            get {
+                object obj = ResourceManager.GetObject("xiaoxi", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

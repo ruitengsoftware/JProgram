@@ -119,10 +119,10 @@ namespace 团队任务台账管理系统.UserControll
             JJchangguiInfo ci = new JJchangguiInfo()
             {
                 _renwumingcheng = tb_renwumingcheng.Text,
-                _jutiyaoqiu = tb_jutiyaoqiu.Text,
-                _jinzhanqingkuang = tb_jinzhan.Text,
-                _zerenren = tb_zerenren.Text,
-                _yanshouren = tb_yanshouren.Text
+                //_jutiyaoqiu = tb_jutiyaoqiu.Text,
+                //_jinzhanqingkuang = tb_jinzhan.Text,
+                //_zerenren = tb_zerenren.Text,
+                //_yanshouren = tb_yanshouren.Text
             };
             bool b = mycontroller.UpdateTask(ci);
             //刷新数据

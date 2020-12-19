@@ -64,8 +64,8 @@ namespace 团队任务台账管理系统.UserControll
             if (this._msgtype.Equals("待办任务"))
 
             {
-                JJchangguiInfo ci = _myc.GetChangguiInfo(label2.Text);
-                WFchangguishixiang mywin = new WFchangguishixiang(ci);
+                JJTaskInfo ci = _myc.GetChangguiInfo(label2.Text);
+                WFchangguishixiang mywin = new WFchangguishixiang();
                 if (mywin.ShowDialog()==DialogResult.OK)
                 {
                     //刷新数据

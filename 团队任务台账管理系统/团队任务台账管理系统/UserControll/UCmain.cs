@@ -333,9 +333,9 @@ namespace 团队任务台账管理系统.UserControll
             {
                 _renwumingcheng = mydr.Cells["任务名称"].Value.ToString(),
                 _jinjichengdu = mydr.Cells["紧急程度"].Value.ToString(),
-                _jutiyaoqiu = mydr.Cells["具体要求"].Value.ToString(),
-                _zerenren = mydr.Cells["责任人"].Value.ToString(),
-                _yanshouren = mydr.Cells["验收人"].Value.ToString(),
+                //_jutiyaoqiu = mydr.Cells["具体要求"].Value.ToString(),
+                //_zerenren = mydr.Cells["责任人"].Value.ToString(),
+                //_yanshouren = mydr.Cells["验收人"].Value.ToString(),
                 _shixian = mydr.Cells["时限"].Value.ToString(),
                 _jinzhanqingkuang = mydr.Cells["进展情况"].Value.ToString()
             };

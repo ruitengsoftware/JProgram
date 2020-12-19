@@ -17,17 +17,17 @@ namespace 团队任务台账管理系统.JJModel
         /// </summary>
         public string _jinjichengdu = string.Empty;
         /// <summary>
-        /// 具体要求
+        /// 详情
         /// </summary>
-        public string _jutiyaoqiu = string.Empty;
+        public string _xiangqing = string.Empty;
         /// <summary>
-        /// 责任人
+        /// 负责人
         /// </summary>
-        public string _zerenren = string.Empty;
+        public string _fuzeren = string.Empty;
         /// <summary>
         /// 验收人
         /// </summary>
-        public string _yanshouren = string.Empty;
+        public string _canjiaren = string.Empty;
         /// <summary>
         /// 时限
         /// </summary>
@@ -45,9 +45,9 @@ namespace 团队任务台账管理系统.JJModel
         /// </summary>
         public string _dakaishijian = string.Empty;
         /// <summary>
-        /// 完成时间
+        /// 读取时间
         /// </summary>
-        public string _wanchengshijian = string.Empty;
+        public string _duqushijian = string.Empty;
         /// <summary>
         /// 已读
         /// </summary>
@@ -56,8 +56,10 @@ namespace 团队任务台账管理系统.JJModel
         /// 创建时间
         /// </summary>
         public string _chuangjianshijian = string.Empty;
-
-
+        /// <summary>
+        /// 创建人
+        /// </summary>
+        public string _chuangjiaren = string.Empty;
 
     }
 }
