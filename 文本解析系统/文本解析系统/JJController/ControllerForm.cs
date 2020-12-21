@@ -458,6 +458,7 @@ namespace 文本解析系统.JJController
                                 {
                                     myrd.fuzhijieguo.Add(myrd._zidingyivalue);
                                 }
+
                                 #region 旧的匹配方法，循环对自然段进行匹配
                                 //foreach (Paragraph para in pipeiduixiang)
                                 //{
@@ -497,53 +498,218 @@ namespace 文本解析系统.JJController
 
                                 #endregion
                                 ///在解析结果表中添加相应的赋值类型和赋值结果
-                                //开始生成基础解析格式之外的部分
+                                //开始生成基础解析格式之外的部分，这里注意如果是选中了提取区间所有内容，就要解析出5个结果
+                                string[] sarr = Regex.Split(filename, "-");
 
-                                //判断是横名称或者列名称
+                                //判断是横名称或者列名称,
                                 if (myrd._liemingcheng)//列名称
                                 {
-                                    //获得最后一列索引,添加赋值类型
-                                    int lastcol = mysht1.Cells.LastCell.Column;
-                                    mysht1.Cells[0, lastcol + 1].Value = myrd.fuzhileixing;
-                                    //判断赋值覆盖范围
-                                    //获得最后一行索引
-                                    int lastrow = mysht1.Cells.LastCell.Row;
-                                    for (int r = 1; r < lastrow + 2; r++)
+                                    if (myrd.fuzhi.Contains("提取区间内所有内容"))
                                     {
-
-                                        //如果对象名称存在于赋值范围，那么赋值到复制类型列
-                                        //如果赋值范围包括全部对象，那么所有的行都要赋值
-                                        if (myrd.fuzhifanwei.Contains("全部对象"))
+                                        //案件类型
+                                        //获得最后一列索引,添加赋值类型
+                                        int lastcol = mysht1.Cells.EndCellInRow(0).Column;
+                                        mysht1.Cells[0, lastcol + 1].Value = "案件类型";
+                                        //判断赋值覆盖范围
+                                        //获得最后一行索引
+                                        int lastrow = mysht1.Cells.EndCellInColumn(0).Row;
+                                        for (int r = 1; r < lastrow + 1; r++)
                                         {
-                                            mysht1.Cells[r, lastcol + 1].Value = string.Join("|", myrd.fuzhijieguo);
-                                        }
-                                        else
-                                        {
-                                            string mingcheng = mysht1.Cells[r, 0].StringValue;
 
-                                            //循环所有的赋值覆盖范围，如果名称包括了范围，那么赋值
-                                            foreach (string mystr in myrd.fuzhifanwei)
+                                            //如果对象名称存在于赋值范围，那么赋值到复制类型列
+                                            //如果赋值范围包括全部对象，那么所有的行都要赋值
+                                            if (myrd.fuzhifanwei.Contains("全部对象"))
                                             {
-                                                if (mingcheng.Contains(mystr))
-                                                {
-                                                    mysht1.Cells[r, lastcol + 1].Value = string.Join("|", myrd.fuzhijieguo);
+                                                mysht1.Cells[r, lastcol + 1].Value = sarr[1];
+                                            }
+                                            else
+                                            {
+                                                string mingcheng = mysht1.Cells[r, 0].StringValue;
 
+                                                //循环所有的赋值覆盖范围，如果名称包括了范围，那么赋值
+                                                foreach (string mystr in myrd.fuzhifanwei)
+                                                {
+                                                    if (mingcheng.Contains(mystr))
+                                                    {
+                                                        mysht1.Cells[r, lastcol + 1].Value = sarr[1];
+                                                    }
                                                 }
                                             }
-
-
                                         }
-                                    }
 
+
+                                        //案号
+                                        //获得最后一列索引,添加赋值类型
+                                        lastcol = mysht1.Cells.EndCellInRow(0).Column;
+                                        mysht1.Cells[0, lastcol + 1].Value = "案号";
+                                        //判断赋值覆盖范围
+                                        //获得最后一行索引
+                                        lastrow = mysht1.Cells.EndCellInColumn(0).Row;
+                                        for (int r = 1; r < lastrow + 1; r++)
+                                        {
+
+                                            //如果对象名称存在于赋值范围，那么赋值到复制类型列
+                                            //如果赋值范围包括全部对象，那么所有的行都要赋值
+                                            if (myrd.fuzhifanwei.Contains("全部对象"))
+                                            {
+                                                mysht1.Cells[r, lastcol + 1].Value = sarr[2];
+                                            }
+                                            else
+                                            {
+                                                string mingcheng = mysht1.Cells[r, 0].StringValue;
+
+                                                //循环所有的赋值覆盖范围，如果名称包括了范围，那么赋值
+                                                foreach (string mystr in myrd.fuzhifanwei)
+                                                {
+                                                    if (mingcheng.Contains(mystr))
+                                                    {
+                                                        mysht1.Cells[r, lastcol + 1].Value = sarr[2];
+                                                    }
+                                                }
+                                            }
+                                        }
+
+
+                                        //案件名称
+                                        //获得最后一列索引,添加赋值类型
+                                        lastcol = mysht1.Cells.EndCellInRow(0).Column;
+                                        mysht1.Cells[0, lastcol + 1].Value = "案件名称";
+                                        //判断赋值覆盖范围
+                                        //获得最后一行索引
+                                        lastrow = mysht1.Cells.EndCellInColumn(0).Row;
+                                        for (int r = 1; r < lastrow + 1; r++)
+                                        {
+
+                                            //如果对象名称存在于赋值范围，那么赋值到复制类型列
+                                            //如果赋值范围包括全部对象，那么所有的行都要赋值
+                                            if (myrd.fuzhifanwei.Contains("全部对象"))
+                                            {
+                                                mysht1.Cells[r, lastcol + 1].Value = sarr[3];
+                                            }
+                                            else
+                                            {
+                                                string mingcheng = mysht1.Cells[r, 0].StringValue;
+
+                                                //循环所有的赋值覆盖范围，如果名称包括了范围，那么赋值
+                                                foreach (string mystr in myrd.fuzhifanwei)
+                                                {
+                                                    if (mingcheng.Contains(mystr))
+                                                    {
+                                                        mysht1.Cells[r, lastcol + 1].Value = sarr[3];
+                                                    }
+                                                }
+                                            }
+                                        }
+
+
+                                        //来源
+                                        //获得最后一列索引,添加赋值类型
+                                        lastcol = mysht1.Cells.EndCellInRow(0).Column;
+                                        mysht1.Cells[0, lastcol + 1].Value = "来源";
+                                        //判断赋值覆盖范围
+                                        //获得最后一行索引
+                                        lastrow = mysht1.Cells.EndCellInColumn(0).Row;
+                                        for (int r = 1; r < lastrow + 1; r++)
+                                        {
+                                            //如果对象名称存在于赋值范围，那么赋值到复制类型列
+                                            //如果赋值范围包括全部对象，那么所有的行都要赋值
+                                            if (myrd.fuzhifanwei.Contains("全部对象"))
+                                            {
+                                                mysht1.Cells[r, lastcol + 1].Value = sarr[4];
+                                            }
+                                            else
+                                            {
+                                                string mingcheng = mysht1.Cells[r, 0].StringValue;
+
+                                                //循环所有的赋值覆盖范围，如果名称包括了范围，那么赋值
+                                                foreach (string mystr in myrd.fuzhifanwei)
+                                                {
+                                                    if (mingcheng.Contains(mystr))
+                                                    {
+                                                        mysht1.Cells[r, lastcol + 1].Value = sarr[4];
+                                                    }
+                                                }
+                                            }
+                                        }
+
+
+
+
+                                    }
+                                    else
+                                    {
+                                        //获得最后一列索引,添加赋值类型
+                                        int lastcol = mysht1.Cells.EndCellInRow(0).Column;
+                                        mysht1.Cells[0, lastcol + 1].Value = myrd.fuzhileixing;
+                                        //判断赋值覆盖范围
+                                        //获得最后一行索引
+                                        int lastrow = mysht1.Cells.EndCellInColumn(0).Row;
+                                        for (int r = 1; r < lastrow + 2; r++)
+                                        {
+
+                                            //如果对象名称存在于赋值范围，那么赋值到复制类型列
+                                            //如果赋值范围包括全部对象，那么所有的行都要赋值
+                                            if (myrd.fuzhifanwei.Contains("全部对象"))
+                                            {
+                                                mysht1.Cells[r, lastcol + 1].Value = string.Join("|", myrd.fuzhijieguo);
+                                            }
+                                            else
+                                            {
+                                                string mingcheng = mysht1.Cells[r, 0].StringValue;
+
+                                                //循环所有的赋值覆盖范围，如果名称包括了范围，那么赋值
+                                                foreach (string mystr in myrd.fuzhifanwei)
+                                                {
+                                                    if (mingcheng.Contains(mystr))
+                                                    {
+                                                        mysht1.Cells[r, lastcol + 1].Value = string.Join("|", myrd.fuzhijieguo);
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                    }
                                 }
                                 else
                                 {
-                                    //获得最后一行索引
-                                    int lastrow = mysht1.Cells.LastCell.Row;
-                                    //增加一行,赋值名称，文本，md5
-                                    mysht1.Cells[lastrow + 2, 0].Value = myrd.fuzhileixing;
-                                    mysht1.Cells[lastrow + 2, 1].Value = string.Join("|", myrd.fuzhijieguo);
-                                    mysht1.Cells[lastrow + 2, 2].Value = Md5Helper.Md5(string.Join("|", myrd.fuzhijieguo));
+                                    if (myrd.fuzhi.Contains("提取区间内所有内容"))
+                                    {
+                                        //获得最后一行索引
+                                        int lastrow = mysht1.Cells.EndCellInColumn(0).Row;
+                                        //添加案件类型
+                                        mysht1.Cells[lastrow + 1, 0].Value = "案件类型";
+                                        mysht1.Cells[lastrow + 1, 1].Value = sarr[1];
+                                        mysht1.Cells[lastrow + 1, 2].Value = Md5Helper.Md5(sarr[1]);
+                                        //获得最后一行索引
+                                        lastrow = mysht1.Cells.EndCellInColumn(0).Row;
+                                        //添加案号
+                                        mysht1.Cells[lastrow + 1, 0].Value = "案号";
+                                        mysht1.Cells[lastrow + 1, 1].Value = sarr[2];
+                                        mysht1.Cells[lastrow + 1, 2].Value = Md5Helper.Md5(sarr[2]);
+                                        //获得最后一行索引
+                                        lastrow = mysht1.Cells.EndCellInColumn(0).Row;
+                                        //添加案件名称
+                                        mysht1.Cells[lastrow + 1, 0].Value = "案件名称";
+                                        mysht1.Cells[lastrow + 1, 1].Value = sarr[3];
+                                        mysht1.Cells[lastrow + 1, 2].Value = Md5Helper.Md5(sarr[3]);
+                                        //获得最后一行索引
+                                        lastrow = mysht1.Cells.EndCellInColumn(0).Row;
+                                        //添加来源
+                                        mysht1.Cells[lastrow + 1, 0].Value = "来源";
+                                        mysht1.Cells[lastrow + 1, 1].Value = sarr[4];
+                                        mysht1.Cells[lastrow + 1, 2].Value = Md5Helper.Md5(sarr[4]);
+
+                                    }
+                                    else
+                                    {
+                                        //获得最后一行索引
+                                        int lastrow = mysht1.Cells.EndCellInColumn(0).Row;
+                                        //增加一行,赋值名称，文本，md5
+                                        mysht1.Cells[lastrow + 1, 0].Value = myrd.fuzhileixing;
+                                        mysht1.Cells[lastrow + 1, 1].Value = string.Join("|", myrd.fuzhijieguo);
+                                        mysht1.Cells[lastrow + 1, 2].Value = Md5Helper.Md5(string.Join("|", myrd.fuzhijieguo));
+
+                                    }
                                 }
                             }
 

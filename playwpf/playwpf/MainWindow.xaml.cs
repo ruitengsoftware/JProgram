@@ -30,5 +30,10 @@ namespace playwpf
             MessageBox.Show("test");
             
         }
+
+        private void enenen(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

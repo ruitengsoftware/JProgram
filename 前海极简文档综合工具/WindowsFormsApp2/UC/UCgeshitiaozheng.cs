@@ -717,20 +717,22 @@ namespace WindowsFormsApp2
             Jdoc myjdoc = new Jdoc();
             Jpara myjpara = new Jpara();
             bool _existdabiaoti = false;
-            bool _existfubiaoti = false;
             var dic = o as Dictionary<string, object>;
             string file = dic["filename"].ToString();
             Dictionary<string, Format> dic_format = dic["format"] as Dictionary<string, Format>;
 
             Aspose.Words.Document mydoc = new Aspose.Words.Document(file);
+            //mydoc.FirstSection.Range.Replace(new Regex("\v"), ControlChar.Cr);
             var paras = mydoc.FirstSection.Body.Paragraphs;//获得文档所有的自然段
+            //List<string> list_para = Regex.Split(mydoc.Range.Text,"[\v\r]").ToList();
+            //list_para.Remove("");
             for (int i = 0; i < paras.Count; i++)
             {
 
 
                 //去掉段内的空格              
                 var para = paras[i];
-                para.Range.Replace(new Regex(@"\s"), "", new FindReplaceOptions());
+                //para.Range.Replace(new Regex(@"\s"), "", new FindReplaceOptions());
                 string str_text = para.Range.Text;
                 //判断是否居中，以此来分别主副标题和其他类型段落
                 if (para.ParagraphFormat.Alignment == ParagraphAlignment.Center)

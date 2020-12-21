@@ -17,12 +17,30 @@
                 </ControlTemplate>
 
             </Button.Template>
-    
+
         </Button>
         <Ellipse Fill="White" HorizontalAlignment="Left" Height="35" Margin="364,190,0,0" Stroke="Black" VerticalAlignment="Top" Width="34" StrokeThickness="0">
             <Ellipse.Effect>
                 <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="10"/>
             </Ellipse.Effect>
         </Ellipse>
+        <Button  Click="enenen" Content="Button" HorizontalAlignment="Left" Height="28" Margin="570,150,0,0" VerticalAlignment="Top" Width="68"/>
+        <Grid HorizontalAlignment="Left" Height="154" Margin="276,24,0,0" VerticalAlignment="Top" Width="260">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="9"/>
+                <RowDefinition Height="14"/>
+                <RowDefinition  Height="5"/>
+                <RowDefinition Height="29"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="11"/>
+                <ColumnDefinition Width="14"/>
+                <ColumnDefinition Width="31"/>
+                <ColumnDefinition Width="12"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid HorizontalAlignment="Left" Height="88" Margin="5,5,5,5" VerticalAlignment="Top" Width="184" Grid.Column="3" Grid.Row="4"/>
+
+        </Grid>
     </Grid>
 </Window>
