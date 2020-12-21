@@ -57,8 +57,9 @@
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
-    <Reference Include="RuitengDll">
-      <HintPath>..\..\..\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
+    <Reference Include="RuitengDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -123,6 +124,7 @@
     <Compile Include="Controller\ControllerWFtongzhigonggao.cs" />
     <Compile Include="Controller\Controllerwfxinjian.cs" />
     <Compile Include="Controller\ControllerWFyijian.cs" />
+    <Compile Include="Controller\ControllerWFZhaohuimima.cs" />
     <Compile Include="Controller\ControllerWFzhuce.cs" />
     <Compile Include="Controller\ControllerXinjiangongzuoqingdan.cs" />
     <Compile Include="Controller\MysqlHelper.cs" />
@@ -338,6 +340,18 @@
     <Compile Include="WinForm\WFgongzuoqingdan.Designer.cs">
       <DependentUpon>WFgongzuoqingdan.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\WinFormdenglu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WinFormdenglu.designer.cs">
+      <DependentUpon>WinFormdenglu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\WinFormZhaohuimima.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WinFormZhaohuimima.designer.cs">
+      <DependentUpon>WinFormZhaohuimima.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -447,6 +461,12 @@
     <EmbeddedResource Include="WinForm\WFgongzuoqingdan.resx">
       <DependentUpon>WFgongzuoqingdan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WinFormdenglu.resx">
+      <DependentUpon>WinFormdenglu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WinFormZhaohuimima.resx">
+      <DependentUpon>WinFormZhaohuimima.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -541,6 +561,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\显示1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\隐藏1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ruitengicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empty.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

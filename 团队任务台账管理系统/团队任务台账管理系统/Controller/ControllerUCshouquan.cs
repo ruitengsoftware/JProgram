@@ -17,7 +17,7 @@ namespace 团队任务台账管理系统.Controller
         MySQLHelper mysqlhelper = new MySQLHelper();
         public DataTable GetPerson()
         {
-            string str_sql = $"select * from jjperson where 删除=0";
+            string str_sql = $"select * from jjdbrenwutaizhang.jjperson where 删除=0";
             DataTable mydt = mysqlhelper.ExecuteDataTable(str_sql, null);
             return mydt;
         }
@@ -29,7 +29,7 @@ namespace 团队任务台账管理系统.Controller
         /// <returns></returns>
         public bool UpdatePerson(string xingming,string quanxian)
         {
-            string str_sql = $"update jjperson set 职级='{quanxian}' where 花名='{xingming}'";
+            string str_sql = $"update jjdbrenwutaizhang.jjperson set 职级='{quanxian}' where 花名='{xingming}'";
             int num = mysqlhelper.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
         }
@@ -41,7 +41,7 @@ namespace 团队任务台账管理系统.Controller
         public bool DeletePerson(string huaming)
         {
 
-            string str_sql = $"update jjperson set 删除=1 where 花名='{huaming}' and 删除=0";
+            string str_sql = $"update jjdbrenwutaizhang.jjperson set 删除=1 where 花名='{huaming}' and 删除=0";
             int num = mysqlhelper.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
         }

@@ -82,12 +82,6 @@ namespace 文本解析系统.JJCommon
             LoginInfo._suodingguize = mydr["锁定规则"].ToString();
             LoginInfo._suodingchachongku = mydr["锁定查重库"].ToString();
         }
-
-
-
-
-
-
     }
     public class PersonInfo
     {
@@ -116,12 +110,5 @@ namespace 文本解析系统.JJCommon
         public string _diaoyongchachongku = string.Empty;
         public string _suodingguize = string.Empty;
         public string _suodingchachongku = string.Empty;
-
-
-
-
-
-
-
     }
 }

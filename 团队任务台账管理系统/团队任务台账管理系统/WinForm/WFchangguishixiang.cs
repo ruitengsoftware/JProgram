@@ -126,5 +126,15 @@ namespace 团队任务台账管理系统.WinForm
         {
 
         }
+
+        private void cbb_leixing_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           myt
+        }
+
+        private void tb_xiangqing_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

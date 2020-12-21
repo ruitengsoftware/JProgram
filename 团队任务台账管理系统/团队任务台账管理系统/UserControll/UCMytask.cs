@@ -22,7 +22,7 @@ namespace 团队任务台账管理系统.UserControll
             InitializeComponent();
         }
 
-        private void lbl_quanbu_Click(object sender, EventArgs e)
+        public void lbl_quanbu_Click(object sender, EventArgs e)
         {
             foreach (Control  c  in tlp_button.Controls)
             {

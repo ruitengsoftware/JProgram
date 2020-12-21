@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 团队任务台账管理系统.JJWinForm;
 
 namespace 团队任务台账管理系统
 {
@@ -16,7 +17,14 @@ namespace 团队任务台账管理系统
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+           
+
+            //先弹出登录窗体，如果成功返回dialogresult.ok 
+            WinFormdenglu mywin = new WinFormdenglu();
+            if (mywin.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new Form1());
+            }
         }
     }
 }

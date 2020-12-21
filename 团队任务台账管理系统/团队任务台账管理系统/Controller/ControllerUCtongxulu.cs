@@ -17,7 +17,7 @@ namespace 团队任务台账管理系统.Controller
         public DataTable GetPersonInfo()
         {
             DataTable mydt = new DataTable();
-            string str_sql = $"select * from jjperson where 删除=0";
+            string str_sql = $"select * from jjdbrenwutaizhang.jjperson where 删除=0";
             mydt = _mysqlhelper.ExecuteDataTable(str_sql, null);
             return mydt;
         }

@@ -183,26 +183,6 @@ namespace 文本解析系统.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap xianshi {
-            get {
-                object obj = ResourceManager.GetObject("xianshi", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
-        internal static System.Drawing.Bitmap yincang {
-            get {
-                object obj = ResourceManager.GetObject("yincang", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
         internal static System.Drawing.Bitmap 没有图片 {
             get {
                 object obj = ResourceManager.GetObject("没有图片", resourceCulture);

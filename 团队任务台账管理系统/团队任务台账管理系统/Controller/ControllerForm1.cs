@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -7,11 +8,15 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using 团队任务台账管理系统.JJModel;
 
 namespace 团队任务台账管理系统.Controller
 {
    public class ControllerForm1
     {
+
+        MySQLHelper _mysql = new MySQLHelper();
+
         /// <summary>
         /// 将64位编码转化成图片
         /// </summary>
@@ -87,8 +92,17 @@ namespace 团队任务台账管理系统.Controller
             imgSource.Dispose();
             return outBmp;
         }
-
-
+        /// <summary>
+        /// 获得当前登录者的未读消息
+        /// </summary>
+        /// <returns></returns>
+        public int GetNewTaskNum()
+        { 
+        string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 状态='未读' and " +
+                $"(负责人='{JJLoginInfo._huaming}' or 参与人='{JJLoginInfo._huaming}')";
+            DataTable dt = _mysql.ExecuteDataTable(str_sql);
+            return dt.Rows.Count;
+        }
 
 
 

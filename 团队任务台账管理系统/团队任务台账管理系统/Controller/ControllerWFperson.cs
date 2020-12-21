@@ -12,7 +12,7 @@ namespace 团队任务台账管理系统.Controller
         MySQLHelper mysqlhelper = new MySQLHelper();
         public DataTable GetAllPerson()
         {
-            string str_sql = "select * from jjperson";
+            string str_sql = "select * from jjdbrenwutaizhang.jjperson";
             var data = mysqlhelper.ExecuteDataTable(str_sql, null);
             return data;
         }

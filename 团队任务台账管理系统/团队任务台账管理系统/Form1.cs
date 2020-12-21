@@ -16,7 +16,7 @@ using 团队任务台账管理系统.UserControll;
 using 团队任务台账管理系统.WinForm;
 
 namespace 团队任务台账管理系统
-{       
+{
 
     public partial class Form1 : Form
     {
@@ -124,14 +124,23 @@ namespace 团队任务台账管理系统
         //UserControl myuc = new UserControl();
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.splitContainer1.Panel1Collapsed = true;
-            this.FormBorderStyle = FormBorderStyle.None;
-            UCdenglu ucdenglu = new UCdenglu();
-            (new UIHelper()).DrawRoundRect(ucdenglu);
+            this.splitContainer1.Panel1Collapsed = false;
 
-            ucdenglu.Dock = DockStyle.Fill;
-            panel_my.Controls.Add(ucdenglu);
-            
+            //this.FormBorderStyle = FormBorderStyle.None;
+
+            UCmain uc_main = new UCmain() { };
+            uc_main.Dock = DockStyle.Fill;
+            panel_my.Controls.Add(uc_main);
+            //是否有新消息
+            int num = _mycontroller.GetNewTaskNum();
+            if (num > 0)
+            {
+                pb_newtask.Visible = true;
+                
+            }
+            //开始监听新任务
+            timer1.Start();
+
         }
 
         private void pb_home_Click(object sender, EventArgs e)
@@ -139,7 +148,7 @@ namespace 团队任务台账管理系统
             panel_my.Controls.Clear();
             UCmain uc_main = new UCmain();
             uc_main.Dock = DockStyle.Fill;
-           panel_my.Controls.Add(uc_main);
+            panel_my.Controls.Add(uc_main);
         }
 
         private void pb_tuichu_Click(object sender, EventArgs e)
@@ -156,19 +165,19 @@ namespace 团队任务台账管理系统
             UCdenglu ucdenglu = new UCdenglu();
             ucdenglu.Dock = DockStyle.Fill;
 
-           panel_my.Controls.Add(ucdenglu);
+            panel_my.Controls.Add(ucdenglu);
         }
 
         private void pb_touxiang_Click(object sender, EventArgs e)
         {
             //弹出注册窗体
             WFzhuce mywin = new WFzhuce(0);
-            if (mywin.ShowDialog()==DialogResult.OK)
+            if (mywin.ShowDialog() == DialogResult.OK)
             {
                 //更新头像
                 pb_touxiang.Image = _mycontroller.ConvertBase64ToImage(JJModel.JJLoginInfo._touxiang);
 
-                var myuc = new UCmain() { Dock=DockStyle.Fill};
+                var myuc = new UCmain() { Dock = DockStyle.Fill };
                 panel_my.Controls.Clear();
                 panel_my.Controls.Add(myuc);
             }
@@ -179,7 +188,7 @@ namespace 团队任务台账管理系统
             panel_my.Controls.Clear();
             UCdaiban uc_daiban = new UCdaiban();
             uc_daiban.Dock = DockStyle.Fill;
-            panel_my.Controls.Add(uc_daiban); 
+            panel_my.Controls.Add(uc_daiban);
 
         }
 
@@ -193,7 +202,7 @@ namespace 团队任务台账管理系统
 
         private void btn_daiban_Click(object sender, EventArgs e)
         {
-           panel_my.Controls.Clear();
+            panel_my.Controls.Clear();
             UCdaiban uc_daiban = new UCdaiban();
             uc_daiban.Dock = DockStyle.Fill;
             panel_my.Controls.Add(uc_daiban);
@@ -219,7 +228,7 @@ namespace 团队任务台账管理系统
         private void btn_xinjian_Click(object sender, EventArgs e)
         {
             var parent = this.Parent;
-           panel_my.Controls.Clear();
+            panel_my.Controls.Clear();
             UCxinjian uc_xinjian = new UCxinjian();
             uc_xinjian.Dock = DockStyle.Fill;
             panel_my.Controls.Add(uc_xinjian);
@@ -274,7 +283,7 @@ namespace 团队任务台账管理系统
         {
             UCtongxunlu myuc = new UCtongxunlu();
             panel_my.Controls.Clear();
-            panel_my.Controls.Add(new UCtongxunlu() {Dock=DockStyle.Fill });
+            panel_my.Controls.Add(new UCtongxunlu() { Dock = DockStyle.Fill });
         }
 
         private void lbl_woderenwu_Click(object sender, EventArgs e)
@@ -282,6 +291,43 @@ namespace 团队任务台账管理系统
             UCMytask myuc = new UCMytask();
             panel_my.Controls.Clear();
             panel_my.Controls.Add(new UCMytask() { Dock = DockStyle.Fill });
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //获得新消息，如果数量大于一，在 我的任务右侧显示红点
+            int num = _mycontroller.GetNewTaskNum();
+            if (num > 0)
+            {
+                pb_newtask.Visible = true;
+                //此时开启闪烁
+                Timer myt = new Timer();
+                myt.Interval = 500;
+                myt.Tick += Myt_Tick;
+                myt.Start();
+
+
+
+            }
+            //同时判断是否显示 
+            Control myuc = panel_my.Controls[0];
+            if (myuc is UCMytask)
+            {
+                (myuc as UCMytask).lbl_quanbu_Click(null, null);
+            }
+
+        }
+
+        private Icon blank = Properties.Resources.ruitengicon;
+        private Icon normal = Properties.Resources.empty;
+   private bool _status = true;
+        private void Myt_Tick(object sender, EventArgs e)
+        {
+            if (_status)
+                notifyIcon1.Icon = normal;
+            else
+                notifyIcon1.Icon = blank;
+            _status = !_status;
         }
     }
 }

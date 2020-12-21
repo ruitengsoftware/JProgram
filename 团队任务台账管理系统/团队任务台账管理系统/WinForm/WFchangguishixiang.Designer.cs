@@ -45,10 +45,12 @@
             this.rb_jinji = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_xiangqing = new System.Windows.Forms.TextBox();
+            this.pb_paizhao = new System.Windows.Forms.PictureBox();
             this.tb_zerenren = new System.Windows.Forms.ComboBox();
             this.tb_canjiaren = new System.Windows.Forms.ComboBox();
             this.dtp_shixian = new System.Windows.Forms.DateTimePicker();
-            this.pb_paizhao = new System.Windows.Forms.PictureBox();
+            this.lbl_leixing = new System.Windows.Forms.Label();
+            this.cbb_leixing = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -74,6 +76,8 @@
             this.tableLayoutPanel4.Controls.Add(this.tb_zerenren, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.tb_canjiaren, 1, 4);
             this.tableLayoutPanel4.Controls.Add(this.dtp_shixian, 1, 5);
+            this.tableLayoutPanel4.Controls.Add(this.lbl_leixing, 0, 6);
+            this.tableLayoutPanel4.Controls.Add(this.cbb_leixing, 1, 6);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -285,6 +289,17 @@
             this.tb_xiangqing.Name = "tb_xiangqing";
             this.tb_xiangqing.Size = new System.Drawing.Size(370, 54);
             this.tb_xiangqing.TabIndex = 0;
+            this.tb_xiangqing.TextChanged += new System.EventHandler(this.tb_xiangqing_TextChanged);
+            // 
+            // pb_paizhao
+            // 
+            this.pb_paizhao.Image = global::团队任务台账管理系统.Properties.Resources.upload1;
+            this.pb_paizhao.Location = new System.Drawing.Point(379, 3);
+            this.pb_paizhao.Name = "pb_paizhao";
+            this.pb_paizhao.Size = new System.Drawing.Size(24, 24);
+            this.pb_paizhao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_paizhao.TabIndex = 1;
+            this.pb_paizhao.TabStop = false;
             // 
             // tb_zerenren
             // 
@@ -312,15 +327,34 @@
             this.dtp_shixian.Size = new System.Drawing.Size(400, 23);
             this.dtp_shixian.TabIndex = 7;
             // 
-            // pb_paizhao
+            // lbl_leixing
             // 
-            this.pb_paizhao.Image = global::团队任务台账管理系统.Properties.Resources.upload1;
-            this.pb_paizhao.Location = new System.Drawing.Point(379, 3);
-            this.pb_paizhao.Name = "pb_paizhao";
-            this.pb_paizhao.Size = new System.Drawing.Size(24, 24);
-            this.pb_paizhao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_paizhao.TabIndex = 1;
-            this.pb_paizhao.TabStop = false;
+            this.lbl_leixing.AutoSize = true;
+            this.lbl_leixing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_leixing.Location = new System.Drawing.Point(1, 241);
+            this.lbl_leixing.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_leixing.Name = "lbl_leixing";
+            this.lbl_leixing.Size = new System.Drawing.Size(78, 30);
+            this.lbl_leixing.TabIndex = 0;
+            this.lbl_leixing.Text = "任务类型";
+            this.lbl_leixing.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cbb_leixing
+            // 
+            this.cbb_leixing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbb_leixing.FormattingEnabled = true;
+            this.cbb_leixing.Items.AddRange(new object[] {
+            "常规事项",
+            "工作清单",
+            "通知公告",
+            "请休假单",
+            "意见建议",
+            "OKR事项"});
+            this.cbb_leixing.Location = new System.Drawing.Point(83, 243);
+            this.cbb_leixing.Name = "cbb_leixing";
+            this.cbb_leixing.Size = new System.Drawing.Size(400, 25);
+            this.cbb_leixing.TabIndex = 8;
+            this.cbb_leixing.SelectedIndexChanged += new System.EventHandler(this.cbb_leixing_SelectedIndexChanged);
             // 
             // WFchangguishixiang
             // 
@@ -369,5 +403,7 @@
         private System.Windows.Forms.ComboBox tb_zerenren;
         private System.Windows.Forms.ComboBox tb_canjiaren;
         private System.Windows.Forms.DateTimePicker dtp_shixian;
+        private System.Windows.Forms.Label lbl_leixing;
+        private System.Windows.Forms.ComboBox cbb_leixing;
     }
 }
