@@ -17,7 +17,7 @@ namespace 团队任务台账管理系统.UserControll
         UIHelper _ui = new UIHelper();
         public Panel _p = new Panel();//存放uctaskinfo的容器
         ControllerUCmessage _myc = new ControllerUCmessage();
-       public Action a = null;
+        public Action a = null;
         public Action _closepanel = null;
         public Action _updatedata = null;
         JJTaskInfo myti = new JJTaskInfo();
@@ -92,9 +92,9 @@ namespace 团队任务台账管理系统.UserControll
             //判断未读任务数量，如果是0，要取消主界面我的任务右侧的红点
 
             int num = _myc.GetWeiduTaskNum();
-            if (num==0)
+            if (num < 1)
             {
-            (this.ParentForm as Form1).pb_newtask.Visible = false;
+                (this.ParentForm as Form1).pb_newtask.Visible = false;
 
             }
 

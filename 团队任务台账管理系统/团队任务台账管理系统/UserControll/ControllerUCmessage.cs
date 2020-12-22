@@ -30,9 +30,9 @@ namespace 团队任务台账管理系统.UserControll
         /// <returns></returns>
         public int GetWeiduTaskNum()
         {
-            string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 状态='未读'/* and 负责人='{JJLoginInfo._huaming}' or 参与人='{JJLoginInfo._huaming}'*/";
-            int num = _mysql.ExecuteNonQuery(str_sql);
-            return num;
+            string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 参与人='{JJLoginInfo._huaming}' and 状态='未读'";
+            DataTable mydt = _mysql.ExecuteDataTable(str_sql);
+            return mydt.Rows.Count;
         }
 
         /// <summary>
@@ -42,7 +42,8 @@ namespace 团队任务台账管理系统.UserControll
         /// <returns></returns>
         public bool UpdateZhuangtai(JJTaskInfo ti)
         {
-            string str_sql = $"update jjdbrenwutaizhang.任务信息表 set 状态='{ti._zhuangtai}' where 名称='{ti._mingcheng}' and 创建时间='{ti._chuangjianshijian}' and 创建人='{ti._chuangjianren}'";
+            string str_sql = $"update jjdbrenwutaizhang.任务信息表 set 状态='{ti._zhuangtai}' where 名称='{ti._mingcheng}' and 创建时间='{ti._chuangjianshijian}' and 创建人='{ti._chuangjianren}' " +
+                $"and 负责人='{ti._fuzeren}' and 参与人='{ti._canyuren}'";
             int num=_mysql.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
         
