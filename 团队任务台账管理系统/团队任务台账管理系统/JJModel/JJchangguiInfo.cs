@@ -60,6 +60,11 @@ namespace 团队任务台账管理系统.JJModel
         /// 创建人
         /// </summary>
         public string _chuangjiaren = string.Empty;
+        /// <summary>
+        /// 类型
+        /// </summary>
+        public string _leixing = string.Empty;
+
 
     }
 }

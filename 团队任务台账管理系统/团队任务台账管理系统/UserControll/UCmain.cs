@@ -119,79 +119,21 @@ namespace 团队任务台账管理系统.UserControll
             var list = _mycontroller.GetGongzuoqingdan();
             foreach (JJQingdanInfo info in list)
             {
-               UCMessage myuc = new UCMessage(info);
-               panel_gongzuoqingdan.Controls.Add(myuc);
-           }
-
-
-
-
-            //dgv_a.DataSource = null;
-            //dgv_a.DataSource = mydt;
-            //lbl_a.Text = $"重要且紧急-立即做 {mydt.Rows.Count}项";
-            //qingdannum += mydt.Rows.Count;
-            //循环对mydt的行形成ucmsg，加载到panel_gongzuoqingdan中
-            //foreach (DataRow dr in mydt.Rows)
-            //{
-            //    UCMessage myuc = new UCMessage("重要且紧急-立即做", dr["任务名称"].ToString(), Convert.ToDateTime(dr["完成时间"]).ToString("yyyy-MM-dd"));
-            //    myuc._msgtype = "工作清单";
-            //    panel_gongzuoqingdan.Controls.Add(myuc);
-            //}
-
-
-
-
-
-
-            ////加载第二象限
-            //mydt = _mycontroller.GetGongzuoqingdan("第二象限");
-            ////dgv_b.DataSource = null;
-            ////dgv_b.DataSource = mydt;
-            ////lbl_b.Text = $"重要且不紧急-集中精力做 {mydt.Rows.Count}项";
-            ////qingdannum += mydt.Rows.Count;
-            //foreach (DataRow dr in mydt.Rows)
-            //{
-            //    UCMessage myuc = new UCMessage("重要且不紧急-集中精力做", dr["任务名称"].ToString(), Convert.ToDateTime(dr["完成时间"]).ToString("yyyy-MM-dd"));
-            //    myuc._msgtype = "工作清单";
-            //    panel_gongzuoqingdan.Controls.Add(myuc);
-            //}
-
-            ////加载第三象限
-            //mydt = _mycontroller.GetGongzuoqingdan("第三象限");
-            ////dgv_c.DataSource = null;
-            ////dgv_c.DataSource = mydt;
-            ////lbl_c.Text = $"不重要但紧急-找帮手做 {mydt.Rows.Count}项";
-            ////qingdannum += mydt.Rows.Count;
-            //foreach (DataRow dr in mydt.Rows)
-            //{
-            //    UCMessage myuc = new UCMessage("不重要但紧急-找帮手做", dr["任务名称"].ToString(), Convert.ToDateTime(dr["完成时间"]).ToString("yyyy-MM-dd"));
-            //    myuc._msgtype = "工作清单";
-            //    panel_gongzuoqingdan.Controls.Add(myuc);
-            //}
-
-            ////加载第四象限
-            //mydt = _mycontroller.GetGongzuoqingdan("第四象限");
-            ////dgv_d.DataSource = null;
-            ////dgv_d.DataSource = mydt;
-            ////lbl_d.Text = $"不重要且不紧急-抽空做 {mydt.Rows.Count}项";
-            ////qingdannum += mydt.Rows.Count;
-            //foreach (DataRow dr in mydt.Rows)
-            //{
-            //    UCMessage myuc = new UCMessage("不重要且不紧急-抽空做", dr["任务名称"].ToString(), Convert.ToDateTime(dr["完成时间"]).ToString("yyyy-MM-dd"));
-            //    myuc._msgtype = "工作清单";
-            //    panel_gongzuoqingdan.Controls.Add(myuc);
-            //}
+                UCMessage myuc = new UCMessage(info);
+                myuc._updatemaindata = UCmain_Load;
+                panel_gongzuoqingdan.Controls.Add(myuc);
+            }
 
             //刷新工作清单总数
             //lbl_gongzuoqingdan.Text = $"工作清单  {qingdannum}项";
             lbl_gongzuoqingdan.Text = $"工作清单  {panel_gongzuoqingdan.Controls.Count}项";
 
 
-            /*刷新待办任务*/
+            /*刷新待办任务，也就是常规任务，放在任务信息表中*/
             panel_daibanrenwu.Controls.Clear();
             string keyword = tb_kw.Text;
-         var list_daiban = _mycontroller.GetDaibanRenwu(keyword);
-            foreach (JJchangguiInfo info in list_daiban)
+            var list_daiban = _mycontroller.GetDaibanRenwu(keyword);
+            foreach (JJTaskInfo info in list_daiban)
             {
                 UCMessage myuc = new UCMessage(info);
                 panel_daibanrenwu.Controls.Add(myuc);

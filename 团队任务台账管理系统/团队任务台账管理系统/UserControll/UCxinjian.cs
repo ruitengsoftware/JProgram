@@ -12,6 +12,8 @@ using System.IO;
 using System.Web;
 using System.Web.UI.WebControls;
 using 团队任务台账管理系统.WinForm;
+using 团队任务台账管理系统.JJModel;
+using System.Text.RegularExpressions;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -220,7 +222,17 @@ namespace 团队任务台账管理系统.UserControll
         {
             WFchangguishixiang wfxinjian = new WFchangguishixiang() { StartPosition = FormStartPosition.CenterParent };
             wfxinjian.StartPosition = FormStartPosition.CenterParent;
-            wfxinjian.ShowDialog();
+            if (wfxinjian.ShowDialog()==DialogResult.OK)
+            {
+                JJTaskInfo myt = wfxinjian.mytask;
+                //如果负责人或者责任人包括登录名称，需要在我的任务右侧显示红点
+                string[] arr_canyuren = Regex.Split(myt._canyuren, "[,，|]");
+                if (myt._fuzeren.Contains(JJLoginInfo._huaming) || arr_canyuren.Contains(JJLoginInfo._huaming))
+                {
+                    (this.ParentForm as Form1).pb_newtask.Visible = true;
+                }
+            }
+            
         }
 
         private void lbl_gongzuoqingdan_Click(object sender, EventArgs e)

@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Words">
+      <HintPath>..\..\..\..\OneDrive - mail.dlut.edu.cn\C#类库\ASPOSEdll\Aspose.Words.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
@@ -348,6 +351,12 @@
     <Compile Include="WinForm\WinFormdenglu.designer.cs">
       <DependentUpon>WinFormdenglu.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\WinFormTongzhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WinFormTongzhi.Designer.cs">
+      <DependentUpon>WinFormTongzhi.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\WinFormXiaoxiang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -477,6 +486,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WinFormdenglu.resx">
       <DependentUpon>WinFormdenglu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WinFormTongzhi.resx">
+      <DependentUpon>WinFormTongzhi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WinFormXiaoxiang.resx">
       <DependentUpon>WinFormXiaoxiang.cs</DependentUpon>

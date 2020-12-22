@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.Controller;
+using 团队任务台账管理系统.JJModel;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -21,8 +22,12 @@ namespace 团队任务台账管理系统.UserControll
 
         private void UClishiziliao_Load(object sender, EventArgs e)
         {
-            DataTable mydt = _mycontroller.GetLishiziilao();
-            dgv_data.DataSource = mydt;
+            var list = _mycontroller.GetLishiziilao();
+            foreach (JJQingdanInfo info in list)
+            {
+                UCMessage myuc = new UCMessage(info);
+                panel_my.Controls.Add(myuc);
+            }
         }
     }
 }

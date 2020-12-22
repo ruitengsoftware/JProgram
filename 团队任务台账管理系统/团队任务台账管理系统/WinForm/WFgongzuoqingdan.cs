@@ -27,7 +27,7 @@ namespace 团队任务台账管理系统.WinForm
             cbb_xiangxian.Text = q._xiangxian;
             tb_zhubanren.Text = q._zhubanren;
             dtp_wanchengshijian.Value = Convert.ToDateTime(q._wanchengshijian);
-
+            tb_beizhu.Text = q._beizhu;
          
 
         }
@@ -45,8 +45,8 @@ namespace 团队任务台账管理系统.WinForm
                 _zhubanren = tb_zhubanren.Text,
                 _wanchengshijian = dtp_wanchengshijian.Value.ToString("yyyy年MM月dd日 hh:mm:ss"),
                 _xiangxian = cbb_xiangxian.Text,
-                _chuangjianshijian = DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss")
-
+                _chuangjianshijian = DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss"),
+                _beizhu=tb_beizhu.Text
             };
             //保存工作清单任务
             _mycontroller.SaveGongzuoqingdan(myrenwu);

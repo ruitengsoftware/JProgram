@@ -21,12 +21,12 @@ namespace 团队任务台账管理系统.WinForm
             InitializeComponent();
         }
 
-        public WFchangguishixiang(JJchangguiInfo myinfo)
+        public WFchangguishixiang(JJTaskInfo myinfo)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterParent;
 
-            tb_renwumingcheng.Text = myinfo._renwumingcheng;
+            tb_renwumingcheng.Text = myinfo._mingcheng;
             if (myinfo._jinjichengdu.Equals("普遍"))
             {
                 rb_putong.Checked = true;
@@ -39,12 +39,13 @@ namespace 团队任务台账管理系统.WinForm
             {
                 rb_jinji.Checked = true;
             }
-            //tb_xiangqing.Text = myinfo._jutiyaoqiu;
-            //tb_zerenren.Text = myinfo._zerenren;
-            //tb_canjiaren.Text = myinfo._yanshouren;
-            //dtp_shixian.Value = Convert.ToDateTime(myinfo._shixian);
-            //tb_jinzhan.Text = myinfo._jinzhanqingkuang;
 
+
+            tb_xiangqing.Text = myinfo._xiangqing;
+            tb_zerenren.Text = myinfo._fuzeren;
+            tb_canjiaren.Text = myinfo._canyuren;
+            dtp_shixian.Value = Convert.ToDateTime(myinfo._shixian);
+            cbb_leixing.Text = myinfo._leixing;
 
         }
 
@@ -108,18 +109,19 @@ namespace 团队任务台账管理系统.WinForm
                 _chuangjianshijian = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),
                 _duqushijian = "",
                 _shixian = Convert.ToDateTime(dtp_shixian.Value).ToString("yyyy-MM-dd hh:mm:ss"),
-                _jinjichengdu=jinjichengdu,
+                _jinjichengdu = jinjichengdu,
             };
             //添加任务
             bool b = mycontroller.AddTask(myt);
             if (b)
             {
+     
 
-            MessageBox.Show("添加任务成功！");
 
 
+                MessageBox.Show("添加任务成功！");
                 mytask = myt;
-            this.DialogResult = DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
 
             }
         }
@@ -131,7 +133,7 @@ namespace 团队任务台账管理系统.WinForm
 
         private void cbb_leixing_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void tb_xiangqing_TextChanged(object sender, EventArgs e)

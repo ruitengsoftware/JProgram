@@ -254,11 +254,13 @@
             // lbl_woderenwu
             // 
             this.lbl_woderenwu.AutoSize = true;
+            this.lbl_woderenwu.BackColor = System.Drawing.Color.Gray;
             this.lbl_woderenwu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_woderenwu.Location = new System.Drawing.Point(1, 0);
-            this.lbl_woderenwu.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_woderenwu.ForeColor = System.Drawing.Color.White;
+            this.lbl_woderenwu.Location = new System.Drawing.Point(3, 2);
+            this.lbl_woderenwu.Margin = new System.Windows.Forms.Padding(2);
             this.lbl_woderenwu.Name = "lbl_woderenwu";
-            this.lbl_woderenwu.Size = new System.Drawing.Size(65, 30);
+            this.lbl_woderenwu.Size = new System.Drawing.Size(61, 26);
             this.lbl_woderenwu.TabIndex = 5;
             this.lbl_woderenwu.Text = "我的任务";
             this.lbl_woderenwu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -311,7 +313,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "写手OA系统V1.1.3 2020年12月21号";
+            this.Text = "写手OA系统V1.1.4 2020年12月22号";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

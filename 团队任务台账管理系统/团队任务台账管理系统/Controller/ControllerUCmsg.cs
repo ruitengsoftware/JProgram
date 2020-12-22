@@ -30,6 +30,19 @@ namespace 团队任务台账管理系统.Controller
 
 
         }
+        /// <summary>
+        /// 根据待办任务名称获得信息
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public bool Yidu(JJTongzhiInfo info)
+        {
+            string str_sql = $"update jjdbrenwutaizhang.通知公告表 set 状态='已读' where 标题='{info._biaoti}' " +
+                            $"and 状态='未读' and 签发人='{info._qianfaren}'";
+           int num= _sql.ExecuteNonQuery(str_sql);
+            return num > 0 ? true : false;
+        }
+
 
 
 
@@ -73,8 +86,21 @@ namespace 团队任务台账管理系统.Controller
             };
             return ci;
         }
+        /// <summary>
+        /// 删除任务清单
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public bool DeleteGongzuoqingdan(object o)
+        {
+            JJQingdanInfo myinfo = o as JJQingdanInfo;
+            string str_sql = $"update jjdbrenwutaizhang.jjgongzuoqingdan set 删除=1 where 任务名称='{myinfo._renwumingcheng}' " +
+                    $"and 创建人='{myinfo._chuangjianren}' and 删除=0";
+            int num = _sql.ExecuteNonQuery(str_sql);
 
-
+            return num > 0 ? true : false;
+        
+        }
 
     }
 }

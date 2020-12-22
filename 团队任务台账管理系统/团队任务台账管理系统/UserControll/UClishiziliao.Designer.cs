@@ -28,39 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv_data = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).BeginInit();
+            this.panel_my = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // dgv_data
+            // panel_my
             // 
-            this.dgv_data.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_data.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_data.Location = new System.Drawing.Point(0, 0);
-            this.dgv_data.Name = "dgv_data";
-            this.dgv_data.RowTemplate.Height = 23;
-            this.dgv_data.Size = new System.Drawing.Size(512, 582);
-            this.dgv_data.TabIndex = 0;
+            this.panel_my.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_my.Location = new System.Drawing.Point(0, 0);
+            this.panel_my.Name = "panel_my";
+            this.panel_my.Size = new System.Drawing.Size(587, 391);
+            this.panel_my.TabIndex = 0;
             // 
             // UClishiziliao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.dgv_data);
+            this.Controls.Add(this.panel_my);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UClishiziliao";
-            this.Size = new System.Drawing.Size(512, 582);
+            this.Size = new System.Drawing.Size(587, 391);
             this.Load += new System.EventHandler(this.UClishiziliao_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgv_data;
+        private System.Windows.Forms.Panel panel_my;
     }
 }

@@ -45,7 +45,7 @@ namespace 团队任务台账管理系统.Controller
             DataTable mydt = new DataTable();
             string str_sql = string.Empty;
             //string str_sql = $"select * from jjdbrenwutaizhang.jjgongzuoqingdan where 创建人='{JJLoginInfo._shiming}' and 删除=0 and 象限='{xiangxian}' order by 完成时间";
-            str_sql = $"select * from jjdbrenwutaizhang.jjgongzuoqingdan where  删除=0";
+            str_sql = $"select * from jjdbrenwutaizhang.jjgongzuoqingdan where  删除=0 and 销项=0";
             mydt = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow mydr in mydt.Rows)
             {
@@ -57,7 +57,7 @@ namespace 团队任务台账管理系统.Controller
                     _xiangxian = mydr["象限"].ToString(),
                     _chuangjianshijian = mydr["创建时间"].ToString(),
                     _zhuangtai = mydr["状态"].ToString(),
-                    _xiaoxiang = mydr["销项"].ToString(),
+                    _xiaoxiang =Convert.ToInt32( mydr["销项"].ToString()),
                     _beizhu = mydr["备注"].ToString(),
                     _xindetihui = mydr["心得体会"].ToString(),
                 };
@@ -82,22 +82,26 @@ namespace 团队任务台账管理系统.Controller
         /// 获得待办任务 
         /// </summary>
         /// <returns></returns>
-        public List<JJchangguiInfo> GetDaibanRenwu(string s)
+        public List<JJTaskInfo> GetDaibanRenwu(string s)
         {
-            List<JJchangguiInfo> list = new List<JJchangguiInfo>();
-            string str_sql = $"select * from jjdbrenwutaizhang.常规事项表 where 任务名称 like '%{s}%' and 删除=0";
+            List<JJTaskInfo> list = new List<JJTaskInfo>();
+            string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='常规事项'";
 
             var data = _mysqlhelper.ExecuteDataTable(str_sql, null);
             foreach (DataRow dr in data.Rows)
             {
-                JJchangguiInfo info = new JJchangguiInfo()
+                JJTaskInfo info = new JJTaskInfo()
                 {
-                    _renwumingcheng=dr["任务名称"].ToString(),
+                    _mingcheng=dr["名称"].ToString(),
                     _jinjichengdu = dr["紧急程度"].ToString(),
-                    _fuzeren = dr["责任人"].ToString(),
+                    _fuzeren = dr["负责人"].ToString(),
                     _shixian = dr["时限"].ToString(),
-
-
+                    _leixing=dr["类型"].ToString(),
+                    _canyuren = dr["参与人"].ToString(),
+                   _zhuangtai = dr["状态"].ToString(),
+                   _xiangqing = dr["详情"].ToString(),
+                   _chuangjianren = dr["创建人"].ToString(),
+                   _chuangjianshijian = dr["创建时间"].ToString(),
                 };
                 list.Add(info);
 
