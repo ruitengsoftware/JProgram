@@ -33,6 +33,9 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_wancheng = new System.Windows.Forms.Label();
             this.lbl_fasong = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pb_delete = new System.Windows.Forms.PictureBox();
+            this.lbl_chakanyidu = new System.Windows.Forms.Label();
             this.dtp_shixian = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_xiangqing = new System.Windows.Forms.TextBox();
@@ -48,15 +51,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_chakanyidu = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pb_delete = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_delete)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_delete)).BeginInit();
             this.SuspendLayout();
             // 
             // tb_fuzeren
@@ -129,6 +129,45 @@
             this.lbl_fasong.Text = "发送任务 ";
             this.lbl_fasong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_fasong.Click += new System.EventHandler(this.lbl_fasong_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::团队任务台账管理系统.Properties.Resources.delete3;
+            this.pictureBox1.Location = new System.Drawing.Point(467, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pb_delete
+            // 
+            this.pb_delete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_delete.Image = global::团队任务台账管理系统.Properties.Resources.delete1;
+            this.pb_delete.Location = new System.Drawing.Point(437, 3);
+            this.pb_delete.Name = "pb_delete";
+            this.pb_delete.Size = new System.Drawing.Size(24, 24);
+            this.pb_delete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_delete.TabIndex = 2;
+            this.pb_delete.TabStop = false;
+            this.pb_delete.Click += new System.EventHandler(this.pb_delete_Click);
+            // 
+            // lbl_chakanyidu
+            // 
+            this.lbl_chakanyidu.AutoSize = true;
+            this.lbl_chakanyidu.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.lbl_chakanyidu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_chakanyidu.ForeColor = System.Drawing.Color.White;
+            this.lbl_chakanyidu.Location = new System.Drawing.Point(260, 3);
+            this.lbl_chakanyidu.Margin = new System.Windows.Forms.Padding(3);
+            this.lbl_chakanyidu.Name = "lbl_chakanyidu";
+            this.lbl_chakanyidu.Size = new System.Drawing.Size(74, 24);
+            this.lbl_chakanyidu.TabIndex = 0;
+            this.lbl_chakanyidu.Text = "查看已读";
+            this.lbl_chakanyidu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_chakanyidu.Click += new System.EventHandler(this.lbl_chakanyidu_Click);
             // 
             // dtp_shixian
             // 
@@ -345,45 +384,6 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(495, 497);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
-            // lbl_chakanyidu
-            // 
-            this.lbl_chakanyidu.AutoSize = true;
-            this.lbl_chakanyidu.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.lbl_chakanyidu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_chakanyidu.ForeColor = System.Drawing.Color.White;
-            this.lbl_chakanyidu.Location = new System.Drawing.Point(260, 3);
-            this.lbl_chakanyidu.Margin = new System.Windows.Forms.Padding(3);
-            this.lbl_chakanyidu.Name = "lbl_chakanyidu";
-            this.lbl_chakanyidu.Size = new System.Drawing.Size(74, 24);
-            this.lbl_chakanyidu.TabIndex = 0;
-            this.lbl_chakanyidu.Text = "查看已读";
-            this.lbl_chakanyidu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_chakanyidu.Click += new System.EventHandler(this.lbl_chakanyidu_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::团队任务台账管理系统.Properties.Resources.delete3;
-            this.pictureBox1.Location = new System.Drawing.Point(467, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pb_delete
-            // 
-            this.pb_delete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_delete.Image = global::团队任务台账管理系统.Properties.Resources.delete1;
-            this.pb_delete.Location = new System.Drawing.Point(437, 3);
-            this.pb_delete.Name = "pb_delete";
-            this.pb_delete.Size = new System.Drawing.Size(24, 24);
-            this.pb_delete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_delete.TabIndex = 2;
-            this.pb_delete.TabStop = false;
-            this.pb_delete.Click += new System.EventHandler(this.pb_delete_Click);
-            // 
             // UCTaskInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -395,14 +395,14 @@
             this.Size = new System.Drawing.Size(495, 497);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_delete)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_delete)).EndInit();
             this.ResumeLayout(false);
 
         }

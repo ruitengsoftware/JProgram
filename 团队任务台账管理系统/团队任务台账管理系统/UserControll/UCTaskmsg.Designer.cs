@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pb_lishi = new System.Windows.Forms.PictureBox();
             this.lbl_renwuming = new System.Windows.Forms.Label();
             this.lbl_renwuleixing = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pb_weidu = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_lishi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_weidu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pb_lishi, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbl_renwuming, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbl_renwuleixing, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.pb_weidu, 0, 0);
@@ -59,6 +59,19 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(630, 36);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // pb_lishi
+            // 
+            this.pb_lishi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_lishi.Image = global::团队任务台账管理系统.Properties.Resources.历史1;
+            this.pb_lishi.Location = new System.Drawing.Point(595, 5);
+            this.pb_lishi.Margin = new System.Windows.Forms.Padding(5);
+            this.pb_lishi.Name = "pb_lishi";
+            this.pb_lishi.Size = new System.Drawing.Size(30, 26);
+            this.pb_lishi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_lishi.TabIndex = 0;
+            this.pb_lishi.TabStop = false;
+            this.pb_lishi.Visible = false;
             // 
             // lbl_renwuming
             // 
@@ -85,18 +98,6 @@
             this.lbl_renwuleixing.Text = "label1";
             this.lbl_renwuleixing.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::团队任务台账管理系统.Properties.Resources.历史1;
-            this.pictureBox1.Location = new System.Drawing.Point(595, 5);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 26);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // pb_weidu
             // 
             this.pb_weidu.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -122,7 +123,7 @@
             this.Size = new System.Drawing.Size(634, 40);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_lishi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_weidu)).EndInit();
             this.ResumeLayout(false);
 
@@ -131,7 +132,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pb_lishi;
         private System.Windows.Forms.Label lbl_renwuming;
         private System.Windows.Forms.Label lbl_renwuleixing;
         private System.Windows.Forms.PictureBox pb_weidu;

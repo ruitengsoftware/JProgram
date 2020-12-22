@@ -43,7 +43,7 @@ namespace 团队任务台账管理系统.UserControll
             //清空界面首先
             panel_task.Controls.Clear();
             //获得全部任务 
-            string str_sql = $"select * from jjdbrenwutaizhang.任务信息表";
+            string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 状态<>'已删除'";
             var list = _mycontroller.GetTaskinfo(str_sql);
 
             //构造ucteakmsg

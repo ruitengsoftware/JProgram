@@ -72,7 +72,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel_my);
-            this.splitContainer1.Size = new System.Drawing.Size(777, 509);
+            this.splitContainer1.Size = new System.Drawing.Size(806, 509);
             this.splitContainer1.SplitterDistance = 96;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -284,7 +284,7 @@
             this.panel_my.Location = new System.Drawing.Point(0, 0);
             this.panel_my.Margin = new System.Windows.Forms.Padding(0);
             this.panel_my.Name = "panel_my";
-            this.panel_my.Size = new System.Drawing.Size(677, 509);
+            this.panel_my.Size = new System.Drawing.Size(706, 509);
             this.panel_my.TabIndex = 0;
             // 
             // timer1
@@ -296,7 +296,7 @@
             // 
             this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Text = "写手OA系统";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
             // 
@@ -304,17 +304,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(777, 509);
+            this.ClientSize = new System.Drawing.Size(806, 509);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "写手任务台账管理系统V1.1.3 2020年12月21号";
+            this.Text = "写手OA系统V1.1.3 2020年12月21号";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

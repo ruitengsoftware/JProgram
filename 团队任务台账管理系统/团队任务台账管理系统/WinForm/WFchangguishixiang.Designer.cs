@@ -100,11 +100,13 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Gray;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(1, 1);
-            this.label2.Margin = new System.Windows.Forms.Padding(1);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(3, 18);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 18, 3, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 58);
+            this.label2.Size = new System.Drawing.Size(74, 24);
             this.label2.TabIndex = 0;
             this.label2.Text = "任务名称";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -112,11 +114,13 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Gray;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(1, 61);
-            this.label3.Margin = new System.Windows.Forms.Padding(1);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(3, 63);
+            this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 28);
+            this.label3.Size = new System.Drawing.Size(74, 24);
             this.label3.TabIndex = 0;
             this.label3.Text = "紧急程度";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,11 +128,13 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Gray;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(1, 91);
-            this.label4.Margin = new System.Windows.Forms.Padding(1);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(3, 108);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 18, 3, 18);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 58);
+            this.label4.Size = new System.Drawing.Size(74, 24);
             this.label4.TabIndex = 0;
             this.label4.Text = "详情";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -136,11 +142,13 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Gray;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Location = new System.Drawing.Point(1, 151);
-            this.label7.Margin = new System.Windows.Forms.Padding(1);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(3, 153);
+            this.label7.Margin = new System.Windows.Forms.Padding(3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 28);
+            this.label7.Size = new System.Drawing.Size(74, 24);
             this.label7.TabIndex = 0;
             this.label7.Text = "责任人";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -148,11 +156,13 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Gray;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Location = new System.Drawing.Point(1, 181);
-            this.label8.Margin = new System.Windows.Forms.Padding(1);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(3, 183);
+            this.label8.Margin = new System.Windows.Forms.Padding(3);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 28);
+            this.label8.Size = new System.Drawing.Size(74, 24);
             this.label8.TabIndex = 0;
             this.label8.Text = "参与人";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -160,11 +170,13 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Gray;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Location = new System.Drawing.Point(1, 211);
-            this.label11.Margin = new System.Windows.Forms.Padding(1);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(3, 213);
+            this.label11.Margin = new System.Windows.Forms.Padding(3);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(78, 28);
+            this.label11.Size = new System.Drawing.Size(74, 24);
             this.label11.TabIndex = 0;
             this.label11.Text = "时限";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -330,11 +342,13 @@
             // lbl_leixing
             // 
             this.lbl_leixing.AutoSize = true;
+            this.lbl_leixing.BackColor = System.Drawing.Color.Gray;
             this.lbl_leixing.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_leixing.Location = new System.Drawing.Point(1, 241);
-            this.lbl_leixing.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_leixing.ForeColor = System.Drawing.Color.White;
+            this.lbl_leixing.Location = new System.Drawing.Point(3, 243);
+            this.lbl_leixing.Margin = new System.Windows.Forms.Padding(3);
             this.lbl_leixing.Name = "lbl_leixing";
-            this.lbl_leixing.Size = new System.Drawing.Size(78, 30);
+            this.lbl_leixing.Size = new System.Drawing.Size(74, 26);
             this.lbl_leixing.TabIndex = 0;
             this.lbl_leixing.Text = "任务类型";
             this.lbl_leixing.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

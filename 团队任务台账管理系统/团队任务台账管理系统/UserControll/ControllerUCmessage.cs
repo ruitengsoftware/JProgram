@@ -30,7 +30,7 @@ namespace 团队任务台账管理系统.UserControll
         /// <returns></returns>
         public int GetWeiduTaskNum()
         {
-            string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 状态='未读' and 负责人='{JJLoginInfo._huaming}' or 参与人='{JJLoginInfo._huaming}'";
+            string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 状态='未读'/* and 负责人='{JJLoginInfo._huaming}' or 参与人='{JJLoginInfo._huaming}'*/";
             int num = _mysql.ExecuteNonQuery(str_sql);
             return num;
         }

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.Controller;
 using 团队任务台账管理系统.JJModel;
+using 团队任务台账管理系统.JJWinForm;
 using 团队任务台账管理系统.Properties;
 using 团队任务台账管理系统.UserControll;
 using 团队任务台账管理系统.WinForm;
@@ -140,7 +141,6 @@ namespace 团队任务台账管理系统
             }
             //开始监听新任务
             timer1.Start();
-
         }
 
         private void pb_home_Click(object sender, EventArgs e)
@@ -153,19 +153,24 @@ namespace 团队任务台账管理系统
 
         private void pb_tuichu_Click(object sender, EventArgs e)
         {
-            //清空panel
-            panel_my.Controls.Clear();
-            //自动登录设置为false
-            Settings.Default.zidongdenglu = false;
-            //回退到登陆界面
-            this.splitContainer1.Panel1Collapsed = true;
+            this.Hide();
+            WinFormdenglu mywin = new WinFormdenglu();
+            mywin.StartPosition = FormStartPosition.CenterParent;
+            mywin.ShowDialog();
+         
+            ////清空panel
+            //panel_my.Controls.Clear();
+            ////自动登录设置为false
+            //Settings.Default.zidongdenglu = false;
+            ////回退到登陆界面
+            //this.splitContainer1.Panel1Collapsed = true;
 
-            this.Width = 1000;
-            this.Height = 625;
-            UCdenglu ucdenglu = new UCdenglu();
-            ucdenglu.Dock = DockStyle.Fill;
+            //this.Width = 1000;
+            //this.Height = 625;
+            //UCdenglu ucdenglu = new UCdenglu();
+            //ucdenglu.Dock = DockStyle.Fill;
 
-            panel_my.Controls.Add(ucdenglu);
+            //panel_my.Controls.Add(ucdenglu);
         }
 
         private void pb_touxiang_Click(object sender, EventArgs e)
