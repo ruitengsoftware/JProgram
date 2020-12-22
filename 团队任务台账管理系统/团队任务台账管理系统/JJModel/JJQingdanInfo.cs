@@ -39,6 +39,17 @@ namespace 团队任务台账管理系统.JJModel
         /// 状态
         /// </summary>
         public string _zhuangtai = string.Empty;
-
+        /// <summary>
+        /// 销项
+        /// </summary>
+        public int _xiaoxiang = 0;
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string _beizhu = string.Empty;
+        /// <summary>
+        /// 心得体会
+        /// </summary>
+        public string _xindetihui = string.Empty;
     }
 }

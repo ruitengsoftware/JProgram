@@ -111,10 +111,10 @@
             // 
             this.cbb_xiangxian.FormattingEnabled = true;
             this.cbb_xiangxian.Items.AddRange(new object[] {
-            "第一象限",
-            "第二象限",
-            "第三象限",
-            "第四象限"});
+            "A类重要且紧急",
+            "B类重要但不紧急",
+            "C类不重要但紧急",
+            "D类不重要也不紧急"});
             this.cbb_xiangxian.Location = new System.Drawing.Point(132, 74);
             this.cbb_xiangxian.Name = "cbb_xiangxian";
             this.cbb_xiangxian.Size = new System.Drawing.Size(192, 25);

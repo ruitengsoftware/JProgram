@@ -17,25 +17,45 @@ namespace 团队任务台账管理系统.UserControll
     public partial class UCMessage : UserControl
     {
         ControllerUCmsg _myc = new ControllerUCmsg();
-
-        /// <summary>
-        /// 信息类型，包括工作清单，通知公告，待办事项
-        /// </summary>
-        public string _msgtype = string.Empty;
-
+        object task = new object();
         public UCMessage()
         {
             InitializeComponent();
         }
         UIHelper _ui = new UIHelper();
-        public UCMessage(string stra,string strb,string strc)
+        public UCMessage(object o)
         {
             InitializeComponent();
-           
             this.Dock = DockStyle.Top;
-            label1.Text = stra;
-            label2.Text = strb;
-            label3.Text = strc;
+            task = o;
+            if (o is JJQingdanInfo)
+            {
+                JJQingdanInfo info=o as JJQingdanInfo;
+                //在uc上显示   象限  名称  完成时间
+                this.lbl_xiangxian.Text = info._xiangxian;
+                this.lbl_mingcheng.Text = info._renwumingcheng;
+                this.lbl_wanchengshijian.Text = info._wanchengshijian;
+            }
+            if (o is JJTongzhiInfo)
+            {
+                JJTongzhiInfo info = o as JJTongzhiInfo;
+                //在uc上显示  状态标题 发布时间
+                this.lbl_xiangxian.Text = info._zhuangtai;
+                this.lbl_mingcheng.Text = info._biaoti;
+                this.lbl_wanchengshijian.Text = info._fabushijian;
+
+            }
+            if (o is JJchangguiInfo)
+            {
+                JJchangguiInfo info = o as JJchangguiInfo;
+                this.lbl_xiangxian.Text = info._jinjichengdu;
+                this.lbl_mingcheng.Text = info._renwumingcheng;
+                this.lbl_wanchengshijian.Text = info._shixian ;
+
+            }
+
+
+
 
         }
 
@@ -61,30 +81,30 @@ namespace 团队任务台账管理系统.UserControll
         private void label2_Click(object sender, EventArgs e)
         {
             //判断uc的类型，工作清单，通知公告，待办任务
-            if (this._msgtype.Equals("待办任务"))
+            if (task is JJchangguiInfo)
 
             {
-                JJTaskInfo ci = _myc.GetChangguiInfo(label2.Text);
+                JJTaskInfo ci = _myc.GetChangguiInfo(lbl_mingcheng.Text);
                 WFchangguishixiang mywin = new WFchangguishixiang();
                 if (mywin.ShowDialog()==DialogResult.OK)
                 {
                     //刷新数据
                 }
             }
-            if (this._msgtype.Equals("通知公告"))
+            if (task is JJTongzhiInfo)
 
             {
-                JJTongzhiInfo ci = _myc.GetTongzhiInfo(label2.Text);
+                JJTongzhiInfo ci = _myc.GetTongzhiInfo(lbl_mingcheng.Text);
                 WFtongzhigonggao mywin = new WFtongzhigonggao(ci);
                 if (mywin.ShowDialog() == DialogResult.OK)
                 {
                     //刷新数据
                 }
             }
-            if (this._msgtype.Equals("工作清单"))
+            if (task is JJQingdanInfo)
 
             {
-                JJQingdanInfo ci = _myc.GetQingdanInfo(label2.Text);
+                JJQingdanInfo ci = _myc.GetQingdanInfo(lbl_mingcheng.Text);
                 WFgongzuoqingdan mywin = new WFgongzuoqingdan(ci);
                 if (mywin.ShowDialog() == DialogResult.OK)
                 {

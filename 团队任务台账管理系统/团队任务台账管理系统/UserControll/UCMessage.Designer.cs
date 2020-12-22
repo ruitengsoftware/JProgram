@@ -29,72 +29,106 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_xiangxian = new System.Windows.Forms.Label();
+            this.lbl_mingcheng = new System.Windows.Forms.Label();
+            this.lbl_wanchengshijian = new System.Windows.Forms.Label();
+            this.lbl_xiaoxiang = new System.Windows.Forms.Label();
+            this.lbl_shanchu = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.LightGray;
-            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.Controls.Add(this.lbl_xiangxian, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_mingcheng, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_wanchengshijian, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_xiaoxiang, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_shanchu, 4, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(537, 36);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(615, 33);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // label1
+            // lbl_xiangxian
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(1, 1);
-            this.label1.Margin = new System.Windows.Forms.Padding(1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 34);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_xiangxian.AutoSize = true;
+            this.lbl_xiangxian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_xiangxian.Location = new System.Drawing.Point(1, 1);
+            this.lbl_xiangxian.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_xiangxian.Name = "lbl_xiangxian";
+            this.lbl_xiangxian.Size = new System.Drawing.Size(158, 31);
+            this.lbl_xiangxian.TabIndex = 0;
+            this.lbl_xiangxian.Text = "label1";
+            this.lbl_xiangxian.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lbl_mingcheng
             // 
-            this.label2.AutoSize = true;
-            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(161, 1);
-            this.label2.Margin = new System.Windows.Forms.Padding(1);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(275, 34);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "label1";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            this.label2.MouseEnter += new System.EventHandler(this.label2_MouseEnter);
-            this.label2.MouseLeave += new System.EventHandler(this.label2_MouseLeave);
+            this.lbl_mingcheng.AutoSize = true;
+            this.lbl_mingcheng.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_mingcheng.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_mingcheng.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbl_mingcheng.ForeColor = System.Drawing.Color.DimGray;
+            this.lbl_mingcheng.Location = new System.Drawing.Point(161, 1);
+            this.lbl_mingcheng.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_mingcheng.Name = "lbl_mingcheng";
+            this.lbl_mingcheng.Size = new System.Drawing.Size(233, 31);
+            this.lbl_mingcheng.TabIndex = 0;
+            this.lbl_mingcheng.Text = "label1";
+            this.lbl_mingcheng.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_mingcheng.Click += new System.EventHandler(this.label2_Click);
+            this.lbl_mingcheng.MouseEnter += new System.EventHandler(this.label2_MouseEnter);
+            this.lbl_mingcheng.MouseLeave += new System.EventHandler(this.label2_MouseLeave);
             // 
-            // label3
+            // lbl_wanchengshijian
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(438, 1);
-            this.label3.Margin = new System.Windows.Forms.Padding(1);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 34);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "label1";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_wanchengshijian.AutoSize = true;
+            this.lbl_wanchengshijian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_wanchengshijian.Location = new System.Drawing.Point(396, 1);
+            this.lbl_wanchengshijian.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_wanchengshijian.Name = "lbl_wanchengshijian";
+            this.lbl_wanchengshijian.Size = new System.Drawing.Size(98, 31);
+            this.lbl_wanchengshijian.TabIndex = 0;
+            this.lbl_wanchengshijian.Text = "label1";
+            this.lbl_wanchengshijian.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_xiaoxiang
+            // 
+            this.lbl_xiaoxiang.AutoSize = true;
+            this.lbl_xiaoxiang.BackColor = System.Drawing.Color.Tomato;
+            this.lbl_xiaoxiang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_xiaoxiang.ForeColor = System.Drawing.Color.White;
+            this.lbl_xiaoxiang.Location = new System.Drawing.Point(497, 2);
+            this.lbl_xiaoxiang.Margin = new System.Windows.Forms.Padding(2);
+            this.lbl_xiaoxiang.Name = "lbl_xiaoxiang";
+            this.lbl_xiaoxiang.Size = new System.Drawing.Size(56, 29);
+            this.lbl_xiaoxiang.TabIndex = 1;
+            this.lbl_xiaoxiang.Text = "销项";
+            this.lbl_xiaoxiang.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_shanchu
+            // 
+            this.lbl_shanchu.AutoSize = true;
+            this.lbl_shanchu.BackColor = System.Drawing.Color.Tomato;
+            this.lbl_shanchu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_shanchu.ForeColor = System.Drawing.Color.White;
+            this.lbl_shanchu.Location = new System.Drawing.Point(557, 2);
+            this.lbl_shanchu.Margin = new System.Windows.Forms.Padding(2);
+            this.lbl_shanchu.Name = "lbl_shanchu";
+            this.lbl_shanchu.Size = new System.Drawing.Size(56, 29);
+            this.lbl_shanchu.TabIndex = 1;
+            this.lbl_shanchu.Text = "删除";
+            this.lbl_shanchu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UCMessage
             // 
@@ -106,7 +140,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UCMessage";
             this.Padding = new System.Windows.Forms.Padding(2);
-            this.Size = new System.Drawing.Size(541, 40);
+            this.Size = new System.Drawing.Size(619, 37);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -116,8 +150,10 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_xiangxian;
+        private System.Windows.Forms.Label lbl_mingcheng;
+        private System.Windows.Forms.Label lbl_wanchengshijian;
+        private System.Windows.Forms.Label lbl_xiaoxiang;
+        private System.Windows.Forms.Label lbl_shanchu;
     }
 }

@@ -127,6 +127,7 @@
     <Compile Include="Controller\ControllerWFyijian.cs" />
     <Compile Include="Controller\ControllerWFZhaohuimima.cs" />
     <Compile Include="Controller\ControllerWFzhuce.cs" />
+    <Compile Include="Controller\ControllerXiaoxiang.cs" />
     <Compile Include="Controller\ControllerXinjiangongzuoqingdan.cs" />
     <Compile Include="Controller\MysqlHelper.cs" />
     <Compile Include="Form1.cs">
@@ -347,6 +348,12 @@
     <Compile Include="WinForm\WinFormdenglu.designer.cs">
       <DependentUpon>WinFormdenglu.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\WinFormXiaoxiang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WinFormXiaoxiang.Designer.cs">
+      <DependentUpon>WinFormXiaoxiang.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\WinFormYidu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -470,6 +477,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WinFormdenglu.resx">
       <DependentUpon>WinFormdenglu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WinFormXiaoxiang.resx">
+      <DependentUpon>WinFormXiaoxiang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WinFormYidu.resx">
       <DependentUpon>WinFormYidu.cs</DependentUpon>
