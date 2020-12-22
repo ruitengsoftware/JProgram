@@ -59,7 +59,7 @@
     </Reference>
     <Reference Include="RuitengDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>G:\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
+      <HintPath>..\..\..\..\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -123,6 +123,7 @@
     <Compile Include="Controller\ControllerWFrizhi.cs" />
     <Compile Include="Controller\ControllerWFtongzhigonggao.cs" />
     <Compile Include="Controller\Controllerwfxinjian.cs" />
+    <Compile Include="Controller\ControllerWFyidu.cs" />
     <Compile Include="Controller\ControllerWFyijian.cs" />
     <Compile Include="Controller\ControllerWFZhaohuimima.cs" />
     <Compile Include="Controller\ControllerWFzhuce.cs" />
@@ -346,6 +347,12 @@
     <Compile Include="WinForm\WinFormdenglu.designer.cs">
       <DependentUpon>WinFormdenglu.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\WinFormYidu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WinFormYidu.Designer.cs">
+      <DependentUpon>WinFormYidu.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\WinFormZhaohuimima.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -463,6 +470,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WinFormdenglu.resx">
       <DependentUpon>WinFormdenglu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WinFormYidu.resx">
+      <DependentUpon>WinFormYidu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WinFormZhaohuimima.resx">
       <DependentUpon>WinFormZhaohuimima.cs</DependentUpon>

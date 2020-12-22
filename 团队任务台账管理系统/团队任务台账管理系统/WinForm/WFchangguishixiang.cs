@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.Controller;
@@ -14,6 +15,7 @@ namespace 团队任务台账管理系统.WinForm
 {
     public partial class WFchangguishixiang : Form
     {
+        public JJTaskInfo mytask = new JJTaskInfo();
         public WFchangguishixiang()
         {
             InitializeComponent();
@@ -74,7 +76,7 @@ namespace 团队任务台账管理系统.WinForm
             }
             if (b2)
             {
-                MessageBox.Show("具体要求未填写！");
+                MessageBox.Show("详情未填写！");
                 return;
             }
 
@@ -97,7 +99,7 @@ namespace 团队任务台账管理系统.WinForm
             JJTaskInfo myt = new JJTaskInfo()
             {
                 _mingcheng = tb_renwumingcheng.Text,
-                _leixing = "常规事项",
+                _leixing = cbb_leixing.Text,
                 _fuzeren = tb_zerenren.Text,
                 _canyuren = tb_canjiaren.Text,
                 _zhuangtai = "未读",
@@ -106,20 +108,20 @@ namespace 团队任务台账管理系统.WinForm
                 _chuangjianshijian = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),
                 _duqushijian = "",
                 _shixian = Convert.ToDateTime(dtp_shixian.Value).ToString("yyyy-MM-dd hh:mm:ss"),
-                _jinjichengdu=jinjichengdu
+                _jinjichengdu=jinjichengdu,
             };
-
-
-
             //添加任务
             bool b = mycontroller.AddTask(myt);
-            if (b) MessageBox.Show("添加任务成功！");
+            if (b)
+            {
+
+            MessageBox.Show("添加任务成功！");
+
+
+                mytask = myt;
             this.DialogResult = DialogResult.OK;
 
-
-
-
-
+            }
         }
 
         private void WFchangguishixiang_Load(object sender, EventArgs e)
@@ -129,7 +131,7 @@ namespace 团队任务台账管理系统.WinForm
 
         private void cbb_leixing_SelectedIndexChanged(object sender, EventArgs e)
         {
-           myt
+          
         }
 
         private void tb_xiangqing_TextChanged(object sender, EventArgs e)

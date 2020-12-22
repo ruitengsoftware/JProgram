@@ -136,7 +136,7 @@ namespace 团队任务台账管理系统
             if (num > 0)
             {
                 pb_newtask.Visible = true;
-                
+                myt.Start();
             }
             //开始监听新任务
             timer1.Start();
@@ -293,6 +293,9 @@ namespace 团队任务台账管理系统
             panel_my.Controls.Add(new UCMytask() { Dock = DockStyle.Fill });
         }
 
+
+        Timer myt = new Timer();
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             //获得新消息，如果数量大于一，在 我的任务右侧显示红点
@@ -301,26 +304,23 @@ namespace 团队任务台账管理系统
             {
                 pb_newtask.Visible = true;
                 //此时开启闪烁
-                Timer myt = new Timer();
                 myt.Interval = 500;
                 myt.Tick += Myt_Tick;
                 myt.Start();
+                //同时判断是否显示 
+                Control myuc = panel_my.Controls[0];
+                if (myuc is UCMytask)
+                {
+                    (myuc as UCMytask).lbl_quanbu_Click(null, null);
+                }
 
-
-
-            }
-            //同时判断是否显示 
-            Control myuc = panel_my.Controls[0];
-            if (myuc is UCMytask)
-            {
-                (myuc as UCMytask).lbl_quanbu_Click(null, null);
             }
 
         }
 
         private Icon blank = Properties.Resources.ruitengicon;
         private Icon normal = Properties.Resources.empty;
-   private bool _status = true;
+        private bool _status = true;
         private void Myt_Tick(object sender, EventArgs e)
         {
             if (_status)
@@ -328,6 +328,16 @@ namespace 团队任务台账管理系统
             else
                 notifyIcon1.Icon = blank;
             _status = !_status;
+        }
+
+        private void notifyIcon1_Click(object sender, EventArgs e)
+        {
+            myt.Stop();//停止闪烁
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            notifyIcon1.Dispose();
         }
     }
 }

@@ -21,7 +21,15 @@ namespace 团队任务台账管理系统.UserControll
         {
             InitializeComponent();
         }
-
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
         public void lbl_quanbu_Click(object sender, EventArgs e)
         {
             foreach (Control  c  in tlp_button.Controls)
@@ -445,6 +453,14 @@ namespace 团队任务台账管理系统.UserControll
             wfxinjian.StartPosition = FormStartPosition.CenterParent;
             if (wfxinjian.ShowDialog()==DialogResult.OK)
             {
+                var myt = wfxinjian.mytask;
+                //如果负责人或者责任人包括登录名称，需要在我的任务右侧显示红点
+                string[] arr_canyuren = Regex.Split(myt._canyuren, "[,，|]");
+                if (myt._fuzeren.Contains(JJLoginInfo._huaming) || arr_canyuren.Contains(JJLoginInfo._huaming))
+                {
+                    (this.ParentForm as Form1).pb_newtask.Visible = true;
+                }
+
                 //刷新数据
                 //获得当前显示的数据
                 string data = string.Empty;

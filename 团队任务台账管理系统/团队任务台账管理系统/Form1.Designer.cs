@@ -279,6 +279,7 @@
             // 
             // panel_my
             // 
+            this.panel_my.AutoSize = true;
             this.panel_my.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_my.Location = new System.Drawing.Point(0, 0);
             this.panel_my.Margin = new System.Windows.Forms.Padding(0);
@@ -288,7 +289,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 60000;
+            this.timer1.Interval = 30000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // notifyIcon1
@@ -297,6 +298,7 @@
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
+            this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
             // 
             // Form1
             // 
@@ -312,10 +314,12 @@
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "写手任务台账管理系统V1.1.2 2020年12月7号";
+            this.Text = "写手任务台账管理系统V1.1.3 2020年12月21号";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

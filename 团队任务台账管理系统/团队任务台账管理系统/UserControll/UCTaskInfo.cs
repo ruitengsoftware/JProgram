@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.JJModel;
 using 团队任务台账管理系统.Controller;
+using 团队任务台账管理系统.WinForm;
+using System.Text.RegularExpressions;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -82,11 +84,19 @@ namespace 团队任务台账管理系统.UserControll
 
             //不新增任务，修改当前未处理任务状态
             str_sql = $"insert into jjdbrenwutaizhang.任务信息表 values('{myti._mingcheng}'," +
-                $"'常规事项','{myti._fuzeren}','{myti._canyuren}','未读','{myti._xiangqing}','{JJLoginInfo._huaming}','{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")}'," +
+                $"'{myti._leixing}','{myti._fuzeren}','{myti._canyuren}','未读','{myti._xiangqing}','{JJLoginInfo._huaming}','{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")}'," +
                 $"'','{myti._shixian}','{myti._jinjichengdu}',0)";
             bool b = myc.DoSql(str_sql);
             if (b)
             {
+                //如果负责人或者责任人包括登录名称，需要在我的任务右侧显示红点
+                string[] arr_canyuren = Regex.Split(myti._canyuren, "[,，|]");
+                if (myti._fuzeren.Contains(JJLoginInfo._huaming)|| arr_canyuren.Contains(JJLoginInfo._huaming))
+                {
+                    (this.ParentForm as Form1).pb_newtask.Visible = true;
+                }
+
+
                 _updatedata();
                 MessageBox.Show("任务已发送！");
             }
@@ -154,6 +164,16 @@ namespace 团队任务台账管理系统.UserControll
             {
                 _updatedata();
                 MessageBox.Show("任务已删除！");
+            }
+        }
+
+        private void lbl_chakanyidu_Click(object sender, EventArgs e)
+        {
+            WinFormYidu mywin = new WinFormYidu(myti);
+            mywin.StartPosition = FormStartPosition.CenterParent;
+            if (mywin.ShowDialog()==DialogResult.OK)
+            {
+
             }
         }
     }

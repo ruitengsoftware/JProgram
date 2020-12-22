@@ -366,7 +366,7 @@
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WFchangguishixiang";
-            this.Text = "WFxinjian";
+            this.Text = "新建任务";
             this.Load += new System.EventHandler(this.WFchangguishixiang_Load);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();

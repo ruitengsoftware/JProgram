@@ -25,7 +25,7 @@ namespace 团队任务台账管理系统.Controller
         {
             //将常规事项的内容同时插入到常规事项表和    任务信息汇总表中
             string str_sql = $"insert into jjdbrenwutaizhang.任务信息表 values('{ci._mingcheng}'," +
-                $"'常规事项','{ci._fuzeren}','{ci._canyuren}','{ci._zhuangtai}','{ci._xiangqing}','{ci._chuangjianren}','{ci._chuangjianshijian}'," +
+                $"'{ci._leixing}','{ci._fuzeren}','{ci._canyuren}','{ci._zhuangtai}','{ci._xiangqing}','{ci._chuangjianren}','{ci._chuangjianshijian}'," +
                 $"'{ci._duqushijian}','{ci._shixian}','{ci._jinjichengdu}',0)";
            int num= mysqlhelper.ExecuteNonQuery(str_sql);
             //判断该任务名是否存在，如果存在，使用update语句，否则
