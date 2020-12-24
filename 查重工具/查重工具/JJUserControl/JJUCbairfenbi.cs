@@ -24,6 +24,24 @@ namespace 查重工具.JJUserControl
             
         }
 
+        public JJUCbairfenbi(JJBaifenbi b)
+        {
+            InitializeComponent();
+            tb_baifenbi.Text = b.Percent;
+            if (b.SavePath.Equals(string.Empty))
+            {
+                cb_morenlujing.Checked = true;
+                tb_baocunlujing.Enabled = false;
+            }
+            else
+            {
+                cb_morenlujing.Checked = false;
+                tb_baocunlujing.Text = b.SavePath;
+            }
+        }
+
+
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Dispose();
