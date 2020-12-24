@@ -27,7 +27,9 @@ namespace 查重工具.JJUserControl
         public JJUCbairfenbi(JJBaifenbi b)
         {
             InitializeComponent();
-            tb_baifenbi.Text = b.Percent;
+            tb_baifenbia.Text = b.PercentA.ToString();
+            tb_baifenbib.Text = b.PercentB.ToString();
+            cbb_leixing.Text = b.Leixing;
             if (b.SavePath.Equals(string.Empty))
             {
                 cb_morenlujing.Checked = true;
@@ -49,7 +51,7 @@ namespace 查重工具.JJUserControl
 
         private void tb_baifenbi_TextChanged(object sender, EventArgs e)
         {
-            _myb.Percent = tb_baifenbi.Text;
+            _myb.PercentA =Convert.ToDouble( tb_baifenbia.Text);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -69,6 +71,26 @@ namespace 查重工具.JJUserControl
         private void tb_baocunlujing_TextChanged(object sender, EventArgs e)
         {
             _myb.SavePath = tb_baocunlujing.Text;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog()==DialogResult.OK)
+            {
+                tb_baocunlujing.Text = fbd.SelectedPath;
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _myb.Leixing = cbb_leixing.Text;
+        }
+
+        private void tb_baifenbib_TextChanged(object sender, EventArgs e)
+        {
+            _myb.PercentB = Convert.ToDouble(tb_baifenbib.Text);
+
         }
     }
 }

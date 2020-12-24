@@ -11,11 +11,15 @@ namespace 查重工具.JJModel
         /// <summary>
         /// 
         /// </summary>
-        public string Percent { get; set; }
+        public double PercentA { get; set; }
+        public double PercentB { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
         public string SavePath { get; set; }
+
+        public string Leixing { get; set; }
     }
     public class JJBaifenbiList
     {

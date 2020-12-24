@@ -38,17 +38,5 @@ namespace 查重工具.JJModel
         /// 百分比设置，json集合
         /// </summary>
         public string _baifenbishezhi = string.Empty;
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

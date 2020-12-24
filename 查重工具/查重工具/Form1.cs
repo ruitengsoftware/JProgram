@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 查重工具.JJCommon;
 using 查重工具.JJController;
 using 查重工具.JJModel;
 using 查重工具.JJUserControl;
@@ -33,10 +34,11 @@ namespace 查重工具
         {
             //选择文件夹
 
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() == DialogResult.OK)
+            WinFormNewTask mywin = new WinFormNewTask();
+            if (mywin.ShowDialog()==DialogResult.OK)
             {
-                var files = Directory.GetFiles(fbd.SelectedPath);
+
+                var files = Directory.GetFiles(mywin._wenjianjia);
                 foreach (string str in files)
                 {
                     //判断是否包含doc docx  $
@@ -51,14 +53,12 @@ namespace 查重工具
                     {
                         int index = dgv_task.Rows.Add();
                         dgv_task.Rows[index].Cells[1].Value = str;
+                        dgv_task.Rows[index].Cells[2].Value = mywin._geshi;
                     }
                 }
+
+
             }
-
-
-
-
-
         }
         /// <summary>
         /// 点击保存格式按钮式触发的事件
@@ -125,7 +125,7 @@ namespace 查重工具
 
             };
             //删除格式
-           bool b= _myc.DeleteFormat(info);
+            bool b = _myc.DeleteFormat(info);
             if (b)
             {
                 MessageBox.Show("格式已删除！");
@@ -200,7 +200,7 @@ namespace 查重工具
             JJBaifenbiList jjb = JsonConvert.DeserializeObject<JJBaifenbiList>(jj._baifenbishezhi);
             foreach (JJBaifenbi b in jjb.list_baifenbi)
             {
-                JJUCbairfenbi myuc = new JJUCbairfenbi(b) { Dock=DockStyle.Top};
+                JJUCbairfenbi myuc = new JJUCbairfenbi(b) { Dock = DockStyle.Top };
                 panel1.Controls.Add(myuc);
                 //panel1.Controls.SetChildIndex(myuc, 0);
             }
@@ -211,6 +211,124 @@ namespace 查重工具
             cbb_geshimingcheng.Items.Clear();
             var list = _myc.GetAllGeshiName();
             cbb_geshimingcheng.Items.AddRange(list.ToArray());
+        }
+        /// <summary>
+        /// 点击开始按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_kaishi_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgv_task.Rows.Count; i++)
+            {
+                string filename = dgv_task.Rows[i].Cells["wenjianming"].Value.ToString();
+                string format = dgv_task.Rows[i].Cells["geshi"].Value.ToString();
+                JJWordHelper jwh = new JJWordHelper(filename, format);
+
+
+                //判断全文md5值是否重复
+                bool b1 = jwh.IsExist(jwh._quanwen, "全文");
+                if (jwh._geshiinfo._quanwenchachong == 1)
+                {
+                    if (b1)//判断是否重复,如果重复，删除
+                    {
+                        dgv_task.Rows[i].Cells["zhuangtai"].Value = "已处理";
+                        dgv_task.Rows[i].Cells["chongfulv"].Value = "全文重复";
+
+                        File.Delete(filename);//删除全文
+                        continue;
+                    }
+
+                }
+
+
+                if (!b1 || jwh._geshiinfo._quanwenchachong != 1)//如果不重复，或者不查全文，就开始查正文
+                {
+
+                    bool b2 = jwh.IsExist(jwh._zhengwen, "正文");
+
+                    //如果设置正文查重就开始查
+                    if (jwh._geshiinfo._zhengwenchachong == 1)
+                    {
+                        if (b2)//如果重复，把文档保存到制定位置，然后结束本文件的处理
+                        {
+                            jwh.MoveFile(filename, jwh._geshiinfo._zhengwenchongfulujing);//移动文件
+                            dgv_task.Rows[i].Cells["zhuangtai"].Value = "已处理";
+                            dgv_task.Rows[i].Cells["chongfulv"].Value = "正文重复";
+                            continue;
+                        }
+
+                    }
+                    if (!b2 || jwh._geshiinfo._zhengwenchachong != 1)//如果不重复,或者不进行正文查重,分别计算标准段和标准句的重复率
+                    {
+                        string savepathju = string.Empty;
+                        string savepathduan = string.Empty;
+                        if (jwh._geshiinfo._biaozhunduanchachong == 1)//标准段查重
+                        {
+                            jwh.CalDuanChongfulv();//计算段重复率
+                                                   //循环百分比设置
+                            JJBaifenbiList my = JsonConvert.DeserializeObject<JJBaifenbiList>(jwh._geshiinfo._baifenbishezhi);
+                            foreach (JJBaifenbi jjb in my.list_baifenbi)
+                            {
+                                //判断标准段的重复率落在哪个区间
+                                if (jjb.Leixing.Equals("标准段"))
+                                {
+                                    if (jwh._duanchongfulv * 100 > jjb.PercentA && jwh._duanchongfulv * 100 <= jjb.PercentB)
+                                    {
+                                        if (jjb.SavePath.Trim().Equals(string.Empty))//是默认路径
+                                        {
+                                            savepathduan = $"{ Path.GetDirectoryName(filename)}/标准段{jjb.PercentA}-{jjb.PercentB}";
+                                        }
+                                        else
+                                        {
+                                            savepathduan = jjb.SavePath;
+                                        }
+                                        jwh.MoveFile(filename, savepathduan);
+                                    }
+
+                                }
+                            }
+                            //在任务列表中显示重复率
+                            dgv_task.Rows[i].Cells["zhuangtai"].Value = "已处理";
+                            dgv_task.Rows[i].Cells["chongfulv"].Value = $"标准段{jwh._duanchongfulv}%,标准句{jwh._juchongfulv}%";
+                        }
+                        if (jwh._geshiinfo._biaozhunduanchachong == 1)//标准段查重
+                        {
+                            jwh.CalJuChongfulv();//计算句重复率
+                                                 //循环百分比设置
+                            JJBaifenbiList my = JsonConvert.DeserializeObject<JJBaifenbiList>(jwh._geshiinfo._baifenbishezhi);
+                            foreach (JJBaifenbi jjb in my.list_baifenbi)
+                            {
+                                if (jjb.Leixing.Equals("标准句"))
+                                {
+                                    if (jwh._juchongfulv * 100 > jjb.PercentA && jwh._juchongfulv * 100 <= jjb.PercentB)
+                                    {
+                                        if (jjb.SavePath.Trim().Equals(string.Empty))//是默认路径
+                                        {
+                                            savepathju = $"{ Path.GetDirectoryName(filename)}/标准句{jjb.PercentA}-{jjb.PercentB}";
+                                        }
+                                        else
+                                        {
+                                            savepathju = jjb.SavePath;
+                                        }
+                                        jwh.MoveFile(filename, savepathju);
+                                    }
+                                }
+                            }
+                            //在任务列表中显示重复率
+                            dgv_task.Rows[i].Cells["zhuangtai"].Value = "已处理";
+                            dgv_task.Rows[i].Cells["chongfulv"].Value = $"标准段{jwh._duanchongfulv}%,标准句{jwh._juchongfulv}%";
+
+                        }
+
+                    }
+                }
+
+
+
+
+
+            }
         }
     }
 }

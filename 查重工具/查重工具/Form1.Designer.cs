@@ -30,11 +30,6 @@
         {
             this.btn_tianjiarenwu = new System.Windows.Forms.Button();
             this.dgv_task = new System.Windows.Forms.DataGridView();
-            this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wenjainming = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.geshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zhuangtai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chongfulv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbb_geshimingcheng = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_quanwenchongfulujing = new System.Windows.Forms.TextBox();
@@ -60,6 +55,12 @@
             this.cb_biaozhunduanruku = new System.Windows.Forms.CheckBox();
             this.cb_biaozhunjuruku = new System.Windows.Forms.CheckBox();
             this.btn_qingkong = new System.Windows.Forms.Button();
+            this.btn_kaishi = new System.Windows.Forms.Button();
+            this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wenjianming = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.geshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zhuangtai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chongfulv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_task)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -67,7 +68,7 @@
             // 
             // btn_tianjiarenwu
             // 
-            this.btn_tianjiarenwu.Location = new System.Drawing.Point(83, 27);
+            this.btn_tianjiarenwu.Location = new System.Drawing.Point(42, 27);
             this.btn_tianjiarenwu.Name = "btn_tianjiarenwu";
             this.btn_tianjiarenwu.Size = new System.Drawing.Size(76, 32);
             this.btn_tianjiarenwu.TabIndex = 0;
@@ -78,44 +79,20 @@
             // dgv_task
             // 
             this.dgv_task.AllowUserToAddRows = false;
+            this.dgv_task.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_task.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_task.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.xuhao,
-            this.wenjainming,
+            this.wenjianming,
             this.geshi,
             this.zhuangtai,
             this.chongfulv});
-            this.dgv_task.Location = new System.Drawing.Point(33, 65);
+            this.dgv_task.Location = new System.Drawing.Point(33, 73);
             this.dgv_task.Name = "dgv_task";
             this.dgv_task.RowHeadersVisible = false;
             this.dgv_task.RowTemplate.Height = 23;
-            this.dgv_task.Size = new System.Drawing.Size(319, 362);
+            this.dgv_task.Size = new System.Drawing.Size(319, 553);
             this.dgv_task.TabIndex = 1;
-            // 
-            // xuhao
-            // 
-            this.xuhao.HeaderText = "序号";
-            this.xuhao.Name = "xuhao";
-            // 
-            // wenjainming
-            // 
-            this.wenjainming.HeaderText = "文件名";
-            this.wenjainming.Name = "wenjainming";
-            // 
-            // geshi
-            // 
-            this.geshi.HeaderText = "格式";
-            this.geshi.Name = "geshi";
-            // 
-            // zhuangtai
-            // 
-            this.zhuangtai.HeaderText = "状态";
-            this.zhuangtai.Name = "zhuangtai";
-            // 
-            // chongfulv
-            // 
-            this.chongfulv.HeaderText = "重复率";
-            this.chongfulv.Name = "chongfulv";
             // 
             // cbb_geshimingcheng
             // 
@@ -158,7 +135,7 @@
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Location = new System.Drawing.Point(398, 215);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(378, 220);
+            this.groupBox1.Size = new System.Drawing.Size(548, 411);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "百分比设置";
@@ -175,23 +152,24 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(372, 200);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(542, 391);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(366, 159);
+            this.panel1.Size = new System.Drawing.Size(536, 316);
             this.panel1.TabIndex = 0;
             // 
             // btn_baifenbi
             // 
             this.btn_baifenbi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_baifenbi.Location = new System.Drawing.Point(3, 168);
+            this.btn_baifenbi.Location = new System.Drawing.Point(3, 325);
             this.btn_baifenbi.Name = "btn_baifenbi";
-            this.btn_baifenbi.Size = new System.Drawing.Size(366, 29);
+            this.btn_baifenbi.Size = new System.Drawing.Size(536, 63);
             this.btn_baifenbi.TabIndex = 1;
             this.btn_baifenbi.Text = "添加百分比";
             this.btn_baifenbi.UseVisualStyleBackColor = true;
@@ -209,6 +187,11 @@
             // cbb_chachongku
             // 
             this.cbb_chachongku.FormattingEnabled = true;
+            this.cbb_chachongku.Items.AddRange(new object[] {
+            "裁判文书库",
+            "政策库",
+            "新文库",
+            "法规库"});
             this.cbb_chachongku.Location = new System.Drawing.Point(486, 70);
             this.cbb_chachongku.Name = "cbb_chachongku";
             this.cbb_chachongku.Size = new System.Drawing.Size(211, 20);
@@ -226,7 +209,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(396, 127);
+            this.label4.Location = new System.Drawing.Point(396, 132);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 12);
             this.label4.TabIndex = 3;
@@ -234,7 +217,7 @@
             // 
             // tb_zhengwenchongfulujing
             // 
-            this.tb_zhengwenchongfulujing.Location = new System.Drawing.Point(579, 122);
+            this.tb_zhengwenchongfulujing.Location = new System.Drawing.Point(579, 127);
             this.tb_zhengwenchongfulujing.Name = "tb_zhengwenchongfulujing";
             this.tb_zhengwenchongfulujing.Size = new System.Drawing.Size(197, 21);
             this.tb_zhengwenchongfulujing.TabIndex = 4;
@@ -242,7 +225,7 @@
             // cb_zhengwenmoren
             // 
             this.cb_zhengwenmoren.AutoSize = true;
-            this.cb_zhengwenmoren.Location = new System.Drawing.Point(503, 126);
+            this.cb_zhengwenmoren.Location = new System.Drawing.Point(503, 131);
             this.cb_zhengwenmoren.Name = "cb_zhengwenmoren";
             this.cb_zhengwenmoren.Size = new System.Drawing.Size(72, 16);
             this.cb_zhengwenmoren.TabIndex = 5;
@@ -272,7 +255,7 @@
             // cb_quanwenchachong
             // 
             this.cb_quanwenchachong.AutoSize = true;
-            this.cb_quanwenchachong.Location = new System.Drawing.Point(398, 156);
+            this.cb_quanwenchachong.Location = new System.Drawing.Point(398, 161);
             this.cb_quanwenchachong.Name = "cb_quanwenchachong";
             this.cb_quanwenchachong.Size = new System.Drawing.Size(72, 16);
             this.cb_quanwenchachong.TabIndex = 11;
@@ -282,7 +265,7 @@
             // cb_zhengwenchachong
             // 
             this.cb_zhengwenchachong.AutoSize = true;
-            this.cb_zhengwenchachong.Location = new System.Drawing.Point(497, 156);
+            this.cb_zhengwenchachong.Location = new System.Drawing.Point(497, 161);
             this.cb_zhengwenchachong.Name = "cb_zhengwenchachong";
             this.cb_zhengwenchachong.Size = new System.Drawing.Size(72, 16);
             this.cb_zhengwenchachong.TabIndex = 11;
@@ -292,7 +275,7 @@
             // cb_biaozhunduanchachong
             // 
             this.cb_biaozhunduanchachong.AutoSize = true;
-            this.cb_biaozhunduanchachong.Location = new System.Drawing.Point(591, 156);
+            this.cb_biaozhunduanchachong.Location = new System.Drawing.Point(591, 161);
             this.cb_biaozhunduanchachong.Name = "cb_biaozhunduanchachong";
             this.cb_biaozhunduanchachong.Size = new System.Drawing.Size(84, 16);
             this.cb_biaozhunduanchachong.TabIndex = 11;
@@ -302,7 +285,7 @@
             // cb_biaozhunjuchachong
             // 
             this.cb_biaozhunjuchachong.AutoSize = true;
-            this.cb_biaozhunjuchachong.Location = new System.Drawing.Point(692, 156);
+            this.cb_biaozhunjuchachong.Location = new System.Drawing.Point(692, 161);
             this.cb_biaozhunjuchachong.Name = "cb_biaozhunjuchachong";
             this.cb_biaozhunjuchachong.Size = new System.Drawing.Size(84, 16);
             this.cb_biaozhunjuchachong.TabIndex = 11;
@@ -312,7 +295,7 @@
             // cb_quanwenruku
             // 
             this.cb_quanwenruku.AutoSize = true;
-            this.cb_quanwenruku.Location = new System.Drawing.Point(398, 178);
+            this.cb_quanwenruku.Location = new System.Drawing.Point(398, 183);
             this.cb_quanwenruku.Name = "cb_quanwenruku";
             this.cb_quanwenruku.Size = new System.Drawing.Size(72, 16);
             this.cb_quanwenruku.TabIndex = 11;
@@ -322,7 +305,7 @@
             // cb_zhengwenruku
             // 
             this.cb_zhengwenruku.AutoSize = true;
-            this.cb_zhengwenruku.Location = new System.Drawing.Point(497, 178);
+            this.cb_zhengwenruku.Location = new System.Drawing.Point(497, 183);
             this.cb_zhengwenruku.Name = "cb_zhengwenruku";
             this.cb_zhengwenruku.Size = new System.Drawing.Size(72, 16);
             this.cb_zhengwenruku.TabIndex = 11;
@@ -332,7 +315,7 @@
             // cb_biaozhunduanruku
             // 
             this.cb_biaozhunduanruku.AutoSize = true;
-            this.cb_biaozhunduanruku.Location = new System.Drawing.Point(591, 178);
+            this.cb_biaozhunduanruku.Location = new System.Drawing.Point(591, 183);
             this.cb_biaozhunduanruku.Name = "cb_biaozhunduanruku";
             this.cb_biaozhunduanruku.Size = new System.Drawing.Size(84, 16);
             this.cb_biaozhunduanruku.TabIndex = 11;
@@ -342,7 +325,7 @@
             // cb_biaozhunjuruku
             // 
             this.cb_biaozhunjuruku.AutoSize = true;
-            this.cb_biaozhunjuruku.Location = new System.Drawing.Point(692, 178);
+            this.cb_biaozhunjuruku.Location = new System.Drawing.Point(692, 183);
             this.cb_biaozhunjuruku.Name = "cb_biaozhunjuruku";
             this.cb_biaozhunjuruku.Size = new System.Drawing.Size(84, 16);
             this.cb_biaozhunjuruku.TabIndex = 11;
@@ -351,7 +334,7 @@
             // 
             // btn_qingkong
             // 
-            this.btn_qingkong.Location = new System.Drawing.Point(174, 27);
+            this.btn_qingkong.Location = new System.Drawing.Point(136, 27);
             this.btn_qingkong.Name = "btn_qingkong";
             this.btn_qingkong.Size = new System.Drawing.Size(76, 32);
             this.btn_qingkong.TabIndex = 0;
@@ -359,11 +342,47 @@
             this.btn_qingkong.UseVisualStyleBackColor = true;
             this.btn_qingkong.Click += new System.EventHandler(this.btn_qingkong_Click);
             // 
+            // btn_kaishi
+            // 
+            this.btn_kaishi.Location = new System.Drawing.Point(236, 27);
+            this.btn_kaishi.Name = "btn_kaishi";
+            this.btn_kaishi.Size = new System.Drawing.Size(102, 31);
+            this.btn_kaishi.TabIndex = 12;
+            this.btn_kaishi.Text = "开始";
+            this.btn_kaishi.UseVisualStyleBackColor = true;
+            this.btn_kaishi.Click += new System.EventHandler(this.btn_kaishi_Click);
+            // 
+            // xuhao
+            // 
+            this.xuhao.HeaderText = "序号";
+            this.xuhao.Name = "xuhao";
+            // 
+            // wenjianming
+            // 
+            this.wenjianming.HeaderText = "文件名";
+            this.wenjianming.Name = "wenjianming";
+            // 
+            // geshi
+            // 
+            this.geshi.HeaderText = "格式";
+            this.geshi.Name = "geshi";
+            // 
+            // zhuangtai
+            // 
+            this.zhuangtai.HeaderText = "状态";
+            this.zhuangtai.Name = "zhuangtai";
+            // 
+            // chongfulv
+            // 
+            this.chongfulv.HeaderText = "重复率";
+            this.chongfulv.Name = "chongfulv";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(835, 464);
+            this.ClientSize = new System.Drawing.Size(989, 655);
+            this.Controls.Add(this.btn_kaishi);
             this.Controls.Add(this.cb_biaozhunjuruku);
             this.Controls.Add(this.cb_biaozhunjuchachong);
             this.Controls.Add(this.cb_biaozhunduanruku);
@@ -427,8 +446,9 @@
         private System.Windows.Forms.CheckBox cb_biaozhunduanruku;
         private System.Windows.Forms.CheckBox cb_biaozhunjuruku;
         private System.Windows.Forms.Button btn_qingkong;
+        private System.Windows.Forms.Button btn_kaishi;
         private System.Windows.Forms.DataGridViewTextBoxColumn xuhao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn wenjainming;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wenjianming;
         private System.Windows.Forms.DataGridViewTextBoxColumn geshi;
         private System.Windows.Forms.DataGridViewTextBoxColumn zhuangtai;
         private System.Windows.Forms.DataGridViewTextBoxColumn chongfulv;
