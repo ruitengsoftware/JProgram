@@ -53,5 +53,10 @@ namespace 查重工具
         {
             this.DialogResult = DialogResult.OK;
         }
+
+        private void btn_guanbi_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

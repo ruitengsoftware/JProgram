@@ -85,12 +85,13 @@
             // 
             // btn_guanbi
             // 
-            this.btn_guanbi.Location = new System.Drawing.Point(368, 189);
+            this.btn_guanbi.Location = new System.Drawing.Point(306, 178);
             this.btn_guanbi.Name = "btn_guanbi";
             this.btn_guanbi.Size = new System.Drawing.Size(93, 54);
             this.btn_guanbi.TabIndex = 4;
             this.btn_guanbi.Text = "关闭";
             this.btn_guanbi.UseVisualStyleBackColor = true;
+            this.btn_guanbi.Click += new System.EventHandler(this.btn_guanbi_Click);
             // 
             // pb_folder
             // 
@@ -108,7 +109,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(594, 327);
+            this.ClientSize = new System.Drawing.Size(539, 250);
             this.Controls.Add(this.pb_folder);
             this.Controls.Add(this.btn_guanbi);
             this.Controls.Add(this.btn_queding);

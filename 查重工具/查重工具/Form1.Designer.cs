@@ -30,6 +30,11 @@
         {
             this.btn_tianjiarenwu = new System.Windows.Forms.Button();
             this.dgv_task = new System.Windows.Forms.DataGridView();
+            this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wenjianming = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.geshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zhuangtai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chongfulv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbb_geshimingcheng = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_quanwenchongfulujing = new System.Windows.Forms.TextBox();
@@ -56,11 +61,6 @@
             this.cb_biaozhunjuruku = new System.Windows.Forms.CheckBox();
             this.btn_qingkong = new System.Windows.Forms.Button();
             this.btn_kaishi = new System.Windows.Forms.Button();
-            this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wenjianming = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.geshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zhuangtai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chongfulv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_task)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -94,6 +94,31 @@
             this.dgv_task.Size = new System.Drawing.Size(319, 553);
             this.dgv_task.TabIndex = 1;
             // 
+            // xuhao
+            // 
+            this.xuhao.HeaderText = "序号";
+            this.xuhao.Name = "xuhao";
+            // 
+            // wenjianming
+            // 
+            this.wenjianming.HeaderText = "文件名";
+            this.wenjianming.Name = "wenjianming";
+            // 
+            // geshi
+            // 
+            this.geshi.HeaderText = "格式";
+            this.geshi.Name = "geshi";
+            // 
+            // zhuangtai
+            // 
+            this.zhuangtai.HeaderText = "状态";
+            this.zhuangtai.Name = "zhuangtai";
+            // 
+            // chongfulv
+            // 
+            this.chongfulv.HeaderText = "重复率";
+            this.chongfulv.Name = "chongfulv";
+            // 
             // cbb_geshimingcheng
             // 
             this.cbb_geshimingcheng.FormattingEnabled = true;
@@ -117,7 +142,7 @@
             // 
             this.tb_quanwenchongfulujing.Location = new System.Drawing.Point(579, 100);
             this.tb_quanwenchongfulujing.Name = "tb_quanwenchongfulujing";
-            this.tb_quanwenchongfulujing.Size = new System.Drawing.Size(197, 21);
+            this.tb_quanwenchongfulujing.Size = new System.Drawing.Size(244, 21);
             this.tb_quanwenchongfulujing.TabIndex = 4;
             // 
             // cb_quanwenmoren
@@ -219,7 +244,7 @@
             // 
             this.tb_zhengwenchongfulujing.Location = new System.Drawing.Point(579, 127);
             this.tb_zhengwenchongfulujing.Name = "tb_zhengwenchongfulujing";
-            this.tb_zhengwenchongfulujing.Size = new System.Drawing.Size(197, 21);
+            this.tb_zhengwenchongfulujing.Size = new System.Drawing.Size(244, 21);
             this.tb_zhengwenchongfulujing.TabIndex = 4;
             // 
             // cb_zhengwenmoren
@@ -351,31 +376,6 @@
             this.btn_kaishi.Text = "开始";
             this.btn_kaishi.UseVisualStyleBackColor = true;
             this.btn_kaishi.Click += new System.EventHandler(this.btn_kaishi_Click);
-            // 
-            // xuhao
-            // 
-            this.xuhao.HeaderText = "序号";
-            this.xuhao.Name = "xuhao";
-            // 
-            // wenjianming
-            // 
-            this.wenjianming.HeaderText = "文件名";
-            this.wenjianming.Name = "wenjianming";
-            // 
-            // geshi
-            // 
-            this.geshi.HeaderText = "格式";
-            this.geshi.Name = "geshi";
-            // 
-            // zhuangtai
-            // 
-            this.zhuangtai.HeaderText = "状态";
-            this.zhuangtai.Name = "zhuangtai";
-            // 
-            // chongfulv
-            // 
-            this.chongfulv.HeaderText = "重复率";
-            this.chongfulv.Name = "chongfulv";
             // 
             // Form1
             // 

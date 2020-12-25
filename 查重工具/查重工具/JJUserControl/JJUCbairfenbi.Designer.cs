@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tb_baifenbia = new System.Windows.Forms.TextBox();
-            this.cb_morenlujing = new System.Windows.Forms.CheckBox();
-            this.tb_baocunlujing = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.tb_baocunlujing = new System.Windows.Forms.TextBox();
+            this.cb_morenlujing = new System.Windows.Forms.CheckBox();
+            this.tb_baifenbia = new System.Windows.Forms.TextBox();
             this.cbb_leixing = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.tb_baifenbib = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tb_baifenbib = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -73,40 +73,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(425, 32);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // tb_baifenbia
-            // 
-            this.tb_baifenbia.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_baifenbia.Location = new System.Drawing.Point(233, 4);
-            this.tb_baifenbia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tb_baifenbia.Name = "tb_baifenbia";
-            this.tb_baifenbia.Size = new System.Drawing.Size(54, 23);
-            this.tb_baifenbia.TabIndex = 0;
-            this.tb_baifenbia.TextChanged += new System.EventHandler(this.tb_baifenbi_TextChanged);
-            // 
-            // cb_morenlujing
-            // 
-            this.cb_morenlujing.AutoSize = true;
-            this.cb_morenlujing.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cb_morenlujing.Location = new System.Drawing.Point(7, 7);
-            this.cb_morenlujing.Margin = new System.Windows.Forms.Padding(7, 7, 3, 4);
-            this.cb_morenlujing.Name = "cb_morenlujing";
-            this.cb_morenlujing.Size = new System.Drawing.Size(80, 21);
-            this.cb_morenlujing.TabIndex = 1;
-            this.cb_morenlujing.Text = "默认路径";
-            this.cb_morenlujing.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cb_morenlujing.UseVisualStyleBackColor = true;
-            this.cb_morenlujing.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // tb_baocunlujing
-            // 
-            this.tb_baocunlujing.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_baocunlujing.Location = new System.Drawing.Point(93, 4);
-            this.tb_baocunlujing.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tb_baocunlujing.Name = "tb_baocunlujing";
-            this.tb_baocunlujing.Size = new System.Drawing.Size(269, 23);
-            this.tb_baocunlujing.TabIndex = 2;
-            this.tb_baocunlujing.TextChanged += new System.EventHandler(this.tb_baocunlujing_TextChanged);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::查重工具.Properties.Resources.delete3;
@@ -130,6 +96,40 @@
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // tb_baocunlujing
+            // 
+            this.tb_baocunlujing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_baocunlujing.Location = new System.Drawing.Point(93, 4);
+            this.tb_baocunlujing.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tb_baocunlujing.Name = "tb_baocunlujing";
+            this.tb_baocunlujing.Size = new System.Drawing.Size(269, 23);
+            this.tb_baocunlujing.TabIndex = 2;
+            this.tb_baocunlujing.TextChanged += new System.EventHandler(this.tb_baocunlujing_TextChanged);
+            // 
+            // cb_morenlujing
+            // 
+            this.cb_morenlujing.AutoSize = true;
+            this.cb_morenlujing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cb_morenlujing.Location = new System.Drawing.Point(7, 7);
+            this.cb_morenlujing.Margin = new System.Windows.Forms.Padding(7, 7, 3, 4);
+            this.cb_morenlujing.Name = "cb_morenlujing";
+            this.cb_morenlujing.Size = new System.Drawing.Size(80, 21);
+            this.cb_morenlujing.TabIndex = 1;
+            this.cb_morenlujing.Text = "默认路径";
+            this.cb_morenlujing.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cb_morenlujing.UseVisualStyleBackColor = true;
+            this.cb_morenlujing.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // tb_baifenbia
+            // 
+            this.tb_baifenbia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_baifenbia.Location = new System.Drawing.Point(233, 4);
+            this.tb_baifenbia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tb_baifenbia.Name = "tb_baifenbia";
+            this.tb_baifenbia.Size = new System.Drawing.Size(54, 23);
+            this.tb_baifenbia.TabIndex = 0;
+            this.tb_baifenbia.TextChanged += new System.EventHandler(this.tb_baifenbi_TextChanged);
             // 
             // cbb_leixing
             // 
@@ -189,16 +189,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(425, 31);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // tb_baifenbib
-            // 
-            this.tb_baifenbib.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_baifenbib.Location = new System.Drawing.Point(343, 4);
-            this.tb_baifenbib.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tb_baifenbib.Name = "tb_baifenbib";
-            this.tb_baifenbib.Size = new System.Drawing.Size(54, 23);
-            this.tb_baifenbib.TabIndex = 0;
-            this.tb_baifenbib.TextChanged += new System.EventHandler(this.tb_baifenbib_TextChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -234,6 +224,16 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "--";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tb_baifenbib
+            // 
+            this.tb_baifenbib.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_baifenbib.Location = new System.Drawing.Point(343, 4);
+            this.tb_baifenbib.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tb_baifenbib.Name = "tb_baifenbib";
+            this.tb_baifenbib.Size = new System.Drawing.Size(54, 23);
+            this.tb_baifenbib.TabIndex = 0;
+            this.tb_baifenbib.TextChanged += new System.EventHandler(this.tb_baifenbib_TextChanged);
             // 
             // label4
             // 
