@@ -35,7 +35,7 @@ namespace 查重工具
             //选择文件夹
 
             WinFormNewTask mywin = new WinFormNewTask();
-            if (mywin.ShowDialog()==DialogResult.OK)
+            if (mywin.ShowDialog() == DialogResult.OK)
             {
 
                 var files = Directory.GetFiles(mywin._wenjianjia);
@@ -131,8 +131,6 @@ namespace 查重工具
                 MessageBox.Show("格式已删除！");
                 //刷新界面数据
                 cbb_geshimingcheng.SelectedIndex = 0;
-
-
             }
         }
 
