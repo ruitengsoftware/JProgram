@@ -40,6 +40,23 @@ namespace 查重工具.JJCommon
 
         }
 
+
+
+        /// <summary>
+        /// 向数据库中插入，文本的md5值
+        /// </summary>
+        /// <param name="bi"></param>
+        public void InsertMd5(JJBaseInfo bi)
+        {
+            string str_sql = $"insert into 查重工具库.{_geshiinfo._chachongku} values('{bi._wenjianming}'," +
+                $"'{bi._leixing}','{bi._shijian}','{bi._md5}')";
+            _mysql.ExecuteNonQuery(str_sql);
+        }
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <param name="geshiname"></param>
         public JJWordHelper(string filename, string geshiname)
         {
             _filename = filename;
@@ -47,10 +64,13 @@ namespace 查重工具.JJCommon
             //获得全文  正文  标准短 标准句
             _quanwen = GetPipeiduixiangStr(new List<string>() { "全文" });
             _zhengwen = GetPipeiduixiangStr(new List<string> { "正文" });
-            _biaozhunduan = GetPipeiduixiangStr(new List<string> { "普通标准短" });
+            _biaozhunduan = GetPipeiduixiangStr(new List<string> { "普通标准段" });
             _biaozhunju = GetPipeiduixiangStr(new List<string> { "普通标准句" });
             list_biaozhunduan = Regex.Split(_biaozhunduan, "\r\n").ToList();
+            list_biaozhunduan.Remove("");//去除空自然段
             list_biaozhunju = Regex.Split(_biaozhunju, "\r\n").ToList();
+            list_biaozhunju.Remove("");//去除空句子
+
         }
         /// <summary>
         /// 移动文件到指定文件夹
@@ -434,7 +454,7 @@ namespace 查重工具.JJCommon
                 //        }
                 //    }
                 //}
-                else if (duixiang.Equals("普通标准段"))
+                else if (str.Equals("普通标准段"))
                 {
                     //获得首段
                     //string shouduan = string.Empty;
@@ -622,15 +642,15 @@ namespace 查重工具.JJCommon
                 //    }
 
                 //}
-                else if (duixiang.Equals("普通标准句"))
+                else if (str.Equals("普通标准句"))
                 {
                     foreach (Section sec in myword.Sections)
                     {
                         foreach (Paragraph para in sec.Body.Paragraphs)
                         {
-                            //获得所有标准句,取第一个集合为段首标准句
-                            var matches = Regex.Matches(para.Range.Text, $@"[\s\S]+(?![。……？！?!:])");
-                            for (int i = 1; i < matches.Count; i++)
+                            //获得所有标准句
+                            var matches = Regex.Matches(para.Range.Text, @"[\s\S]+?[\r。……？！?!:]");
+                            for (int i = 0; i < matches.Count; i++)
                             {
                                 //string md5 = Md5Helper.Md5(matches[i].Value);
                                 ////判断是否在标准段中，如果在，提出，如果不在，判断是否加入到对应库中，并加入到解析对象中去
@@ -1112,7 +1132,21 @@ namespace 查重工具.JJCommon
                 bool b = IsExist(str, "标准段");
                 if (b)
                 {
-                str_chongfu += str;
+                    str_chongfu += str;
+
+                }
+                else//如果不存在，根据是否需要入库进行md5的入库方法
+                {
+                    if (_geshiinfo._biaozhunduanruku == 1)
+                    {
+                        InsertMd5(new JJBaseInfo()
+                        {
+                            _wenjianming = _filename,
+                            _md5 = Md5Helper.Md5(str),
+                            _shijian = DateTime.Now.ToString(),
+                            _leixing = "标准段"
+                        });
+                    }
 
                 }
             }
@@ -1127,12 +1161,26 @@ namespace 查重工具.JJCommon
             string str_chongfu = string.Empty;
             //循环标准段，转为MD5 ，去库中查找，如果重复，记录字数和
 
-            foreach (string str in list_biaozhunduan)
+            foreach (string str in list_biaozhunju)
             {
                 bool b = IsExist(str, "标准句");
                 if (b)
                 {
                     str_chongfu += str;
+
+                }
+                else
+                {
+                    if (_geshiinfo._biaozhunjuruku == 1)
+                    {
+                        InsertMd5(new JJBaseInfo()
+                        {
+                            _wenjianming = _filename,
+                            _md5 = Md5Helper.Md5(str),
+                            _shijian = DateTime.Now.ToString(),
+                            _leixing = "标准句"
+                        });
+                    }
 
                 }
             }

@@ -91,7 +91,7 @@
             this.dgv_task.Name = "dgv_task";
             this.dgv_task.RowHeadersVisible = false;
             this.dgv_task.RowTemplate.Height = 23;
-            this.dgv_task.Size = new System.Drawing.Size(319, 553);
+            this.dgv_task.Size = new System.Drawing.Size(357, 553);
             this.dgv_task.TabIndex = 1;
             // 
             // xuhao
@@ -215,7 +215,7 @@
             this.cbb_chachongku.Items.AddRange(new object[] {
             "裁判文书库",
             "政策库",
-            "新文库",
+            "新闻库",
             "法规库"});
             this.cbb_chachongku.Location = new System.Drawing.Point(486, 70);
             this.cbb_chachongku.Name = "cbb_chachongku";
@@ -290,7 +290,7 @@
             // cb_zhengwenchachong
             // 
             this.cb_zhengwenchachong.AutoSize = true;
-            this.cb_zhengwenchachong.Location = new System.Drawing.Point(497, 161);
+            this.cb_zhengwenchachong.Location = new System.Drawing.Point(503, 161);
             this.cb_zhengwenchachong.Name = "cb_zhengwenchachong";
             this.cb_zhengwenchachong.Size = new System.Drawing.Size(72, 16);
             this.cb_zhengwenchachong.TabIndex = 11;
@@ -300,7 +300,7 @@
             // cb_biaozhunduanchachong
             // 
             this.cb_biaozhunduanchachong.AutoSize = true;
-            this.cb_biaozhunduanchachong.Location = new System.Drawing.Point(591, 161);
+            this.cb_biaozhunduanchachong.Location = new System.Drawing.Point(613, 161);
             this.cb_biaozhunduanchachong.Name = "cb_biaozhunduanchachong";
             this.cb_biaozhunduanchachong.Size = new System.Drawing.Size(84, 16);
             this.cb_biaozhunduanchachong.TabIndex = 11;
@@ -310,7 +310,7 @@
             // cb_biaozhunjuchachong
             // 
             this.cb_biaozhunjuchachong.AutoSize = true;
-            this.cb_biaozhunjuchachong.Location = new System.Drawing.Point(692, 161);
+            this.cb_biaozhunjuchachong.Location = new System.Drawing.Point(739, 161);
             this.cb_biaozhunjuchachong.Name = "cb_biaozhunjuchachong";
             this.cb_biaozhunjuchachong.Size = new System.Drawing.Size(84, 16);
             this.cb_biaozhunjuchachong.TabIndex = 11;
@@ -330,7 +330,7 @@
             // cb_zhengwenruku
             // 
             this.cb_zhengwenruku.AutoSize = true;
-            this.cb_zhengwenruku.Location = new System.Drawing.Point(497, 183);
+            this.cb_zhengwenruku.Location = new System.Drawing.Point(503, 183);
             this.cb_zhengwenruku.Name = "cb_zhengwenruku";
             this.cb_zhengwenruku.Size = new System.Drawing.Size(72, 16);
             this.cb_zhengwenruku.TabIndex = 11;
@@ -340,7 +340,7 @@
             // cb_biaozhunduanruku
             // 
             this.cb_biaozhunduanruku.AutoSize = true;
-            this.cb_biaozhunduanruku.Location = new System.Drawing.Point(591, 183);
+            this.cb_biaozhunduanruku.Location = new System.Drawing.Point(613, 183);
             this.cb_biaozhunduanruku.Name = "cb_biaozhunduanruku";
             this.cb_biaozhunduanruku.Size = new System.Drawing.Size(84, 16);
             this.cb_biaozhunduanruku.TabIndex = 11;
@@ -350,7 +350,7 @@
             // cb_biaozhunjuruku
             // 
             this.cb_biaozhunjuruku.AutoSize = true;
-            this.cb_biaozhunjuruku.Location = new System.Drawing.Point(692, 183);
+            this.cb_biaozhunjuruku.Location = new System.Drawing.Point(739, 183);
             this.cb_biaozhunjuruku.Name = "cb_biaozhunjuruku";
             this.cb_biaozhunjuruku.Size = new System.Drawing.Size(84, 16);
             this.cb_biaozhunjuruku.TabIndex = 11;
@@ -381,6 +381,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(989, 655);
             this.Controls.Add(this.btn_kaishi);
             this.Controls.Add(this.cb_biaozhunjuruku);
@@ -408,7 +409,7 @@
             this.Controls.Add(this.btn_qingkong);
             this.Controls.Add(this.btn_tianjiarenwu);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "查重工具 V1.0.1 2020年12月25日";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_task)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

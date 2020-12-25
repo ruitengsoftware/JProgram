@@ -105,6 +105,7 @@
     <Compile Include="JJCommon\Md5Helper.cs" />
     <Compile Include="JJController\JJControllerForm.cs" />
     <Compile Include="JJModel\JJBaifenbi.cs" />
+    <Compile Include="JJModel\JJBaseInfo.cs" />
     <Compile Include="JJModel\JJGeshiInfo.cs" />
     <Compile Include="JJUserControl\JJUCbairfenbi.cs">
       <SubType>UserControl</SubType>

@@ -217,7 +217,10 @@ namespace 查重工具
         /// <param name="e"></param>
         private async void btn_kaishi_Click(object sender, EventArgs e)
         {
+            DateTime start = DateTime.Now;
             await KaishiAsync();
+            TimeSpan ts = DateTime.Now.Subtract(start);
+            MessageBox.Show($"查重处理已经完成，总耗时 {ts.TotalSeconds} 秒！");
         }
 
 
@@ -248,11 +251,24 @@ namespace 查重工具
                             File.Delete(filename);//删除全文
                             continue;
                         }
+                        else
+                        {
+                            //判断全文md5是否入库
+                            if (jwh._geshiinfo._quanwenruku==1)
+                            {
+                                jwh.InsertMd5(new JJBaseInfo() {
+                                _wenjianming=filename,
+                                _md5=Md5Helper.Md5(jwh._quanwen),
+                                _shijian=DateTime.Now.ToString(),
+                                _leixing="全文"
+                                });
+                            }
 
+                        }
                     }
 
                     bool b2 = false;
-                    if (jwh._geshiinfo._zhengwenchachong != 1)//是否需要正文查重
+                    if (jwh._geshiinfo._zhengwenchachong == 1)//是否需要正文查重
                     {
 
                         b2 = jwh.IsExist(jwh._zhengwen, "正文");
@@ -269,50 +285,58 @@ namespace 查重工具
                             }
                             else//如果不重复，判断是否正文入库，如果是将md5值入库，如果不入库就CONTINUE
                             {
+                                //判断正文md5是否入库
+                                if (jwh._geshiinfo._zhengwenruku == 1)
+                                {
+                                    jwh.InsertMd5(new JJBaseInfo()
+                                    {
+                                        _wenjianming = filename,
+                                        _md5 = Md5Helper.Md5(jwh._zhengwen),
+                                        _shijian = DateTime.Now.ToString(),
+                                        _leixing = "正文"
+                                    });
+                                }
 
                             }
                         }
                     }
 
-                    if (jwh._geshiinfo._biaozhunduanchachong != 1)//如果标准段查重
+                    if (jwh._geshiinfo._biaozhunduanchachong == 1)//标准段查重
                     {
                         string savepathduan = string.Empty;
-                        if (jwh._geshiinfo._biaozhunduanchachong == 1)//标准段查重
-                        {
-                            jwh.CalDuanChongfulv();//计算段重复率
-                                                   //循环百分比设置
-                            JJBaifenbiList my = JsonConvert.DeserializeObject<JJBaifenbiList>(jwh._geshiinfo._baifenbishezhi);
-                            foreach (JJBaifenbi jjb in my.list_baifenbi)
-                            {
-                                //判断标准段的重复率落在哪个区间
-                                if (jjb.Leixing.Equals("标准段"))
-                                {
-                                    if (jwh._duanchongfulv * 100 > jjb.PercentA && jwh._duanchongfulv * 100 <= jjb.PercentB)
-                                    {
-                                        if (jjb.SavePath.Trim().Equals(string.Empty))//是默认路径
-                                        {
-                                            savepathduan = $"{ Path.GetDirectoryName(filename)}/标准段{jjb.PercentA}-{jjb.PercentB}";
-                                        }
-                                        else
-                                        {
-                                            savepathduan = jjb.SavePath;
-                                        }
-                                        jwh.MoveFile(filename, savepathduan);
-                                    }
 
+                        jwh.CalDuanChongfulv();//计算段重复率，在计算的同时，判断标准段是否入库，如果是，将md5入库
+                        //循环百分比设置
+                        JJBaifenbiList my = JsonConvert.DeserializeObject<JJBaifenbiList>(jwh._geshiinfo._baifenbishezhi);
+                        foreach (JJBaifenbi jjb in my.list_baifenbi)
+                        {
+                            //判断标准段的重复率落在哪个区间
+                            if (jjb.Leixing.Equals("标准段"))
+                            {
+                                if (jwh._duanchongfulv * 100 > jjb.PercentA && jwh._duanchongfulv * 100 <= jjb.PercentB)
+                                {
+                                    if (jjb.SavePath.Trim().Equals(string.Empty))//是默认路径
+                                    {
+                                        savepathduan = $"{ Path.GetDirectoryName(filename)}/标准段{jjb.PercentA}-{jjb.PercentB}";
+                                    }
+                                    else
+                                    {
+                                        savepathduan = jjb.SavePath;
+                                    }
+                                    jwh.MoveFile(filename, savepathduan);
                                 }
                             }
-                            //在任务列表中显示重复率
-                            dgv_task.Rows[i].Cells["zhuangtai"].Value = "已处理";
-                            dgv_task.Rows[i].Cells["chongfulv"].Value = $"标准段{jwh._duanchongfulv}%,标准句{jwh._juchongfulv}%";
                         }
-
+                        //在任务列表中显示重复率
+                        dgv_task.Rows[i].Cells["zhuangtai"].Value = "已处理";
+                        dgv_task.Rows[i].Cells["chongfulv"].Value = $"标准段{jwh._duanchongfulv}%,标准句{jwh._juchongfulv}%";
                     }
-                    if (jwh._geshiinfo._biaozhunjuchachong == 1)//标准句子查重
+
+
+                    if (jwh._geshiinfo._biaozhunjuchachong == 1)//标准句子查重，在计算的同时，判断标准段是否入库，如果是，将md5入库
                     {
                         jwh.CalJuChongfulv();//计算句重复率
                         string savepathju = string.Empty;
-
                         //循环百分比设置
                         JJBaifenbiList my = JsonConvert.DeserializeObject<JJBaifenbiList>(jwh._geshiinfo._baifenbishezhi);
                         foreach (JJBaifenbi jjb in my.list_baifenbi)
