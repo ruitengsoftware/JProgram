@@ -77,7 +77,7 @@
             // 
             this.btn_queding.Location = new System.Drawing.Point(154, 178);
             this.btn_queding.Name = "btn_queding";
-            this.btn_queding.Size = new System.Drawing.Size(93, 54);
+            this.btn_queding.Size = new System.Drawing.Size(93, 31);
             this.btn_queding.TabIndex = 4;
             this.btn_queding.Text = "确定";
             this.btn_queding.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@
             // 
             this.btn_guanbi.Location = new System.Drawing.Point(306, 178);
             this.btn_guanbi.Name = "btn_guanbi";
-            this.btn_guanbi.Size = new System.Drawing.Size(93, 54);
+            this.btn_guanbi.Size = new System.Drawing.Size(93, 31);
             this.btn_guanbi.TabIndex = 4;
             this.btn_guanbi.Text = "关闭";
             this.btn_guanbi.UseVisualStyleBackColor = true;
@@ -120,7 +120,7 @@
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WinFormNewTask";
-            this.Text = "WinFormNewTask";
+            this.Text = "新建任务";
             ((System.ComponentModel.ISupportInitialize)(this.pb_folder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

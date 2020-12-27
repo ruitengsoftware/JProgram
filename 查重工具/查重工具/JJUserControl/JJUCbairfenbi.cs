@@ -30,16 +30,8 @@ namespace 查重工具.JJUserControl
             tb_baifenbia.Text = b.PercentA.ToString();
             tb_baifenbib.Text = b.PercentB.ToString();
             cbb_leixing.Text = b.Leixing;
-            if (b.SavePath.Equals(string.Empty))
-            {
-                cb_morenlujing.Checked = true;
-                tb_baocunlujing.Enabled = false;
-            }
-            else
-            {
-                cb_morenlujing.Checked = false;
                 tb_baocunlujing.Text = b.SavePath;
-            }
+
         }
 
 
@@ -56,16 +48,7 @@ namespace 查重工具.JJUserControl
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (cb_morenlujing.Checked)
-            {
-                _myb.SavePath = string.Empty;
-                tb_baocunlujing.Enabled = false;
-            }
-            else
-            {
-                tb_baocunlujing.Enabled = true;
-            }
-
+          
         }
 
         private void tb_baocunlujing_TextChanged(object sender, EventArgs e)

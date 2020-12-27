@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using RuiTengDll;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,8 @@ using 查重工具.JJCommon;
 using 查重工具.JJController;
 using 查重工具.JJModel;
 using 查重工具.JJUserControl;
+using 查重工具.JJWinForm;
+using 查重工具.WinForm;
 
 namespace 查重工具
 {
@@ -24,6 +27,27 @@ namespace 查重工具
         {
             InitializeComponent();
         }
+
+
+
+        public List<string> GetAllFiles(string folder)
+        {
+            //获得所有的文件夹
+            List<string> list = new List<string>();
+            string[] folders = Directory.GetDirectories(folder);
+            string[] files = Directory.GetFiles(folder);
+            if (folders.Length > 0)
+            {
+                foreach (string f in folders)
+                {
+                    list.AddRange(GetAllFiles(f));
+                }
+            }
+            list.AddRange(files);
+            return list;
+        }
+
+
 
         private void btn_qingkong_Click(object sender, EventArgs e)
         {
@@ -38,7 +62,11 @@ namespace 查重工具
             if (mywin.ShowDialog() == DialogResult.OK)
             {
 
-                var files = Directory.GetFiles(mywin._wenjianjia);
+                //var files = Directory.GetFiles(mywin._wenjianjia);
+                List<string> files = GetAllFiles(mywin._wenjianjia);
+
+
+
                 foreach (string str in files)
                 {
                     //判断是否包含doc docx  $
@@ -52,6 +80,7 @@ namespace 查重工具
                     if (b1 || b2)
                     {
                         int index = dgv_task.Rows.Add();
+                        dgv_task.Rows[index].Cells[0].Value = index + 1;
                         dgv_task.Rows[index].Cells[1].Value = str;
                         dgv_task.Rows[index].Cells[2].Value = mywin._geshi;
                     }
@@ -73,7 +102,7 @@ namespace 查重工具
             {
                 _mingcheng = cbb_geshimingcheng.Text,
                 _chachongku = cbb_chachongku.Text,
-                _quanwenchongfulujing = tb_quanwenchongfulujing.Text,
+                //_quanwenchongfulujing = tb_quanwenchongfulujing.Text,
                 _zhengwenchongfulujing = tb_zhengwenchongfulujing.Text,
                 _quanwenchachong = Convert.ToInt32(cb_quanwenchachong.Checked),
                 _zhengwenchachong = Convert.ToInt32(cb_zhengwenchachong.Checked),
@@ -169,22 +198,8 @@ namespace 查重工具
             //刷新界面显示
             cbb_geshimingcheng.Text = jj._mingcheng;
             cbb_chachongku.Text = jj._chachongku;
-            if (jj._quanwenchongfulujing.Equals(string.Empty))
-            {
-                cb_quanwenmoren.Checked = true;
-            }
-            else
-            {
-                tb_quanwenchongfulujing.Text = jj._quanwenchongfulujing;
-            }
-            if (jj._zhengwenchongfulujing.Equals(string.Empty))
-            {
-                cb_zhengwenmoren.Checked = true;
-            }
-            else
-            {
-                tb_zhengwenchongfulujing.Text = jj._zhengwenchongfulujing;
-            }
+
+            tb_zhengwenchongfulujing.Text = jj._zhengwenchongfulujing;
             cb_quanwenchachong.Checked = Convert.ToBoolean(jj._quanwenchachong);
             cb_zhengwenchachong.Checked = Convert.ToBoolean(jj._zhengwenchachong);
             cb_biaozhunduanchachong.Checked = Convert.ToBoolean(jj._biaozhunduanchachong);
@@ -220,7 +235,7 @@ namespace 查重工具
             DateTime start = DateTime.Now;
             await KaishiAsync();
             TimeSpan ts = DateTime.Now.Subtract(start);
-            MessageBox.Show($"查重处理已经完成，总耗时 {ts.TotalSeconds} 秒！");
+            MessageBox.Show($"查重处理已经完成，总耗时 {ts.TotalSeconds.ToString("00.00")} 秒！");
         }
 
 
@@ -232,6 +247,11 @@ namespace 查重工具
             {
                 for (int i = 0; i < dgv_task.Rows.Count; i++)
                 {
+                    if (_stop)
+                    {
+                        _stop = true;
+                        break;
+                    }
                     string filename = dgv_task.Rows[i].Cells["wenjianming"].Value.ToString();
                     string format = dgv_task.Rows[i].Cells["geshi"].Value.ToString();
                     JJWordHelper jwh = new JJWordHelper(filename, format);
@@ -254,13 +274,14 @@ namespace 查重工具
                         else
                         {
                             //判断全文md5是否入库
-                            if (jwh._geshiinfo._quanwenruku==1)
+                            if (jwh._geshiinfo._quanwenruku == 1)
                             {
-                                jwh.InsertMd5(new JJBaseInfo() {
-                                _wenjianming=filename,
-                                _md5=Md5Helper.Md5(jwh._quanwen),
-                                _shijian=DateTime.Now.ToString(),
-                                _leixing="全文"
+                                jwh.InsertMd5(new JJBaseInfo()
+                                {
+                                    _wenjianming = filename,
+                                    _md5 = Md5Helper.Md5(jwh._quanwen),
+                                    _shijian = DateTime.Now.ToString(),
+                                    _leixing = "全文"
                                 });
                             }
 
@@ -329,7 +350,7 @@ namespace 查重工具
                         }
                         //在任务列表中显示重复率
                         dgv_task.Rows[i].Cells["zhuangtai"].Value = "已处理";
-                        dgv_task.Rows[i].Cells["chongfulv"].Value = $"标准段{jwh._duanchongfulv}%,标准句{jwh._juchongfulv}%";
+                        dgv_task.Rows[i].Cells["chongfulv"].Value = $"标准段{jwh._duanchongfulv.ToString("00.00")}%";
                     }
 
 
@@ -359,12 +380,66 @@ namespace 查重工具
                         }
                         //在任务列表中显示重复率
                         dgv_task.Rows[i].Cells["zhuangtai"].Value = "已处理";
-                        dgv_task.Rows[i].Cells["chongfulv"].Value = $"标准段{jwh._duanchongfulv}%,标准句{jwh._juchongfulv}%";
+                        dgv_task.Rows[i].Cells["chongfulv"].Value += $"标准句{jwh._juchongfulv.ToString("00.00")}%";
 
                     }
 
                 }
             });
+        }
+
+        private void pb_folder_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                tb_zhengwenchongfulujing.Text = fbd.SelectedPath;
+
+            }
+        }
+        bool _stop = false;
+        private void btn_tingzhi_Click(object sender, EventArgs e)
+        {
+            _stop = true;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            WinFormData mywin = new WinFormData();
+            if (mywin.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void pb_adddb_Click(object sender, EventArgs e)
+        {
+            WinFormAddDatabase mywin = new WinFormAddDatabase()
+            {
+                StartPosition = FormStartPosition.CenterParent
+            };
+            if (mywin.ShowDialog() == DialogResult.OK)
+            {
+                //在数据库中新建一个表
+                string tn = mywin.tablename;
+                _myc.CreateTable(tn);
+
+                MessageBox.Show("创建数据库成功！");
+
+
+            }
+
+
+        }
+
+        private void cbb_chachongku_DropDown(object sender, EventArgs e)
+        {
+            cbb_chachongku.Items.Clear();
+            List<string> list = _myc.GetAllTablesName();
+            list.Remove("格式信息表");
+            cbb_chachongku.Items.AddRange(list.ToArray());
+
+
         }
     }
 }

@@ -101,7 +101,6 @@ namespace 查重工具.JJCommon
             {
                 _mingcheng = dr["名称"].ToString(),
                 _chachongku = dr["查重库"].ToString(),
-                _quanwenchongfulujing = dr["全文重复路径"].ToString(),
                 _zhengwenchongfulujing = dr["正文重复路径"].ToString(),
                 _quanwenchachong = Convert.ToInt32(dr["全文查重"].ToString()),
                 _zhengwenchachong = Convert.ToInt32(dr["正文查重"].ToString()),

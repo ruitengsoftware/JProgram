@@ -32,7 +32,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tb_baocunlujing = new System.Windows.Forms.TextBox();
-            this.cb_morenlujing = new System.Windows.Forms.CheckBox();
             this.tb_baifenbia = new System.Windows.Forms.TextBox();
             this.cbb_leixing = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -43,6 +42,7 @@
             this.tb_baifenbib = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -63,7 +63,7 @@
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.tb_baocunlujing, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cb_morenlujing, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 31);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -106,20 +106,6 @@
             this.tb_baocunlujing.Size = new System.Drawing.Size(269, 23);
             this.tb_baocunlujing.TabIndex = 2;
             this.tb_baocunlujing.TextChanged += new System.EventHandler(this.tb_baocunlujing_TextChanged);
-            // 
-            // cb_morenlujing
-            // 
-            this.cb_morenlujing.AutoSize = true;
-            this.cb_morenlujing.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cb_morenlujing.Location = new System.Drawing.Point(7, 7);
-            this.cb_morenlujing.Margin = new System.Windows.Forms.Padding(7, 7, 3, 4);
-            this.cb_morenlujing.Name = "cb_morenlujing";
-            this.cb_morenlujing.Size = new System.Drawing.Size(80, 21);
-            this.cb_morenlujing.TabIndex = 1;
-            this.cb_morenlujing.Text = "默认路径";
-            this.cb_morenlujing.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cb_morenlujing.UseVisualStyleBackColor = true;
-            this.cb_morenlujing.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // tb_baifenbia
             // 
@@ -259,6 +245,18 @@
             this.label5.Text = "%";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Location = new System.Drawing.Point(1, 1);
+            this.label6.Margin = new System.Windows.Forms.Padding(1);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 30);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "存放路径";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // JJUCbairfenbi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -285,7 +283,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox tb_baifenbia;
-        private System.Windows.Forms.CheckBox cb_morenlujing;
         private System.Windows.Forms.TextBox tb_baocunlujing;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -298,5 +295,6 @@
         private System.Windows.Forms.TextBox tb_baifenbib;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
