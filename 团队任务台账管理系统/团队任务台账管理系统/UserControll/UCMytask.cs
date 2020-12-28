@@ -453,17 +453,20 @@ namespace 团队任务台账管理系统.UserControll
             wfxinjian.StartPosition = FormStartPosition.CenterParent;
             if (wfxinjian.ShowDialog()==DialogResult.OK)
             {
-                var myt = wfxinjian.mytask;
-                //如果负责人或者责任人包括登录名称，需要在我的任务右侧显示红点
-                string[] arr_canyuren = Regex.Split(myt._canyuren, "[,，|]");
-                if (myt._fuzeren.Contains(JJLoginInfo._huaming) || arr_canyuren.Contains(JJLoginInfo._huaming))
+                int num = JJLoginInfo.GetWeiduTaskNum();
+                if (num > 0)
                 {
                     (this.ParentForm as Form1).lbl_newtask.Visible = true;
+                    (this.ParentForm as Form1).lbl_newtask.Text = $"{num}";
+                }
+                else
+                {
+                    (this.ParentForm as Form1).lbl_newtask.Visible = false;
                 }
 
-                //刷新数据
-                //获得当前显示的数据
-                string data = string.Empty;
+                    //刷新数据
+                    //获得当前显示的数据
+                    string data = string.Empty;
                 foreach (Control c in tlp_button.Controls)
                 {
                     if (c.BackColor == Color.Salmon)

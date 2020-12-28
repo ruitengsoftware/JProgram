@@ -133,11 +133,12 @@ namespace 团队任务台账管理系统
             uc_main.Dock = DockStyle.Fill;
             panel_my.Controls.Add(uc_main);
             //是否有新消息
-            int num = _mycontroller.GetNewTaskNum();
+            int num = JJLoginInfo.GetWeiduTaskNum();
             if (num > 0)
             {
                 lbl_newtask.Visible = true;
-                myt.Start();
+                lbl_newtask.Text = $"{num}";
+myt.Start();
             }
             //开始监听新任务
             timer1.Start();
@@ -172,25 +173,19 @@ namespace 团队任务台账管理系统
 
             //panel_my.Controls.Add(ucdenglu);
         }
-
+        WinFormUserinfo mywin = null;
         private void pb_touxiang_Click(object sender, EventArgs e)
         {
-            WinFormUserinfo mywin = new WinFormUserinfo();
+            if (mywin!=null)
+            {
+                mywin.Dispose();
+            }
+
+
             mywin = new WinFormUserinfo();
             mywin.Show();
             mywin.Location = new Point(MousePosition.X, MousePosition.Y);
 
-            ////弹出注册窗体
-            //WFzhuce mywin = new WFzhuce(0);
-            //if (mywin.ShowDialog() == DialogResult.OK)
-            //{
-            //    //更新头像
-            //    pb_touxiang.Image = _mycontroller.ConvertBase64ToImage(JJModel.JJLoginInfo._touxiang);
-
-            //    var myuc = new UCmain() { Dock = DockStyle.Fill };
-            //    panel_my.Controls.Clear();
-            //    panel_my.Controls.Add(myuc);
-            //}
         }
 
         private void btn_wodedaiban_Click(object sender, EventArgs e)
@@ -309,10 +304,11 @@ namespace 团队任务台账管理系统
         private void timer1_Tick(object sender, EventArgs e)
         {
             //获得新消息，如果数量大于一，在 我的任务右侧显示红点
-            int num = _mycontroller.GetNewTaskNum();
+            int num = JJLoginInfo.GetWeiduTaskNum();
             if (num > 0)
             {
                 lbl_newtask.Visible = true;
+                lbl_newtask.Text = $"{num}";
                 //此时开启闪烁
                 myt.Interval = 500;
                 myt.Tick += Myt_Tick;
@@ -350,5 +346,13 @@ namespace 团队任务台账管理系统
             notifyIcon1.Dispose();
         }
 
+        private void pb_touxiang_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mywin != null) {
+                mywin.Dispose();
+            }
+
+
+        }
     }
 }

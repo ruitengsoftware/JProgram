@@ -91,17 +91,21 @@ namespace 团队任务台账管理系统.UserControll
             a();
             //判断未读任务数量，如果是0，要取消主界面我的任务右侧的红点
 
-            int num = _myc.GetWeiduTaskNum();
-            if (num < 1)
+            int num = JJLoginInfo.GetWeiduTaskNum();
+            if (num > 0)
+            {
+               ( this.ParentForm as Form1). lbl_newtask.Visible = true;
+                ( this.ParentForm as Form1). lbl_newtask.Text = $"{num}";
+            }
+            else
             {
                 (this.ParentForm as Form1).lbl_newtask.Visible = false;
-
             }
 
 
 
 
 
+            }
         }
-    }
 }

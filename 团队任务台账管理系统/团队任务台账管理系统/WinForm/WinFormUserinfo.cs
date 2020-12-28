@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.Controller;
 using 团队任务台账管理系统.JJModel;
+using 团队任务台账管理系统.UserControll;
 
 namespace 团队任务台账管理系统.WinForm
 {
@@ -151,5 +152,25 @@ namespace 团队任务台账管理系统.WinForm
 
         }
 
+        private void WinFormUserinfo_MouseLeave(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void lbl_gerenziliao_Click(object sender, EventArgs e)
+        {
+            ////弹出注册窗体
+            WFzhuce mywin = new WFzhuce(0);
+            if (mywin.ShowDialog() == DialogResult.OK)
+            {
+                //更新头像
+               //this.parent pb_touxiang.Image = _mycontroller.ConvertBase64ToImage(JJModel.JJLoginInfo._touxiang);
+
+                var myuc = new UCmain() { Dock = DockStyle.Fill };
+              (this.ParentForm as Form1).panel_my.Controls.Clear();
+                (this.ParentForm as Form1).panel_my.Controls.Add(myuc);
+            }
+
+        }
     }
 }

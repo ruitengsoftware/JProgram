@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,6 +84,18 @@ namespace 团队任务台账管理系统.JJModel
             JJLoginInfo._suodingguize = mydr["锁定规则"].ToString();
             JJLoginInfo._suodingchachongku = mydr["锁定查重库"].ToString();
         }
+
+        public static int GetWeiduTaskNum()
+        {
+            string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 状态='未读' and (参与人='{JJLoginInfo._huaming}' or 负责人='{JJLoginInfo._huaming}')";
+            DataTable mydt = _mysqlhelper.ExecuteDataTable(str_sql);
+            return mydt.Rows.Count;
+        }
+
+
+
+
+
     }
     public class PersonInfo
     {

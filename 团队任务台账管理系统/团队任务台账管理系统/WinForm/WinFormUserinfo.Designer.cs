@@ -37,9 +37,9 @@
             this.lbl_zhijizhiwu = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
-            this.lbl_gerenziliao = new System.Windows.Forms.Label();
             this.lbl_xiugai = new System.Windows.Forms.Button();
             this.tb_gexingqianming = new System.Windows.Forms.TextBox();
+            this.lbl_gerenziliao = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -175,20 +175,6 @@
             this.label4.Text = "个性签名：";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbl_gerenziliao
-            // 
-            this.lbl_gerenziliao.AutoSize = true;
-            this.lbl_gerenziliao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_gerenziliao.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl_gerenziliao.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lbl_gerenziliao.Location = new System.Drawing.Point(1, 145);
-            this.lbl_gerenziliao.Margin = new System.Windows.Forms.Padding(1);
-            this.lbl_gerenziliao.Name = "lbl_gerenziliao";
-            this.lbl_gerenziliao.Size = new System.Drawing.Size(282, 49);
-            this.lbl_gerenziliao.TabIndex = 1;
-            this.lbl_gerenziliao.Text = "填写个人资料";
-            this.lbl_gerenziliao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lbl_xiugai
             // 
             this.lbl_xiugai.Location = new System.Drawing.Point(227, 3);
@@ -210,6 +196,21 @@
             this.tb_gexingqianming.Size = new System.Drawing.Size(138, 42);
             this.tb_gexingqianming.TabIndex = 2;
             // 
+            // lbl_gerenziliao
+            // 
+            this.lbl_gerenziliao.AutoSize = true;
+            this.lbl_gerenziliao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_gerenziliao.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbl_gerenziliao.ForeColor = System.Drawing.Color.SeaGreen;
+            this.lbl_gerenziliao.Location = new System.Drawing.Point(1, 145);
+            this.lbl_gerenziliao.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_gerenziliao.Name = "lbl_gerenziliao";
+            this.lbl_gerenziliao.Size = new System.Drawing.Size(282, 49);
+            this.lbl_gerenziliao.TabIndex = 1;
+            this.lbl_gerenziliao.Text = "填写个人资料";
+            this.lbl_gerenziliao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_gerenziliao.Click += new System.EventHandler(this.lbl_gerenziliao_Click);
+            // 
             // WinFormUserinfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -223,6 +224,7 @@
             this.Name = "WinFormUserinfo";
             this.Text = "WinFormUserinfo";
             this.Load += new System.EventHandler(this.WinFormUserinfo_Load);
+            this.MouseLeave += new System.EventHandler(this.WinFormUserinfo_MouseLeave);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

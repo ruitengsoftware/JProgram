@@ -126,6 +126,7 @@
             this.pb_touxiang.TabIndex = 0;
             this.pb_touxiang.TabStop = false;
             this.pb_touxiang.Click += new System.EventHandler(this.pb_touxiang_Click);
+            this.pb_touxiang.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pb_touxiang_MouseMove);
             // 
             // btn_xinjian
             // 
@@ -268,6 +269,7 @@
             this.button1.Size = new System.Drawing.Size(65, 28);
             this.button1.TabIndex = 0;
             this.button1.Text = "我的任务";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.lbl_woderenwu_Click);
             // 
@@ -338,7 +340,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.PictureBox pb_touxiang;
-        private System.Windows.Forms.Panel panel_my;
+        public System.Windows.Forms.Panel panel_my;
         private System.Windows.Forms.Button btn_tongxunlu;
         private System.Windows.Forms.Button btn_tuichu;
         private System.Windows.Forms.Button btn_gongxiangziliao;
