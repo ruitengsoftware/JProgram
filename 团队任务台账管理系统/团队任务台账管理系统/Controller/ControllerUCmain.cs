@@ -59,7 +59,7 @@ namespace 团队任务台账管理系统.Controller
                     _zhuangtai = mydr["状态"].ToString(),
                     _xiaoxiang =Convert.ToInt32( mydr["销项"].ToString()),
                     _beizhu = mydr["备注"].ToString(),
-                    _xindetihui = mydr["心得体会"].ToString(),
+                    _jingyanjiaoxun = mydr["心得体会"].ToString(),
                 };
                 list.Add(info);
             }

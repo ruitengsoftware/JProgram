@@ -23,6 +23,14 @@ namespace 团队任务台账管理系统.UserControll
         {
             InitializeComponent();
         }
+        List<string> _list_item = new List<string>();//显示哪些项目，通知公告，待办任务，工作清单
+        public UCmain(List<string> list)
+        {
+            InitializeComponent();
+            _list_item = list;
+
+        }
+
         protected override CreateParams CreateParams
         {
             get
@@ -110,36 +118,40 @@ namespace 团队任务台账管理系统.UserControll
         private void UCmain_Load(object sender, EventArgs e)
         {
             //加载ucmain的时候要提取登陆者信息，显示在界面中
-            /*加载登录者的任务*/
-            int qingdannum = 0;//储存工作清单总数
-            //加载工作清单
-            panel_gongzuoqingdan.Controls.Clear();
-            var list = _mycontroller.GetGongzuoqingdan();
-            foreach (JJQingdanInfo info in list)
+            if (_list_item.Contains("工作清单"))
             {
-                UCMessage myuc = new UCMessage(info);
-                myuc._updatemaindata = UCmain_Load;
-                panel_gongzuoqingdan.Controls.Add(myuc);
+                //加载工作清单
+                panel_gongzuoqingdan.Controls.Clear();
+                var list = _mycontroller.GetGongzuoqingdan();
+                foreach (JJQingdanInfo info in list)
+                {
+                    UCMessage myuc = new UCMessage(info);
+                    myuc._updatemaindata = UCmain_Load;
+                    panel_gongzuoqingdan.Controls.Add(myuc);
+                }
+
+                //刷新工作清单总数
+                //lbl_gongzuoqingdan.Text = $"工作清单  {qingdannum}项";
+                lbl_gongzuoqingdan.Text = $"工作清单  {panel_gongzuoqingdan.Controls.Count}项";
+
             }
 
-            //刷新工作清单总数
-            //lbl_gongzuoqingdan.Text = $"工作清单  {qingdannum}项";
-            lbl_gongzuoqingdan.Text = $"工作清单  {panel_gongzuoqingdan.Controls.Count}项";
-
-
-            /*刷新待办任务，也就是常规任务，放在任务信息表中*/
-            panel_daibanrenwu.Controls.Clear();
-            string keyword = tb_kw.Text;
-            var list_daiban = _mycontroller.GetDaibanRenwu(keyword);
-            foreach (JJTaskInfo info in list_daiban)
+            if (_list_item.Contains("待办任务"))
             {
-                UCMessage myuc = new UCMessage(info);
-                panel_daibanrenwu.Controls.Add(myuc);
+                /*刷新待办任务，也就是常规任务，放在任务信息表中*/
+                panel_daibanrenwu.Controls.Clear();
+                string keyword = tb_kw.Text;
+                var list_daiban = _mycontroller.GetDaibanRenwu(keyword);
+                foreach (JJTaskInfo info in list_daiban)
+                {
+                    UCMessage myuc = new UCMessage(info);
+                    panel_daibanrenwu.Controls.Add(myuc);
+                }
+
             }
 
-
-
-
+            if (_list_item.Contains("通知公告"))
+            {
             /*刷新通知公告*/
             panel_tongzhi.Controls.Clear();
             var list_tongzhi = _mycontroller.GetTongzhi();
@@ -150,6 +162,10 @@ namespace 团队任务台账管理系统.UserControll
                 UCMessage myuc = new UCMessage(dr);
                 panel_tongzhi.Controls.Add(myuc);
             }
+
+            }
+
+
         }
         string str_con = System.Configuration.ConfigurationManager.ConnectionStrings["connstr"].ToString();
 
@@ -205,7 +221,7 @@ namespace 团队任务台账管理系统.UserControll
 
         private void label1_Click(object sender, EventArgs e)
         {
-           
+
         }
         /// <summary>
         /// 点击钉子按钮时触发的事件

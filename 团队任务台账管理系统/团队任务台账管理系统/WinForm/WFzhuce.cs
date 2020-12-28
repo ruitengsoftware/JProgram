@@ -39,10 +39,11 @@ namespace 团队任务台账管理系统.WinForm
             tb_bumen.Text = JJLoginInfo._bumen;
             tb_zhiji.Text = JJLoginInfo._zhiji;
             //获得头像和额工作证件头像，然后进行缩小处理
-            var pt= JJImageHelper.ConvertBase64ToImage(JJLoginInfo._touxiang);
-            pb_touxiang.Image = JJImageHelper.UpdateImageSize(pt, 32, 32);
+            //var pt= JJImageHelper.ConvertBase64ToImage(JJLoginInfo._touxiang);
+            //pb_touxiang.Image = JJImageHelper.UpdateImageSize(pt, 256, 256);
+            pb_touxiang.Image = JJImageHelper.ConvertBase64ToImage(JJLoginInfo._touxiang); ;
             var pg = JJImageHelper.ConvertBase64ToImage(JJLoginInfo._gongzuozhengjianzhao);
-            pb_gongzuozheng.Image = JJImageHelper.UpdateImageSize(pg, 32,32);
+            pb_gongzuozheng.Image = JJImageHelper.UpdateImageSize(pg, 128,128);
             tb_weixinhao.Text = JJLoginInfo._weixinhao;
             tb_dianziyouxiang.Text = JJLoginInfo._dianziyouxiang;
             tb_gerenqianming.Text = JJLoginInfo._gerenqianming;
@@ -220,7 +221,7 @@ namespace 团队任务台账管理系统.WinForm
             {
                 Bitmap mybmp = new Bitmap(ofd.FileName);
 
-                var newbmp = JJImageHelper.UpdateImageSize(mybmp, 16, 16);
+                var newbmp = JJImageHelper.UpdateImageSize(mybmp, 128, 128);
 
                 pb_touxiang.Image = newbmp;
             }
@@ -249,6 +250,9 @@ namespace 团队任务台账管理系统.WinForm
 
         }
 
+        private void WFzhuce_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -94,5 +94,17 @@ namespace 团队任务台账管理系统.Properties {
                 this["loginnames"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string 轻重缓急 {
+            get {
+                return ((string)(this["轻重缓急"]));
+            }
+            set {
+                this["轻重缓急"] = value;
+            }
+        }
     }
 }

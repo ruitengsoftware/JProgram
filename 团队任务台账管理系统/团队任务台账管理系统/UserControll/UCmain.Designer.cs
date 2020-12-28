@@ -149,14 +149,14 @@
             // 
             // tableLayoutPanel14
             // 
-            this.tableLayoutPanel14.ColumnCount = 4;
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.ColumnCount = 3;
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel14.Controls.Add(this.tb_kw, 1, 0);
-            this.tableLayoutPanel14.Controls.Add(this.dgv_daiban, 0, 0);
-            this.tableLayoutPanel14.Controls.Add(this.pb_search, 2, 0);
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel14.Controls.Add(this.tb_kw, 0, 0);
+            this.tableLayoutPanel14.Controls.Add(this.pb_search, 1, 0);
+            this.tableLayoutPanel14.Controls.Add(this.dgv_daiban, 2, 0);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel14.Margin = new System.Windows.Forms.Padding(0);
@@ -169,7 +169,7 @@
             // tb_kw
             // 
             this.tb_kw.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_kw.Location = new System.Drawing.Point(261, 6);
+            this.tb_kw.Location = new System.Drawing.Point(0, 6);
             this.tb_kw.Margin = new System.Windows.Forms.Padding(0, 6, 0, 3);
             this.tb_kw.Name = "tb_kw";
             this.tb_kw.Size = new System.Drawing.Size(200, 23);
@@ -182,7 +182,7 @@
             this.dgv_daiban.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_daiban.BackgroundColor = System.Drawing.Color.White;
             this.dgv_daiban.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_daiban.Location = new System.Drawing.Point(1, 1);
+            this.dgv_daiban.Location = new System.Drawing.Point(236, 1);
             this.dgv_daiban.Margin = new System.Windows.Forms.Padding(1);
             this.dgv_daiban.Name = "dgv_daiban";
             this.dgv_daiban.RowHeadersVisible = false;
@@ -196,7 +196,7 @@
             // 
             this.pb_search.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_search.Image = global::团队任务台账管理系统.Properties.Resources.fangdajing;
-            this.pb_search.Location = new System.Drawing.Point(464, 3);
+            this.pb_search.Location = new System.Drawing.Point(203, 3);
             this.pb_search.Name = "pb_search";
             this.pb_search.Size = new System.Drawing.Size(29, 29);
             this.pb_search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

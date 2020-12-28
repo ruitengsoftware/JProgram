@@ -12,7 +12,7 @@ namespace 团队任务台账管理系统.JJModel
     public class JJLoginInfo
     {
         static MySQLHelper _mysqlhelper = new MySQLHelper();
-     public  static Form1 _form1 = new Form1();
+        public static Form1 _form1 = null;
         /// <summary>
         /// 登录人员花名
         /// </summary>
@@ -59,7 +59,7 @@ namespace 团队任务台账管理系统.JJModel
             JJLoginInfo._zidingyizhanghao = mydr["自定义账号"].ToString();
             JJLoginInfo._touxiang = mydr["头像"].ToString();
             var pt = JJImageHelper.ConvertBase64ToImage(JJLoginInfo._touxiang);
-            _form1.pb_touxiang.Image = JJImageHelper.UpdateImageSize(pt,32,32);
+            _form1.pb_touxiang.Image =  JJImageHelper.UpdateImageSize(pt,128,128);
             JJLoginInfo._gongzuozhengjianzhao = mydr["工作证件照"].ToString();
 
             JJLoginInfo._weixinhao = mydr["微信号"].ToString();

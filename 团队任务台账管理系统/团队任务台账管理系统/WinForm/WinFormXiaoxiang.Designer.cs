@@ -82,7 +82,7 @@
             this.groupBox1.Size = new System.Drawing.Size(428, 245);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "心得体会";
+            this.groupBox1.Text = "经验教训";
             // 
             // tableLayoutPanel1
             // 

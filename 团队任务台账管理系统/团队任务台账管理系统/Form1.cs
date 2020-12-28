@@ -121,6 +121,8 @@ namespace 团队任务台账管理系统
         public Form1()
         {
             InitializeComponent();
+            JJLoginInfo._form1 = this;
+            JJLoginInfo.GetLoginInfo(JJLoginInfo._huaming);
         }
         //UserControl myuc = new UserControl();
         private void Form1_Load(object sender, EventArgs e)
@@ -129,7 +131,7 @@ namespace 团队任务台账管理系统
 
             //this.FormBorderStyle = FormBorderStyle.None;
 
-            UCmain uc_main = new UCmain() { };
+            UCmain uc_main = new UCmain(new List<string> { "通知公告","待办任务","工作清单"});
             uc_main.Dock = DockStyle.Fill;
             panel_my.Controls.Add(uc_main);
             //是否有新消息
@@ -154,7 +156,7 @@ namespace 团队任务台账管理系统
         private void pb_home_Click(object sender, EventArgs e)
         {
             panel_my.Controls.Clear();
-            UCmain uc_main = new UCmain();
+            UCmain uc_main = new UCmain(new List<string> { "通知公告", "待办任务", "工作清单" });
             uc_main.Dock = DockStyle.Fill;
             panel_my.Controls.Add(uc_main);
         }
@@ -215,9 +217,16 @@ namespace 团队任务台账管理系统
         private void btn_daiban_Click(object sender, EventArgs e)
         {
             panel_my.Controls.Clear();
-            UCdaiban uc_daiban = new UCdaiban();
-            uc_daiban.Dock = DockStyle.Fill;
-            panel_my.Controls.Add(uc_daiban);
+            UCmain uc_main = new UCmain(new List<string> {  "待办任务" });
+            uc_main.Dock = DockStyle.Fill;
+            panel_my.Controls.Add(uc_main);
+
+
+
+            //panel_my.Controls.Clear();
+            //UCdaiban uc_daiban = new UCdaiban();
+            //uc_daiban.Dock = DockStyle.Fill;
+            //panel_my.Controls.Add(uc_daiban);
         }
 
         private void btn_yanshou_Click(object sender, EventArgs e)
@@ -359,6 +368,24 @@ namespace 团队任务台账管理系统
                 mywin.Dispose();
             }
 
+
+        }
+
+        private void btn_gongzuoqingdan_Click(object sender, EventArgs e)
+        {
+            panel_my.Controls.Clear();
+            UCmain uc_main = new UCmain(new List<string> { "工作清单" });
+            uc_main.Dock = DockStyle.Fill;
+            panel_my.Controls.Add(uc_main);
+
+        }
+
+        private void btn_tongzhigonggao_Click(object sender, EventArgs e)
+        {
+            panel_my.Controls.Clear();
+            UCmain uc_main = new UCmain(new List<string> { "通知公告"});
+            uc_main.Dock = DockStyle.Fill;
+            panel_my.Controls.Add(uc_main);
 
         }
     }

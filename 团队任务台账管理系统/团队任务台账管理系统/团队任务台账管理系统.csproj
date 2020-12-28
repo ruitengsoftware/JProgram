@@ -627,5 +627,14 @@
   <ItemGroup>
     <None Include="Resources\消息2 %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xiaoxiang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shanchu3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellowpoint %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

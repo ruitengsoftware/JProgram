@@ -36,20 +36,20 @@ namespace 团队任务台账管理系统.Controller
             //判断花名，如果已经存在，使用update语句，如果不存在使用insertinto语句
             string str_sql = $"select count(*) from jjdbrenwutaizhang.jjperson where 花名='{p._huaming}' and 删除=0";
             int num0 = Convert.ToInt32(mysqlhelper.ExecuteScalar(str_sql));
-            if (num0>0)
+            if (num0 > 0)
             {
-            str_sql = $"update jjdbrenwutaizhang.jjperson set 实名='{p._shiming}',部门='{p._bumen}',职级='{p._zhiji}',密码='{p._mima}',手机号='{p._shoujihao}',电子邮箱='{p._dianziyouxiang}'," +
-                $"自定义账号='{p._zidingyizhanghao}',密码='{p._mima}',头像='{p._touxiang}',工作证件照='{p._gongzuozhengjianzhao}',微信号='{p._weixinhao}',个人签名='{p._gerenqianming}' where 花名='{JJLoginInfo._huaming}'";
+                str_sql = $"update jjdbrenwutaizhang.jjperson set 实名='{p._shiming}',部门='{p._bumen}',职级='{p._zhiji}',密码='{p._mima}',手机号='{p._shoujihao}',电子邮箱='{p._dianziyouxiang}'," +
+                    $"自定义账号='{p._zidingyizhanghao}',密码='{p._mima}',头像='{p._touxiang}',工作证件照='{p._gongzuozhengjianzhao}',微信号='{p._weixinhao}',个人签名='{p._gerenqianming}' where 花名='{JJLoginInfo._huaming}'";
 
             }
             else
             {
-           str_sql = $"insert into jjdbrenwutaizhang.jjperson values('{p._huaming}','{p._shiming}','{p._bumen}'," +
-                    $"'{p._zhiji}','{p._mima}','{p._shoujihao}','{p._dianziyouxiang}'," +
-                    $"'{p._zidingyizhanghao}','{p._touxiang}','{p._gongzuozhengjianzhao}','{p._weixinhao}',0,'{p._gerenqianming}')";
+                str_sql = $"insert into jjdbrenwutaizhang.jjperson values('{p._huaming}','{p._shiming}','{p._bumen}'," +
+                         $"'{p._zhiji}','{p._mima}','{p._shoujihao}','{p._dianziyouxiang}'," +
+                         $"'{p._zidingyizhanghao}','{p._touxiang}','{p._gongzuozhengjianzhao}','{p._weixinhao}',0,'{p._gerenqianming}')";
 
             }
-            int num = mysqlhelper.ExecuteNonQuery(str_sql, null);
+            int num = mysqlhelper.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
         }
 

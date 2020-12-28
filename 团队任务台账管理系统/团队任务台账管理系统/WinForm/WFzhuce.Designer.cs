@@ -314,7 +314,7 @@
             // 
             this.pb_touxiang.Location = new System.Drawing.Point(63, 3);
             this.pb_touxiang.Name = "pb_touxiang";
-            this.pb_touxiang.Size = new System.Drawing.Size(101, 94);
+            this.pb_touxiang.Size = new System.Drawing.Size(113, 94);
             this.pb_touxiang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_touxiang.TabIndex = 3;
             this.pb_touxiang.TabStop = false;
@@ -848,6 +848,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WFzhuce";
             this.Text = "注册";
+            this.Load += new System.EventHandler(this.WFzhuce_Load);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel9.ResumeLayout(false);

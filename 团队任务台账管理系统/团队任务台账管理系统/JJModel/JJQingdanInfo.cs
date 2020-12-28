@@ -50,6 +50,6 @@ namespace 团队任务台账管理系统.JJModel
         /// <summary>
         /// 心得体会
         /// </summary>
-        public string _xindetihui = string.Empty;
+        public string _jingyanjiaoxun = string.Empty;
     }
 }

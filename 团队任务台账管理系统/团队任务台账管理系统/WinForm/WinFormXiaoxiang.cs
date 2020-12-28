@@ -43,7 +43,7 @@ namespace 团队任务台账管理系统.WinForm
             //将心得体会更新到工作清单表中，同时销项更新为1
             JJQingdanInfo info=mytask as JJQingdanInfo;
             info._xiaoxiang = 1;
-            info._xindetihui = tb_xindetihui.Text;
+            info._jingyanjiaoxun = tb_xindetihui.Text;
             //更新工作清单
             bool b = _myc.Xiaoxiang(info);
             if (b)

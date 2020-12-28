@@ -161,33 +161,25 @@ namespace 团队任务台账管理系统.JJWinForm
             }
         }
         ControllerDenglu mycontroller = new ControllerDenglu();
-
+        public string _huaming = string.Empty;
         private void lbl_denglu_Click(object sender, EventArgs e)
         {
-            string name = cbb_yonghuming.Text.Trim();
+            _huaming = cbb_yonghuming.Text.Trim();
             string pwd = tb_mima.Text.Trim();
-            bool successlogin = mycontroller.Login(name, pwd);//登录，并返回成功失败
+            bool successlogin = mycontroller.Login(_huaming, pwd);//登录，并返回成功失败
             if (successlogin)//如果登陆成功就进行
             {
                 //记录登录者信息
                 List<string> list = Regex.Split(Properties.Settings.Default.loginnames, ",").ToList();
-                if (!list.Contains(name))
+                if (!list.Contains(_huaming))
                 {
-                    list.Add(name);
+                    list.Add(_huaming);
                 }
                 list.Remove("");
                 Properties.Settings.Default.loginnames = string.Join(",", list);
 
 
-                //获得登录者信息
-                JJLoginInfo.GetLoginInfo(name);
                
-                //判断登录权限，如果没有权限就要退出本方法
-                if (JJLoginInfo._denlguquan==0)
-                {
-                    MessageBox.Show("对不起，您暂无权限使用该系统！");
-                    return;
-                }
 
 
 
@@ -201,7 +193,7 @@ namespace 团队任务台账管理系统.JJWinForm
                 //((SplitContainer)parent.Parent.Parent).Panel1Collapsed = false;
                 //((Form1)parent.Parent.Parent.Parent).pb_touxiang.Image = mycontroller.ConvertBase64ToImage(JJModel.JJJJLoginInfo._touxiang);
                 //settings获得自动登录，记住我，姓名，密码
-                Settings.Default.huaming = name;
+                Settings.Default.huaming = _huaming;
                 Settings.Default.mima = pwd;
                 Settings.Default.jizhumima = cb_jizhuwo.Checked;
                 Settings.Default.zidongdenglu = cb_zidongdenlgu.Checked;

@@ -159,6 +159,7 @@ namespace 团队任务台账管理系统.WinForm
 
         private void lbl_gerenziliao_Click(object sender, EventArgs e)
         {
+            this.Dispose();
             ////弹出注册窗体
             WFzhuce mywin = new WFzhuce(0);
             if (mywin.ShowDialog() == DialogResult.OK)

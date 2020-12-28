@@ -233,6 +233,16 @@ namespace 团队任务台账管理系统.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap shanchu3 {
+            get {
+                object obj = ResourceManager.GetObject("shanchu3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap suo {
             get {
                 object obj = ResourceManager.GetObject("suo", resourceCulture);
@@ -286,6 +296,26 @@ namespace 团队任务台账管理系统.Properties {
         internal static System.Drawing.Bitmap xiaoxi {
             get {
                 object obj = ResourceManager.GetObject("xiaoxi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap xiaoxiang {
+            get {
+                object obj = ResourceManager.GetObject("xiaoxiang", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap yellowpoint {
+            get {
+                object obj = ResourceManager.GetObject("yellowpoint", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

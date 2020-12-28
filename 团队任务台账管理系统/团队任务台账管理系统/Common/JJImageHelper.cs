@@ -6,6 +6,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace 团队任务台账管理系统.Common
@@ -44,8 +45,9 @@ namespace 团队任务台账管理系统.Common
                     return UpdateImageSize(myimg, 128, 128);
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
                 return Properties.Resources.没有图片;
             }
         }

@@ -109,7 +109,7 @@ namespace 团队任务台账管理系统.WinForm
                 //文件转化成图片
                 Image img = Image.FromFile(ofd.FileName);
                 //图片改变尺寸
-                Image newimg = JJImageHelper.UpdateImageSize(img, 128, 128);
+                Image newimg = JJImageHelper.UpdateImageSize(img, 256, 256);
                 //显示在image中
                 
                 pb_zhaopian.Image = newimg;

@@ -36,13 +36,31 @@ namespace 团队任务台账管理系统.UserControll
                 //在uc上显示   象限  名称  完成时间
                 this.lbl_xiangxian.Text = info._xiangxian;
                 this.lbl_mingcheng.Text = info._renwumingcheng;
-                this.lbl_wanchengshijian.Text = info._wanchengshijian;
+                this.lbl_wanchengshijian.Text =Convert.ToDateTime( info._wanchengshijian).ToString("yyyy-MM-dd");
+                //获得当前时间
+                //计算完成时间和现在的差
+                DateTime dt0 = Convert.ToDateTime(info._wanchengshijian);
+                DateTime dt = DateTime.Now;
+                TimeSpan ts = dt0.Subtract(dt);
+
+                //如果当前时间超过完成时间显示红点，如果完成时间比现在大不到三天显示黄点
+                if (dt>dt0)
+                {
+                    pb_point.Image = Properties.Resources.redpoint;
+                }
+                if (dt<dt0 && dt.AddDays(3)>dt0)
+                {
+                    pb_point.Image = Properties.Resources.yellowpoint;
+
+                }
+
+
             }
             if (o is JJTongzhiInfo)
             {
                 //不是清单关闭销项
-                lbl_xiaoxiang.Visible = false;
-                lbl_shanchu.Visible = false;
+                pb_xiaoxiang.Visible = false;
+                pb_shanchu.Visible = false;
                 JJTongzhiInfo info = o as JJTongzhiInfo;
                 //在uc上显示  状态标题 发布时间
                 lbl_xiangxian.Text = string.Empty;
@@ -59,8 +77,8 @@ namespace 团队任务台账管理系统.UserControll
             if (o is JJTaskInfo)
             {
                 //不是清单关闭销项
-                lbl_xiaoxiang.Visible = false;
-                lbl_shanchu.Visible = false;
+                pb_xiaoxiang.Visible = false;
+                pb_shanchu.Visible = false;
 
                 JJTaskInfo info = o as JJTaskInfo;
                 this.lbl_xiangxian.Text = info._jinjichengdu;
