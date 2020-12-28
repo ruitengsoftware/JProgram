@@ -181,6 +181,7 @@ namespace 团队任务台账管理系统.JJWinForm
 
                 //获得登录者信息
                 JJLoginInfo.GetLoginInfo(name);
+               
                 //判断登录权限，如果没有权限就要退出本方法
                 if (JJLoginInfo._denlguquan==0)
                 {

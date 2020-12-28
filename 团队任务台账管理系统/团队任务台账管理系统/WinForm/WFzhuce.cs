@@ -38,8 +38,11 @@ namespace 团队任务台账管理系统.WinForm
             tb_zidingyi.Text = JJLoginInfo._zidingyizhanghao;
             tb_bumen.Text = JJLoginInfo._bumen;
             tb_zhiji.Text = JJLoginInfo._zhiji;
-            pb_touxiang.Image = JJImageHelper.ConvertBase64ToImage(JJLoginInfo._touxiang);
-            pb_gongzuozheng.Image = JJImageHelper.ConvertBase64ToImage(JJLoginInfo._gongzuozhengjianzhao);
+            //获得头像和额工作证件头像，然后进行缩小处理
+            var pt= JJImageHelper.ConvertBase64ToImage(JJLoginInfo._touxiang);
+            pb_touxiang.Image = JJImageHelper.UpdateImageSize(pt, 32, 32);
+            var pg = JJImageHelper.ConvertBase64ToImage(JJLoginInfo._gongzuozhengjianzhao);
+            pb_gongzuozheng.Image = JJImageHelper.UpdateImageSize(pg, 32,32);
             tb_weixinhao.Text = JJLoginInfo._weixinhao;
             tb_dianziyouxiang.Text = JJLoginInfo._dianziyouxiang;
             tb_gerenqianming.Text = JJLoginInfo._gerenqianming;
@@ -120,20 +123,7 @@ namespace 团队任务台账管理系统.WinForm
             //如果保存成功，赋值给 jjlogininfo
             if (b)
             {
-                JJLoginInfo._huaming = tb_huaming.Text.Trim();
-                JJLoginInfo._shiming = tb_shiming.Text.Trim();
-                JJLoginInfo._shoujihao = tb_shoujihao.Text.Trim();
-                JJLoginInfo._bumen = tb_bumen.Text.Trim();
-                JJLoginInfo._zhiji = tb_zhiji.Text.Trim();
-                JJLoginInfo._dianziyouxiang = tb_dianziyouxiang.Text.Trim();
-                JJLoginInfo._mima = tb_querenmima.Text.Trim();
-                //JJLoginInfo._shurumima = tb_shurumima.Text.Trim();
-                //JJLoginInfo._querenmima = tb_querenmima.Text.Trim();
-                JJLoginInfo._zidingyizhanghao = tb_zidingyi.Text.Trim();
-                JJLoginInfo._touxiang = JJImageHelper.ConvertImageToBase64(pb_touxiang.Image);
-                JJLoginInfo._gongzuozhengjianzhao = JJImageHelper.ConvertImageToBase64(pb_gongzuozheng.Image);
-                JJLoginInfo._weixinhao = tb_weixinhao.Text.Trim();
-                JJLoginInfo._gerenqianming = tb_gerenqianming.Text.Trim();
+                JJLoginInfo.GetLoginInfo(JJLoginInfo._huaming);
                 MessageBox.Show("保存成功！");
                 this.DialogResult = DialogResult.OK;
             }
@@ -230,7 +220,7 @@ namespace 团队任务台账管理系统.WinForm
             {
                 Bitmap mybmp = new Bitmap(ofd.FileName);
 
-                var newbmp = JJImageHelper.UpdateImageSize(mybmp, 256, 256);
+                var newbmp = JJImageHelper.UpdateImageSize(mybmp, 16, 16);
 
                 pb_touxiang.Image = newbmp;
             }

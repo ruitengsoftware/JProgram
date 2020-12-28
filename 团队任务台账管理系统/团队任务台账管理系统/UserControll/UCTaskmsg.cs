@@ -95,17 +95,21 @@ namespace 团队任务台账管理系统.UserControll
             if (num > 0)
             {
                ( this.ParentForm as Form1). lbl_newtask.Visible = true;
-                ( this.ParentForm as Form1). lbl_newtask.Text = $"{num}";
+                (this.ParentForm as Form1).btn_woderenwu.Width = 65;
+
+                (this.ParentForm as Form1). lbl_newtask.Text = $"{num}";
             }
             else
             {
                 (this.ParentForm as Form1).lbl_newtask.Visible = false;
-            }
-
-
-
-
+                (this.ParentForm as Form1).btn_woderenwu.Width = 94;
 
             }
+
+
+
+
+
+        }
         }
 }

@@ -164,11 +164,8 @@ namespace 团队任务台账管理系统.WinForm
             if (mywin.ShowDialog() == DialogResult.OK)
             {
                 //更新头像
-               //this.parent pb_touxiang.Image = _mycontroller.ConvertBase64ToImage(JJModel.JJLoginInfo._touxiang);
-
-                var myuc = new UCmain() { Dock = DockStyle.Fill };
-              (this.ParentForm as Form1).panel_my.Controls.Clear();
-                (this.ParentForm as Form1).panel_my.Controls.Add(myuc);
+                //this.parent pb_touxiang.Image = _mycontroller.ConvertBase64ToImage(JJModel.JJLoginInfo._touxiang);
+                JJLoginInfo.GetLoginInfo(JJLoginInfo._huaming);
             }
 
         }

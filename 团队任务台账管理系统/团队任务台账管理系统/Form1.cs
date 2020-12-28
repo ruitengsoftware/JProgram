@@ -138,8 +138,15 @@ namespace 团队任务台账管理系统
             {
                 lbl_newtask.Visible = true;
                 lbl_newtask.Text = $"{num}";
-myt.Start();
+                myt.Start();
             }
+            else
+            {
+              btn_woderenwu.Width = 94;
+
+            }
+
+
             //开始监听新任务
             timer1.Start();
         }

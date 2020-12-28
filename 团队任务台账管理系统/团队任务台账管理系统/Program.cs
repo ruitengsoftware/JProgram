@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 团队任务台账管理系统.JJModel;
 using 团队任务台账管理系统.JJWinForm;
 
 namespace 团队任务台账管理系统
@@ -23,7 +24,9 @@ namespace 团队任务台账管理系统
             WinFormdenglu mywin = new WinFormdenglu();
             if (mywin.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new Form1());
+                Form1 myform1 = new Form1();
+               // JJLoginInfo._form1 = myform1;
+                Application.Run(myform1);
             }
         }
     }

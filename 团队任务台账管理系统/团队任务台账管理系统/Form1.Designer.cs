@@ -44,7 +44,7 @@
             this.btn_home = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_woderenwu = new System.Windows.Forms.Button();
             this.lbl_newtask = new System.Windows.Forms.Label();
             this.panel_my = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -252,7 +252,7 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.btn_woderenwu);
             this.flowLayoutPanel1.Controls.Add(this.lbl_newtask);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 130);
@@ -261,17 +261,16 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(96, 30);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
-            // button1
+            // btn_woderenwu
             // 
-            this.button1.Location = new System.Drawing.Point(1, 1);
-            this.button1.Margin = new System.Windows.Forms.Padding(1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(65, 28);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "我的任务";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.lbl_woderenwu_Click);
+            this.btn_woderenwu.Location = new System.Drawing.Point(1, 1);
+            this.btn_woderenwu.Margin = new System.Windows.Forms.Padding(1);
+            this.btn_woderenwu.Name = "btn_woderenwu";
+            this.btn_woderenwu.Size = new System.Drawing.Size(65, 28);
+            this.btn_woderenwu.TabIndex = 0;
+            this.btn_woderenwu.Text = "我的任务";
+            this.btn_woderenwu.UseVisualStyleBackColor = true;
+            this.btn_woderenwu.Click += new System.EventHandler(this.lbl_woderenwu_Click);
             // 
             // lbl_newtask
             // 
@@ -355,7 +354,7 @@
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         public System.Windows.Forms.Label lbl_newtask;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button1;
+       public System.Windows.Forms.Button btn_woderenwu;
     }
 }
 
