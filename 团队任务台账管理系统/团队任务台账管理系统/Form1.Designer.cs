@@ -43,8 +43,9 @@
             this.btn_tuichu = new System.Windows.Forms.Button();
             this.btn_home = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_woderenwu = new System.Windows.Forms.Label();
-            this.pb_newtask = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lbl_newtask = new System.Windows.Forms.Label();
             this.panel_my = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
@@ -54,8 +55,7 @@
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_touxiang)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_newtask)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -91,7 +91,8 @@
             this.tableLayoutPanel1.Controls.Add(this.btn_shouquan, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.btn_tuichu, 0, 10);
             this.tableLayoutPanel1.Controls.Add(this.btn_home, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 11);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -240,10 +241,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.Controls.Add(this.lbl_woderenwu, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.pb_newtask, 2, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 130);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 400);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -251,33 +249,40 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(96, 30);
             this.tableLayoutPanel2.TabIndex = 6;
             // 
-            // lbl_woderenwu
+            // flowLayoutPanel1
             // 
-            this.lbl_woderenwu.AutoSize = true;
-            this.lbl_woderenwu.BackColor = System.Drawing.Color.Gray;
-            this.lbl_woderenwu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_woderenwu.ForeColor = System.Drawing.Color.White;
-            this.lbl_woderenwu.Location = new System.Drawing.Point(3, 2);
-            this.lbl_woderenwu.Margin = new System.Windows.Forms.Padding(2);
-            this.lbl_woderenwu.Name = "lbl_woderenwu";
-            this.lbl_woderenwu.Size = new System.Drawing.Size(61, 26);
-            this.lbl_woderenwu.TabIndex = 5;
-            this.lbl_woderenwu.Text = "我的任务";
-            this.lbl_woderenwu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_woderenwu.Click += new System.EventHandler(this.lbl_woderenwu_Click);
+            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.lbl_newtask);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 130);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(96, 30);
+            this.flowLayoutPanel1.TabIndex = 7;
             // 
-            // pb_newtask
+            // button1
             // 
-            this.pb_newtask.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_newtask.Image = global::团队任务台账管理系统.Properties.Resources.redpoint;
-            this.pb_newtask.Location = new System.Drawing.Point(66, 0);
-            this.pb_newtask.Margin = new System.Windows.Forms.Padding(0);
-            this.pb_newtask.Name = "pb_newtask";
-            this.pb_newtask.Size = new System.Drawing.Size(30, 30);
-            this.pb_newtask.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_newtask.TabIndex = 6;
-            this.pb_newtask.TabStop = false;
-            this.pb_newtask.Visible = false;
+            this.button1.Location = new System.Drawing.Point(1, 1);
+            this.button1.Margin = new System.Windows.Forms.Padding(1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(65, 28);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "我的任务";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.lbl_woderenwu_Click);
+            // 
+            // lbl_newtask
+            // 
+            this.lbl_newtask.ForeColor = System.Drawing.Color.White;
+            this.lbl_newtask.Image = ((System.Drawing.Image)(resources.GetObject("lbl_newtask.Image")));
+            this.lbl_newtask.Location = new System.Drawing.Point(67, 0);
+            this.lbl_newtask.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_newtask.Name = "lbl_newtask";
+            this.lbl_newtask.Size = new System.Drawing.Size(26, 30);
+            this.lbl_newtask.TabIndex = 6;
+            this.lbl_newtask.Text = "5";
+            this.lbl_newtask.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_newtask.Visible = false;
             // 
             // panel_my
             // 
@@ -323,9 +328,7 @@
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_touxiang)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_newtask)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -347,9 +350,10 @@
         private System.Windows.Forms.Button btn_home;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label lbl_woderenwu;
-        public System.Windows.Forms.PictureBox pb_newtask;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        public System.Windows.Forms.Label lbl_newtask;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

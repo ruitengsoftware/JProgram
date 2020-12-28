@@ -110,8 +110,6 @@ namespace 团队任务台账管理系统.UserControll
         private void UCmain_Load(object sender, EventArgs e)
         {
             //加载ucmain的时候要提取登陆者信息，显示在界面中
-            lbl_name.Text = $"职级:{JJLoginInfo._zhiji}  实名:{JJLoginInfo._shiming}({JJLoginInfo._huaming})";
-            tb_qianming.Text = JJLoginInfo._gerenqianming;
             /*加载登录者的任务*/
             int qingdannum = 0;//储存工作清单总数
             //加载工作清单
@@ -207,21 +205,7 @@ namespace 团队任务台账管理系统.UserControll
 
         private void label1_Click(object sender, EventArgs e)
         {
-            string zhuangtai = lbl_xiugai.Text;
-            if (zhuangtai.Equals("修改"))
-            {
-
-                tb_qianming.BorderStyle = BorderStyle.FixedSingle;
-                tb_qianming.Focus();
-                lbl_xiugai.Text = "保存";
-            }
-            else
-            {
-                tb_qianming.BorderStyle = BorderStyle.None;
-                bool b = _mycontroller.UpdateGerenqianming(tb_qianming.Text);
-                lbl_xiugai.Text = "修改";
-
-            }
+           
         }
         /// <summary>
         /// 点击钉子按钮时触发的事件

@@ -357,6 +357,12 @@
     <Compile Include="WinForm\WinFormTongzhi.Designer.cs">
       <DependentUpon>WinFormTongzhi.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\WinFormUserinfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WinFormUserinfo.Designer.cs">
+      <DependentUpon>WinFormUserinfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\WinFormXiaoxiang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -490,6 +496,9 @@
     <EmbeddedResource Include="WinForm\WinFormTongzhi.resx">
       <DependentUpon>WinFormTongzhi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WinFormUserinfo.resx">
+      <DependentUpon>WinFormUserinfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WinFormXiaoxiang.resx">
       <DependentUpon>WinFormXiaoxiang.cs</DependentUpon>
     </EmbeddedResource>
@@ -605,6 +614,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\empty.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newmsg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newmsg %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\消息2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\消息2 %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

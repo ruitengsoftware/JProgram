@@ -93,7 +93,7 @@ namespace 团队任务台账管理系统.UserControll
                 string[] arr_canyuren = Regex.Split(myti._canyuren, "[,，|]");
                 if (myti._fuzeren.Contains(JJLoginInfo._huaming)|| arr_canyuren.Contains(JJLoginInfo._huaming))
                 {
-                    (this.ParentForm as Form1).pb_newtask.Visible = true;
+                    (this.ParentForm as Form1).lbl_newtask.Visible = true;
                 }
 
 

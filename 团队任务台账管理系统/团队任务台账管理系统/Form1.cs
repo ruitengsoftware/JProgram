@@ -136,7 +136,7 @@ namespace 团队任务台账管理系统
             int num = _mycontroller.GetNewTaskNum();
             if (num > 0)
             {
-                pb_newtask.Visible = true;
+                lbl_newtask.Visible = true;
                 myt.Start();
             }
             //开始监听新任务
@@ -175,17 +175,22 @@ namespace 团队任务台账管理系统
 
         private void pb_touxiang_Click(object sender, EventArgs e)
         {
-            //弹出注册窗体
-            WFzhuce mywin = new WFzhuce(0);
-            if (mywin.ShowDialog() == DialogResult.OK)
-            {
-                //更新头像
-                pb_touxiang.Image = _mycontroller.ConvertBase64ToImage(JJModel.JJLoginInfo._touxiang);
+            WinFormUserinfo mywin = new WinFormUserinfo();
+            mywin = new WinFormUserinfo();
+            mywin.Show();
+            mywin.Location = new Point(MousePosition.X, MousePosition.Y);
 
-                var myuc = new UCmain() { Dock = DockStyle.Fill };
-                panel_my.Controls.Clear();
-                panel_my.Controls.Add(myuc);
-            }
+            ////弹出注册窗体
+            //WFzhuce mywin = new WFzhuce(0);
+            //if (mywin.ShowDialog() == DialogResult.OK)
+            //{
+            //    //更新头像
+            //    pb_touxiang.Image = _mycontroller.ConvertBase64ToImage(JJModel.JJLoginInfo._touxiang);
+
+            //    var myuc = new UCmain() { Dock = DockStyle.Fill };
+            //    panel_my.Controls.Clear();
+            //    panel_my.Controls.Add(myuc);
+            //}
         }
 
         private void btn_wodedaiban_Click(object sender, EventArgs e)
@@ -307,7 +312,7 @@ namespace 团队任务台账管理系统
             int num = _mycontroller.GetNewTaskNum();
             if (num > 0)
             {
-                pb_newtask.Visible = true;
+                lbl_newtask.Visible = true;
                 //此时开启闪烁
                 myt.Interval = 500;
                 myt.Tick += Myt_Tick;
@@ -344,5 +349,6 @@ namespace 团队任务台账管理系统
         {
             notifyIcon1.Dispose();
         }
+
     }
 }

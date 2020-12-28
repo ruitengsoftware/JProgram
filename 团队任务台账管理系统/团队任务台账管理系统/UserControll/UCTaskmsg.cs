@@ -94,7 +94,7 @@ namespace 团队任务台账管理系统.UserControll
             int num = _myc.GetWeiduTaskNum();
             if (num < 1)
             {
-                (this.ParentForm as Form1).pb_newtask.Visible = false;
+                (this.ParentForm as Form1).lbl_newtask.Visible = false;
 
             }
 
