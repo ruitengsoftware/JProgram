@@ -53,7 +53,7 @@
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_shixian = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -354,7 +354,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Controls.Add(this.label7, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.dateTimePicker1, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.dtp_shixian, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 300);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -373,13 +373,13 @@
             this.label7.Text = "办理时限";
             this.label7.Click += new System.EventHandler(this.label3_Click);
             // 
-            // dateTimePicker1
+            // dtp_shixian
             // 
-            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker1.Location = new System.Drawing.Point(83, 3);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(630, 23);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dtp_shixian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtp_shixian.Location = new System.Drawing.Point(83, 3);
+            this.dtp_shixian.Name = "dtp_shixian";
+            this.dtp_shixian.Size = new System.Drawing.Size(630, 23);
+            this.dtp_shixian.TabIndex = 5;
             // 
             // tableLayoutPanel6
             // 
@@ -459,6 +459,6 @@
         private System.Windows.Forms.PictureBox pb_renyuan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtp_shixian;
     }
 }

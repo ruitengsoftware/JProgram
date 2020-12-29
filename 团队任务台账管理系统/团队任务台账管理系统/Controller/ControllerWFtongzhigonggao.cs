@@ -13,8 +13,9 @@ namespace 团队任务台账管理系统.Controller
 
         public bool SaveTongzhi(JJTongzhiInfo myinfo)
         {
-            string str_sql = $"insert into 通知公告表 values('{myinfo._biaoti}','{myinfo._qianfaren}','{myinfo._neirong}',0,'未读','{DateTime.Now.ToString("yyyyMMdd hh:mm:ss")}')";
-        int num = _mysqlhelper.ExecuteNonQuery(str_sql, null);
+            string str_sql = $"insert into jjdbrenwutaizhang.通知公告表 values('{myinfo._biaoti}','{myinfo._qianfaren}','{myinfo._neirong}',0,'{myinfo._zhuangtai}','{myinfo._fabushijian}','{myinfo._qingzhonghuanji}'" +
+                $",'{myinfo._shixian}','{myinfo._yuedufanwei}','{myinfo._shangchuanfujian}')";
+        int num = _mysqlhelper.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
 
 

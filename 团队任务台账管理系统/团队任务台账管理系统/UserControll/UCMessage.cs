@@ -73,14 +73,11 @@ namespace 团队任务台账管理系统.UserControll
 
                 }
                 this.lbl_mingcheng.Text = info._biaoti;
-                this.lbl_wanchengshijian.Text = info._fabushijian;
+                this.lbl_wanchengshijian.Text = Convert.ToDateTime(info._fabushijian).ToString("yyyy-MM-dd");
                 //判断轻重缓急，如果是紧急，任务显示红色，如果是普通，正常显示为黑色
-                if (info.)
+                if (info._qingzhonghuanji.Equals("紧急"))
                 {
-
-
-
-
+                    lbl_mingcheng.ForeColor = Color.Red;
                 }
             }
             if (o is JJTaskInfo)//如果是常规任务
@@ -91,10 +88,9 @@ namespace 团队任务台账管理系统.UserControll
 
                 JJTaskInfo info = o as JJTaskInfo;
                 this.lbl_xiangxian.Text = info._jinjichengdu;
-                this.tableLayoutPanel1.ColumnStyles[0].Width = 60;
                 this.lbl_mingcheng.Text = info._mingcheng;
                 this.lbl_mingcheng.TextAlign = ContentAlignment.MiddleLeft;
-                this.lbl_wanchengshijian.Text = info._shixian;
+                this.lbl_wanchengshijian.Text = Convert.ToDateTime(info._shixian).ToString("yyyy-MM-dd");
 
             }
 

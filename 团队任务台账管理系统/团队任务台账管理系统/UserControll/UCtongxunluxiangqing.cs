@@ -14,7 +14,6 @@ namespace 团队任务台账管理系统.UserControll
 {
     public partial class UCtongxunluxiangqing : UserControl
     {
-        bool _checked=false;
         public UCtongxunluxiangqing()
         {
             InitializeComponent();
@@ -26,7 +25,6 @@ namespace 团队任务台账管理系统.UserControll
             this.lbl_xingming.Text = personinfo._shiming;
             this.lbl_zhiwu.Text = personinfo._zhiji;
             this.lbl_lianxifangshi.Text = personinfo._shoujihao;
-
             Image img = ConvertBase64ToImage(personinfo._touxiang);
             pb_touxiang.Image = img;
 

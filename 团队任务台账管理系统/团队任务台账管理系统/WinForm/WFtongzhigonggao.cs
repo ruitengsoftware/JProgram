@@ -49,8 +49,11 @@ namespace 团队任务台账管理系统.WinForm
                 _biaoti = tb_biaoti.Text,
                 _qianfaren = tb_wenhao.Text,
                 _neirong = tb_neirong.Text,
-                _qingzhonghuanji=
-                
+                _qingzhonghuanji = rb_putong.Checked ? "普通" : "紧急",
+                _zhuangtai="未读",
+                _fabushijian=DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),
+               _shixian=dtp_shixian.Value.ToString("yyyy-MM-dd hh:mm:ss"),
+               _yuedufanwei=tb_yuedufanwei.Text
              
 
 

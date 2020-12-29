@@ -37,8 +37,8 @@
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_kw = new System.Windows.Forms.TextBox();
-            this.dgv_daiban = new System.Windows.Forms.DataGridView();
             this.pb_search = new System.Windows.Forms.PictureBox();
+            this.dgv_daiban = new System.Windows.Forms.DataGridView();
             this.panel_daibanrenwu = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
@@ -69,8 +69,8 @@
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_daiban)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_search)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_daiban)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -176,6 +176,18 @@
             this.tb_kw.TabIndex = 0;
             this.tb_kw.TextChanged += new System.EventHandler(this.tb_kw_TextChanged);
             // 
+            // pb_search
+            // 
+            this.pb_search.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_search.Image = global::团队任务台账管理系统.Properties.Resources.fangdajing;
+            this.pb_search.Location = new System.Drawing.Point(203, 3);
+            this.pb_search.Name = "pb_search";
+            this.pb_search.Size = new System.Drawing.Size(29, 29);
+            this.pb_search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_search.TabIndex = 1;
+            this.pb_search.TabStop = false;
+            this.pb_search.Click += new System.EventHandler(this.pb_search_Click);
+            // 
             // dgv_daiban
             // 
             this.dgv_daiban.AllowUserToAddRows = false;
@@ -191,18 +203,6 @@
             this.dgv_daiban.TabIndex = 2;
             this.dgv_daiban.Visible = false;
             this.dgv_daiban.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_daiban_CellMouseClick);
-            // 
-            // pb_search
-            // 
-            this.pb_search.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_search.Image = global::团队任务台账管理系统.Properties.Resources.fangdajing;
-            this.pb_search.Location = new System.Drawing.Point(203, 3);
-            this.pb_search.Name = "pb_search";
-            this.pb_search.Size = new System.Drawing.Size(29, 29);
-            this.pb_search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_search.TabIndex = 1;
-            this.pb_search.TabStop = false;
-            this.pb_search.Click += new System.EventHandler(this.pb_search_Click);
             // 
             // panel_daibanrenwu
             // 
@@ -611,8 +611,8 @@
             this.tableLayoutPanel13.ResumeLayout(false);
             this.tableLayoutPanel14.ResumeLayout(false);
             this.tableLayoutPanel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_daiban)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_search)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_daiban)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();

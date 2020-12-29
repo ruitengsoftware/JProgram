@@ -25,6 +25,7 @@ namespace 团队任务台账管理系统
             if (mywin.ShowDialog() == DialogResult.OK)
             {
                 JJLoginInfo._huaming = mywin._huaming;
+                //JJLoginInfo.GetLoginInfo(JJLoginInfo._huaming);
                 Form1 myform1 = new Form1();
                 //判断登录权限，如果没有权限就要退出本方法
                 if (JJLoginInfo._denlguquan == 0)
