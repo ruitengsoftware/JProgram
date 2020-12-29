@@ -636,5 +636,8 @@
   <ItemGroup>
     <None Include="Resources\yellowpoint %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\企业管理_员工管理.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

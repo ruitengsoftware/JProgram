@@ -333,6 +333,16 @@ namespace 团队任务台账管理系统.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap 企业管理_员工管理 {
+            get {
+                object obj = ResourceManager.GetObject("企业管理_员工管理", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap 历史1 {
             get {
                 object obj = ResourceManager.GetObject("历史1", resourceCulture);

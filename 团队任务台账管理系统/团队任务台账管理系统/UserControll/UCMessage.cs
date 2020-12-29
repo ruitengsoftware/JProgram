@@ -30,7 +30,7 @@ namespace 团队任务台账管理系统.UserControll
             InitializeComponent();
             this.Dock = DockStyle.Top;
             task = o;
-            if (o is JJQingdanInfo)
+            if (o is JJQingdanInfo)//如果是工作清单
             {
                 JJQingdanInfo info = o as JJQingdanInfo;
                 //在uc上显示   象限  名称  完成时间
@@ -56,14 +56,16 @@ namespace 团队任务台账管理系统.UserControll
 
 
             }
-            if (o is JJTongzhiInfo)
+            if (o is JJTongzhiInfo)//如果是通知公告
             {
                 //不是清单关闭销项
                 pb_xiaoxiang.Visible = false;
                 pb_shanchu.Visible = false;
+
                 JJTongzhiInfo info = o as JJTongzhiInfo;
                 //在uc上显示  状态标题 发布时间
                 lbl_xiangxian.Text = string.Empty;
+
                 if (info._zhuangtai.Equals("未读"))
                 {
                     this.lbl_mingcheng.Font = new System.Drawing.Font(this.Font.Name, 9, FontStyle.Bold);
@@ -72,9 +74,16 @@ namespace 团队任务台账管理系统.UserControll
                 }
                 this.lbl_mingcheng.Text = info._biaoti;
                 this.lbl_wanchengshijian.Text = info._fabushijian;
+                //判断轻重缓急，如果是紧急，任务显示红色，如果是普通，正常显示为黑色
+                if (info.)
+                {
 
+
+
+
+                }
             }
-            if (o is JJTaskInfo)
+            if (o is JJTaskInfo)//如果是常规任务
             {
                 //不是清单关闭销项
                 pb_xiaoxiang.Visible = false;

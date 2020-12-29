@@ -48,7 +48,13 @@ namespace 团队任务台账管理系统.WinForm
             {
                 _biaoti = tb_biaoti.Text,
                 _qianfaren = tb_wenhao.Text,
-                _neirong = tb_neirong.Text
+                _neirong = tb_neirong.Text,
+                _qingzhonghuanji=
+                
+             
+
+
+
             };
             //保存jjtonzhiinfo
             bool b = _mycontroller.SaveTongzhi(myinfo);
@@ -65,6 +71,11 @@ namespace 团队任务台账管理系统.WinForm
         }
 
         private void WFtongzhigonggao_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

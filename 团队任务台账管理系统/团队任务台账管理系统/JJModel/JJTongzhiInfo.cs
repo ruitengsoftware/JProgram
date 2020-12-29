@@ -28,5 +28,26 @@ namespace 团队任务台账管理系统.JJModel
         /// 发布时间
         /// </summary>
         public string _fabushijian = string.Empty;
+        /// <summary>
+        /// 轻重缓急
+        /// </summary>
+        public string _qingzhonghuanji = string.Empty;
+        /// <summary>
+        /// 时限
+        /// </summary>
+        public string _shixian = string.Empty;
+        /// <summary>
+        /// 阅读范围
+        /// </summary>
+        public string _yuedufanwei = string.Empty;
+        /// <summary>
+        /// 上传附件
+        /// </summary>
+        public string _shangchuanfujian = string.Empty; 
+
+
+
+
+
     }
 }

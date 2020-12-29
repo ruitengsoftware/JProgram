@@ -76,9 +76,6 @@ namespace 团队任务台账管理系统.Controller
             string str_sql = $"select count(*) from jjdbrenwutaizhang.jjperson where 自定义账号='{zhanghao}'";
             int num = Convert.ToInt32(mysqlhelper.ExecuteScalar(str_sql, null));
             return num > 0 ? true : false;
-
         }
-
-
     }
 }
