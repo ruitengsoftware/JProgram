@@ -52,14 +52,9 @@ namespace 团队任务台账管理系统.WinForm
                 myokr._jinjichengdu = "普通";
 
             }
-            else if (rb_jijian.Checked)
+            else if (rb_jinji.Checked)
             {
                 myokr._jinjichengdu = "急件";
-
-            }
-            else if (rb_teji.Checked)
-            {
-                myokr._jinjichengdu = "特急";
 
             }
             myokr._mubiao = tb_mubiao.Text;

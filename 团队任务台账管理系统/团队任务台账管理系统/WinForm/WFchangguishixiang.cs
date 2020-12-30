@@ -33,7 +33,7 @@ namespace 团队任务台账管理系统.WinForm
             }
             else if (myinfo._jinjichengdu.Equals("急件"))
             {
-                rb_jijian.Checked = true;
+                rb_jinji.Checked = true;
             }
             else if (myinfo._jinjichengdu.Equals("特急"))
             {
@@ -42,10 +42,8 @@ namespace 团队任务台账管理系统.WinForm
 
 
             tb_xiangqing.Text = myinfo._xiangqing;
-            tb_zerenren.Text = myinfo._fuzeren;
             tb_canjiaren.Text = myinfo._canyuren;
             dtp_shixian.Value = Convert.ToDateTime(myinfo._shixian);
-            cbb_leixing.Text = myinfo._leixing;
 
         }
 
@@ -88,7 +86,7 @@ namespace 团队任务台账管理系统.WinForm
             {
                 jinjichengdu = "特急";
             }
-            if (rb_jijian.Checked)
+            if (rb_jinji.Checked)
             {
                 jinjichengdu = "急件";
             }
@@ -100,8 +98,7 @@ namespace 团队任务台账管理系统.WinForm
             JJTaskInfo myt = new JJTaskInfo()
             {
                 _mingcheng = tb_renwumingcheng.Text,
-                _leixing = cbb_leixing.Text,
-                _fuzeren = tb_zerenren.Text,
+                _leixing = "常规事项",
                 _canyuren = tb_canjiaren.Text,
                 _zhuangtai = "未读",
                 _xiangqing = tb_xiangqing.Text,
@@ -137,6 +134,11 @@ namespace 团队任务台账管理系统.WinForm
         }
 
         private void tb_xiangqing_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -79,33 +79,136 @@ namespace 团队任务台账管理系统.Controller
 
 
         /// <summary>
-        /// 获得待办任务 
+        /// 获得待办任务 ,包括OKR,常规事项，请休假单，意见建议
         /// </summary>
         /// <returns></returns>
         public List<JJTaskInfo> GetDaibanRenwu(string s)
         {
             List<JJTaskInfo> list = new List<JJTaskInfo>();
-            string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='常规事项'";
+            string str_sql = string.Empty;
+            DataTable data = null;
 
-            var data = _mysqlhelper.ExecuteDataTable(str_sql, null);
+
+
+            //获得意见建议
+            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='意见建议'";
+
+            data = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow dr in data.Rows)
             {
                 JJTaskInfo info = new JJTaskInfo()
                 {
-                    _mingcheng=dr["名称"].ToString(),
+                    _mingcheng = dr["名称"].ToString(),
                     _jinjichengdu = dr["紧急程度"].ToString(),
                     _fuzeren = dr["负责人"].ToString(),
                     _shixian = dr["时限"].ToString(),
-                    _leixing=dr["类型"].ToString(),
+                    _leixing = dr["类型"].ToString(),
                     _canyuren = dr["参与人"].ToString(),
-                   _zhuangtai = dr["状态"].ToString(),
-                   _xiangqing = dr["详情"].ToString(),
-                   _chuangjianren = dr["创建人"].ToString(),
-                   _chuangjianshijian = dr["创建时间"].ToString(),
+                    _zhuangtai = dr["状态"].ToString(),
+                    _xiangqing = dr["详情"].ToString(),
+                    _chuangjianren = dr["创建人"].ToString(),
+                    _chuangjianshijian = dr["创建时间"].ToString(),
+                    _mubiao = dr["objectives目标"].ToString(),
+                    _chengguoji = dr["成果集"].ToString(),
+                    _biaoti=dr["标题"].ToString(),
+                    _fankuiren=dr["反馈人"].ToString(),
+                    _fankuiduixiang=dr["反馈对象"].ToString(),
+                    _neirong=dr["内容"].ToString(),
+                   
+
                 };
                 list.Add(info);
 
             }
+            //获得请休假单
+            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='请休假单'";
+
+            data = _mysqlhelper.ExecuteDataTable(str_sql);
+            foreach (DataRow dr in data.Rows)
+            {
+                JJTaskInfo info = new JJTaskInfo()
+                {
+                    _mingcheng = dr["名称"].ToString(),
+                    _jinjichengdu = dr["紧急程度"].ToString(),
+                    _fuzeren = dr["负责人"].ToString(),
+                    _shixian = dr["时限"].ToString(),
+                    _leixing = dr["类型"].ToString(),
+                    _canyuren = dr["参与人"].ToString(),
+                    _zhuangtai = dr["状态"].ToString(),
+                    _xiangqing = dr["详情"].ToString(),
+                    _chuangjianren = dr["创建人"].ToString(),
+                    _chuangjianshijian = dr["创建时间"].ToString(),
+                    _mubiao = dr["目标"].ToString(),
+                    _chengguoji = dr["成果集"].ToString(),
+                    _shenqingren = dr["申请人"].ToString(),
+                    _shiyou=dr["事由"].ToString(),
+                    _kaishishijian=dr["开始时间"].ToString(),
+                    _jieshushijian=dr["结束时间"].ToString(),
+                    _weituoduixiang=dr["委托对象"].ToString(),
+                    _shenheyijian=dr["审核意见"].ToString(),
+                   
+
+
+
+
+
+
+                };
+                list.Add(info);
+
+            }
+            //获得常规事项
+            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='常规事项'";
+
+            data = _mysqlhelper.ExecuteDataTable(str_sql);
+            foreach (DataRow dr in data.Rows)
+            {
+                JJTaskInfo info = new JJTaskInfo()
+                {
+                    _mingcheng = dr["名称"].ToString(),
+                    _jinjichengdu = dr["紧急程度"].ToString(),
+                    _fuzeren = dr["负责人"].ToString(),
+                    _shixian = dr["时限"].ToString(),
+                    _leixing = dr["类型"].ToString(),
+                    _canyuren = dr["参与人"].ToString(),
+                    _zhuangtai = dr["状态"].ToString(),
+                    _xiangqing = dr["详情"].ToString(),
+                    _chuangjianren = dr["创建人"].ToString(),
+                    _chuangjianshijian = dr["创建时间"].ToString(),
+                };
+                list.Add(info);
+
+            }
+            //获得okr
+            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='okr事项'";
+
+            data = _mysqlhelper.ExecuteDataTable(str_sql);
+            foreach (DataRow dr in data.Rows)
+            {
+                JJTaskInfo info = new JJTaskInfo()
+                {
+                    _mingcheng = dr["名称"].ToString(),
+                    _jinjichengdu = dr["紧急程度"].ToString(),
+                    _fuzeren = dr["负责人"].ToString(),
+                    _shixian = dr["时限"].ToString(),
+                    _leixing = dr["类型"].ToString(),
+                    _canyuren = dr["参与人"].ToString(),
+                    _zhuangtai = dr["状态"].ToString(),
+                    _xiangqing = dr["详情"].ToString(),
+                    _chuangjianren = dr["创建人"].ToString(),
+                    _chuangjianshijian = dr["创建时间"].ToString(),
+                    _mubiao = dr["目标"].ToString(),
+                    _chengguoji = dr["成果集"].ToString(),
+                };
+                list.Add(info);
+
+            }
+
+
+
+
+
+
             return list;
         }
         /// <summary>

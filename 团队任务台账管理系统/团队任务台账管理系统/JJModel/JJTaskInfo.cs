@@ -60,5 +60,43 @@ namespace 团队任务台账管理系统.JJModel
         /// </summary>
         public int _shanchu = 0;
 
+
+        public string _mubiao = string.Empty;
+
+
+        public string _chengguoji = string.Empty;
+
+        public string _shenqingren = string.Empty;
+
+
+        public string _shiyou = string.Empty;
+
+        public string _kaishishijian = string.Empty;
+
+
+
+        public string _jieshushijian = string.Empty;
+
+
+        public string _weituoduixiang = string.Empty;
+
+        public string _shenheyijian = string.Empty;
+
+        public string _biaoti = string.Empty;
+
+        public string _fankuiren = string.Empty;
+
+        public string _fankuiduixiang = string.Empty;
+
+        public string _neirong = string.Empty;
+
+
+        public string _banliyijian = string.Empty;
+
+            public string _banlirenyuan = string.Empty;
+
+        public string _jinzhanqingkuang = string.Empty;
+
+        public string _zongtiyanshouren = string.Empty;
     }
 }

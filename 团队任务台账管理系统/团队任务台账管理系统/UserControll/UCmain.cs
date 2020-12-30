@@ -138,7 +138,7 @@ namespace 团队任务台账管理系统.UserControll
 
             if (_list_item.Contains("待办任务"))
             {
-                /*刷新待办任务，也就是常规任务，放在任务信息表中*/
+                /*刷新待办任务，包括请休假单，okr事项，常规事项，意见建议，放在任务信息表中*/
                 panel_daibanrenwu.Controls.Clear();
                 string keyword = tb_kw.Text;
                 var list_daiban = _mycontroller.GetDaibanRenwu(keyword);
@@ -152,16 +152,16 @@ namespace 团队任务台账管理系统.UserControll
 
             if (_list_item.Contains("通知公告"))
             {
-            /*刷新通知公告*/
-            panel_tongzhi.Controls.Clear();
-            var list_tongzhi = _mycontroller.GetTongzhi();
-            //dgv_tongzhi.DataSource = null;
-            //dgv_tongzhi.DataSource = mydt;
-            foreach (JJTongzhiInfo dr in list_tongzhi)
-            {
-                UCMessage myuc = new UCMessage(dr);
-                panel_tongzhi.Controls.Add(myuc);
-            }
+                /*刷新通知公告*/
+                panel_tongzhi.Controls.Clear();
+                var list_tongzhi = _mycontroller.GetTongzhi();
+                //dgv_tongzhi.DataSource = null;
+                //dgv_tongzhi.DataSource = mydt;
+                foreach (JJTongzhiInfo dr in list_tongzhi)
+                {
+                    UCMessage myuc = new UCMessage(dr);
+                    panel_tongzhi.Controls.Add(myuc);
+                }
 
             }
 

@@ -639,5 +639,11 @@
   <ItemGroup>
     <None Include="Resources\企业管理_员工管理.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xinzeng1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xinzeng2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

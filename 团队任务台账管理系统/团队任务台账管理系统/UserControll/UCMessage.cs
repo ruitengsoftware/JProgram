@@ -85,8 +85,28 @@ namespace 团队任务台账管理系统.UserControll
                 //不是清单关闭销项
                 pb_xiaoxiang.Visible = false;
                 pb_shanchu.Visible = false;
-
                 JJTaskInfo info = o as JJTaskInfo;
+                string leixing = string.Empty;
+                if (info._leixing.Equals("请休假单"))
+                {
+                    leixing = "假单";
+                }
+                else if (info._leixing.Equals("OKR事项"))
+                {
+                    leixing = "OKR";
+                }
+                else if (info._leixing.Equals("常规事项"))
+                {
+                    leixing = "事务";
+                }
+                else if (info._leixing.Equals("意见建议"))
+                {
+                    leixing = "建言";
+                }
+
+                lbl_leixing.Text = leixing;
+                lbl_leixing.Visible = true;
+
                 this.lbl_xiangxian.Text = info._jinjichengdu;
                 this.lbl_mingcheng.Text = info._mingcheng;
                 this.lbl_mingcheng.TextAlign = ContentAlignment.MiddleLeft;
