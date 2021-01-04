@@ -105,12 +105,14 @@
     <Compile Include="Common\JJpanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controller\ControllerBumentongxun.cs" />
     <Compile Include="Controller\ControllerDenglu.cs" />
     <Compile Include="Controller\ControllerFankui.cs" />
     <Compile Include="Controller\ControllerForm1.cs" />
     <Compile Include="Controller\ControllerLishiziliao.cs" />
     <Compile Include="Controller\ControllerOkrshixiang.cs" />
     <Compile Include="Controller\ControllerRenwuxiangqing.cs" />
+    <Compile Include="Controller\ControllerTianjiabumen.cs" />
     <Compile Include="Controller\ControllerUCmsg.cs" />
     <Compile Include="Controller\ControllerUCmytask.cs" />
     <Compile Include="Controller\ControllerUCtaskinfo.cs" />
@@ -139,6 +141,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="JJModel\JJBumenInfo.cs" />
     <Compile Include="JJModel\JJchangguiInfo.cs" />
     <Compile Include="JJModel\JJchengguoInfo.cs" />
     <Compile Include="JJModel\JJOkrInfo.cs" />
@@ -153,6 +156,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControll\ControllerUCmessage.cs" />
+    <Compile Include="UserControll\UCbumentongxun.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCbumentongxun.Designer.cs">
+      <DependentUpon>UCbumentongxun.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControll\UCdaiban.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -351,6 +360,12 @@
     <Compile Include="WinForm\WinFormdenglu.designer.cs">
       <DependentUpon>WinFormdenglu.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\WinFormTianjiabumen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WinFormTianjiabumen.Designer.cs">
+      <DependentUpon>WinFormTianjiabumen.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\WinFormTongzhi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -394,6 +409,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControll\UCbumentongxun.resx">
+      <DependentUpon>UCbumentongxun.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCdaiban.resx">
       <DependentUpon>UCdaiban.cs</DependentUpon>
     </EmbeddedResource>
@@ -492,6 +510,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WinFormdenglu.resx">
       <DependentUpon>WinFormdenglu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WinFormTianjiabumen.resx">
+      <DependentUpon>WinFormTianjiabumen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WinFormTongzhi.resx">
       <DependentUpon>WinFormTongzhi.cs</DependentUpon>

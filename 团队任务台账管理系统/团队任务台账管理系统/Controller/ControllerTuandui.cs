@@ -20,7 +20,7 @@ namespace 团队任务台账管理系统.Controller
         /// <returns></returns>
         public bool JiechuTuandui(string tuanduimingchen)
         {
-            string str_sql = $"update jjtuandui set 状态='已解除',解除时间='{DateTime.Now.ToString()}' where 名称='{tuanduimingchen}'";
+            string str_sql = $"update jjdbrenwutaizhang.jjtuandui set 状态='已解除',解除时间='{DateTime.Now.ToString()}' where 名称='{tuanduimingchen}'";
             int num = mysqlhelper.ExecuteNonQuery(str_sql, null);
             return num > 0 ? true : false;
         }
@@ -38,7 +38,7 @@ namespace 团队任务台账管理系统.Controller
             {
                 mylist.Add($"'{item}'");
             }
-            string str_sql = $"update jjtuandui set 状态='已解除',解除时间='{DateTime.Now.ToString()}' where 名称 in ({string.Join(",", mylist)})";
+            string str_sql = $"update jjdbrenwutaizhang.jjtuandui set 状态='已解除',解除时间='{DateTime.Now.ToString()}' where 名称 in ({string.Join(",", mylist)})";
             int num = mysqlhelper.ExecuteNonQuery(str_sql, null);
             return num > 0 ? true : false;
         }
@@ -54,7 +54,7 @@ namespace 团队任务台账管理系统.Controller
             foreach (string mystr in list)
             {
                 //获得团队成员，拆分成list
-                string str_sql = $"select 成员 from jjtuandui where 状态='工作中' and 名称='{mystr}'";
+                string str_sql = $"select 成员 from jjdbrenwutaizhang.jjtuandui where 状态='工作中' and 名称='{mystr}'";
                 string chengyuan = mysqlhelper.ExecuteScalar(str_sql).ToString();
                 List<string> listchengyuan = Regex.Split(chengyuan, ",").ToList();
                 //判断list是否包含jjlogininfo.shiming
@@ -67,7 +67,7 @@ namespace 团队任务台账管理系统.Controller
                 chengyuan = string.Join(",", listchengyuan);
 
                 //更新成员到团队信息
-                str_sql = $"update jjtuandui set 成员='{chengyuan}' where 名称='{mystr}' and 状态='工作中'";
+                str_sql = $"update jjdbrenwutaizhang.jjtuandui set 成员='{chengyuan}' where 名称='{mystr}' and 状态='工作中'";
                 num +=mysqlhelper.ExecuteNonQuery(str_sql);
             }
                 //返回结果true false
@@ -86,7 +86,7 @@ namespace 团队任务台账管理系统.Controller
             foreach (string mystr in list)
             {
                 //获得团队成员，拆分成list
-                string str_sql = $"select 成员 from jjtuandui where 状态='工作中' and 名称='{mystr}'";
+                string str_sql = $"select 成员 from jjdbrenwutaizhang.jjtuandui where 状态='工作中' and 名称='{mystr}'";
                 string chengyuan = mysqlhelper.ExecuteScalar(str_sql).ToString();
                 List<string> listchengyuan = Regex.Split(chengyuan, ",").ToList();
                 //判断list是否包含jjlogininfo.shiming
@@ -99,7 +99,7 @@ namespace 团队任务台账管理系统.Controller
                 chengyuan = string.Join(",", listchengyuan);
 
                 //更新成员到团队信息
-                str_sql = $"update jjtuandui set 成员='{chengyuan}' where 名称='{mystr}' and 状态='工作中'";
+                str_sql = $"update jjdbrenwutaizhang.jjtuandui set 成员='{chengyuan}' where 名称='{mystr}' and 状态='工作中'";
                 num += mysqlhelper.ExecuteNonQuery(str_sql);
             }
             //返回结果true false
@@ -114,7 +114,7 @@ namespace 团队任务台账管理系统.Controller
         /// <returns></returns>
         public bool ExistTuandui(string tuanduimingcheng)
         {
-            string str_sql = $"select count(*) from jjtuandui where 名称='{tuanduimingcheng}'";
+            string str_sql = $"select count(*) from jjdbrenwutaizhang.jjtuandui where 名称='{tuanduimingcheng}'";
             int num = Convert.ToInt32(mysqlhelper.ExecuteScalar(str_sql));
             return num > 0 ? true : false;
         }
@@ -129,7 +129,7 @@ namespace 团队任务台账管理系统.Controller
         public bool InsertTuandui(JJTuanduiInfo myinfo)
         {
             //判断是否已经存在了这个团队，如果存在那么就做修改，如果不存在就做插入
-            string str_sql = $"select count(*) from jjtuandui where 名称='{myinfo._mingcheng}' and 状态='工作中' ";
+            string str_sql = $"select count(*) from jjdbrenwutaizhang.jjtuandui where 名称='{myinfo._mingcheng}' and 状态='工作中' ";
             int num = Convert.ToInt32(mysqlhelper.ExecuteScalar(str_sql, null));
             if (num > 0)
             {
@@ -137,7 +137,7 @@ namespace 团队任务台账管理系统.Controller
             }
             else
             {
-                str_sql = $"insert into jjtuandui values('{myinfo._mingcheng}'," +
+                str_sql = $"insert into jjdbrenwutaizhang.jjtuandui values('{myinfo._mingcheng}'," +
                        $"'{myinfo._fuzeren}','{myinfo._chengyuan}','{DateTime.Now.ToString()}','工作中','--'," +
                        $"'{myinfo._tuanduitupian}','{myinfo._gongzuolingyu}')";
             }
@@ -151,7 +151,7 @@ namespace 团队任务台账管理系统.Controller
         /// <returns></returns>
         public DataTable GetTuandui()
         {
-            string str_sql = $"select * from jjtuandui where 状态='工作中'";
+            string str_sql = $"select * from jjdbrenwutaizhang.jjtuandui where 状态='工作中'";
             DataTable mydt = mysqlhelper.ExecuteDataTable(str_sql);
             return mydt;
         }

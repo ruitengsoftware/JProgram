@@ -12,9 +12,19 @@ namespace 团队任务台账管理系统.UserControll
 {
     public partial class UCchengguo : UserControl
     {
+
         public UCchengguo()
         {
             InitializeComponent();
+        }
+
+
+        public UCchengguo(int i)
+        {
+            InitializeComponent();
+            lbl_chengguo.Text = $"关键成果{i}";
+
+
         }
 
         private void pb_close_Click(object sender, EventArgs e)

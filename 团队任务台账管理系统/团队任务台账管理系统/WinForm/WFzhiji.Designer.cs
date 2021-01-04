@@ -108,9 +108,9 @@
             // 
             // btn_guanbi
             // 
-            this.btn_guanbi.Location = new System.Drawing.Point(367, 376);
+            this.btn_guanbi.Location = new System.Drawing.Point(236, 377);
             this.btn_guanbi.Name = "btn_guanbi";
-            this.btn_guanbi.Size = new System.Drawing.Size(100, 43);
+            this.btn_guanbi.Size = new System.Drawing.Size(97, 28);
             this.btn_guanbi.TabIndex = 4;
             this.btn_guanbi.Text = "关闭";
             this.btn_guanbi.UseVisualStyleBackColor = true;
@@ -118,9 +118,9 @@
             // 
             // btn_queding
             // 
-            this.btn_queding.Location = new System.Drawing.Point(211, 376);
+            this.btn_queding.Location = new System.Drawing.Point(105, 377);
             this.btn_queding.Name = "btn_queding";
-            this.btn_queding.Size = new System.Drawing.Size(100, 43);
+            this.btn_queding.Size = new System.Drawing.Size(96, 28);
             this.btn_queding.TabIndex = 3;
             this.btn_queding.Text = "确认";
             this.btn_queding.UseVisualStyleBackColor = true;
@@ -128,7 +128,7 @@
             // 
             // tv_my
             // 
-            this.tv_my.Location = new System.Drawing.Point(121, 14);
+            this.tv_my.Location = new System.Drawing.Point(12, 12);
             this.tv_my.Name = "tv_my";
             treeNode1.Name = "节点3";
             treeNode1.Text = "M1-主管";
@@ -218,7 +218,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(696, 432);
+            this.ClientSize = new System.Drawing.Size(478, 432);
             this.Controls.Add(this.btn_guanbi);
             this.Controls.Add(this.btn_queding);
             this.Controls.Add(this.tv_my);

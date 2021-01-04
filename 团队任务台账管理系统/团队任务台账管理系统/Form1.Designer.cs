@@ -34,8 +34,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pb_touxiang = new System.Windows.Forms.PictureBox();
             this.btn_xinjian = new System.Windows.Forms.Button();
-            this.btn_daiban = new System.Windows.Forms.Button();
-            this.btn_tuandui = new System.Windows.Forms.Button();
             this.btn_tongxunlu = new System.Windows.Forms.Button();
             this.btn_lishiziliao = new System.Windows.Forms.Button();
             this.btn_gongxiangziliao = new System.Windows.Forms.Button();
@@ -43,14 +41,16 @@
             this.btn_tuichu = new System.Windows.Forms.Button();
             this.btn_home = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_tuandui = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_woderenwu = new System.Windows.Forms.Button();
             this.lbl_newtask = new System.Windows.Forms.Label();
+            this.btn_daiban = new System.Windows.Forms.Button();
+            this.btn_gongzuoqingdan = new System.Windows.Forms.Button();
+            this.btn_tongzhigonggao = new System.Windows.Forms.Button();
             this.panel_my = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.btn_gongzuoqingdan = new System.Windows.Forms.Button();
-            this.btn_tongzhigonggao = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -145,29 +145,6 @@
             this.btn_xinjian.UseVisualStyleBackColor = true;
             this.btn_xinjian.Click += new System.EventHandler(this.btn_xinjian_Click);
             // 
-            // btn_daiban
-            // 
-            this.btn_daiban.Location = new System.Drawing.Point(1, 251);
-            this.btn_daiban.Margin = new System.Windows.Forms.Padding(1);
-            this.btn_daiban.Name = "btn_daiban";
-            this.btn_daiban.Size = new System.Drawing.Size(94, 28);
-            this.btn_daiban.TabIndex = 2;
-            this.btn_daiban.Text = "待办任务";
-            this.btn_daiban.UseVisualStyleBackColor = true;
-            this.btn_daiban.Click += new System.EventHandler(this.btn_daiban_Click);
-            // 
-            // btn_tuandui
-            // 
-            this.btn_tuandui.Location = new System.Drawing.Point(2, 1);
-            this.btn_tuandui.Margin = new System.Windows.Forms.Padding(1);
-            this.btn_tuandui.Name = "btn_tuandui";
-            this.btn_tuandui.Size = new System.Drawing.Size(63, 28);
-            this.btn_tuandui.TabIndex = 2;
-            this.btn_tuandui.Text = "团队";
-            this.btn_tuandui.UseVisualStyleBackColor = true;
-            this.btn_tuandui.Visible = false;
-            this.btn_tuandui.Click += new System.EventHandler(this.btn_tuandui_Click);
-            // 
             // btn_tongxunlu
             // 
             this.btn_tongxunlu.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -255,6 +232,17 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(96, 30);
             this.tableLayoutPanel2.TabIndex = 6;
             // 
+            // btn_tuandui
+            // 
+            this.btn_tuandui.Location = new System.Drawing.Point(2, 1);
+            this.btn_tuandui.Margin = new System.Windows.Forms.Padding(1);
+            this.btn_tuandui.Name = "btn_tuandui";
+            this.btn_tuandui.Size = new System.Drawing.Size(63, 28);
+            this.btn_tuandui.TabIndex = 2;
+            this.btn_tuandui.Text = "团队";
+            this.btn_tuandui.UseVisualStyleBackColor = true;
+            this.btn_tuandui.Click += new System.EventHandler(this.btn_tuandui_Click);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.btn_woderenwu);
@@ -290,28 +278,16 @@
             this.lbl_newtask.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_newtask.Visible = false;
             // 
-            // panel_my
+            // btn_daiban
             // 
-            this.panel_my.AutoSize = true;
-            this.panel_my.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_my.Location = new System.Drawing.Point(0, 0);
-            this.panel_my.Margin = new System.Windows.Forms.Padding(0);
-            this.panel_my.Name = "panel_my";
-            this.panel_my.Size = new System.Drawing.Size(706, 509);
-            this.panel_my.TabIndex = 0;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 30000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "写手OA系统";
-            this.notifyIcon1.Visible = true;
-            this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
+            this.btn_daiban.Location = new System.Drawing.Point(1, 251);
+            this.btn_daiban.Margin = new System.Windows.Forms.Padding(1);
+            this.btn_daiban.Name = "btn_daiban";
+            this.btn_daiban.Size = new System.Drawing.Size(94, 28);
+            this.btn_daiban.TabIndex = 2;
+            this.btn_daiban.Text = "待办任务";
+            this.btn_daiban.UseVisualStyleBackColor = true;
+            this.btn_daiban.Click += new System.EventHandler(this.btn_daiban_Click);
             // 
             // btn_gongzuoqingdan
             // 
@@ -337,6 +313,29 @@
             this.btn_tongzhigonggao.UseVisualStyleBackColor = true;
             this.btn_tongzhigonggao.Click += new System.EventHandler(this.btn_tongzhigonggao_Click);
             // 
+            // panel_my
+            // 
+            this.panel_my.AutoSize = true;
+            this.panel_my.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_my.Location = new System.Drawing.Point(0, 0);
+            this.panel_my.Margin = new System.Windows.Forms.Padding(0);
+            this.panel_my.Name = "panel_my";
+            this.panel_my.Size = new System.Drawing.Size(706, 509);
+            this.panel_my.TabIndex = 0;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 30000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "写手OA系统";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -345,6 +344,7 @@
             this.ClientSize = new System.Drawing.Size(806, 509);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

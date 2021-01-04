@@ -302,9 +302,13 @@ namespace 团队任务台账管理系统
 
         private void btn_tongxunlu_Click(object sender, EventArgs e)
         {
-            UCtongxunlu myuc = new UCtongxunlu();
+
+            UCbumentongxun myuc = new UCbumentongxun(){ Dock = DockStyle.Fill };
+
+
+            //UCtongxunlu myuc = new UCtongxunlu();
             panel_my.Controls.Clear();
-            panel_my.Controls.Add(new UCtongxunlu() { Dock = DockStyle.Fill });
+            panel_my.Controls.Add(myuc);
         }
 
         private void lbl_woderenwu_Click(object sender, EventArgs e)

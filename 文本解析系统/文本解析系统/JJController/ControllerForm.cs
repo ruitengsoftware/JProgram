@@ -312,6 +312,7 @@ namespace 文本解析系统.JJController
                     //生成excel表格
                     Aspose.Cells.Workbook mywbk1 = new Aspose.Cells.Workbook();
                     Aspose.Cells.Worksheet mysht1 = mywbk1.Worksheets[0];
+                    mysht1.Cells.Style.IsTextWrapped = true;
                     mysht1.Cells[0, 0].Value = "名称";
                     mysht1.Cells[0, 1].Value = "文本";
                     mysht1.Cells[0, 2].Value = "MD5值";
@@ -327,35 +328,41 @@ namespace 文本解析系统.JJController
                     //开始赋值信息
                     for (int i = 0; i < myfi.list_jiexiguize.Count; i++)
                     {
-                        //判断师否为基础解析，赋值基础信息
+                        //判断是否为基础解析，赋值基础信息
                         if (myfi.list_jiexiguize[i].Contains("基础"))
                         {
                             //生成基础解析格式部分
                             WordInfo mywordinfo = new WordInfo(filename);
                             //使用一个方法获得word文档的的所有基础解系对象集合
-                            mywordinfo.GetAllWenben();
-                            mywordinfo.AnalysisInfo();
+                            mywordinfo.GetAllWenben();//获得了文本
+                            mywordinfo.AnalysisInfo();//解析
                             //循环所有的baseinfo对象到excel表中去
                             //在添入excel之前，判断是否出现过文本相同的记录，如果出现了就跳过，如果没出现，就添加这一行并且记录文本
                             List<string> list_r = new List<string>();
-                            string wenben = string.Empty;
-
+                            string wenben = string.Empty;//用来临时保存一条记录的文本
+                            string mingcheng = string.Empty;//用来临时保存一条记录的名称
                             for (int b = 0; b < mywordinfo._list_baseinfo.Count; b++)
                             {
                                 //在这里做一个放错机制，防止正文过长等一些导致填充表格报错的情况
                                 try
                                 {
                                     wenben = mywordinfo._list_baseinfo[b]._wenben.Trim();
-
+                                    mingcheng = mywordinfo._list_baseinfo[b]._mingcheng.Trim();
                                     if (mywordinfo._list_baseinfo[b]._wenben.Trim().Equals(string.Empty))
                                     {
                                         continue;
                                     }
-                                    //判断是否重复
-                                    if (list_r.Contains(wenben))
+                                    //判断是否重复,如果名称带有条或款或项，就不判断重复
+                                    bool b_tkx = Regex.IsMatch(mingcheng, @"[条款项]");
+                                    bool b1 = mingcheng.Equals("效力级别") || mingcheng.Equals("时效性") || mingcheng.Equals("发布日期") || mingcheng.Equals("实施日期") || mingcheng.Equals("发布机关");
+                                    if (!b_tkx && !b1)
                                     {
-                                        continue;
+                                        if (list_r.Contains(wenben))
+                                        {
+                                            continue;
+                                        }
                                     }
+                                   
                                     //获得最后一行
                                     int rowindex = mysht1.Cells.LastCell.Row + 1;
                                     mysht1.Cells[rowindex, 0].Value = mywordinfo._list_baseinfo[b]._mingcheng;
@@ -372,7 +379,9 @@ namespace 文本解析系统.JJController
                                     //将文本保存在list_r中
                                     list_r.Add(wenben);
                                 }
-                                catch { }
+                                catch(Exception ex) {
+                                    //MessageBox.Show(ex.Message);
+                                }
                             }
                         }
                         else//解析自定义规则
@@ -391,10 +400,6 @@ namespace 文本解析系统.JJController
 
                                 //在匹配对象中获得结果
                                 MatchCollection mymc = null;
-
-
-
-
                                 if (myrd.fuzhi.Contains("索引句"))
                                 {
                                     //获得匹配对象的所有索引句，将包括文本特征的集合提取出来
@@ -406,7 +411,6 @@ namespace 文本解析系统.JJController
                                             myrd.fuzhijieguo.Add(mystr);
                                         }
                                     }
-
                                 }
                                 if (myrd.fuzhi.Contains("标准句"))
                                 {
@@ -417,7 +421,6 @@ namespace 文本解析系统.JJController
                                         if (Regex.IsMatch(mymatch.Value, myrd.wenbentezheng))
                                         {
                                             myrd.fuzhijieguo.Add(mymatch.Value);
-
                                         }
                                     }
                                 }
@@ -672,7 +675,7 @@ namespace 文本解析系统.JJController
                                 }
                                 else
                                 {
-                                    if (myrd.fuzhi.Contains("提取区间内所有内容"))
+                                    if (myrd.fuzhi.Contains("提取区间内所有内容") && sarr.Length==5)
                                     {
                                         //获得最后一行索引
                                         int lastrow = mysht1.Cells.EndCellInColumn(0).Row;
@@ -721,6 +724,7 @@ namespace 文本解析系统.JJController
                     {
                         myfi._excelpath = Path.GetDirectoryName(filename);
                     }
+                    
                     mywbk1.Save($@"{myfi._excelpath}\{Path.GetFileNameWithoutExtension(filename)}.xlsx");
                     return "完成";
                 }
@@ -832,6 +836,7 @@ namespace 文本解析系统.JJController
                                         int rowindex = mysht0.Cells.LastCell.Row + 1;
                                         mysht0.Cells[rowindex, 0].Value = mywordinfo._list_baseinfo[b]._mingcheng;
                                         mysht0.Cells[rowindex, 1].Value = mywordinfo._list_baseinfo[b]._wenben;
+
                                         mysht0.Cells[rowindex, 2].Value = mywordinfo._list_baseinfo[b]._MD5;
                                         mysht0.Cells[rowindex, 3].Value = mywordinfo._list_baseinfo[b]._redu;
                                         mysht0.Cells[rowindex, 4].Value = mywordinfo._list_baseinfo[b]._zishu;

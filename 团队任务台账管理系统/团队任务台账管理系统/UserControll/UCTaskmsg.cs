@@ -33,7 +33,26 @@ namespace 团队任务台账管理系统.UserControll
             this.Dock = DockStyle.Top;
             myti = ti;
             lbl_renwuming.Text = ti._mingcheng;
-            lbl_renwuleixing.Text = ti._leixing;
+            string leixing = string.Empty;
+            if (ti._leixing.Equals("OKR事项"))
+            {
+                leixing = "OKR";
+            }
+            else if (ti._leixing.Equals("常规事项"))
+            {
+                leixing = "事务";
+            }
+            else if (ti._leixing.Equals("请休假单"))
+            {
+                leixing = "假单";
+            }
+            else if (ti._leixing.Equals("意见建议"))
+            {
+                leixing = "建言";
+            }
+
+            lbl_renwuleixing.Text = leixing;
+            lbl_shixian.Text = Convert.ToDateTime(ti._shixian).ToString("yyyy-MM-dd");
             if (myti._zhuangtai.Equals("未读"))
             {
                 pb_weidu.Visible = true;
@@ -111,5 +130,15 @@ namespace 团队任务台账管理系统.UserControll
 
 
         }
+
+        private void lbl_shixian_Click(object sender, EventArgs e)
+        {
+
         }
+
+        private void lbl_renwuleixing_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

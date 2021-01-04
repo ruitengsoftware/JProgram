@@ -29,8 +29,11 @@ namespace 团队任务台账管理系统.WinForm
 
         private void lbl_xinzeng_Click(object sender, EventArgs e)
         {
+
+            int index = panel_my.Controls.Count;
+
             //构造一个ucokr
-            UCchengguo myuc = new UCchengguo();
+            UCchengguo myuc = new UCchengguo(index+1);
             myuc.Dock = DockStyle.Top;
 
             //添加到panel_my中

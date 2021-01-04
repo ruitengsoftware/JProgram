@@ -258,12 +258,6 @@
     <None Include="Resources\ChMkKV8fh6mIZaqKAEIGWUIz7hsAAANIgNvpdQAQgZx175.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\显示.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\隐藏.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\folderenter %282%29.png" />
   </ItemGroup>
   <ItemGroup>
@@ -298,6 +292,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\没有图片.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\显示.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\隐藏.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

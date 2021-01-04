@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.JJModel;
 using System.IO;
+using 团队任务台账管理系统.WinForm;
 
 namespace 团队任务台账管理系统.UserControll
 {
     public partial class UCtongxunluxiangqing : UserControl
     {
+       public JJPersonInfo _jjpi = new JJPersonInfo();
         public UCtongxunluxiangqing()
         {
             InitializeComponent();
@@ -21,13 +23,12 @@ namespace 团队任务台账管理系统.UserControll
         public UCtongxunluxiangqing(JJPersonInfo personinfo)
         {
             InitializeComponent();
-
-            this.lbl_xingming.Text = personinfo._shiming;
-            this.lbl_zhiwu.Text = personinfo._zhiji;
-            this.lbl_lianxifangshi.Text = personinfo._shoujihao;
+            _jjpi = personinfo;
+            this.lbl_xingming.Text = $"名字：{personinfo._shiming}";
+            this.lbl_zhiwu.Text = $"职级职务：{personinfo._zhiji}";
+            this.lbl_lianxifangshi.Text = $"手机号码：{personinfo._shoujihao}";
             Image img = ConvertBase64ToImage(personinfo._touxiang);
             pb_touxiang.Image = img;
-
         }
 
         /// <summary>
@@ -53,10 +54,16 @@ namespace 团队任务台账管理系统.UserControll
             }
         }
 
-        private void lbl_xiangqing_Click(object sender, EventArgs e)
+        private void pb_touxiang_Click(object sender, EventArgs e)
         {
 
-        }
+            WFzhuce mywin = new WFzhuce(_jjpi);
+            if (mywin.ShowDialog()==DialogResult.OK)
+            {
 
+            }
+
+
+        }
     }
 }

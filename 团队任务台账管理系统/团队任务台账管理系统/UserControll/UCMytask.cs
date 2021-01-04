@@ -32,6 +32,7 @@ namespace 团队任务台账管理系统.UserControll
         }
         public void lbl_quanbu_Click(object sender, EventArgs e)
         {
+            //更新按钮样式，选中的按钮 高亮
             foreach (Control  c  in tlp_button.Controls)
             {
                 c.BackColor = Color.Tomato;
@@ -43,7 +44,8 @@ namespace 团队任务台账管理系统.UserControll
             //清空界面首先
             panel_task.Controls.Clear();
             //获得全部任务 
-            string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 状态<>'已删除'";
+            string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 状态<>'已删除' and 类型 in " +
+                $"('OKR事项','意见建议','请休假单','常规事项')";
             var list = _mycontroller.GetTaskinfo(str_sql);
 
             //构造ucteakmsg

@@ -72,6 +72,10 @@ namespace 团队任务台账管理系统.WinForm
             tb_weixinhao.Text = pi._weixinhao;
             tb_dianziyouxiang.Text = pi._dianziyouxiang;
             tb_gerenqianming.Text = pi._gerenqianming;
+
+
+
+
         }
 
 

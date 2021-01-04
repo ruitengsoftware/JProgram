@@ -21,6 +21,11 @@ namespace 团队任务台账管理系统.JJModel
         /// </summary>
         public  string _bumen = string.Empty;
         /// <summary>
+        /// 权限
+        /// </summary>
+        public string _quanxian = string.Empty;
+
+        /// <summary>
         /// 职级
         /// </summary>
         public  string _zhiji = string.Empty;
@@ -56,6 +61,30 @@ namespace 团队任务台账管理系统.JJModel
         /// 个人签名
         /// </summary>
         public  string _gerenqianming = string.Empty;
+        /// <summary>
+        /// 登录权
+        /// </summary>
+        public int _dengluquan = 0;
+
+        public string _diaoyongguize = string.Empty;
+
+        public string _diaoyongchachongku = string.Empty;
+
+
+        public string _suodingguize = string.Empty;
+
+        public string _suodingchachongku = string.Empty;
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

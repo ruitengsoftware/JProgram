@@ -38,16 +38,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.dgv_data = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_xiazai = new System.Windows.Forms.Button();
             this.btn_shangchuan = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel_task = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -206,7 +205,7 @@
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.dgv_data, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel_task, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 93);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -214,16 +213,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(971, 474);
             this.tableLayoutPanel3.TabIndex = 2;
-            // 
-            // dgv_data
-            // 
-            this.dgv_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_data.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_data.Location = new System.Drawing.Point(3, 3);
-            this.dgv_data.Name = "dgv_data";
-            this.dgv_data.RowTemplate.Height = 23;
-            this.dgv_data.Size = new System.Drawing.Size(965, 468);
-            this.dgv_data.TabIndex = 0;
             // 
             // tableLayoutPanel4
             // 
@@ -287,6 +276,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "新建任务";
             // 
+            // panel_task
+            // 
+            this.panel_task.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_task.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_task.Location = new System.Drawing.Point(0, 0);
+            this.panel_task.Margin = new System.Windows.Forms.Padding(0);
+            this.panel_task.Name = "panel_task";
+            this.panel_task.Size = new System.Drawing.Size(971, 474);
+            this.panel_task.TabIndex = 0;
+            // 
             // UCxinjian
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -301,7 +300,6 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -316,7 +314,6 @@
         private System.Windows.Forms.Button btn_shangchuan;
         private System.Windows.Forms.Button btn_xiazai;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.DataGridView dgv_data;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -327,5 +324,6 @@
         private System.Windows.Forms.Label lbl_gongzuoqingdan;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel_task;
     }
 }

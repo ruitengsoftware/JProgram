@@ -87,9 +87,9 @@
             // 
             // pb_shanchu
             // 
-            this.pb_shanchu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pb_shanchu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pb_shanchu.Image = global::团队任务台账管理系统.Properties.Resources.shanchu3;
-            this.pb_shanchu.Location = new System.Drawing.Point(483, 1);
+            this.pb_shanchu.Location = new System.Drawing.Point(182, 1);
             this.pb_shanchu.Name = "pb_shanchu";
             this.pb_shanchu.Size = new System.Drawing.Size(29, 18);
             this.pb_shanchu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -99,9 +99,9 @@
             // 
             // pb_xiaoxiang
             // 
-            this.pb_xiaoxiang.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pb_xiaoxiang.Dock = System.Windows.Forms.DockStyle.Left;
             this.pb_xiaoxiang.Image = global::团队任务台账管理系统.Properties.Resources.xiaoxiang;
-            this.pb_xiaoxiang.Location = new System.Drawing.Point(512, 1);
+            this.pb_xiaoxiang.Location = new System.Drawing.Point(211, 1);
             this.pb_xiaoxiang.Name = "pb_xiaoxiang";
             this.pb_xiaoxiang.Size = new System.Drawing.Size(29, 18);
             this.pb_xiaoxiang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -121,10 +121,10 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pb_xiaoxiang);
+            this.panel1.Controls.Add(this.pb_shanchu);
             this.panel1.Controls.Add(this.lbl_wanchengshijian);
             this.panel1.Controls.Add(this.pb_point);
-            this.panel1.Controls.Add(this.pb_shanchu);
-            this.panel1.Controls.Add(this.pb_xiaoxiang);
             this.panel1.Controls.Add(this.lbl_mingcheng);
             this.panel1.Controls.Add(this.lbl_xiangxian);
             this.panel1.Controls.Add(this.lbl_leixing);

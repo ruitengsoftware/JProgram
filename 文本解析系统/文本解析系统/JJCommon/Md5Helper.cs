@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace 文本解析系统.JJCommon
@@ -14,6 +15,12 @@ namespace 文本解析系统.JJCommon
         {
             var result = string.Empty;
             if (string.IsNullOrEmpty(value)) return result;
+
+            //对value进行处理，去掉其中的符号和空格
+            value = Regex.Replace(value, @"[（）\s,:!！、，：；。……;]", "");
+
+
+
             using (var md5 = MD5.Create())
             {
                 result = GetMd5Hash(md5, value);

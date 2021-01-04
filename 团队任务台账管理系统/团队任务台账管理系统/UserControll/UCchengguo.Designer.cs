@@ -37,7 +37,7 @@
             this.tb_yanshouren = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_guanjianchengguo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_chengguo = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_shixian = new System.Windows.Forms.TextBox();
@@ -155,7 +155,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.tb_guanjianchengguo, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.lbl_chengguo, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
@@ -174,17 +174,17 @@
             this.tb_guanjianchengguo.Size = new System.Drawing.Size(315, 96);
             this.tb_guanjianchengguo.TabIndex = 0;
             // 
-            // label1
+            // lbl_chengguo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(1, 1);
-            this.label1.Margin = new System.Windows.Forms.Padding(1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 100);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Key Results\r\n关键成果";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_chengguo.AutoSize = true;
+            this.lbl_chengguo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_chengguo.Location = new System.Drawing.Point(1, 1);
+            this.lbl_chengguo.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_chengguo.Name = "lbl_chengguo";
+            this.lbl_chengguo.Size = new System.Drawing.Size(118, 100);
+            this.lbl_chengguo.TabIndex = 1;
+            this.lbl_chengguo.Text = "Key Results\r\n关键成果";
+            this.lbl_chengguo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel5
             // 
@@ -308,7 +308,7 @@
         public System.Windows.Forms.TextBox tb_yanshouren;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         public System.Windows.Forms.TextBox tb_guanjianchengguo;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_chengguo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox tb_shixian;
