@@ -651,7 +651,7 @@ namespace 文本解析系统
             }
             //获得格式名称对应的格式信息
             FormatInfo myfi = _mycontroller.GetFormatInfo(formatname);
-
+            if (myfi == null) return;//如果不存在解析格式名，就退出
             //excel存放赋值
             if (myfi._excelpath.Equals(string.Empty))
             {

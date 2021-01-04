@@ -329,6 +329,7 @@ namespace 文本解析系统.JJController
                     for (int i = 0; i < myfi.list_jiexiguize.Count; i++)
                     {
                         //判断是否为基础解析，赋值基础信息
+                        //基础解析规则也分为两种分别是裁判文书基础规则，法律法规基础规则
                         if (myfi.list_jiexiguize[i].Contains("基础"))
                         {
                             //生成基础解析格式部分
@@ -336,6 +337,10 @@ namespace 文本解析系统.JJController
                             //使用一个方法获得word文档的的所有基础解系对象集合
                             mywordinfo.GetAllWenben();//获得了文本
                             mywordinfo.AnalysisInfo();//解析
+
+
+
+
                             //循环所有的baseinfo对象到excel表中去
                             //在添入excel之前，判断是否出现过文本相同的记录，如果出现了就跳过，如果没出现，就添加这一行并且记录文本
                             List<string> list_r = new List<string>();
@@ -828,6 +833,7 @@ namespace 文本解析系统.JJController
                                             continue;
                                         }
                                         //判断是否重复
+
                                         if (list_r.Contains(wenben))
                                         {
                                             continue;

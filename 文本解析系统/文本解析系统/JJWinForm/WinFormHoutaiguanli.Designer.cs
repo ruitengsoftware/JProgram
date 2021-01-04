@@ -45,11 +45,14 @@
             this.dgv_person = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_shouquan = new System.Windows.Forms.Label();
+            this.lbl_tianjiayonghu = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_diaoyongguize = new System.Windows.Forms.TextBox();
             this.tb_diaoyongchachongku = new System.Windows.Forms.TextBox();
+            this.pb_diaoyongguize = new System.Windows.Forms.PictureBox();
+            this.pb_diaoyongku = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -63,9 +66,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.lbl_tianjiayonghu = new System.Windows.Forms.Label();
-            this.pb_diaoyongguize = new System.Windows.Forms.PictureBox();
-            this.pb_diaoyongku = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
@@ -77,13 +77,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_person)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_diaoyongguize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_diaoyongku)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_diaoyongguize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_diaoyongku)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -310,6 +310,21 @@
             this.lbl_shouquan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_shouquan.Click += new System.EventHandler(this.lbl_baocun_Click);
             // 
+            // lbl_tianjiayonghu
+            // 
+            this.lbl_tianjiayonghu.AutoSize = true;
+            this.lbl_tianjiayonghu.BackColor = System.Drawing.Color.SeaGreen;
+            this.lbl_tianjiayonghu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_tianjiayonghu.ForeColor = System.Drawing.Color.White;
+            this.lbl_tianjiayonghu.Location = new System.Drawing.Point(444, 3);
+            this.lbl_tianjiayonghu.Margin = new System.Windows.Forms.Padding(3);
+            this.lbl_tianjiayonghu.Name = "lbl_tianjiayonghu";
+            this.lbl_tianjiayonghu.Size = new System.Drawing.Size(74, 24);
+            this.lbl_tianjiayonghu.TabIndex = 2;
+            this.lbl_tianjiayonghu.Text = "添加用户";
+            this.lbl_tianjiayonghu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_tianjiayonghu.Click += new System.EventHandler(this.lbl_tianjiayonghu_Click);
+            // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 6;
@@ -376,6 +391,30 @@
             this.tb_diaoyongchachongku.Name = "tb_diaoyongchachongku";
             this.tb_diaoyongchachongku.Size = new System.Drawing.Size(164, 23);
             this.tb_diaoyongchachongku.TabIndex = 1;
+            // 
+            // pb_diaoyongguize
+            // 
+            this.pb_diaoyongguize.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_diaoyongguize.Image = global::文本解析系统.Properties.Resources.编辑2;
+            this.pb_diaoyongguize.Location = new System.Drawing.Point(273, 3);
+            this.pb_diaoyongguize.Name = "pb_diaoyongguize";
+            this.pb_diaoyongguize.Size = new System.Drawing.Size(24, 24);
+            this.pb_diaoyongguize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_diaoyongguize.TabIndex = 2;
+            this.pb_diaoyongguize.TabStop = false;
+            this.pb_diaoyongguize.Click += new System.EventHandler(this.pb_diaoyongguize_Click);
+            // 
+            // pb_diaoyongku
+            // 
+            this.pb_diaoyongku.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_diaoyongku.Image = ((System.Drawing.Image)(resources.GetObject("pb_diaoyongku.Image")));
+            this.pb_diaoyongku.Location = new System.Drawing.Point(573, 3);
+            this.pb_diaoyongku.Name = "pb_diaoyongku";
+            this.pb_diaoyongku.Size = new System.Drawing.Size(25, 24);
+            this.pb_diaoyongku.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_diaoyongku.TabIndex = 2;
+            this.pb_diaoyongku.TabStop = false;
+            this.pb_diaoyongku.Click += new System.EventHandler(this.pb_diaoyongku_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -562,45 +601,6 @@
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label6.Click += new System.EventHandler(this.lbl_guanbi_Click);
             // 
-            // lbl_tianjiayonghu
-            // 
-            this.lbl_tianjiayonghu.AutoSize = true;
-            this.lbl_tianjiayonghu.BackColor = System.Drawing.Color.SeaGreen;
-            this.lbl_tianjiayonghu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_tianjiayonghu.ForeColor = System.Drawing.Color.White;
-            this.lbl_tianjiayonghu.Location = new System.Drawing.Point(444, 3);
-            this.lbl_tianjiayonghu.Margin = new System.Windows.Forms.Padding(3);
-            this.lbl_tianjiayonghu.Name = "lbl_tianjiayonghu";
-            this.lbl_tianjiayonghu.Size = new System.Drawing.Size(74, 24);
-            this.lbl_tianjiayonghu.TabIndex = 2;
-            this.lbl_tianjiayonghu.Text = "添加用户";
-            this.lbl_tianjiayonghu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_tianjiayonghu.Click += new System.EventHandler(this.lbl_tianjiayonghu_Click);
-            // 
-            // pb_diaoyongguize
-            // 
-            this.pb_diaoyongguize.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_diaoyongguize.Image = global::文本解析系统.Properties.Resources.编辑2;
-            this.pb_diaoyongguize.Location = new System.Drawing.Point(273, 3);
-            this.pb_diaoyongguize.Name = "pb_diaoyongguize";
-            this.pb_diaoyongguize.Size = new System.Drawing.Size(24, 24);
-            this.pb_diaoyongguize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_diaoyongguize.TabIndex = 2;
-            this.pb_diaoyongguize.TabStop = false;
-            this.pb_diaoyongguize.Click += new System.EventHandler(this.pb_diaoyongguize_Click);
-            // 
-            // pb_diaoyongku
-            // 
-            this.pb_diaoyongku.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_diaoyongku.Image = ((System.Drawing.Image)(resources.GetObject("pb_diaoyongku.Image")));
-            this.pb_diaoyongku.Location = new System.Drawing.Point(573, 3);
-            this.pb_diaoyongku.Name = "pb_diaoyongku";
-            this.pb_diaoyongku.Size = new System.Drawing.Size(25, 24);
-            this.pb_diaoyongku.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_diaoyongku.TabIndex = 2;
-            this.pb_diaoyongku.TabStop = false;
-            this.pb_diaoyongku.Click += new System.EventHandler(this.pb_diaoyongku_Click);
-            // 
             // WinFormHoutaiguanli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -629,6 +629,8 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_diaoyongguize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_diaoyongku)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -638,8 +640,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_diaoyongguize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_diaoyongku)).EndInit();
             this.ResumeLayout(false);
 
         }

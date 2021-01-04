@@ -553,10 +553,22 @@ namespace 文本解析系统.JJModel
             foreach (string item in _zhubiaoti)
             {
                 newbi = new BaseInfo();
-                //名称
-                newbi._mingcheng = "主标题";
                 //文本
                 newbi._wenben = item;
+
+                //名称,判断文本是否含有章，编，节，如果有的话，将名称改为对应的标题
+                if (newbi._wenben.Contains("编"))
+                {
+                    newbi._mingcheng = "编标题";
+                }
+                else if (newbi._wenben.Contains("章"))
+                {
+                    newbi._mingcheng = "章标题";
+                }
+                else if (newbi._wenben.Contains("节"))
+                {
+                    newbi._mingcheng = "节标题";
+                }
                 //MD5
                 newbi._MD5 = Md5Helper.Md5(newbi._wenben);
                 //热度
@@ -584,10 +596,23 @@ namespace 文本解析系统.JJModel
             foreach (string item in _fubiaoti)
             {
                 newbi = new BaseInfo();
-                //名称
-                newbi._mingcheng = "副标题";
                 //文本
                 newbi._wenben = item;
+                //名称,判断文本是否含有章，编，节，如果有的话，将名称改为对应的标题
+                if (newbi._wenben.Contains("编"))
+                {
+                    newbi._mingcheng = "编标题";
+                }
+                else if (newbi._wenben.Contains("章"))
+                {
+                    newbi._mingcheng = "章标题";
+                }
+                else if (newbi._wenben.Contains("节"))
+                {
+                    newbi._mingcheng = "节标题";
+                }
+
+
                 //MD5
                 newbi._MD5 = Md5Helper.Md5(newbi._wenben);
                 //热度
@@ -797,13 +822,13 @@ namespace 文本解析系统.JJModel
             _list_baseinfo.Add(newbi);
 
             //7、正文
-            newbi = new BaseInfo();
-            newbi._mingcheng = "正文";
-            newbi._wenben = string.Join("", _zhengwen);
-            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
-            newbi._redu = 1;
-            newbi._zishu = newbi._wenben.Length;
-            _list_baseinfo.Add(newbi);
+            //newbi = new BaseInfo();
+            //newbi._mingcheng = "正文";
+            //newbi._wenben = string.Join("", _zhengwen);
+            //newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            //newbi._redu = 1;
+            //newbi._zishu = newbi._wenben.Length;
+            //_list_baseinfo.Add(newbi);
 
 
             //7-1、正文纲要
@@ -1673,7 +1698,7 @@ namespace 文本解析系统.JJModel
                     {
                         newbi = new BaseInfo()
                         {
-                            _mingcheng = $"{dijitiao}第{i + 1}项",
+                            _mingcheng = $"{dijitiao}第{ArabToDaxie(i + 1)}项",
                             _wenben = list_x[i]
                         };
                         newbi._MD5 = Md5Helper.Md5(newbi._wenben);
@@ -1702,7 +1727,7 @@ namespace 文本解析系统.JJModel
                             index_k++;
                             newbi = new BaseInfo()
                             {
-                                _mingcheng = $"{dijitiao}第{index_k}款",
+                                _mingcheng = $"{dijitiao}第{ArabToDaxie(index_k)}款",
                                 _wenben = duan[i]
                             };
                             newbi._MD5 = Md5Helper.Md5(newbi._wenben);
@@ -1725,7 +1750,7 @@ namespace 文本解析系统.JJModel
                                     index_x++;//指数自增1
                                     newbi = new BaseInfo()
                                     {
-                                        _mingcheng = $"{dijitiao}第{index_k}款第{index_x}项",
+                                        _mingcheng = $"{dijitiao}第{ArabToDaxie(index_k)}款第{ArabToDaxie(index_x)}项",
                                         _wenben = duan[j]
                                     };
                                     newbi._MD5 = Md5Helper.Md5(newbi._wenben);
@@ -1740,7 +1765,7 @@ namespace 文本解析系统.JJModel
                                     //在此添加提几条第几款
                                     newbi = new BaseInfo()
                                     {
-                                        _mingcheng = $"{dijitiao}第{index_k}款",
+                                        _mingcheng = $"{dijitiao}第{ArabToDaxie(index_k)}款",
                                         _wenben = $"{duan[i]}\r\n{string.Join("\r\n", list_tk)}"
                                     };
                                     newbi._MD5 = Md5Helper.Md5(newbi._wenben);
@@ -2333,5 +2358,74 @@ namespace 文本解析系统.JJModel
 
             }
         }
+
+        /// <summary>
+        /// 将阿拉伯数字转换成大写数字
+        /// </summary>
+        public string ArabToDaxie(int num)
+        {
+            string str = string.Empty;
+            Dictionary<int, string> dic = new Dictionary<int, string>() {
+                {0,"零" },
+                {1,"一" },
+                {2,"二" },
+                {3,"三" },
+                {4,"四" },
+                {5,"五" },
+                {6,"六" },
+                {7,"七" },
+                {8,"八" },
+                {9,"九" },
+            };
+            //判断num的位数
+            int weishu = num.ToString().Length;
+            //如果只有一位
+            if (weishu==1)
+            {
+                return dic[num];
+            }
+            //两位，第二位是0
+
+            //两位，第二位不是0
+            if (weishu==2)
+            {
+                if (num.ToString()[1].Equals(0))
+                {
+                    return $"{num.ToString()[0]}十";
+                }
+                if (num.ToString()[1].Equals(0))
+                {
+                    return $"{num.ToString()[0]}十{num.ToString()[0]}";
+                }
+            }
+            //三位，第二位是0，第三位不是0
+            //第二位是0，第三位是0
+            //第二位不是0，第三位是0
+            //第二位不是0，第三位也不是0
+
+            if (weishu == 3)
+            {
+                if (num.ToString()[1].Equals(0)&& num.ToString()[2].Equals(0))
+                {
+                    return $"{num.ToString()[0]}百";
+                }
+                if (num.ToString()[1].Equals(0) && !num.ToString()[2].Equals(0))
+                {
+                    return $"{num.ToString()[0]}百零{num.ToString()[2]}";
+                }
+                if (!num.ToString()[1].Equals(0) && num.ToString()[2].Equals(0))
+                {
+                    return $"{num.ToString()[0]}百{num.ToString()[1]}十";
+                }
+
+                if (!num.ToString()[1].Equals(0) && !num.ToString()[2].Equals(0))
+                {
+                    return $"{num.ToString()[0]}百{num.ToString()[1]}十{num.ToString()[2]}";
+                }
+            }
+            return string.Empty;
+
+        }
+
     }
 }
