@@ -507,7 +507,382 @@ namespace 文本解析系统.JJModel
 
 
         /// <summary>
-        /// 分析文档，得到所有的对象和他的相关信息，包括文本，MD5值，热度，字数，位置关联信息，内容关联信息，关联标准段
+        /// 法律法规基础规则
+        /// </summary>
+        public void AnalysisInfo2()
+        {
+
+            BaseInfo newbi = new BaseInfo();
+
+            //19、基本信息（json 信息）
+            foreach (string item in _ziranduan)
+            {
+                bool b1 = Regex.IsMatch(item, @"[:：]");
+                bool b2 = Regex.IsMatch(item, @"[。，!;,；！……]");
+                if (b1 && !b2)
+                {
+                    string[] arr = Regex.Split(item, @"[:：]");
+                    newbi = new BaseInfo()
+                    {
+                        _mingcheng = arr[0],
+                        _wenben = arr[1],
+                        _MD5 = Md5Helper.Md5(arr[1]),
+                        _redu = 1,
+                        _zishu = arr[1].Length
+                    };
+                    _list_baseinfo.Add(newbi);
+                }
+
+
+            }
+            //20、法律修订
+            newbi = new BaseInfo()
+            {
+                _mingcheng = "法律修订"
+            };
+            List<string> list = new List<string>();
+            foreach (string item in _ziranduan)
+            {
+                bool b1 = Regex.IsMatch(item, @"[\s\S]+[(（]?通过[）)]?$");
+                bool b2 = Regex.IsMatch(item, @"[\s\S]+[(（]?修订[）)]?$");
+                bool b3 = Regex.IsMatch(item, @"[\s\S]+[(（]?修正[）)]?$");
+                if (b1 || b2 || b3)
+                {
+                    list.Add(item);
+                }
+            }
+            newbi._wenben = string.Join("\r\n", list);
+            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            newbi._redu = 1;
+            newbi._zishu = newbi._wenben.Length;
+
+            _list_baseinfo.Add(newbi);
+
+            //21、目录解析 
+            //21-1 总目录，包含所有的编，章，节
+            newbi = new BaseInfo()
+            {
+                _mingcheng = "总目录"
+            };
+            list = new List<string>();
+            foreach (string item in _ziranduan)
+            {
+                bool b1 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+编");
+                bool b2 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+章");
+                bool b3 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+节");
+                if (b1 || b2 || b3)
+                {
+                    list.Add(item);
+                }
+            }
+            newbi._wenben = string.Join("\r\n", list);
+            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            newbi._redu = 1;
+            newbi._zishu = newbi._wenben.Length;
+
+            _list_baseinfo.Add(newbi);
+            //21-2 编目录
+            newbi = new BaseInfo()
+            {
+                _mingcheng = "编目录"
+            };
+            list = new List<string>();
+            foreach (string item in _ziranduan)
+            {
+                bool b1 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+编");
+                if (b1)
+                {
+                    list.Add(item);
+                }
+            }
+            newbi._wenben = string.Join("\r\n", list);
+            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            newbi._redu = 1;
+            newbi._zishu = newbi._wenben.Length;
+
+            _list_baseinfo.Add(newbi);
+
+            //21-3 章目录
+            newbi = new BaseInfo()
+            {
+                _mingcheng = "章目录"
+            };
+            list = new List<string>();
+            foreach (string item in _ziranduan)
+            {
+                bool b2 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+章");
+                if (b2)
+                {
+                    list.Add(item);
+                }
+            }
+            newbi._wenben = string.Join("\r\n", list);
+            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            newbi._redu = 1;
+            newbi._zishu = newbi._wenben.Length;
+
+            _list_baseinfo.Add(newbi);
+
+
+
+
+            //21-2 便利总目录，分解出编章节
+
+            //先获得所有的目录（总目录），然后寻找章，如果遇到就新建一个newbi（第几章节），然后向下获得所有节list，最后join
+            list = new List<string>();
+            foreach (string item in _ziranduan)
+            {
+                bool b1 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+编");
+                bool b2 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+章");
+                bool b3 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+节");
+                if (b1 || b2 || b3)
+                {
+                    list.Add(item);
+                }
+            }
+            for (int i = 0; i < list.Count; i++)
+            {
+                string str = list[i];
+                if (Regex.IsMatch(str, "第[一二三四五六七八九十百零]+章"))
+                {
+                    List<string> list_jie = new List<string>();//存放所有的节目录
+                    newbi = new BaseInfo()
+                    {
+                        _mingcheng = $"{Regex.Match(str, @"第[一二三四五六七八九十百零]+章").Value}节目录"
+                    };
+                    for (int j = i + 1; j < list.Count; j++)
+                    {
+                        string str_jie = list[j];
+                        //判断是否为第几节
+                        bool b1 = Regex.IsMatch(str_jie, "第[一二三四五六七八九十百零]+节");
+                        bool b2 = Regex.IsMatch(str_jie, "第[一二三四五六七八九十百零]+章");
+                        //如果是第几章就跳出节的循环
+                        if (b1)
+                        {
+                            list_jie.Add(str_jie);
+                        }
+                        if (b2)
+                        {
+                            i = j - 1;
+                            newbi._wenben = string.Join("\r\n", list_jie);
+                            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                            newbi._redu = 1;
+                            newbi._zishu = newbi._wenben.Length;
+
+                            _list_baseinfo.Add(newbi);
+
+                            break;
+                        }
+                        newbi._wenben = string.Join("\r\n", list_jie);
+                        newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                        newbi._redu = 1;
+                        newbi._zishu = newbi._wenben.Length;
+
+                        _list_baseinfo.Add(newbi);
+                    }
+                }
+
+            }
+
+
+
+            //22、正文解析
+            //条款 项
+            MatchCollection mctiao = Regex.Matches(string.Join("\r\n", _ziranduan), @"第[一二三四五六七八九十百零]+条[\s\S]+?(?=(\r\n第[一二三四五六七八九十百零]+条|$))");
+
+            foreach (Match m in mctiao)
+            {
+                //获得第几条
+                string dijitiao = Regex.Match(m.Value, "第[一二三四五六七八九十百零]+条").Value;
+                string str_tiao = Regex.Replace(m.Value, dijitiao, "");//获得了整条的内容,去除前面的第几条
+                //不管哪种情况都要添加条
+                //除了得到分解的第几条第几项，还要得到条+项的集合
+                newbi = new BaseInfo()
+                {
+                    _mingcheng = dijitiao,
+                    _wenben = str_tiao
+                };
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                newbi._redu = 1;
+                newbi._zishu = newbi._wenben.Length;
+
+                _list_baseinfo.Add(newbi);
+
+                //分解条内容的获得所有的自然段
+                string[] duan = Regex.Split(str_tiao, "\r\n");
+                //循环自然段,获得项和款数量
+                List<string> list_k = new List<string>();
+                List<string> list_x = new List<string>();
+                for (int i = 0; i < duan.Length; i++)
+                {
+                    string str = duan[i];
+                    if (Regex.IsMatch(str, @"[(（][一二三四五六七八九十百零]+[）)][\s\S]+?"))
+                    {
+                        list_x.Add(str);
+                    }
+                    else
+                    {
+                        list_k.Add(str);
+                    }
+                }
+                //开始对段落循环生成baseinfo
+
+                //if (list_k.Count == 1 && list_x.Count == 0)//第几条：只有一款，没有项
+                //{
+                //    newbi = new BaseInfo()
+                //    {
+                //        _mingcheng = dijitiao,
+                //        _wenben = list_k[0]
+                //    };
+                //    _list_baseinfo.Add(newbi);
+
+                //}
+                if (list_k.Count == 1 && list_x.Count > 0)//第几条第几项：只有一款，有一些项
+                {
+                    for (int i = 0; i < list_x.Count; i++)
+                    {
+                        newbi = new BaseInfo()
+                        {
+                            _mingcheng = $"{dijitiao}第{ArabToDaxie(i + 1)}项",
+                            _wenben = list_x[i]
+                        };
+                        newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                        newbi._redu = 1;
+                        newbi._zishu = newbi._wenben.Length;
+
+                        _list_baseinfo.Add(newbi);
+                    }
+                }
+
+                if (list_k.Count > 1)//有好几款
+                {
+                    string dijikuan = string.Empty;//记录第几款
+                                                   //从第一自然段开始向下，如果不是以（）开头，并且下一段也不是以（）开头或者没有下一行，就newbi一个
+                    int index_k = 1;//这个参数用来记录获得第几款
+
+                    for (int i = 0; i < duan.Length; i++)
+                    {
+                        string str = duan[i];
+                        string str_next = i == duan.Length - 1 ? string.Empty : duan[i + 1];
+                        bool b1 = Regex.IsMatch(str, @"[（(][一二三四五六七八九十百零]+[）)][]\s\S]+");
+                        bool b2 = Regex.IsMatch(str_next, @"[（(][一二三四五六七八九十百零]+[）)][]\s\S]+");
+                        bool b3 = i == duan.Length - 1;
+                        if (!b1 && (!b2 || b3))//如果不跟着项
+                        {
+
+                            newbi = new BaseInfo()
+                            {
+                                _mingcheng = $"{dijitiao}第{ArabToDaxie(index_k)}款",
+                                _wenben = duan[i]
+                            };
+                            index_k++;
+                            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                            newbi._redu = 1;
+                            newbi._zishu = newbi._wenben.Length;
+
+                            _list_baseinfo.Add(newbi);
+                        }
+                        //如果不是以（）并且下一行是以（）开头那么就向下一行进入循环并且newbi，直到不以（）开头
+                        if (!b1 && b2)
+                        {
+
+                            int index_x = 0;
+                            List<string> list_tk = new List<string>();//记录第i款下的所有项
+                            for (int j = i + 1; j < duan.Length; j++)//开始记录项，这里需要初始化一个index记录第几项
+                            {
+                                bool b4 = Regex.IsMatch(duan[j], @"[（(][一二三四五六七八九十百零]+[）)][]\s\S]+");
+                                bool b5 = i == duan.Length - 1;
+                                if (b4)
+                                {
+                                    index_x++;//指数自增1
+                                    newbi = new BaseInfo()
+                                    {
+                                        _mingcheng = $"{dijitiao}第{ArabToDaxie(index_k)}款第{ArabToDaxie(index_x)}项",
+                                        _wenben = duan[j]
+                                    };
+                                    newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                                    newbi._redu = 1;
+                                    newbi._zishu = newbi._wenben.Length;
+
+                                    _list_baseinfo.Add(newbi);
+                                    list_tk.Add(duan[j]);
+                                }
+                                else if (!b4 || b5)//如果不是以（）开头，或者没有下一段就退出循环,
+                                {
+                                    //在此添加提几条第几款
+                                    newbi = new BaseInfo()
+                                    {
+                                        _mingcheng = $"{dijitiao}第{ArabToDaxie(index_k)}款",
+                                        _wenben = $"{duan[i]}\r\n{string.Join("\r\n", list_tk)}"
+                                    };
+                                    newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                                    newbi._redu = 1;
+                                    newbi._zishu = newbi._wenben.Length;
+                                    index_k++;
+                                    _list_baseinfo.Add(newbi);
+                                    i = j - 1;
+                                    break;
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+            //23、附件
+            //从上向下判断，遇到附件一开头的自然段就向下查找以\d开头的文本
+            for (int i = 0; i < _ziranduan.Count; i++)
+            {
+                string str = _ziranduan[i];
+                bool b = Regex.IsMatch(str, "^附件[一二三四五六七八九十百零]{1,3}");
+                if (b)
+                {
+                    List<string> list_fujian = new List<string>();
+                    newbi = new BaseInfo() { _mingcheng = Regex.Match(str, "附件[一二三四五六七八九十百零]{1,3}").Value };
+                    for (int j = i + 1; j < _ziranduan.Count; j++)
+                    {
+                        string str1 = _ziranduan[j];
+                        //判断是否以冒号结尾或者以\d开头
+                        bool b1 = Regex.IsMatch(str1, @"[\s\S]+[:：]");
+                        bool b2 = Regex.IsMatch(str1, @"\d{1,2}·[\s\S]+");
+                        if (b1 || b2)
+                        {
+                            list_fujian.Add(str1);
+                        }
+                        else if (!b1 && !b2)
+                        {
+                            i = j - 1;
+                            newbi._wenben = string.Join("\r\n", list_fujian);
+                            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                            newbi._redu = 1;
+                            newbi._zishu = newbi._wenben.Length;
+
+
+                            _list_baseinfo.Add(newbi);
+                            break;
+                        }
+                        newbi._wenben = string.Join("\r\n", list_fujian);
+                        newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                        newbi._redu = 1;
+                        newbi._zishu = newbi._wenben.Length;
+
+
+                        _list_baseinfo.Add(newbi);
+                    }
+
+
+                }
+            }
+
+
+
+
+        }
+
+
+        /// <summary>
+        /// 裁判文书基础规则，得到所有的对象和他的相关信息，包括文本，MD5值，热度，字数，位置关联信息，内容关联信息，关联标准段
         /// </summary>
         public void AnalysisInfo()
         {
@@ -538,21 +913,49 @@ namespace 文本解析系统.JJModel
             newbi._neirongguanlian = _zhengwengangyao;
             _list_baseinfo.Add(newbi);
             //1-1全文
-
+            //全文和正文有可能超过单元格的最大容量，这里需要对文本做一个切分
+            //切分后的形式是全文ABCD....
+            Dictionary<int, string> dic = new Dictionary<int, string>() {
+                {1,"A" }, {2,"B" }, {3,"C" }, {4,"D" }, {5,"E" }, {6,"F" },
+                {7,"G" }, {8,"H" }, {9,"I" }, {10,"J" }, {11,"K" }, {12,"L" },
+                {13,"M" }, {14,"N" }, {15,"O" }, {16,"P" }, {17,"Q" }, {18,"R" },
+                {19,"S" }, {20,"T" }, {21,"U" }, {22,"V" }, {23,"W" }, {24,"X" },
+                {25,"Y" }, {26,"Z" }
+            };
             newbi = new BaseInfo();
-            newbi._mingcheng = "全文";
-            newbi._wenben = _quanwen;
-            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
-            newbi._redu = 1;
-            newbi._zishu = newbi._quanwen.Length;
+            List<string> list = ChaifenStr(_quanwen, 32000);
+            if (list.Count > 1)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    newbi = new BaseInfo();
+                    newbi._wenben = list[i];
+                    newbi._mingcheng = $"全文{dic[i + 1]}";
 
-            _list_baseinfo.Add(newbi);
+                    newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                    newbi._redu = 1;
+                    newbi._zishu = newbi._wenben.Length;
+                    _list_baseinfo.Add(newbi);
+
+                }
+            }
+            else
+            {
+                newbi._wenben = _quanwen;
+                newbi._mingcheng = "全文";
+                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+                newbi._redu = 1;
+                newbi._zishu = newbi._wenben.Length;
+                _list_baseinfo.Add(newbi);
+
+            }
 
 
             //2、主标题
             foreach (string item in _zhubiaoti)
             {
                 newbi = new BaseInfo();
+                newbi._mingcheng = "主标题";
                 //文本
                 newbi._wenben = item;
 
@@ -569,6 +972,7 @@ namespace 文本解析系统.JJModel
                 {
                     newbi._mingcheng = "节标题";
                 }
+
                 //MD5
                 newbi._MD5 = Md5Helper.Md5(newbi._wenben);
                 //热度
@@ -1355,7 +1759,7 @@ namespace 文本解析系统.JJModel
             {
                 newbi = new BaseInfo();
                 //名称
-                newbi._mingcheng = "段首标准局索引句";
+                newbi._mingcheng = "段首标准句索引句";
                 //文本
                 newbi._wenben = item;
                 //MD5
@@ -1469,376 +1873,339 @@ namespace 文本解析系统.JJModel
             }
 
 
-            //19、基本信息（json 信息）
-            foreach (string item in _ziranduan)
-            {
-                bool b1 = Regex.IsMatch(item, @"[:：]");
-                bool b2 = Regex.IsMatch(item, @"[。，!;,；！……]");
-                if (b1 && !b2)
-                {
-                    string[] arr = Regex.Split(item, @"[:：]");
-                    newbi = new BaseInfo()
-                    {
-                        _mingcheng = arr[0],
-                        _wenben = arr[1],
-                        _MD5=Md5Helper.Md5(arr[1]),
-                        _redu=1,
-                        _zishu=arr[1].Length
-                    };
-                    _list_baseinfo.Add(newbi);
-                }
+            ////19、基本信息（json 信息）
+            //foreach (string item in _ziranduan)
+            //{
+            //    bool b1 = Regex.IsMatch(item, @"[:：]");
+            //    bool b2 = Regex.IsMatch(item, @"[。，!;,；！……]");
+            //    if (b1 && !b2)
+            //    {
+            //        string[] arr = Regex.Split(item, @"[:：]");
+            //        newbi = new BaseInfo()
+            //        {
+            //            _mingcheng = arr[0],
+            //            _wenben = arr[1],
+            //            _MD5=Md5Helper.Md5(arr[1]),
+            //            _redu=1,
+            //            _zishu=arr[1].Length
+            //        };
+            //        _list_baseinfo.Add(newbi);
+            //    }
 
 
-            }
-            //20、法律修订
-            newbi = new BaseInfo()
-            {
-                _mingcheng = "法律修订"
-            };
-            List<string> list = new List<string>();
-            foreach (string item in _ziranduan)
-            {
-                bool b1 = Regex.IsMatch(item, @"[\s\S]+[(（]?通过[）)]?$");
-                bool b2 = Regex.IsMatch(item, @"[\s\S]+[(（]?修订[）)]?$");
-                bool b3 = Regex.IsMatch(item, @"[\s\S]+[(（]?修正[）)]?$");
-                if (b1 || b2 || b3)
-                {
-                    list.Add(item);
-                }
-            }
-            newbi._wenben = string.Join("\r\n", list);
-            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
-            newbi._redu = 1;
-            newbi._zishu = newbi._wenben.Length;
+            //}
+            ////20、法律修订
+            //newbi = new BaseInfo()
+            //{
+            //    _mingcheng = "法律修订"
+            //};
+            //List<string> list = new List<string>();
+            //foreach (string item in _ziranduan)
+            //{
+            //    bool b1 = Regex.IsMatch(item, @"[\s\S]+[(（]?通过[）)]?$");
+            //    bool b2 = Regex.IsMatch(item, @"[\s\S]+[(（]?修订[）)]?$");
+            //    bool b3 = Regex.IsMatch(item, @"[\s\S]+[(（]?修正[）)]?$");
+            //    if (b1 || b2 || b3)
+            //    {
+            //        list.Add(item);
+            //    }
+            //}
+            //newbi._wenben = string.Join("\r\n", list);
+            //newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            //newbi._redu = 1;
+            //newbi._zishu = newbi._wenben.Length;
+            //_list_baseinfo.Add(newbi);
+            ////21、目录解析 
+            ////21-1 总目录，包含所有的编，章，节
+            //newbi = new BaseInfo()
+            //{
+            //    _mingcheng = "总目录"
+            //};
+            //list = new List<string>();
+            //foreach (string item in _ziranduan)
+            //{
+            //    bool b1 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+编");
+            //    bool b2 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+章");
+            //    bool b3 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+节");
+            //    if (b1 || b2 || b3)
+            //    {
+            //        list.Add(item);
+            //    }
+            //}
+            //newbi._wenben = string.Join("\r\n", list);
+            //newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            //newbi._redu = 1;
+            //newbi._zishu = newbi._wenben.Length;
+            //_list_baseinfo.Add(newbi);
+            ////21-2 编目录
+            //newbi = new BaseInfo()
+            //{
+            //    _mingcheng = "编目录"
+            //};
+            //list = new List<string>();
+            //foreach (string item in _ziranduan)
+            //{
+            //    bool b1 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+编");
+            //    if (b1)
+            //    {
+            //        list.Add(item);
+            //    }
+            //}
+            //newbi._wenben = string.Join("\r\n", list);
+            //newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            //newbi._redu = 1;
+            //newbi._zishu = newbi._wenben.Length;
+            //_list_baseinfo.Add(newbi);
+            ////21-3 章目录
+            //newbi = new BaseInfo()
+            //{
+            //    _mingcheng = "章目录"
+            //};
+            //list = new List<string>();
+            //foreach (string item in _ziranduan)
+            //{
+            //    bool b2 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+章");
+            //    if (b2)
+            //    {
+            //        list.Add(item);
+            //    }
+            //}
+            //newbi._wenben = string.Join("\r\n", list);
+            //newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            //newbi._redu = 1;
+            //newbi._zishu = newbi._wenben.Length;
+            //_list_baseinfo.Add(newbi);
+            ////21-2 便利总目录，分解出编章节
+            ////先获得所有的目录（总目录），然后寻找章，如果遇到就新建一个newbi（第几章节），然后向下获得所有节list，最后join
+            //list = new List<string>();
+            //foreach (string item in _ziranduan)
+            //{
+            //    bool b1 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+编");
+            //    bool b2 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+章");
+            //    bool b3 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+节");
+            //    if (b1 || b2 || b3)
+            //    {
+            //        list.Add(item);
+            //    }
+            //}
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    string str = list[i];
+            //    if (Regex.IsMatch(str, "第[一二三四五六七八九十百零]+章"))
+            //    {
+            //        List<string> list_jie = new List<string>();//存放所有的节目录
+            //        newbi = new BaseInfo()
+            //        {
+            //            _mingcheng = $"{Regex.Match(str, @"第[一二三四五六七八九十百零]+章").Value}节目录"
+            //        };
+            //        for (int j = i + 1; j < list.Count; j++)
+            //        {
+            //            string str_jie = list[j];
+            //            //判断是否为第几节
+            //            bool b1 = Regex.IsMatch(str_jie, "第[一二三四五六七八九十百零]+节");
+            //            bool b2 = Regex.IsMatch(str_jie, "第[一二三四五六七八九十百零]+章");
+            //            //如果是第几章就跳出节的循环
+            //            if (b1)
+            //            {
+            //                list_jie.Add(str_jie);
+            //            }
+            //            if (b2)
+            //            {
+            //                i = j - 1;
+            //                newbi._wenben = string.Join("\r\n", list_jie);
+            //                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            //                newbi._redu = 1;
+            //                newbi._zishu = newbi._wenben.Length;
 
-            _list_baseinfo.Add(newbi);
+            //                _list_baseinfo.Add(newbi);
 
-            //21、目录解析 
-            //21-1 总目录，包含所有的编，章，节
-            newbi = new BaseInfo()
-            {
-                _mingcheng = "总目录"
-            };
-            list = new List<string>();
-            foreach (string item in _ziranduan)
-            {
-                bool b1 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+编");
-                bool b2 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+章");
-                bool b3 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+节");
-                if (b1 || b2 || b3)
-                {
-                    list.Add(item);
-                }
-            }
-            newbi._wenben = string.Join("\r\n", list);
-            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
-            newbi._redu = 1;
-            newbi._zishu = newbi._wenben.Length;
+            //                break;
+            //            }
+            //            newbi._wenben = string.Join("\r\n", list_jie);
+            //            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            //            newbi._redu = 1;
+            //            newbi._zishu = newbi._wenben.Length;
 
-            _list_baseinfo.Add(newbi);
-            //21-2 编目录
-            newbi = new BaseInfo()
-            {
-                _mingcheng = "编目录"
-            };
-            list = new List<string>();
-            foreach (string item in _ziranduan)
-            {
-                bool b1 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+编");
-                if (b1)
-                {
-                    list.Add(item);
-                }
-            }
-            newbi._wenben = string.Join("\r\n", list);
-            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
-            newbi._redu = 1;
-            newbi._zishu = newbi._wenben.Length;
+            //            _list_baseinfo.Add(newbi);
+            //        }
+            //    }
 
-            _list_baseinfo.Add(newbi);
+            //}
+            ////22、正文解析
+            ////条款 项
+            //MatchCollection mctiao = Regex.Matches(string.Join("\r\n", _ziranduan), @"第[一二三四五六七八九十百零]+条[\s\S]+?(?=(\r\n第[一二三四五六七八九十百零]+条|$))");
+            //foreach (Match m in mctiao)
+            //{
+            //    //获得第几条
+            //    string dijitiao = Regex.Match(m.Value, "第[一二三四五六七八九十百零]+条").Value;
+            //    string str_tiao = Regex.Replace(m.Value, dijitiao, "");//获得了整条的内容,去除前面的第几条
+            //    //不管哪种情况都要添加条
+            //    //除了得到分解的第几条第几项，还要得到条+项的集合
+            //    newbi = new BaseInfo()
+            //    {
+            //        _mingcheng = dijitiao,
+            //        _wenben = str_tiao
+            //    };
+            //    newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            //    newbi._redu = 1;
+            //    newbi._zishu = newbi._wenben.Length;
 
-            //21-3 章目录
-            newbi = new BaseInfo()
-            {
-                _mingcheng = "章目录"
-            };
-            list = new List<string>();
-            foreach (string item in _ziranduan)
-            {
-                bool b2 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+章");
-                if (b2)
-                {
-                    list.Add(item);
-                }
-            }
-            newbi._wenben = string.Join("\r\n", list);
-            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
-            newbi._redu = 1;
-            newbi._zishu = newbi._wenben.Length;
+            //    _list_baseinfo.Add(newbi);
 
-            _list_baseinfo.Add(newbi);
+            //    //分解条内容的获得所有的自然段
+            //    string[] duan = Regex.Split(str_tiao, "\r\n");
+            //    //循环自然段,获得项和款数量
+            //    List<string> list_k = new List<string>();
+            //    List<string> list_x = new List<string>();
+            //    for (int i = 0; i < duan.Length; i++)
+            //    {
+            //        string str = duan[i];
+            //        if (Regex.IsMatch(str, @"[(（][一二三四五六七八九十百零]+[）)][\s\S]+?"))
+            //        {
+            //            list_x.Add(str);
+            //        }
+            //        else
+            //        {
+            //            list_k.Add(str);
+            //        }
+            //    }
+            //    //开始对段落循环生成baseinfo
 
+            //    //if (list_k.Count == 1 && list_x.Count == 0)//第几条：只有一款，没有项
+            //    //{
+            //    //    newbi = new BaseInfo()
+            //    //    {
+            //    //        _mingcheng = dijitiao,
+            //    //        _wenben = list_k[0]
+            //    //    };
+            //    //    _list_baseinfo.Add(newbi);
 
+            //    //}
+            //    if (list_k.Count == 1 && list_x.Count > 0)//第几条第几项：只有一款，有一些项
+            //    {
+            //        for (int i = 0; i < list_x.Count; i++)
+            //        {
+            //            newbi = new BaseInfo()
+            //            {
+            //                _mingcheng = $"{dijitiao}第{ArabToDaxie(i + 1)}项",
+            //                _wenben = list_x[i]
+            //            };
+            //            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            //            newbi._redu = 1;
+            //            newbi._zishu = newbi._wenben.Length;
 
+            //            _list_baseinfo.Add(newbi);
+            //        }
+            //    }
 
-            //21-2 便利总目录，分解出编章节
+            //    if (list_k.Count > 1)//有好几款
+            //    {
+            //        string dijikuan = string.Empty;//记录第几款
+            //        //从第一自然段开始向下，如果不是以（）开头，并且下一段也不是以（）开头或者没有下一行，就newbi一个
+            //            int index_k = 1;//这个参数用来记录获得第几款
 
-            //先获得所有的目录（总目录），然后寻找章，如果遇到就新建一个newbi（第几章节），然后向下获得所有节list，最后join
-            list = new List<string>();
-            foreach (string item in _ziranduan)
-            {
-                bool b1 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+编");
-                bool b2 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+章");
-                bool b3 = Regex.IsMatch(item, "第[一二三四五六七八九十百零]+节");
-                if (b1 || b2 || b3)
-                {
-                    list.Add(item);
-                }
-            }
-            for (int i = 0; i < list.Count; i++)
-            {
-                string str = list[i];
-                if (Regex.IsMatch(str, "第[一二三四五六七八九十百零]+章"))
-                {
-                    List<string> list_jie = new List<string>();//存放所有的节目录
-                    newbi = new BaseInfo()
-                    {
-                        _mingcheng = $"{Regex.Match(str, @"第[一二三四五六七八九十百零]+章").Value}节目录"
-                    };
-                    for (int j = i + 1; j < list.Count; j++)
-                    {
-                        string str_jie = list[j];
-                        //判断是否为第几节
-                        bool b1 = Regex.IsMatch(str_jie, "第[一二三四五六七八九十百零]+节");
-                        bool b2 = Regex.IsMatch(str_jie, "第[一二三四五六七八九十百零]+章");
-                        //如果是第几章就跳出节的循环
-                        if (b1)
-                        {
-                            list_jie.Add(str_jie);
-                        }
-                        if (b2)
-                        {
-                            i = j - 1;
-                            newbi._wenben = string.Join("\r\n", list_jie);
-                            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
-                            newbi._redu = 1;
-                            newbi._zishu = newbi._wenben.Length;
+            //        for (int i = 0; i < duan.Length; i++)
+            //        {
+            //            string str = duan[i];
+            //            string str_next = i == duan.Length - 1 ? string.Empty : duan[i + 1];
+            //            bool b1 = Regex.IsMatch(str, @"[（(][一二三四五六七八九十百零]+[）)][]\s\S]+");
+            //            bool b2 = Regex.IsMatch(str_next, @"[（(][一二三四五六七八九十百零]+[）)][]\s\S]+");
+            //            bool b3 = i == duan.Length - 1;
+            //            if (!b1 && (!b2 || b3))//如果不跟着项
+            //            {
+            //                index_k++;
+            //                newbi = new BaseInfo()
+            //                {
+            //                    _mingcheng = $"{dijitiao}第{ArabToDaxie(index_k)}款",
+            //                    _wenben = duan[i]
+            //                };
+            //                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            //                newbi._redu = 1;
+            //                newbi._zishu = newbi._wenben.Length;
 
-                            _list_baseinfo.Add(newbi);
+            //                _list_baseinfo.Add(newbi);
+            //            }
+            //            //如果不是以（）并且下一行是以（）开头那么就向下一行进入循环并且newbi，直到不以（）开头
+            //            if (!b1 && b2)
+            //            {
+            //                int index_x = 0;
+            //                List<string> list_tk = new List<string>();//记录第i款下的所有项
+            //                for (int j = i + 1; j < duan.Length; j++)//开始记录项，这里需要初始化一个index记录第几项
+            //                {
+            //                    bool b4 = Regex.IsMatch(duan[j], @"[（(][一二三四五六七八九十百零]+[）)][]\s\S]+");
+            //                    bool b5 = i == duan.Length - 1;
+            //                    if (b4)
+            //                    {
+            //                        index_x++;//指数自增1
+            //                        newbi = new BaseInfo()
+            //                        {
+            //                            _mingcheng = $"{dijitiao}第{ArabToDaxie(index_k)}款第{ArabToDaxie(index_x)}项",
+            //                            _wenben = duan[j]
+            //                        };
+            //                        newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            //                        newbi._redu = 1;
+            //                        newbi._zishu = newbi._wenben.Length;
 
-                            break;
-                        }
-                        newbi._wenben = string.Join("\r\n", list_jie);
-                        newbi._MD5 = Md5Helper.Md5(newbi._wenben);
-                        newbi._redu = 1;
-                        newbi._zishu = newbi._wenben.Length;
+            //                        _list_baseinfo.Add(newbi);
+            //                        list_tk.Add(duan[j]);
+            //                    }
+            //                    else if (!b4 || b5)//如果不是以（）开头，或者没有下一段就退出循环,
+            //                    {
+            //                        //在此添加提几条第几款
+            //                        newbi = new BaseInfo()
+            //                        {
+            //                            _mingcheng = $"{dijitiao}第{ArabToDaxie(index_k)}款",
+            //                            _wenben = $"{duan[i]}\r\n{string.Join("\r\n", list_tk)}"
+            //                        };
+            //                        newbi._MD5 = Md5Helper.Md5(newbi._wenben);
+            //                        newbi._redu = 1;
+            //                        newbi._zishu = newbi._wenben.Length;
 
-                        _list_baseinfo.Add(newbi);
-                    }
-                }
+            //                        _list_baseinfo.Add(newbi);
+            //                        i = j - 1;
+            //                        break;
+            //                    }
+            //                }
+            //            }
 
-            }
+            //        }
+            //    }
 
-
-
-            //22、正文解析
-            //条款 项
-            MatchCollection mctiao = Regex.Matches(string.Join("\r\n", _ziranduan), @"第[一二三四五六七八九十百零]+条[\s\S]+?(?=(\r\n第[一二三四五六七八九十百零]+条|$))");
-
-            foreach (Match m in mctiao)
-            {
-                //获得第几条
-                string dijitiao = Regex.Match(m.Value, "第[一二三四五六七八九十百零]+条").Value;
-                string str_tiao = Regex.Replace(m.Value, dijitiao, "");//获得了整条的内容,去除前面的第几条
-                //不管哪种情况都要添加条
-                //除了得到分解的第几条第几项，还要得到条+项的集合
-                newbi = new BaseInfo()
-                {
-                    _mingcheng = dijitiao,
-                    _wenben = str_tiao
-                };
-                newbi._MD5 = Md5Helper.Md5(newbi._wenben);
-                newbi._redu = 1;
-                newbi._zishu = newbi._wenben.Length;
-
-                _list_baseinfo.Add(newbi);
-
-                //分解条内容的获得所有的自然段
-                string[] duan = Regex.Split(str_tiao, "\r\n");
-                //循环自然段,获得项和款数量
-                List<string> list_k = new List<string>();
-                List<string> list_x = new List<string>();
-                for (int i = 0; i < duan.Length; i++)
-                {
-                    string str = duan[i];
-                    if (Regex.IsMatch(str, @"[(（][一二三四五六七八九十百零]+[）)][\s\S]+?"))
-                    {
-                        list_x.Add(str);
-                    }
-                    else
-                    {
-                        list_k.Add(str);
-                    }
-                }
-                //开始对段落循环生成baseinfo
-
-                //if (list_k.Count == 1 && list_x.Count == 0)//第几条：只有一款，没有项
-                //{
-                //    newbi = new BaseInfo()
-                //    {
-                //        _mingcheng = dijitiao,
-                //        _wenben = list_k[0]
-                //    };
-                //    _list_baseinfo.Add(newbi);
-
-                //}
-                if (list_k.Count == 1 && list_x.Count > 0)//第几条第几项：只有一款，有一些项
-                {
-                    for (int i = 0; i < list_x.Count; i++)
-                    {
-                        newbi = new BaseInfo()
-                        {
-                            _mingcheng = $"{dijitiao}第{ArabToDaxie(i + 1)}项",
-                            _wenben = list_x[i]
-                        };
-                        newbi._MD5 = Md5Helper.Md5(newbi._wenben);
-                        newbi._redu = 1;
-                        newbi._zishu = newbi._wenben.Length;
-
-                        _list_baseinfo.Add(newbi);
-                    }
-                }
-
-                if (list_k.Count > 1)//有好几款
-                {
-                    string dijikuan = string.Empty;//记录第几款
-                    //从第一自然段开始向下，如果不是以（）开头，并且下一段也不是以（）开头或者没有下一行，就newbi一个
-                        int index_k = 1;//这个参数用来记录获得第几款
-
-                    for (int i = 0; i < duan.Length; i++)
-                    {
-                        string str = duan[i];
-                        string str_next = i == duan.Length - 1 ? string.Empty : duan[i + 1];
-                        bool b1 = Regex.IsMatch(str, @"[（(][一二三四五六七八九十百零]+[）)][]\s\S]+");
-                        bool b2 = Regex.IsMatch(str_next, @"[（(][一二三四五六七八九十百零]+[）)][]\s\S]+");
-                        bool b3 = i == duan.Length - 1;
-                        if (!b1 && (!b2 || b3))//如果不跟着项
-                        {
-                            index_k++;
-                            newbi = new BaseInfo()
-                            {
-                                _mingcheng = $"{dijitiao}第{ArabToDaxie(index_k)}款",
-                                _wenben = duan[i]
-                            };
-                            newbi._MD5 = Md5Helper.Md5(newbi._wenben);
-                            newbi._redu = 1;
-                            newbi._zishu = newbi._wenben.Length;
-
-                            _list_baseinfo.Add(newbi);
-                        }
-                        //如果不是以（）并且下一行是以（）开头那么就向下一行进入循环并且newbi，直到不以（）开头
-                        if (!b1 && b2)
-                        {
-                            int index_x = 0;
-                            List<string> list_tk = new List<string>();//记录第i款下的所有项
-                            for (int j = i + 1; j < duan.Length; j++)//开始记录项，这里需要初始化一个index记录第几项
-                            {
-                                bool b4 = Regex.IsMatch(duan[j], @"[（(][一二三四五六七八九十百零]+[）)][]\s\S]+");
-                                bool b5 = i == duan.Length - 1;
-                                if (b4)
-                                {
-                                    index_x++;//指数自增1
-                                    newbi = new BaseInfo()
-                                    {
-                                        _mingcheng = $"{dijitiao}第{ArabToDaxie(index_k)}款第{ArabToDaxie(index_x)}项",
-                                        _wenben = duan[j]
-                                    };
-                                    newbi._MD5 = Md5Helper.Md5(newbi._wenben);
-                                    newbi._redu = 1;
-                                    newbi._zishu = newbi._wenben.Length;
-
-                                    _list_baseinfo.Add(newbi);
-                                    list_tk.Add(duan[j]);
-                                }
-                                else if (!b4 || b5)//如果不是以（）开头，或者没有下一段就退出循环,
-                                {
-                                    //在此添加提几条第几款
-                                    newbi = new BaseInfo()
-                                    {
-                                        _mingcheng = $"{dijitiao}第{ArabToDaxie(index_k)}款",
-                                        _wenben = $"{duan[i]}\r\n{string.Join("\r\n", list_tk)}"
-                                    };
-                                    newbi._MD5 = Md5Helper.Md5(newbi._wenben);
-                                    newbi._redu = 1;
-                                    newbi._zishu = newbi._wenben.Length;
-
-                                    _list_baseinfo.Add(newbi);
-                                    i = j - 1;
-                                    break;
-                                }
-                            }
-                        }
-
-                    }
-                }
-
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //23、附件
-            //从上向下判断，遇到附件一开头的自然段就向下查找以\d开头的文本
-            for (int i = 0; i < _ziranduan.Count; i++)
-            {
-                string str = _ziranduan[i];
-                bool b = Regex.IsMatch(str, "^附件[一二三四五六七八九十百零]{1,3}");
-                if (b)
-                {
-                    List<string> list_fujian = new List<string>();
-                    newbi = new BaseInfo() { _mingcheng = Regex.Match(str, "附件[一二三四五六七八九十百零]{1,3}").Value };
-                    for (int j = i + 1; j < _ziranduan.Count; j++)
-                    {
-                        string str1 = _ziranduan[j];
-                        //判断是否以冒号结尾或者以\d开头
-                        bool b1 = Regex.IsMatch(str1, @"[\s\S]+[:：]");
-                        bool b2 = Regex.IsMatch(str1, @"\d{1,2}·[\s\S]+");
-                        if (b1 || b2)
-                        {
-                            list_fujian.Add(str1);
-                        }
-                        else if (!b1 && !b2)
-                        {
-                            i = j - 1;
-                            newbi._wenben = string.Join("\r\n", list_fujian);
-                            _list_baseinfo.Add(newbi);
-                            break;
-                        }
-                        newbi._wenben = string.Join("\r\n", list_fujian);
-                        _list_baseinfo.Add(newbi);
-                    }
+            //}
+            ////23、附件
+            ////从上向下判断，遇到附件一开头的自然段就向下查找以\d开头的文本
+            //for (int i = 0; i < _ziranduan.Count; i++)
+            //{
+            //    string str = _ziranduan[i];
+            //    bool b = Regex.IsMatch(str, "^附件[一二三四五六七八九十百零]{1,3}");
+            //    if (b)
+            //    {
+            //        List<string> list_fujian = new List<string>();
+            //        newbi = new BaseInfo() { _mingcheng = Regex.Match(str, "附件[一二三四五六七八九十百零]{1,3}").Value };
+            //        for (int j = i + 1; j < _ziranduan.Count; j++)
+            //        {
+            //            string str1 = _ziranduan[j];
+            //            //判断是否以冒号结尾或者以\d开头
+            //            bool b1 = Regex.IsMatch(str1, @"[\s\S]+[:：]");
+            //            bool b2 = Regex.IsMatch(str1, @"\d{1,2}·[\s\S]+");
+            //            if (b1 || b2)
+            //            {
+            //                list_fujian.Add(str1);
+            //            }
+            //            else if (!b1 && !b2)
+            //            {
+            //                i = j - 1;
+            //                newbi._wenben = string.Join("\r\n", list_fujian);
+            //                _list_baseinfo.Add(newbi);
+            //                break;
+            //            }
+            //            newbi._wenben = string.Join("\r\n", list_fujian);
+            //            _list_baseinfo.Add(newbi);
+            //        }
 
 
-                }
-            }
-
-
-
-
-
-
-
+            //    }
+            //}
         }
         /// <summary>
         /// 获得正文纲要
@@ -2380,14 +2747,14 @@ namespace 文本解析系统.JJModel
             //判断num的位数
             int weishu = num.ToString().Length;
             //如果只有一位
-            if (weishu==1)
+            if (weishu == 1)
             {
                 return dic[num];
             }
             //两位，第二位是0
 
             //两位，第二位不是0
-            if (weishu==2)
+            if (weishu == 2)
             {
                 if (num.ToString()[1].Equals(0))
                 {
@@ -2405,7 +2772,7 @@ namespace 文本解析系统.JJModel
 
             if (weishu == 3)
             {
-                if (num.ToString()[1].Equals(0)&& num.ToString()[2].Equals(0))
+                if (num.ToString()[1].Equals(0) && num.ToString()[2].Equals(0))
                 {
                     return $"{num.ToString()[0]}百";
                 }
@@ -2427,5 +2794,27 @@ namespace 文本解析系统.JJModel
 
         }
 
+
+        /// <summary>
+        /// 把文字拆分成多个字符串
+        /// </summary>
+        /// <param name="s">整个字符串</param>
+        /// <param name="num">每段的字符串上限</param>
+        /// <returns></returns>
+        public List<string> ChaifenStr(string s, int num)
+        {
+            List<string> list = new List<string>();
+            string str = string.Empty;
+            for (int i = 0; i < s.Length; i++)
+            {
+                str += s[i];
+                if (str.Length >= num || i == s.Length - 1)
+                {
+                    list.Add(str);
+                    str = string.Empty;
+                }
+            }
+            return list;
+        }
     }
 }

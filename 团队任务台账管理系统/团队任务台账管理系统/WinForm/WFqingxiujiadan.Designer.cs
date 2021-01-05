@@ -33,10 +33,10 @@
             this.tb_shenherenyuan = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.tb_weituoduixiang = new System.Windows.Forms.TextBox();
+            this.tb_weituoren = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlp_shijian = new System.Windows.Forms.TableLayoutPanel();
             this.dtp_start = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.dtp_end = new System.Windows.Forms.DateTimePicker();
@@ -65,7 +65,7 @@
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
-            this.tableLayoutPanel12.SuspendLayout();
+            this.tlp_shijian.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -118,7 +118,7 @@
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.tb_weituoduixiang, 1, 0);
+            this.tableLayoutPanel10.Controls.Add(this.tb_weituoren, 1, 0);
             this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 144);
             this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -140,13 +140,13 @@
             this.label3.Text = "休假期间工作委托对象";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // tb_weituoduixiang
+            // tb_weituoren
             // 
-            this.tb_weituoduixiang.Location = new System.Drawing.Point(96, 4);
-            this.tb_weituoduixiang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tb_weituoduixiang.Name = "tb_weituoduixiang";
-            this.tb_weituoduixiang.Size = new System.Drawing.Size(242, 23);
-            this.tb_weituoduixiang.TabIndex = 16;
+            this.tb_weituoren.Location = new System.Drawing.Point(96, 4);
+            this.tb_weituoren.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tb_weituoren.Name = "tb_weituoren";
+            this.tb_weituoren.Size = new System.Drawing.Size(242, 23);
+            this.tb_weituoren.TabIndex = 16;
             // 
             // tableLayoutPanel9
             // 
@@ -154,7 +154,7 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel9.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel12, 1, 0);
+            this.tableLayoutPanel9.Controls.Add(this.tlp_shijian, 1, 0);
             this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 109);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
@@ -176,28 +176,28 @@
             this.label2.Text = "起止时间";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // tableLayoutPanel12
+            // tlp_shijian
             // 
-            this.tableLayoutPanel12.ColumnCount = 3;
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel12.Controls.Add(this.dtp_start, 0, 0);
-            this.tableLayoutPanel12.Controls.Add(this.label7, 1, 0);
-            this.tableLayoutPanel12.Controls.Add(this.dtp_end, 2, 0);
-            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(93, 0);
-            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
-            this.tableLayoutPanel12.RowCount = 1;
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(248, 27);
-            this.tableLayoutPanel12.TabIndex = 15;
+            this.tlp_shijian.ColumnCount = 3;
+            this.tlp_shijian.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlp_shijian.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tlp_shijian.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlp_shijian.Controls.Add(this.dtp_start, 0, 0);
+            this.tlp_shijian.Controls.Add(this.label7, 1, 0);
+            this.tlp_shijian.Controls.Add(this.dtp_end, 2, 0);
+            this.tlp_shijian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlp_shijian.Location = new System.Drawing.Point(93, 0);
+            this.tlp_shijian.Margin = new System.Windows.Forms.Padding(0);
+            this.tlp_shijian.Name = "tlp_shijian";
+            this.tlp_shijian.RowCount = 1;
+            this.tlp_shijian.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_shijian.Size = new System.Drawing.Size(248, 27);
+            this.tlp_shijian.TabIndex = 15;
             // 
             // dtp_start
             // 
-            this.dtp_start.Location = new System.Drawing.Point(3, 4);
-            this.dtp_start.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtp_start.Location = new System.Drawing.Point(2, 2);
+            this.dtp_start.Margin = new System.Windows.Forms.Padding(2);
             this.dtp_start.Name = "dtp_start";
             this.dtp_start.Size = new System.Drawing.Size(106, 23);
             this.dtp_start.TabIndex = 21;
@@ -216,8 +216,8 @@
             // 
             // dtp_end
             // 
-            this.dtp_end.Location = new System.Drawing.Point(138, 4);
-            this.dtp_end.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtp_end.Location = new System.Drawing.Point(137, 2);
+            this.dtp_end.Margin = new System.Windows.Forms.Padding(2);
             this.dtp_end.Name = "dtp_end";
             this.dtp_end.Size = new System.Drawing.Size(107, 23);
             this.dtp_end.TabIndex = 21;
@@ -316,8 +316,8 @@
             // 
             // tb_xiaojiaqingkuang
             // 
-            this.tb_xiaojiaqingkuang.Location = new System.Drawing.Point(96, 4);
-            this.tb_xiaojiaqingkuang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tb_xiaojiaqingkuang.Location = new System.Drawing.Point(95, 2);
+            this.tb_xiaojiaqingkuang.Margin = new System.Windows.Forms.Padding(2);
             this.tb_xiaojiaqingkuang.Name = "tb_xiaojiaqingkuang";
             this.tb_xiaojiaqingkuang.Size = new System.Drawing.Size(242, 23);
             this.tb_xiaojiaqingkuang.TabIndex = 16;
@@ -426,6 +426,7 @@
             // 
             this.panel1.Controls.Add(this.rb_jinji);
             this.panel1.Controls.Add(this.rb_putong);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(93, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
@@ -541,8 +542,8 @@
             this.tableLayoutPanel10.PerformLayout();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
-            this.tableLayoutPanel12.ResumeLayout(false);
-            this.tableLayoutPanel12.PerformLayout();
+            this.tlp_shijian.ResumeLayout(false);
+            this.tlp_shijian.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -569,10 +570,10 @@
         private System.Windows.Forms.TextBox tb_shenherenyuan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tb_weituoduixiang;
+        private System.Windows.Forms.TextBox tb_weituoren;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.TableLayoutPanel tlp_shijian;
         private System.Windows.Forms.DateTimePicker dtp_start;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtp_end;

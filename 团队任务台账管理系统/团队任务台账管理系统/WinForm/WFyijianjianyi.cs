@@ -15,11 +15,24 @@ namespace 团队任务台账管理系统.WinForm
     public partial class WFyijianjianyi : Form
     {
         ControllerWFyijian _mycontroller = new ControllerWFyijian();
+        JJTaskInfo _info = new JJTaskInfo();
         public WFyijianjianyi()
         {
             InitializeComponent();
         }
+   public WFyijianjianyi(JJTaskInfo ji)
+        {
+            InitializeComponent();
+            _info = ji;
+            if (!JJLoginInfo._huaming.Equals(_info._chuangjianren))
+            {
+                tb_biaoti.Enabled = false;
+                p_jinjichengdu.Enabled = false;
+                tb_neirong.Enabled = false;
+            }
 
+
+        }
         private void lbl_baocun_Click(object sender, EventArgs e)
         {
             //构造一个jjtongzhiinfo

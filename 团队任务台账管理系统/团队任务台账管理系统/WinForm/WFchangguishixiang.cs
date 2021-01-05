@@ -44,6 +44,18 @@ namespace 团队任务台账管理系统.WinForm
             tb_xiangqing.Text = myinfo._xiangqing;
             tb_canjiaren.Text = myinfo._canyuren;
             dtp_shixian.Value = Convert.ToDateTime(myinfo._shixian);
+            //判断登录信息，创建人是否等于登录人,如果不是，任务任务名称，紧急程度，任务具体要求，上传附件，时限不可用
+            if (!JJLoginInfo._huaming.Equals(myinfo._chuangjianren))
+            {
+                tb_renwumingcheng.Enabled = false;
+                panel1.Enabled = false;
+                tlp_yaoqiu.Enabled = false;
+                panel_fujian.Enabled = false;
+                dtp_shixian.Enabled = false;
+
+
+            }
+
 
         }
 

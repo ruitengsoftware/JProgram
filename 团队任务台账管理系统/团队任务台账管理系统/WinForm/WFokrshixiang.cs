@@ -16,10 +16,27 @@ namespace 团队任务台账管理系统.WinForm
     public partial class WFokrshixiang : Form
     {
         ControllerOkrshixiang _mycontroller = new ControllerOkrshixiang();
+        JJTaskInfo _info = new JJTaskInfo();
 
-        public WFokrshixiang()
+
+        public WFokrshixiang() { }
+
+
+        public WFokrshixiang(JJTaskInfo ji)
         {
             InitializeComponent();
+            _info = ji;
+           //判断登录信息，创建人是否等于登录人,如果不是，任务任务名称，紧急程度，任务具体要求，上传附件，时限不可用
+           if (!JJLoginInfo._huaming.Equals(_info._chuangjianren))
+           {
+               tb_renwumingcheng.Enabled = false;
+                flp_jinjichengdu.Enabled = false;
+                tb_mubiao.Enabled = false;
+                tb_zongtiyanshouren.Enabled = false;
+                gb_chengguoji.Enabled = false;
+           }
+
+
         }
 
         private void lbl_quxiao_Click(object sender, EventArgs e)

@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -166,6 +167,7 @@ namespace 文本解析系统.JJController
             DataRow mydr = mysqlhelper.ExecuteDataRow(str_sql, new MySqlParameter[] {
                 new MySqlParameter("@f",formatname)
                 });
+            if (mydr == null) return null;
             return new FormatInfo()
             {
                 _formatname = mydr["格式名称"].ToString(),
@@ -236,10 +238,13 @@ namespace 文本解析系统.JJController
             foreach (DataGridViewRow item in mydgv.Rows)
             {
                 string name = item.Cells["jieximingcheng"].Value.ToString();
-                if (name.Contains("基础解析规则"))
+                if (name.Contains("基础规则"))
                 {
+
                     //获得行索引
                     var index = item.Index;
+                    //基础规则用蓝色显示
+                    mydgv.Rows[index].DefaultCellStyle.ForeColor = Color.DodgerBlue;
                     //复制这一行
                     mydgv.Rows.Remove(item);
                     //在指定位置重新插入第一行
@@ -270,7 +275,7 @@ namespace 文本解析系统.JJController
             foreach (DataGridViewRow item in mydgv.Rows)
             {
                 string name = item.Cells["jiexiguizemingcheng"].Value.ToString();
-                if (name.Contains("基础解析规则"))
+                if (name.Contains("基础规则"))
                 {
                     //获得行索引
                     var index = item.Index;
@@ -329,14 +334,25 @@ namespace 文本解析系统.JJController
                     for (int i = 0; i < myfi.list_jiexiguize.Count; i++)
                     {
                         //判断是否为基础解析，赋值基础信息
-                        //基础解析规则也分为两种分别是裁判文书基础规则，法律法规基础规则
                         if (myfi.list_jiexiguize[i].Contains("基础"))
                         {
                             //生成基础解析格式部分
                             WordInfo mywordinfo = new WordInfo(filename);
                             //使用一个方法获得word文档的的所有基础解系对象集合
                             mywordinfo.GetAllWenben();//获得了文本
-                            mywordinfo.AnalysisInfo();//解析
+                            //基础解析规则也分为两种分别是裁判文书基础规则，法律法规基础规则
+                            if (myfi.list_jiexiguize[i].Equals("通用基础规则"))
+                            {
+                                mywordinfo.AnalysisInfo();//解析通用基础规则
+
+                            }
+                            else if (myfi.list_jiexiguize[i].Equals("法律法规基础规则"))
+                            {
+                                mywordinfo.AnalysisInfo();//解析通用基础规则
+
+                                mywordinfo.AnalysisInfo2();//解析法律法规基础规则
+                            }
+
 
 
 
@@ -367,7 +383,7 @@ namespace 文本解析系统.JJController
                                             continue;
                                         }
                                     }
-                                   
+
                                     //获得最后一行
                                     int rowindex = mysht1.Cells.LastCell.Row + 1;
                                     mysht1.Cells[rowindex, 0].Value = mywordinfo._list_baseinfo[b]._mingcheng;
@@ -384,7 +400,8 @@ namespace 文本解析系统.JJController
                                     //将文本保存在list_r中
                                     list_r.Add(wenben);
                                 }
-                                catch(Exception ex) {
+                                catch (Exception ex)
+                                {
                                     //MessageBox.Show(ex.Message);
                                 }
                             }
@@ -680,7 +697,7 @@ namespace 文本解析系统.JJController
                                 }
                                 else
                                 {
-                                    if (myrd.fuzhi.Contains("提取区间内所有内容") && sarr.Length==5)
+                                    if (myrd.fuzhi.Contains("提取区间内所有内容") && sarr.Length == 5)
                                     {
                                         //获得最后一行索引
                                         int lastrow = mysht1.Cells.EndCellInColumn(0).Row;
@@ -729,7 +746,7 @@ namespace 文本解析系统.JJController
                     {
                         myfi._excelpath = Path.GetDirectoryName(filename);
                     }
-                    
+
                     mywbk1.Save($@"{myfi._excelpath}\{Path.GetFileNameWithoutExtension(filename)}.xlsx");
                     return "完成";
                 }

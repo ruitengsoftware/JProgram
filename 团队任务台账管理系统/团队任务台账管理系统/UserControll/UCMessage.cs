@@ -144,7 +144,27 @@ namespace 团队任务台账管理系统.UserControll
             if (task is JJTaskInfo)
             {
                 JJTaskInfo info = task as JJTaskInfo;
-                WFchangguishixiang mywin = new WFchangguishixiang(info);
+                Form mywin = null;
+                if (info._leixing.Equals("OKR事项"))
+                {
+                    mywin = new WFokrshixiang(info);
+
+                }
+                else if (info._leixing.Equals("常规事项"))
+                {
+               mywin = new WFchangguishixiang(info);
+
+                }
+                else if (info._leixing.Equals("请休假单"))
+                {
+                    mywin = new WFqingxiujiadan(info);
+
+                }
+                else if (info._leixing.Equals("意见建议"))
+                {
+                    mywin = new WFyijianjianyi(info);
+
+                }
                 if (mywin.ShowDialog() == DialogResult.OK)
                 {
                     //刷新数据

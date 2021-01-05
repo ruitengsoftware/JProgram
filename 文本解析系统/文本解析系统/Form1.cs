@@ -103,7 +103,7 @@ namespace 文本解析系统
             {
                 //从数据库中获得该规则对应的文本特征，显示到新打开的winformguize中
                 string rulename = dgv_jiexiguize.Rows[e.RowIndex].Cells["jieximingcheng"].Value.ToString();
-                if (rulename.Contains("基础解析规则"))
+                if (rulename.Contains("基础规则"))
                 {
                     MessageBox.Show("不可编辑基础规则！");
                     return;
@@ -125,7 +125,7 @@ namespace 文本解析系统
             {
                 //获得名称
                 string rulename = dgv_jiexiguize.Rows[e.RowIndex].Cells["jieximingcheng"].Value.ToString();
-                if (rulename.Contains("基础解析规则"))//基础规则点击无效
+                if (rulename.Contains("基础规则"))//基础规则点击无效
                 {
                     MessageBox.Show("不可删除基础规则！");
                     return;
@@ -426,7 +426,7 @@ namespace 文本解析系统
             foreach (DataGridViewRow myrow in selectrows)
             {
                 string guizename = myrow.Cells["jiexiguizemingcheng"].Value.ToString();
-                if (guizename.Contains("基础解析规则"))//基础规则点击无效
+                if (guizename.Contains("基础规则"))//基础规则点击无效
                 {
                     MessageBox.Show("不可删除基础规则！");
                     return;
@@ -692,7 +692,7 @@ namespace 文本解析系统
             foreach (DataGridViewRow item in dgv_jiexiguize.Rows)
             {
                 string name = item.Cells["jieximingcheng"].Value.ToString();
-                if (name.Trim().Contains("基础解析规则"))
+                if (name.Trim().Contains("基础规则"))
                 {
                     int index = item.Index;
                     dgv_jiexiguize.Rows.RemoveAt(index);

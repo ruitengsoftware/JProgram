@@ -15,9 +15,30 @@ namespace 团队任务台账管理系统.WinForm
     public partial class WFqingxiujiadan : Form
     {
         ControllerWFqingxiujia _mycontroller = new ControllerWFqingxiujia();
+        JJTaskInfo _info = new JJTaskInfo();
         public WFqingxiujiadan()
         {
             InitializeComponent();
+        }
+        public WFqingxiujiadan(JJTaskInfo ji)
+        {
+            InitializeComponent();
+            _info = ji;
+            if (!JJLoginInfo._huaming.Equals(_info._chuangjianren))
+            {
+                tb_shiyou.Enabled = false;
+                panel1.Enabled = false;
+                tlp_shijian.Enabled = false;
+                tb_qingjaitianshu.Enabled = false;
+                tb_weituoren.Enabled = false;
+                tb_xiaojiaqingkuang.Enabled = false;
+
+            }
+
+
+
+
+
         }
 
         private void lbl_quxiao_Click(object sender, EventArgs e)
@@ -38,7 +59,7 @@ namespace 团队任务台账管理系统.WinForm
                 _shiyou = tb_shiyou.Text,
                 _kaishishijian = dtp_start.Value.ToString(),
                 _jieshushijian = dtp_end.Value.ToString(),
-                _weituoduixiang = tb_weituoduixiang.Text,
+                _weituoduixiang = tb_weituoren.Text,
                 _shenheyijian = tb_shenheyijian.Text
 
             };

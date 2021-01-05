@@ -30,7 +30,6 @@ namespace 团队任务台账管理系统.JJModel
         public static string _touxiang = string.Empty;
         public static string _gongzuozhengjianzhao = string.Empty;
 
-
         public static string _weixinhao = string.Empty;
         public static string _gerenqianming = string.Empty;
         public static int _denlguquan = 0;
@@ -61,7 +60,6 @@ namespace 团队任务台账管理系统.JJModel
             var pt = JJImageHelper.ConvertBase64ToImage(JJLoginInfo._touxiang);
             _form1.pb_touxiang.Image =  JJImageHelper.UpdateImageSize(pt,128,128);
             JJLoginInfo._gongzuozhengjianzhao = mydr["工作证件照"].ToString();
-
             JJLoginInfo._weixinhao = mydr["微信号"].ToString();
             JJLoginInfo._gerenqianming = mydr["个人签名"].ToString();
             JJLoginInfo._denlguquan = Convert.ToInt32(mydr["登录权"].ToString());
