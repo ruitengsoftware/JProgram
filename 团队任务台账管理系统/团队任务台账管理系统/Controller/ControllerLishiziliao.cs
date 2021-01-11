@@ -14,7 +14,7 @@ namespace 团队任务台账管理系统.Controller
         public List<JJQingdanInfo> GetLishiziilao()
         {
             List<JJQingdanInfo> list = new List<JJQingdanInfo>();
-            string str_sql = "select * from jjdbrenwutaizhang.jjgongzuoqingdan where 销项=1";
+            string str_sql = "select * from jjdbrenwutaizhang.工作清单表 where 销项=1";
             DataTable mydt = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow mydr in mydt.Rows)
             {
@@ -36,7 +36,32 @@ namespace 团队任务台账管理系统.Controller
             return list;
         }
 
+        public List<JJTongzhiInfo> GetTongzhiLishi()
+        {
+            List<JJTongzhiInfo> list = new List<JJTongzhiInfo>();
+            string str_sql = "select * from jjdbrenwutaizhang.通知公告表 where 状态='已读' and 删除=0";
+            DataTable mydt = _mysqlhelper.ExecuteDataTable(str_sql);
+            foreach (DataRow mydr in mydt.Rows)
+            {
+                JJTongzhiInfo info = new JJTongzhiInfo()
+                {
+                    _biaoti = mydr["标题"].ToString(),
+                    _qianfaren = mydr["签发人"].ToString(),
+                    _neirong = mydr["内容"].ToString(),
+                    _zhuangtai = mydr["状态"].ToString(),
+                    _fabushijian = mydr["发布时间"].ToString(),
+                    _qingzhonghuanji = mydr["轻重缓急"].ToString(),
+                    _shixian = mydr["时限"].ToString(),
+                    _yuedufanwei = mydr["阅读范围"].ToString(),
+                    _fujian = mydr["附件"].ToString(),
+                };
+                list.Add(info);
+            }
+            return list;
 
+
+
+        }
 
     }
 }

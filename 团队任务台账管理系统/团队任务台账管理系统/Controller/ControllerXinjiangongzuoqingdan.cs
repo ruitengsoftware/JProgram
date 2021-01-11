@@ -17,12 +17,12 @@ namespace 团队任务台账管理系统.Controller
         public bool SaveGongzuoqingdan(JJQingdanInfo renwu)
         {
             //先删除任务
-            string str_sql = $"delete from jjdbrenwutaizhang.jjgongzuoqingdan where 创建人='{JJLoginInfo._shiming}' and 任务名称='{renwu._renwumingcheng}'";
+            string str_sql = $"delete from jjdbrenwutaizhang.工作清单表 where 创建人='{JJLoginInfo._shiming}' and 任务名称='{renwu._renwumingcheng}'";
             _mysqlhelper.ExecuteNonQuery(str_sql);
 
 
             //保存任务
-            str_sql = $"insert into jjdbrenwutaizhang.jjgongzuoqingdan values('{renwu._renwumingcheng}'," +
+            str_sql = $"insert into jjdbrenwutaizhang.工作清单表 values('{renwu._renwumingcheng}'," +
                 $"'{JJLoginInfo._shiming}','{renwu._zhubanren}','{renwu._wanchengshijian}',0," +
                 $"'{renwu._xiangxian}','{renwu._chuangjianshijian}','未完成',0,'{renwu._beizhu}','{renwu._jingyanjiaoxun}')";
            int num= _mysqlhelper.ExecuteNonQuery(str_sql);

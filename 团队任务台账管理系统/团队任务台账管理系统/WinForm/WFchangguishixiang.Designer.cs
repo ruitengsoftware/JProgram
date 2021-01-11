@@ -38,16 +38,11 @@
             this.btn_fasongbanli = new System.Windows.Forms.Button();
             this.tb_renwumingcheng = new System.Windows.Forms.TextBox();
             this.tlp_yaoqiu = new System.Windows.Forms.TableLayoutPanel();
-            this.tb_xiangqing = new System.Windows.Forms.TextBox();
-            this.pb_paizhao = new System.Windows.Forms.PictureBox();
-            this.tb_canjiaren = new System.Windows.Forms.ComboBox();
+            this.tb_jutiyaoqiu = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rb_jinji = new System.Windows.Forms.RadioButton();
             this.rb_putong = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel_fujian = new System.Windows.Forms.Panel();
-            this.tb_fujian = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dtp_shixian = new System.Windows.Forms.DateTimePicker();
@@ -55,12 +50,24 @@
             this.tb_banliyijian = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tb_jinzhanqingkuang = new System.Windows.Forms.TextBox();
+            this.tb_banlirenyuan = new System.Windows.Forms.TextBox();
+            this.tlp_fujian = new System.Windows.Forms.TableLayoutPanel();
+            this.panel_fujian = new System.Windows.Forms.Panel();
+            this.lb_fujian = new System.Windows.Forms.ListBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pb_shanchu = new System.Windows.Forms.PictureBox();
+            this.pb_shangchuan = new System.Windows.Forms.PictureBox();
+            this.pb_xuanze = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tlp_yaoqiu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_paizhao)).BeginInit();
             this.panel1.SuspendLayout();
+            this.tlp_fujian.SuspendLayout();
             this.panel_fujian.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_shangchuan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_xuanze)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel4
@@ -74,10 +81,8 @@
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 1, 8);
             this.tableLayoutPanel4.Controls.Add(this.tb_renwumingcheng, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.tlp_yaoqiu, 1, 2);
-            this.tableLayoutPanel4.Controls.Add(this.tb_canjiaren, 1, 6);
             this.tableLayoutPanel4.Controls.Add(this.panel1, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.label4, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.panel_fujian, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.label1, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.label11, 0, 4);
             this.tableLayoutPanel4.Controls.Add(this.dtp_shixian, 1, 4);
@@ -85,6 +90,8 @@
             this.tableLayoutPanel4.Controls.Add(this.tb_banliyijian, 1, 5);
             this.tableLayoutPanel4.Controls.Add(this.label6, 0, 7);
             this.tableLayoutPanel4.Controls.Add(this.tb_jinzhanqingkuang, 1, 7);
+            this.tableLayoutPanel4.Controls.Add(this.tb_banlirenyuan, 1, 6);
+            this.tableLayoutPanel4.Controls.Add(this.tlp_fujian, 1, 3);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -101,7 +108,6 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(486, 484);
             this.tableLayoutPanel4.TabIndex = 2;
-            this.tableLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel4_Paint);
             // 
             // label2
             // 
@@ -195,6 +201,7 @@
             this.btn_fasongbanli.TabIndex = 1;
             this.btn_fasongbanli.Text = "发送办理";
             this.btn_fasongbanli.UseVisualStyleBackColor = true;
+            this.btn_fasongbanli.Click += new System.EventHandler(this.btn_fasongbanli_Click);
             // 
             // tb_renwumingcheng
             // 
@@ -207,11 +214,9 @@
             // 
             // tlp_yaoqiu
             // 
-            this.tlp_yaoqiu.ColumnCount = 2;
+            this.tlp_yaoqiu.ColumnCount = 1;
             this.tlp_yaoqiu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_yaoqiu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlp_yaoqiu.Controls.Add(this.tb_xiangqing, 0, 0);
-            this.tlp_yaoqiu.Controls.Add(this.pb_paizhao, 1, 0);
+            this.tlp_yaoqiu.Controls.Add(this.tb_jutiyaoqiu, 0, 0);
             this.tlp_yaoqiu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlp_yaoqiu.Location = new System.Drawing.Point(80, 90);
             this.tlp_yaoqiu.Margin = new System.Windows.Forms.Padding(0);
@@ -221,34 +226,14 @@
             this.tlp_yaoqiu.Size = new System.Drawing.Size(406, 69);
             this.tlp_yaoqiu.TabIndex = 5;
             // 
-            // tb_xiangqing
+            // tb_jutiyaoqiu
             // 
-            this.tb_xiangqing.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_xiangqing.Location = new System.Drawing.Point(3, 3);
-            this.tb_xiangqing.Multiline = true;
-            this.tb_xiangqing.Name = "tb_xiangqing";
-            this.tb_xiangqing.Size = new System.Drawing.Size(370, 63);
-            this.tb_xiangqing.TabIndex = 0;
-            this.tb_xiangqing.TextChanged += new System.EventHandler(this.tb_xiangqing_TextChanged);
-            // 
-            // pb_paizhao
-            // 
-            this.pb_paizhao.Image = global::团队任务台账管理系统.Properties.Resources.upload1;
-            this.pb_paizhao.Location = new System.Drawing.Point(379, 3);
-            this.pb_paizhao.Name = "pb_paizhao";
-            this.pb_paizhao.Size = new System.Drawing.Size(24, 24);
-            this.pb_paizhao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_paizhao.TabIndex = 1;
-            this.pb_paizhao.TabStop = false;
-            // 
-            // tb_canjiaren
-            // 
-            this.tb_canjiaren.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_canjiaren.FormattingEnabled = true;
-            this.tb_canjiaren.Location = new System.Drawing.Point(83, 352);
-            this.tb_canjiaren.Name = "tb_canjiaren";
-            this.tb_canjiaren.Size = new System.Drawing.Size(400, 25);
-            this.tb_canjiaren.TabIndex = 6;
+            this.tb_jutiyaoqiu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_jutiyaoqiu.Location = new System.Drawing.Point(3, 3);
+            this.tb_jutiyaoqiu.Multiline = true;
+            this.tb_jutiyaoqiu.Name = "tb_jutiyaoqiu";
+            this.tb_jutiyaoqiu.Size = new System.Drawing.Size(400, 63);
+            this.tb_jutiyaoqiu.TabIndex = 0;
             // 
             // panel1
             // 
@@ -300,34 +285,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "任务具体要求";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // panel_fujian
-            // 
-            this.panel_fujian.Controls.Add(this.tb_fujian);
-            this.panel_fujian.Controls.Add(this.button1);
-            this.panel_fujian.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_fujian.Location = new System.Drawing.Point(80, 159);
-            this.panel_fujian.Margin = new System.Windows.Forms.Padding(0);
-            this.panel_fujian.Name = "panel_fujian";
-            this.panel_fujian.Size = new System.Drawing.Size(406, 80);
-            this.panel_fujian.TabIndex = 10;
-            // 
-            // tb_fujian
-            // 
-            this.tb_fujian.Location = new System.Drawing.Point(74, 4);
-            this.tb_fujian.Multiline = true;
-            this.tb_fujian.Name = "tb_fujian";
-            this.tb_fujian.Size = new System.Drawing.Size(328, 72);
-            this.tb_fujian.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(69, 26);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "上传附件";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -409,6 +366,98 @@
             this.tb_jinzhanqingkuang.Size = new System.Drawing.Size(400, 69);
             this.tb_jinzhanqingkuang.TabIndex = 12;
             // 
+            // tb_banlirenyuan
+            // 
+            this.tb_banlirenyuan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_banlirenyuan.Location = new System.Drawing.Point(83, 352);
+            this.tb_banlirenyuan.Name = "tb_banlirenyuan";
+            this.tb_banlirenyuan.Size = new System.Drawing.Size(400, 23);
+            this.tb_banlirenyuan.TabIndex = 13;
+            // 
+            // tlp_fujian
+            // 
+            this.tlp_fujian.ColumnCount = 2;
+            this.tlp_fujian.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_fujian.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tlp_fujian.Controls.Add(this.panel_fujian, 0, 0);
+            this.tlp_fujian.Controls.Add(this.panel2, 1, 0);
+            this.tlp_fujian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlp_fujian.Location = new System.Drawing.Point(80, 159);
+            this.tlp_fujian.Margin = new System.Windows.Forms.Padding(0);
+            this.tlp_fujian.Name = "tlp_fujian";
+            this.tlp_fujian.RowCount = 1;
+            this.tlp_fujian.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_fujian.Size = new System.Drawing.Size(406, 80);
+            this.tlp_fujian.TabIndex = 5;
+            // 
+            // panel_fujian
+            // 
+            this.panel_fujian.Controls.Add(this.lb_fujian);
+            this.panel_fujian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_fujian.Location = new System.Drawing.Point(0, 0);
+            this.panel_fujian.Margin = new System.Windows.Forms.Padding(0);
+            this.panel_fujian.Name = "panel_fujian";
+            this.panel_fujian.Size = new System.Drawing.Size(336, 80);
+            this.panel_fujian.TabIndex = 10;
+            // 
+            // lb_fujian
+            // 
+            this.lb_fujian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lb_fujian.FormattingEnabled = true;
+            this.lb_fujian.ItemHeight = 17;
+            this.lb_fujian.Location = new System.Drawing.Point(0, 0);
+            this.lb_fujian.Name = "lb_fujian";
+            this.lb_fujian.Size = new System.Drawing.Size(336, 80);
+            this.lb_fujian.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.pb_shanchu);
+            this.panel2.Controls.Add(this.pb_shangchuan);
+            this.panel2.Controls.Add(this.pb_xuanze);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(336, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(70, 80);
+            this.panel2.TabIndex = 11;
+            // 
+            // pb_shanchu
+            // 
+            this.pb_shanchu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pb_shanchu.Image = global::团队任务台账管理系统.Properties.Resources.delete1;
+            this.pb_shanchu.Location = new System.Drawing.Point(0, 42);
+            this.pb_shanchu.Name = "pb_shanchu";
+            this.pb_shanchu.Size = new System.Drawing.Size(70, 20);
+            this.pb_shanchu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_shanchu.TabIndex = 2;
+            this.pb_shanchu.TabStop = false;
+            this.pb_shanchu.Click += new System.EventHandler(this.pb_shanchu_Click);
+            // 
+            // pb_shangchuan
+            // 
+            this.pb_shangchuan.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pb_shangchuan.Image = global::团队任务台账管理系统.Properties.Resources.upload1;
+            this.pb_shangchuan.Location = new System.Drawing.Point(0, 17);
+            this.pb_shangchuan.Name = "pb_shangchuan";
+            this.pb_shangchuan.Size = new System.Drawing.Size(70, 25);
+            this.pb_shangchuan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_shangchuan.TabIndex = 1;
+            this.pb_shangchuan.TabStop = false;
+            this.pb_shangchuan.Click += new System.EventHandler(this.pb_shangchuan_Click);
+            // 
+            // pb_xuanze
+            // 
+            this.pb_xuanze.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pb_xuanze.Image = global::团队任务台账管理系统.Properties.Resources.folderlv;
+            this.pb_xuanze.Location = new System.Drawing.Point(0, 0);
+            this.pb_xuanze.Name = "pb_xuanze";
+            this.pb_xuanze.Size = new System.Drawing.Size(70, 17);
+            this.pb_xuanze.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_xuanze.TabIndex = 3;
+            this.pb_xuanze.TabStop = false;
+            this.pb_xuanze.Click += new System.EventHandler(this.pb_xuanze_Click);
+            // 
             // WFchangguishixiang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -420,17 +469,19 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WFchangguishixiang";
             this.Text = "新建常规事项";
-            this.Load += new System.EventHandler(this.WFchangguishixiang_Load);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tlp_yaoqiu.ResumeLayout(false);
             this.tlp_yaoqiu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_paizhao)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tlp_fujian.ResumeLayout(false);
             this.panel_fujian.ResumeLayout(false);
-            this.panel_fujian.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_shangchuan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_xuanze)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -450,19 +501,22 @@
         private System.Windows.Forms.RadioButton rb_jinji;
         private System.Windows.Forms.RadioButton rb_putong;
         private System.Windows.Forms.TableLayoutPanel tlp_yaoqiu;
-        private System.Windows.Forms.TextBox tb_xiangqing;
-        private System.Windows.Forms.PictureBox pb_paizhao;
-        private System.Windows.Forms.ComboBox tb_canjiaren;
+        private System.Windows.Forms.TextBox tb_jutiyaoqiu;
+        private System.Windows.Forms.PictureBox pb_shangchuan;
         private System.Windows.Forms.DateTimePicker dtp_shixian;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel_fujian;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tb_fujian;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tb_banliyijian;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tb_jinzhanqingkuang;
         private System.Windows.Forms.Button btn_fasongbanli;
+        private System.Windows.Forms.TextBox tb_banlirenyuan;
+        private System.Windows.Forms.TableLayoutPanel tlp_fujian;
+        private System.Windows.Forms.ListBox lb_fujian;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pb_shanchu;
+        private System.Windows.Forms.PictureBox pb_xuanze;
     }
 }

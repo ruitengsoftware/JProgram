@@ -48,7 +48,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(516, 314);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(829, 553);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // richTextBox1
@@ -68,12 +68,12 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.lbl_yiyuezhi, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 279);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 518);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(516, 35);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(829, 35);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // lbl_yiyuezhi
@@ -82,25 +82,26 @@
             this.lbl_yiyuezhi.BackColor = System.Drawing.Color.SeaGreen;
             this.lbl_yiyuezhi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_yiyuezhi.ForeColor = System.Drawing.Color.White;
-            this.lbl_yiyuezhi.Location = new System.Drawing.Point(210, 2);
-            this.lbl_yiyuezhi.Margin = new System.Windows.Forms.Padding(2);
+            this.lbl_yiyuezhi.Location = new System.Drawing.Point(368, 4);
+            this.lbl_yiyuezhi.Margin = new System.Windows.Forms.Padding(4);
             this.lbl_yiyuezhi.Name = "lbl_yiyuezhi";
-            this.lbl_yiyuezhi.Size = new System.Drawing.Size(96, 31);
+            this.lbl_yiyuezhi.Size = new System.Drawing.Size(92, 27);
             this.lbl_yiyuezhi.TabIndex = 0;
             this.lbl_yiyuezhi.Text = "已阅知";
             this.lbl_yiyuezhi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_yiyuezhi.Click += new System.EventHandler(this.lbl_yiyuezhi_Click);
             // 
             // WinFormTongzhi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(516, 314);
+            this.ClientSize = new System.Drawing.Size(829, 553);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WinFormTongzhi";
-            this.Text = "WinFormTongzhi";
+            this.Text = "通知公告";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

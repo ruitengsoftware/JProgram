@@ -11,12 +11,12 @@ namespace 团队任务台账管理系统.Controller
     public class Controllerwfxinjian
     {
 
-        MySQLHelper mysqlhelper = new MySQLHelper();
+        MySQLHelper mysql = new MySQLHelper();
         public bool DeleteTask(string task)
         {
 
             string str_sql = "delete from 常规事项表 where 任务名称=@renwumingcheng";
-            int num = mysqlhelper.ExecuteNonQuery(str_sql, new MySql.Data.MySqlClient.MySqlParameter[] {
+            int num = mysql.ExecuteNonQuery(str_sql, new MySql.Data.MySqlClient.MySqlParameter[] {
                 new MySql.Data.MySqlClient.MySqlParameter("@renwumingcheng", task)
             });
             return num > 1 ? true : false;
@@ -34,7 +34,7 @@ namespace 团队任务台账管理系统.Controller
                 str_sql = $"insert into jjdbrenwutaizhang.任务信息表 values('{ci._mingcheng}'," +
                     $"'{ci._leixing}','{ci._fuzeren}','{str}','{ci._zhuangtai}','{ci._xiangqing}','{ci._chuangjianren}','{ci._chuangjianshijian}'," +
                     $"'{ci._duqushijian}','{ci._shixian}','{ci._jinjichengdu}',0)";
-                num = mysqlhelper.ExecuteNonQuery(str_sql);
+                num = mysql.ExecuteNonQuery(str_sql);
             }
             //判断该任务名是否存在，如果存在，使用update语句，否则
             //str_sql = $"insert into 常规事项表 values('{ci._renwumingcheng}','{ci._jinjichengdu}','{ci._jutiyaoqiu}'," +
@@ -42,5 +42,10 @@ namespace 团队任务台账管理系统.Controller
             //int num = mysqlhelper.ExecuteNonQuery(str_sql, null);
             return num > 0 ? true : false;
         }
+
+       
+
+
+
     }
 }

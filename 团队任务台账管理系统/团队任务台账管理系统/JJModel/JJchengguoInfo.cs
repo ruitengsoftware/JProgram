@@ -13,13 +13,22 @@ namespace 团队任务台账管理系统.JJModel
         /// </summary>
         public string _guanjianchengguo { get; set; }
         /// <summary>
-        /// 责任人
+        /// 具体要求
         /// </summary>
-        public string _zerenren { get; set; }
+        public string _jutiyaoqiu { get; set; }
         /// <summary>
-        /// 验收人
+        /// 附件
         /// </summary>
-        public string _yanshouren { get; set; }
+        public string _fujian { get; set; }
+        /// <summary>
+        /// 办理意见
+        /// </summary>
+        public string _banliyijian { get; set; }
+
+        /// <summary>
+        /// 办理人员
+        /// </summary>
+        public string _banlirenyuan { get; set; }
         /// <summary>
         /// 时限
         /// </summary>

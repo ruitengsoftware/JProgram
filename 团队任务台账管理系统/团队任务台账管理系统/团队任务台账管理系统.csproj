@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -102,10 +117,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\JJImageHelper.cs" />
+    <Compile Include="Common\JJMethod.cs" />
     <Compile Include="Common\JJpanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controller\ControllerBumentongxun.cs" />
+    <Compile Include="Controller\ControllerChangguishixiang.cs" />
     <Compile Include="Controller\ControllerDenglu.cs" />
     <Compile Include="Controller\ControllerFankui.cs" />
     <Compile Include="Controller\ControllerForm1.cs" />
@@ -156,6 +173,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControll\ControllerUCmessage.cs" />
+    <Compile Include="UserControll\JJTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UserControll\UCbumentongxun.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -209,6 +229,12 @@
     </Compile>
     <Compile Include="UserControll\UCMytask.Designer.cs">
       <DependentUpon>UCMytask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\UCpage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCpage.Designer.cs">
+      <DependentUpon>UCpage.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControll\UCrizhi.cs">
       <SubType>UserControl</SubType>
@@ -436,6 +462,9 @@
     <EmbeddedResource Include="UserControll\UCMytask.resx">
       <DependentUpon>UCMytask.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCpage.resx">
+      <DependentUpon>UCpage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCrizhi.resx">
       <DependentUpon>UCrizhi.cs</DependentUpon>
     </EmbeddedResource>
@@ -634,9 +663,6 @@
     <None Include="Resources\ruitengicon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\empty.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\newmsg.png" />
   </ItemGroup>
   <ItemGroup>
@@ -665,6 +691,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\xinzeng2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empty.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blank.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folderlv.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

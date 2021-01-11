@@ -23,16 +23,20 @@ namespace 团队任务台账管理系统.UserControll
         private void UClishiziliao_Load(object sender, EventArgs e)
         {
             panel_my.Controls.Clear();
-            var list = _mycontroller.GetLishiziilao();
-            foreach (JJQingdanInfo info in list)
+            //var list = _mycontroller.GetLishiziilao();
+            //foreach (JJQingdanInfo info in list)
+            //{
+            //    UCMessage myuc = new UCMessage(info);
+            //    myuc._updatemaindata = UClishiziliao_Load;
+            //    panel_my.Controls.Add(myuc);
+            //}
+            var list = _mycontroller.GetTongzhiLishi();
+            foreach (JJTongzhiInfo info in list)
             {
                 UCMessage myuc = new UCMessage(info);
                 myuc._updatemaindata = UClishiziliao_Load;
                 panel_my.Controls.Add(myuc);
             }
-
         }
-
-
     }
 }

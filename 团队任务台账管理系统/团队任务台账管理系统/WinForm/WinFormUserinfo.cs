@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RuiTengDll;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -110,7 +111,7 @@ namespace 团队任务台账管理系统.WinForm
         }
 
         #endregion
-
+        UIHelper _uihelper = new UIHelper(); 
         public WinFormUserinfo()
         {
             InitializeComponent();
@@ -118,10 +119,10 @@ namespace 团队任务台账管理系统.WinForm
 
         private void WinFormUserinfo_Load(object sender, EventArgs e)
         {
-            lbl_nicheng.Text = $"实名:{JJLoginInfo._shiming}({JJLoginInfo._huaming})";
-            lbl_zhijizhiwu.Text = $"职级:{JJLoginInfo._zhiji}";
+            lbl_nicheng.Text = $"{JJLoginInfo._shiming}({JJLoginInfo._huaming})";
+            lbl_zhijizhiwu.Text = $"{JJLoginInfo._zhiji}";
            tb_gexingqianming.Text = JJLoginInfo._gerenqianming;
-
+            
         }
 
         private void lbl_xiugai_Click(object sender, EventArgs e)
@@ -138,6 +139,7 @@ namespace 团队任务台账管理系统.WinForm
             {
                 tb_gexingqianming.BorderStyle = BorderStyle.None;
                 bool b = UpdateGerenqianming(tb_gexingqianming.Text);
+                JJLoginInfo.GetLoginInfo(JJLoginInfo._huaming);
                 lbl_xiugai.Text = "修改";
 
             }

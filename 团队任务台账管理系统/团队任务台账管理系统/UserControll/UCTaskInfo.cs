@@ -51,7 +51,12 @@ namespace 团队任务台账管理系统.UserControll
             tb_xiangqing.Text = ti._xiangqing;
             tb_fuzeren.Text = ti._fuzeren;
             tb_canyuren.Text = ti._canyuren;
+            try
+            {
             dtp_shixian.Value = Convert.ToDateTime(ti._shixian);
+
+            }
+            catch { }
 
 
         }

@@ -11,6 +11,7 @@ using 团队任务台账管理系统.JJModel;
 using 团队任务台账管理系统.Controller;
 using 团队任务台账管理系统.WinForm;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -115,56 +116,150 @@ namespace 团队任务台账管理系统.UserControll
 
         }
 
+
+        public void UpdatePgongzuoqingdan(object o)
+        {
+            List<JJQingdanInfo> list = o as List<JJQingdanInfo>;
+            //加载工作清单
+            panel_gongzuoqingdan.Controls.Clear();
+
+            //记载是否已经显示了ABC类
+            List<string> list_leibie = new List<string>();
+
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                var info = list[i];
+                UCMessage myuc = new UCMessage(info);
+                myuc._updatemaindata = UCmain_Load;
+                //判断INFO的类别，给myuc的lbl_leibie赋值，但是如果已经出现过，就不赋值
+                string str_lei = Regex.Match(info._xiangxian, @".类").Value;
+                if (!list_leibie.Contains(str_lei))
+                {
+                    myuc.lbl_leixing.Text = str_lei;
+                    //改颜色 A红B黄C绿D黑
+                    if (str_lei.Equals("A类"))
+                    {
+                        myuc.lbl_leixing.ForeColor = Color.Red;
+                    }
+                    if (str_lei.Equals("B类"))
+                    {
+                        myuc.lbl_leixing.ForeColor = Color.Gold;
+                    }
+                    if (str_lei.Equals("C类"))
+                    {
+                        myuc.lbl_leixing.ForeColor = Color.Green;
+                    }
+                    if (str_lei.Equals("D类"))
+                    {
+                        myuc.lbl_leixing.ForeColor = Color.Black;
+                    }
+
+
+
+                    list_leibie.Add(str_lei);
+                }
+                else
+                {
+                    myuc.lbl_leixing.Text = string.Empty;
+                }
+
+
+                panel_gongzuoqingdan.Controls.Add(myuc);
+                panel_gongzuoqingdan.Controls.SetChildIndex(myuc, 0);
+            }
+
+            //刷新工作清单总数
+            //lbl_gongzuoqingdan.Text = $"工作清单  {qingdannum}项";
+            lbl_gongzuoqingdan.Text = $"工作清单  共{panel_gongzuoqingdan.Controls.Count}项";
+
+        }
+
+        public void UpdatePdaiban(object o)
+        {
+            panel_daibanrenwu.Controls.Clear();
+            List<JJTaskInfo> list_daiban = o as List<JJTaskInfo>;
+            for (int i = list_daiban.Count - 1; i >= 0; i--)
+            {
+                JJTaskInfo info = list_daiban[i];
+                UCMessage myuc = new UCMessage(info);
+                panel_daibanrenwu.Controls.Add(myuc);
+            }
+            //显示待办任务数量
+            gb_daibairenwu.Text = $"待办任务 共{panel_daibanrenwu.Controls.Count}项";
+
+
+        }
+
+        public void UpdatePtongzhi(object o)
+        {
+            /*刷新通知公告*/
+            panel_tongzhi.Controls.Clear();
+            var list_tongzhi = o as List<JJTongzhiInfo>;
+            //dgv_tongzhi.DataSource = null;
+            //dgv_tongzhi.DataSource = mydt;
+            foreach (JJTongzhiInfo dr in list_tongzhi)
+            {
+                UCMessage myuc = new UCMessage(dr);
+                panel_tongzhi.Controls.Add(myuc);
+            }
+            //显示通知公告,显示多少项，红几项，黄几项
+            gb_tongzhigonggao.Text = $"通知公告 共{panel_tongzhi.Controls.Count}项";
+        }
+
+
+
+
         private void UCmain_Load(object sender, EventArgs e)
         {
             //加载ucmain的时候要提取登陆者信息，显示在界面中
             if (_list_item.Contains("工作清单"))
             {
-                //加载工作清单
-                panel_gongzuoqingdan.Controls.Clear();
-                var list = _mycontroller.GetGongzuoqingdan();
-                foreach (JJQingdanInfo info in list)
-                {
-                    UCMessage myuc = new UCMessage(info);
-                    myuc._updatemaindata = UCmain_Load;
-                    panel_gongzuoqingdan.Controls.Add(myuc);
-                }
-
-                //刷新工作清单总数
-                //lbl_gongzuoqingdan.Text = $"工作清单  {qingdannum}项";
-                lbl_gongzuoqingdan.Text = $"工作清单  {panel_gongzuoqingdan.Controls.Count}项";
-
+                double pagenums= _mycontroller.GetGongzuoqingdanPagenums();
+                ucpagegongzuoqingdan.totalpage = pagenums;
+                ucpagegongzuoqingdan.f= _mycontroller.GetGongzuoqingdan;
+                ucpagegongzuoqingdan.a = UpdatePgongzuoqingdan;
+                ucpagegongzuoqingdan.tb_page.Text = "1";
+                ucpagegongzuoqingdan.lbl_pagenums.Text = $"共 {pagenums} 页";
+            }
+            else
+            {
+                tableLayoutPanel1.RowStyles[0].Height = 0;
             }
 
             if (_list_item.Contains("待办任务"))
             {
-                /*刷新待办任务，包括请休假单，okr事项，常规事项，意见建议，放在任务信息表中*/
-                panel_daibanrenwu.Controls.Clear();
                 string keyword = tb_kw.Text;
-                var list_daiban = _mycontroller.GetDaibanRenwu(keyword);
-                foreach (JJTaskInfo info in list_daiban)
-                {
-                    UCMessage myuc = new UCMessage(info);
-                    panel_daibanrenwu.Controls.Add(myuc);
-                }
+               
+                double pagenums = _mycontroller.GetDaibanPagenums();
+                ucpagedaiban.kw = keyword;
+                ucpagedaiban.totalpage = pagenums;
+                ucpagedaiban.f = _mycontroller.GetDaibanRenwu;
+                ucpagedaiban.a = UpdatePdaiban;
+                ucpagedaiban.tb_page.Text = "1";
+                ucpagedaiban.lbl_pagenums.Text = $"共 {pagenums} 页";
+            }
+            else
+            {
+                tableLayoutPanel1.RowStyles[2].Height = 0;
 
             }
-
             if (_list_item.Contains("通知公告"))
             {
-                /*刷新通知公告*/
-                panel_tongzhi.Controls.Clear();
-                var list_tongzhi = _mycontroller.GetTongzhi();
-                //dgv_tongzhi.DataSource = null;
-                //dgv_tongzhi.DataSource = mydt;
-                foreach (JJTongzhiInfo dr in list_tongzhi)
-                {
-                    UCMessage myuc = new UCMessage(dr);
-                    panel_tongzhi.Controls.Add(myuc);
-                }
+                double pagenums = _mycontroller.GetTongzhiPagenums();
+                
+                ucpagetongzhi.totalpage = pagenums;
+                ucpagetongzhi.f = _mycontroller.GetTongzhi;
+                ucpagetongzhi.a = UpdatePtongzhi;
+                ucpagetongzhi.tb_page.Text = "1";
+                ucpagetongzhi.lbl_pagenums.Text = $"共 {pagenums} 页";
 
             }
+            else
+            {
+                tableLayoutPanel1.RowStyles[1].Height = 0;
 
+            }
 
         }
         string str_con = System.Configuration.ConfigurationManager.ConnectionStrings["connstr"].ToString();
@@ -177,7 +272,7 @@ namespace 团队任务台账管理系统.UserControll
             using (SqlConnection connection = new SqlConnection(conn))
             {
                 //此处 要注意 不能使用*  表名要加[dbo]  否则会出现一直调用执行 OnChange
-                string sql = "select 删除 from jjdbrenwuqingdan.jjgongzuoqingdan";
+                string sql = "select 删除 from jjdbrenwuqingdan.工作清单表";
 
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
@@ -257,41 +352,41 @@ namespace 团队任务台账管理系统.UserControll
 
         private void dgv_daiban_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //判断是否左键点击
-            if (e.Button == MouseButtons.Right)
-            {
-                return;
-            }
+            ////判断是否左键点击
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    return;
+            //}
 
-            //判断是否点击了任务名称列
-            bool b = ((DataGridView)sender).CurrentCell.OwningColumn.Name.Equals("任务名称");
-            //获得任务名称
-            string renwuming = ((DataGridView)sender).CurrentCell.Value.ToString();
-            //如果是,构造jjchangguiinfo,弹出任务详情窗体
-            DataGridViewRow mydr = dgv_daiban.CurrentRow;
-            JJchangguiInfo info = new JJchangguiInfo()
-            {
-                _renwumingcheng = mydr.Cells["任务名称"].Value.ToString(),
-                _jinjichengdu = mydr.Cells["紧急程度"].Value.ToString(),
-                //_jutiyaoqiu = mydr.Cells["具体要求"].Value.ToString(),
-                //_zerenren = mydr.Cells["责任人"].Value.ToString(),
-                //_yanshouren = mydr.Cells["验收人"].Value.ToString(),
-                _shixian = mydr.Cells["时限"].Value.ToString(),
-                _jinzhanqingkuang = mydr.Cells["进展情况"].Value.ToString()
-            };
+            ////判断是否点击了任务名称列
+            //bool b = ((DataGridView)sender).CurrentCell.OwningColumn.Name.Equals("任务名称");
+            ////获得任务名称
+            //string renwuming = ((DataGridView)sender).CurrentCell.Value.ToString();
+            ////如果是,构造jjchangguiinfo,弹出任务详情窗体
+            //DataGridViewRow mydr = dgv_daiban.CurrentRow;
+            //JJchangguiInfo info = new JJchangguiInfo()
+            //{
+            //    _renwumingcheng = mydr.Cells["任务名称"].Value.ToString(),
+            //    _jinjichengdu = mydr.Cells["紧急程度"].Value.ToString(),
+            //    //_jutiyaoqiu = mydr.Cells["具体要求"].Value.ToString(),
+            //    //_zerenren = mydr.Cells["责任人"].Value.ToString(),
+            //    //_yanshouren = mydr.Cells["验收人"].Value.ToString(),
+            //    _shixian = mydr.Cells["时限"].Value.ToString(),
+            //    _jinzhanqingkuang = mydr.Cells["进展情况"].Value.ToString()
+            //};
 
 
 
-            if (b)
-            {
+            //if (b)
+            //{
 
-                WFdaiban mywin = new WFdaiban(info);
-                if (mywin.ShowDialog() == DialogResult.OK)
-                {
-                    ///刷新数据
-                    this.UCmain_Load(null, null);
-                }
-            }
+            //    WFdaiban mywin = new WFdaiban(info);
+            //    if (mywin.ShowDialog() == DialogResult.OK)
+            //    {
+            //        ///刷新数据
+            //        this.UCmain_Load(null, null);
+            //    }
+            //}
         }
 
         private void dgv_a_Paint(object sender, PaintEventArgs e)
@@ -390,28 +485,28 @@ namespace 团队任务台账管理系统.UserControll
 
             }
             //刷新通知公告栏 数量
-            lbl_gonggao.Text = $"通知公告 （{weidunum}）";
+            panel_tongzhi.Text = $"通知公告 共{weidunum}项";
 
         }
 
         private void pb_search_Click(object sender, EventArgs e)
         {
-            string keyword = tb_kw.Text;
-            DataTable mydt = _mycontroller.GetDaibanRenwuDT(keyword);
-            dgv_daiban.DataSource = null;
-            dgv_daiban.DataSource = mydt;
+            //string keyword = tb_kw.Text;
+            //DataTable mydt = _mycontroller.GetDaibanRenwuDT(keyword);
+            //dgv_daiban.DataSource = null;
+            //dgv_daiban.DataSource = mydt;
 
         }
 
         private void tb_kw_TextChanged(object sender, EventArgs e)
         {
-            if (tb_kw.Text.Trim().Equals(string.Empty))
-            {
-                DataTable mydt = _mycontroller.GetDaibanRenwuDT(string.Empty);
-                dgv_daiban.DataSource = null;
-                dgv_daiban.DataSource = mydt;
+            //if (tb_kw.Text.Trim().Equals(string.Empty))
+            //{
+            //    DataTable mydt = _mycontroller.GetDaibanRenwuDT(string.Empty);
+            //    dgv_daiban.DataSource = null;
+            //    dgv_daiban.DataSource = mydt;
 
-            }
+            //}
         }
 
         private void dgv_tongzhi_DataSourceChanged(object sender, EventArgs e)

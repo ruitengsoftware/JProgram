@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 团队任务台账管理系统.Common;
 using 团队任务台账管理系统.Controller;
 using 团队任务台账管理系统.JJModel;
 using 团队任务台账管理系统.JJWinForm;
@@ -127,13 +128,19 @@ namespace 团队任务台账管理系统
         //UserControl myuc = new UserControl();
         private void Form1_Load(object sender, EventArgs e)
         {
+            JJMethod.a_checknewtask = timer1_Tick;//给公共方法赋值
+            JJMethod.a_shuaxinzhuye = pb_home_Click;
+            JJMethod.nf = notifyIcon1;
             this.splitContainer1.Panel1Collapsed = false;
 
             //this.FormBorderStyle = FormBorderStyle.None;
 
-            UCmain uc_main = new UCmain(new List<string> { "通知公告","待办任务","工作清单"});
-            uc_main.Dock = DockStyle.Fill;
-            panel_my.Controls.Add(uc_main);
+            pb_home_Click(null, null);
+
+
+
+
+
             //是否有新消息
             int num = JJLoginInfo.GetWeiduTaskNum();
             if (num > 0)
@@ -144,7 +151,7 @@ namespace 团队任务台账管理系统
             }
             else
             {
-              btn_woderenwu.Width = 94;
+                btn_woderenwu.Width = 94;
 
             }
 
@@ -166,8 +173,12 @@ namespace 团队任务台账管理系统
             this.Hide();
             WinFormdenglu mywin = new WinFormdenglu();
             mywin.StartPosition = FormStartPosition.CenterParent;
-            mywin.ShowDialog();
-         
+            if (mywin.ShowDialog() == DialogResult.OK)
+            {
+                JJLoginInfo.GetLoginInfo(JJLoginInfo._huaming);
+                this.Show();
+            };
+
             ////清空panel
             //panel_my.Controls.Clear();
             ////自动登录设置为false
@@ -185,7 +196,7 @@ namespace 团队任务台账管理系统
         WinFormUserinfo mywin = null;
         private void pb_touxiang_Click(object sender, EventArgs e)
         {
-            if (mywin!=null)
+            if (mywin != null)
             {
                 mywin.Dispose();
             }
@@ -217,7 +228,7 @@ namespace 团队任务台账管理系统
         private void btn_daiban_Click(object sender, EventArgs e)
         {
             panel_my.Controls.Clear();
-            UCmain uc_main = new UCmain(new List<string> {  "待办任务" });
+            UCmain uc_main = new UCmain(new List<string> { "待办任务" });
             uc_main.Dock = DockStyle.Fill;
             panel_my.Controls.Add(uc_main);
 
@@ -303,7 +314,7 @@ namespace 团队任务台账管理系统
         private void btn_tongxunlu_Click(object sender, EventArgs e)
         {
 
-            UCbumentongxun myuc = new UCbumentongxun(){ Dock = DockStyle.Fill };
+            UCbumentongxun myuc = new UCbumentongxun() { Dock = DockStyle.Fill };
 
 
             //UCtongxunlu myuc = new UCtongxunlu();
@@ -328,38 +339,24 @@ namespace 团队任务台账管理系统
             if (num > 0)
             {
                 lbl_newtask.Visible = true;
+                btn_woderenwu.Width = 65;
                 lbl_newtask.Text = $"{num}";
-                //此时开启闪烁
-                myt.Interval = 500;
-                myt.Tick += Myt_Tick;
-                myt.Start();
                 //同时判断是否显示 
                 Control myuc = panel_my.Controls[0];
                 if (myuc is UCMytask)
                 {
                     (myuc as UCMytask).lbl_quanbu_Click(null, null);
                 }
-
+            }
+            else
+            {
+                lbl_newtask.Visible = false;
+                btn_woderenwu.Width = 94;
             }
 
         }
 
-        private Icon blank = Properties.Resources.ruitengicon;
-        private Icon normal = Properties.Resources.empty;
-        private bool _status = true;
-        private void Myt_Tick(object sender, EventArgs e)
-        {
-            if (_status)
-                notifyIcon1.Icon = normal;
-            else
-                notifyIcon1.Icon = blank;
-            _status = !_status;
-        }
 
-        private void notifyIcon1_Click(object sender, EventArgs e)
-        {
-            myt.Stop();//停止闪烁
-        }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -368,11 +365,10 @@ namespace 团队任务台账管理系统
 
         private void pb_touxiang_MouseMove(object sender, MouseEventArgs e)
         {
-            if (mywin != null) {
+            if (mywin != null)
+            {
                 mywin.Dispose();
             }
-
-
         }
 
         private void btn_gongzuoqingdan_Click(object sender, EventArgs e)
@@ -387,10 +383,15 @@ namespace 团队任务台账管理系统
         private void btn_tongzhigonggao_Click(object sender, EventArgs e)
         {
             panel_my.Controls.Clear();
-            UCmain uc_main = new UCmain(new List<string> { "通知公告"});
+            UCmain uc_main = new UCmain(new List<string> { "通知公告" });
             uc_main.Dock = DockStyle.Fill;
             panel_my.Controls.Add(uc_main);
 
+        }
+
+        private void notifyIcon1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
         }
     }
 }

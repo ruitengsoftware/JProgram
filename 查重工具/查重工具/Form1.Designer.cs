@@ -39,6 +39,7 @@
             this.btn_tianjiarenwu = new System.Windows.Forms.Button();
             this.btn_kaishi = new System.Windows.Forms.Button();
             this.btn_qingkong = new System.Windows.Forms.Button();
+            this.btn_tingzhi = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.button3 = new System.Windows.Forms.Button();
@@ -52,6 +53,7 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_zhengwenchongfulujing = new System.Windows.Forms.TextBox();
+            this.pb_folder = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cb_quanwenchachong = new System.Windows.Forms.CheckBox();
             this.cb_zhengwenchachong = new System.Windows.Forms.CheckBox();
@@ -67,9 +69,7 @@
             this.cbb_chachongku = new System.Windows.Forms.ComboBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_tingzhi = new System.Windows.Forms.Button();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.pb_folder = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pb_adddb = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3.SuspendLayout();
@@ -80,6 +80,7 @@
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_folder)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
@@ -89,7 +90,6 @@
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_folder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_adddb)).BeginInit();
             this.SuspendLayout();
@@ -204,6 +204,17 @@
             this.btn_qingkong.Text = "清空任务";
             this.btn_qingkong.UseVisualStyleBackColor = true;
             this.btn_qingkong.Click += new System.EventHandler(this.btn_qingkong_Click);
+            // 
+            // btn_tingzhi
+            // 
+            this.btn_tingzhi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_tingzhi.Location = new System.Drawing.Point(228, 3);
+            this.btn_tingzhi.Name = "btn_tingzhi";
+            this.btn_tingzhi.Size = new System.Drawing.Size(69, 26);
+            this.btn_tingzhi.TabIndex = 13;
+            this.btn_tingzhi.Text = "停止";
+            this.btn_tingzhi.UseVisualStyleBackColor = true;
+            this.btn_tingzhi.Click += new System.EventHandler(this.btn_tingzhi_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -376,6 +387,18 @@
             this.tb_zhengwenchongfulujing.Name = "tb_zhengwenchongfulujing";
             this.tb_zhengwenchongfulujing.Size = new System.Drawing.Size(414, 23);
             this.tb_zhengwenchongfulujing.TabIndex = 4;
+            // 
+            // pb_folder
+            // 
+            this.pb_folder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_folder.Image = global::查重工具.Properties.Resources.folder1;
+            this.pb_folder.Location = new System.Drawing.Point(583, 3);
+            this.pb_folder.Name = "pb_folder";
+            this.pb_folder.Size = new System.Drawing.Size(24, 24);
+            this.pb_folder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_folder.TabIndex = 5;
+            this.pb_folder.TabStop = false;
+            this.pb_folder.Click += new System.EventHandler(this.pb_folder_Click);
             // 
             // groupBox2
             // 
@@ -565,17 +588,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(966, 537);
             this.tableLayoutPanel2.TabIndex = 14;
             // 
-            // btn_tingzhi
-            // 
-            this.btn_tingzhi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_tingzhi.Location = new System.Drawing.Point(228, 3);
-            this.btn_tingzhi.Name = "btn_tingzhi";
-            this.btn_tingzhi.Size = new System.Drawing.Size(69, 26);
-            this.btn_tingzhi.TabIndex = 13;
-            this.btn_tingzhi.Text = "停止";
-            this.btn_tingzhi.UseVisualStyleBackColor = true;
-            this.btn_tingzhi.Click += new System.EventHandler(this.btn_tingzhi_Click);
-            // 
             // tableLayoutPanel9
             // 
             this.tableLayoutPanel9.ColumnCount = 1;
@@ -592,18 +604,6 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(40, 537);
             this.tableLayoutPanel9.TabIndex = 16;
-            // 
-            // pb_folder
-            // 
-            this.pb_folder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_folder.Image = global::查重工具.Properties.Resources.folder1;
-            this.pb_folder.Location = new System.Drawing.Point(583, 3);
-            this.pb_folder.Name = "pb_folder";
-            this.pb_folder.Size = new System.Drawing.Size(24, 24);
-            this.pb_folder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_folder.TabIndex = 5;
-            this.pb_folder.TabStop = false;
-            this.pb_folder.Click += new System.EventHandler(this.pb_folder_Click);
             // 
             // pictureBox1
             // 
@@ -650,6 +650,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_folder)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -662,7 +663,6 @@
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_folder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_adddb)).EndInit();
             this.ResumeLayout(false);

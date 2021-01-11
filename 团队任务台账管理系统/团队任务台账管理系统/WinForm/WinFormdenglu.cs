@@ -193,6 +193,7 @@ namespace 团队任务台账管理系统.JJWinForm
                 //((SplitContainer)parent.Parent.Parent).Panel1Collapsed = false;
                 //((Form1)parent.Parent.Parent.Parent).pb_touxiang.Image = mycontroller.ConvertBase64ToImage(JJModel.JJJJLoginInfo._touxiang);
                 //settings获得自动登录，记住我，姓名，密码
+               JJLoginInfo._huaming = _huaming;
                 Settings.Default.huaming = _huaming;
                 Settings.Default.mima = pwd;
                 Settings.Default.jizhumima = cb_jizhuwo.Checked;

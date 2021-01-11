@@ -43,7 +43,7 @@ namespace 团队任务台账管理系统.JJModel
         /// <summary>
         /// 上传附件
         /// </summary>
-        public string _shangchuanfujian = string.Empty; 
+        public string _fujian = string.Empty; 
 
 
 

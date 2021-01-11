@@ -143,7 +143,7 @@ namespace 团队任务台账管理系统.WinForm
             WFperson mywfperson = new WFperson(str_person);
             if (mywfperson.ShowDialog() == DialogResult.OK)
             {
-                string xingming = string.Join(",", mywfperson.list_person);
+                string xingming = string.Join(",", mywfperson.list_selected);
                 tb_zerenren.Text = xingming;
             }
         }
@@ -155,7 +155,7 @@ namespace 团队任务台账管理系统.WinForm
             WFperson mywfperson = new WFperson(str_person);
             if (mywfperson.ShowDialog() == DialogResult.OK)
             {
-                string xingming = string.Join(",", mywfperson.list_person);
+                string xingming = string.Join(",", mywfperson.list_selected);
                 tb_yanshouren.Text = xingming;
             }
         }

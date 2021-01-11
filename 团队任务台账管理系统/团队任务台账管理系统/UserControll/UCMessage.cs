@@ -12,6 +12,7 @@ using 团队任务台账管理系统.JJModel;
 using 团队任务台账管理系统.Controller;
 using 团队任务台账管理系统.WinForm;
 using Aspose.Words;
+using 团队任务台账管理系统.Common;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -59,6 +60,7 @@ namespace 团队任务台账管理系统.UserControll
             if (o is JJTongzhiInfo)//如果是通知公告
             {
                 //不是清单关闭销项
+                lbl_leixing.Visible = false;
                 pb_xiaoxiang.Visible = false;
                 pb_shanchu.Visible = false;
 
@@ -80,7 +82,7 @@ namespace 团队任务台账管理系统.UserControll
                     lbl_mingcheng.ForeColor = Color.Red;
                 }
             }
-            if (o is JJTaskInfo)//如果是常规任务
+            if (o is JJTaskInfo)//如果是四项任务
             {
                 //不是清单关闭销项
                 pb_xiaoxiang.Visible = false;
@@ -110,7 +112,18 @@ namespace 团队任务台账管理系统.UserControll
                 this.lbl_xiangxian.Text = info._jinjichengdu;
                 this.lbl_mingcheng.Text = info._mingcheng;
                 this.lbl_mingcheng.TextAlign = ContentAlignment.MiddleLeft;
+                //判断紧急程度，如果是紧急，任务显示红色，如果是普通，正常显示为黑色
+                if (info._jinjichengdu.Equals("紧急"))
+                {
+                    lbl_mingcheng.ForeColor = Color.Red;
+                }
+
+                try
+                {
                 this.lbl_wanchengshijian.Text = Convert.ToDateTime(info._shixian).ToString("yyyy-MM-dd");
+
+                }
+                catch { }
 
             }
 
@@ -178,65 +191,11 @@ namespace 团队任务台账管理系统.UserControll
                 JJTongzhiInfo info = task as JJTongzhiInfo;
 
                 _myc.Yidu(info);//将状态从未读变为已读
-                                //这里不在显示原窗体，改为word形式
-                Document myword = new Document();
-                DocumentBuilder myb = new DocumentBuilder(myword);
-                //添加标题
-                Aspose.Words.Font font = myb.Font;
-                font.Size = 16;
-                font.Bold = true;
-                //font.Color = System.Drawing.Color.Blue;
-                //font.Name = "Arial";
-                //font.Underline = Underline.Dash;
-
-                // Specify paragraph formatting
-                ParagraphFormat paragraphFormat = myb.ParagraphFormat;
-                //paragraphFormat.FirstLineIndent = 8;
-                paragraphFormat.Alignment = ParagraphAlignment.Center;
-                //paragraphFormat.KeepTogether = true;
-
-                myb.Writeln(info._biaoti);
-
-
-
-                //添加 签发人
-               
-                font.Size = 12;
-                font.Bold = true;
-                //font.Color = System.Drawing.Color.Blue;
-                //font.Name = "Arial";
-                //font.Underline = Underline.Dash;
-
-                // Specify paragraph formatting
-                 paragraphFormat = myb.ParagraphFormat;
-                //paragraphFormat.FirstLineIndent = 8;
-                paragraphFormat.Alignment = ParagraphAlignment.Center;
-                //paragraphFormat.KeepTogether = true;
-
-                myb.Writeln(info._qianfaren);
-                myb.Writeln("");
-
-
-
-                //添加内容
-                font.Size = 12;
-                font.Bold = false;
-                //font.Color = System.Drawing.Color.Blue;
-                //font.Name = "Arial";
-                //font.Underline = Underline.Dash;
-
-                // Specify paragraph formatting
-                paragraphFormat = myb.ParagraphFormat;
-                paragraphFormat.FirstLineIndent = 8;
-                paragraphFormat.Alignment = ParagraphAlignment.Justify;
-                //paragraphFormat.KeepTogether = true;
-
-                myb.Writeln(info._neirong);
-
-                string dataDir = @".\tongzhi.rtf";
-                myword.Save(dataDir, SaveFormat.Rtf);
-                WinFormTongzhi mywin = new WinFormTongzhi();
-                mywin.ShowDialog();
+                WinFormTongzhi mywin = new WinFormTongzhi(info);
+                if (mywin.ShowDialog()==DialogResult.OK)
+                {
+                    JJMethod.a_shuaxinzhuye(null, null);
+                } 
 
 
                 //WFtongzhigonggao mywin = new WFtongzhigonggao(info);

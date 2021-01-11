@@ -87,11 +87,26 @@ namespace 团队任务台账管理系统.JJModel
             JJLoginInfo._suodingguize = mydr["锁定规则"].ToString();
             JJLoginInfo._suodingchachongku = mydr["锁定查重库"].ToString();
         }
-
+        /// <summary>
+        /// 判断是否有新任务
+        /// </summary>
+        /// <returns></returns>
         public static int GetWeiduTaskNum()
         {
-            string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 状态='未读' and (参与人='{JJLoginInfo._huaming}' or 负责人='{JJLoginInfo._huaming}')";
+            string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 状态='未读' and (参与人='{JJLoginInfo._huaming}' or 负责人='{JJLoginInfo._huaming}' or " +
+                $"反馈对象='{JJLoginInfo._huaming}' or 办理人员='{JJLoginInfo._huaming}' or 委托对象='{JJLoginInfo._huaming}' or " +
+                $"审核人员='{JJLoginInfo._huaming}' or 总体验收人='{JJLoginInfo._huaming}')";
             DataTable mydt = _mysqlhelper.ExecuteDataTable(str_sql);
+            if (mydt.Rows.Count>0)
+            {
+                JJMethod.IconStartShanshuo();
+            }
+            else
+            {
+                JJMethod.IconStopShanshuo();
+            }
+
+
             return mydt.Rows.Count;
         }
 

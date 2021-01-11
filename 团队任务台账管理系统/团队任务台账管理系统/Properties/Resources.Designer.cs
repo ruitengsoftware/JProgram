@@ -91,6 +91,16 @@ namespace 团队任务台账管理系统.Properties {
         }
         
         /// <summary>
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Icon blank {
+            get {
+                object obj = ResourceManager.GetObject("blank", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap delete1 {
@@ -131,16 +141,6 @@ namespace 团队任务台账管理系统.Properties {
         }
         
         /// <summary>
-        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
-        /// </summary>
-        internal static System.Drawing.Icon empty {
-            get {
-                object obj = ResourceManager.GetObject("empty", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap fangdajing {
@@ -156,6 +156,16 @@ namespace 团队任务台账管理系统.Properties {
         internal static System.Drawing.Bitmap fangdajing2 {
             get {
                 object obj = ResourceManager.GetObject("fangdajing2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap folderlv {
+            get {
+                object obj = ResourceManager.GetObject("folderlv", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

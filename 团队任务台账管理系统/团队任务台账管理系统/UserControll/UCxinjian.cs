@@ -14,6 +14,7 @@ using System.Web.UI.WebControls;
 using 团队任务台账管理系统.WinForm;
 using 团队任务台账管理系统.JJModel;
 using System.Text.RegularExpressions;
+using 团队任务台账管理系统.Common;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -34,7 +35,9 @@ namespace 团队任务台账管理系统.UserControll
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string str_uploadfile = ofd.FileName;
-                string webpath = $"http://49.233.40.109/haahah/";
+               // string webpath = $"http://49.233.40.109/哈哈哈/";
+                string webpath = $"http://49.233.40.109/常规事项/测试花名/";
+
                 string filepath = Path.GetDirectoryName(str_uploadfile);
                 string filename = Path.GetFileName(str_uploadfile);
                 UpLoadFile(str_uploadfile, webpath, false);//上传文件
@@ -61,11 +64,8 @@ namespace 团队任务台账管理系统.UserControll
 
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    WebClient myWebClient = new WebClient();
-                    NetworkCredential credentials = new NetworkCredential("Administrator", "lixingrui+850223");
-                    myWebClient.Credentials = credentials;
-                    Uri myuri = new Uri("http://49.233.40.109/标准表格.xlsx");
-                   myWebClient.DownloadFileAsync(myuri, sfd.FileName);
+                    string filename = "http://49.233.40.109/标准表格.xlsx";
+                   await JJMethod.DownLoadFileAsync(filename, sfd.FileName);
                     MessageBox.Show("表格下载成功！");
                 }
 
@@ -80,6 +80,23 @@ namespace 团队任务台账管理系统.UserControll
         /// <param name="IsAutoRename">是否自动按照时间重命名</param>
         public void UpLoadFile(string fileNamePath, string uriString, bool IsAutoRename)
         {
+            NetworkCredential credentials = new NetworkCredential("Administrator", "lixingrui+850223");
+            //判断是否存在文件夹，如果不存在，新建
+            if (!Directory.Exists(uriString))
+            {
+                HttpWebRequest mywebRequest = (HttpWebRequest)WebRequest.CreateDefault(new Uri(uriString));
+                mywebRequest.Credentials = credentials;
+                // mywebRequest.Method = WebRequestMethods.Ftp.MakeDirectory;
+                mywebRequest.Method = "MKD";
+
+                try
+                {
+                    //FtpWebResponse response = mywebRequest.GetResponse() as FtpWebResponse;
+                   HttpWebResponse response = mywebRequest.GetResponse() as HttpWebResponse;
+
+                }
+                catch { }
+            }
             string fileName = fileNamePath.Substring(fileNamePath.LastIndexOf("\\") + 1);
             //上传的文件样式xxxxxxxxx_006.xlsx
             //string strVN = NewFileName.Substring(NewFileName.LastIndexOf("_") + 1);//"006.xlsx"
@@ -95,7 +112,6 @@ namespace 团队任务台账管理系统.UserControll
             uriString = uriString + NewFileName;
             WebClient myWebClient = new WebClient();
             // myWebClient.Credentials = CredentialCache.DefaultCredentials;
-            NetworkCredential credentials = new NetworkCredential("Administrator", "lixingrui+850223");
             myWebClient.Credentials = credentials;
             FileStream fs = new FileStream(fileNamePath, FileMode.Open, FileAccess.Read);
             //FileStream fs = OpenFile();  
@@ -148,71 +164,6 @@ namespace 团队任务台账管理系统.UserControll
             //释放资源
             wc.Dispose();
         }
-        /// <summary>  
-        /// 从本地上传文件至服务器
-        /// </summary>  
-        /// <param name="src">远程服务器路径（共享文件夹路径）</param>  
-        /// <param name="dst">本地文件夹路径</param>  
-        /// <param name="fileName">上传至服务器上的文件名，包含扩展名</param>  
-        public static void UpLoadFile(string src, string dst, string fileName)
-        {
-            if (!Directory.Exists(dst))
-            {
-                Directory.CreateDirectory(dst);
-            }
-            src = src + fileName;
-            FileStream inFileStream = new FileStream(src, FileMode.OpenOrCreate);    //从远程服务器下载到本地的文件 
-
-            FileStream outFileStream = new FileStream(dst, FileMode.Open);    //远程服务器文件  此处假定远程服务器共享文件夹下确实包含本文件，否则程序报错  
-
-            byte[] buf = new byte[outFileStream.Length];
-
-            int byteCount;
-
-            while ((byteCount = outFileStream.Read(buf, 0, buf.Length)) > 0)
-            {
-                inFileStream.Write(buf, 0, byteCount);
-
-            }
-
-            inFileStream.Flush();
-
-            inFileStream.Close();
-
-            outFileStream.Flush();
-
-            outFileStream.Close();
-
-        }
-        /// <summary>
-        /// 上传文件到服务器
-        /// </summary>
-        /// <param name="str_path">需要存放到服务器上的路径</param>
-        /// <param name="file1">客户端文件</param>
-        /// <returns>上传是否成功</returns>
-        public static string UpFile(string str_path, HttpPostedFile file1, out string v_err)
-        {
-            v_err = null;
-            string aaa = file1.FileName;
-            if (Directory.Exists(str_path) == false)
-            {
-                Directory.CreateDirectory(str_path);
-            }
-            char[] a = { '\\' };
-            string file_name = Guid.NewGuid().ToString("n") + file1.FileName.Split(a)[file1.FileName.Split(a).Length - 1];
-            if (file_name == "")
-            {
-                str_path = "";
-                v_err = "客户端文件不存在！";
-                return null;
-            }
-            else
-            {
-                str_path = str_path + "\\" + file_name;
-                file1.SaveAs(str_path);
-                return file_name;
-            }
-        }
         /// <summary>
         /// 点击新建按钮时触发的事件
         /// </summary>
@@ -237,20 +188,20 @@ namespace 团队任务台账管理系统.UserControll
             //        (this.ParentForm as Form1).lbl_newtask.Visible = true;
             //    }
             //}
-            
+
         }
 
         private void lbl_gongzuoqingdan_Click(object sender, EventArgs e)
         {
-            WinForm.WFgongzuoqingdan mywinform = new WinForm.WFgongzuoqingdan() { StartPosition=FormStartPosition.CenterParent};
-            mywinform.TopLevel = false;
+            WinForm.WFgongzuoqingdan mywinform = new WinForm.WFgongzuoqingdan() {
+                StartPosition = FormStartPosition.CenterParent,
+                
+            };
+            mywinform.TopMost = true;
             mywinform.MdiParent = this.ParentForm;
             panel_task.Controls.Add(mywinform);
             mywinform.Show();
-            //if (mywinform.ShowDialog() == DialogResult.OK)
-            //{
-             
-            //}
+
         }
 
         private void lbl_okrshixiang_Click(object sender, EventArgs e)
@@ -260,12 +211,13 @@ namespace 团队任务台账管理系统.UserControll
             mywin.MdiParent = this.ParentForm;
             panel_task.Controls.Add(mywin);
             mywin.Show();
+
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
-          var  mywin = new WFtongzhigonggao() { StartPosition = FormStartPosition.CenterParent };
-            mywin.TopLevel = false;
+            var mywin = new WFtongzhigonggao() { StartPosition = FormStartPosition.CenterParent };
+            //mywin.TopLevel = false;
             mywin.MdiParent = this.ParentForm;
             panel_task.Controls.Add(mywin);
             mywin.Show();
@@ -275,7 +227,7 @@ namespace 团队任务台账管理系统.UserControll
         private void label6_Click(object sender, EventArgs e)
         {
             var mywin = new WFqingxiujiadan() { StartPosition = FormStartPosition.CenterParent };
-            mywin.TopLevel = false;
+            //mywin.TopLevel = false;
             mywin.MdiParent = this.ParentForm;
             panel_task.Controls.Add(mywin);
             mywin.Show();
@@ -286,7 +238,7 @@ namespace 团队任务台账管理系统.UserControll
         private void label7_Click(object sender, EventArgs e)
         {
             var mywin = new WFyijianjianyi() { StartPosition = FormStartPosition.CenterParent };
-            mywin.TopLevel = false;
+            //mywin.TopLevel = false;
             mywin.MdiParent = this.ParentForm;
             panel_task.Controls.Add(mywin);
             mywin.Show();

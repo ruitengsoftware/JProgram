@@ -36,7 +36,26 @@ namespace 团队任务台账管理系统.Controller
                     _duqushijian = mydr["读取时间"].ToString(),
                     _shixian = mydr["时限"].ToString(),
                     _jinjichengdu = mydr["紧急程度"].ToString(),
-                    _shanchu =Convert.ToInt32( mydr["删除"].ToString())
+                    _shanchu =Convert.ToInt32( mydr["删除"].ToString()),
+                    _mubiao= mydr["总体目标"].ToString(),
+                    _chengguoji= mydr["成果集"].ToString(),
+                    _shenqingren= mydr["申请人"].ToString(),
+                    _shiyou= mydr["事由"].ToString(),
+                    _kaishishijian= mydr["开始时间"].ToString(),
+                    _jieshushijian= mydr["结束时间"].ToString(),
+                    _weituoduixiang= mydr["委托对象"].ToString(),
+                    _shenheyijian= mydr["审核意见"].ToString(),
+                    _biaoti= mydr["标题"].ToString(),
+                    _fankuiren= mydr["反馈人"].ToString(),
+                    _fankuiduixiang= mydr["反馈对象"].ToString(),
+                    _neirong= mydr["内容"].ToString(),
+                    _banliyijian= mydr["办理意见"].ToString(),
+                    _banlirenyuan= mydr["办理人员"].ToString(),
+                    _jinzhanqingkuang= mydr["进展情况"].ToString(),
+                    _zongtiyanshouren= mydr["总体验收人"].ToString(),
+                    _chuliyijian= mydr["处理意见"].ToString(),
+                    _shenherenyuan= mydr["审核人员"].ToString(),
+                    _fasongren= mydr["发送人"].ToString()
 
 
                 };

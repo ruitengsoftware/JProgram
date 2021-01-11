@@ -241,6 +241,7 @@
             this.btn_tuandui.TabIndex = 2;
             this.btn_tuandui.Text = "团队";
             this.btn_tuandui.UseVisualStyleBackColor = true;
+            this.btn_tuandui.Visible = false;
             this.btn_tuandui.Click += new System.EventHandler(this.btn_tuandui_Click);
             // 
             // flowLayoutPanel1
@@ -348,7 +349,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "写手OA系统V1.1.4 2020年12月22号";
+            this.Text = "写手OA系统V1.1.5 2021年1月8号";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

@@ -32,27 +32,39 @@ namespace 团队任务台账管理系统.UserControll
             InitializeComponent();
             this.Dock = DockStyle.Top;
             myti = ti;
-            lbl_renwuming.Text = ti._mingcheng;
             string leixing = string.Empty;
             if (ti._leixing.Equals("OKR事项"))
             {
                 leixing = "OKR";
+                lbl_renwuming.Text = ti._mingcheng;
+
             }
             else if (ti._leixing.Equals("常规事项"))
             {
                 leixing = "事务";
+                lbl_renwuming.Text = ti._mingcheng;
+
             }
             else if (ti._leixing.Equals("请休假单"))
             {
                 leixing = "假单";
+                lbl_renwuming.Text = ti._shiyou;
+
             }
             else if (ti._leixing.Equals("意见建议"))
             {
                 leixing = "建言";
+                lbl_renwuming.Text = ti._mubiao;
+
             }
 
             lbl_renwuleixing.Text = leixing;
-            lbl_shixian.Text = Convert.ToDateTime(ti._shixian).ToString("yyyy-MM-dd");
+            try
+            {
+                lbl_shixian.Text = Convert.ToDateTime(ti._shixian).ToString("yyyy-MM-dd");
+
+            }
+            catch { }
             if (myti._zhuangtai.Equals("未读"))
             {
                 pb_weidu.Visible = true;

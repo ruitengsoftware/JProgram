@@ -34,6 +34,10 @@
             this.dtp_wanchengshijian = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rb_d = new System.Windows.Forms.RadioButton();
+            this.rb_c = new System.Windows.Forms.RadioButton();
+            this.rb_b = new System.Windows.Forms.RadioButton();
+            this.rb_a = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tb_beizhu = new System.Windows.Forms.TextBox();
@@ -42,10 +46,6 @@
             this.tb_renwumingcheng = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tb_jingyanjiaoxun = new System.Windows.Forms.TextBox();
-            this.rb_a = new System.Windows.Forms.RadioButton();
-            this.rb_b = new System.Windows.Forms.RadioButton();
-            this.rb_c = new System.Windows.Forms.RadioButton();
-            this.rb_d = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -102,6 +102,7 @@
             // 
             this.dtp_wanchengshijian.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtp_wanchengshijian.Location = new System.Drawing.Point(3, 19);
+            this.dtp_wanchengshijian.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
             this.dtp_wanchengshijian.Name = "dtp_wanchengshijian";
             this.dtp_wanchengshijian.Size = new System.Drawing.Size(504, 23);
             this.dtp_wanchengshijian.TabIndex = 9;
@@ -143,6 +144,58 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "轻重缓急";
+            // 
+            // rb_d
+            // 
+            this.rb_d.AutoSize = true;
+            this.rb_d.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rb_d.Location = new System.Drawing.Point(333, 19);
+            this.rb_d.Name = "rb_d";
+            this.rb_d.Size = new System.Drawing.Size(119, 22);
+            this.rb_d.TabIndex = 2;
+            this.rb_d.TabStop = true;
+            this.rb_d.Text = "D类不急且不重要";
+            this.rb_d.UseVisualStyleBackColor = true;
+            this.rb_d.CheckedChanged += new System.EventHandler(this.rb_a_CheckedChanged);
+            // 
+            // rb_c
+            // 
+            this.rb_c.AutoSize = true;
+            this.rb_c.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rb_c.Location = new System.Drawing.Point(227, 19);
+            this.rb_c.Name = "rb_c";
+            this.rb_c.Size = new System.Drawing.Size(106, 22);
+            this.rb_c.TabIndex = 1;
+            this.rb_c.TabStop = true;
+            this.rb_c.Text = "C类不急但重要";
+            this.rb_c.UseVisualStyleBackColor = true;
+            this.rb_c.CheckedChanged += new System.EventHandler(this.rb_a_CheckedChanged);
+            // 
+            // rb_b
+            // 
+            this.rb_b.AutoSize = true;
+            this.rb_b.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rb_b.Location = new System.Drawing.Point(109, 19);
+            this.rb_b.Name = "rb_b";
+            this.rb_b.Size = new System.Drawing.Size(118, 22);
+            this.rb_b.TabIndex = 0;
+            this.rb_b.TabStop = true;
+            this.rb_b.Text = "B类紧急但不重要";
+            this.rb_b.UseVisualStyleBackColor = true;
+            this.rb_b.CheckedChanged += new System.EventHandler(this.rb_a_CheckedChanged);
+            // 
+            // rb_a
+            // 
+            this.rb_a.AutoSize = true;
+            this.rb_a.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rb_a.Location = new System.Drawing.Point(3, 19);
+            this.rb_a.Name = "rb_a";
+            this.rb_a.Size = new System.Drawing.Size(106, 22);
+            this.rb_a.TabIndex = 0;
+            this.rb_a.TabStop = true;
+            this.rb_a.Text = "A类紧急且重要";
+            this.rb_a.UseVisualStyleBackColor = true;
+            this.rb_a.CheckedChanged += new System.EventHandler(this.rb_a_CheckedChanged);
             // 
             // groupBox4
             // 
@@ -233,58 +286,6 @@
             this.tb_jingyanjiaoxun.Name = "tb_jingyanjiaoxun";
             this.tb_jingyanjiaoxun.Size = new System.Drawing.Size(504, 150);
             this.tb_jingyanjiaoxun.TabIndex = 0;
-            // 
-            // rb_a
-            // 
-            this.rb_a.AutoSize = true;
-            this.rb_a.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rb_a.Location = new System.Drawing.Point(3, 19);
-            this.rb_a.Name = "rb_a";
-            this.rb_a.Size = new System.Drawing.Size(106, 22);
-            this.rb_a.TabIndex = 0;
-            this.rb_a.TabStop = true;
-            this.rb_a.Text = "A类紧急且重要";
-            this.rb_a.UseVisualStyleBackColor = true;
-            this.rb_a.CheckedChanged += new System.EventHandler(this.rb_a_CheckedChanged);
-            // 
-            // rb_b
-            // 
-            this.rb_b.AutoSize = true;
-            this.rb_b.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rb_b.Location = new System.Drawing.Point(109, 19);
-            this.rb_b.Name = "rb_b";
-            this.rb_b.Size = new System.Drawing.Size(118, 22);
-            this.rb_b.TabIndex = 0;
-            this.rb_b.TabStop = true;
-            this.rb_b.Text = "B类紧急但不重要";
-            this.rb_b.UseVisualStyleBackColor = true;
-            this.rb_b.CheckedChanged += new System.EventHandler(this.rb_a_CheckedChanged);
-            // 
-            // rb_c
-            // 
-            this.rb_c.AutoSize = true;
-            this.rb_c.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rb_c.Location = new System.Drawing.Point(227, 19);
-            this.rb_c.Name = "rb_c";
-            this.rb_c.Size = new System.Drawing.Size(106, 22);
-            this.rb_c.TabIndex = 1;
-            this.rb_c.TabStop = true;
-            this.rb_c.Text = "C类不急但重要";
-            this.rb_c.UseVisualStyleBackColor = true;
-            this.rb_c.CheckedChanged += new System.EventHandler(this.rb_a_CheckedChanged);
-            // 
-            // rb_d
-            // 
-            this.rb_d.AutoSize = true;
-            this.rb_d.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rb_d.Location = new System.Drawing.Point(333, 19);
-            this.rb_d.Name = "rb_d";
-            this.rb_d.Size = new System.Drawing.Size(119, 22);
-            this.rb_d.TabIndex = 2;
-            this.rb_d.TabStop = true;
-            this.rb_d.Text = "D类不急且不重要";
-            this.rb_d.UseVisualStyleBackColor = true;
-            this.rb_d.CheckedChanged += new System.EventHandler(this.rb_a_CheckedChanged);
             // 
             // WFgongzuoqingdan
             // 

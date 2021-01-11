@@ -31,11 +31,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_quding = new System.Windows.Forms.Button();
-            this.dgv_data = new System.Windows.Forms.DataGridView();
             this.btn_guanbi = new System.Windows.Forms.Button();
+            this.tv_my = new 团队任务台账管理系统.UserControll.JJTreeView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -43,7 +42,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dgv_data, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tv_my, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -82,16 +81,6 @@
             this.btn_quding.UseVisualStyleBackColor = true;
             this.btn_quding.Click += new System.EventHandler(this.btn_quding_Click);
             // 
-            // dgv_data
-            // 
-            this.dgv_data.AllowUserToAddRows = false;
-            this.dgv_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_data.Location = new System.Drawing.Point(3, 3);
-            this.dgv_data.Name = "dgv_data";
-            this.dgv_data.RowTemplate.Height = 23;
-            this.dgv_data.Size = new System.Drawing.Size(793, 386);
-            this.dgv_data.TabIndex = 1;
-            // 
             // btn_guanbi
             // 
             this.btn_guanbi.Location = new System.Drawing.Point(402, 3);
@@ -101,6 +90,17 @@
             this.btn_guanbi.Text = "关闭";
             this.btn_guanbi.UseVisualStyleBackColor = true;
             this.btn_guanbi.Click += new System.EventHandler(this.btn_guanbi_Click);
+            // 
+            // tv_my
+            // 
+            this.tv_my.CheckBoxes = true;
+            this.tv_my.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tv_my.Location = new System.Drawing.Point(3, 3);
+            this.tv_my.Name = "tv_my";
+            this.tv_my.Size = new System.Drawing.Size(793, 386);
+            this.tv_my.TabIndex = 1;
+            this.tv_my.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.tv_my_AfterCheck);
+            this.tv_my.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tv_my_NodeMouseClick);
             // 
             // WFperson
             // 
@@ -116,7 +116,6 @@
             this.Load += new System.EventHandler(this.WFperson_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -126,7 +125,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btn_quding;
-        private System.Windows.Forms.DataGridView dgv_data;
         private System.Windows.Forms.Button btn_guanbi;
+        private UserControll.JJTreeView tv_my;
     }
 }

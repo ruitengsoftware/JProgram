@@ -9,7 +9,7 @@ using 团队任务台账管理系统.JJModel;
 
 namespace 团队任务台账管理系统.UserControll
 {
-   public class ControllerUCmessage
+    public class ControllerUCmessage
     {
 
         MySQLHelper _mysql = new MySQLHelper();
@@ -42,11 +42,32 @@ namespace 团队任务台账管理系统.UserControll
         /// <returns></returns>
         public bool UpdateZhuangtai(JJTaskInfo ti)
         {
-            string str_sql = $"update jjdbrenwutaizhang.任务信息表 set 状态='{ti._zhuangtai}' where 名称='{ti._mingcheng}' and 创建时间='{ti._chuangjianshijian}' and 创建人='{ti._chuangjianren}' " +
-                $"and 负责人='{ti._fuzeren}' and 参与人='{ti._canyuren}'";
-            int num=_mysql.ExecuteNonQuery(str_sql);
+            //判断任务类型，构造不同的str_sql语句
+            string str_sql = string.Empty;
+            if (ti._leixing.Equals("意见建议"))
+            {
+                str_sql = $"update jjdbrenwutaizhang.任务信息表 set 状态='{ti._zhuangtai}' where 标题='{ti._biaoti}' and 类型='{ti._leixing}' " +
+                                $"and 反馈对象='{ti._fankuiduixiang}' and 删除=0";
+
+            }
+            if (ti._leixing.Equals("常规事项"))
+            {
+                str_sql = $"update jjdbrenwutaizhang.任务信息表 set 状态='{ti._zhuangtai}' where 名称='{ti._mingcheng}' and 类型='{ti._leixing}' " +
+                                $"and 办理人员='{ti._banlirenyuan}' and 删除=0";
+            }
+            if (ti._leixing.Equals("OKR事项"))
+            {
+                str_sql = $"update jjdbrenwutaizhang.任务信息表 set 状态='{ti._zhuangtai}' where 名称='{ti._mingcheng}' and 类型='{ti._leixing}' " +
+                                $"and 总体验收人='{ti._zongtiyanshouren}' and 删除=0";
+            }
+            if (ti._leixing.Equals("请休假单"))
+            {
+                str_sql = $"update jjdbrenwutaizhang.任务信息表 set 状态='{ti._zhuangtai}' where 事由='{ti._shiyou}' and 类型='{ti._leixing}' " +
+                                $"and 审核人员='{ti._shenherenyuan}' and 删除=0";
+            }
+            int num = _mysql.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
-        
+
         }
     }
 }

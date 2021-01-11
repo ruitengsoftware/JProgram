@@ -11,6 +11,14 @@ namespace 团队任务台账管理系统.JJModel
     /// </summary>
     public class JJTaskInfo
     {
+        public string _xiaojiaqingkuang = string.Empty;
+
+        public string _qizhishijian = string.Empty;
+
+        public int _qingjiatianshu = 0;
+
+        public string _fujian = string.Empty;
+
         /// <summary>
         /// 名称
         /// </summary>
@@ -98,5 +106,18 @@ namespace 团队任务台账管理系统.JJModel
         public string _jinzhanqingkuang = string.Empty;
 
         public string _zongtiyanshouren = string.Empty;
+
+        public string _chuliyijian = string.Empty;
+
+
+        public string _fasongren = string.Empty;
+
+        public string _fasongshijian = string.Empty;
+
+        public string _shenherenyuan = string.Empty;
+
+
+        public string _jutiyaoqiu = string.Empty;
+
     }
 }

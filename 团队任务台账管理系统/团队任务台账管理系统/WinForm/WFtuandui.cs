@@ -46,7 +46,7 @@ namespace 团队任务台账管理系统.WinForm
             WFperson mywf = new WFperson(string.Empty);//这里必须传参，但实际没有需要
             if (mywf.ShowDialog() == DialogResult.OK)
             {
-                tb_fuzeren.Text = string.Join(",", mywf.list_person);
+                tb_fuzeren.Text = string.Join(",", mywf.list_selected);
             }
         }
 
@@ -55,7 +55,7 @@ namespace 团队任务台账管理系统.WinForm
             WFperson mywf = new WFperson(string.Empty);//这里必须传参，但实际没有需要
             if (mywf.ShowDialog() == DialogResult.OK)
             {
-                tb_chengyuan.Text = string.Join(",", mywf.list_person);
+                tb_chengyuan.Text = string.Join(",", mywf.list_selected);
 
 
 

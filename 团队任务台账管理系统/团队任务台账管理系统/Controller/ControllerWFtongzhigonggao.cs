@@ -9,18 +9,26 @@ namespace 团队任务台账管理系统.Controller
 {
     public class ControllerWFtongzhigonggao
     {
-        MySQLHelper _mysqlhelper = new MySQLHelper();
+        MySQLHelper _mysql= new MySQLHelper();
 
         public bool SaveTongzhi(JJTongzhiInfo myinfo)
         {
             string str_sql = $"insert into jjdbrenwutaizhang.通知公告表 values('{myinfo._biaoti}','{myinfo._qianfaren}','{myinfo._neirong}',0,'{myinfo._zhuangtai}','{myinfo._fabushijian}','{myinfo._qingzhonghuanji}'" +
-                $",'{myinfo._shixian}','{myinfo._yuedufanwei}','{myinfo._shangchuanfujian}')";
-        int num = _mysqlhelper.ExecuteNonQuery(str_sql);
+                $",'{myinfo._shixian}','{myinfo._yuedufanwei}','{myinfo._fujian}')";
+            int num = _mysql.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
-
-
-
         }
+
+        public bool Yidu(JJTongzhiInfo info)
+        {
+            //string str_sql = $"update jjdbrenwutaizhang.通知公告表 set 状态='已读' where 标题='{info._biaoti}' and 删除=0 " +
+            //                $"and 状态='未读' and 签发人='{info._qianfaren}'";
+            string str_sql = $"update jjdbrenwutaizhang.通知公告表 set 状态='已读' where 标题='{info._biaoti}'";
+
+            int num = _mysql.ExecuteNonQuery(str_sql);
+            return num > 0 ? true : false;
+        }
+
 
     }
 }
