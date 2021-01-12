@@ -66,6 +66,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(1, 1);
             this.label1.Margin = new System.Windows.Forms.Padding(1);
             this.label1.Name = "label1";
@@ -78,6 +79,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(1, 1);
             this.label2.Margin = new System.Windows.Forms.Padding(1);
             this.label2.Name = "label2";
@@ -151,6 +153,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(1, 1);
             this.label4.Margin = new System.Windows.Forms.Padding(1);
             this.label4.Name = "label4";
@@ -201,6 +204,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(1, 1);
             this.label5.Margin = new System.Windows.Forms.Padding(1);
             this.label5.Name = "label5";
@@ -213,6 +217,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(1, 1);
             this.label3.Margin = new System.Windows.Forms.Padding(1);
             this.label3.Name = "label3";

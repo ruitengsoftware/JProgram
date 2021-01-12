@@ -42,18 +42,7 @@ namespace 团队任务台账管理系统.UserControll
                 string filepath = Path.GetDirectoryName(str_uploadfile);
                 string filename = Path.GetFileName(str_uploadfile);
                 UpLoadFile(str_uploadfile, webpath, false);//上传文件
-                                                           //    System.Net.WebClient myWebClient = new System.Net.WebClient();
-                                                           //NetworkCredential credentials = new NetworkCredential("Administrator", "Lxr+850223");
-                                                           //myWebClient.Credentials = credentials;
-                                                           //myWebClient.UploadFile(webpath, "put", str_uploadfile);
-
-
-
             }
-
-            //iZmahmn46g6czhZ	172.17.19.156	联机 - 未启动性能计数器	2020/10/6 23:56:58	00430-00000-00000-AA534(已激活)
-
-
         }
 
         private async void btn_xiazai_Click(object sender, EventArgs e)

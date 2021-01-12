@@ -77,7 +77,7 @@
     </Reference>
     <Reference Include="RuitengDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
+      <HintPath>G:\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
