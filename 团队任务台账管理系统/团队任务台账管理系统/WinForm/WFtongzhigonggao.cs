@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RuiTengDll;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,10 +55,6 @@ namespace 团队任务台账管理系统.WinForm
                 _fabushijian=DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),
                _shixian=dtp_shixian.Value.ToString("yyyy-MM-dd hh:mm:ss"),
                _yuedufanwei=tb_yuedufanwei.Text
-             
-
-
-
             };
             //保存jjtonzhiinfo
             bool b = _mycontroller.SaveTongzhi(myinfo);
@@ -81,6 +78,32 @@ namespace 团队任务台账管理系统.WinForm
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pb_renyuan_Click(object sender, EventArgs e)
+        {
+            WFperson mywin = new WFperson();
+            if (mywin.ShowDialog()==DialogResult.OK)
+            {
+                tb_yuedufanwei.Text = string.Join(",", mywin.list_selected);
+
+            }
+        }
+        UIHelper _ui = new UIHelper();
+        private void label5_MouseEnter(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, -1);
+        }
+
+        private void lbl_quxiao_MouseLeave(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, +1);
+
+        }
+
+        private void lbl_quxiao_Paint(object sender, PaintEventArgs e)
+        {
+            UIHelper.DrawRoundRect((Control)sender);
         }
     }
 }

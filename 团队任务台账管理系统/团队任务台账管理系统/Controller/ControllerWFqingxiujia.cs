@@ -42,9 +42,9 @@ namespace 团队任务台账管理系统.Controller
         public bool FasongBanli(JJTaskInfo myinfo)
         {
 
-          string  str_sql = $"insert into jjdbrenwutaizhang.任务信息表 (事由,紧急程度,请假天数,起止时间,委托对象," +
+          string  str_sql = $"insert into jjdbrenwutaizhang.任务信息表 (事由,紧急程度,请假天数,起止时间," +
                 $"审核人员,审核意见,销假情况,发送时间,发送人,类型,删除,状态) " +
-                $"values('{myinfo._shiyou}','{myinfo._jinjichengdu}',{myinfo._qingjiatianshu},'{myinfo._qizhishijian}','{myinfo._weituoduixiang}'," +
+                $"values('{myinfo._shiyou}','{myinfo._jinjichengdu}',{myinfo._qingjiatianshu},'{myinfo._qizhishijian}'," +
                 $"'{myinfo._shenherenyuan}','{myinfo._shenheyijian}','{myinfo._xiaojiaqingkuang}','{myinfo._fasongshijian}','{myinfo._fasongren}','{myinfo._leixing}',0,'{myinfo._zhuangtai}')";
             int num = _mysql.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;

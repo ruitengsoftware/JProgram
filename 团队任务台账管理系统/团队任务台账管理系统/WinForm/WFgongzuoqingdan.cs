@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RuiTengDll;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,13 +25,12 @@ namespace 团队任务台账管理系统.WinForm
             this.StartPosition = FormStartPosition.CenterParent;
 
             tb_renwumingcheng.Text = q._renwumingcheng;
-            cbb_xiangxian.Text = q._xiangxian;
             dtp_wanchengshijian.Value = Convert.ToDateTime(q._wanchengshijian);
             tb_beizhu.Text = q._beizhu;
             tb_jingyanjiaoxun.Text = q._jingyanjiaoxun;
             foreach (RadioButton rb in groupBox2.Controls)
             {
-                if (rb.Text==Properties.Settings.Default.轻重缓急)
+                if (rb.Text==q._qingzhonghuanji)
                 {
                     rb.Checked = true;
                 }
@@ -43,19 +43,46 @@ namespace 团队任务台账管理系统.WinForm
         ControllerXinjiangongzuoqingdan _mycontroller = new ControllerXinjiangongzuoqingdan();
         private void lbl_queding_Click(object sender, EventArgs e)
         {
+
+
             //保存任务，构建一个任务对象，保存到数据库
             JJQingdanInfo myrenwu = new JJQingdanInfo() {
                 _renwumingcheng = tb_renwumingcheng.Text,
-                _chuangjianren = JJLoginInfo._shiming,
+                _chuangjianren = JJLoginInfo._huaming,
                 _wanchengshijian = dtp_wanchengshijian.Value.ToString("yyyy年MM月dd日 hh:mm:ss"),
-                _xiangxian = cbb_xiangxian.Text,
+              
                 _chuangjianshijian = DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss"),
                 _beizhu=tb_beizhu.Text,
                 _jingyanjiaoxun=tb_jingyanjiaoxun.Text
             };
+            if (rb_a.Checked)
+            {
+                myrenwu._qingzhonghuanji = "A类紧急且重要";
+            }
+            if (rb_b.Checked)
+            {
+                myrenwu._qingzhonghuanji = "B类紧急但不重要";
+            }
+            if (rb_c.Checked)
+            {
+                myrenwu._qingzhonghuanji = "C类不急但重要";
+            }
+            if (rb_d.Checked)
+            {
+                myrenwu._qingzhonghuanji = "D类不急且不重要";
+            }
+
+
+
+
             //保存工作清单任务
-            _mycontroller.SaveGongzuoqingdan(myrenwu);
-            this.DialogResult = DialogResult.OK;
+          bool b=  _mycontroller.SaveGongzuoqingdan(myrenwu);
+            if (b)
+            {
+                MessageBox.Show("清单已添加！");
+           this.DialogResult = DialogResult.OK;
+
+            }
 
         }
 
@@ -74,6 +101,23 @@ namespace 团队任务台账管理系统.WinForm
                 Properties.Settings.Default.Save();
             }
 
+
+        }
+        UIHelper _ui = new UIHelper();
+        private void lbl_quxiao_Paint(object sender, PaintEventArgs e)
+        {
+            UIHelper.DrawRoundRect((Control)sender);
+
+        }
+
+        private void lbl_queding_MouseEnter(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, -1);
+        }
+
+        private void lbl_quxiao_MouseLeave(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, +1);
 
         }
     }

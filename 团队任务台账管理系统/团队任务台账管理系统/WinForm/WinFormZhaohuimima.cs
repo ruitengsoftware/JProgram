@@ -68,19 +68,19 @@ namespace 团队任务台账管理系统.JJWinForm
 
         private void lbl_queding_MouseEnter(object sender, EventArgs e)
         {
-           _myui.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
 
         }
 
         private void lbl_queding_MouseLeave(object sender, EventArgs e)
         {
-           _myui.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
 
         }
 
         private void lbl_queding_Paint(object sender, PaintEventArgs e)
         {
-            _myui.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
     }
 }

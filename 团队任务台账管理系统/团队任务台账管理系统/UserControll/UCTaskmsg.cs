@@ -76,7 +76,7 @@ namespace 团队任务台账管理系统.UserControll
         }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            _ui.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
         /// <summary>
         /// 点击任务名时触发的事件
@@ -92,26 +92,6 @@ namespace 团队任务台账管理系统.UserControll
                 myti._zhuangtai = "未处理";
                 _myc.UpdateZhuangtai(myti);
             }
-
-            ////获得任务名称，根据名称获得datatable
-            //DataTable dt = _myc.GetTaskInfo(lbl_renwuming.Text);
-
-
-            ////获得任务jjtaskinfo
-            //JJTaskInfo ti = new JJTaskInfo()
-            //{
-            //    _mingcheng = dt.Rows[dt.Rows.Count - 1]["名称"].ToString(),
-            //    _leixing = dt.Rows[dt.Rows.Count - 1]["类型"].ToString(),
-            //    _fuzeren = dt.Rows[dt.Rows.Count - 1]["负责人"].ToString(),
-            //    _canyuren = dt.Rows[dt.Rows.Count - 1]["参与人"].ToString(),
-            //    _zhuangtai = dt.Rows[dt.Rows.Count - 1]["状态"].ToString(),
-            //    _xiangqing = dt.Rows[dt.Rows.Count - 1]["详情"].ToString(),
-            //    _chuangjianren = dt.Rows[dt.Rows.Count - 1]["创建人"].ToString(),
-            //    _chuangjianshijian = dt.Rows[dt.Rows.Count - 1]["创建时间"].ToString(),
-            //    _duqushijian = dt.Rows[dt.Rows.Count - 1]["读取时间"].ToString(),
-            //    _shixian = dt.Rows[dt.Rows.Count - 1]["时限"].ToString(),
-            //    _jinjichengdu = dt.Rows[dt.Rows.Count - 1]["紧急程度"].ToString()
-            //};
 
             //弹出任务信息窗体，在split右侧加载uc
             UCTaskInfo myuc = new UCTaskInfo(myti);

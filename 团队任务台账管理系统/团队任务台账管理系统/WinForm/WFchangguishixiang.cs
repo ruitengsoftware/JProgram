@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RuiTengDll;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,6 +32,9 @@ namespace 团队任务台账管理系统.WinForm
             tb_renwumingcheng.Text = myinfo._mingcheng;
             rb_putong.Checked = myinfo._jinjichengdu.Equals("普遍") ? true : false;
             rb_jinji.Checked = myinfo._jinjichengdu.Equals("紧急") ? true : false;
+
+
+
             lb_fujian.Items.AddRange(Regex.Split(myinfo._fujian, @"\|"));
             tb_jutiyaoqiu.Text = myinfo._xiangqing;
             tb_banlirenyuan.Text = myinfo._banlirenyuan;
@@ -191,6 +195,41 @@ namespace 团队任务台账管理系统.WinForm
                 JJMethod.UpLoadFile(str, str_path, false);
             }
             MessageBox.Show("附件已上传！");
+        }
+
+        private void pb_person_Click(object sender, EventArgs e)
+        {
+            WFperson mywin = new WFperson();
+            if (mywin.ShowDialog()==DialogResult.OK)
+            {
+                tb_banlirenyuan.Text = string.Join(",", mywin.list_selected);
+            }
+        }
+
+        private void btn_quxiao_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_quxiao_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+        UIHelper _ui = new UIHelper();
+        private void label7_Paint(object sender, PaintEventArgs e)
+        {
+            UIHelper.DrawRoundRect((Control)sender);
+        }
+
+        private void label7_MouseEnter(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, -1);
+        }
+
+        private void label7_MouseLeave(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, +1);
+
         }
     }
 }

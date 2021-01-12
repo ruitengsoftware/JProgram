@@ -200,6 +200,12 @@
     <Compile Include="UserControll\UCfankui.Designer.cs">
       <DependentUpon>UCfankui.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControll\UCfujian.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCfujian.Designer.cs">
+      <DependentUpon>UCfujian.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControll\UClishiziliao.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -446,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCfankui.resx">
       <DependentUpon>UCfankui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCfujian.resx">
+      <DependentUpon>UCfujian.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UClishiziliao.resx">
       <DependentUpon>UClishiziliao.cs</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RuiTengDll;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -103,7 +104,7 @@ namespace 团队任务台账管理系统.WinForm
                 _xiaojiaqingkuang = tb_xiaojiaqingkuang.Text,
                 _fasongshijian = DateTime.Now.ToString(),
                 _fasongren = JJLoginInfo._huaming,
-                _leixing = "常规事项",
+                _leixing = "请休假单",
                 _zhuangtai = "未读"
 
             };            
@@ -141,6 +142,22 @@ namespace 团队任务台账管理系统.WinForm
             {
                 tb_shenherenyuan.Text = string.Join(",", mywin.list_selected);
             }
+
+        }
+        UIHelper _ui = new UIHelper();
+        private void lbl_baocun_Paint(object sender, PaintEventArgs e)
+        {
+            UIHelper.DrawRoundRect((Control)sender);
+        }
+
+        private void lbl_baocun_MouseEnter(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, -1);
+        }
+
+        private void lbl_baocun_MouseLeave(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, +1);
 
         }
     }

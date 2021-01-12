@@ -58,7 +58,7 @@ namespace 团队任务台账管理系统.UserControll
             if (ti._leixing.Equals("OKR事项"))
             {
                 str_sql = $"update jjdbrenwutaizhang.任务信息表 set 状态='{ti._zhuangtai}' where 名称='{ti._mingcheng}' and 类型='{ti._leixing}' " +
-                                $"and 总体验收人='{ti._zongtiyanshouren}' and 删除=0";
+                                $"and （总体验收人='{ti._zongtiyanshouren}' or 办理人员='{ti._banlirenyuan}') and 删除=0";
             }
             if (ti._leixing.Equals("请休假单"))
             {

@@ -32,7 +32,7 @@ namespace 团队任务台账管理系统.Controller
         {
             string str_sql = string.Empty;
             //string str_sql = $"select * from jjdbrenwutaizhang.工作清单表 where 创建人='{JJLoginInfo._shiming}' and 删除=0 and 象限='{xiangxian}' order by 完成时间";
-            str_sql = $"select count(*) from jjdbrenwutaizhang.工作清单表 where  删除=0 and 销项=0";
+            str_sql = $"select count(*) from jjdbrenwutaizhang.工作清单表 where  删除=0 and 创建人='{JJLoginInfo._huaming}'";
             int num = Convert.ToInt32(_mysqlhelper.ExecuteScalar(str_sql));
             return Math.Ceiling(Convert.ToDouble(num) / 10);
         }
@@ -44,7 +44,14 @@ namespace 团队任务台账管理系统.Controller
         {
             string str_sql = string.Empty;
             //string str_sql = $"select * from jjdbrenwutaizhang.工作清单表 where 创建人='{JJLoginInfo._shiming}' and 删除=0 and 象限='{xiangxian}' order by 完成时间";
-            str_sql = $"select count(*) from jjdbrenwutaizhang.任务信息表 where  删除=0 and 状态='未读'";
+           str_sql = $"select count(*) from jjdbrenwutaizhang.任务信息表 where  删除=0 and 状态='未读' " +
+                $"and (反馈对象='{JJLoginInfo._huaming}' or 审核人员='{JJLoginInfo._huaming}' or 委托对象='{JJLoginInfo._huaming}' or " +
+                $"总体验收人='{JJLoginInfo._huaming}' or 办理人员='{JJLoginInfo._huaming}')";
+    //        str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where  删除=0 and 状态='未读' " +
+    //$"and (反馈对象='{JJLoginInfo._huaming}' or 审核人员='{JJLoginInfo._huaming}' or 委托对象='{JJLoginInfo._huaming}' or " +
+    //$"总体验收人='{JJLoginInfo._huaming}' or 办理人员='{JJLoginInfo._huaming}')";
+
+            //DataTable mydt = _mysqlhelper.ExecuteDataTable(str_sql);
             int num = Convert.ToInt32(_mysqlhelper.ExecuteScalar(str_sql));
             return Math.Ceiling(Convert.ToDouble(num) / 10);
         }
@@ -56,7 +63,7 @@ namespace 团队任务台账管理系统.Controller
         {
             string str_sql = string.Empty;
             //string str_sql = $"select * from jjdbrenwutaizhang.工作清单表 where 创建人='{JJLoginInfo._shiming}' and 删除=0 and 象限='{xiangxian}' order by 完成时间";
-            str_sql = $"select count(*) from jjdbrenwutaizhang.通知公告表 where 删除=0 and 状态='未读'";
+            str_sql = $"select count(*) from jjdbrenwutaizhang.通知公告表 where 删除=0 and 状态='未读' and 阅读范围='{JJLoginInfo._huaming}'";
             int num = Convert.ToInt32(_mysqlhelper.ExecuteScalar(str_sql));
             return Math.Ceiling(Convert.ToDouble(num) / 10);
         }
@@ -76,40 +83,29 @@ namespace 团队任务台账管理系统.Controller
             DataTable mydt = new DataTable();
             string str_sql = string.Empty;
             //string str_sql = $"select * from jjdbrenwutaizhang.工作清单表 where 创建人='{JJLoginInfo._shiming}' and 删除=0 and 象限='{xiangxian}' order by 完成时间";
-            str_sql = $"select * from jjdbrenwutaizhang.工作清单表 where 任务名称 like '%{kw}%' and 删除=0 and 销项=0 " +
-                $"order by 象限,完成时间 desc " +
+            str_sql = $"select * from jjdbrenwutaizhang.工作清单表 where 名称 like '%{kw}%' and 删除=0 and 创建人='{JJLoginInfo._huaming}'" +
+                $"order by 轻重缓急,完成时间 desc " +
                 $"limit {10 * (start - 1)},10";
             mydt = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow mydr in mydt.Rows)
             {
                 JJQingdanInfo info = new JJQingdanInfo()
                 {
-                    _renwumingcheng = mydr["任务名称"].ToString(),
+                    _renwumingcheng = mydr["名称"].ToString(),
                     _chuangjianren = mydr["创建人"].ToString(),
-                    _zhubanren = mydr["主办人"].ToString(),
                     _wanchengshijian = mydr["完成时间"].ToString(),
-                    _xiangxian = mydr["象限"].ToString(),
+                    _qingzhonghuanji = mydr["轻重缓急"].ToString(),
                     _chuangjianshijian = mydr["创建时间"].ToString(),
-                    _zhuangtai = mydr["状态"].ToString(),
-                    _xiaoxiang = Convert.ToInt32(mydr["销项"].ToString()),
+                    //_zhuangtai = mydr["状态"].ToString(),
+                    //_xiaoxiang = Convert.ToInt32(mydr["销项"].ToString()),
                     _beizhu = mydr["备注"].ToString(),
-                    _jingyanjiaoxun = mydr["心得体会"].ToString(),
+                    _jingyanjiaoxun = mydr["经验教训"].ToString(),
                 };
                 list.Add(info);
             }
             return list;
         }
-        /// <summary>
-        /// 获得待办任务 
-        /// </summary>
-        /// <returns></returns>
-        public DataTable GetDaibanRenwuDT(string s)
-        {
-            string str_sql = $"select * from jjdbrenwutaizhang.常规事项表 where 任务名称 like '%{s}%' and 删除=0";
 
-            var data = _mysqlhelper.ExecuteDataTable(str_sql, null);
-            return data;
-        }
 
 
         /// <summary>
@@ -125,8 +121,9 @@ namespace 团队任务台账管理系统.Controller
             //获得紧急程度是紧急的四种任务，按照请休假，okr，常规事项，意见建议排序，其中又按照完成时间排序
             //获得请休假单
             str_sql = $"select * from jjdbrenwutaizhang.任务信息表 " +
-                $"where 名称 like '%{s}%' and 删除=0 and 类型='请休假单' and 紧急程度='紧急' and 状态='未读' " +
-                $"order by 时限 desc";
+                $"where 事由 like '%{s}%' and 删除=0 and 类型='请休假单' and 紧急程度='紧急' and 状态<>'已处理' " +
+                $"and (审核人员='{JJLoginInfo._huaming}' or 委托对象='{JJLoginInfo._huaming}')" +
+                $"order by 起止时间 desc";
             data = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow dr in data.Rows)
             {
@@ -149,22 +146,17 @@ namespace 团队任务台账管理系统.Controller
                     _kaishishijian = dr["开始时间"].ToString(),
                     _jieshushijian = dr["结束时间"].ToString(),
                     _weituoduixiang = dr["委托对象"].ToString(),
+                    _shenherenyuan=dr["审核人员"].ToString(),
                     _shenheyijian = dr["审核意见"].ToString(),
-
-
-
-
-
-
-
+                    _qizhishijian=dr["起止时间"].ToString()
                 };
                 list.Add(info);
 
             }
             //获得okr
-            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='okr事项' and 紧急程度='紧急' and 状态='未读' " +
+            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='okr事项' " +
+                $"and 紧急程度='紧急' and 状态<>'已处理' and 总体验收人='{JJLoginInfo._huaming}' " +
                 $"order by 时限 desc";
-
             data = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow dr in data.Rows)
             {
@@ -175,16 +167,18 @@ namespace 团队任务台账管理系统.Controller
                     _zongtiyanshouren = dr["总体验收人"].ToString(),
                     _mubiao = dr["总体目标"].ToString(),
                     _chengguoji = dr["成果集"].ToString(),
-                    _leixing = dr["类型"].ToString()
+                    _leixing = dr["类型"].ToString(),
+                    _zhuangtai = dr["状态"].ToString()
+
                 };
                 list.Add(info);
 
             }
 
             //获得常规事项
-            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='常规事项' and 紧急程度='紧急' and 状态='未读' " +
+            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and " +
+                $"类型='常规事项' and 紧急程度='紧急' and 状态<>'已处理' and 办理人员='{JJLoginInfo._huaming}' " +
                 $"order by 时限 desc";
-
             data = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow dr in data.Rows)
             {
@@ -198,16 +192,18 @@ namespace 团队任务台账管理系统.Controller
                     _banliyijian = dr["办理意见"].ToString(),
                     _banlirenyuan = dr["办理人员"].ToString(),
                     _jinzhanqingkuang = dr["进展情况"].ToString(),
-                    _leixing = dr["类型"].ToString()
+                    _leixing = dr["类型"].ToString(),
+                    _zhuangtai = dr["状态"].ToString()
+
 
                 };
                 list.Add(info);
 
             }
             //获得意见建议
-            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='意见建议' and 紧急程度='紧急' and 状态='未读' " +
+            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 标题 like '%{s}%' and 删除=0 and " +
+                $"类型='意见建议' and 紧急程度='紧急' and 状态<>'已处理' and 反馈对象='{JJLoginInfo._huaming}'" +
                 $"order by 时限 desc";
-
             data = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow dr in data.Rows)
             {
@@ -235,14 +231,12 @@ namespace 团队任务台账管理系统.Controller
                 list.Add(info);
 
             }
-
-
-
             //获得紧急程度是普通的四种任务
             //获得请休假单
-            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='请休假单' and 紧急程度='普通' and 状态='未读' " +
-                $"order by 时限 desc";
-
+            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 " +
+                $"where 事由 like '%{s}%' and 删除=0 and 类型='请休假单' and 紧急程度='普通' and 状态<>'已处理' " +
+                $"and (审核人员='{JJLoginInfo._huaming}' or 委托对象='{JJLoginInfo._huaming}')" +
+                $"order by 起止时间 desc";
             data = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow dr in data.Rows)
             {
@@ -266,14 +260,17 @@ namespace 团队任务台账管理系统.Controller
                     _jieshushijian = dr["结束时间"].ToString(),
                     _weituoduixiang = dr["委托对象"].ToString(),
                     _shenheyijian = dr["审核意见"].ToString(),
+                    _qizhishijian = dr["起止时间"].ToString(),
+                    _shenherenyuan=dr["审核人员"].ToString()
+
                 };
                 list.Add(info);
 
             }
             //获得okr
-            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='okr事项' and 紧急程度='普通' and 状态='未读' " +
+            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='okr事项' " +
+                $"and 紧急程度='普通' and 状态<>'已处理' and 总体验收人='{JJLoginInfo._huaming}' " +
                 $"order by 时限 desc";
-
             data = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow dr in data.Rows)
             {
@@ -284,17 +281,18 @@ namespace 团队任务台账管理系统.Controller
                     _zongtiyanshouren = dr["总体验收人"].ToString(),
                     _mubiao = dr["总体目标"].ToString(),
                     _chengguoji = dr["成果集"].ToString(),
-                    _leixing = dr["类型"].ToString()
+                    _leixing = dr["类型"].ToString(),
+                    _zhuangtai = dr["状态"].ToString()
+
 
                 };
                 list.Add(info);
 
             }
-
             //获得常规事项
-            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='常规事项' and 紧急程度='普通' and 状态='未读' " +
+            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and " +
+                $"类型='常规事项' and 紧急程度='普通' and 状态<>'已处理' and 办理人员='{JJLoginInfo._huaming}' " +
                 $"order by 时限 desc";
-
             data = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow dr in data.Rows)
             {
@@ -308,16 +306,17 @@ namespace 团队任务台账管理系统.Controller
                     _banliyijian = dr["办理意见"].ToString(),
                     _banlirenyuan = dr["办理人员"].ToString(),
                     _jinzhanqingkuang = dr["进展情况"].ToString(),
-                    _leixing = dr["类型"].ToString()
-
+                    _leixing = dr["类型"].ToString(),
+                    _zhuangtai=dr["状态"].ToString()
+                    
                 };
                 list.Add(info);
 
             }
             //获得意见建议
-            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='意见建议' and 紧急程度='普通' and 状态='未读' " +
+            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 标题 like '%{s}%' and 删除=0 and " +
+                $"类型='意见建议' and 紧急程度='普通' and 状态<>'已处理' and 反馈对象='{JJLoginInfo._huaming}'" +
                 $"order by 时限 desc";
-
             data = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow dr in data.Rows)
             {
@@ -365,6 +364,7 @@ namespace 团队任务台账管理系统.Controller
         {
             List<JJTongzhiInfo> list = new List<JJTongzhiInfo>();
             string str_sql = $"select * from jjdbrenwutaizhang.通知公告表 where 标题 like '%{kw}%' and 删除=0 and 状态='未读' " +
+                $"and 阅读范围='{JJLoginInfo._huaming}' " +
                 $"limit {10*(start-1)},10";
             var data = _mysqlhelper.ExecuteDataTable(str_sql, null);
             foreach (DataRow dr in data.Rows)

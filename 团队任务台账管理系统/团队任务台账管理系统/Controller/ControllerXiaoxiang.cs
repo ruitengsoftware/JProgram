@@ -13,8 +13,8 @@ namespace 团队任务台账管理系统.Controller
 
         public bool Xiaoxiang(JJQingdanInfo info)
         {
-            string str_sql = $"update jjdbrenwutaizhang.工作清单表 set 销项={info._xiaoxiang} " +
-                    $",心得体会='{info._jingyanjiaoxun}' where 任务名称='{info._renwumingcheng}' and 销项=0 and 创建人='{info._chuangjianren}'";
+            string str_sql = $"update jjdbrenwutaizhang.工作清单表 set 状态='已处理' " +
+                    $",经验教训='{info._jingyanjiaoxun}' where 名称='{info._renwumingcheng}'  and 创建人='{info._chuangjianren}'";
             int num = _mysql.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
         }

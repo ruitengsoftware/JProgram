@@ -15,6 +15,7 @@ using 团队任务台账管理系统.WinForm;
 using 团队任务台账管理系统.JJModel;
 using System.Text.RegularExpressions;
 using 团队任务台账管理系统.Common;
+using RuiTengDll;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -243,6 +244,22 @@ namespace 团队任务台账管理系统.UserControll
             panel_task.Controls.Add(mywin);
             mywin.Show();
 
+
+        }
+        UIHelper _ui = new UIHelper();
+        private void lbl_gongzuoqingdan_Paint(object sender, PaintEventArgs e)
+        {
+            UIHelper.DrawRoundRect((Control)sender);
+        }
+
+        private void lbl_gongzuoqingdan_MouseEnter(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, -1);
+        }
+
+        private void lbl_gongzuoqingdan_MouseLeave(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, +1);
 
         }
     }

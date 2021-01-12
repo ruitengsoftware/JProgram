@@ -125,8 +125,8 @@ namespace 团队任务台账管理系统.JJWinForm
         private void WinFormLogin_Load(object sender, EventArgs e)
         {
             this.Size = new Size(310, 410);
-            uihelper.DrawRoundRect(this);
-            uihelper.DrawRoundRect(lbl_denglu);
+            UIHelper.DrawRoundRect(this);
+            UIHelper.DrawRoundRect(lbl_denglu);
             tableLayoutPanel2.BackColor = Color.FromArgb(0, 255, 255, 255);
             foreach (Control c in tableLayoutPanel2.Controls)
             {
@@ -209,12 +209,12 @@ namespace 团队任务台账管理系统.JJWinForm
 
         private void lbl_denglu_MouseEnter(object sender, EventArgs e)
         {
-            uihelper.UpdateCC((Control)sender, Color.MediumSeaGreen, Color.White);
+            UIHelper.UpdateCC((Control)sender, Color.MediumSeaGreen, Color.White);
         }
 
         private void lbl_denglu_MouseLeave(object sender, EventArgs e)
         {
-            uihelper.UpdateCC((Control)sender, Color.SeaGreen, Color.White);
+            UIHelper.UpdateCC((Control)sender, Color.SeaGreen, Color.White);
         }
         //判断密码的显示状态
         bool xianshi = false;
@@ -243,7 +243,7 @@ namespace 团队任务台账管理系统.JJWinForm
 
         private void lbl_tuichu_Paint(object sender, PaintEventArgs e)
         {
-            uihelper.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
 
         private void llbl_wangjimima_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

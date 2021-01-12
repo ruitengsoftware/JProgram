@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RuiTengDll;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -105,6 +106,22 @@ namespace 团队任务台账管理系统.WinForm
 
                 MessageBox.Show("发送办理成功！");
             }
+        }
+
+        private void lbl_quxiao_Paint(object sender, PaintEventArgs e)
+        {
+            UIHelper.DrawRoundRect((Control)sender);
+        }
+
+        private void lbl_quxiao_MouseEnter(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, -1);
+        }
+
+        private void lbl_quxiao_MouseLeave(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, +1);
+
         }
     }
 }

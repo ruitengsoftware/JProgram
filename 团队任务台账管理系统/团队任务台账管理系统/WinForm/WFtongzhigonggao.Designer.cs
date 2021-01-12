@@ -74,13 +74,17 @@
             this.lbl_quxiao.BackColor = System.Drawing.Color.Tomato;
             this.lbl_quxiao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_quxiao.ForeColor = System.Drawing.Color.White;
-            this.lbl_quxiao.Location = new System.Drawing.Point(361, 0);
+            this.lbl_quxiao.Location = new System.Drawing.Point(360, 2);
+            this.lbl_quxiao.Margin = new System.Windows.Forms.Padding(2);
             this.lbl_quxiao.Name = "lbl_quxiao";
-            this.lbl_quxiao.Size = new System.Drawing.Size(74, 29);
+            this.lbl_quxiao.Size = new System.Drawing.Size(76, 25);
             this.lbl_quxiao.TabIndex = 10;
             this.lbl_quxiao.Text = "取消";
             this.lbl_quxiao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_quxiao.Click += new System.EventHandler(this.lbl_quxiao_Click);
+            this.lbl_quxiao.Paint += new System.Windows.Forms.PaintEventHandler(this.lbl_quxiao_Paint);
+            this.lbl_quxiao.MouseEnter += new System.EventHandler(this.label5_MouseEnter);
+            this.lbl_quxiao.MouseLeave += new System.EventHandler(this.lbl_quxiao_MouseLeave);
             // 
             // label5
             // 
@@ -88,13 +92,17 @@
             this.label5.BackColor = System.Drawing.Color.Tomato;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(281, 0);
+            this.label5.Location = new System.Drawing.Point(280, 2);
+            this.label5.Margin = new System.Windows.Forms.Padding(2);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 29);
+            this.label5.Size = new System.Drawing.Size(76, 25);
             this.label5.TabIndex = 11;
             this.label5.Text = "保存";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.label5.Paint += new System.Windows.Forms.PaintEventHandler(this.lbl_quxiao_Paint);
+            this.label5.MouseEnter += new System.EventHandler(this.label5_MouseEnter);
+            this.label5.MouseLeave += new System.EventHandler(this.lbl_quxiao_MouseLeave);
             // 
             // tb_neirong
             // 
@@ -350,6 +358,7 @@
             this.pb_renyuan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_renyuan.TabIndex = 5;
             this.pb_renyuan.TabStop = false;
+            this.pb_renyuan.Click += new System.EventHandler(this.pb_renyuan_Click);
             // 
             // tableLayoutPanel8
             // 
@@ -420,12 +429,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(722, 437);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WFtongzhigonggao";
-            this.Text = "通知公告";
+            this.Text = "新建通知公告";
             this.Load += new System.EventHandler(this.WFtongzhigonggao_Load);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();

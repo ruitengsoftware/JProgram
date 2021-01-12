@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using RuiTengDll;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -142,12 +143,13 @@ namespace 团队任务台账管理系统.WinForm
                 _mubiao = tb_mubiao.Text,
                 _zongtiyanshouren = tb_zongtiyanshouren.Text,
                 _fasongshijian = DateTime.Now.ToString(),
+              
                 _jinjichengdu = rb_jinji.Checked == true ? "紧急" : "普通",
                 _fasongren = JJLoginInfo._huaming,
                 _leixing = "OKR事项",
                 _zhuangtai = "未读",
                 _chengguoji = JsonConvert.SerializeObject(chengguoji)
-            };            //拆解反馈对象，对每一个对象，向任务信息表中插入一条jjtaskinfo
+            };           
             bool b = _mycontroller.FasongBanli(myinfo);
             if (b)
             {
@@ -165,6 +167,22 @@ namespace 团队任务台账管理系统.WinForm
             {
                 tb_zongtiyanshouren.Text = string.Join(",", mywin.list_selected);
             }
+        }
+
+        private void lbl_quxiao_Paint(object sender, PaintEventArgs e)
+        {
+            UIHelper.DrawRoundRect((Control)sender);
+        }
+
+        private void lbl_quxiao_MouseEnter(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, -1);
+        }
+
+        private void lbl_quxiao_MouseLeave(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, +1);
+
         }
     }
 }

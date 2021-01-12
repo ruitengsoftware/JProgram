@@ -20,9 +20,9 @@ namespace 团队任务台账管理系统.JJModel
         /// </summary>
         public string _chuangjianren = string.Empty;
         /// <summary>
-        /// 主办人
+        /// 轻重缓急
         /// </summary>
-        public string _zhubanren = string.Empty;
+        public string _qingzhonghuanji = string.Empty;
         /// <summary>
         /// 完成时间
         /// </summary>
@@ -48,7 +48,7 @@ namespace 团队任务台账管理系统.JJModel
         /// </summary>
         public string _beizhu = string.Empty;
         /// <summary>
-        /// 心得体会
+        /// 经验教训
         /// </summary>
         public string _jingyanjiaoxun = string.Empty;
     }

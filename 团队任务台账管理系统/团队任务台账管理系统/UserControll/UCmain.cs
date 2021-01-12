@@ -133,7 +133,7 @@ namespace 团队任务台账管理系统.UserControll
                 UCMessage myuc = new UCMessage(info);
                 myuc._updatemaindata = UCmain_Load;
                 //判断INFO的类别，给myuc的lbl_leibie赋值，但是如果已经出现过，就不赋值
-                string str_lei = Regex.Match(info._xiangxian, @".类").Value;
+                string str_lei = Regex.Match(info._qingzhonghuanji, @".类").Value;
                 if (!list_leibie.Contains(str_lei))
                 {
                     myuc.lbl_leixing.Text = str_lei;
@@ -419,7 +419,6 @@ namespace 团队任务台账管理系统.UserControll
             {
                 _renwumingcheng = mydr.Cells["任务名称"].Value.ToString(),
                 _xiangxian = mydr.Cells["象限"].Value.ToString(),
-                _zhubanren = mydr.Cells["主办人"].Value.ToString(),
                 _wanchengshijian = mydr.Cells["完成时间"].Value.ToString()
 
             };

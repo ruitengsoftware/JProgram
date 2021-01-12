@@ -125,6 +125,9 @@
             this.lbl_baocun.Text = "保存";
             this.lbl_baocun.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_baocun.Click += new System.EventHandler(this.lbl_baocun_Click);
+            this.lbl_baocun.Paint += new System.Windows.Forms.PaintEventHandler(this.lbl_quxiao_Paint);
+            this.lbl_baocun.MouseEnter += new System.EventHandler(this.lbl_quxiao_MouseEnter);
+            this.lbl_baocun.MouseLeave += new System.EventHandler(this.lbl_quxiao_MouseLeave);
             // 
             // lbl_quxiao
             // 
@@ -140,6 +143,9 @@
             this.lbl_quxiao.Text = "取消";
             this.lbl_quxiao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_quxiao.Click += new System.EventHandler(this.lbl_quxiao_Click);
+            this.lbl_quxiao.Paint += new System.Windows.Forms.PaintEventHandler(this.lbl_quxiao_Paint);
+            this.lbl_quxiao.MouseEnter += new System.EventHandler(this.lbl_quxiao_MouseEnter);
+            this.lbl_quxiao.MouseLeave += new System.EventHandler(this.lbl_quxiao_MouseLeave);
             // 
             // label4
             // 
@@ -371,6 +377,9 @@
             this.lbl_fasongbanli.Text = "发送办理";
             this.lbl_fasongbanli.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_fasongbanli.Click += new System.EventHandler(this.lbl_fasongbanli_Click);
+            this.lbl_fasongbanli.Paint += new System.Windows.Forms.PaintEventHandler(this.lbl_quxiao_Paint);
+            this.lbl_fasongbanli.MouseEnter += new System.EventHandler(this.lbl_quxiao_MouseEnter);
+            this.lbl_fasongbanli.MouseLeave += new System.EventHandler(this.lbl_quxiao_MouseLeave);
             // 
             // WFyijianjianyi
             // 

@@ -13,6 +13,7 @@ using 团队任务台账管理系统.Controller;
 using 团队任务台账管理系统.WinForm;
 using Aspose.Words;
 using 团队任务台账管理系统.Common;
+using System.Text.RegularExpressions;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -37,7 +38,7 @@ namespace 团队任务台账管理系统.UserControll
                 //在uc上显示   象限  名称  完成时间
                 this.lbl_xiangxian.Text = info._xiangxian;
                 this.lbl_mingcheng.Text = info._renwumingcheng;
-                this.lbl_wanchengshijian.Text =Convert.ToDateTime( info._wanchengshijian).ToString("yyyy-MM-dd");
+                this.lbl_shijian.Text = Convert.ToDateTime(info._wanchengshijian).ToString("yyyy-MM-dd");
                 //获得当前时间
                 //计算完成时间和现在的差
                 DateTime dt0 = Convert.ToDateTime(info._wanchengshijian);
@@ -45,11 +46,11 @@ namespace 团队任务台账管理系统.UserControll
                 TimeSpan ts = dt0.Subtract(dt);
 
                 //如果当前时间超过完成时间显示红点，如果完成时间比现在大不到三天显示黄点
-                if (dt>dt0)
+                if (dt > dt0)
                 {
                     pb_point.Image = Properties.Resources.redpoint;
                 }
-                if (dt<dt0 && dt.AddDays(3)>dt0)
+                if (dt < dt0 && dt.AddDays(3) > dt0)
                 {
                     pb_point.Image = Properties.Resources.yellowpoint;
 
@@ -67,6 +68,7 @@ namespace 团队任务台账管理系统.UserControll
                 JJTongzhiInfo info = o as JJTongzhiInfo;
                 //在uc上显示  状态标题 发布时间
                 lbl_xiangxian.Text = string.Empty;
+                this.lbl_shijian.Text = Convert.ToDateTime(info._shixian).ToString("yyyy-MM-dd");
 
                 if (info._zhuangtai.Equals("未读"))
                 {
@@ -75,16 +77,17 @@ namespace 团队任务台账管理系统.UserControll
 
                 }
                 this.lbl_mingcheng.Text = info._biaoti;
-                this.lbl_wanchengshijian.Text = Convert.ToDateTime(info._fabushijian).ToString("yyyy-MM-dd");
+                this.lbl_shijian.Text = Convert.ToDateTime(info._fabushijian).ToString("yyyy-MM-dd");
                 //判断轻重缓急，如果是紧急，任务显示红色，如果是普通，正常显示为黑色
                 if (info._qingzhonghuanji.Equals("紧急"))
                 {
                     lbl_mingcheng.ForeColor = Color.Red;
                 }
             }
-            if (o is JJTaskInfo)//如果是四项任务
+            if (o is JJTaskInfo)//如果是四大任务直以
             {
                 //不是清单关闭销项
+               
                 pb_xiaoxiang.Visible = false;
                 pb_shanchu.Visible = false;
                 JJTaskInfo info = o as JJTaskInfo;
@@ -92,25 +95,42 @@ namespace 团队任务台账管理系统.UserControll
                 if (info._leixing.Equals("请休假单"))
                 {
                     leixing = "假单";
+                    //请假单时间赋值为终止时间
+                    string end_time = Regex.Split(info._qizhishijian, @"\|")[1];
+                    this.lbl_shijian.Text = Convert.ToDateTime(end_time).ToString("yyyy-MM-dd");
+                    this.lbl_mingcheng.Text = info._shiyou;
+
                 }
                 else if (info._leixing.Equals("OKR事项"))
                 {
                     leixing = "OKR";
+                    this.lbl_shijian.Visible = false;
+                    this.lbl_mingcheng.Text = info._mingcheng;
+
                 }
                 else if (info._leixing.Equals("常规事项"))
                 {
                     leixing = "事务";
+                    this.lbl_shijian.Text = Convert.ToDateTime(info._shixian).ToString("yyyy-MM-dd");
+                    this.lbl_mingcheng.Text = info._mingcheng;
+
                 }
                 else if (info._leixing.Equals("意见建议"))
                 {
                     leixing = "建言";
-                }
+                    this.lbl_shijian.Visible = false;
+                    this.lbl_mingcheng.Text = info._biaoti;
 
+                }
+                if (info._zhuangtai.Equals("未读"))
+                {
+                lbl_zhuangtai.Text = info._zhuangtai;
+                    lbl_zhuangtai.Visible = true;
+                }
                 lbl_leixing.Text = leixing;
                 lbl_leixing.Visible = true;
 
                 this.lbl_xiangxian.Text = info._jinjichengdu;
-                this.lbl_mingcheng.Text = info._mingcheng;
                 this.lbl_mingcheng.TextAlign = ContentAlignment.MiddleLeft;
                 //判断紧急程度，如果是紧急，任务显示红色，如果是普通，正常显示为黑色
                 if (info._jinjichengdu.Equals("紧急"))
@@ -120,7 +140,7 @@ namespace 团队任务台账管理系统.UserControll
 
                 try
                 {
-                this.lbl_wanchengshijian.Text = Convert.ToDateTime(info._shixian).ToString("yyyy-MM-dd");
+                    this.lbl_shijian.Text = Convert.ToDateTime(info._shixian).ToString("yyyy-MM-dd");
 
                 }
                 catch { }
@@ -134,7 +154,7 @@ namespace 团队任务台账管理系统.UserControll
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            _ui.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
 
         private void label2_MouseEnter(object sender, EventArgs e)
@@ -147,7 +167,7 @@ namespace 团队任务台账管理系统.UserControll
             ((Control)sender).ForeColor = Color.DimGray;
         }
         /// <summary>
-        /// 点击内容按钮时触发的事件
+        /// 点击名称时触发的事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -156,6 +176,31 @@ namespace 团队任务台账管理系统.UserControll
             //判断uc的类型，工作清单，通知公告，待办任务
             if (task is JJTaskInfo)
             {
+                var myti = task as JJTaskInfo;
+                //如果myti的状态是未读，就把状态变成未处理，然后让信封消失
+                if (myti._zhuangtai.Equals("未读"))
+                {
+                    lbl_zhuangtai.Visible = false;
+                    myti._zhuangtai = "处理中";
+                    _myc.UpdateZhuangtai(myti);
+                }
+                //判断未读任务数量，如果是0，要取消主界面我的任务右侧的红点
+
+                int num = JJLoginInfo.GetWeiduTaskNum();
+                if (num > 0)
+                {
+                    (this.ParentForm as Form1).lbl_newtask.Visible = true;
+                    (this.ParentForm as Form1).btn_woderenwu.Width = 65;
+
+                    (this.ParentForm as Form1).lbl_newtask.Text = $"{num}";
+                }
+                else
+                {
+                    (this.ParentForm as Form1).lbl_newtask.Visible = false;
+                    (this.ParentForm as Form1).btn_woderenwu.Width = 94;
+
+                }
+
                 JJTaskInfo info = task as JJTaskInfo;
                 Form mywin = null;
                 if (info._leixing.Equals("OKR事项"))
@@ -165,7 +210,7 @@ namespace 团队任务台账管理系统.UserControll
                 }
                 else if (info._leixing.Equals("常规事项"))
                 {
-               mywin = new WFchangguishixiang(info);
+                    mywin = new WFchangguishixiang(info);
 
                 }
                 else if (info._leixing.Equals("请休假单"))
@@ -181,7 +226,7 @@ namespace 团队任务台账管理系统.UserControll
                 if (mywin.ShowDialog() == DialogResult.OK)
                 {
                     //刷新数据
-                    _updatemaindata(null, null);
+                    JJMethod.a_shuaxinzhuye(null, null);
                 }
             }
             if (task is JJTongzhiInfo)
@@ -192,10 +237,10 @@ namespace 团队任务台账管理系统.UserControll
 
                 _myc.Yidu(info);//将状态从未读变为已读
                 WinFormTongzhi mywin = new WinFormTongzhi(info);
-                if (mywin.ShowDialog()==DialogResult.OK)
+                if (mywin.ShowDialog() == DialogResult.OK)
                 {
                     JJMethod.a_shuaxinzhuye(null, null);
-                } 
+                }
 
 
                 //WFtongzhigonggao mywin = new WFtongzhigonggao(info);
@@ -209,12 +254,17 @@ namespace 团队任务台账管理系统.UserControll
             if (task is JJQingdanInfo)
 
             {
+
+
+
+
+
                 JJQingdanInfo ci = task as JJQingdanInfo;
                 WFgongzuoqingdan mywin = new WFgongzuoqingdan(ci);
                 if (mywin.ShowDialog() == DialogResult.OK)
                 {
                     //刷新数据
-                    _updatemaindata(null, null);
+                    JJMethod.a_shuaxinzhuye(null, null);
 
                 }
             }
@@ -245,8 +295,7 @@ namespace 团队任务台账管理系统.UserControll
             //刷新数据
             if (mywin.ShowDialog() == DialogResult.OK)
             {
-                _updatemaindata(null, null);
-
+                JJMethod.a_shuaxinzhuye(null, null);
             }
 
 

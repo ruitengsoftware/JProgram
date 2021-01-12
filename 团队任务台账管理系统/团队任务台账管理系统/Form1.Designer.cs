@@ -215,6 +215,7 @@
             this.btn_home.TabIndex = 4;
             this.btn_home.Text = "主页";
             this.btn_home.UseVisualStyleBackColor = true;
+            this.btn_home.Visible = false;
             this.btn_home.Click += new System.EventHandler(this.pb_home_Click);
             // 
             // tableLayoutPanel2
@@ -262,7 +263,7 @@
             this.btn_woderenwu.Name = "btn_woderenwu";
             this.btn_woderenwu.Size = new System.Drawing.Size(65, 28);
             this.btn_woderenwu.TabIndex = 0;
-            this.btn_woderenwu.Text = "我的任务";
+            this.btn_woderenwu.Text = "主页";
             this.btn_woderenwu.UseVisualStyleBackColor = true;
             this.btn_woderenwu.Click += new System.EventHandler(this.lbl_woderenwu_Click);
             // 

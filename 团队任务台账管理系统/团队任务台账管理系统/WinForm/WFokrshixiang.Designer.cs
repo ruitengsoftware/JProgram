@@ -85,8 +85,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(560, 557);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -239,12 +238,12 @@
             this.tableLayoutPanel5.Controls.Add(this.lbl_quxiao, 3, 0);
             this.tableLayoutPanel5.Controls.Add(this.lbl_fasongbanli, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 527);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 522);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(560, 30);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(560, 35);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // lbl_baocun
@@ -253,14 +252,17 @@
             this.lbl_baocun.BackColor = System.Drawing.Color.Tomato;
             this.lbl_baocun.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_baocun.ForeColor = System.Drawing.Color.White;
-            this.lbl_baocun.Location = new System.Drawing.Point(243, 3);
-            this.lbl_baocun.Margin = new System.Windows.Forms.Padding(3);
+            this.lbl_baocun.Location = new System.Drawing.Point(245, 5);
+            this.lbl_baocun.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_baocun.Name = "lbl_baocun";
-            this.lbl_baocun.Size = new System.Drawing.Size(74, 24);
+            this.lbl_baocun.Size = new System.Drawing.Size(70, 25);
             this.lbl_baocun.TabIndex = 0;
             this.lbl_baocun.Text = "保存";
             this.lbl_baocun.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_baocun.Click += new System.EventHandler(this.lbl_baocun_Click);
+            this.lbl_baocun.Paint += new System.Windows.Forms.PaintEventHandler(this.lbl_quxiao_Paint);
+            this.lbl_baocun.MouseEnter += new System.EventHandler(this.lbl_quxiao_MouseEnter);
+            this.lbl_baocun.MouseLeave += new System.EventHandler(this.lbl_quxiao_MouseLeave);
             // 
             // lbl_quxiao
             // 
@@ -268,14 +270,17 @@
             this.lbl_quxiao.BackColor = System.Drawing.Color.Tomato;
             this.lbl_quxiao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_quxiao.ForeColor = System.Drawing.Color.White;
-            this.lbl_quxiao.Location = new System.Drawing.Point(323, 3);
-            this.lbl_quxiao.Margin = new System.Windows.Forms.Padding(3);
+            this.lbl_quxiao.Location = new System.Drawing.Point(325, 5);
+            this.lbl_quxiao.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_quxiao.Name = "lbl_quxiao";
-            this.lbl_quxiao.Size = new System.Drawing.Size(74, 24);
+            this.lbl_quxiao.Size = new System.Drawing.Size(70, 25);
             this.lbl_quxiao.TabIndex = 0;
             this.lbl_quxiao.Text = "取消";
             this.lbl_quxiao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_quxiao.Click += new System.EventHandler(this.lbl_quxiao_Click);
+            this.lbl_quxiao.Paint += new System.Windows.Forms.PaintEventHandler(this.lbl_quxiao_Paint);
+            this.lbl_quxiao.MouseEnter += new System.EventHandler(this.lbl_quxiao_MouseEnter);
+            this.lbl_quxiao.MouseLeave += new System.EventHandler(this.lbl_quxiao_MouseLeave);
             // 
             // lbl_fasongbanli
             // 
@@ -283,14 +288,17 @@
             this.lbl_fasongbanli.BackColor = System.Drawing.Color.Tomato;
             this.lbl_fasongbanli.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_fasongbanli.ForeColor = System.Drawing.Color.White;
-            this.lbl_fasongbanli.Location = new System.Drawing.Point(163, 3);
-            this.lbl_fasongbanli.Margin = new System.Windows.Forms.Padding(3);
+            this.lbl_fasongbanli.Location = new System.Drawing.Point(165, 5);
+            this.lbl_fasongbanli.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_fasongbanli.Name = "lbl_fasongbanli";
-            this.lbl_fasongbanli.Size = new System.Drawing.Size(74, 24);
+            this.lbl_fasongbanli.Size = new System.Drawing.Size(70, 25);
             this.lbl_fasongbanli.TabIndex = 0;
             this.lbl_fasongbanli.Text = "发送办理";
             this.lbl_fasongbanli.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_fasongbanli.Click += new System.EventHandler(this.lbl_fasongbanli_Click);
+            this.lbl_fasongbanli.Paint += new System.Windows.Forms.PaintEventHandler(this.lbl_quxiao_Paint);
+            this.lbl_fasongbanli.MouseEnter += new System.EventHandler(this.lbl_quxiao_MouseEnter);
+            this.lbl_fasongbanli.MouseLeave += new System.EventHandler(this.lbl_quxiao_MouseLeave);
             // 
             // tableLayoutPanel6
             // 
@@ -354,7 +362,7 @@
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(554, 341);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(554, 336);
             this.tableLayoutPanel8.TabIndex = 4;
             // 
             // panel_my
@@ -364,7 +372,7 @@
             this.panel_my.Location = new System.Drawing.Point(0, 40);
             this.panel_my.Margin = new System.Windows.Forms.Padding(0);
             this.panel_my.Name = "panel_my";
-            this.panel_my.Size = new System.Drawing.Size(554, 301);
+            this.panel_my.Size = new System.Drawing.Size(554, 296);
             this.panel_my.TabIndex = 3;
             // 
             // tlp_chengguoji

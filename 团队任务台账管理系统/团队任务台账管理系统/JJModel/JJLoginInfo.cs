@@ -95,7 +95,7 @@ namespace 团队任务台账管理系统.JJModel
         {
             string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 状态='未读' and (参与人='{JJLoginInfo._huaming}' or 负责人='{JJLoginInfo._huaming}' or " +
                 $"反馈对象='{JJLoginInfo._huaming}' or 办理人员='{JJLoginInfo._huaming}' or 委托对象='{JJLoginInfo._huaming}' or " +
-                $"审核人员='{JJLoginInfo._huaming}' or 总体验收人='{JJLoginInfo._huaming}')";
+                $"审核人员='{JJLoginInfo._huaming}' or 总体验收人='{JJLoginInfo._huaming}' )";
             DataTable mydt = _mysqlhelper.ExecuteDataTable(str_sql);
             if (mydt.Rows.Count>0)
             {

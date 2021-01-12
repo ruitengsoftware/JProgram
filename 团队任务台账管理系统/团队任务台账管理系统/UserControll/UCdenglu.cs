@@ -68,8 +68,8 @@ namespace 团队任务台账管理系统.UserControll
         UIHelper uihelper = new UIHelper();
         private void UCdenglu_Load(object sender, EventArgs e)
         {
-            uihelper.DrawRoundRect(lbl_denglu);
-            uihelper.DrawRoundRect(panel_my);
+            UIHelper.DrawRoundRect(lbl_denglu);
+            UIHelper.DrawRoundRect(panel_my);
             tableLayoutPanel2.BackColor = Color.FromArgb(0, 255, 255, 255);
             panel_my.BackColor = Color.FromArgb(90, 255, 255, 255);
             foreach (Control c in tableLayoutPanel2.Controls)

@@ -324,9 +324,14 @@ namespace 团队任务台账管理系统
 
         private void lbl_woderenwu_Click(object sender, EventArgs e)
         {
-            UCMytask myuc = new UCMytask();
+            //UCMytask myuc = new UCMytask();
+            //panel_my.Controls.Clear();
+            //panel_my.Controls.Add(new UCMytask() { Dock = DockStyle.Fill });
             panel_my.Controls.Clear();
-            panel_my.Controls.Add(new UCMytask() { Dock = DockStyle.Fill });
+            UCmain uc_main = new UCmain(new List<string> { "通知公告", "待办任务", "工作清单" });
+            uc_main.Dock = DockStyle.Fill;
+            panel_my.Controls.Add(uc_main);
+
         }
 
 

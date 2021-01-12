@@ -53,7 +53,7 @@ namespace 团队任务台账管理系统.Controller
                     _banlirenyuan= mydr["办理人员"].ToString(),
                     _jinzhanqingkuang= mydr["进展情况"].ToString(),
                     _zongtiyanshouren= mydr["总体验收人"].ToString(),
-                    _chuliyijian= mydr["处理意见"].ToString(),
+                    _chuliyijian = mydr["处理意见"].ToString(),
                     _shenherenyuan= mydr["审核人员"].ToString(),
                     _fasongren= mydr["发送人"].ToString()
 

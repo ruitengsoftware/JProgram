@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RuiTengDll;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +19,7 @@ namespace 团队任务台账管理系统.WinForm
         public List<string> list_selected = new List<string>();//获得所有选中节点的名称
         ControllerWFperson mycontroller = new ControllerWFperson();
         string _person = string.Empty;
-
+        List<string> listr_allperson = new List<string>();
         public WFperson(string person)
         {
             InitializeComponent();
@@ -36,7 +37,12 @@ namespace 团队任务台账管理系统.WinForm
             {
                 if (n.Checked)
                 {
+                    if (listr_allperson.Contains(n.Text))
+                    {
                     list_selected.Add(n.Text);
+
+                    }
+
                 }
                 GetSelected(n);
             }
@@ -47,6 +53,12 @@ namespace 团队任务台账管理系统.WinForm
         {
             tv_my.Nodes.Add("全部", "全部");
             var data = mycontroller.GetAllPerson();
+            //获得全部人员list
+            foreach (DataRow dataRow in data.Rows)
+            {
+                listr_allperson.Add(dataRow["花名"].ToString());
+
+            }
             var data_bumen = mycontroller.GetAllBumen();
             //添加一级部门
             foreach (DataRow dr in data_bumen.Rows)
@@ -77,7 +89,7 @@ namespace 团队任务台账管理系统.WinForm
                     {
                         if (dr2["部门"].ToString().Equals(dr["名称"].ToString()))
                         {
-                            tv_my.Nodes["全部"].Nodes[dr["所属部门"].ToString()].Nodes[dr["名称"].ToString()].Nodes.Add($"{dr2["花名"].ToString()}({dr2["实名"].ToString()})", $"{dr2["花名"].ToString()}({dr2["实名"].ToString()})");
+                            tv_my.Nodes["全部"].Nodes[dr["所属部门"].ToString()].Nodes[dr["名称"].ToString()].Nodes.Add($"{dr2["花名"].ToString()}", $"{dr2["花名"].ToString()}");
                         }
                     }
 
@@ -167,11 +179,21 @@ namespace 团队任务台账管理系统.WinForm
                 }
             }
         }
+        UIHelper _ui = new UIHelper();
+        private void label1_Paint(object sender, PaintEventArgs e)
+        {
+            UIHelper.DrawRoundRect((Control)sender);
+        }
 
+        private void label1_MouseEnter(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, -1);
+        }
 
+        private void label1_MouseLeave(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, +1);
 
-        
-
-
+        }
     }
 }

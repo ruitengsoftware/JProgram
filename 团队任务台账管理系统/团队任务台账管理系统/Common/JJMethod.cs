@@ -38,13 +38,20 @@ namespace 团队任务台账管理系统.Common
                 start_shanshuo = true;
                 do
                 {
-                    nf.Icon = Properties.Resources.blank;
-                    InterVal(400);
-                    nf.Icon = Properties.Resources.ruitengicon;
-                    InterVal(400);
+                    try
+                    {
+
+                        nf.Icon = Properties.Resources.blank;
+                        InterVal(400);
+                        nf.Icon = Properties.Resources.ruitengicon;
+                        InterVal(400);
+                    }
+                    catch {  }
+
                 } while (start_shanshuo);
             }));
             t.Start();
+
         }
         public static void IconStopShanshuo()
         {
@@ -63,73 +70,73 @@ namespace 团队任务台账管理系统.Common
         /// <param name="fileNamePath">文件名，全路径格式</param
         /// <param name="uriString">服务器文件夹路径</param>
         /// <param name="IsAutoRename">是否自动按照时间重命名</param>
-        public  static void UpLoadFile(string fileNamePath, string uriString, bool IsAutoRename)
+        public static void UpLoadFile(string fileNamePath, string uriString, bool IsAutoRename)
         {
 
-                NetworkCredential credentials = new NetworkCredential("Administrator", "lixingrui+850223");
-                //判断是否存在文件夹，如果不存在，新建
-                if (!Directory.Exists(uriString))
-                {
-                    HttpWebRequest mywebRequest = (HttpWebRequest)WebRequest.CreateDefault(new Uri(uriString));
-                    mywebRequest.Credentials = credentials;
-                    // mywebRequest.Method = WebRequestMethods.Ftp.MakeDirectory;
-                    mywebRequest.Method = "MKCOL";
+            NetworkCredential credentials = new NetworkCredential("Administrator", "lixingrui+850223");
+            //判断是否存在文件夹，如果不存在，新建
+            if (!Directory.Exists(uriString))
+            {
+                HttpWebRequest mywebRequest = (HttpWebRequest)WebRequest.CreateDefault(new Uri(uriString));
+                mywebRequest.Credentials = credentials;
+                // mywebRequest.Method = WebRequestMethods.Ftp.MakeDirectory;
+                mywebRequest.Method = "MKCOL";
 
-                    try
-                    {
-                        //FtpWebResponse response = mywebRequest.GetResponse() as FtpWebResponse;
-                        HttpWebResponse response = mywebRequest.GetResponse() as HttpWebResponse;
-
-                    }
-                    catch { }
-                }
-                string fileName = fileNamePath.Substring(fileNamePath.LastIndexOf("\\") + 1);
-                //上传的文件样式xxxxxxxxx_006.xlsx
-                //string strVN = NewFileName.Substring(NewFileName.LastIndexOf("_") + 1);//"006.xlsx"
-                //strVN.Substring(0, strVN.LastIndexOf("."));//006
-                //NewFileName.Substring(0, NewFileName.LastIndexOf("_"))//xxxxxxxxx
-                string NewFileName = fileName;
-                if (IsAutoRename)
-                {
-                    NewFileName = DateTime.Now.ToString("yyMMddhhmmss") + DateTime.Now.Millisecond.ToString() + fileNamePath.Substring(fileNamePath.LastIndexOf("."));
-                }
-                string fileNameExt = fileName.Substring(fileName.LastIndexOf(".") + 1);
-                if (uriString.EndsWith("/") == false) uriString = uriString + "/";
-                uriString = uriString + NewFileName;
-                WebClient myWebClient = new WebClient();
-                // myWebClient.Credentials = CredentialCache.DefaultCredentials;
-                myWebClient.Credentials = credentials;
-                FileStream fs = new FileStream(fileNamePath, FileMode.Open, FileAccess.Read);
-                //FileStream fs = OpenFile();  
-                BinaryReader r = new BinaryReader(fs);
-                byte[] postArray = r.ReadBytes((int)fs.Length);
-                Stream postStream = myWebClient.OpenWrite(uriString, "PUT");
                 try
                 {
-                    //使用UploadFile方法可以用下面的格式
-                    //myWebClient.UploadFile(uriString,"PUT",fileNamePath);
-                    if (postStream.CanWrite)
-                    {
-                        postStream.Write(postArray, 0, postArray.Length);
-                        postStream.Close();
-                        fs.Dispose();
-                    }
-                    else
-                    {
-                        postStream.Close();
-                        fs.Dispose();
-                    }
+                    //FtpWebResponse response = mywebRequest.GetResponse() as FtpWebResponse;
+                    HttpWebResponse response = mywebRequest.GetResponse() as HttpWebResponse;
+
                 }
-                catch
+                catch { }
+            }
+            string fileName = fileNamePath.Substring(fileNamePath.LastIndexOf("\\") + 1);
+            //上传的文件样式xxxxxxxxx_006.xlsx
+            //string strVN = NewFileName.Substring(NewFileName.LastIndexOf("_") + 1);//"006.xlsx"
+            //strVN.Substring(0, strVN.LastIndexOf("."));//006
+            //NewFileName.Substring(0, NewFileName.LastIndexOf("_"))//xxxxxxxxx
+            string NewFileName = fileName;
+            if (IsAutoRename)
+            {
+                NewFileName = DateTime.Now.ToString("yyMMddhhmmss") + DateTime.Now.Millisecond.ToString() + fileNamePath.Substring(fileNamePath.LastIndexOf("."));
+            }
+            string fileNameExt = fileName.Substring(fileName.LastIndexOf(".") + 1);
+            if (uriString.EndsWith("/") == false) uriString = uriString + "/";
+            uriString = uriString + NewFileName;
+            WebClient myWebClient = new WebClient();
+            // myWebClient.Credentials = CredentialCache.DefaultCredentials;
+            myWebClient.Credentials = credentials;
+            FileStream fs = new FileStream(fileNamePath, FileMode.Open, FileAccess.Read);
+            //FileStream fs = OpenFile();  
+            BinaryReader r = new BinaryReader(fs);
+            byte[] postArray = r.ReadBytes((int)fs.Length);
+            Stream postStream = myWebClient.OpenWrite(uriString, "PUT");
+            try
+            {
+                //使用UploadFile方法可以用下面的格式
+                //myWebClient.UploadFile(uriString,"PUT",fileNamePath);
+                if (postStream.CanWrite)
+                {
+                    postStream.Write(postArray, 0, postArray.Length);
+                    postStream.Close();
+                    fs.Dispose();
+                }
+                else
                 {
                     postStream.Close();
                     fs.Dispose();
                 }
-                finally
-                {
-                    postStream.Close();
-                    fs.Dispose();
-                }
+            }
+            catch
+            {
+                postStream.Close();
+                fs.Dispose();
+            }
+            finally
+            {
+                postStream.Close();
+                fs.Dispose();
+            }
         }
         public async static Task DownLoadFileAsync(string downloadfile, string localpath)
         {
