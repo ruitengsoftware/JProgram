@@ -26,7 +26,7 @@ namespace 团队任务台账管理系统.WinForm
         {
             InitializeComponent();
             _info = ji;
-            if (!JJLoginInfo._huaming.Equals(_info._chuangjianren))
+            if (!JJLoginInfo._huaming.Equals(_info._fasongren))
             {
                 tb_shiyou.Enabled = false;
                 panel1.Enabled = false;
@@ -34,13 +34,7 @@ namespace 团队任务台账管理系统.WinForm
                 tb_qingjaitianshu.Enabled = false;
                 tb_weituoren.Enabled = false;
                 tb_xiaojiaqingkuang.Enabled = false;
-
             }
-
-
-
-
-
         }
 
         private void lbl_quxiao_Click(object sender, EventArgs e)

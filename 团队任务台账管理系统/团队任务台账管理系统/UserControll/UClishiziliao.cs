@@ -30,8 +30,8 @@ namespace 团队任务台账管理系统.UserControll
             //    myuc._updatemaindata = UClishiziliao_Load;
             //    panel_my.Controls.Add(myuc);
             //}
-            var list = _mycontroller.GetTongzhiLishi();
-            foreach (JJTongzhiInfo info in list)
+            var list = _mycontroller.GetLishiziliao();
+            foreach (JJQingdanInfo info in list)
             {
                 UCMessage myuc = new UCMessage(info);
                 myuc._updatemaindata = UClishiziliao_Load;

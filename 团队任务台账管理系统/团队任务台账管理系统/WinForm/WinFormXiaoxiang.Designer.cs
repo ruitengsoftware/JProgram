@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.tb_xindetihui = new System.Windows.Forms.TextBox();
-            this.lbl_queding = new System.Windows.Forms.Button();
-            this.lbl_guanbi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -48,28 +48,6 @@
             this.tb_xindetihui.Name = "tb_xindetihui";
             this.tb_xindetihui.Size = new System.Drawing.Size(422, 221);
             this.tb_xindetihui.TabIndex = 0;
-            // 
-            // lbl_queding
-            // 
-            this.lbl_queding.Location = new System.Drawing.Point(140, 4);
-            this.lbl_queding.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.lbl_queding.Name = "lbl_queding";
-            this.lbl_queding.Size = new System.Drawing.Size(74, 27);
-            this.lbl_queding.TabIndex = 1;
-            this.lbl_queding.Text = "确定销项";
-            this.lbl_queding.UseVisualStyleBackColor = true;
-            this.lbl_queding.Click += new System.EventHandler(this.lbl_queding_Click);
-            // 
-            // lbl_guanbi
-            // 
-            this.lbl_guanbi.Location = new System.Drawing.Point(220, 4);
-            this.lbl_guanbi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.lbl_guanbi.Name = "lbl_guanbi";
-            this.lbl_guanbi.Size = new System.Drawing.Size(74, 27);
-            this.lbl_guanbi.TabIndex = 1;
-            this.lbl_guanbi.Text = "关闭";
-            this.lbl_guanbi.UseVisualStyleBackColor = true;
-            this.lbl_guanbi.Click += new System.EventHandler(this.lbl_guanbi_Click);
             // 
             // groupBox1
             // 
@@ -106,8 +84,8 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.lbl_queding, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lbl_guanbi, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 253);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -116,6 +94,42 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(434, 35);
             this.tableLayoutPanel2.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Tomato;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(141, 4);
+            this.label1.Margin = new System.Windows.Forms.Padding(4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 27);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "确定销项";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.lbl_queding_Click);
+            this.label1.Paint += new System.Windows.Forms.PaintEventHandler(this.label2_Paint);
+            this.label1.MouseEnter += new System.EventHandler(this.label2_MouseEnter);
+            this.label1.MouseLeave += new System.EventHandler(this.label2_MouseLeave);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Tomato;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(221, 4);
+            this.label2.Margin = new System.Windows.Forms.Padding(4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 27);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "关闭";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.lbl_guanbi_Click);
+            this.label2.Paint += new System.Windows.Forms.PaintEventHandler(this.label2_Paint);
+            this.label2.MouseEnter += new System.EventHandler(this.label2_MouseEnter);
+            this.label2.MouseLeave += new System.EventHandler(this.label2_MouseLeave);
             // 
             // WinFormXiaoxiang
             // 
@@ -133,6 +147,7 @@
             this.groupBox1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -140,10 +155,10 @@
         #endregion
 
         private System.Windows.Forms.TextBox tb_xindetihui;
-        private System.Windows.Forms.Button lbl_queding;
-        private System.Windows.Forms.Button lbl_guanbi;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

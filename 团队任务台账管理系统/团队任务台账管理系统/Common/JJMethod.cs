@@ -70,10 +70,11 @@ namespace 团队任务台账管理系统.Common
         /// <param name="fileNamePath">文件名，全路径格式</param
         /// <param name="uriString">服务器文件夹路径</param>
         /// <param name="IsAutoRename">是否自动按照时间重命名</param>
-        public static void UpLoadFile(string fileNamePath, string uriString, bool IsAutoRename)
+        public static async Task UpLoadFile(string fileNamePath, string uriString, bool IsAutoRename)
         {
-
-            NetworkCredential credentials = new NetworkCredential("Administrator", "lixingrui+850223");
+            await Task.Run(()=> { 
+            
+                        NetworkCredential credentials = new NetworkCredential("Administrator", "lixingrui+850223");
             //判断是否存在文件夹，如果不存在，新建
             if (!Directory.Exists(uriString))
             {
@@ -117,7 +118,7 @@ namespace 团队任务台账管理系统.Common
                 //myWebClient.UploadFile(uriString,"PUT",fileNamePath);
                 if (postStream.CanWrite)
                 {
-                    postStream.Write(postArray, 0, postArray.Length);
+                   postStream.WriteAsync(postArray, 0, postArray.Length);
                     postStream.Close();
                     fs.Dispose();
                 }
@@ -137,6 +138,9 @@ namespace 团队任务台账管理系统.Common
                 postStream.Close();
                 fs.Dispose();
             }
+
+            
+            });
         }
         public async static Task DownLoadFileAsync(string downloadfile, string localpath)
         {

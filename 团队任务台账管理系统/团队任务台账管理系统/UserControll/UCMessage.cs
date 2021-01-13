@@ -36,6 +36,7 @@ namespace 团队任务台账管理系统.UserControll
             {
                 JJQingdanInfo info = o as JJQingdanInfo;
                 //在uc上显示   象限  名称  完成时间
+                this.lbl_leixing.Text = Regex.Match(info._xiangxian,@".类").Value;
                 this.lbl_xiangxian.Text = info._xiangxian;
                 this.lbl_mingcheng.Text = info._renwumingcheng;
                 this.lbl_shijian.Text = Convert.ToDateTime(info._wanchengshijian).ToString("yyyy-MM-dd");
@@ -252,13 +253,7 @@ namespace 团队任务台账管理系统.UserControll
                 //}
             }
             if (task is JJQingdanInfo)
-
             {
-
-
-
-
-
                 JJQingdanInfo ci = task as JJQingdanInfo;
                 WFgongzuoqingdan mywin = new WFgongzuoqingdan(ci);
                 if (mywin.ShowDialog() == DialogResult.OK)

@@ -27,7 +27,7 @@ namespace 团队任务台账管理系统.WinForm
         {
             InitializeComponent();
             _info = ji;
-            if (!JJLoginInfo._huaming.Equals(_info._chuangjianren))
+            if (!JJLoginInfo._huaming.Equals(_info._fasongren))
             {
                 tb_biaoti.Enabled = false;
                 p_jinjichengdu.Enabled = false;

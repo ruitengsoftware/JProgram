@@ -44,7 +44,7 @@ namespace 团队任务台账管理系统.Controller
         {
             string str_sql = string.Empty;
             //string str_sql = $"select * from jjdbrenwutaizhang.工作清单表 where 创建人='{JJLoginInfo._shiming}' and 删除=0 and 象限='{xiangxian}' order by 完成时间";
-           str_sql = $"select count(*) from jjdbrenwutaizhang.任务信息表 where  删除=0 and 状态='未读' " +
+           str_sql = $"select count(*) from jjdbrenwutaizhang.任务信息表 where  删除=0 and 状态<>'已处理' " +
                 $"and (反馈对象='{JJLoginInfo._huaming}' or 审核人员='{JJLoginInfo._huaming}' or 委托对象='{JJLoginInfo._huaming}' or " +
                 $"总体验收人='{JJLoginInfo._huaming}' or 办理人员='{JJLoginInfo._huaming}')";
     //        str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where  删除=0 and 状态='未读' " +
@@ -83,7 +83,9 @@ namespace 团队任务台账管理系统.Controller
             DataTable mydt = new DataTable();
             string str_sql = string.Empty;
             //string str_sql = $"select * from jjdbrenwutaizhang.工作清单表 where 创建人='{JJLoginInfo._shiming}' and 删除=0 and 象限='{xiangxian}' order by 完成时间";
-            str_sql = $"select * from jjdbrenwutaizhang.工作清单表 where 名称 like '%{kw}%' and 删除=0 and 创建人='{JJLoginInfo._huaming}'" +
+            str_sql = $"select * from jjdbrenwutaizhang.工作清单表 " +
+                $"where 名称 like '%{kw}%' and 删除=0 and 创建人='{JJLoginInfo._huaming}' " +
+                $"and 状态<>'已处理' " +
                 $"order by 轻重缓急,完成时间 desc " +
                 $"limit {10 * (start - 1)},10";
             mydt = _mysqlhelper.ExecuteDataTable(str_sql);

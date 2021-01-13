@@ -47,7 +47,7 @@ namespace 团队任务台账管理系统.WinForm
             }
 
            //判断登录信息，创建人是否等于登录人,如果不是，任务任务名称，紧急程度，任务具体要求，上传附件，时限不可用
-           if (!JJLoginInfo._huaming.Equals(_info._chuangjianren))
+           if (!JJLoginInfo._huaming.Equals(_info._fasongren))
            {
                tb_renwumingcheng.Enabled = false;
                 flp_jinjichengdu.Enabled = false;

@@ -161,6 +161,7 @@
     <Compile Include="JJModel\JJBumenInfo.cs" />
     <Compile Include="JJModel\JJchangguiInfo.cs" />
     <Compile Include="JJModel\JJchengguoInfo.cs" />
+    <Compile Include="JJModel\JJFujianInfo.cs" />
     <Compile Include="JJModel\JJOkrInfo.cs" />
     <Compile Include="JJModel\JJLoginInfo.cs" />
     <Compile Include="JJModel\JJPersonInfo.cs" />
@@ -205,6 +206,12 @@
     </Compile>
     <Compile Include="UserControll\UCfujian.Designer.cs">
       <DependentUpon>UCfujian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\UCfujianInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCfujianInfo.Designer.cs">
+      <DependentUpon>UCfujianInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControll\UClishiziliao.cs">
       <SubType>UserControl</SubType>
@@ -455,6 +462,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCfujian.resx">
       <DependentUpon>UCfujian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCfujianInfo.resx">
+      <DependentUpon>UCfujianInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UClishiziliao.resx">
       <DependentUpon>UClishiziliao.cs</DependentUpon>

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using 团队任务台账管理系统.WinForm;
 using 团队任务台账管理系统.JJModel;
 using 团队任务台账管理系统.Controller;
+using RuiTengDll;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -34,8 +35,6 @@ namespace 团队任务台账管理系统.UserControll
                 //跟新部门列表
                 UpdateBumen();
             }
-
-
          }
 
 
@@ -51,7 +50,6 @@ namespace 团队任务台账管理系统.UserControll
                 if (info._jibie=="一级部门")
                 {
                     tv_my.Nodes.Add(info._mingcheng,info._mingcheng);
-
                 }
             }
             //获得二级列表，加载到对应的一级列表中去
@@ -122,6 +120,23 @@ namespace 团队任务台账管理系统.UserControll
 
             //构成人员信息uc，加载到右侧部门人员
 
+
+        }
+
+        private void label2_Paint(object sender, PaintEventArgs e)
+        {
+            UIHelper.DrawRoundRect((Control)sender);
+
+        }
+
+        private void label1_MouseEnter(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, -1);
+        }
+
+        private void label1_MouseLeave(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, +1);
 
         }
     }

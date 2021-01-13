@@ -180,6 +180,7 @@
             this.btn_gongxiangziliao.TabIndex = 0;
             this.btn_gongxiangziliao.Text = "共享文件";
             this.btn_gongxiangziliao.UseVisualStyleBackColor = true;
+            this.btn_gongxiangziliao.Click += new System.EventHandler(this.btn_gongxiangziliao_Click);
             // 
             // btn_shouquan
             // 

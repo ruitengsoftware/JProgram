@@ -398,5 +398,10 @@ namespace 团队任务台账管理系统
         {
             this.WindowState = FormWindowState.Normal;
         }
+
+        private void btn_gongxiangziliao_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
