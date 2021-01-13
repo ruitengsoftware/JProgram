@@ -297,6 +297,12 @@
     <Compile Include="UserControll\UCtuanduixiagnqing.Designer.cs">
       <DependentUpon>UCtuanduixiagnqing.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControll\UCwodeyunpan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCwodeyunpan.Designer.cs">
+      <DependentUpon>UCwodeyunpan.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControll\UCxiaoxiang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -507,6 +513,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCtuanduixiagnqing.resx">
       <DependentUpon>UCtuanduixiagnqing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCwodeyunpan.resx">
+      <DependentUpon>UCwodeyunpan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCxiaoxiang.resx">
       <DependentUpon>UCxiaoxiang.cs</DependentUpon>

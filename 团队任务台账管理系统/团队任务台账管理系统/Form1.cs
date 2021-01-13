@@ -401,6 +401,10 @@ namespace 团队任务台账管理系统
 
         private void btn_gongxiangziliao_Click(object sender, EventArgs e)
         {
+            panel_my.Controls.Clear();
+            UCwodeyunpan uc_main = new UCwodeyunpan();
+            uc_main.Dock = DockStyle.Fill;
+            panel_my.Controls.Add(uc_main);
 
         }
     }

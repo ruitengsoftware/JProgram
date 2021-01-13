@@ -38,6 +38,9 @@ namespace 团队任务台账管理系统.UserControll
         /// </summary>
        public string uripath;
        public string _filename;//完整的文件本地路径
+
+
+        public JJFujianInfo _myinfo = null;
         /// <summary>
         /// 
         /// </summary>
@@ -48,10 +51,15 @@ namespace 团队任务台账管理系统.UserControll
             _filename = filename;
             //获得file的文件名和登录人员花名
            file = Path.GetFileName(filename);
-
             //组成服务器名
             path = $"http://49.233.40.109/person/{JJLoginInfo._huaming}/{file}";
             uripath = $"http://49.233.40.109/person/{JJLoginInfo._huaming}/";
+        }
+
+        public UCfujianInfo(JJFujianInfo info)
+        {
+            InitializeComponent();
+            _myinfo = info;
 
         }
         /// <summary>
@@ -97,10 +105,12 @@ namespace 团队任务台账管理系统.UserControll
 
         private async void UCfujianInfo_Load(object sender, EventArgs e)
         {
+            if (_myinfo==null)
+            {
             //判断文件是否存在，如果不存在上传，显示已上传，如果已经存在，直接显示已上传
             bool exist = ExistFile(path);
             lbl_wenjianming.Text = file;
-
+               
 
             if (!exist)
             {
@@ -114,10 +124,23 @@ namespace 团队任务台账管理系统.UserControll
                 };
                 InsertFile(info);
                 lbl_info.Text = "正在上传……";
-
                 await JJMethod.UpLoadFile(_filename, uripath, false);
             }
             lbl_info.Text = "已上传!";
+
+            }
+            else
+            {
+                lbl_wenjianming.Text = _myinfo._wenjianming;
+                lbl_chuangjianren.Text = _myinfo._chuangjianren;
+                lbl_chuangjianren.Visible = true;
+                lbl_shijian.Text = _myinfo._chuangjianshijian;
+                lbl_shijian.Visible = true;
+                lbl_xiazai.Visible = true;
+                lbl_info.Visible = false;
+                pb_guanbi.Visible = false;
+                pb_shanchu.Visible = true;
+            }
 
         }
     }
