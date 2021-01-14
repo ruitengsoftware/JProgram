@@ -53,7 +53,8 @@ namespace 团队任务台账管理系统.WinForm
               
                 _chuangjianshijian = DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss"),
                 _beizhu=tb_beizhu.Text,
-                _jingyanjiaoxun=tb_jingyanjiaoxun.Text
+                _jingyanjiaoxun=tb_jingyanjiaoxun.Text,
+                _zhuangtai="未处理"
             };
             if (rb_a.Checked)
             {

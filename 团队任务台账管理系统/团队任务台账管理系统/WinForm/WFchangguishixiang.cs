@@ -122,12 +122,32 @@ namespace 团队任务台账管理系统.WinForm
 
         private void btn_fasongbanli_Click(object sender, EventArgs e)
         {
+            //发送任务之前，需要先保存任务信息，方便打开的时候调用
+            //构造一个jjtongzhiinfo
+            JJTaskInfo myinfo = new JJTaskInfo
+            {
+                _mingcheng = tb_renwumingcheng.Text,
+                _jinjichengdu = rb_jinji.Checked == true ? "紧急" : "普通",
+                _jutiyaoqiu = tb_jutiyaoqiu.Text,
+                _fujian = string.Join("|", uCfujian1.list_fujian),
+                _shixian = dtp_shixian.Value.ToString("yyyy-MM-dd hh:mm:ss"),
+                _banliyijian = tb_banliyijian.Text,
+                _banlirenyuan = tb_banlirenyuan.Text,
+                _jinzhanqingkuang = tb_jinzhanqingkuang.Text,
+                _chuangjianshijian = DateTime.Now.ToString(),
+                _chuangjianren = JJLoginInfo._huaming,
+                _leixing = "常规事项",
+                _zhuangtai = "保存"
+            };
+
+            //添加任务
+            bool b = mycontroller.AddTask(myinfo);
             //分解办理人员
             string[] arr_banlirenyuan = Regex.Split(tb_banlirenyuan.Text, ",");
             foreach (string s in arr_banlirenyuan)
             {
                 //构造一个jjtongzhiinfo
-                JJTaskInfo myinfo = new JJTaskInfo
+                myinfo = new JJTaskInfo
                 {
                     _mingcheng = tb_renwumingcheng.Text,
                     _jinjichengdu = rb_jinji.Checked == true ? "紧急" : "普通",
@@ -143,7 +163,7 @@ namespace 团队任务台账管理系统.WinForm
                     _zhuangtai = "未读"
                 };
                 //拆解反馈对象，对每一个对象，向任务信息表中插入一条jjtaskinfo
-                bool b = mycontroller.FasongBanli(myinfo);
+                 b = mycontroller.FasongBanli(myinfo);
             }
                 JJMethod.a_checknewtask(null, null);
                 MessageBox.Show("发送办理成功！");

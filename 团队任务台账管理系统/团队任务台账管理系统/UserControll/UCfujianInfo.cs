@@ -139,9 +139,36 @@ namespace 团队任务台账管理系统.UserControll
                 lbl_xiazai.Visible = true;
                 lbl_info.Visible = false;
                 pb_guanbi.Visible = false;
+                if (!_myinfo._chuangjianren.Equals("共享"))
+                    
+                {
                 pb_shanchu.Visible = true;
+
+                }
             }
 
+        }
+        private void pb_shanchu_Click(object sender, EventArgs e)
+        {
+
+            //从数据库中删除本条,
+            string str_sql = $"update jjdbrenwutaizhang.附件信息表 " +
+                $"set 删除=1 " +
+                $"where 文件名='{_myinfo._wenjianming}' and 创建人='{_myinfo._chuangjianren}'";
+            _mysql.ExecuteNonQuery(str_sql);
+
+            this.Dispose();
+        }
+
+        private async void lbl_xiazai_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel 97-2003工作簿|*.xls|Excel 工作簿|*.xlsx";
+            if (sfd.ShowDialog()==DialogResult.OK)
+            {
+               await JJMethod.DownLoadFileAsync(_myinfo._quanlujing, sfd.FileName);
+                MessageBox.Show("下载完成！");
+            }
         }
     }
 }

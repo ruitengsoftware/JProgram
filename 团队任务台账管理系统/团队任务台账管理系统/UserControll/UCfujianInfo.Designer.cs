@@ -32,9 +32,9 @@
             this.lbl_info = new System.Windows.Forms.Label();
             this.pb_guanbi = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_xiazai = new System.Windows.Forms.Label();
-            this.lbl_shijian = new System.Windows.Forms.Label();
             this.lbl_chuangjianren = new System.Windows.Forms.Label();
+            this.lbl_shijian = new System.Windows.Forms.Label();
+            this.lbl_xiazai = new System.Windows.Forms.Label();
             this.pb_shanchu = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb_guanbi)).BeginInit();
             this.panel1.SuspendLayout();
@@ -98,6 +98,30 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.UCfujianInfo_Paint);
             // 
+            // lbl_chuangjianren
+            // 
+            this.lbl_chuangjianren.AutoSize = true;
+            this.lbl_chuangjianren.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_chuangjianren.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.lbl_chuangjianren.Location = new System.Drawing.Point(253, 2);
+            this.lbl_chuangjianren.Name = "lbl_chuangjianren";
+            this.lbl_chuangjianren.Size = new System.Drawing.Size(43, 17);
+            this.lbl_chuangjianren.TabIndex = 5;
+            this.lbl_chuangjianren.Text = "label2";
+            this.lbl_chuangjianren.Visible = false;
+            // 
+            // lbl_shijian
+            // 
+            this.lbl_shijian.AutoSize = true;
+            this.lbl_shijian.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_shijian.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.lbl_shijian.Location = new System.Drawing.Point(296, 2);
+            this.lbl_shijian.Name = "lbl_shijian";
+            this.lbl_shijian.Size = new System.Drawing.Size(43, 17);
+            this.lbl_shijian.TabIndex = 4;
+            this.lbl_shijian.Text = "label1";
+            this.lbl_shijian.Visible = false;
+            // 
             // lbl_xiazai
             // 
             this.lbl_xiazai.AutoSize = true;
@@ -112,30 +136,7 @@
             this.lbl_xiazai.Text = "下载";
             this.lbl_xiazai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_xiazai.Visible = false;
-            // 
-            // lbl_shijian
-            // 
-            this.lbl_shijian.AutoSize = true;
-            this.lbl_shijian.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbl_shijian.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.lbl_shijian.Location = new System.Drawing.Point(296, 2);
-            this.lbl_shijian.Name = "lbl_shijian";
-            this.lbl_shijian.Size = new System.Drawing.Size(43, 17);
-            this.lbl_shijian.TabIndex = 4;
-            this.lbl_shijian.Text = "label1";
-            this.lbl_shijian.Visible = false;
-            // 
-            // lbl_chuangjianren
-            // 
-            this.lbl_chuangjianren.AutoSize = true;
-            this.lbl_chuangjianren.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbl_chuangjianren.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.lbl_chuangjianren.Location = new System.Drawing.Point(253, 2);
-            this.lbl_chuangjianren.Name = "lbl_chuangjianren";
-            this.lbl_chuangjianren.Size = new System.Drawing.Size(43, 17);
-            this.lbl_chuangjianren.TabIndex = 5;
-            this.lbl_chuangjianren.Text = "label2";
-            this.lbl_chuangjianren.Visible = false;
+            this.lbl_xiazai.Click += new System.EventHandler(this.lbl_xiazai_Click);
             // 
             // pb_shanchu
             // 
@@ -148,6 +149,7 @@
             this.pb_shanchu.TabIndex = 6;
             this.pb_shanchu.TabStop = false;
             this.pb_shanchu.Visible = false;
+            this.pb_shanchu.Click += new System.EventHandler(this.pb_shanchu_Click);
             // 
             // UCfujianInfo
             // 

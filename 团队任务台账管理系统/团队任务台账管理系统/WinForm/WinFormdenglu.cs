@@ -57,7 +57,6 @@ namespace 团队任务台账管理系统.JJWinForm
         private const int WM_NCHITTEST = 0x84;          // variables for dragging the form
         private const int HTCLIENT = 0x1;
         private const int HTCAPTION = 0x2;
-
         protected override CreateParams CreateParams
         {
             get
@@ -65,6 +64,8 @@ namespace 团队任务台账管理系统.JJWinForm
                 m_aeroEnabled = CheckAeroEnabled();
 
                 CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+
                 if (!m_aeroEnabled)
                     cp.ClassStyle |= CS_DROPSHADOW;
 
@@ -114,6 +115,8 @@ namespace 团队任务台账管理系统.JJWinForm
         }
 
         #endregion
+
+       
 
 
 

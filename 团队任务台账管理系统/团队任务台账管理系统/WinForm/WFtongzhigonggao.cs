@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.Controller;
@@ -44,7 +45,11 @@ namespace 团队任务台账管理系统.WinForm
         /// <param name="e"></param>
         private void label5_Click(object sender, EventArgs e)
         {
-            //构造一个jjtongzhiinfo
+            //分解阅读范围
+            string[] person = Regex.Split(tb_yuedufanwei.Text,",");
+            foreach (string s in person)
+            {
+        //构造一个jjtongzhiinfo
             JJTongzhiInfo myinfo = new JJTongzhiInfo()
             {
                 _biaoti = tb_biaoti.Text,
@@ -55,14 +60,17 @@ namespace 团队任务台账管理系统.WinForm
                 
                 _fabushijian=DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),
                _shixian=dtp_shixian.Value.ToString("yyyy-MM-dd hh:mm:ss"),
-               _yuedufanwei=tb_yuedufanwei.Text
+               _yuedufanwei=s
             };
             //保存jjtonzhiinfo
-            bool b = _mycontroller.SaveTongzhi(myinfo);
-            if (b)
-            {
-                MessageBox.Show("保存成功！");
+             _mycontroller.SaveTongzhi(myinfo);
+         
             }
+
+    
+          
+            MessageBox.Show("保存成功！");
+          
             this.DialogResult = DialogResult.OK;
         }
 

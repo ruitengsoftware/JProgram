@@ -19,7 +19,7 @@ namespace 团队任务台账管理系统.Controller
         /// <returns></returns>
         public JJTaskInfo GetChangguiInfo(string s)
         {
-            string str_sql = $"select * from jjdbrenwutaizhang.常规事项表 where 任务名称='{s}' and 删除=0";
+            string str_sql = $"select * from jjdbrenwutaizhang.常规事项表 where 名称='{s}' and 删除=0";
             DataRow mydr = _sql.ExecuteDataRow(str_sql);
             JJTaskInfo myti = new JJTaskInfo() { 
             
@@ -106,7 +106,7 @@ namespace 团队任务台账管理系统.Controller
 
         public JJQingdanInfo GetQingdanInfo(string s)
         {
-            string str_sql = $"select * from jjdbrenwutaizhang.工作清单表 where 任务名称='{s}' and 删除=0";
+            string str_sql = $"select * from jjdbrenwutaizhang.工作清单表 where 名称='{s}' and 删除=0";
             DataRow mydr = _sql.ExecuteDataRow(str_sql);
             JJQingdanInfo ci = new JJQingdanInfo()
             {
@@ -127,7 +127,7 @@ namespace 团队任务台账管理系统.Controller
         public bool DeleteGongzuoqingdan(object o)
         {
             JJQingdanInfo myinfo = o as JJQingdanInfo;
-            string str_sql = $"update jjdbrenwutaizhang.工作清单表 set 删除=1 where 任务名称='{myinfo._renwumingcheng}' " +
+            string str_sql = $"update jjdbrenwutaizhang.工作清单表 set 删除=1 where 名称='{myinfo._renwumingcheng}' " +
                     $"and 创建人='{myinfo._chuangjianren}' and 删除=0";
             int num = _sql.ExecuteNonQuery(str_sql);
 

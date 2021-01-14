@@ -124,6 +124,7 @@ namespace 团队任务台账管理系统
             InitializeComponent();
             JJLoginInfo._form1 = this;
             JJLoginInfo.GetLoginInfo(JJLoginInfo._huaming);
+
         }
         //UserControl myuc = new UserControl();
         private void Form1_Load(object sender, EventArgs e)
@@ -131,13 +132,9 @@ namespace 团队任务台账管理系统
             JJMethod.a_checknewtask = timer1_Tick;//给公共方法赋值
             JJMethod.a_shuaxinzhuye = pb_home_Click;
             JJMethod.nf = notifyIcon1;
-            this.splitContainer1.Panel1Collapsed = false;
 
             //this.FormBorderStyle = FormBorderStyle.None;
-
-            pb_home_Click(null, null);
-
-
+            lbl_woderenwu_Click(lbl_wodezhuye, null);
 
 
 
@@ -149,11 +146,7 @@ namespace 团队任务台账管理系统
                 lbl_newtask.Text = $"{num}";
                 myt.Start();
             }
-            else
-            {
-                btn_woderenwu.Width = 94;
 
-            }
 
 
             //开始监听新任务
@@ -227,6 +220,8 @@ namespace 团队任务台账管理系统
 
         private void btn_daiban_Click(object sender, EventArgs e)
         {
+            HighControl(sender);
+
             panel_my.Controls.Clear();
             UCmain uc_main = new UCmain(new List<string> { "待办任务" });
             uc_main.Dock = DockStyle.Fill;
@@ -259,6 +254,8 @@ namespace 团队任务台账管理系统
 
         private void btn_xinjian_Click(object sender, EventArgs e)
         {
+            HighControl(sender);
+
             var parent = this.Parent;
             panel_my.Controls.Clear();
             UCxinjian uc_xinjian = new UCxinjian();
@@ -295,6 +292,8 @@ namespace 团队任务台账管理系统
 
         private void btn_xiaoxiang_Click(object sender, EventArgs e)
         {
+            HighControl(sender);
+
             var parent = this.Parent;
             panel_my.Controls.Clear();
 
@@ -304,6 +303,8 @@ namespace 团队任务台账管理系统
 
         private void btn_shouquan_Click(object sender, EventArgs e)
         {
+            HighControl(sender);
+
             var parent = this.Parent;
             panel_my.Controls.Clear();
 
@@ -313,6 +314,7 @@ namespace 团队任务台账管理系统
 
         private void btn_tongxunlu_Click(object sender, EventArgs e)
         {
+            HighControl(sender);
 
             UCbumentongxun myuc = new UCbumentongxun() { Dock = DockStyle.Fill };
 
@@ -324,8 +326,8 @@ namespace 团队任务台账管理系统
 
         private void lbl_woderenwu_Click(object sender, EventArgs e)
         {
-            //UCMytask myuc = new UCMytask();
-            //panel_my.Controls.Clear();
+            HighControl(sender);
+
             //panel_my.Controls.Add(new UCMytask() { Dock = DockStyle.Fill });
             panel_my.Controls.Clear();
             UCmain uc_main = new UCmain(new List<string> { "通知公告", "待办任务", "工作清单" });
@@ -344,7 +346,6 @@ namespace 团队任务台账管理系统
             if (num > 0)
             {
                 lbl_newtask.Visible = true;
-                btn_woderenwu.Width = 65;
                 lbl_newtask.Text = $"{num}";
                 //同时判断是否显示 
                 Control myuc = panel_my.Controls[0];
@@ -356,7 +357,6 @@ namespace 团队任务台账管理系统
             else
             {
                 lbl_newtask.Visible = false;
-                btn_woderenwu.Width = 94;
             }
 
         }
@@ -378,6 +378,8 @@ namespace 团队任务台账管理系统
 
         private void btn_gongzuoqingdan_Click(object sender, EventArgs e)
         {
+            HighControl(sender);
+
             panel_my.Controls.Clear();
             UCmain uc_main = new UCmain(new List<string> { "工作清单" });
             uc_main.Dock = DockStyle.Fill;
@@ -387,6 +389,8 @@ namespace 团队任务台账管理系统
 
         private void btn_tongzhigonggao_Click(object sender, EventArgs e)
         {
+            HighControl(sender);
+
             panel_my.Controls.Clear();
             UCmain uc_main = new UCmain(new List<string> { "通知公告" });
             uc_main.Dock = DockStyle.Fill;
@@ -401,11 +405,29 @@ namespace 团队任务台账管理系统
 
         private void btn_gongxiangziliao_Click(object sender, EventArgs e)
         {
+            HighControl(sender);
+
             panel_my.Controls.Clear();
             UCwodeyunpan uc_main = new UCwodeyunpan();
             uc_main.Dock = DockStyle.Fill;
             panel_my.Controls.Add(uc_main);
 
+        }
+
+        private void HighControl(object sender)
+        {
+           
+            
+
+            foreach (Control control in panel1.Controls)
+            {
+                control.BackColor = Color.DimGray;
+                control.ForeColor = Color.White;
+            }
+            ((Control)sender).BackColor = Color.White;
+            ((Control)sender).ForeColor = Color.Black;
+            lbl_newtask.BackColor = lbl_wodezhuye.BackColor;
+            Application.DoEvents();
         }
     }
 }

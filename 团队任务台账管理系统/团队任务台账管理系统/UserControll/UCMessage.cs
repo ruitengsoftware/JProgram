@@ -36,7 +36,7 @@ namespace 团队任务台账管理系统.UserControll
             {
                 JJQingdanInfo info = o as JJQingdanInfo;
                 //在uc上显示   象限  名称  完成时间
-                this.lbl_leixing.Text = Regex.Match(info._xiangxian,@".类").Value;
+                this.lbl_leixing.Text = Regex.Match(info._xiangxian, @".类").Value;
                 this.lbl_xiangxian.Text = info._xiangxian;
                 this.lbl_mingcheng.Text = info._renwumingcheng;
                 this.lbl_shijian.Text = Convert.ToDateTime(info._wanchengshijian).ToString("yyyy-MM-dd");
@@ -88,7 +88,7 @@ namespace 团队任务台账管理系统.UserControll
             if (o is JJTaskInfo)//如果是四大任务直以
             {
                 //不是清单关闭销项
-               
+
                 pb_xiaoxiang.Visible = false;
                 pb_shanchu.Visible = false;
                 JJTaskInfo info = o as JJTaskInfo;
@@ -125,7 +125,7 @@ namespace 团队任务台账管理系统.UserControll
                 }
                 if (info._zhuangtai.Equals("未读"))
                 {
-                lbl_zhuangtai.Text = info._zhuangtai;
+                    lbl_zhuangtai.Text = info._zhuangtai;
                     lbl_zhuangtai.Visible = true;
                 }
                 lbl_leixing.Text = leixing;
@@ -182,7 +182,7 @@ namespace 团队任务台账管理系统.UserControll
                 if (myti._zhuangtai.Equals("未读"))
                 {
                     lbl_zhuangtai.Visible = false;
-                    myti._zhuangtai = "处理中";
+                    myti._zhuangtai = "办理中";
                     _myc.UpdateZhuangtai(myti);
                 }
                 //判断未读任务数量，如果是0，要取消主界面我的任务右侧的红点
@@ -191,37 +191,36 @@ namespace 团队任务台账管理系统.UserControll
                 if (num > 0)
                 {
                     (this.ParentForm as Form1).lbl_newtask.Visible = true;
-                    (this.ParentForm as Form1).btn_woderenwu.Width = 65;
 
                     (this.ParentForm as Form1).lbl_newtask.Text = $"{num}";
                 }
                 else
                 {
                     (this.ParentForm as Form1).lbl_newtask.Visible = false;
-                    (this.ParentForm as Form1).btn_woderenwu.Width = 94;
 
                 }
-
-                JJTaskInfo info = task as JJTaskInfo;
+                //在这里，不能直接使用转换后的task，因为信息不完整，应当根据类型和名称获得状态为“保存的”taskinfo
+                JJTaskInfo info0 = task as JJTaskInfo;
+                JJTaskInfo info = GetBaocunTask(info0);
                 Form mywin = null;
                 if (info._leixing.Equals("OKR事项"))
                 {
-                    mywin = new WFokrshixiang(info);
+                    mywin = new WFokrshixiang(info) { StartPosition = FormStartPosition.CenterParent };
 
                 }
                 else if (info._leixing.Equals("常规事项"))
                 {
-                    mywin = new WFchangguishixiang(info);
+                    mywin = new WFchangguishixiang(info) { StartPosition = FormStartPosition.CenterParent };
 
                 }
                 else if (info._leixing.Equals("请休假单"))
                 {
-                    mywin = new WFqingxiujiadan(info);
+                    mywin = new WFqingxiujiadan(info) { StartPosition = FormStartPosition.CenterParent };
 
                 }
                 else if (info._leixing.Equals("意见建议"))
                 {
-                    mywin = new WFyijianjianyi(info);
+                    mywin = new WFyijianjianyi(info) { StartPosition = FormStartPosition.CenterParent };
 
                 }
                 if (mywin.ShowDialog() == DialogResult.OK)
@@ -237,7 +236,7 @@ namespace 团队任务台账管理系统.UserControll
                 JJTongzhiInfo info = task as JJTongzhiInfo;
 
                 _myc.Yidu(info);//将状态从未读变为已读
-                WinFormTongzhi mywin = new WinFormTongzhi(info);
+                WinFormTongzhi mywin = new WinFormTongzhi(info) { StartPosition = FormStartPosition.CenterParent };
                 if (mywin.ShowDialog() == DialogResult.OK)
                 {
                     JJMethod.a_shuaxinzhuye(null, null);
@@ -255,7 +254,7 @@ namespace 团队任务台账管理系统.UserControll
             if (task is JJQingdanInfo)
             {
                 JJQingdanInfo ci = task as JJQingdanInfo;
-                WFgongzuoqingdan mywin = new WFgongzuoqingdan(ci);
+                WFgongzuoqingdan mywin = new WFgongzuoqingdan(ci) { StartPosition = FormStartPosition.CenterParent };
                 if (mywin.ShowDialog() == DialogResult.OK)
                 {
                     //刷新数据
@@ -263,18 +262,63 @@ namespace 团队任务台账管理系统.UserControll
 
                 }
             }
+        }
+        MySQLHelper _mysql = new MySQLHelper();
+        /// <summary>
+        /// 获得状态为保存的任务信息
+        /// </summary>
+        /// <returns></returns>
+        public JJTaskInfo GetBaocunTask(JJTaskInfo info)
+        {
+            string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 " +
+                $"where 名称='{info._mingcheng}' and 类型='{info._leixing}' and 状态='保存' and 删除=0";
+            DataRow mydr = _mysql.ExecuteDataRow(str_sql);
+            JJTaskInfo result = new JJTaskInfo();
 
 
-
-
-
-
-
-
-
+            result._mingcheng = mydr["名称"].ToString();
+           result._leixing = mydr["类型"].ToString();
+           result._zhuangtai = mydr["状态"].ToString();
+           result._xiangqing = mydr["详情"].ToString();
+           result._chuangjianren = mydr["创建人"].ToString();
+           result._chuangjianshijian = mydr["创建时间"].ToString();
+           result._duqushijian = mydr["读取时间"].ToString();
+           result._shixian = mydr["时限"].ToString();
+           result._jinjichengdu = mydr["紧急程度"].ToString();
+           result._mubiao = mydr["总体目标"].ToString();
+           result._chengguoji = mydr["成果集"].ToString();
+           result._shenqingren = mydr["申请人"].ToString();
+           result._shiyou = mydr["事由"].ToString();
+           result._kaishishijian = mydr["开始时间"].ToString();
+           result._jieshushijian = mydr["结束时间"].ToString();
+           result._weituoduixiang = mydr["委托对象"].ToString();
+           result._shenheyijian = mydr["审核意见"].ToString();
+           result._biaoti = mydr["标题"].ToString();
+           result._fankuiren = mydr["反馈人"].ToString();
+           result._fankuiduixiang = mydr["反馈对象"].ToString();
+           result._neirong = mydr["内容"].ToString();
+           result._banliyijian = mydr["办理意见"].ToString();
+           result._banlirenyuan = mydr["办理人员"].ToString();
+           result._jinzhanqingkuang = mydr["进展情况"].ToString();
+           result._zongtiyanshouren = mydr["总体验收人"].ToString();
+           result._chuliyijian = mydr["处理意见"].ToString();
+           result._shenherenyuan = mydr["审核人员"].ToString();
+           result._fasongren = mydr["发送人"].ToString();
+           result._fasongshijian= mydr["发送时间"].ToString();
+           result._jutiyaoqiu= mydr["具体要求"].ToString();
+           result._fujian= mydr["附件"].ToString();
+           result._qizhishijian= mydr["起止时间"].ToString();
+           result._xiaojiaqingkuang= mydr["销假情况"].ToString();
+            result._qingjiatianshu = mydr["请假天数"].ToString().Equals(string.Empty)?0: Convert.ToInt32(mydr["请假天数"].ToString());
+            return result;
 
 
         }
+
+
+
+
+
         /// <summary>
         /// 点击销项按钮时触发的事件
         /// </summary>
@@ -303,7 +347,7 @@ namespace 团队任务台账管理系统.UserControll
             bool b = _myc.DeleteGongzuoqingdan(task);
             if (b)
             {
-                _updatemaindata(null, null);
+                JJMethod.a_shuaxinzhuye(null, null);
                 MessageBox.Show("工作清单已删除！");
             }
 

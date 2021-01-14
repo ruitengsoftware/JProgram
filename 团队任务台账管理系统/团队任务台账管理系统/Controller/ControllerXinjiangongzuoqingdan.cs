@@ -23,9 +23,9 @@ namespace 团队任务台账管理系统.Controller
 
 
             //保存任务
-            str_sql = $"insert into jjdbrenwutaizhang.工作清单表(名称,轻重缓急,完成时间,备注,经验教训,创建时间,创建人,删除) " +
+            str_sql = $"insert into jjdbrenwutaizhang.工作清单表(名称,轻重缓急,完成时间,备注,经验教训,创建时间,创建人,删除,状态) " +
                 $"values('{renwu._renwumingcheng}','{renwu._qingzhonghuanji}','{renwu._wanchengshijian}','{renwu._beizhu}'," +
-                $"'{renwu._jingyanjiaoxun}','{renwu._chuangjianshijian}','{renwu._chuangjianren}',0)";
+                $"'{renwu._jingyanjiaoxun}','{renwu._chuangjianshijian}','{renwu._chuangjianren}',0,'{renwu._zhuangtai}')";
             int num = _mysqlhelper.ExecuteNonQuery(str_sql);
 
             //返回值

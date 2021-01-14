@@ -16,14 +16,14 @@ namespace 团队任务台账管理系统.UserControll
         public double totalpage = 0;
         public Func<int,string,object> f = null;//获得数据
         public Action<object> a = null;//刷新显示
-        public string kw = string.Empty;
+        public string kw = string.Empty;//关键字
         public UCpage()
         {
             InitializeComponent();
 
         }
 
-        private void tb_page_TextChanged(object sender, EventArgs e)
+        public void tb_page_TextChanged(object sender, EventArgs e)
         {
             currentpage = Convert.ToInt32(tb_page.Text);
             object list_o = f(currentpage,kw);

@@ -490,10 +490,14 @@ namespace 团队任务台账管理系统.UserControll
 
         private void pb_search_Click(object sender, EventArgs e)
         {
-            //string keyword = tb_kw.Text;
-            //DataTable mydt = _mycontroller.GetDaibanRenwuDT(keyword);
-            //dgv_daiban.DataSource = null;
-            //dgv_daiban.DataSource = mydt;
+            string keyword = tb_kw.Text;
+
+            double pagenums = _mycontroller.GetDaibanPagenums();
+            ucpagedaiban.kw = keyword;
+            ucpagedaiban.totalpage = pagenums;
+            ucpagedaiban.tb_page_TextChanged(null, null);
+            ucpagedaiban.tb_page.Text = "1";
+            ucpagedaiban.lbl_pagenums.Text = $"共 {pagenums} 页";
 
         }
 

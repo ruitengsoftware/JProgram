@@ -62,6 +62,7 @@ namespace 团队任务台账管理系统.WinForm
                 m_aeroEnabled = CheckAeroEnabled();
 
                 CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
                 if (!m_aeroEnabled)
                     cp.ClassStyle |= CS_DROPSHADOW;
 

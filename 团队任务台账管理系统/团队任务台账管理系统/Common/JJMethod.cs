@@ -12,7 +12,7 @@ namespace 团队任务台账管理系统.Common
 {
     public static class JJMethod
     {
-
+       
 
         /// <summary>
         /// 检查是否有新任务并且显示任务数量和闪烁托盘图标

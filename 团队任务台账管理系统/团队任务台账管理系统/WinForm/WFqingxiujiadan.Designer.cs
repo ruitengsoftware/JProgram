@@ -488,7 +488,7 @@
             this.panel1.Location = new System.Drawing.Point(93, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(1);
+            this.panel1.Padding = new System.Windows.Forms.Padding(2);
             this.panel1.Size = new System.Drawing.Size(349, 27);
             this.panel1.TabIndex = 23;
             // 
@@ -496,10 +496,10 @@
             // 
             this.rb_jinji.AutoSize = true;
             this.rb_jinji.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rb_jinji.Location = new System.Drawing.Point(51, 1);
+            this.rb_jinji.Location = new System.Drawing.Point(52, 2);
             this.rb_jinji.Margin = new System.Windows.Forms.Padding(3, 0, 3, 4);
             this.rb_jinji.Name = "rb_jinji";
-            this.rb_jinji.Size = new System.Drawing.Size(50, 25);
+            this.rb_jinji.Size = new System.Drawing.Size(50, 23);
             this.rb_jinji.TabIndex = 0;
             this.rb_jinji.Text = "紧急";
             this.rb_jinji.UseVisualStyleBackColor = true;
@@ -509,10 +509,10 @@
             this.rb_putong.AutoSize = true;
             this.rb_putong.Checked = true;
             this.rb_putong.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rb_putong.Location = new System.Drawing.Point(1, 1);
+            this.rb_putong.Location = new System.Drawing.Point(2, 2);
             this.rb_putong.Margin = new System.Windows.Forms.Padding(3, 0, 3, 4);
             this.rb_putong.Name = "rb_putong";
-            this.rb_putong.Size = new System.Drawing.Size(50, 25);
+            this.rb_putong.Size = new System.Drawing.Size(50, 23);
             this.rb_putong.TabIndex = 0;
             this.rb_putong.TabStop = true;
             this.rb_putong.Text = "普通";
@@ -599,6 +599,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WFqingxiujiadan";
             this.Text = "新建请休假单";
+            this.Load += new System.EventHandler(this.WFqingxiujiadan_Load);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_person2)).EndInit();

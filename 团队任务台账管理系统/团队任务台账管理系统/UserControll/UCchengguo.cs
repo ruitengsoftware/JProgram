@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.WinForm;
 using 团队任务台账管理系统.JJModel;
+using System.Text.RegularExpressions;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -25,7 +26,13 @@ namespace 团队任务台账管理系统.UserControll
             myinfo = ji;
             tb_guanjianchengguo.Text = ji._guanjianchengguo;
             tb_jutiyaoqiu.Text = ji._jutiyaoqiu;
-            tb_fujian.Text = ji._fujian;
+            //加载附件
+            foreach (string s in Regex.Split(ji._fujian, @"\|"))
+            {
+                UCfujianInfo myuc = new UCfujianInfo(s) { Dock = DockStyle.Top };
+                uCfujian1.panel_fujian.Controls.Add(myuc);
+            }
+
             dtp_shixian.Text = ji._shixian;
             tb_banliyijian.Text = ji._banliyijian;
             tb_banlirenyuan.Text = ji._banlirenyuan;
@@ -68,11 +75,6 @@ namespace 团队任务台账管理系统.UserControll
         private void tb_jutiyaoqiu_TextChanged(object sender, EventArgs e)
         {
             myinfo._jutiyaoqiu = tb_jutiyaoqiu.Text;
-        }
-
-        private void tb_fujian_TextChanged(object sender, EventArgs e)
-        {
-            myinfo._fujian = tb_fujian.Text;
         }
 
         private void dtp_shixian_ValueChanged(object sender, EventArgs e)

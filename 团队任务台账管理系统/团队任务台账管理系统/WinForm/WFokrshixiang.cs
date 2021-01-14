@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.Common;
@@ -22,7 +23,8 @@ namespace 团队任务台账管理系统.WinForm
         JJTaskInfo _info = new JJTaskInfo();
 
 
-        public WFokrshixiang() {
+        public WFokrshixiang()
+        {
             InitializeComponent();
         }
 
@@ -37,25 +39,26 @@ namespace 团队任务台账管理系统.WinForm
             rb_jinji.Checked = _info._jinjichengdu.Equals("紧急") ? true : false;
             tb_mubiao.Text = _info._mubiao;
             tb_zongtiyanshouren.Text = _info._zongtiyanshouren;
+
             JJchengguoji jc = JsonConvert.DeserializeObject<JJchengguoji>(_info._chengguoji);
             for (int i = 0; i < jc._list_chengguo.Count; i++)
             {
                 var item = jc._list_chengguo[i];
-                UCchengguo myuc = new UCchengguo(item);
+                UCchengguo myuc = new UCchengguo(item) { Dock = DockStyle.Top };
                 panel_my.Controls.Add(myuc);
 
             }
 
-           //判断登录信息，创建人是否等于登录人,如果不是，任务任务名称，紧急程度，任务具体要求，上传附件，时限不可用
-           if (!JJLoginInfo._huaming.Equals(_info._fasongren))
-           {
-               tb_renwumingcheng.Enabled = false;
+            //判断登录信息，创建人是否等于登录人,如果不是，任务任务名称，紧急程度，任务具体要求，上传附件，时限不可用
+            if (!JJLoginInfo._huaming.Equals(_info._fasongren))
+            {
+                tb_renwumingcheng.Enabled = false;
                 flp_jinjichengdu.Enabled = false;
                 tb_mubiao.Enabled = false;
                 tb_zongtiyanshouren.Enabled = false;
                 tlp_chengguoji.Enabled = false;
                 panel_my.Enabled = false;
-           }
+            }
 
 
         }
@@ -71,7 +74,7 @@ namespace 团队任务台账管理系统.WinForm
             int index = panel_my.Controls.Count;
 
             //构造一个ucokr
-            UCchengguo myuc = new UCchengguo(index+1);
+            UCchengguo myuc = new UCchengguo(index + 1);
             myuc.Dock = DockStyle.Top;
 
             //添加到panel_my中
@@ -88,46 +91,7 @@ namespace 团队任务台账管理系统.WinForm
             List<JJchengguoInfo> list = new List<JJchengguoInfo>();
             foreach (UCchengguo item in panel_my.Controls)
             {
-                list.Add(item.myinfo);
-            }
-            //序列化chengguoji
-            JJchengguoji chengguoji = new JJchengguoji() { 
-            _list_chengguo=list};
-
-            //构造一个jjtongzhiinfo
-            JJTaskInfo myinfo = new JJTaskInfo
-            {
-                _mingcheng = tb_renwumingcheng.Text,
-                _mubiao = tb_mubiao.Text,
-                _zongtiyanshouren = tb_zongtiyanshouren.Text,
-                _chuangjianshijian = DateTime.Now.ToString(),
-                _jinjichengdu = rb_jinji.Checked == true ? "紧急" : "普通",
-                _chuangjianren = JJLoginInfo._huaming,
-                _leixing = "OKR事项",
-                _zhuangtai = "保存",
-                _chengguoji = JsonConvert.SerializeObject(chengguoji)
-                
-            };
-
-            //保存信息
-            bool b = _mycontroller.SaveOkrshixiang(myinfo);
-            if (b)
-            {
-                JJMethod.a_checknewtask(null, null);
-
-                MessageBox.Show("保存okr事项成功！");
-            //this.DialogResult = DialogResult.OK;
-
-            }
-
-
-        }
-
-        private void lbl_fasongbanli_Click(object sender, EventArgs e)
-        {
-            List<JJchengguoInfo> list = new List<JJchengguoInfo>();
-            foreach (UCchengguo item in panel_my.Controls)
-            {
+                item.myinfo._fujian = string.Join("|", item.uCfujian1.list_fujian);
                 list.Add(item.myinfo);
             }
             //序列化chengguoji
@@ -142,28 +106,128 @@ namespace 团队任务台账管理系统.WinForm
                 _mingcheng = tb_renwumingcheng.Text,
                 _mubiao = tb_mubiao.Text,
                 _zongtiyanshouren = tb_zongtiyanshouren.Text,
-                _fasongshijian = DateTime.Now.ToString(),
-              
+                _chuangjianshijian = DateTime.Now.ToString(),
                 _jinjichengdu = rb_jinji.Checked == true ? "紧急" : "普通",
-                _fasongren = JJLoginInfo._huaming,
+                _chuangjianren = JJLoginInfo._huaming,
                 _leixing = "OKR事项",
-                _zhuangtai = "未读",
+                _zhuangtai = "保存",
                 _chengguoji = JsonConvert.SerializeObject(chengguoji)
-            };           
-            bool b = _mycontroller.FasongBanli(myinfo);
+            };
+
+            //保存信息
+            bool b = _mycontroller.SaveOkrshixiang(myinfo);
             if (b)
             {
-                JJMethod.a_checknewtask(null,null) ;
-                MessageBox.Show("发送办理成功！");
+                JJMethod.a_checknewtask(null, null);
+
+                MessageBox.Show("保存okr事项成功！");
+                //this.DialogResult = DialogResult.OK;
+
             }
+
+
+        }
+
+        private void lbl_fasongbanli_Click(object sender, EventArgs e)
+        {
+            //发送办理之前先保存任务信息
+            List<JJchengguoInfo> list = new List<JJchengguoInfo>();
+            foreach (UCchengguo item in panel_my.Controls)
+            {
+                item.myinfo._fujian = string.Join("|", item.uCfujian1.list_fujian);
+                list.Add(item.myinfo);
+            }
+            //序列化chengguoji
+            JJchengguoji chengguoji = new JJchengguoji()
+            {
+                _list_chengguo = list
+            };
+
+            //构造一个jjtongzhiinfo
+            JJTaskInfo myinfo = new JJTaskInfo
+            {
+                _mingcheng = tb_renwumingcheng.Text,
+                _mubiao = tb_mubiao.Text,
+                _zongtiyanshouren = tb_zongtiyanshouren.Text,
+                _chuangjianshijian = DateTime.Now.ToString(),
+                _jinjichengdu = rb_jinji.Checked == true ? "紧急" : "普通",
+                _chuangjianren = JJLoginInfo._huaming,
+                _leixing = "OKR事项",
+                _zhuangtai = "保存",
+                _chengguoji = JsonConvert.SerializeObject(chengguoji)
+            };
+
+            //保存信息
+            bool b = _mycontroller.SaveOkrshixiang(myinfo);
+
+
+
+            //开始发送办理，先形成成果集
+            list = new List<JJchengguoInfo>();
+            foreach (UCchengguo item in panel_my.Controls)
+            {
+                item.myinfo._fujian = string.Join("|", item.uCfujian1.list_fujian);
+                list.Add(item.myinfo);
+            }
+            //序列化chengguoji
+            chengguoji = new JJchengguoji()
+            {
+                _list_chengguo = list
+            };
+
+            //分解总体验收人，获得所有的办理人员
+
+            List<string> list_yanshouren = Regex.Split(tb_zongtiyanshouren.Text, ",").ToList();
+
+            List<string> list_banliren = new List<string>();
+            foreach (Control c in panel_my.Controls)
+            {
+                UCchengguo cc = c as UCchengguo;
+                List<string> list_temp = Regex.Split(cc.myinfo._banlirenyuan, ",").ToList();
+                foreach (string str in list_temp)
+                {
+                    if (!list_banliren.Contains(str))
+                    {
+                        list_banliren.Add(str);
+                    }
+                }
+            }
+            //循环添加记录
+            foreach (string yanshouren in list_yanshouren)
+            {
+                foreach (string banliren in list_banliren)
+                {
+                    //构造一个jjtongzhiinfo
+                    myinfo = new JJTaskInfo
+                    {
+                        _mingcheng = tb_renwumingcheng.Text,
+                        _mubiao = tb_mubiao.Text,
+                        _zongtiyanshouren = yanshouren,
+                        _fasongshijian = DateTime.Now.ToString(),
+                        _banlirenyuan = banliren,
+                        _jinjichengdu = rb_jinji.Checked == true ? "紧急" : "普通",
+                        _fasongren = JJLoginInfo._huaming,
+                        _leixing = "OKR事项",
+                        _zhuangtai = "未读",
+                        _chengguoji = JsonConvert.SerializeObject(chengguoji),
+                    };
+                    b = _mycontroller.FasongBanli(myinfo);
+
+                }
+            }
+
+            JJMethod.a_checknewtask(null, null);
+            MessageBox.Show("发送办理成功！");
+
         }
 
         private void pb_person_Click(object sender, EventArgs e)
         {
-            WFperson mywin = new WFperson() { 
-            StartPosition=FormStartPosition.CenterParent
+            WFperson mywin = new WFperson()
+            {
+                StartPosition = FormStartPosition.CenterParent
             };
-            if (mywin.ShowDialog()==DialogResult.OK)
+            if (mywin.ShowDialog() == DialogResult.OK)
             {
                 tb_zongtiyanshouren.Text = string.Join(",", mywin.list_selected);
             }

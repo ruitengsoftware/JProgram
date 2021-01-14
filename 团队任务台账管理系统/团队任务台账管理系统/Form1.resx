@@ -117,25 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbl_newtask.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAW1JREFUSEvN
-        lD1LxEAQhrdwds9CK7vLbgIeFhYiCtaC4D+4RlAEG1t/gY1g40dloaW1zYGIhWBhZyEInrvLtRZ2gpWd
-        ziYDSm6CuSTFvfBAsjPzLtnNjBgLuUguOCO7Xqu9QHjuJ7BI4WqyBpa9Uedo9oZ8F/CB9Gw0sUpl5eQM
-        nOaM/sXGcDzoCEUWxXIa7jmDcqiHgZHzZDUsPJILvrA83sgXdhNr5CFXUJFbss30GsMSLn7lkuoRww7Z
-        49HEcMIm1UHLm9Q83Lw38M4m1STbQKtZLtgENmklIjQJF2yCtAFtW81xwSZIv8DNiCku2ATpHQThy2U+
-        WBucCGSPTabVOptUA+zofbLP5DUccYlVSMdFR0yT9a+45Ip0yXJYuPsTU1CWT6TYPCgk/CkYAbjrR7BC
-        NrwwcWRznMLXNpYbZFGsgo5+tBq2cVZtulgeoNkVrvXwFzxDdp/bkxGVl1P4tTJgy5vWGi2Ps4T4AZb7
-        9Wa6islUAAAAAElFTkSuQmCC
-</value>
-  </data>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>107, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="notifyIcon1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAQEAAAAEAIAAoQgAAFgAAACgAAABAAAAAgAAAAAEAIAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA
@@ -421,6 +409,18 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+</value>
+  </data>
+  <data name="lbl_newtask.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAW1JREFUSEvN
+        lD1LxEAQhrdwds9CK7vLbgIeFhYiCtaC4D+4RlAEG1t/gY1g40dloaW1zYGIhWBhZyEInrvLtRZ2gpWd
+        ziYDSm6CuSTFvfBAsjPzLtnNjBgLuUguOCO7Xqu9QHjuJ7BI4WqyBpa9Uedo9oZ8F/CB9Gw0sUpl5eQM
+        nOaM/sXGcDzoCEUWxXIa7jmDcqiHgZHzZDUsPJILvrA83sgXdhNr5CFXUJFbss30GsMSLn7lkuoRww7Z
+        49HEcMIm1UHLm9Q83Lw38M4m1STbQKtZLtgENmklIjQJF2yCtAFtW81xwSZIv8DNiCku2ATpHQThy2U+
+        WBucCGSPTabVOptUA+zofbLP5DUccYlVSMdFR0yT9a+45Ip0yXJYuPsTU1CWT6TYPCgk/CkYAbjrR7BC
+        NrwwcWRznMLXNpYbZFGsgo5+tBq2cVZtulgeoNkVrvXwFzxDdp/bkxGVl1P4tTJgy5vWGi2Ps4T4AZb7
+        9Wa6islUAAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

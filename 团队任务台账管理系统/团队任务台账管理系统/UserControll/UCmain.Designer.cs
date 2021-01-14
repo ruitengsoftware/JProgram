@@ -39,19 +39,20 @@
             this.tb_kw = new System.Windows.Forms.TextBox();
             this.pb_search = new System.Windows.Forms.PictureBox();
             this.panel_daibanrenwu = new System.Windows.Forms.Panel();
-            this.ucpagedaiban = new 团队任务台账管理系统.UserControll.UCpage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.gb_tongzhigonggao = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel_tongzhi = new System.Windows.Forms.Panel();
-            this.ucpagetongzhi = new 团队任务台账管理系统.UserControll.UCpage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel_gongzuoqingdan = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pb_dingzi = new System.Windows.Forms.PictureBox();
             this.lbl_gongzuoqingdan = new System.Windows.Forms.Label();
+            this.ucpagetongzhi = new 团队任务台账管理系统.UserControll.UCpage();
             this.ucpagegongzuoqingdan = new 团队任务台账管理系统.UserControll.UCpage();
+            this.ucpagedaiban = new 团队任务台账管理系统.UserControll.UCpage();
+            this.label1 = new System.Windows.Forms.Label();
             this.cms_right.SuspendLayout();
             this.gb_daibairenwu.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
@@ -119,7 +120,7 @@
             this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 3;
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel13.Size = new System.Drawing.Size(842, 182);
@@ -127,29 +128,30 @@
             // 
             // tableLayoutPanel14
             // 
-            this.tableLayoutPanel14.ColumnCount = 3;
+            this.tableLayoutPanel14.ColumnCount = 4;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel14.Controls.Add(this.tb_kw, 0, 0);
-            this.tableLayoutPanel14.Controls.Add(this.pb_search, 1, 0);
+            this.tableLayoutPanel14.Controls.Add(this.tb_kw, 1, 0);
+            this.tableLayoutPanel14.Controls.Add(this.pb_search, 2, 0);
+            this.tableLayoutPanel14.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel14.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(842, 35);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(842, 30);
             this.tableLayoutPanel14.TabIndex = 3;
             // 
             // tb_kw
             // 
             this.tb_kw.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_kw.Location = new System.Drawing.Point(0, 6);
-            this.tb_kw.Margin = new System.Windows.Forms.Padding(0, 6, 0, 3);
+            this.tb_kw.Location = new System.Drawing.Point(84, 4);
+            this.tb_kw.Margin = new System.Windows.Forms.Padding(4);
             this.tb_kw.Name = "tb_kw";
-            this.tb_kw.Size = new System.Drawing.Size(200, 23);
+            this.tb_kw.Size = new System.Drawing.Size(192, 23);
             this.tb_kw.TabIndex = 0;
             this.tb_kw.TextChanged += new System.EventHandler(this.tb_kw_TextChanged);
             // 
@@ -157,9 +159,9 @@
             // 
             this.pb_search.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_search.Image = global::团队任务台账管理系统.Properties.Resources.fangdajing;
-            this.pb_search.Location = new System.Drawing.Point(203, 3);
+            this.pb_search.Location = new System.Drawing.Point(283, 3);
             this.pb_search.Name = "pb_search";
-            this.pb_search.Size = new System.Drawing.Size(29, 29);
+            this.pb_search.Size = new System.Drawing.Size(29, 24);
             this.pb_search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_search.TabIndex = 1;
             this.pb_search.TabStop = false;
@@ -169,23 +171,11 @@
             // 
             this.panel_daibanrenwu.AutoScroll = true;
             this.panel_daibanrenwu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_daibanrenwu.Location = new System.Drawing.Point(0, 35);
+            this.panel_daibanrenwu.Location = new System.Drawing.Point(0, 30);
             this.panel_daibanrenwu.Margin = new System.Windows.Forms.Padding(0);
             this.panel_daibanrenwu.Name = "panel_daibanrenwu";
-            this.panel_daibanrenwu.Size = new System.Drawing.Size(842, 115);
+            this.panel_daibanrenwu.Size = new System.Drawing.Size(842, 120);
             this.panel_daibanrenwu.TabIndex = 4;
-            // 
-            // ucpagedaiban
-            // 
-            this.ucpagedaiban.BackColor = System.Drawing.Color.White;
-            this.ucpagedaiban.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucpagedaiban.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ucpagedaiban.Location = new System.Drawing.Point(0, 150);
-            this.ucpagedaiban.Margin = new System.Windows.Forms.Padding(0);
-            this.ucpagedaiban.Name = "ucpagedaiban";
-            this.ucpagedaiban.Padding = new System.Windows.Forms.Padding(2);
-            this.ucpagedaiban.Size = new System.Drawing.Size(842, 32);
-            this.ucpagedaiban.TabIndex = 5;
             // 
             // tableLayoutPanel1
             // 
@@ -256,18 +246,6 @@
             this.panel_tongzhi.Size = new System.Drawing.Size(842, 149);
             this.panel_tongzhi.TabIndex = 3;
             // 
-            // ucpagetongzhi
-            // 
-            this.ucpagetongzhi.BackColor = System.Drawing.Color.White;
-            this.ucpagetongzhi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucpagetongzhi.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ucpagetongzhi.Location = new System.Drawing.Point(0, 149);
-            this.ucpagetongzhi.Margin = new System.Windows.Forms.Padding(0);
-            this.ucpagetongzhi.Name = "ucpagetongzhi";
-            this.ucpagetongzhi.Padding = new System.Windows.Forms.Padding(2);
-            this.ucpagetongzhi.Size = new System.Drawing.Size(842, 32);
-            this.ucpagetongzhi.TabIndex = 4;
-            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 1;
@@ -333,6 +311,18 @@
             this.lbl_gongzuoqingdan.Text = "工作清单";
             this.lbl_gongzuoqingdan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ucpagetongzhi
+            // 
+            this.ucpagetongzhi.BackColor = System.Drawing.Color.White;
+            this.ucpagetongzhi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucpagetongzhi.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ucpagetongzhi.Location = new System.Drawing.Point(0, 149);
+            this.ucpagetongzhi.Margin = new System.Windows.Forms.Padding(0);
+            this.ucpagetongzhi.Name = "ucpagetongzhi";
+            this.ucpagetongzhi.Padding = new System.Windows.Forms.Padding(2);
+            this.ucpagetongzhi.Size = new System.Drawing.Size(842, 32);
+            this.ucpagetongzhi.TabIndex = 4;
+            // 
             // ucpagegongzuoqingdan
             // 
             this.ucpagegongzuoqingdan.BackColor = System.Drawing.Color.White;
@@ -344,6 +334,30 @@
             this.ucpagegongzuoqingdan.Padding = new System.Windows.Forms.Padding(2);
             this.ucpagegongzuoqingdan.Size = new System.Drawing.Size(854, 32);
             this.ucpagegongzuoqingdan.TabIndex = 5;
+            // 
+            // ucpagedaiban
+            // 
+            this.ucpagedaiban.BackColor = System.Drawing.Color.White;
+            this.ucpagedaiban.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucpagedaiban.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ucpagedaiban.Location = new System.Drawing.Point(0, 150);
+            this.ucpagedaiban.Margin = new System.Windows.Forms.Padding(0);
+            this.ucpagedaiban.Name = "ucpagedaiban";
+            this.ucpagedaiban.Padding = new System.Windows.Forms.Padding(2);
+            this.ucpagedaiban.Size = new System.Drawing.Size(842, 32);
+            this.ucpagedaiban.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(1, 1);
+            this.label1.Margin = new System.Windows.Forms.Padding(1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 28);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "关键词";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // UCmain
             // 
@@ -398,5 +412,6 @@
         private System.Windows.Forms.PictureBox pb_dingzi;
         private System.Windows.Forms.Label lbl_gongzuoqingdan;
         private UCpage ucpagegongzuoqingdan;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -30,18 +30,18 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_gongxiang = new System.Windows.Forms.Label();
+            this.lbl_wodeshangchuan = new System.Windows.Forms.Label();
             this.panel_fujian = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_kw = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_gongxiang = new System.Windows.Forms.Label();
-            this.lbl_wodeshangchuan = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -71,52 +71,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(790, 50);
             this.panel1.TabIndex = 2;
-            // 
-            // panel_fujian
-            // 
-            this.panel_fujian.BackColor = System.Drawing.Color.White;
-            this.panel_fujian.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_fujian.Location = new System.Drawing.Point(0, 85);
-            this.panel_fujian.Margin = new System.Windows.Forms.Padding(0);
-            this.panel_fujian.Name = "panel_fujian";
-            this.panel_fujian.Size = new System.Drawing.Size(790, 324);
-            this.panel_fujian.TabIndex = 3;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.tb_kw, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(749, 35);
-            this.tableLayoutPanel2.TabIndex = 4;
-            // 
-            // tb_kw
-            // 
-            this.tb_kw.Location = new System.Drawing.Point(3, 6);
-            this.tb_kw.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.tb_kw.Name = "tb_kw";
-            this.tb_kw.Size = new System.Drawing.Size(348, 23);
-            this.tb_kw.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::团队任务台账管理系统.Properties.Resources.fangdajing;
-            this.pictureBox1.Location = new System.Drawing.Point(359, 5);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // tableLayoutPanel3
             // 
@@ -161,6 +115,56 @@
             this.lbl_wodeshangchuan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_wodeshangchuan.Click += new System.EventHandler(this.lbl_wodeshangchuan_Click);
             // 
+            // panel_fujian
+            // 
+            this.panel_fujian.BackColor = System.Drawing.Color.White;
+            this.panel_fujian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_fujian.Location = new System.Drawing.Point(0, 85);
+            this.panel_fujian.Margin = new System.Windows.Forms.Padding(0);
+            this.panel_fujian.Name = "panel_fujian";
+            this.panel_fujian.Size = new System.Drawing.Size(790, 324);
+            this.panel_fujian.TabIndex = 3;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.tb_kw, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(790, 35);
+            this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // tb_kw
+            // 
+            this.tb_kw.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_kw.Location = new System.Drawing.Point(3, 6);
+            this.tb_kw.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.tb_kw.Name = "tb_kw";
+            this.tb_kw.Size = new System.Drawing.Size(369, 23);
+            this.tb_kw.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::团队任务台账管理系统.Properties.Resources.fangdajing;
+            this.pictureBox1.Location = new System.Drawing.Point(380, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // UCwodeyunpan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -174,11 +178,11 @@
             this.Load += new System.EventHandler(this.UCwodeyunpan_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
