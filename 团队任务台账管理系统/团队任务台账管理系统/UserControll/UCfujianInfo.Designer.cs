@@ -174,7 +174,7 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_wenjianming;
-        private System.Windows.Forms.Label lbl_info;
+        public System.Windows.Forms.Label lbl_info;
         private System.Windows.Forms.PictureBox pb_guanbi;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbl_chuangjianren;

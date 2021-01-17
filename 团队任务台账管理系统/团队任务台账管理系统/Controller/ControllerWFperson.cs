@@ -16,7 +16,7 @@ namespace 团队任务台账管理系统.Controller
         /// <returns></returns>
         public DataTable GetAllPerson()
         {
-            string str_sql = "select * from jjdbrenwutaizhang.jjperson";
+            string str_sql = "select * from jjdbrenwutaizhang.jjperson where 删除=0";
             var data = mysqlhelper.ExecuteDataTable(str_sql);
             return data;
         }
@@ -26,7 +26,7 @@ namespace 团队任务台账管理系统.Controller
         /// <returns></returns>
         public DataTable GetAllBumen()
         {
-            string str_sql = "select * from jjdbrenwutaizhang.部门信息表";
+            string str_sql = "select * from jjdbrenwutaizhang.部门信息表 where 删除=0 order by 名称";
             var data = mysqlhelper.ExecuteDataTable(str_sql);
             return data;
         }

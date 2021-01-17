@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using 团队任务台账管理系统.JJModel;
 
@@ -48,7 +49,23 @@ namespace 团队任务台账管理系统.Controller
         //判断是否存在用户名和密码
         public bool Login(string uid, string pwd)
         {
-            string str_sql = $"select count(*) from jjdbrenwutaizhang.jjperson where 花名='{uid}' and 密码='{pwd}'";
+            string str_sql = string.Empty;
+
+            //判断uid是账号还是邮箱，还是电话,从而给出不同的strsql字符串
+            if (uid.Contains("@"))
+            {
+                str_sql = $"select count(*) from jjdbrenwutaizhang.jjperson where 电子邮箱='{uid}' and 密码='{pwd}'";
+            }
+            else if (Regex.IsMatch(uid,@"\d{11}"))
+            {
+                str_sql = $"select count(*) from jjdbrenwutaizhang.jjperson where 手机号='{uid}' and 密码='{pwd}'";
+            }
+            else
+            {
+          str_sql = $"select count(*) from jjdbrenwutaizhang.jjperson where 花名='{uid}' and 密码='{pwd}'";
+
+            }
+            
             int num = Convert.ToInt32(mysqlhelper.ExecuteScalar(str_sql, null));
             return num > 0 ? true : false;
         }

@@ -27,7 +27,7 @@ namespace 团队任务台账管理系统.WinForm
         {
             InitializeComponent();
             _info = ji;
-            if (!JJLoginInfo._huaming.Equals(_info._fasongren))
+            if (!JJLoginInfo._huaming.Equals(_info._chuangjianren))
             {
                 tb_shiyou.Enabled = false;
                 panel1.Enabled = false;
@@ -62,7 +62,7 @@ namespace 团队任务台账管理系统.WinForm
                _xiaojiaqingkuang=tb_xiaojiaqingkuang.Text,
                  _chuangjianshijian = DateTime.Now.ToString(),
                 _chuangjianren = JJLoginInfo._huaming,
-                _leixing = "常规事项",
+                _leixing = "请休假单",
                 _zhuangtai = "保存"
 
             };
@@ -101,9 +101,8 @@ namespace 团队任务台账管理系统.WinForm
                 _xiaojiaqingkuang = tb_xiaojiaqingkuang.Text,
                 _chuangjianshijian = DateTime.Now.ToString(),
                 _chuangjianren = JJLoginInfo._huaming,
-                _leixing = "常规事项",
+                _leixing = "请休假单",
                 _zhuangtai = "保存"
-
             };
 
             //保存
@@ -197,7 +196,9 @@ namespace 团队任务台账管理系统.WinForm
             tb_qingjaitianshu.Text = _info._qingjiatianshu.ToString();
             dtp_start.Value = Convert.ToDateTime(Regex.Split(_info._qizhishijian,@"\|")[0]);
             dtp_end.Value = Convert.ToDateTime(Regex.Split(_info._qizhishijian, @"\|")[1]);
-            //委托对象和审核人员，这里还没有做完
+                //委托对象和审核人员，这里还没有做完
+                tb_weituoren.Text = _info._weituoduixiang;
+                tb_shenherenyuan.Text = _info._shenherenyuan;
             tb_shenheyijian.Text = _info._shenheyijian;
             tb_xiaojiaqingkuang.Text = _info._xiaojiaqingkuang;
 

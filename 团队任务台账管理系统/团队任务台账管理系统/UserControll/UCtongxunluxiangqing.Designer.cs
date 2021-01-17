@@ -41,7 +41,7 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.LightGray;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Gainsboro;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.lbl_xingming, 0, 1);
@@ -57,8 +57,9 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(185, 267);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(162, 267);
             this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // lbl_xingming
             // 
@@ -67,7 +68,7 @@
             this.lbl_xingming.Location = new System.Drawing.Point(1, 178);
             this.lbl_xingming.Margin = new System.Windows.Forms.Padding(1);
             this.lbl_xingming.Name = "lbl_xingming";
-            this.lbl_xingming.Size = new System.Drawing.Size(183, 28);
+            this.lbl_xingming.Size = new System.Drawing.Size(160, 28);
             this.lbl_xingming.TabIndex = 0;
             this.lbl_xingming.Text = "label1";
             this.lbl_xingming.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -79,7 +80,7 @@
             this.lbl_zhiwu.Location = new System.Drawing.Point(1, 208);
             this.lbl_zhiwu.Margin = new System.Windows.Forms.Padding(1);
             this.lbl_zhiwu.Name = "lbl_zhiwu";
-            this.lbl_zhiwu.Size = new System.Drawing.Size(183, 28);
+            this.lbl_zhiwu.Size = new System.Drawing.Size(160, 28);
             this.lbl_zhiwu.TabIndex = 0;
             this.lbl_zhiwu.Text = "label1";
             this.lbl_zhiwu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -91,7 +92,7 @@
             this.pb_touxiang.Location = new System.Drawing.Point(0, 0);
             this.pb_touxiang.Margin = new System.Windows.Forms.Padding(0);
             this.pb_touxiang.Name = "pb_touxiang";
-            this.pb_touxiang.Size = new System.Drawing.Size(185, 177);
+            this.pb_touxiang.Size = new System.Drawing.Size(162, 177);
             this.pb_touxiang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_touxiang.TabIndex = 2;
             this.pb_touxiang.TabStop = false;
@@ -108,7 +109,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(185, 30);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(162, 30);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // lbl_lianxifangshi
@@ -118,7 +119,7 @@
             this.lbl_lianxifangshi.Location = new System.Drawing.Point(1, 1);
             this.lbl_lianxifangshi.Margin = new System.Windows.Forms.Padding(1);
             this.lbl_lianxifangshi.Name = "lbl_lianxifangshi";
-            this.lbl_lianxifangshi.Size = new System.Drawing.Size(183, 28);
+            this.lbl_lianxifangshi.Size = new System.Drawing.Size(160, 28);
             this.lbl_lianxifangshi.TabIndex = 1;
             this.lbl_lianxifangshi.Text = "label2";
             this.lbl_lianxifangshi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -132,7 +133,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UCtongxunluxiangqing";
             this.Padding = new System.Windows.Forms.Padding(3);
-            this.Size = new System.Drawing.Size(191, 273);
+            this.Size = new System.Drawing.Size(168, 273);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_touxiang)).EndInit();

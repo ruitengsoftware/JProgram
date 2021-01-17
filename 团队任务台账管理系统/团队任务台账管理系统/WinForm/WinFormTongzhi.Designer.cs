@@ -104,6 +104,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WinFormTongzhi";
             this.Text = "通知公告";
+            this.Load += new System.EventHandler(this.WinFormTongzhi_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

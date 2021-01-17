@@ -123,7 +123,7 @@ namespace 团队任务台账管理系统.Controller
             //获得紧急程度是紧急的四种任务，按照请休假，okr，常规事项，意见建议排序，其中又按照完成时间排序
             //获得请休假单
             str_sql = $"select * from jjdbrenwutaizhang.任务信息表 " +
-                $"where 事由 like '%{s}%' and 删除=0 and 类型='请休假单' and 紧急程度='紧急' and 状态<>'已处理' " +
+                $"where 事由 like '%{s}%' and 删除=0 and 类型='请休假单' and 紧急程度='紧急' and 状态<>'已处理'  and 状态<>'保存' " +
                 $"and (审核人员='{JJLoginInfo._huaming}' or 委托对象='{JJLoginInfo._huaming}') " +
                 $"order by 起止时间 desc";
             data = _mysqlhelper.ExecuteDataTable(str_sql);
@@ -158,7 +158,7 @@ namespace 团队任务台账管理系统.Controller
             }
             //获得okr
             str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='okr事项' " +
-                $"and 紧急程度='紧急' and 状态<>'已处理' " +
+                $"and 紧急程度='紧急' and 状态<>'已处理'  and 状态<>'保存' " +
                 $"and (总体验收人='{JJLoginInfo._huaming}' or 办理人员='{JJLoginInfo._huaming}') " +
                 $"order by 时限 desc";
             data = _mysqlhelper.ExecuteDataTable(str_sql);
@@ -182,7 +182,7 @@ namespace 团队任务台账管理系统.Controller
 
             //获得常规事项
             str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and " +
-                $"类型='常规事项' and 紧急程度='紧急' and 状态<>'已处理' and 办理人员='{JJLoginInfo._huaming}' " +
+                $"类型='常规事项' and 紧急程度='紧急' and 状态<>'已处理' and 状态<>'保存' and 办理人员='{JJLoginInfo._huaming}' " +
                 $"order by 时限 desc";
             data = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow dr in data.Rows)
@@ -209,7 +209,7 @@ namespace 团队任务台账管理系统.Controller
             }
             //获得意见建议
             str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 标题 like '%{s}%' and 删除=0 and " +
-                $"类型='意见建议' and 紧急程度='紧急' and 状态<>'已处理' and 反馈对象='{JJLoginInfo._huaming}'" +
+                $"类型='意见建议' and 紧急程度='紧急' and 状态<>'已处理'  and 状态<>'保存' and 反馈对象='{JJLoginInfo._huaming}'" +
                 $"order by 时限 desc";
             data = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow dr in data.Rows)
@@ -243,7 +243,7 @@ namespace 团队任务台账管理系统.Controller
             //获得紧急程度是普通的四种任务
             //获得请休假单
             str_sql = $"select * from jjdbrenwutaizhang.任务信息表 " +
-                $"where 事由 like '%{s}%' and 删除=0 and 类型='请休假单' and 紧急程度='普通' and 状态<>'已处理' " +
+                $"where 事由 like '%{s}%' and 删除=0 and 类型='请休假单' and 紧急程度='普通' and 状态<>'已处理'  and 状态<>'保存' " +
                 $"and (审核人员='{JJLoginInfo._huaming}' or 委托对象='{JJLoginInfo._huaming}')" +
                 $"order by 起止时间 desc";
             data = _mysqlhelper.ExecuteDataTable(str_sql);
@@ -278,7 +278,8 @@ namespace 团队任务台账管理系统.Controller
             }
             //获得okr
             str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and 类型='okr事项' " +
-                $"and 紧急程度='普通' and 状态<>'已处理' and (总体验收人='{JJLoginInfo._huaming}' or 办理人员='{JJLoginInfo._huaming}') " +
+                $"and 紧急程度='普通' and 状态<>'已处理'  and 状态<>'保存' " +
+                $"and (总体验收人='{JJLoginInfo._huaming}' or 办理人员='{JJLoginInfo._huaming}') " +
                 $"order by 时限 desc";
             data = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow dr in data.Rows)
@@ -301,7 +302,8 @@ namespace 团队任务台账管理系统.Controller
             }
             //获得常规事项
             str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 名称 like '%{s}%' and 删除=0 and " +
-                $"类型='常规事项' and 紧急程度='普通' and 状态<>'已处理' and 办理人员='{JJLoginInfo._huaming}' " +
+                $"类型='常规事项' and 紧急程度='普通' and 状态<>'已处理'  and 状态<>'保存' " +
+                $"and 办理人员='{JJLoginInfo._huaming}' " +
                 $"order by 时限 desc";
             data = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow dr in data.Rows)
@@ -327,7 +329,8 @@ namespace 团队任务台账管理系统.Controller
             }
             //获得意见建议
             str_sql = $"select * from jjdbrenwutaizhang.任务信息表 where 标题 like '%{s}%' and 删除=0 and " +
-                $"类型='意见建议' and 紧急程度='普通' and 状态<>'已处理' and 反馈对象='{JJLoginInfo._huaming}'" +
+                $"类型='意见建议' and 紧急程度='普通' and 状态<>'已处理'  and 状态<>'保存' " +
+                $"and 反馈对象='{JJLoginInfo._huaming}'" +
                 $"order by 时限 desc";
             data = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow dr in data.Rows)
@@ -390,7 +393,7 @@ namespace 团队任务台账管理系统.Controller
                 {
                     _biaoti = dr["标题"].ToString(),
                     _qianfaren = dr["签发人"].ToString(),
-                    _neirong = dr["内容"].ToString(),
+                    _neirongpath = dr["内容"].ToString(),
                     _zhuangtai = dr["状态"].ToString(),
                     _fabushijian = dr["发布时间"].ToString(),
                     _qingzhonghuanji = dr["轻重缓急"].ToString(),

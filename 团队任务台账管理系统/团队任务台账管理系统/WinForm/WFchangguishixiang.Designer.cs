@@ -459,6 +459,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WFchangguishixiang";
             this.Text = "新建常规事项";
+            this.Load += new System.EventHandler(this.WFchangguishixiang_Load);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tlp_yaoqiu.ResumeLayout(false);

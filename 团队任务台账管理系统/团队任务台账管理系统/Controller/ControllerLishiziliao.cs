@@ -21,13 +21,14 @@ namespace 团队任务台账管理系统.Controller
             {
                 JJQingdanInfo info = new JJQingdanInfo()
                 {
+                    _qingzhonghuanji=mydr["轻重缓急"].ToString(),
                     _renwumingcheng = mydr["名称"].ToString(),
                     _chuangjianren = mydr["创建人"].ToString(),
                     _wanchengshijian = mydr["完成时间"].ToString(),
                     _xiangxian = mydr["象限"].ToString(),
                     _chuangjianshijian = mydr["创建时间"].ToString(),
                     _zhuangtai = mydr["状态"].ToString(),
-                    _xiaoxiang = Convert.ToInt32(mydr["销项"].ToString()),
+                    //_xiaoxiang = Convert.ToInt32(mydr["销项"].ToString()),
                     _beizhu = mydr["备注"].ToString(),
                     _jingyanjiaoxun = mydr["经验教训"].ToString(),
                 };
@@ -47,7 +48,7 @@ namespace 团队任务台账管理系统.Controller
                 {
                     _biaoti = mydr["标题"].ToString(),
                     _qianfaren = mydr["签发人"].ToString(),
-                    _neirong = mydr["内容"].ToString(),
+                    _neirongpath = mydr["内容"].ToString(),
                     _zhuangtai = mydr["状态"].ToString(),
                     _fabushijian = mydr["发布时间"].ToString(),
                     _qingzhonghuanji = mydr["轻重缓急"].ToString(),

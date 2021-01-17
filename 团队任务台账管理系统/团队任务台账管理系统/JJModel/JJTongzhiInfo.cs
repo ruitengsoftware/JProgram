@@ -19,7 +19,7 @@ namespace 团队任务台账管理系统.JJModel
         /// <summary>
         /// 内容
         /// </summary>
-        public string _neirong = string.Empty;
+        public string _neirongpath = string.Empty;
         /// <summary>
         /// 状态，未读和已读
         /// </summary>

@@ -1,4 +1,5 @@
 ﻿using MySqlX.XDevAPI.Common;
+using RuiTengDll;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.Common;
@@ -43,7 +45,7 @@ namespace 团队任务台账管理系统.WinForm
             //pb_touxiang.Image = JJImageHelper.UpdateImageSize(pt, 256, 256);
             pb_touxiang.Image = JJImageHelper.ConvertBase64ToImage(JJLoginInfo._touxiang); ;
             var pg = JJImageHelper.ConvertBase64ToImage(JJLoginInfo._gongzuozhengjianzhao);
-            pb_gongzuozheng.Image = JJImageHelper.UpdateImageSize(pg, 128,128);
+            pb_gongzuozheng.Image = JJImageHelper.UpdateImageSize(pg, 128, 128);
             tb_weixinhao.Text = JJLoginInfo._weixinhao;
             tb_dianziyouxiang.Text = JJLoginInfo._dianziyouxiang;
             tb_gerenqianming.Text = JJLoginInfo._gerenqianming;
@@ -94,6 +96,23 @@ namespace 团队任务台账管理系统.WinForm
             //获得输入密码和确认密码
             string shurumima = tb_shurumima.Text;
             string querenmima = tb_querenmima.Text;
+            //检测必填项目是否有空
+            if (tb_shiming.Text.Trim().Equals(string.Empty))
+            {
+                MessageBox.Show("请填写实名！");
+                return;
+            }
+            if (Regex.IsMatch(tb_shoujihao.Text, @"\d{11}"))
+            {
+                MessageBox.Show("手机号格式不正确！");
+                return;
+            }
+            if (tb_shurumima.Text.Trim().Equals(string.Empty) || tb_querenmima.Text.Trim().Equals(string.Empty))
+            {
+                MessageBox.Show("密码不能为空！");
+                return;
+            }
+
             //判断密码是否相同
             if (!shurumima.Equals(querenmima))
             {
@@ -102,6 +121,25 @@ namespace 团队任务台账管理系统.WinForm
                 MessageBox.Show("两次输入的密码不匹配！");
                 return;
             }
+            if (tb_bumen.Text.Trim().Equals(string.Empty))
+            {
+                MessageBox.Show("请选择部门！");
+                return;
+            }
+            if (tb_weixinhao.Text.Trim().Equals(string.Empty))
+            {
+                MessageBox.Show("请填写微信号！");
+                return;
+            }
+            if (tb_dianziyouxiang.Text.Trim().Equals(string.Empty))
+            {
+                MessageBox.Show("请填写电子邮箱！");
+                return;
+            }
+
+
+
+
 
 
 
@@ -116,7 +154,7 @@ namespace 团队任务台账管理系统.WinForm
                 _dianziyouxiang = tb_dianziyouxiang.Text.Trim(),
                 //_shurumima = tb_shurumima.Text.Trim(),
                 //_querenmima = tb_querenmima.Text.Trim(),
-                _mima=tb_querenmima.Text.Trim(),
+                _mima = tb_querenmima.Text.Trim(),
                 _zidingyizhanghao = tb_zidingyi.Text.Trim(),
                 _touxiang = JJImageHelper.ConvertImageToBase64(pb_touxiang.Image),
                 _gongzuozhengjianzhao = JJImageHelper.ConvertImageToBase64(pb_gongzuozheng.Image),
@@ -124,7 +162,7 @@ namespace 团队任务台账管理系统.WinForm
                 _gerenqianming = tb_gerenqianming.Text.Trim()
             };
             //保存到数据库中，update语句
-            bool b=_mycontroller.BaocunInfo(myinfo);
+            bool b = _mycontroller.BaocunInfo(myinfo);
             //如果保存成功，赋值给 jjlogininfo
             if (b)
             {
@@ -132,72 +170,13 @@ namespace 团队任务台账管理系统.WinForm
                 MessageBox.Show("保存成功！");
                 this.DialogResult = DialogResult.OK;
             }
-            //判断是否有没填写的项目
-            //if (myinfo._huaming.Equals(string.Empty) || shiming.Equals(string.Empty) || shoujihao.Equals(string.Empty) ||
-            //    myinfo._bumen.Equals(string.Empty) || touxiang == null || weixinhao.Equals(string.Empty) || dianziyouxiang.Equals(string.Empty) ||
-            //    myinfo._shurumima.Equals(string.Empty) ||
-            //    myinfo._querenmima.Equals(string.Empty) || gerenqianming.Equals(string.Empty))
-            //{
-            //    MessageBox.Show("请输入完整信息！");
-            //}
-            ////判断花名是否已经被注册
-            //bool existhuaming = _mycontroller.ExistsHuaming(huaming);
-            //if (existhuaming)
-            //{
-            //    lbl_cunzai.Text = "花名有主";
-            //    return;
-            //}
-            //else
-            //{
-            //    lbl_cunzai.Text = "可以捷足先登";
-            //}
-            //判断自定义账号是否已经被注册
-            //string zhanghao = tb_zidingyi.Text.Trim();
-            //if (!zhanghao.Equals(string.Empty))
-            //{
-            //    bool existzhanghao = _mycontroller.ExistsZidingyi(zhanghao);
-            //    if (existzhanghao)
-            //    {
-            //        lbl_zhanghaocunzai.Text = "账号有主";
-            //        return;
-            //    }
-            //    else
-            //    {
-            //        lbl_zhanghaocunzai.Text = "可以捷足先登";
-            //    }
-            //}
 
-
-            //构造dic
-            //Dictionary<string, string> dic = new Dictionary<string, string>() {
-            //    {"花名",huaming },
-            //    {"实名",shiming },
-            //    {"部门",bumen },
-            //    {"职级",zhiji },
-            //    {"密码",querenmima },
-            //    {"手机号",shoujihao },
-            //                    {"电子邮箱",dianziyouxiang },
-            //    {"自定义账号",zidingyizhanghao },
-
-            //    {"头像",_mycontroller.ConvertImageToBase64(touxiang)},//把图片转换成base64
-            //    { "工作证件照",string.Empty},
-            //    {"微信号",weixinhao }
-
-            //};
-            //if (zhengjianzhao != null)
-            //{
-            //    dic["工作证件照"] = _mycontroller.ConvertImageToBase64(zhengjianzhao);
-            //}
-
-            //bool b = _mycontroller.Zhuce(dic);
-            //if (b) MessageBox.Show("注册成功！");
-            //this.Dispose();
         }
 
 
         private void lbl_bumen_Click(object sender, EventArgs e)
         {
-            WFshenfen mywin = new WFshenfen();
+            WFbumen mywin = new WFbumen() { StartPosition = FormStartPosition.CenterParent };
             if (mywin.ShowDialog() == DialogResult.OK)
             {
                 tb_bumen.Text = mywin.str_select;
@@ -206,7 +185,7 @@ namespace 团队任务台账管理系统.WinForm
 
         private void lbl_zhiji_Click(object sender, EventArgs e)
         {
-            WFzhiji mywin = new WFzhiji();
+            WFzhiji mywin = new WFzhiji() { StartPosition = FormStartPosition.CenterParent };
             if (mywin.ShowDialog() == DialogResult.OK)
             {
                 tb_zhiji.Text = mywin.str_select;
@@ -258,6 +237,22 @@ namespace 团队任务台账管理系统.WinForm
 
         private void WFzhuce_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void label8_Paint(object sender, PaintEventArgs e)
+        {
+            UIHelper.DrawRoundRect((Control)sender);
+        }
+
+        private void label8_MouseEnter(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, -1);
+        }
+
+        private void label8_MouseLeave(object sender, EventArgs e)
+        {
+            UIHelper.UpdateCSize((Control)sender, +1);
 
         }
     }

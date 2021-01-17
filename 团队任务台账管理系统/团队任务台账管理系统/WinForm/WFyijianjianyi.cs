@@ -18,7 +18,7 @@ namespace 团队任务台账管理系统.WinForm
     public partial class WFyijianjianyi : Form
     {
         ControllerWFyijian _mycontroller = new ControllerWFyijian();
-        JJTaskInfo _info = new JJTaskInfo();
+        JJTaskInfo _info = null;
         public WFyijianjianyi()
         {
             InitializeComponent();
@@ -143,6 +143,8 @@ namespace 团队任务台账管理系统.WinForm
 
         private void WFyijianjianyi_Load(object sender, EventArgs e)
         {
+            if (_info!=null)
+            {
             tb_biaoti.Text = _info._biaoti;
             rb_putong.Checked = _info._jinjichengdu.Equals("普通") ? true : false;
             rb_jinji.Checked = _info._jinjichengdu.Equals("紧急") ? true : false;
@@ -150,6 +152,8 @@ namespace 团队任务台账管理系统.WinForm
             tb_neirong.Text = _info._neirong;
             tb_fankuiduixiang.Text = _info._fankuiduixiang;
             tb_chuliyijian.Text = _info._chuliyijian;
+
+            }
 
 
         }

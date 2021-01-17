@@ -34,23 +34,29 @@ namespace 团队任务台账管理系统.UserControll
 
         private void btn_shouye_Click(object sender, EventArgs e)
         {
+            if (totalpage == 0) return;
+
             tb_page.Text = "1";
         }
 
         private void btn_shangyiye_Click(object sender, EventArgs e)
         {
+            if (totalpage == 0) return;
 
             tb_page.Text = (currentpage - 1) == 0 ? "1" : (currentpage - 1).ToString();
         }
 
         private void btn_weiye_Click(object sender, EventArgs e)
         {
+            if (totalpage == 0) return;
+
             tb_page.Text = totalpage.ToString();
 
         }
 
         private void btn_xiayiye_Click(object sender, EventArgs e)
         {
+            if (totalpage == 0) return;
             tb_page.Text = (currentpage + 1) > totalpage ? totalpage.ToString() : (currentpage + 1).ToString();
         }
 

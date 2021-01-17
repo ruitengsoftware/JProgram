@@ -128,22 +128,19 @@ namespace 团队任务台账管理系统.WinForm
 
         private void lbl_xiugai_Click(object sender, EventArgs e)
         {
-            string zhuangtai = lbl_xiugai.Text;
-            if (zhuangtai.Equals("修改"))
-            {
+            //if (zhuangtai.Equals("修改"))
+            //{
 
                 tb_gexingqianming.BorderStyle = BorderStyle.FixedSingle;
+            tb_gexingqianming.Enabled = true;
                 tb_gexingqianming.Focus();
-                lbl_xiugai.Text = "保存";
-            }
-            else
-            {
-                tb_gexingqianming.BorderStyle = BorderStyle.None;
-                bool b = UpdateGerenqianming(tb_gexingqianming.Text);
-                JJLoginInfo.GetLoginInfo(JJLoginInfo._huaming);
-                lbl_xiugai.Text = "修改";
+                //lbl_xiugai.Text = "保存";
+            //}
+            //else
+            //{
+                
 
-            }
+            //}
         }
         MySQLHelper _mysqlhelper = new MySQLHelper();
 
@@ -164,7 +161,7 @@ namespace 团队任务台账管理系统.WinForm
         {
             this.Dispose();
             ////弹出注册窗体
-            WFzhuce mywin = new WFzhuce(0);
+            WFzhuce mywin = new WFzhuce(0) { StartPosition=FormStartPosition.CenterParent};
             if (mywin.ShowDialog() == DialogResult.OK)
             {
                 //更新头像
@@ -172,6 +169,25 @@ namespace 团队任务台账管理系统.WinForm
                 JJLoginInfo.GetLoginInfo(JJLoginInfo._huaming);
             }
 
+        }
+
+        private void tb_gexingqianming_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tb_gexingqianming.BorderStyle = BorderStyle.None;
+                bool b = UpdateGerenqianming(tb_gexingqianming.Text);
+                JJLoginInfo.GetLoginInfo(JJLoginInfo._huaming);
+                tb_gexingqianming.Enabled = false;
+            }
+        }
+
+        private void tb_gexingqianming_Leave(object sender, EventArgs e)
+        {
+            tb_gexingqianming.BorderStyle = BorderStyle.None;
+            bool b = UpdateGerenqianming(tb_gexingqianming.Text);
+            JJLoginInfo.GetLoginInfo(JJLoginInfo._huaming);
+            tb_gexingqianming.Enabled = false;
         }
     }
 }

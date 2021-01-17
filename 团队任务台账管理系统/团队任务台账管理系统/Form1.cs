@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.Common;
@@ -169,6 +171,7 @@ namespace 团队任务台账管理系统
             if (mywin.ShowDialog() == DialogResult.OK)
             {
                 JJLoginInfo.GetLoginInfo(JJLoginInfo._huaming);
+                lbl_woderenwu_Click(lbl_wodezhuye, null);
                 this.Show();
             };
 
@@ -347,11 +350,15 @@ namespace 团队任务台账管理系统
             {
                 lbl_newtask.Visible = true;
                 lbl_newtask.Text = $"{num}";
-                //同时判断是否显示 
-                Control myuc = panel_my.Controls[0];
-                if (myuc is UCMytask)
+                //判断软件目前界面是否为我的主页，如果是的话需要刷新
+                if (lbl_wodezhuye.BackColor==Color.White)
                 {
-                    (myuc as UCMytask).lbl_quanbu_Click(null, null);
+                    if (num> JJLoginInfo.newmsgnum)
+                    {
+                    JJMethod.a_shuaxinzhuye(null, null);
+                        JJLoginInfo.newmsgnum = num;
+                    }
+
                 }
             }
             else
@@ -428,6 +435,22 @@ namespace 团队任务台账管理系统
             ((Control)sender).ForeColor = Color.Black;
             lbl_newtask.BackColor = lbl_wodezhuye.BackColor;
             Application.DoEvents();
+        }
+
+        private void lbl_newtask_Click(object sender, EventArgs e)
+        {
+            JJLoginInfo.newmsgnum =Convert.ToInt32( lbl_newtask.Text);
+        }
+
+        private void lbl_ruanjiangengxin_Click(object sender, EventArgs e)
+        {
+            //弹出软件新旧版本窗体
+            WinFormVersion mywin = new WinFormVersion() { 
+            StartPosition=FormStartPosition.CenterScreen
+            };
+            mywin.Show();
+
+
         }
     }
 }

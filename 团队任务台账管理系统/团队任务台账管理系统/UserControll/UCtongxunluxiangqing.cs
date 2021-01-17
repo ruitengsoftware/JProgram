@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using 团队任务台账管理系统.JJModel;
 using System.IO;
 using 团队任务台账管理系统.WinForm;
+using RuiTengDll;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -64,6 +65,11 @@ namespace 团队任务台账管理系统.UserControll
             }
 
 
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            UIHelper.DrawRoundRect((Control)sender);
         }
     }
 }

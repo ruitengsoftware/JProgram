@@ -28,16 +28,16 @@ namespace 团队任务台账管理系统.UserControll
         /// <summary>
         /// 文件名
         /// </summary>
-       public string file;
+        public string file;
         /// <summary>
         /// 服务器文件全名
         /// </summary>
-       public string path;
+        public string path;
         /// <summary>
         /// 服务器目录
         /// </summary>
-       public string uripath;
-       public string _filename;//完整的文件本地路径
+        public string uripath;
+        public string _filename;//完整的文件本地路径
 
 
         public JJFujianInfo _myinfo = null;
@@ -50,9 +50,10 @@ namespace 团队任务台账管理系统.UserControll
             InitializeComponent();
             _filename = filename;
             //获得file的文件名和登录人员花名
-           file = Path.GetFileName(filename);
-            //组成服务器名
+            file = Path.GetFileName(filename);
+            //带有文件名的全路径
             path = $"http://49.233.40.109/person/{JJLoginInfo._huaming}/{file}";
+            //不带有文件名的服务器路径
             uripath = $"http://49.233.40.109/person/{JJLoginInfo._huaming}/";
         }
 
@@ -81,9 +82,9 @@ namespace 团队任务台账管理系统.UserControll
         /// <returns></returns>
         public bool InsertFile(JJFujianInfo info)
         {
-            
-                        string str_sql = $"insert into jjdbrenwutaizhang.附件信息表 values('{info._wenjianming}','{info._chuangjianren}'," +
-                $"'{info._chuangjianshijian}','{info._quanlujing}',{info._xiazaicishu},0)";
+
+            string str_sql = $"insert into jjdbrenwutaizhang.附件信息表 values('{info._wenjianming}','{info._chuangjianren}'," +
+    $"'{info._chuangjianshijian}','{info._quanlujing}',{info._xiazaicishu},0)";
 
             int num = _mysql.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
@@ -105,28 +106,28 @@ namespace 团队任务台账管理系统.UserControll
 
         private async void UCfujianInfo_Load(object sender, EventArgs e)
         {
-            if (_myinfo==null)
+            if (_myinfo == null)
             {
-            //判断文件是否存在，如果不存在上传，显示已上传，如果已经存在，直接显示已上传
-            bool exist = ExistFile(path);
-            lbl_wenjianming.Text = file;
-               
+                //判断文件是否存在，如果不存在上传，显示已上传，如果已经存在，直接显示已上传
+                bool exist = ExistFile(path);
+                lbl_wenjianming.Text = file;
 
-            if (!exist)
-            {
-                JJFujianInfo info = new JJFujianInfo()
+
+                if (!exist)
                 {
-                    _wenjianming = file,
-                    _chuangjianren = JJLoginInfo._huaming,
-                    _quanlujing = path,
-                    _chuangjianshijian = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),
-                    _xiazaicishu = 0,
-                };
-                InsertFile(info);
-                lbl_info.Text = "正在上传……";
-                await JJMethod.UpLoadFile(_filename, uripath, false);
-            }
-            lbl_info.Text = "已上传!";
+                    JJFujianInfo info = new JJFujianInfo()
+                    {
+                        _wenjianming = file,
+                        _chuangjianren = JJLoginInfo._huaming,
+                        _quanlujing = path,
+                        _chuangjianshijian = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),
+                        _xiazaicishu = 0,
+                    };
+                    InsertFile(info);
+                    lbl_info.Text = "正在上传……";
+                    await JJMethod.UpLoadFile(_filename, uripath, false);
+                }
+                lbl_info.Text = "已上传!";
 
             }
             else
@@ -140,9 +141,9 @@ namespace 团队任务台账管理系统.UserControll
                 lbl_info.Visible = false;
                 pb_guanbi.Visible = false;
                 if (!_myinfo._chuangjianren.Equals("共享"))
-                    
+
                 {
-                pb_shanchu.Visible = true;
+                    pb_shanchu.Visible = true;
 
                 }
             }
@@ -163,10 +164,14 @@ namespace 团队任务台账管理系统.UserControll
         private async void lbl_xiazai_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Excel 97-2003工作簿|*.xls|Excel 工作簿|*.xlsx";
-            if (sfd.ShowDialog()==DialogResult.OK)
+            sfd.Filter = "Excel 97-2003工作簿|*.xls|Excel 工作簿|*.xlsx|压缩文件(ZIP)|*.zip";
+            if (sfd.ShowDialog() == DialogResult.OK)
             {
-               await JJMethod.DownLoadFileAsync(_myinfo._quanlujing, sfd.FileName);
+                lbl_info.Visible = true;
+                lbl_info.Text = "正在下载……";
+                await JJMethod.DownLoadFileAsync(_myinfo._quanlujing, sfd.FileName);
+                lbl_info.Visible = false;
+
                 MessageBox.Show("下载完成！");
             }
         }

@@ -49,7 +49,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(799, 432);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(458, 432);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -67,7 +67,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(799, 35);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(458, 35);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label1
@@ -76,7 +76,7 @@
             this.label1.BackColor = System.Drawing.Color.Tomato;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(324, 5);
+            this.label1.Location = new System.Drawing.Point(154, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 25);
@@ -94,7 +94,7 @@
             this.label2.BackColor = System.Drawing.Color.Tomato;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(404, 5);
+            this.label2.Location = new System.Drawing.Point(234, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 25);
@@ -112,7 +112,7 @@
             this.tv_my.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tv_my.Location = new System.Drawing.Point(3, 3);
             this.tv_my.Name = "tv_my";
-            this.tv_my.Size = new System.Drawing.Size(793, 391);
+            this.tv_my.Size = new System.Drawing.Size(452, 391);
             this.tv_my.TabIndex = 1;
             this.tv_my.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.tv_my_AfterCheck);
             this.tv_my.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tv_my_NodeMouseClick);
@@ -122,11 +122,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(799, 432);
+            this.ClientSize = new System.Drawing.Size(458, 432);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WFperson";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "选择公司部门或人员";
             this.Load += new System.EventHandler(this.WFperson_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

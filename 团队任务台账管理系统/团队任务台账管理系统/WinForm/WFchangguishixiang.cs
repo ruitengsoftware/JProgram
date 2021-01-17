@@ -33,7 +33,7 @@ namespace 团队任务台账管理系统.WinForm
             tb_renwumingcheng.Text = myinfo._mingcheng;
             rb_putong.Checked = myinfo._jinjichengdu.Equals("普通") ? true : false;
             rb_jinji.Checked = myinfo._jinjichengdu.Equals("紧急") ? true : false;
-            tb_jutiyaoqiu.Text = myinfo._xiangqing;
+            tb_jutiyaoqiu.Text = myinfo._jutiyaoqiu;
             tb_banlirenyuan.Text = myinfo._banlirenyuan;
             tb_banliyijian.Text = myinfo._banliyijian;
             tb_jinzhanqingkuang.Text = myinfo._jinzhanqingkuang;
@@ -41,19 +41,21 @@ namespace 团队任务台账管理系统.WinForm
             //加载附件
             foreach (string s in Regex.Split(myinfo._fujian, @"\|"))
             {
+                if (s.Equals(string.Empty))
+                {
+                    continue;
+                }
                 UCfujianInfo myuc = new UCfujianInfo(s) { Dock = DockStyle.Top };
                 uCfujian1.panel_fujian.Controls.Add(myuc);
             }
             //判断登录信息，创建人是否等于登录人,如果不是，任务任务名称，紧急程度，任务具体要求，上传附件，时限不可用
-            if (!JJLoginInfo._huaming.Equals(myinfo._fasongren))
+            if (!JJLoginInfo._huaming.Equals(myinfo._chuangjianren))
             {
                 tb_renwumingcheng.Enabled = false;
                 panel1.Enabled = false;
                 tlp_yaoqiu.Enabled = false;
                 panel_fujian.Enabled = false;
                 dtp_shixian.Enabled = false;
-
-
             }
 
 
@@ -203,6 +205,11 @@ namespace 团队任务台账管理系统.WinForm
         private void label7_MouseLeave(object sender, EventArgs e)
         {
             UIHelper.UpdateCSize((Control)sender, +1);
+
+        }
+
+        private void WFchangguishixiang_Load(object sender, EventArgs e)
+        {
 
         }
     }

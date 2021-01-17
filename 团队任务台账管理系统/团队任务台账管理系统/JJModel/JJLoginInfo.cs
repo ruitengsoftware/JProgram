@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using 团队任务台账管理系统.Common;
 using 团队任务台账管理系统.Controller;
@@ -43,9 +44,29 @@ namespace 团队任务台账管理系统.JJModel
         /// </summary>
         /// <param name="huaming"></param>
         /// <returns></returns>
-        public static void GetLoginInfo(string huaming)
+        public static void GetLoginInfo(string str)
         {
-            string str_sql = $"select * from jjdbrenwutaizhang.jjperson where 花名='{huaming}' and 删除=0";
+            string str_sql = string.Empty;
+            //判断uid是账号还是邮箱，还是电话,从而给出不同的strsql字符串
+            if (str.Contains("@"))
+            {
+             str_sql = $"select * from jjdbrenwutaizhang.jjperson where 电子邮箱='{str}' and 删除=0";
+
+            }
+            else if (Regex.IsMatch(str, @"\d{11}"))
+            {
+              str_sql = $"select * from jjdbrenwutaizhang.jjperson where 手机号='{str}' and 删除=0";
+
+            }
+            else
+            {
+              str_sql = $"select * from jjdbrenwutaizhang.jjperson where 花名='{str}' and 删除=0";
+
+            }
+
+
+
+
             var mydr = _mysqlhelper.ExecuteDataRow(str_sql);
             JJLoginInfo._huaming = mydr["花名"].ToString();
             JJLoginInfo._shiming = mydr["实名"].ToString();
@@ -87,8 +108,19 @@ namespace 团队任务台账管理系统.JJModel
             JJLoginInfo._suodingguize = mydr["锁定规则"].ToString();
             JJLoginInfo._suodingchachongku = mydr["锁定查重库"].ToString();
         }
+
+
+
+
         /// <summary>
-        /// 判断是否有新任务
+        /// 上次判断到的未读消息数量
+        /// </summary>
+      public  static int newmsgnum = 0;
+
+
+
+        /// <summary>
+        /// 判断是否有新任务，如果新未读的消息数量大于newmsgnum则，有新任务
         /// </summary>
         /// <returns></returns>
         public static int GetWeiduTaskNum()
@@ -105,9 +137,8 @@ namespace 团队任务台账管理系统.JJModel
             {
                 JJMethod.IconStopShanshuo();
             }
-
-
             return mydt.Rows.Count;
+
         }
 
 

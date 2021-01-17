@@ -87,14 +87,7 @@ namespace 团队任务台账管理系统.UserControll
             parent.Controls.Add(new UCfankui() { Dock = DockStyle.Fill }); ;
         }
 
-        private void btn_xiaoxiang_Click(object sender, EventArgs e)
-        {
-            var parent = this.Parent;
-            parent.Controls.Clear();
-
-            parent.Controls.Add(new UCxiaoxiang() { Dock = DockStyle.Fill }); ;
-
-        }
+       
 
         private void btn_shouquan_Click(object sender, EventArgs e)
         {

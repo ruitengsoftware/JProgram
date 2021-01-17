@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 团队任务台账管理系统.Common;
 using 团队任务台账管理系统.Controller;
 using 团队任务台账管理系统.JJModel;
 
@@ -27,65 +28,10 @@ namespace 团队任务台账管理系统.WinForm
             richTextBox1.LoadFile(@".\tongzhi.rtf");
         }
 
-        public WinFormTongzhi(JJTongzhiInfo info)
+        public  WinFormTongzhi(JJTongzhiInfo info)
         {
             InitializeComponent();
             myinfo = info;
-            //这里不在显示原窗体，改为word形式
-            Document myword = new Document();
-            DocumentBuilder myb = new DocumentBuilder(myword);
-            //添加标题
-            Aspose.Words.Font font = myb.Font;
-            font.Size = 16;
-            font.Bold = true;
-            //font.Color = System.Drawing.Color.Blue;
-            //font.Name = "Arial";
-            //font.Underline = Underline.Dash;
-
-            // Specify paragraph formatting
-            ParagraphFormat paragraphFormat = myb.ParagraphFormat;
-            //paragraphFormat.FirstLineIndent = 8;
-            paragraphFormat.Alignment = ParagraphAlignment.Center;
-            //paragraphFormat.KeepTogether = true;
-            myb.Writeln(info._biaoti);
-            //添加 签发人
-
-            font.Size = 12;
-            font.Bold = true;
-            //font.Color = System.Drawing.Color.Blue;
-            //font.Name = "Arial";
-            //font.Underline = Underline.Dash;
-
-            // Specify paragraph formatting
-            paragraphFormat = myb.ParagraphFormat;
-            //paragraphFormat.FirstLineIndent = 8;
-            paragraphFormat.Alignment = ParagraphAlignment.Center;
-            //paragraphFormat.KeepTogether = true;
-
-            myb.Writeln(info._qianfaren);
-            myb.Writeln("");
-
-
-
-            //添加内容
-            font.Size = 12;
-            font.Bold = false;
-            //font.Color = System.Drawing.Color.Blue;
-            //font.Name = "Arial";
-            //font.Underline = Underline.Dash;
-
-            // Specify paragraph formatting
-            paragraphFormat = myb.ParagraphFormat;
-            paragraphFormat.FirstLineIndent = 8;
-            paragraphFormat.Alignment = ParagraphAlignment.Justify;
-            //paragraphFormat.KeepTogether = true;
-
-            myb.Writeln(info._neirong);
-
-            string dataDir = @".\tongzhi.rtf";
-            myword.Save(dataDir, SaveFormat.Rtf);
-
-            richTextBox1.LoadFile(@".\tongzhi.rtf");
         }
 
 
@@ -98,6 +44,14 @@ namespace 团队任务台账管理系统.WinForm
                 MessageBox.Show("已阅读通知！");
                 this.DialogResult = DialogResult.OK;
             }
+        }
+
+        private async void WinFormTongzhi_Load(object sender, EventArgs e)
+        {
+            //下载到临时文件，然后加载到richtextbox
+            await JJMethod.DownLoadFileAsync(myinfo._neirongpath, ".\\temp.rtf");
+            richTextBox1.LoadFile(".\\temp.rtf");
+
         }
     }
 }

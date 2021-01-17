@@ -161,31 +161,21 @@ namespace 团队任务台账管理系统.UserControll
         /// <param name="e"></param>
         private void lbl_changguishixiang_Click(object sender, EventArgs e)
         {
-            WFchangguishixiang mywin = new WFchangguishixiang() { StartPosition = FormStartPosition.CenterParent };
+            WFchangguishixiang mywin = new WFchangguishixiang() {
+                StartPosition = FormStartPosition.CenterParent,
+                WindowState = FormWindowState.Maximized
+            };
             mywin.TopLevel = false;
             mywin.MdiParent = this.ParentForm;
             panel_task.Controls.Add(mywin);
             mywin.Show();
-
-            //wfxinjian.StartPosition = FormStartPosition.CenterParent;
-            //if (wfxinjian.ShowDialog()==DialogResult.OK)
-            //{
-            //    JJTaskInfo myt = wfxinjian.mytask;
-            //    //如果负责人或者责任人包括登录名称，需要在我的任务右侧显示红点
-            //    string[] arr_canyuren = Regex.Split(myt._canyuren, "[,，|]");
-            //    if (myt._fuzeren.Contains(JJLoginInfo._huaming) || arr_canyuren.Contains(JJLoginInfo._huaming))
-            //    {
-            //        (this.ParentForm as Form1).lbl_newtask.Visible = true;
-            //    }
-            //}
-
         }
 
         private void lbl_gongzuoqingdan_Click(object sender, EventArgs e)
         {
             WinForm.WFgongzuoqingdan mywinform = new WinForm.WFgongzuoqingdan() {
                 StartPosition = FormStartPosition.CenterParent,
-                
+                WindowState=FormWindowState.Maximized
             };
             mywinform.TopMost = true;
             mywinform.MdiParent = this.ParentForm;
@@ -196,7 +186,10 @@ namespace 团队任务台账管理系统.UserControll
 
         private void lbl_okrshixiang_Click(object sender, EventArgs e)
         {
-            WFokrshixiang mywin = new WFokrshixiang() { StartPosition = FormStartPosition.CenterParent };
+            WFokrshixiang mywin = new WFokrshixiang() {
+                WindowState = FormWindowState.Maximized,
+
+                StartPosition = FormStartPosition.CenterParent };
             mywin.TopLevel = false;
             mywin.MdiParent = this.ParentForm;
             panel_task.Controls.Add(mywin);
@@ -206,7 +199,9 @@ namespace 团队任务台账管理系统.UserControll
 
         private void label5_Click(object sender, EventArgs e)
         {
-            var mywin = new WFtongzhigonggao() { StartPosition = FormStartPosition.CenterParent };
+            var mywin = new WFtongzhigonggao() {
+                WindowState = FormWindowState.Maximized,
+                StartPosition = FormStartPosition.CenterParent };
             //mywin.TopLevel = false;
             mywin.MdiParent = this.ParentForm;
             panel_task.Controls.Add(mywin);
@@ -216,7 +211,9 @@ namespace 团队任务台账管理系统.UserControll
 
         private void label6_Click(object sender, EventArgs e)
         {
-            var mywin = new WFqingxiujiadan() { StartPosition = FormStartPosition.CenterParent };
+            var mywin = new WFqingxiujiadan() {
+                WindowState = FormWindowState.Maximized,
+                StartPosition = FormStartPosition.CenterParent };
             //mywin.TopLevel = false;
             mywin.MdiParent = this.ParentForm;
             panel_task.Controls.Add(mywin);
@@ -227,7 +224,9 @@ namespace 团队任务台账管理系统.UserControll
 
         private void label7_Click(object sender, EventArgs e)
         {
-            var mywin = new WFyijianjianyi() { StartPosition = FormStartPosition.CenterParent };
+            var mywin = new WFyijianjianyi() {
+                WindowState = FormWindowState.Maximized,
+                StartPosition = FormStartPosition.CenterParent };
             //mywin.TopLevel = false;
             mywin.MdiParent = this.ParentForm;
             panel_task.Controls.Add(mywin);

@@ -23,6 +23,12 @@ namespace 团队任务台账管理系统.WinForm
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterParent;
+            rb_a.Checked = q._qingzhonghuanji.Contains("A类") ? true : false;
+            rb_b.Checked = q._qingzhonghuanji.Contains("B类") ? true : false;
+
+            rb_c.Checked = q._qingzhonghuanji.Contains("C类") ? true : false;
+
+            rb_d.Checked = q._qingzhonghuanji.Contains("D类") ? true : false;
 
             tb_renwumingcheng.Text = q._renwumingcheng;
             dtp_wanchengshijian.Value = Convert.ToDateTime(q._wanchengshijian);

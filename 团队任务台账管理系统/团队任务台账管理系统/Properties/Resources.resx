@@ -229,6 +229,12 @@
   <data name="没有图片" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\没有图片.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="编辑" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\编辑.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="编辑2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\编辑2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="退出" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\退出.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

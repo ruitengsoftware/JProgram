@@ -270,14 +270,44 @@ namespace 团队任务台账管理系统.UserControll
         /// <returns></returns>
         public JJTaskInfo GetBaocunTask(JJTaskInfo info)
         {
-            string str_sql = $"select * from jjdbrenwutaizhang.任务信息表 " +
+            string str_sql = string.Empty;
+            //判断类型,请休假单事由，事项名称，意见建议标题
+            if (info._leixing.Equals("常规事项") || info._leixing.Equals("OKR事项"))
+            {
+            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 " +
                 $"where 名称='{info._mingcheng}' and 类型='{info._leixing}' and 状态='保存' and 删除=0";
+
+            }
+            else if (info._leixing.Equals("请休假单"))
+            {
+                str_sql = $"select * from jjdbrenwutaizhang.任务信息表 " +
+                    $"where 事由='{info._shiyou}' and 类型='{info._leixing}' and 状态='保存' and 删除=0";
+
+            }
+            else if (info._leixing.Equals("意见建议"))
+            {
+                str_sql = $"select * from jjdbrenwutaizhang.任务信息表 " +
+    $"where 标题='{info._biaoti}' and 类型='{info._leixing}' and 状态='保存' and 删除=0";
+
+            }
+
+
             DataRow mydr = _mysql.ExecuteDataRow(str_sql);
             JJTaskInfo result = new JJTaskInfo();
 
-
+            try
+            {
             result._mingcheng = mydr["名称"].ToString();
-           result._leixing = mydr["类型"].ToString();
+            }
+            catch (Exception)
+            {
+                result._mingcheng = string.Empty;
+            }
+            try
+            {
+                result._leixing = mydr["类型"].ToString();
+            }
+            catch { result._leixing = string.Empty; }
            result._zhuangtai = mydr["状态"].ToString();
            result._xiangqing = mydr["详情"].ToString();
            result._chuangjianren = mydr["创建人"].ToString();

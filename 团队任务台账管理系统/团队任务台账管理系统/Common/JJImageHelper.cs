@@ -47,7 +47,7 @@ namespace 团队任务台账管理系统.Common
             }
             catch(Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                //System.Windows.Forms.MessageBox.Show(ex.Message);
                 return Properties.Resources.没有图片;
             }
         }
