@@ -144,10 +144,14 @@ namespace 团队任务台账管理系统
             int num = JJLoginInfo.GetWeiduTaskNum();
             if (num > 0)
             {
+                JJLoginInfo.newmsgnum = num;
+
                 lbl_newtask.Visible = true;
                 lbl_newtask.Text = $"{num}";
+               
                 myt.Start();
             }
+
 
 
 

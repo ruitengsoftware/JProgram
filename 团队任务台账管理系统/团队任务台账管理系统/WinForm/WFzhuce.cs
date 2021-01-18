@@ -102,7 +102,7 @@ namespace 团队任务台账管理系统.WinForm
                 MessageBox.Show("请填写实名！");
                 return;
             }
-            if (Regex.IsMatch(tb_shoujihao.Text, @"\d{11}"))
+            if (!Regex.IsMatch(tb_shoujihao.Text, @"\d{11}"))
             {
                 MessageBox.Show("手机号格式不正确！");
                 return;
