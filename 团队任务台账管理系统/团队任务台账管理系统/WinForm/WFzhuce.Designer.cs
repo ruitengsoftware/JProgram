@@ -182,7 +182,7 @@
             this.pb_gongzuozheng.Location = new System.Drawing.Point(349, 3);
             this.pb_gongzuozheng.Name = "pb_gongzuozheng";
             this.pb_gongzuozheng.Size = new System.Drawing.Size(140, 151);
-            this.pb_gongzuozheng.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_gongzuozheng.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_gongzuozheng.TabIndex = 3;
             this.pb_gongzuozheng.TabStop = false;
             this.pb_gongzuozheng.MouseEnter += new System.EventHandler(this.pb_gongzuozheng_MouseEnter);
@@ -231,7 +231,7 @@
             this.pb_touxiang.Location = new System.Drawing.Point(83, 3);
             this.pb_touxiang.Name = "pb_touxiang";
             this.pb_touxiang.Size = new System.Drawing.Size(140, 151);
-            this.pb_touxiang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_touxiang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_touxiang.TabIndex = 3;
             this.pb_touxiang.TabStop = false;
             // 
@@ -697,7 +697,7 @@
             this.groupBox7.Size = new System.Drawing.Size(538, 59);
             this.groupBox7.TabIndex = 8;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "个人签名";
+            this.groupBox7.Text = "个性签名";
             // 
             // WFzhuce
             // 
@@ -709,7 +709,7 @@
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WFzhuce";
-            this.Text = "修改资料";
+            this.Text = "填写个人资料";
             this.Load += new System.EventHandler(this.WFzhuce_Load);
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();

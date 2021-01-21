@@ -94,6 +94,7 @@ namespace 团队任务台账管理系统.Controller
                 JJQingdanInfo info = new JJQingdanInfo()
                 {
                     _renwumingcheng = mydr["名称"].ToString(),
+                    _renwuneirong=mydr["任务内容"].ToString(),
                     _chuangjianren = mydr["创建人"].ToString(),
                     _wanchengshijian = mydr["完成时间"].ToString(),
                     _qingzhonghuanji = mydr["轻重缓急"].ToString(),

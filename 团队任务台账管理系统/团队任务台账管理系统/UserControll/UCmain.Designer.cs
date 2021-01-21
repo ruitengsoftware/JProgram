@@ -38,6 +38,7 @@
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_kw = new System.Windows.Forms.TextBox();
             this.pb_search = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel_daibanrenwu = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -52,7 +53,6 @@
             this.ucpagetongzhi = new 团队任务台账管理系统.UserControll.UCpage();
             this.ucpagegongzuoqingdan = new 团队任务台账管理系统.UserControll.UCpage();
             this.ucpagedaiban = new 团队任务台账管理系统.UserControll.UCpage();
-            this.label1 = new System.Windows.Forms.Label();
             this.cms_right.SuspendLayout();
             this.gb_daibairenwu.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
@@ -101,6 +101,7 @@
             // 
             this.gb_daibairenwu.Controls.Add(this.tableLayoutPanel13);
             this.gb_daibairenwu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gb_daibairenwu.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.gb_daibairenwu.Location = new System.Drawing.Point(3, 421);
             this.gb_daibairenwu.Name = "gb_daibairenwu";
             this.gb_daibairenwu.Size = new System.Drawing.Size(848, 204);
@@ -116,6 +117,7 @@
             this.tableLayoutPanel13.Controls.Add(this.panel_daibanrenwu, 0, 1);
             this.tableLayoutPanel13.Controls.Add(this.ucpagedaiban, 0, 2);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel13.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 19);
             this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
@@ -167,6 +169,18 @@
             this.pb_search.TabStop = false;
             this.pb_search.Click += new System.EventHandler(this.pb_search_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(1, 1);
+            this.label1.Margin = new System.Windows.Forms.Padding(1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 28);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "关键词";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // panel_daibanrenwu
             // 
             this.panel_daibanrenwu.AutoScroll = true;
@@ -214,6 +228,7 @@
             // 
             this.gb_tongzhigonggao.Controls.Add(this.tableLayoutPanel3);
             this.gb_tongzhigonggao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gb_tongzhigonggao.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.gb_tongzhigonggao.Location = new System.Drawing.Point(3, 3);
             this.gb_tongzhigonggao.Name = "gb_tongzhigonggao";
             this.gb_tongzhigonggao.Size = new System.Drawing.Size(848, 203);
@@ -240,6 +255,7 @@
             // 
             this.panel_tongzhi.AutoScroll = true;
             this.panel_tongzhi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_tongzhi.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.panel_tongzhi.Location = new System.Drawing.Point(0, 0);
             this.panel_tongzhi.Margin = new System.Windows.Forms.Padding(0);
             this.panel_tongzhi.Name = "panel_tongzhi";
@@ -293,7 +309,7 @@
             this.pb_dingzi.Location = new System.Drawing.Point(64, 8);
             this.pb_dingzi.Margin = new System.Windows.Forms.Padding(0);
             this.pb_dingzi.Name = "pb_dingzi";
-            this.pb_dingzi.Size = new System.Drawing.Size(38, 22);
+            this.pb_dingzi.Size = new System.Drawing.Size(44, 22);
             this.pb_dingzi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_dingzi.TabIndex = 0;
             this.pb_dingzi.TabStop = false;
@@ -303,6 +319,7 @@
             // 
             this.lbl_gongzuoqingdan.AutoSize = true;
             this.lbl_gongzuoqingdan.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_gongzuoqingdan.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.lbl_gongzuoqingdan.Location = new System.Drawing.Point(8, 8);
             this.lbl_gongzuoqingdan.Margin = new System.Windows.Forms.Padding(1, 5, 1, 1);
             this.lbl_gongzuoqingdan.Name = "lbl_gongzuoqingdan";
@@ -346,18 +363,6 @@
             this.ucpagedaiban.Padding = new System.Windows.Forms.Padding(2);
             this.ucpagedaiban.Size = new System.Drawing.Size(842, 32);
             this.ucpagedaiban.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(1, 1);
-            this.label1.Margin = new System.Windows.Forms.Padding(1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 28);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "关键词";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // UCmain
             // 

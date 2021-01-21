@@ -19,7 +19,10 @@ namespace 团队任务台账管理系统.JJModel
 
 
         public int _xiazaicishu = 0;
-
-       
+        public string _kejian = string.Empty;
+        /// <summary>
+        /// 类型，共享和个人
+        /// </summary>
+        public string _leixing = string.Empty;  
     }
 }

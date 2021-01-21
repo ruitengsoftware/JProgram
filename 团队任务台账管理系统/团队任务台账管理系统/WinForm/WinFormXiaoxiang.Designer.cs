@@ -42,6 +42,7 @@
             // tb_xindetihui
             // 
             this.tb_xindetihui.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_xindetihui.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.tb_xindetihui.Location = new System.Drawing.Point(3, 20);
             this.tb_xindetihui.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_xindetihui.Multiline = true;
@@ -53,6 +54,7 @@
             // 
             this.groupBox1.Controls.Add(this.tb_xindetihui);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(3, 4);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";

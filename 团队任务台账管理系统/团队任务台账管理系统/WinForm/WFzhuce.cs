@@ -220,9 +220,9 @@ namespace 团队任务台账管理系统.WinForm
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 Bitmap mybmp = new Bitmap(ofd.FileName);
-                var newbmp = new Bitmap(mybmp, 128, 128);
+                var newbmp = JJImageHelper.UpdateImageSize(mybmp, 128, 128);
 
-                pb_gongzuozheng.Image = mybmp;
+                pb_gongzuozheng.Image = newbmp;
             }
 
         }

@@ -49,7 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aspose.Words">
-      <HintPath>G:\OneDrive - mail.dlut.edu.cn\C#类库\ASPOSEdll\Aspose.Words.dll</HintPath>
+      <HintPath>..\..\..\OneDrive - mail.dlut.edu.cn\C#类库\ASPOSEdll\Aspose.Words.dll</HintPath>
     </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -89,9 +89,8 @@
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
-    <Reference Include="RuitengDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>G:\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
+    <Reference Include="RuitengDll">
+      <HintPath>..\..\..\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -209,12 +208,6 @@
     </Compile>
     <Compile Include="UserControll\UCdaiban.Designer.cs">
       <DependentUpon>UCdaiban.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControll\UCdenglu.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControll\UCdenglu.Designer.cs">
-      <DependentUpon>UCdenglu.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControll\UCfankui.cs">
       <SubType>UserControl</SubType>
@@ -484,9 +477,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCdaiban.resx">
       <DependentUpon>UCdaiban.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControll\UCdenglu.resx">
-      <DependentUpon>UCdenglu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCfankui.resx">
       <DependentUpon>UCfankui.cs</DependentUpon>
@@ -771,6 +761,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\编辑.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guanbi.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

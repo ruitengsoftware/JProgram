@@ -18,12 +18,15 @@ namespace 团队任务台账管理系统.WinForm
 
         public List<string> list_selected = new List<string>();//获得所有选中节点的名称
         ControllerWFperson mycontroller = new ControllerWFperson();
-        string _person = string.Empty;
+        /// <summary>
+        /// 用于保存构造函数传进来的已选中人员名单
+        /// </summary>
+        List<string> list_person = new List<string>();
         List<string> listr_allperson = new List<string>();
-        public WFperson(string person)
+        public WFperson(List<string> list)
         {
             InitializeComponent();
-            _person = person;
+            list_person = list;
         }
         public WFperson()
         {
@@ -33,13 +36,13 @@ namespace 团队任务台账管理系统.WinForm
 
         public void GetSelected(TreeNode node)
         {
-            foreach (TreeNode n  in node.Nodes)
+            foreach (TreeNode n in node.Nodes)
             {
                 if (n.Checked)
                 {
                     if (listr_allperson.Contains(n.Text))
                     {
-                    list_selected.Add(n.Text);
+                        list_selected.Add(n.Text);
 
                     }
 
@@ -57,10 +60,9 @@ namespace 团队任务台账管理系统.WinForm
             foreach (DataRow dataRow in data.Rows)
             {
                 listr_allperson.Add(dataRow["花名"].ToString());
-
             }
             var data_bumen = mycontroller.GetAllBumen();
-            //添加一级部门
+            //添加一级部门,同时打勾构造函数传进来的选中人员
             foreach (DataRow dr in data_bumen.Rows)
             {
                 //TreeNode tr = new TreeNode(dr["所属部门"].ToString());
@@ -72,12 +74,17 @@ namespace 团队任务台账管理系统.WinForm
                         if (dr2["部门"].ToString().Equals(dr["名称"].ToString()))
                         {
                             //tv_my.Nodes["全部"].Nodes[dr["名称"].ToString()].Nodes.Add($"{dr2["花名"].ToString()}({dr2["实名"].ToString()})", $"{dr2["花名"].ToString()}({dr2["实名"].ToString()})");
-                            tv_my.Nodes["全部"].Nodes[dr["名称"].ToString()].Nodes.Add($"{dr2["花名"].ToString()}", $"{dr2["花名"].ToString()}");
+                          var node=  tv_my.Nodes["全部"].Nodes[dr["名称"].ToString()].Nodes.Add($"{dr2["花名"].ToString()}", $"{dr2["花名"].ToString()}");
+                            if (list_person.Contains(dr2["花名"].ToString()))
+                            {
+                                node.Checked = true;
+                            }
                         }
                     }
                 }
             }
-            //添加二级部门
+            //添加二级部门，同时将构造函数传过来的选中人员名单进行打勾
+
             foreach (DataRow dr in data_bumen.Rows)
             {
                 //TreeNode tr = new TreeNode(dr["所属部门"].ToString());
@@ -89,12 +96,20 @@ namespace 团队任务台账管理系统.WinForm
                     {
                         if (dr2["部门"].ToString().Equals(dr["名称"].ToString()))
                         {
-                            tv_my.Nodes["全部"].Nodes[dr["所属部门"].ToString()].Nodes[dr["名称"].ToString()].Nodes.Add($"{dr2["花名"].ToString()}", $"{dr2["花名"].ToString()}");
+                          var node=  tv_my.Nodes["全部"].Nodes[dr["所属部门"].ToString()].Nodes[dr["名称"].ToString()].Nodes.Add($"{dr2["花名"].ToString()}", $"{dr2["花名"].ToString()}");
+                            if (list_person.Contains(dr2["花名"].ToString()))
+                            {
+                                node.Checked = true;
+                            }
                         }
                     }
 
                 }
             }
+
+
+
+
 
         }
 

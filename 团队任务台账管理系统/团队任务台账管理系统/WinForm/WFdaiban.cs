@@ -138,26 +138,26 @@ namespace 团队任务台账管理系统.WinForm
 
         private void pb_addbanliren_Click(object sender, EventArgs e)
         {
-            string str_person = tb_zerenren.Text;
-            //打开人员表,选择人员并确认
-            WFperson mywfperson = new WFperson(str_person);
-            if (mywfperson.ShowDialog() == DialogResult.OK)
-            {
-                string xingming = string.Join(",", mywfperson.list_selected);
-                tb_zerenren.Text = xingming;
-            }
+        //    string str_person = tb_zerenren.Text;
+        //    //打开人员表,选择人员并确认
+        //    WFperson mywfperson = new WFperson(str_person);
+        //    if (mywfperson.ShowDialog() == DialogResult.OK)
+        //    {
+        //        string xingming = string.Join(",", mywfperson.list_selected);
+        //        tb_zerenren.Text = xingming;
+        //    }
         }
 
         private void pb_addyanshouren_Click(object sender, EventArgs e)
         {
-            string str_person = tb_yanshouren.Text;
-            //打开人员表,选择人员并确认
-            WFperson mywfperson = new WFperson(str_person);
-            if (mywfperson.ShowDialog() == DialogResult.OK)
-            {
-                string xingming = string.Join(",", mywfperson.list_selected);
-                tb_yanshouren.Text = xingming;
-            }
+            //string str_person = tb_yanshouren.Text;
+            ////打开人员表,选择人员并确认
+            //WFperson mywfperson = new WFperson(str_person);
+            //if (mywfperson.ShowDialog() == DialogResult.OK)
+            //{
+            //    string xingming = string.Join(",", mywfperson.list_selected);
+            //    tb_yanshouren.Text = xingming;
+            //}
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 团队任务台账管理系统.Controller;
@@ -33,7 +34,7 @@ namespace 团队任务台账管理系统.WinForm
             tb_renwumingcheng.Text = q._renwumingcheng;
             dtp_wanchengshijian.Value = Convert.ToDateTime(q._wanchengshijian);
             tb_beizhu.Text = q._beizhu;
-            tb_jingyanjiaoxun.Text = q._jingyanjiaoxun;
+            tb_renwuneirong.Text = q._renwuneirong;
             foreach (RadioButton rb in groupBox2.Controls)
             {
                 if (rb.Text==q._qingzhonghuanji)
@@ -56,11 +57,10 @@ namespace 团队任务台账管理系统.WinForm
                 _renwumingcheng = tb_renwumingcheng.Text,
                 _chuangjianren = JJLoginInfo._huaming,
                 _wanchengshijian = dtp_wanchengshijian.Value.ToString("yyyy年MM月dd日 hh:mm:ss"),
-              
+              _renwuneirong=tb_renwuneirong.Text,
                 _chuangjianshijian = DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss"),
                 _beizhu=tb_beizhu.Text,
-                _jingyanjiaoxun=tb_jingyanjiaoxun.Text,
-                _zhuangtai="未处理"
+                _zhuangtai="办理中"
             };
             if (rb_a.Checked)
             {
@@ -125,6 +125,54 @@ namespace 团队任务台账管理系统.WinForm
         private void lbl_quxiao_MouseLeave(object sender, EventArgs e)
         {
             UIHelper.UpdateCSize((Control)sender, +1);
+
+        }
+        
+        private void tb_renwumingcheng_TextChanged(object sender, EventArgs e)
+        {
+            //修改字数剩余
+            int zishu = tb_renwumingcheng.Text.Length;
+           int shengyuzishu = 400 - zishu;
+            //如果字数剩余0，不可以继续输入
+            if (shengyuzishu<0)
+            {
+                tb_renwumingcheng.Text = tb_renwumingcheng.Text.Substring(0, 400);
+                lbl_zishu.Text = $"0/400";
+
+            }
+
+            else
+            {
+            lbl_zishu.Text = $"{shengyuzishu}/400";
+
+            }
+           
+
+        }
+
+        private void lbl_zishu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_renwuneirong_TextChanged(object sender, EventArgs e)
+        {
+            //修改字数剩余
+            int zishu = tb_renwuneirong.Text.Length;
+            int shengyuzishu = 400 - zishu;
+            //如果字数剩余0，不可以继续输入
+            if (shengyuzishu < 0)
+            {
+                tb_renwuneirong.Text = tb_renwuneirong.Text.Substring(0, 400);
+                lbl_zishu2.Text = $"0/400";
+
+            }
+
+            else
+            {
+                lbl_zishu2.Text = $"{shengyuzishu}/400";
+
+            }
 
         }
     }

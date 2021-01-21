@@ -12,6 +12,7 @@ using 团队任务台账管理系统.JJModel;
 using 团队任务台账管理系统.Common;
 using System.IO;
 using System.Net;
+using RuiTengDll;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -42,7 +43,7 @@ namespace 团队任务台账管理系统.UserControll
         {
             List<JJFujianInfo> list = new List<JJFujianInfo>();
             string str = $"select * from jjdbrenwutaizhang.附件信息表 " +
-                $"where 文件名 like '%{kw}%' and 创建人='共享' and 删除=0";
+                $"where 文件名 like '%{kw}%' and 类型='共享' and 删除=0";
             DataTable mydt = _mysql.ExecuteDataTable(str);
             foreach (DataRow dr in mydt.Rows)
             {
@@ -52,12 +53,11 @@ namespace 团队任务台账管理系统.UserControll
                     _chuangjianren = dr["创建人"].ToString(),
                     _chuangjianshijian = dr["创建时间"].ToString(),
                     _quanlujing = dr["全路径"].ToString(),
-                    _xiazaicishu = Convert.ToInt32(dr["下载次数"].ToString())
-
+                    _xiazaicishu = Convert.ToInt32(dr["下载次数"].ToString()),
+                    _leixing = dr["类型"].ToString(),
+                    _kejian = dr["可见"].ToString()
                 };
                 list.Add(info);
-
-
             }
             return list;
         }
@@ -69,7 +69,9 @@ namespace 团队任务台账管理系统.UserControll
         {
             List<JJFujianInfo> list = new List<JJFujianInfo>();
             string str = $"select * from jjdbrenwutaizhang.附件信息表 " +
-                $"where 文件名 like '%{kw}%' and 删除 = 0 and 创建人='{JJLoginInfo._huaming}'";
+                $"where 文件名 like '%{kw}%' " +
+                $"and 删除 = 0 and 创建人='{JJLoginInfo._huaming}' " +
+                $"and 类型='个人'";
             DataTable mydt = _mysql.ExecuteDataTable(str);
             foreach (DataRow dr in mydt.Rows)
             {
@@ -79,7 +81,9 @@ namespace 团队任务台账管理系统.UserControll
                     _chuangjianren = dr["创建人"].ToString(),
                     _chuangjianshijian = dr["创建时间"].ToString(),
                     _quanlujing = dr["全路径"].ToString(),
-                    _xiazaicishu = Convert.ToInt32(dr["下载次数"].ToString())
+                    _xiazaicishu = Convert.ToInt32(dr["下载次数"].ToString()),
+                    _leixing=dr["类型"].ToString(),
+                    _kejian=dr["可见"].ToString()
 
                 };
                 list.Add(info);
@@ -99,15 +103,15 @@ namespace 团队任务台账管理系统.UserControll
         /// <param name="e"></param>
         private void lbl_gongxiang_Click(object sender, EventArgs e)
         {
-            pb_shangchuan.Visible = true;
-
+            pb_shangchuangongxiang.Visible = true;
+            pb_shangchuangeren.Visible = false;
             _shareresult = true;
 
             //更新按钮样式
-            lbl_gongxiang.ForeColor = Color.Black;
-            lbl_gongxiang.BackColor = Color.White;
-            lbl_wodeshangchuan.ForeColor = Color.White;
-            lbl_wodeshangchuan.BackColor = Color.FromArgb(64, 64, 64);
+            lbl_gongxiang.ForeColor = Color.White;
+            lbl_gongxiang.BackColor = Color.Gray;
+            lbl_wodeshangchuan.ForeColor = Color.Black;
+            lbl_wodeshangchuan.BackColor = Color.White;
 
             //获得所有共享资料
             var list = GetGongxiang(tb_kw.Text);
@@ -123,15 +127,16 @@ namespace 团队任务台账管理系统.UserControll
 
         private void lbl_wodeshangchuan_Click(object sender, EventArgs e)
         {
-            pb_shangchuan.Visible = false;
+            pb_shangchuangongxiang.Visible = false;
+            pb_shangchuangeren.Visible = true;
+
             _shareresult = false;
             //更新按钮样式
-            lbl_gongxiang.ForeColor = Color.White;
-            lbl_gongxiang.BackColor = Color.FromArgb(64, 64, 64);
+            lbl_gongxiang.ForeColor = Color.Black;
+            lbl_gongxiang.BackColor = Color.White;
+            lbl_wodeshangchuan.ForeColor = Color.White;
+            lbl_wodeshangchuan.BackColor = Color.Gray;
 
-            //更新按钮样式
-            lbl_wodeshangchuan.ForeColor = Color.Black;
-            lbl_wodeshangchuan.BackColor = Color.White;
 
             //获得所有共享资料
             var list = GetGerenwenjian(tb_kw.Text);
@@ -167,6 +172,9 @@ namespace 团队任务台账管理系统.UserControll
 
         private async void pb_shangchuan_Click(object sender, EventArgs e)
         {
+            pb_shangchuangongxiang.Visible = true;
+            pb_shangchuangeren.Visible = false;
+
             //上传共享文件
 
             OpenFileDialog ofd = new OpenFileDialog();
@@ -186,7 +194,7 @@ namespace 团队任务台账管理系统.UserControll
 
 
                 //添加控件，显示正在上传
-                UCfujianInfo myuc = new UCfujianInfo(info){ Dock=DockStyle.Top};
+                UCfujianInfo myuc = new UCfujianInfo(info) { Dock = DockStyle.Top };
                 panel_fujian.Controls.Add(myuc);
 
                 Application.DoEvents();
@@ -195,7 +203,7 @@ namespace 团队任务台账管理系统.UserControll
                 myuc.lbl_info.Text = "正在上传……";
                 Application.DoEvents();
                 //UpSound_Request(uripath, ofd.FileName, "xxx.zip", progressBar1);
-              await JJMethod.UpLoadFile(ofd.FileName, uripath, false);
+                await JJMethod.UpLoadFile(ofd.FileName, uripath, false);
                 InsertFile(info);
 
                 //上传完之后，不显示正在上传
@@ -209,12 +217,12 @@ namespace 团队任务台账管理系统.UserControll
 
 
         }
-        
+
         /// <summary>
-         /// 判断文件名是否存在于服务器
-         /// </summary>
-         /// <param name="filename"></param>
-         /// <returns></returns>
+        /// 判断文件名是否存在于服务器
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
         public bool InsertFile(JJFujianInfo info)
         {
 
@@ -232,7 +240,7 @@ namespace 团队任务台账管理系统.UserControll
         /// <param name="fileNamePath">要上传的本地路径（全路径）</param>
         /// <param name="saveName">文件上传后的名称</param>
         /// <returns>成功返回1，失败返回2</returns>
-        public  int UpSound_Request(string address, string fileNamePath, string saveName, ProgressBar progressBar)
+        public int UpSound_Request(string address, string fileNamePath, string saveName, ProgressBar progressBar)
         {
             int returnValue = 0;
             //要上传的文件
@@ -336,8 +344,51 @@ namespace 团队任务台账管理系统.UserControll
             return returnValue;
         }
 
+        private void lbl_gongxiang_Paint(object sender, PaintEventArgs e)
+        {
+            UIHelper.DrawRoundRect((Control)sender);
+        }
+
+        private async void pb_shangchuangeren_Click(object sender, EventArgs e)
+        {
+
+            //上传共享文件
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string file = Path.GetFileName(ofd.FileName);
+                string uripath = $"http://49.233.40.109/person/{JJLoginInfo._huaming}";
+
+                JJFujianInfo info = new JJFujianInfo()
+                {
+                    _wenjianming = file,
+                    _chuangjianren = JJLoginInfo._huaming,
+                    _quanlujing = $"{uripath}/{file}",
+                    _chuangjianshijian = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),
+                    _xiazaicishu = 0,
+                };
 
 
 
+                //添加控件，显示正在上传
+                UCfujianInfo myuc = new UCfujianInfo(info) { Dock = DockStyle.Top };
+                panel_fujian.Controls.Add(myuc);
+
+                Application.DoEvents();
+                //开始上传
+                myuc.lbl_info.Visible = true;
+                myuc.lbl_info.Text = "正在上传……";
+                Application.DoEvents();
+                //UpSound_Request(uripath, ofd.FileName, "xxx.zip", progressBar1);
+                await JJMethod.UpLoadFile(ofd.FileName, uripath, false);
+                InsertFile(info);
+
+                //上传完之后，不显示正在上传
+                myuc.lbl_info.Text = string.Empty;
+                myuc.lbl_info.Visible = false;
+
+            }
+        }
     }
 }

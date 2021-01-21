@@ -13,6 +13,8 @@ using 团队任务台账管理系统.Common;
 using 团队任务台账管理系统.Controller;
 using MySql.Data.MySqlClient;
 using RuiTengDll;
+using 团队任务台账管理系统.WinForm;
+using System.Text.RegularExpressions;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -84,7 +86,7 @@ namespace 团队任务台账管理系统.UserControll
         {
 
             string str_sql = $"insert into jjdbrenwutaizhang.附件信息表 values('{info._wenjianming}','{info._chuangjianren}'," +
-    $"'{info._chuangjianshijian}','{info._quanlujing}',{info._xiazaicishu},0)";
+    $"'{info._chuangjianshijian}','{info._quanlujing}',{info._xiazaicishu},0,'{string.Empty }','{info._leixing}')";
 
             int num = _mysql.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
@@ -111,14 +113,13 @@ namespace 团队任务台账管理系统.UserControll
                 //判断文件是否存在，如果不存在上传，显示已上传，如果已经存在，直接显示已上传
                 bool exist = ExistFile(path);
                 lbl_wenjianming.Text = file;
-
-
                 if (!exist)
                 {
                     JJFujianInfo info = new JJFujianInfo()
                     {
                         _wenjianming = file,
                         _chuangjianren = JJLoginInfo._huaming,
+                        _leixing = "共享",
                         _quanlujing = path,
                         _chuangjianshijian = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),
                         _xiazaicishu = 0,
@@ -140,12 +141,17 @@ namespace 团队任务台账管理系统.UserControll
                 lbl_xiazai.Visible = true;
                 lbl_info.Visible = false;
                 pb_guanbi.Visible = false;
-                if (!_myinfo._chuangjianren.Equals("共享"))
-
+                //共享文件可以看见垃圾桶,非共享文件可以
+                if (!_myinfo._leixing.Equals("共享"))
                 {
                     pb_shanchu.Visible = true;
-
                 }
+                //创建人上传的共享任务可以设置可见范围，显示眼睛
+                if (JJLoginInfo._huaming.Equals(_myinfo._chuangjianren) && _myinfo._leixing.Equals("共享"))
+                {
+                    pb_kejian.Visible = true;
+                }
+
             }
 
         }
@@ -165,6 +171,40 @@ namespace 团队任务台账管理系统.UserControll
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Excel 97-2003工作簿|*.xls|Excel 工作簿|*.xlsx|压缩文件(ZIP)|*.zip";
+            sfd.FileName = Path.GetFileName(_myinfo._quanlujing);
+            if (Path.GetExtension(_myinfo._quanlujing).Equals(".xls"))
+            {
+                sfd.Filter = "Excel 97-2003工作簿|*.xls";
+            }
+            if (Path.GetExtension(_myinfo._quanlujing).Equals(".xlsx"))
+            {
+                sfd.Filter = "Excel 工作簿|*.xlsx";
+
+
+            }
+            if (Path.GetExtension(_myinfo._quanlujing).Equals(".zip"))
+            {
+                sfd.Filter = "压缩文件(ZIP)|*.zip";
+
+            }
+            if (Path.GetExtension(_myinfo._quanlujing).Equals(".doc"))
+            {
+                sfd.Filter = "Word 97-2003文档|*.doc";
+
+            }
+            if (Path.GetExtension(_myinfo._quanlujing).Equals(".docx"))
+            {
+                sfd.Filter = "Word 文档|*.docx";
+
+            }
+            if (Path.GetExtension(_myinfo._quanlujing).Equals(".txt"))
+            {
+                sfd.Filter = "文本文件TXT|*.txt";
+
+            }
+
+
+
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 lbl_info.Visible = true;
@@ -175,5 +215,48 @@ namespace 团队任务台账管理系统.UserControll
                 MessageBox.Show("下载完成！");
             }
         }
+        /// <summary>
+        /// 点击可见按钮时触发的事件，保存可见人员
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pb_kejian_Click(object sender, EventArgs e)
+        {
+            //打开选择人员对话框，需要把当前的可见人员传进去
+            List<string> list_person = Regex.Split(_myinfo._kejian, @"\|").ToList();
+            WFperson mywin = new WFperson(list_person)
+            {
+                StartPosition = FormStartPosition.CenterParent
+            };
+            if (mywin.ShowDialog() == DialogResult.OK)
+            {
+                _myinfo._kejian = string.Join("|", mywin.list_selected);
+                //保存这个附件信息
+                bool b = UpdateKejian(_myinfo);
+                if (b)
+                {
+                    MessageBox.Show("附件可见人员已保存！");
+
+                }
+            }
+
+
+        }
+        /// <summary>
+        /// 修改附件的可见范围
+        /// </summary>
+        /// <returns></returns>
+        private bool UpdateKejian(JJFujianInfo info)
+        {
+            string str_sql = $"update jjdbrenwutaizhang.附件信息表 " +
+                $"set 可见='{info._kejian}' " +
+                $"where 文件名='{info._wenjianming}' and 创建人='{info._chuangjianren}' " +
+                $"and 删除=0";
+            int num = _mysql.ExecuteNonQuery(str_sql);
+            return num > 0 ? true : false;
+        }
+
+
+
     }
 }

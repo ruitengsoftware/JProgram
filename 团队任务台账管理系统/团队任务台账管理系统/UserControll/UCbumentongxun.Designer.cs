@@ -36,8 +36,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tv_my = new System.Windows.Forms.TreeView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -52,6 +52,7 @@
             // 
             this.groupBox1.Controls.Add(this.flp_person);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(462, 527);
@@ -62,6 +63,7 @@
             // flp_person
             // 
             this.flp_person.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flp_person.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.flp_person.Location = new System.Drawing.Point(3, 19);
             this.flp_person.Name = "flp_person";
             this.flp_person.Size = new System.Drawing.Size(456, 505);
@@ -98,6 +100,7 @@
             // 
             this.groupBox3.Controls.Add(this.tableLayoutPanel1);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(300, 527);
@@ -123,6 +126,7 @@
             // tv_my
             // 
             this.tv_my.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tv_my.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.tv_my.Location = new System.Drawing.Point(3, 38);
             this.tv_my.Name = "tv_my";
             this.tv_my.Size = new System.Drawing.Size(288, 464);
@@ -148,29 +152,12 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(294, 35);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.SteelBlue;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(151, 4);
-            this.label2.Margin = new System.Windows.Forms.Padding(4);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 27);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "删除部门";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Click += new System.EventHandler(this.btn_shanchubumen_Click);
-            this.label2.Paint += new System.Windows.Forms.PaintEventHandler(this.label2_Paint);
-            this.label2.MouseEnter += new System.EventHandler(this.label1_MouseEnter);
-            this.label2.MouseLeave += new System.EventHandler(this.label1_MouseLeave);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.SteelBlue;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(71, 4);
             this.label1.Margin = new System.Windows.Forms.Padding(4);
@@ -183,6 +170,25 @@
             this.label1.Paint += new System.Windows.Forms.PaintEventHandler(this.label2_Paint);
             this.label1.MouseEnter += new System.EventHandler(this.label1_MouseEnter);
             this.label1.MouseLeave += new System.EventHandler(this.label1_MouseLeave);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.SteelBlue;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(151, 4);
+            this.label2.Margin = new System.Windows.Forms.Padding(4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 27);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "删除部门";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.btn_shanchubumen_Click);
+            this.label2.Paint += new System.Windows.Forms.PaintEventHandler(this.label2_Paint);
+            this.label2.MouseEnter += new System.EventHandler(this.label1_MouseEnter);
+            this.label2.MouseLeave += new System.EventHandler(this.label1_MouseLeave);
             // 
             // UCbumentongxun
             // 

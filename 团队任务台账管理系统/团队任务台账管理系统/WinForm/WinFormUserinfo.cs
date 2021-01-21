@@ -121,7 +121,7 @@ namespace 团队任务台账管理系统.WinForm
         private void WinFormUserinfo_Load(object sender, EventArgs e)
         {
             lbl_nicheng.Text = $"{JJLoginInfo._shiming}({JJLoginInfo._huaming})";
-            lbl_zhijizhiwu.Text = $"{JJLoginInfo._zhiji}";
+           // lbl_zhijizhiwu.Text = $"{JJLoginInfo._zhiji}";
            tb_gexingqianming.Text = JJLoginInfo._gerenqianming;
             
         }

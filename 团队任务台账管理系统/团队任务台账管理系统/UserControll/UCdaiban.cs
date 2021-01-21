@@ -140,14 +140,14 @@ namespace 团队任务台账管理系统.UserControll
         /// <param name="e"></param>
         private void pb_tianjia_Click(object sender, EventArgs e)
         {
-            string str_person = tb_zerenren.Text;
-            //打开人员表,选择人员并确认
-            WFperson mywfperson = new WFperson(str_person);
-            if (mywfperson.ShowDialog() == DialogResult.OK)
-            {
-                string xingming = string.Join(",", mywfperson.list_selected);
-                tb_zerenren.Text = xingming;
-            }
+            //string str_person = tb_zerenren.Text;
+            ////打开人员表,选择人员并确认
+            //WFperson mywfperson = new WFperson(str_person);
+            //if (mywfperson.ShowDialog() == DialogResult.OK)
+            //{
+            //    string xingming = string.Join(",", mywfperson.list_selected);
+            //    tb_zerenren.Text = xingming;
+            //}
 
         }
         /// <summary>
@@ -179,14 +179,14 @@ namespace 团队任务台账管理系统.UserControll
 
         private void pb_yanshou_Click(object sender, EventArgs e)
         {
-            string str_person = tb_yanshouren.Text;
-            //打开人员表,选择人员并确认
-            WFperson mywfperson = new WFperson(str_person);
-            if (mywfperson.ShowDialog() == DialogResult.OK)
-            {
-                string xingming = string.Join(",", mywfperson.list_selected);
-                tb_yanshouren.Text = xingming;
-            }
+            //string str_person = tb_yanshouren.Text;
+            ////打开人员表,选择人员并确认
+            //WFperson mywfperson = new WFperson(str_person);
+            //if (mywfperson.ShowDialog() == DialogResult.OK)
+            //{
+            //    string xingming = string.Join(",", mywfperson.list_selected);
+            //    tb_yanshouren.Text = xingming;
+            //}
         }
         /// <summary>
         /// 点击提交验收按钮时触发的事件

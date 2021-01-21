@@ -12,6 +12,7 @@ using 团队任务台账管理系统.Controller;
 using 团队任务台账管理系统.WinForm;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using 团队任务台账管理系统.Common;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -321,10 +322,7 @@ namespace 团队任务台账管理系统.UserControll
             WinForm.WFgongzuoqingdan mywinform = new WinForm.WFgongzuoqingdan();
             if (mywinform.ShowDialog() == DialogResult.OK)
             {
-                //更新任务内容
-                UCmain_Load(null, null);
-
-
+                JJMethod.a_shuaxinzhuye(null, null);
             }
         }
 

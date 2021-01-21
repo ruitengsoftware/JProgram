@@ -43,24 +43,20 @@ namespace 团队任务台账管理系统.WinForm
         /// <param name="e"></param>
         private void pb_fuzeren_Click(object sender, EventArgs e)
         {
-            WFperson mywf = new WFperson(string.Empty);//这里必须传参，但实际没有需要
-            if (mywf.ShowDialog() == DialogResult.OK)
-            {
-                tb_fuzeren.Text = string.Join(",", mywf.list_selected);
-            }
+            //WFperson mywf = new WFperson(string.Empty);//这里必须传参，但实际没有需要
+            //if (mywf.ShowDialog() == DialogResult.OK)
+            //{
+            //    tb_fuzeren.Text = string.Join(",", mywf.list_selected);
+            //}
         }
 
         private void pb_chengyuan_Click(object sender, EventArgs e)
         {
-            WFperson mywf = new WFperson(string.Empty);//这里必须传参，但实际没有需要
-            if (mywf.ShowDialog() == DialogResult.OK)
-            {
-                tb_chengyuan.Text = string.Join(",", mywf.list_selected);
-
-
-
-            }
-
+            //WFperson mywf = new WFperson(string.Empty);//这里必须传参，但实际没有需要
+            //if (mywf.ShowDialog() == DialogResult.OK)
+            //{
+            //    tb_chengyuan.Text = string.Join(",", mywf.list_selected);
+            //}
         }
 
         private void btn_chuangjian_Click(object sender, EventArgs e)

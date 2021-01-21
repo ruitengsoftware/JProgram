@@ -36,9 +36,11 @@
             this.lbl_shijian = new System.Windows.Forms.Label();
             this.lbl_xiazai = new System.Windows.Forms.Label();
             this.pb_shanchu = new System.Windows.Forms.PictureBox();
+            this.pb_kejian = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb_guanbi)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_kejian)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_wenjianming
@@ -85,9 +87,10 @@
             this.panel1.Controls.Add(this.lbl_shijian);
             this.panel1.Controls.Add(this.lbl_xiazai);
             this.panel1.Controls.Add(this.lbl_info);
+            this.panel1.Controls.Add(this.pb_kejian);
             this.panel1.Controls.Add(this.pb_guanbi);
-            this.panel1.Controls.Add(this.lbl_wenjianming);
             this.panel1.Controls.Add(this.pb_shanchu);
+            this.panel1.Controls.Add(this.lbl_wenjianming);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("宋体", 9F);
             this.panel1.Location = new System.Drawing.Point(3, 3);
@@ -151,6 +154,20 @@
             this.pb_shanchu.Visible = false;
             this.pb_shanchu.Click += new System.EventHandler(this.pb_shanchu_Click);
             // 
+            // pb_kejian
+            // 
+            this.pb_kejian.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pb_kejian.Image = global::团队任务台账管理系统.Properties.Resources.显示;
+            this.pb_kejian.Location = new System.Drawing.Point(45, 2);
+            this.pb_kejian.Margin = new System.Windows.Forms.Padding(0);
+            this.pb_kejian.Name = "pb_kejian";
+            this.pb_kejian.Size = new System.Drawing.Size(22, 17);
+            this.pb_kejian.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_kejian.TabIndex = 7;
+            this.pb_kejian.TabStop = false;
+            this.pb_kejian.Visible = false;
+            this.pb_kejian.Click += new System.EventHandler(this.pb_kejian_Click);
+            // 
             // UCfujianInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -167,6 +184,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_kejian)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -181,5 +199,6 @@
         private System.Windows.Forms.Label lbl_shijian;
         private System.Windows.Forms.Label lbl_xiazai;
         private System.Windows.Forms.PictureBox pb_shanchu;
+        private System.Windows.Forms.PictureBox pb_kejian;
     }
 }

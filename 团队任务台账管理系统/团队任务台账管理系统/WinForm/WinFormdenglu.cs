@@ -127,10 +127,11 @@ namespace 团队任务台账管理系统.JJWinForm
         UIHelper uihelper = new UIHelper();
         private void WinFormLogin_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(310, 410);
-            UIHelper.DrawRoundRect(this);
-            UIHelper.DrawRoundRect(lbl_denglu);
-            tableLayoutPanel2.BackColor = Color.FromArgb(0, 255, 255, 255);
+            //this.Size = new Size(310, 410);
+            //UIHelper.DrawRoundRect(this);
+           UIHelper.DrawRoundRect(lbl_denglu);
+
+            //tableLayoutPanel2.BackColor = Color.FromArgb(0, 255, 255, 255);
             foreach (Control c in tableLayoutPanel2.Controls)
             {
                 if (c.Text.Contains("登    录"))
@@ -212,12 +213,12 @@ namespace 团队任务台账管理系统.JJWinForm
 
         private void lbl_denglu_MouseEnter(object sender, EventArgs e)
         {
-            UIHelper.UpdateCC((Control)sender, Color.MediumSeaGreen, Color.White);
+            UIHelper.UpdateCC((Control)sender, Color.DeepSkyBlue, Color.White);
         }
 
         private void lbl_denglu_MouseLeave(object sender, EventArgs e)
         {
-            UIHelper.UpdateCC((Control)sender, Color.SeaGreen, Color.White);
+            UIHelper.UpdateCC((Control)sender, Color.DodgerBlue, Color.White);
         }
         //判断密码的显示状态
         bool xianshi = false;
@@ -260,6 +261,11 @@ namespace 团队任务台账管理系统.JJWinForm
             }
 
 
+        }
+
+        private void pb_guanbi_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

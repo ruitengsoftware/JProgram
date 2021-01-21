@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace 团队任务台账管理系统.JJModel
 {
+    
     /// <summary>
     /// 工作清单
     /// </summary>
     public class JJQingdanInfo
     {
+
+        /// <summary>
+        /// 任务内容
+        /// </summary>
+        public string _renwuneirong = string.Empty;
         /// <summary>
         /// 任务名称
         /// </summary>
