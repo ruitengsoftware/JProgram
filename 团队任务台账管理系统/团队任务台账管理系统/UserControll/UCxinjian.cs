@@ -70,7 +70,7 @@ namespace 团队任务台账管理系统.UserControll
         /// <param name="IsAutoRename">是否自动按照时间重命名</param>
         public void UpLoadFile(string fileNamePath, string uriString, bool IsAutoRename)
         {
-            NetworkCredential credentials = new NetworkCredential("Administrator", "lixingrui+850223");
+            NetworkCredential credentials = new NetworkCredential("Administrator", "Lxr+19850223");
             //判断是否存在文件夹，如果不存在，新建
             if (!Directory.Exists(uriString))
             {

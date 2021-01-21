@@ -13,6 +13,7 @@ using 团队任务台账管理系统.Common;
 using System.IO;
 using System.Net;
 using RuiTengDll;
+using System.Text.RegularExpressions;
 
 namespace 团队任务台账管理系统.UserControll
 {
@@ -82,8 +83,8 @@ namespace 团队任务台账管理系统.UserControll
                     _chuangjianshijian = dr["创建时间"].ToString(),
                     _quanlujing = dr["全路径"].ToString(),
                     _xiazaicishu = Convert.ToInt32(dr["下载次数"].ToString()),
-                    _leixing=dr["类型"].ToString(),
-                    _kejian=dr["可见"].ToString()
+                    _leixing = dr["类型"].ToString(),
+                    _kejian = dr["可见"].ToString()
 
                 };
                 list.Add(info);
@@ -119,10 +120,14 @@ namespace 团队任务台账管理系统.UserControll
             panel_fujian.Controls.Clear();
             foreach (JJFujianInfo s in list)
             {
-                UCfujianInfo myuc = new UCfujianInfo(s) { Dock = DockStyle.Top };
-                panel_fujian.Controls.Add(myuc);
+                //如果登陆者是创建人或者在可见范围内，就新增这个uc
+                var listp = Regex.Split(s._kejian, @"\|").ToList();
+                if (listp.Contains(JJLoginInfo._huaming) || s._chuangjianren.Equals(JJLoginInfo._huaming))
+                {
+                    UCfujianInfo myuc = new UCfujianInfo(s) { Dock = DockStyle.Top };
+                    panel_fujian.Controls.Add(myuc);
+                }
             }
-
         }
 
         private void lbl_wodeshangchuan_Click(object sender, EventArgs e)
