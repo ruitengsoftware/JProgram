@@ -39,14 +39,24 @@ namespace 团队任务台账管理系统.UserControll
 
 
 
-
+        /// <summary>
+        /// 刷新显示新的部门结构
+        /// </summary>
         private void UpdateBumen()
         {
+            //用于存放不显示在部门列表中的部门名称
+            List<string> list_neibu = new List<string>() { 
+            "顾问团队","技术团队"
+            };
+
             tv_my.Nodes.Clear();
             var infos = _myc.GetBumeninfos();
             //添加一级列表
             foreach (JJBumenInfo info in infos)
             {
+                //考虑到针对内部管理
+                //判断部门名称,如果是顾问团队，技术团队，非全职人员都暂不纳入
+                if (list_neibu.Contains(info._mingcheng)) continue;
                 if (info._jibie=="一级部门")
                 {
                     tv_my.Nodes.Add(info._mingcheng,info._mingcheng);
@@ -55,13 +65,22 @@ namespace 团队任务台账管理系统.UserControll
             //获得二级列表，加载到对应的一级列表中去
             foreach (JJBumenInfo info in infos)
             {
+                if (list_neibu.Contains(info._mingcheng)) continue;
                 if (info._jibie=="二级部门")
                 {
-                    tv_my.Nodes[info._suoshubumen].Nodes.Add(info._mingcheng, info._mingcheng);
+                    try//防止没有一级部门名称节点时的报错
+                    {
+                        tv_my.Nodes[info._suoshubumen].Nodes.Add(info._mingcheng, info._mingcheng);
+                    }
+                    catch { }
                 }
             }
         }
-
+        /// <summary>
+        /// 点击删除部门按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_shanchubumen_Click(object sender, EventArgs e)
         {
             //删除选中节点

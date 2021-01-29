@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbl_xiangxian = new System.Windows.Forms.Label();
             this.lbl_mingcheng = new System.Windows.Forms.Label();
             this.lbl_shijian = new System.Windows.Forms.Label();
@@ -37,6 +38,7 @@
             this.pb_point = new System.Windows.Forms.PictureBox();
             this.lbl_leixing = new System.Windows.Forms.Label();
             this.lbl_zhuangtai = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_xiaoxiang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_shanchu)).BeginInit();
@@ -111,6 +113,7 @@
             this.pb_xiaoxiang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_xiaoxiang.TabIndex = 2;
             this.pb_xiaoxiang.TabStop = false;
+            this.toolTip1.SetToolTip(this.pb_xiaoxiang, "完成销项");
             this.pb_xiaoxiang.Click += new System.EventHandler(this.lbl_xiaoxiang_Click);
             // 
             // pb_shanchu
@@ -123,6 +126,7 @@
             this.pb_shanchu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_shanchu.TabIndex = 2;
             this.pb_shanchu.TabStop = false;
+            this.toolTip1.SetToolTip(this.pb_shanchu, "删除清单");
             this.pb_shanchu.Click += new System.EventHandler(this.lbl_shanchu_Click);
             // 
             // pb_point
@@ -189,5 +193,6 @@
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Label lbl_leixing;
         private System.Windows.Forms.Label lbl_zhuangtai;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -138,6 +138,7 @@
     <Compile Include="Common\JJpanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Common\JJSystemInfo.cs" />
     <Compile Include="Controller\ControllerBumentongxun.cs" />
     <Compile Include="Controller\ControllerChangguishixiang.cs" />
     <Compile Include="Controller\ControllerDenglu.cs" />
@@ -265,6 +266,12 @@
     </Compile>
     <Compile Include="UserControll\UCpage.Designer.cs">
       <DependentUpon>UCpage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControll\UCpersonName.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControll\UCpersonName.Designer.cs">
+      <DependentUpon>UCpersonName.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControll\UCrizhi.cs">
       <SubType>UserControl</SubType>
@@ -507,6 +514,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCpage.resx">
       <DependentUpon>UCpage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControll\UCpersonName.resx">
+      <DependentUpon>UCpersonName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControll\UCrizhi.resx">
       <DependentUpon>UCrizhi.cs</DependentUpon>

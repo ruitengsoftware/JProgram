@@ -61,7 +61,7 @@ namespace 团队任务台账管理系统.WinForm
                 _shenheyijian=tb_shenheyijian.Text,
                _xiaojiaqingkuang=tb_xiaojiaqingkuang.Text,
                  _chuangjianshijian = DateTime.Now.ToString(),
-                _chuangjianren = JJLoginInfo._huaming,
+                _chuangjianren = JJLoginInfo._shiming,
                 _leixing = "请休假单",
                 _zhuangtai = "保存"
 
@@ -100,7 +100,7 @@ namespace 团队任务台账管理系统.WinForm
                 _shenheyijian = tb_shenheyijian.Text,
                 _xiaojiaqingkuang = tb_xiaojiaqingkuang.Text,
                 _chuangjianshijian = DateTime.Now.ToString(),
-                _chuangjianren = JJLoginInfo._huaming,
+                _chuangjianren = JJLoginInfo._shiming,
                 _leixing = "请休假单",
                 _zhuangtai = "保存"
             };
@@ -127,7 +127,7 @@ namespace 团队任务台账管理系统.WinForm
                         _shenheyijian = tb_shenheyijian.Text,
                         _xiaojiaqingkuang = tb_xiaojiaqingkuang.Text,
                         _fasongshijian = DateTime.Now.ToString(),
-                        _fasongren = JJLoginInfo._huaming,
+                        _fasongren = JJLoginInfo._shiming,
                         _leixing = "请休假单",
                         _zhuangtai = "未读"
                     };

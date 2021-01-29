@@ -86,7 +86,7 @@ namespace 团队任务台账管理系统.Controller
             str_sql = $"select * from jjdbrenwutaizhang.工作清单表 " +
                 $"where 名称 like '%{kw}%' and 删除=0 and 创建人='{JJLoginInfo._huaming}' " +
                 $"and 状态<>'已处理' " +
-                $"order by 轻重缓急,完成时间 desc " +
+                $"order by 轻重缓急,完成时间 asc " +
                 $"limit {10 * (start - 1)},10";
             mydt = _mysqlhelper.ExecuteDataTable(str_sql);
             foreach (DataRow mydr in mydt.Rows)

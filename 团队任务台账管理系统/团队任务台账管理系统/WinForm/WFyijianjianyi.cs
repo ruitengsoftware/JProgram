@@ -44,7 +44,7 @@ namespace 团队任务台账管理系统.WinForm
             JJTaskInfo myinfo = new JJTaskInfo
             {
                 _biaoti = tb_biaoti.Text,
-                _chuangjianren = JJLoginInfo._huaming,
+                _chuangjianren = JJLoginInfo._shiming,
                 _fankuiduixiang = tb_fankuiduixiang.Text,
                 _neirong = tb_neirong.Text,
                 _chuangjianshijian = DateTime.Now.ToString(),
@@ -90,7 +90,7 @@ namespace 团队任务台账管理系统.WinForm
             JJTaskInfo myinfo = new JJTaskInfo
             {
                 _biaoti = tb_biaoti.Text,
-                _chuangjianren = JJLoginInfo._huaming,
+                _chuangjianren = JJLoginInfo._shiming,
                 _fankuiduixiang = tb_fankuiduixiang.Text,
                 _neirong = tb_neirong.Text,
                 _chuangjianshijian = DateTime.Now.ToString(),
@@ -110,7 +110,7 @@ namespace 团队任务台账管理系统.WinForm
                 myinfo = new JJTaskInfo
                 {
                     _biaoti = tb_biaoti.Text,
-                    _fasongren = JJLoginInfo._huaming,
+                    _fasongren = JJLoginInfo._shiming,
                     _fankuiduixiang = s,
                     _neirong = tb_neirong.Text,
                     _fasongshijian = DateTime.Now.ToString(),

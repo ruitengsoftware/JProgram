@@ -131,9 +131,7 @@ namespace 团队任务台账管理系统
         //UserControl myuc = new UserControl();
         private void Form1_Load(object sender, EventArgs e)
         {
-            //如果窗体成功加载，保存当前版本
-            Properties.Settings.Default.version = this.Text;
-            Properties.Settings.Default.Save();
+            this.Text = "写手OA系统 " + JJSystemInfo._version;
             JJMethod.a_checknewtask = timer1_Tick;//给公共方法赋值
             JJMethod.a_shuaxinzhuye = pb_home_Click;
             JJMethod.nf = notifyIcon1;
@@ -380,6 +378,7 @@ namespace 团队任务台账管理系统
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             notifyIcon1.Dispose();
+            Environment.Exit(0);
         }
 
         private void pb_touxiang_MouseMove(object sender, MouseEventArgs e)

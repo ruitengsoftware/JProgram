@@ -50,6 +50,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pb_dingzi = new System.Windows.Forms.PictureBox();
             this.lbl_gongzuoqingdan = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.ucpagetongzhi = new 团队任务台账管理系统.UserControll.UCpage();
             this.ucpagegongzuoqingdan = new 团队任务台账管理系统.UserControll.UCpage();
             this.ucpagedaiban = new 团队任务台账管理系统.UserControll.UCpage();
@@ -313,6 +314,7 @@
             this.pb_dingzi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_dingzi.TabIndex = 0;
             this.pb_dingzi.TabStop = false;
+            this.toolTip1.SetToolTip(this.pb_dingzi, "新建工作清单");
             this.pb_dingzi.Click += new System.EventHandler(this.pb_dingzi_Click);
             // 
             // lbl_gongzuoqingdan
@@ -327,6 +329,9 @@
             this.lbl_gongzuoqingdan.TabIndex = 0;
             this.lbl_gongzuoqingdan.Text = "工作清单";
             this.lbl_gongzuoqingdan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // toolTip1
+            // 
             // 
             // ucpagetongzhi
             // 
@@ -418,5 +423,6 @@
         private System.Windows.Forms.Label lbl_gongzuoqingdan;
         private UCpage ucpagegongzuoqingdan;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

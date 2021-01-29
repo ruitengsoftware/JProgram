@@ -38,7 +38,7 @@ namespace 团队任务台账管理系统.Controller
         public bool Yidu(JJTongzhiInfo info)
         {
             string str_sql = $"update jjdbrenwutaizhang.通知公告表 set 状态='已读' where 标题='{info._biaoti}' " +
-                            $"and 状态='未读' and 签发人='{info._qianfaren}'";
+                            $"and 状态='未读' and 签发人='{info._qianfaren}' and 阅读范围='{info._yuedufanwei}'";
            int num= _sql.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;
         }

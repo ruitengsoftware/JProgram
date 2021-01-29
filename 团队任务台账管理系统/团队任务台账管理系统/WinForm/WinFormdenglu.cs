@@ -115,11 +115,6 @@ namespace 团队任务台账管理系统.JJWinForm
         }
 
         #endregion
-
-       
-
-
-
         public WinFormdenglu()
         {
             InitializeComponent();
@@ -127,6 +122,7 @@ namespace 团队任务台账管理系统.JJWinForm
         UIHelper uihelper = new UIHelper();
         private void WinFormLogin_Load(object sender, EventArgs e)
         {
+            this.TopMost = true;
             //this.Size = new Size(310, 410);
             //UIHelper.DrawRoundRect(this);
            UIHelper.DrawRoundRect(lbl_denglu);

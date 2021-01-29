@@ -368,7 +368,7 @@ namespace 团队任务台账管理系统.UserControll
                 JJFujianInfo info = new JJFujianInfo()
                 {
                     _wenjianming = file,
-                    _chuangjianren = JJLoginInfo._huaming,
+                    _chuangjianren = JJLoginInfo._shiming,
                     _quanlujing = $"{uripath}/{file}",
                     _chuangjianshijian = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),
                     _xiazaicishu = 0,

@@ -108,7 +108,7 @@ namespace 团队任务台账管理系统.WinForm
                 _zongtiyanshouren = tb_zongtiyanshouren.Text,
                 _chuangjianshijian = DateTime.Now.ToString(),
                 _jinjichengdu = rb_jinji.Checked == true ? "紧急" : "普通",
-                _chuangjianren = JJLoginInfo._huaming,
+                _chuangjianren = JJLoginInfo._shiming,
                 _leixing = "OKR事项",
                 _zhuangtai = "保存",
                 _chengguoji = JsonConvert.SerializeObject(chengguoji)
@@ -151,7 +151,7 @@ namespace 团队任务台账管理系统.WinForm
                 _zongtiyanshouren = tb_zongtiyanshouren.Text,
                 _chuangjianshijian = DateTime.Now.ToString(),
                 _jinjichengdu = rb_jinji.Checked == true ? "紧急" : "普通",
-                _chuangjianren = JJLoginInfo._huaming,
+                _chuangjianren = JJLoginInfo._shiming,
                 _leixing = "OKR事项",
                 _zhuangtai = "保存",
                 _chengguoji = JsonConvert.SerializeObject(chengguoji)
@@ -206,7 +206,7 @@ namespace 团队任务台账管理系统.WinForm
                         _fasongshijian = DateTime.Now.ToString(),
                         _banlirenyuan = banliren,
                         _jinjichengdu = rb_jinji.Checked == true ? "紧急" : "普通",
-                        _fasongren = JJLoginInfo._huaming,
+                        _fasongren = JJLoginInfo._shiming,
                         _leixing = "OKR事项",
                         _zhuangtai = "未读",
                         _chengguoji = JsonConvert.SerializeObject(chengguoji),

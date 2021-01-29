@@ -104,7 +104,7 @@ namespace 团队任务台账管理系统.WinForm
                 _banlirenyuan = tb_banlirenyuan.Text,
                 _jinzhanqingkuang = tb_jinzhanqingkuang.Text,
                 _chuangjianshijian = DateTime.Now.ToString(),
-                _chuangjianren = JJLoginInfo._huaming,
+                _chuangjianren = JJLoginInfo._shiming,
                 _leixing = "常规事项",
                 _zhuangtai = "保存"
             };
@@ -121,7 +121,11 @@ namespace 团队任务台账管理系统.WinForm
 
             }
         }
-
+        /// <summary>
+        /// 点击发送办理按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_fasongbanli_Click(object sender, EventArgs e)
         {
             //发送任务之前，需要先保存任务信息，方便打开的时候调用
@@ -137,7 +141,7 @@ namespace 团队任务台账管理系统.WinForm
                 _banlirenyuan = tb_banlirenyuan.Text,
                 _jinzhanqingkuang = tb_jinzhanqingkuang.Text,
                 _chuangjianshijian = DateTime.Now.ToString(),
-                _chuangjianren = JJLoginInfo._huaming,
+                _chuangjianren = JJLoginInfo._shiming,
                 _leixing = "常规事项",
                 _zhuangtai = "保存"
             };
@@ -160,7 +164,7 @@ namespace 团队任务台账管理系统.WinForm
                     _banlirenyuan = s,
                     _jinzhanqingkuang = tb_jinzhanqingkuang.Text,
                     _fasongshijian = DateTime.Now.ToString(),
-                    _fasongren = JJLoginInfo._huaming,
+                    _fasongren = JJLoginInfo._shiming,
                     _leixing = "常规事项",
                     _zhuangtai = "未读"
                 };

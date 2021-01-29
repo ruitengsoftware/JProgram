@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -31,7 +32,7 @@ namespace 团队任务台账管理系统
             var mydr = _mysql.ExecuteDataRow(str_sql);
             string newversion = mydr["文件名"].ToString();
 
-            if (newversion != Properties.Settings.Default.version)
+            if (newversion != JJSystemInfo._version)
             {
                 //升级程序位置
                 string fileupdate =Application.StartupPath+ $"\\update\\UpdateOA.exe";
@@ -65,12 +66,14 @@ namespace 团队任务台账管理系统
                 JJLoginInfo._huaming = mywin._huaming;
                 //JJLoginInfo.GetLoginInfo(JJLoginInfo._huaming);
                 Form1 myform1 = new Form1();
+
                 //判断登录权限，如果没有权限就要退出本方法
                 if (JJLoginInfo._denlguquan == 0)
                 {
                     MessageBox.Show("对不起，您暂无权限使用该系统！");
                     return;
                 }
+
                 Application.Run(myform1);
             }
 

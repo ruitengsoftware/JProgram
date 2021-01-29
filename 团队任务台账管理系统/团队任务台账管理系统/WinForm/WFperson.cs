@@ -23,6 +23,7 @@ namespace 团队任务台账管理系统.WinForm
         /// </summary>
         List<string> list_person = new List<string>();
         List<string> listr_allperson = new List<string>();
+        List<string> list_neibu = new List<string>() {"技术团队","顾问团队","营销团队","办公室" };//用于存放内部不显示出来的部门
         public WFperson(List<string> list)
         {
             InitializeComponent();
@@ -40,18 +41,20 @@ namespace 团队任务台账管理系统.WinForm
             {
                 if (n.Checked)
                 {
-                    if (listr_allperson.Contains(n.Text))
+                    if (listr_allperson.Contains(n.Name))
                     {
-                        list_selected.Add(n.Text);
-
+                        list_selected.Add(n.Name);
                     }
-
                 }
                 GetSelected(n);
             }
         }
 
-
+        /// <summary>
+        /// 加载窗体时出发的事件，主要是添加节点包括部门和人员
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void WFperson_Load(object sender, EventArgs e)
         {
             tv_my.Nodes.Add("全部", "全部");
@@ -59,12 +62,14 @@ namespace 团队任务台账管理系统.WinForm
             //获得全部人员list
             foreach (DataRow dataRow in data.Rows)
             {
-                listr_allperson.Add(dataRow["花名"].ToString());
+                listr_allperson.Add(dataRow["实名"].ToString());
             }
             var data_bumen = mycontroller.GetAllBumen();
             //添加一级部门,同时打勾构造函数传进来的选中人员
             foreach (DataRow dr in data_bumen.Rows)
             {
+                //添加时判断是否为内部不显示的名称
+                if (list_neibu.Contains(dr["名称"].ToString())) continue;
                 //TreeNode tr = new TreeNode(dr["所属部门"].ToString());
                 if (dr["级别"].ToString().Equals("一级部门"))
                 {
@@ -73,9 +78,9 @@ namespace 团队任务台账管理系统.WinForm
                     {
                         if (dr2["部门"].ToString().Equals(dr["名称"].ToString()))
                         {
-                            //tv_my.Nodes["全部"].Nodes[dr["名称"].ToString()].Nodes.Add($"{dr2["花名"].ToString()}({dr2["实名"].ToString()})", $"{dr2["花名"].ToString()}({dr2["实名"].ToString()})");
-                          var node=  tv_my.Nodes["全部"].Nodes[dr["名称"].ToString()].Nodes.Add($"{dr2["花名"].ToString()}", $"{dr2["花名"].ToString()}");
-                            if (list_person.Contains(dr2["花名"].ToString()))
+                            //tv_my.Nodes["全部"].Nodes[dr["名称"].ToString()].Nodes.Add($"{dr2["实名"].ToString()}({dr2["实名"].ToString()})", $"{dr2["实名"].ToString()}({dr2["实名"].ToString()})");
+                          var node=  tv_my.Nodes["全部"].Nodes[dr["名称"].ToString()].Nodes.Add($"{dr2["实名"].ToString()}", $"{dr2["实名"].ToString()} {dr2["职级"].ToString()}");
+                            if (list_person.Contains(dr2["实名"].ToString()))
                             {
                                 node.Checked = true;
                             }
@@ -87,23 +92,28 @@ namespace 团队任务台账管理系统.WinForm
 
             foreach (DataRow dr in data_bumen.Rows)
             {
+                //添加时判断是否为内部不显示的名称
+                if (list_neibu.Contains(dr["名称"].ToString())) continue;
+
                 //TreeNode tr = new TreeNode(dr["所属部门"].ToString());
                 if (dr["级别"].ToString().Equals("二级部门"))
                 {
-
-                    tv_my.Nodes["全部"].Nodes[dr["所属部门"].ToString()].Nodes.Add(dr["名称"].ToString(), dr["名称"].ToString());
-                    foreach (DataRow dr2 in data.Rows)
+                    try//这里做一个防错机制，防止由于内部节点未添加的报错
                     {
-                        if (dr2["部门"].ToString().Equals(dr["名称"].ToString()))
+                        tv_my.Nodes["全部"].Nodes[dr["所属部门"].ToString()].Nodes.Add(dr["名称"].ToString(), dr["名称"].ToString());
+                        foreach (DataRow dr2 in data.Rows)
                         {
-                          var node=  tv_my.Nodes["全部"].Nodes[dr["所属部门"].ToString()].Nodes[dr["名称"].ToString()].Nodes.Add($"{dr2["花名"].ToString()}", $"{dr2["花名"].ToString()}");
-                            if (list_person.Contains(dr2["花名"].ToString()))
+                            if (dr2["部门"].ToString().Equals(dr["名称"].ToString()))
                             {
-                                node.Checked = true;
+                                var node = tv_my.Nodes["全部"].Nodes[dr["所属部门"].ToString()].Nodes[dr["名称"].ToString()].Nodes.Add($"{dr2["实名"].ToString()}", $"{dr2["实名"].ToString()} {dr2["职级"].ToString()}");
+                                if (list_person.Contains(dr2["实名"].ToString()))
+                                {
+                                    node.Checked = true;
+                                }
                             }
                         }
                     }
-
+                    catch { }
                 }
             }
 
