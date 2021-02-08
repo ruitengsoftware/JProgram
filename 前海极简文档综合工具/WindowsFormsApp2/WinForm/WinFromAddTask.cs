@@ -77,20 +77,18 @@ namespace WinFormSearchRepeat.WinForm
 
         private void Lbl_addtask_Paint(object sender, PaintEventArgs e)
         {
-           UIHelper mydrawer = new UIHelper();
-            mydrawer.DrawRoundRect(((Control)sender));
+            UIHelper.DrawRoundRect(((Control)sender));
         }
 
         private void Lbl_addtask_MouseEnter(object sender, EventArgs e)
         {
-           UIHelper mydrawer = new UIHelper();
-            mydrawer.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
         }
 
         private void Lbl_addtask_MouseLeave(object sender, EventArgs e)
         {
-           UIHelper mydrawer = new UIHelper();
-            mydrawer.UpdateCSize((Control)sender, 1);
+           UIHelper UIHelper = new UIHelper();
+            UIHelper.UpdateCSize((Control)sender, 1);
 
         }
 

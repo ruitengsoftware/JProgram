@@ -1,0 +1,28 @@
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
+	<ribbon startFromScratch="false">
+		<tabs>
+			<tab id="MyTab" label="写手插件" visible="true" insertAfterMso="TabDeveloper">
+				<group id="rhgroup" label= "红头设置"> 
+					<button id="rh" label="通用红头" onAction="setCommonRH2" getImage="GetRibbonImage" size="large"/>
+					<button id="Test4" label="专会" onAction="setSMRH2" getImage="GetRibbonImage" size="large"/>
+					<button id="Test5" label="上行文" onAction="setUpLineRH2" getImage="GetRibbonImage" size="large"/>
+				    <button id="Test6" label="人事任免" onAction="setHRRH2" getImage="GetRibbonImage" size="large"/>
+				</group>
+			    <group id="Test" label= "段落格式设置">
+					<button id="Test" label="公文标题" onAction="setOfficialTitle" getImage="GetRibbonImage" size="large"/>
+					<button id="Test" label="一级标题" onAction="set1Title" getImage="GetRibbonImage" size="large"/>
+					<button id="Test" label="二级标题" onAction="set2Title" getImage="GetRibbonImage" size="large"/>
+					<button id="Test" label="正文" onAction="setMainPara" getImage="GetRibbonImage" size="large"/>
+					<button id="Test" label="附件" onAction="setAttachIn" getImage="GetRibbonImage" size="large"/>
+				</group>
+				<group id="Test" label= "附件(后附)"> 
+					<button id="Test" label="附件(后附)" onAction="setAttachAfter" getImage="GetRibbonImage" size="large"/>
+				</group>
+				<group id="Test" label= "间距调整"> 
+					<button id="Test" label="加大间距" onAction="addFontSpace" getImage="GetRibbonImage" size="large"/>
+					<button id="Test" label="减小间距" onAction="reduceFontSpace" getImage="GetRibbonImage" size="large"/>
+				</group>
+			</tab>
+		</tabs>
+	</ribbon>
+</customUI>

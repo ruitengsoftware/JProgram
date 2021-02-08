@@ -21,8 +21,7 @@ namespace WindowsFormsApp2.UC
         public UCStep(string str)
         {
             InitializeComponent();
-           UIHelper mydrawer = new UIHelper();
-            mydrawer.DrawRoundRect(lbl_text);
+            UIHelper.DrawRoundRect(lbl_text);
 
             lbl_text.Text = str;
         }

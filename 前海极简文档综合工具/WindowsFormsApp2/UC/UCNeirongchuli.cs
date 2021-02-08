@@ -28,7 +28,7 @@ namespace WindowsFormsApp2.UC
     public partial class UCNeirongchuli : UserControl
     {
         bool _stopchuli = false;
-        UIHelper uihelper = new UIHelper();
+        UIHelper UIHelper = new UIHelper();
         Action startall = new Action(() => { });//由于参数不能为空，那么放一个没有用的代码进去
         //Action stopall = new Action(() => { });
        ControllerNeirongchuli mycontroller = new ControllerNeirongchuli();
@@ -87,7 +87,7 @@ namespace WindowsFormsApp2.UC
                 {
                     string item = list_files[i];
                     //UCTask myuc = new UCTask(item) { Dock = DockStyle.Top };
-                    //uihelper.AddControl(panel_task, myuc);
+                    //UIHelper.AddControl(panel_task, myuc);
                     //startall += myuc.SearchRepeat;
                     //stopall += myuc.StopResearch;
                     int index = dgv_task.Rows.Add();
@@ -188,20 +188,20 @@ namespace WindowsFormsApp2.UC
 
         private void lbl_save_Paint(object sender, PaintEventArgs e)
         {
-            uihelper.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
 
         private void lbl_save_MouseEnter(object sender, EventArgs e)
         {
             int m = ((Control)sender).Margin.Top;
-            uihelper.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
 
         }
 
         private void lbl_save_MouseLeave(object sender, EventArgs e)
         {
             int m = ((Control)sender).Margin.Top;
-            uihelper.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
 
         }
 

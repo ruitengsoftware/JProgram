@@ -172,6 +172,9 @@ namespace 团队任务台账管理系统
         {
             this.Hide();
             WinFormdenglu mywin = new WinFormdenglu();
+            ////自动登录设置为false
+            Settings.Default.zidongdenglu = false;
+
             mywin.StartPosition = FormStartPosition.CenterParent;
             if (mywin.ShowDialog() == DialogResult.OK)
             {
@@ -182,8 +185,6 @@ namespace 团队任务台账管理系统
 
             ////清空panel
             //panel_my.Controls.Clear();
-            ////自动登录设置为false
-            //Settings.Default.zidongdenglu = false;
             ////回退到登陆界面
             //this.splitContainer1.Panel1Collapsed = true;
 
@@ -388,7 +389,11 @@ namespace 团队任务台账管理系统
                 mywin.Dispose();
             }
         }
-
+        /// <summary>
+        /// 点击工作清单按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_gongzuoqingdan_Click(object sender, EventArgs e)
         {
             HighControl(sender);

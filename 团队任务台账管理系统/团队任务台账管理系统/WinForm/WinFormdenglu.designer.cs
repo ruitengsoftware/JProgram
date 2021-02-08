@@ -100,7 +100,7 @@
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(315, 40);
-            this.tableLayoutPanel4.TabIndex = 5;
+            this.tableLayoutPanel4.TabIndex = 2;
             // 
             // llbl_wangjimima
             // 
@@ -110,7 +110,7 @@
             this.llbl_wangjimima.Margin = new System.Windows.Forms.Padding(1, 4, 1, 1);
             this.llbl_wangjimima.Name = "llbl_wangjimima";
             this.llbl_wangjimima.Size = new System.Drawing.Size(63, 35);
-            this.llbl_wangjimima.TabIndex = 5;
+            this.llbl_wangjimima.TabIndex = 2;
             this.llbl_wangjimima.TabStop = true;
             this.llbl_wangjimima.Text = "找回密码";
             this.llbl_wangjimima.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -123,7 +123,7 @@
             this.cb_jizhuwo.Location = new System.Drawing.Point(93, 3);
             this.cb_jizhuwo.Name = "cb_jizhuwo";
             this.cb_jizhuwo.Size = new System.Drawing.Size(75, 21);
-            this.cb_jizhuwo.TabIndex = 4;
+            this.cb_jizhuwo.TabIndex = 1;
             this.cb_jizhuwo.Text = "记住密码";
             this.cb_jizhuwo.UseVisualStyleBackColor = true;
             // 
@@ -135,7 +135,7 @@
             this.cb_zidongdenlgu.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
             this.cb_zidongdenlgu.Name = "cb_zidongdenlgu";
             this.cb_zidongdenlgu.Size = new System.Drawing.Size(75, 21);
-            this.cb_zidongdenlgu.TabIndex = 3;
+            this.cb_zidongdenlgu.TabIndex = 0;
             this.cb_zidongdenlgu.Text = "自动登录";
             this.cb_zidongdenlgu.UseVisualStyleBackColor = true;
             // 
@@ -155,7 +155,7 @@
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(315, 30);
-            this.tableLayoutPanel5.TabIndex = 7;
+            this.tableLayoutPanel5.TabIndex = 1;
             // 
             // tb_mima
             // 
@@ -165,7 +165,7 @@
             this.tb_mima.Name = "tb_mima";
             this.tb_mima.PasswordChar = '*';
             this.tb_mima.Size = new System.Drawing.Size(261, 23);
-            this.tb_mima.TabIndex = 2;
+            this.tb_mima.TabIndex = 0;
             // 
             // pictureBox2
             // 
@@ -206,7 +206,7 @@
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(315, 30);
-            this.tableLayoutPanel6.TabIndex = 8;
+            this.tableLayoutPanel6.TabIndex = 0;
             // 
             // cbb_yonghuming
             // 
@@ -216,7 +216,7 @@
             this.cbb_yonghuming.Margin = new System.Windows.Forms.Padding(0, 3, 24, 3);
             this.cbb_yonghuming.Name = "cbb_yonghuming";
             this.cbb_yonghuming.Size = new System.Drawing.Size(261, 25);
-            this.cbb_yonghuming.TabIndex = 1;
+            this.cbb_yonghuming.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -240,7 +240,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(1);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(313, 97);
-            this.label2.TabIndex = 9;
+            this.label2.TabIndex = 0;
             this.label2.Text = "时间就是金钱  效率就是生命\r\n细节决定成败";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -257,7 +257,7 @@
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(315, 40);
-            this.tableLayoutPanel7.TabIndex = 11;
+            this.tableLayoutPanel7.TabIndex = 3;
             // 
             // lbl_denglu
             // 
@@ -269,7 +269,7 @@
             this.lbl_denglu.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_denglu.Name = "lbl_denglu";
             this.lbl_denglu.Size = new System.Drawing.Size(305, 30);
-            this.lbl_denglu.TabIndex = 6;
+            this.lbl_denglu.TabIndex = 0;
             this.lbl_denglu.Text = "登    录";
             this.lbl_denglu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_denglu.Click += new System.EventHandler(this.lbl_denglu_Click);
@@ -290,7 +290,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(515, 379);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
             // 
@@ -326,7 +326,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(515, 100);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 0;
             this.label3.Text = "写手OA系统";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -344,7 +344,7 @@
             this.Name = "WinFormdenglu";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "登录系统";
+            this.Text = "0.0.0.1";
             this.Load += new System.EventHandler(this.WinFormLogin_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

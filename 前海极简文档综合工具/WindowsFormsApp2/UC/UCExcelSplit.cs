@@ -34,7 +34,7 @@ namespace WindowsFormsApp2.UC
     {
 
         string myfolder = string.Empty;
-        UIHelper mydrawer = new UIHelper();
+        UIHelper UIHelper = new UIHelper();
         WordHelper myworder = new WordHelper();
         bool isrun = true;
         /// <summary>
@@ -61,7 +61,7 @@ namespace WindowsFormsApp2.UC
 
         private void label3_Paint(object sender, PaintEventArgs e)
         {
-            mydrawer.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
         /// <summary>
         /// 拆分excel表
@@ -2282,23 +2282,23 @@ namespace WindowsFormsApp2.UC
 
         private void Lblbaocun_Paint(object sender, PaintEventArgs e)
         {
-            mydrawer.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
 
         private void Lblshanchu_Paint(object sender, PaintEventArgs e)
         {
-            mydrawer.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
 
         }
 
         private void Lblbaocun_MouseEnter(object sender, EventArgs e)
         {
-            mydrawer.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
         }
 
         private void Lblbaocun_MouseLeave(object sender, EventArgs e)
         {
-            mydrawer.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
 
         }
         /// <summary>

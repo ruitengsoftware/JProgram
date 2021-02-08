@@ -122,7 +122,7 @@ namespace 团队任务台账管理系统.UserControll
             {
                 //如果登陆者是创建人或者在可见范围内，就新增这个uc
                 var listp = Regex.Split(s._kejian, @"\|").ToList();
-                if (listp.Contains(JJLoginInfo._huaming) || s._chuangjianren.Equals(JJLoginInfo._huaming))
+                if (listp.Contains(JJLoginInfo._shiming) || s._chuangjianren.Equals(JJLoginInfo._shiming))
                 {
                     UCfujianInfo myuc = new UCfujianInfo(s) { Dock = DockStyle.Top };
                     panel_fujian.Controls.Add(myuc);
@@ -190,10 +190,12 @@ namespace 团队任务台账管理系统.UserControll
                 JJFujianInfo info = new JJFujianInfo()
                 {
                     _wenjianming = file,
-                    _chuangjianren = "共享",
+                    _chuangjianren = JJLoginInfo._shiming,
                     _quanlujing = $"{uripath}/{file}",
                     _chuangjianshijian = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),
                     _xiazaicishu = 0,
+                    _kejian = string.Empty,
+                    _leixing="共享"
                 };
 
 
@@ -232,7 +234,7 @@ namespace 团队任务台账管理系统.UserControll
         {
 
             string str_sql = $"insert into jjdbrenwutaizhang.附件信息表 values('{info._wenjianming}','{info._chuangjianren}'," +
-    $"'{info._chuangjianshijian}','{info._quanlujing}',{info._xiazaicishu},0)";
+    $"'{info._chuangjianshijian}','{info._quanlujing}',{info._xiazaicishu},0,'{info._kejian}','{info._leixing}')";
 
             int num = _mysql.ExecuteNonQuery(str_sql);
             return num > 0 ? true : false;

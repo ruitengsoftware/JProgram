@@ -18,11 +18,6 @@ namespace WindowsFormsApp2
 {
     public partial class UCFormat : UserControl
     {
-       UIHelper mydrawer = new UIHelper();
-        MySqlHelper mydber = null;
-
-
-
         public UCFormat()
         {
             InitializeComponent();
@@ -52,7 +47,7 @@ namespace WindowsFormsApp2
 
         private void btnfont_Paint(object sender, PaintEventArgs e)
         {
-            mydrawer.DrawRoundRect(btnfont);
+            UIHelper.DrawRoundRect(btnfont);
         }
 
         /// <summary>
@@ -81,8 +76,7 @@ namespace WindowsFormsApp2
 
         private void label6_Paint(object sender, PaintEventArgs e)
         {
-           UIHelper mydrawer = new UIHelper();
-            mydrawer.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
         /// <summary>
         /// 点击保存按钮时出发的事件
@@ -134,13 +128,13 @@ namespace WindowsFormsApp2
         private void label6_MouseEnter(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
         }
 
         private void label6_MouseLeave(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
         }
         /// <summary>
         /// 点击删除按钮时触发的事件

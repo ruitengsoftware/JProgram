@@ -52,17 +52,16 @@ namespace WindowsFormsApp2
             o.Dock = DockStyle.Fill;
             mypanel.Controls.Add(o);
         }
-        UIHelper mydrawer = new UIHelper();
         private void label3_MouseEnter(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
         }
 
         private void label3_MouseLeave(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
 
         }
         #endregion

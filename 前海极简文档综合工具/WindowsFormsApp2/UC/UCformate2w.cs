@@ -16,7 +16,7 @@ namespace WindowsFormsApp2
     public partial class UCformate2w : UserControl
     {
         public setter mysetter = new setter();
-        UIHelper mydrawer = new UIHelper();
+        UIHelper UIHelper = new UIHelper();
 
         public UCformate2w()
         {
@@ -230,7 +230,7 @@ namespace WindowsFormsApp2
 
         private void label6_Paint(object sender, PaintEventArgs e)
         {
-            mydrawer.DrawRoundRect(((Control)sender));
+            UIHelper.DrawRoundRect(((Control)sender));
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -253,14 +253,14 @@ namespace WindowsFormsApp2
         private void label7_MouseEnter(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
 
         }
 
         private void label7_MouseLeave(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
 
         }
     }

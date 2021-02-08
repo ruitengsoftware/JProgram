@@ -138,8 +138,9 @@ namespace UpdateOA
             //下载文件
             await JJMethod.DownLoadFileAsync(webpath, pathupdate + $"\\{Path.GetFileName(webpath)}");
             //解压到当前文件夹
-           //JJMethod.UnZip(pathupdate + $"\\{Path.GetFileName(webpath)}", pathoa);
-            JJMethod.Compress(pathoa, pathupdate + $"\\{Path.GetFileName(webpath)}",null);
+            //JJMethod.UnZip(pathupdate + $"\\{Path.GetFileName(webpath)}", pathoa);
+           await JJMethod.Compress(pathoa, pathupdate + $"\\{Path.GetFileName(webpath)}", null);
+            
             //删除压缩包
             File.Delete(pathupdate + $"\\{Path.GetFileName(webpath)}");
             //显示进入界面按钮

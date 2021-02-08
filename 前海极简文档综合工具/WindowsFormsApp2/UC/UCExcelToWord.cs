@@ -28,7 +28,7 @@ namespace WindowsFormsApp2
         delegate void DelOneStep(object o);
         string savepath = string.Empty;
         List<string> list_fieldname = new List<string>();
-        UIHelper mydrawer = new UIHelper();
+        UIHelper UIHelper = new UIHelper();
         ControllerExcelToWord _mycontroller = new ControllerExcelToWord();
         public UCExcelToWord()
         {
@@ -172,10 +172,9 @@ namespace WindowsFormsApp2
             }
         }
 
-        UIHelper drawer = new UIHelper();
         private void label1_Paint(object sender, PaintEventArgs e)
         {
-            drawer.DrawRoundRect(((Control)sender));
+            UIHelper.DrawRoundRect(((Control)sender));
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -606,7 +605,7 @@ namespace WindowsFormsApp2
         private void label1_MouseEnter(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
         }
         /// <summary>
         /// 鼠标离开按钮时触发的事件
@@ -615,7 +614,7 @@ namespace WindowsFormsApp2
         private void label1_MouseLeave(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
 
 
 

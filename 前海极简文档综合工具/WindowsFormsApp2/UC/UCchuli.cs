@@ -149,18 +149,18 @@ namespace WindowsFormsApp2.UC
             update_buzhou();
 
         }
-        UIHelper uihelper = new UIHelper();
+        UIHelper UIHelper = new UIHelper();
         private void Pb_right_Click(object sender, EventArgs e)
         {
             Control myc = sender as Control;
-            uihelper.MoveControl((Panel)myc.Parent.Parent.Parent, myc.Parent.Parent, -1);
+            UIHelper.MoveControl((Panel)myc.Parent.Parent.Parent, myc.Parent.Parent, -1);
             update_buzhou();
         }
 
         private void Pb_left_Click(object sender, EventArgs e)
         {
             Control myc = sender as Control;
-            uihelper.MoveControl((Panel)myc.Parent.Parent.Parent, myc.Parent.Parent, 1);
+            UIHelper.MoveControl((Panel)myc.Parent.Parent.Parent, myc.Parent.Parent, 1);
             update_buzhou();
 
         }
@@ -181,7 +181,7 @@ namespace WindowsFormsApp2.UC
         }
         private void Lbl_buzhou_Paint(object sender, PaintEventArgs e)
         {
-            uihelper.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
 
         private void Pb_delete_MouseEnter(object sender, EventArgs e)

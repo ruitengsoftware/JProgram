@@ -129,7 +129,6 @@ namespace 团队任务台账管理系统.UserControll
                     await JJMethod.UpLoadFile(_filename, uripath, false);
                 }
                 lbl_info.Text = "已上传!";
-
             }
             else
             {
@@ -147,7 +146,7 @@ namespace 团队任务台账管理系统.UserControll
                     pb_shanchu.Visible = true;
                 }
                 //创建人上传的共享任务可以设置可见范围，显示眼睛
-                if (JJLoginInfo._huaming.Equals(_myinfo._chuangjianren) && _myinfo._leixing.Equals("共享"))
+                if (JJLoginInfo._shiming.Equals(_myinfo._chuangjianren) && _myinfo._leixing.Equals("共享"))
                 {
                     pb_kejian.Visible = true;
                 }

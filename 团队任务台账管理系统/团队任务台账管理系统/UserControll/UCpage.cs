@@ -14,7 +14,8 @@ namespace 团队任务台账管理系统.UserControll
     {
         public int currentpage = 0;
         public double totalpage = 0;
-        public Func<int,string,object> f = null;//获得数据
+        public int displaynum = 0;
+        public Func<int,string,int,object> f = null;//获得数据
         public Action<object> a = null;//刷新显示
         public string kw = string.Empty;//关键字
         public UCpage()
@@ -26,7 +27,7 @@ namespace 团队任务台账管理系统.UserControll
         public void tb_page_TextChanged(object sender, EventArgs e)
         {
             currentpage = Convert.ToInt32(tb_page.Text);
-            object list_o = f(currentpage,kw);
+            object list_o = f(currentpage,kw,displaynum);
             a(list_o);
 
 

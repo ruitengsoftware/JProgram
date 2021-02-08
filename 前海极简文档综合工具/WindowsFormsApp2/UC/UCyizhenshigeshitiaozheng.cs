@@ -14,7 +14,7 @@ namespace WindowsFormsApp2.UC
 {
     public partial class UCyizhenshigeshitiaozheng : UserControl
     {
-        UIHelper mydrawer = new UIHelper();
+        UIHelper UIHelper = new UIHelper();
 
         public UCyizhenshigeshitiaozheng()
         {
@@ -77,13 +77,13 @@ namespace WindowsFormsApp2.UC
         private void Lblbaocun_MouseEnter(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
         }
 
         private void Lblbaocun_MouseLeave(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
 
         }
 
@@ -126,7 +126,7 @@ namespace WindowsFormsApp2.UC
         private void Lblbaocun_Paint(object sender, PaintEventArgs e)
         {
             //向页面添加页边距
-            mydrawer.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
 
         }
         ControllerYizhanshi _mycontroller = new ControllerYizhanshi();

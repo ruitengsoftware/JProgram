@@ -32,7 +32,7 @@ namespace WindowsFormsApp2.Controller
         private Action<DataGridViewRow> a;
         private string dbfile;
         public bool stop;
-        private UIHelper uihelper;
+        private UIHelper UIHelper;
 
        public MySqlHelper _sqlhelper = new MySqlHelper();
 

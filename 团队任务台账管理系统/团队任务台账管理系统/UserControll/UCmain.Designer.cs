@@ -330,9 +330,6 @@
             this.lbl_gongzuoqingdan.Text = "工作清单";
             this.lbl_gongzuoqingdan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // toolTip1
-            // 
-            // 
             // ucpagetongzhi
             // 
             this.ucpagetongzhi.BackColor = System.Drawing.Color.White;

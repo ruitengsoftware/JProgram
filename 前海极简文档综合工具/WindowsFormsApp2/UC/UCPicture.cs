@@ -16,7 +16,7 @@ namespace WindowsFormsApp2.UC
 {
     public partial class UCPicture : UserControl
     {
-        UIHelper uihelper = new UIHelper();
+        UIHelper UIHelper = new UIHelper();
         public bool _checked = false;
         MySqlHelper _sqlhelper = new MySqlHelper();
         public UCPicture()
@@ -31,7 +31,7 @@ namespace WindowsFormsApp2.UC
             lbl_name.Text = picinfo._picName;
             pb_xuanze.BackColor = Color.Transparent;
             pb_xuanze.Parent = pb_tupian;
-            //uihelper.DrawRoundRect((Control)pb_tupian);
+            //UIHelper.DrawRoundRect((Control)pb_tupian);
         }
         /// <summary>
         /// base64编码的文本转为图片

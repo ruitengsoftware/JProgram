@@ -29,7 +29,6 @@ namespace WindowsFormsApp2.UC
         {
             this.Dispose();
         }
-           UIHelper mydrawer = new UIHelper();
 
         private void WinFormWrong_Load(object sender, EventArgs e)
         {
@@ -37,20 +36,20 @@ namespace WindowsFormsApp2.UC
 
         private void lbl_close_Paint(object sender, PaintEventArgs e)
         {
-            mydrawer.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
 
         private void lbl_close_MouseEnter(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
 
         }
 
         private void lbl_close_MouseLeave(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
 
         }
 

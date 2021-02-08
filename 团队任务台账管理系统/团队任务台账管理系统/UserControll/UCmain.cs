@@ -209,12 +209,26 @@ namespace 团队任务台账管理系统.UserControll
             //加载ucmain的时候要提取登陆者信息，显示在界面中
             if (_list_item.Contains("工作清单"))
             {
+                if (_list_item.Count == 3)//判断一下主界面是否为单任务界面，单任务界面显示50条数据，多任务界面显示10条数据
+                {
+                    ucpagegongzuoqingdan.displaynum = 10;
+                    _mycontroller._displaynum = 10;
+
+                }
+                else
+                {
+                    ucpagegongzuoqingdan.displaynum = 30;
+                    _mycontroller._displaynum = 30;
+
+                }
+
                 double pagenums= _mycontroller.GetGongzuoqingdanPagenums();
                 ucpagegongzuoqingdan.totalpage = pagenums;
                 ucpagegongzuoqingdan.f= _mycontroller.GetGongzuoqingdan;
                 ucpagegongzuoqingdan.a = UpdatePgongzuoqingdan;
                 ucpagegongzuoqingdan.tb_page.Text = "1";
                 ucpagegongzuoqingdan.lbl_pagenums.Text = $"共 {pagenums} 页";
+
             }
             else
             {
@@ -223,8 +237,20 @@ namespace 团队任务台账管理系统.UserControll
 
             if (_list_item.Contains("待办任务"))
             {
+                if (_list_item.Count == 3)//判断一下主界面是否为单任务界面，单任务界面显示50条数据，多任务界面显示10条数据
+                {
+                    ucpagedaiban.displaynum = 10;
+                    _mycontroller._displaynum = 10;
+
+                }
+                else
+                {
+                    ucpagedaiban.displaynum = 30;
+                    _mycontroller._displaynum = 30;
+
+                }
+
                 string keyword = tb_kw.Text;
-               
                 double pagenums = _mycontroller.GetDaibanPagenums();
                 ucpagedaiban.kw = keyword;
                 ucpagedaiban.totalpage = pagenums;
@@ -240,8 +266,19 @@ namespace 团队任务台账管理系统.UserControll
             }
             if (_list_item.Contains("通知公告"))
             {
+                if (_list_item.Count == 3)//判断一下主界面是否为单任务界面，单任务界面显示50条数据，多任务界面显示10条数据
+                {
+                    ucpagetongzhi.displaynum = 10;
+                    _mycontroller._displaynum = 10;
+                }
+                else
+                {
+                    ucpagetongzhi.displaynum = 30;
+                    _mycontroller._displaynum = 30;
+
+                }
+
                 double pagenums = _mycontroller.GetTongzhiPagenums();
-                
                 ucpagetongzhi.totalpage = pagenums;
                 ucpagetongzhi.f = _mycontroller.GetTongzhi;
                 ucpagetongzhi.a = UpdatePtongzhi;

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace UpdateOA
 {
-   public class JJMethod
+    public class JJMethod
     {
         public async static Task DownLoadFileAsync(string downloadfile, string localpath)
         {
@@ -109,21 +109,26 @@ namespace UpdateOA
         /// <param name="ZipPath">Zip的存放路径</param>
         /// <param name="ZipPWD">解压密码（null代表无密码）</param>
         /// <returns></returns>
-        public static string Compress(string DirPath, string ZipPath, string ZipPWD)
+        public async static Task Compress(string DirPath, string ZipPath, string ZipPWD)
         {
-            string state = "Fail...";
-            try
+            await Task.Run(() =>
             {
-                fz.Password = ZipPWD;
-                fz.ExtractZip(ZipPath, DirPath, null);
+                string state = "Fail...";
+                try
+                {
 
-                state = "Success !";
-            }
-            catch (Exception ex)
-            {
-                state += "," + ex.Message;
-            }
-            return state;
+                    fz.Password = ZipPWD;
+                    fz.ExtractZip(ZipPath, DirPath, null);
+
+                    state = "Success !";
+                }
+                catch (Exception ex)
+                {
+                    state += "," + ex.Message;
+                }
+
+            });
         }
     }
 }
+

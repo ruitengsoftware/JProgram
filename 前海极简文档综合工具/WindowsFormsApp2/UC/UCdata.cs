@@ -18,7 +18,7 @@ namespace WindowsFormsApp2
 {
     public partial class UCdata : UserControl
     {
-        UIHelper mydrawer = new UIHelper();
+        UIHelper UIHelper = new UIHelper();
 
         public UCdata()
         {
@@ -28,19 +28,19 @@ namespace WindowsFormsApp2
 
         private void label1_Paint(object sender, PaintEventArgs e)
         {
-            mydrawer.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
 
         private void label1_MouseEnter(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
         }
 
         private void label1_MouseLeave(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
 
         }
 

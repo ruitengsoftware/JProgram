@@ -21,7 +21,7 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
         }
-        UIHelper mydrawer = new UIHelper();
+        UIHelper UIHelper = new UIHelper();
 
         /// <summary>
         /// 点击开始按钮时触发的事件
@@ -78,20 +78,20 @@ namespace WindowsFormsApp2
 
         private void label7_Paint(object sender, PaintEventArgs e)
         {
-            mydrawer.DrawRoundRect(((Label)sender));
+            UIHelper.DrawRoundRect(((Label)sender));
         }
 
 
         private void label1_MouseEnter(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
         }
 
         private void label3_MouseLeave(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
         }
         #endregion
         private void UCUpdateName_Load(object sender, EventArgs e)

@@ -29,7 +29,7 @@ namespace WindowsFormsApp2
 {
     public partial class UCgeshitiaozheng : UserControl
     {
-        UIHelper mydrawer = new UIHelper();
+        UIHelper UIHelper = new UIHelper();
         WordHelper myworder = new WordHelper();
 
         public UCgeshitiaozheng()
@@ -40,7 +40,7 @@ namespace WindowsFormsApp2
 
         private void label1_Paint(object sender, PaintEventArgs e)
         {
-            mydrawer.DrawRoundRect(((Label)sender));
+            UIHelper.DrawRoundRect(((Label)sender));
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -82,13 +82,13 @@ namespace WindowsFormsApp2
         private void label1_MouseEnter(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
         }
 
         private void label1_MouseLeave(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            mydrawer.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
         }
 
         /// <summary>

@@ -20,7 +20,7 @@ namespace WindowsFormsApp2.WinForm
             InitializeComponent();
         }
         FileHelper myfiler = new FileHelper();
-        UIHelper mydrawer = new UIHelper();
+        UIHelper UIHelper = new UIHelper();
         /// <summary>
         /// 点击添加文档按钮时触发的事件
         /// </summary>
@@ -120,18 +120,18 @@ namespace WindowsFormsApp2.WinForm
 
         private void Lbl_addtask_Paint(object sender, PaintEventArgs e)
         {
-            UIHelper mydrawer = new UIHelper();
-            mydrawer.DrawRoundRect(((Control)sender));
+            UIHelper UIHelper = new UIHelper();
+            UIHelper.DrawRoundRect(((Control)sender));
         }
 
         private void Lbl_addtask_MouseEnter(object sender, EventArgs e)
         {
-            mydrawer.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
         }
 
         private void Lbl_addtask_MouseLeave(object sender, EventArgs e)
         {
-            mydrawer.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
 
         }
 

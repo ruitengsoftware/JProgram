@@ -44,14 +44,6 @@ namespace 团队任务台账管理系统
                 {
                     pro.Kill();
                 }
-
-
-                ////显示正在下载窗体
-                //WinFormVersion mywin0 = new WinFormVersion(mydr);
-                //if (mywin0.ShowDialog()==DialogResult.OK)
-                //{
-                //    System.Diagnostics.Process.Start(Application.StartupPath + $"团队任务台账管理系统.exe");
-                //}
             }
 
 
@@ -66,19 +58,14 @@ namespace 团队任务台账管理系统
                 JJLoginInfo._huaming = mywin._huaming;
                 //JJLoginInfo.GetLoginInfo(JJLoginInfo._huaming);
                 Form1 myform1 = new Form1();
-
                 //判断登录权限，如果没有权限就要退出本方法
                 if (JJLoginInfo._denlguquan == 0)
                 {
                     MessageBox.Show("对不起，您暂无权限使用该系统！");
                     return;
                 }
-
                 Application.Run(myform1);
             }
-
-
-
         }
     }
 }

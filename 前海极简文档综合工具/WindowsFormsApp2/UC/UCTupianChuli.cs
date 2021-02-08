@@ -22,7 +22,7 @@ namespace WindowsFormsApp2.UC
         }
         bool stop = false;
         Controller.ControllerPicture _mycontroller = new Controller.ControllerPicture();
-        UIHelper uihelper = new UIHelper();
+        UIHelper UIHelper = new UIHelper();
         private void UCTupianChuli_Load(object sender, EventArgs e)
         {
             //查重日志窗口折叠起来
@@ -167,19 +167,19 @@ namespace WindowsFormsApp2.UC
 
         private void Label9_Paint(object sender, PaintEventArgs e)
         {
-            uihelper.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
 
         private void Label9_MouseEnter(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            uihelper.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
         }
 
         private void Label9_MouseLeave(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            uihelper.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
 
         }
 
@@ -278,7 +278,7 @@ namespace WindowsFormsApp2.UC
                     {
 
                         //UCTask myuc = new UCTask(item) { Dock = DockStyle.Top };
-                        //uihelper.AddControl(panel_task, myuc);
+                        //UIHelper.AddControl(panel_task, myuc);
                         //startall += myuc.SearchRepeat;
                         //stopall += myuc.StopResearch;
                         int index = dgv_task.Rows.Add();

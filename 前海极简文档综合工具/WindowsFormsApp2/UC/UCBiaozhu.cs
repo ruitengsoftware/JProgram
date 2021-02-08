@@ -283,22 +283,21 @@ namespace WindowsFormsApp2.UC
 
 
         }
-        UIHelper uihelper = new UIHelper();
         private void Lbl_daoru_Paint(object sender, PaintEventArgs e)
         {
-            uihelper.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
 
         private void Lbl_daoru_MouseEnter(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            uihelper.UpdateCSize((Control)sender,-1);
+            UIHelper.UpdateCSize((Control)sender,-1);
         }
 
         private void Lbl_daoru_MouseLeave(object sender, EventArgs e)
         {
             int margin = ((Control)sender).Margin.Top;
-            uihelper.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
 
         }
 
