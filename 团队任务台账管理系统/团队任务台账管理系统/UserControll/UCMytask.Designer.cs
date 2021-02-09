@@ -125,6 +125,7 @@
             this.lbl_quanbu.TabIndex = 0;
             this.lbl_quanbu.Text = "全部";
             this.lbl_quanbu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_quanbu.Visible = false;
             this.lbl_quanbu.Click += new System.EventHandler(this.lbl_quanbu_Click);
             // 
             // lbl_daiban
@@ -140,6 +141,7 @@
             this.lbl_daiban.TabIndex = 0;
             this.lbl_daiban.Text = "我的待办";
             this.lbl_daiban.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_daiban.Visible = false;
             this.lbl_daiban.Click += new System.EventHandler(this.lbl_daiban_Click);
             // 
             // lbl_canyu
@@ -155,6 +157,7 @@
             this.lbl_canyu.TabIndex = 0;
             this.lbl_canyu.Text = "我参与的";
             this.lbl_canyu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_canyu.Visible = false;
             this.lbl_canyu.Click += new System.EventHandler(this.lbl_canyu_Click);
             // 
             // lbl_chuli
@@ -170,6 +173,7 @@
             this.lbl_chuli.TabIndex = 0;
             this.lbl_chuli.Text = "已处理";
             this.lbl_chuli.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_chuli.Visible = false;
             this.lbl_chuli.Click += new System.EventHandler(this.lbl_chuli_Click);
             // 
             // lbl_huishou
@@ -185,6 +189,7 @@
             this.lbl_huishou.TabIndex = 0;
             this.lbl_huishou.Text = "回收站";
             this.lbl_huishou.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_huishou.Visible = false;
             this.lbl_huishou.Click += new System.EventHandler(this.lbl_huishou_Click);
             // 
             // lbl_wofaqide
@@ -200,6 +205,7 @@
             this.lbl_wofaqide.TabIndex = 0;
             this.lbl_wofaqide.Text = "我发起的";
             this.lbl_wofaqide.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_wofaqide.Visible = false;
             this.lbl_wofaqide.Click += new System.EventHandler(this.lbl_wofaqide_Click);
             // 
             // panel_task
@@ -240,6 +246,7 @@
             this.lbl_newtask.TabIndex = 0;
             this.lbl_newtask.Text = "新建任务";
             this.lbl_newtask.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_newtask.Visible = false;
             this.lbl_newtask.Click += new System.EventHandler(this.lbl_newtask_Click);
             // 
             // p_taskdetail

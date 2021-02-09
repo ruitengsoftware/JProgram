@@ -49,6 +49,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pb_touxiang = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_woderenwu = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_touxiang)).BeginInit();
@@ -80,6 +81,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.Controls.Add(this.lbl_woderenwu);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.lbl_ruanjiangengxin);
             this.panel1.Controls.Add(this.label9);
@@ -308,6 +310,18 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(705, 576);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
+            // lbl_woderenwu
+            // 
+            this.lbl_woderenwu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_woderenwu.Location = new System.Drawing.Point(0, 440);
+            this.lbl_woderenwu.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_woderenwu.Name = "lbl_woderenwu";
+            this.lbl_woderenwu.Size = new System.Drawing.Size(100, 40);
+            this.lbl_woderenwu.TabIndex = 17;
+            this.lbl_woderenwu.Text = "我的任务";
+            this.lbl_woderenwu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_woderenwu.Click += new System.EventHandler(this.lbl_woderenwu_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -351,6 +365,7 @@
         private System.Windows.Forms.Label lbl_wodezhuye;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label lbl_ruanjiangengxin;
+        private System.Windows.Forms.Label lbl_woderenwu;
     }
 }
 

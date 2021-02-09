@@ -40,20 +40,20 @@
             this.pb_search = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_daibanrenwu = new System.Windows.Forms.Panel();
+            this.ucpagedaiban = new 团队任务台账管理系统.UserControll.UCpage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.gb_tongzhigonggao = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel_tongzhi = new System.Windows.Forms.Panel();
+            this.ucpagetongzhi = new 团队任务台账管理系统.UserControll.UCpage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel_gongzuoqingdan = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pb_dingzi = new System.Windows.Forms.PictureBox();
             this.lbl_gongzuoqingdan = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.ucpagetongzhi = new 团队任务台账管理系统.UserControll.UCpage();
             this.ucpagegongzuoqingdan = new 团队任务台账管理系统.UserControll.UCpage();
-            this.ucpagedaiban = new 团队任务台账管理系统.UserControll.UCpage();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cms_right.SuspendLayout();
             this.gb_daibairenwu.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
@@ -192,6 +192,18 @@
             this.panel_daibanrenwu.Size = new System.Drawing.Size(842, 120);
             this.panel_daibanrenwu.TabIndex = 4;
             // 
+            // ucpagedaiban
+            // 
+            this.ucpagedaiban.BackColor = System.Drawing.Color.White;
+            this.ucpagedaiban.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucpagedaiban.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ucpagedaiban.Location = new System.Drawing.Point(0, 150);
+            this.ucpagedaiban.Margin = new System.Windows.Forms.Padding(0);
+            this.ucpagedaiban.Name = "ucpagedaiban";
+            this.ucpagedaiban.Padding = new System.Windows.Forms.Padding(2);
+            this.ucpagedaiban.Size = new System.Drawing.Size(842, 32);
+            this.ucpagedaiban.TabIndex = 5;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
@@ -263,6 +275,18 @@
             this.panel_tongzhi.Size = new System.Drawing.Size(842, 149);
             this.panel_tongzhi.TabIndex = 3;
             // 
+            // ucpagetongzhi
+            // 
+            this.ucpagetongzhi.BackColor = System.Drawing.Color.White;
+            this.ucpagetongzhi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucpagetongzhi.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ucpagetongzhi.Location = new System.Drawing.Point(0, 149);
+            this.ucpagetongzhi.Margin = new System.Windows.Forms.Padding(0);
+            this.ucpagetongzhi.Name = "ucpagetongzhi";
+            this.ucpagetongzhi.Padding = new System.Windows.Forms.Padding(2);
+            this.ucpagetongzhi.Size = new System.Drawing.Size(842, 32);
+            this.ucpagetongzhi.TabIndex = 4;
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 1;
@@ -330,18 +354,6 @@
             this.lbl_gongzuoqingdan.Text = "工作清单";
             this.lbl_gongzuoqingdan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ucpagetongzhi
-            // 
-            this.ucpagetongzhi.BackColor = System.Drawing.Color.White;
-            this.ucpagetongzhi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucpagetongzhi.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ucpagetongzhi.Location = new System.Drawing.Point(0, 149);
-            this.ucpagetongzhi.Margin = new System.Windows.Forms.Padding(0);
-            this.ucpagetongzhi.Name = "ucpagetongzhi";
-            this.ucpagetongzhi.Padding = new System.Windows.Forms.Padding(2);
-            this.ucpagetongzhi.Size = new System.Drawing.Size(842, 32);
-            this.ucpagetongzhi.TabIndex = 4;
-            // 
             // ucpagegongzuoqingdan
             // 
             this.ucpagegongzuoqingdan.BackColor = System.Drawing.Color.White;
@@ -353,18 +365,6 @@
             this.ucpagegongzuoqingdan.Padding = new System.Windows.Forms.Padding(2);
             this.ucpagegongzuoqingdan.Size = new System.Drawing.Size(854, 32);
             this.ucpagegongzuoqingdan.TabIndex = 5;
-            // 
-            // ucpagedaiban
-            // 
-            this.ucpagedaiban.BackColor = System.Drawing.Color.White;
-            this.ucpagedaiban.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucpagedaiban.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ucpagedaiban.Location = new System.Drawing.Point(0, 150);
-            this.ucpagedaiban.Margin = new System.Windows.Forms.Padding(0);
-            this.ucpagedaiban.Name = "ucpagedaiban";
-            this.ucpagedaiban.Padding = new System.Windows.Forms.Padding(2);
-            this.ucpagedaiban.Size = new System.Drawing.Size(842, 32);
-            this.ucpagedaiban.TabIndex = 5;
             // 
             // UCmain
             // 

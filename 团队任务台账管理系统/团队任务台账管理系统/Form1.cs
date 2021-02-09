@@ -463,5 +463,22 @@ namespace 团队任务台账管理系统
 
 
         }
+        /// <summary>
+        /// 点击我的任务按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lbl_woderenwu_Click_1(object sender, EventArgs e)
+        {
+            HighControl(sender);
+
+            panel_my.Controls.Clear();
+            UCMytask myuc = new UCMytask() {
+                Dock = DockStyle.Fill
+            };
+            panel_my.Controls.Add(myuc);
+
+
+        }
     }
 }
