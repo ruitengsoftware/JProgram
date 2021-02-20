@@ -110,7 +110,10 @@ namespace 团队任务台账管理系统.UserControll
 
         }
 
-
+        /// <summary>
+        /// 显示工作清单
+        /// </summary>
+        /// <param name="o"></param>
         public void UpdatePgongzuoqingdan(object o)
         {
             List<JJQingdanInfo> list = o as List<JJQingdanInfo>;
@@ -168,7 +171,10 @@ namespace 团队任务台账管理系统.UserControll
             lbl_gongzuoqingdan.Text = $"工作清单  共{panel_gongzuoqingdan.Controls.Count}项";
 
         }
-
+        /// <summary>
+        /// 在我的主页中显示任务待办
+        /// </summary>
+        /// <param name="o"></param>
         public void UpdatePdaiban(object o)
         {
             panel_daibanrenwu.Controls.Clear();
@@ -184,7 +190,10 @@ namespace 团队任务台账管理系统.UserControll
 
 
         }
-
+        /// <summary>
+        /// 在我的主页显示通知公告
+        /// </summary>
+        /// <param name="o"></param>
         public void UpdatePtongzhi(object o)
         {
             /*刷新通知公告*/
@@ -192,10 +201,12 @@ namespace 团队任务台账管理系统.UserControll
             var list_tongzhi = o as List<JJTongzhiInfo>;
             //dgv_tongzhi.DataSource = null;
             //dgv_tongzhi.DataSource = mydt;
-            foreach (JJTongzhiInfo dr in list_tongzhi)
+            for (int i = list_tongzhi.Count - 1; i >= 0; i--)
             {
-                UCMessage myuc = new UCMessage(dr);
+                JJTongzhiInfo info = list_tongzhi[i];
+                UCMessage myuc = new UCMessage(info);
                 panel_tongzhi.Controls.Add(myuc);
+
             }
             //显示通知公告,显示多少项，红几项，黄几项
             gb_tongzhigonggao.Text = $"通知公告 共{panel_tongzhi.Controls.Count}项";
@@ -203,7 +214,11 @@ namespace 团队任务台账管理系统.UserControll
 
 
 
-
+        /// <summary>
+        /// 加载我的主页时出发的事件，
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UCmain_Load(object sender, EventArgs e)
         {
             //加载ucmain的时候要提取登陆者信息，显示在界面中

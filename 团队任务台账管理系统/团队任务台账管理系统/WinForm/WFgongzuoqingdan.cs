@@ -16,10 +16,16 @@ namespace 团队任务台账管理系统.WinForm
 {
     public partial class WFgongzuoqingdan : Form
     {
+        MySQLHelper _mysql = new MySQLHelper();
+
         public WFgongzuoqingdan()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// 构造函数，传递进来一个清单信息
+        /// </summary>
+        /// <param name="q"></param>
         public WFgongzuoqingdan(JJQingdanInfo q)
         {
             InitializeComponent();
@@ -42,16 +48,38 @@ namespace 团队任务台账管理系统.WinForm
                     rb.Checked = true;
                 }
             }
+            //判断是否为创建人打开的
+            //如果是创建人代开的，不显示确定按钮
+            if (!JJLoginInfo._shiming.Equals(q._chuangjianren))
+            {
+                lbl_queding.Visible =false;
+            }
+
+
+
         }
         private void lbl_quxiao_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
         ControllerXinjiangongzuoqingdan _mycontroller = new ControllerXinjiangongzuoqingdan();
+        /// <summary>
+        /// 点击确定按钮时触发的时间，用于保存工作清单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbl_queding_Click(object sender, EventArgs e)
         {
-
-
+            //先判断数据库中是否有登陆人创建的同名工作清单
+            string str_sql = $"select count(*) from jjdbrenwutaizhang.工作清单表 " +
+                $"where 创建人='{JJLoginInfo._shiming}' and 名称='{tb_renwumingcheng.Text}'";
+            int num =Convert.ToInt32( _mysql.ExecuteScalar(str_sql));
+            if (num>0)
+            {
+                MessageBox.Show("任务名称重复！请重新输入！");
+               
+                return;
+            }
             //保存任务，构建一个任务对象，保存到数据库
             JJQingdanInfo myrenwu = new JJQingdanInfo() {
                 _renwumingcheng = tb_renwumingcheng.Text,

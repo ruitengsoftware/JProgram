@@ -33,6 +33,8 @@
             this.lbl_mingcheng = new System.Windows.Forms.Label();
             this.lbl_shijian = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.link_shanchu = new System.Windows.Forms.LinkLabel();
+            this.link_bianji = new System.Windows.Forms.LinkLabel();
             this.pb_xiaoxiang = new System.Windows.Forms.PictureBox();
             this.pb_shanchu = new System.Windows.Forms.PictureBox();
             this.pb_point = new System.Windows.Forms.PictureBox();
@@ -88,6 +90,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.link_shanchu);
+            this.panel1.Controls.Add(this.link_bianji);
             this.panel1.Controls.Add(this.pb_xiaoxiang);
             this.panel1.Controls.Add(this.pb_shanchu);
             this.panel1.Controls.Add(this.lbl_shijian);
@@ -102,6 +106,34 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(1);
             this.panel1.Size = new System.Drawing.Size(542, 20);
             this.panel1.TabIndex = 1;
+            // 
+            // link_shanchu
+            // 
+            this.link_shanchu.AutoSize = true;
+            this.link_shanchu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.link_shanchu.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.link_shanchu.Location = new System.Drawing.Point(331, 1);
+            this.link_shanchu.Name = "link_shanchu";
+            this.link_shanchu.Size = new System.Drawing.Size(32, 17);
+            this.link_shanchu.TabIndex = 7;
+            this.link_shanchu.TabStop = true;
+            this.link_shanchu.Text = "删除";
+            this.link_shanchu.Visible = false;
+            this.link_shanchu.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_shanchu_LinkClicked);
+            // 
+            // link_bianji
+            // 
+            this.link_bianji.AutoSize = true;
+            this.link_bianji.Dock = System.Windows.Forms.DockStyle.Left;
+            this.link_bianji.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.link_bianji.Location = new System.Drawing.Point(299, 1);
+            this.link_bianji.Name = "link_bianji";
+            this.link_bianji.Size = new System.Drawing.Size(32, 17);
+            this.link_bianji.TabIndex = 6;
+            this.link_bianji.TabStop = true;
+            this.link_bianji.Text = "编辑";
+            this.link_bianji.Visible = false;
+            this.link_bianji.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_bianji_LinkClicked);
             // 
             // pb_xiaoxiang
             // 
@@ -194,5 +226,7 @@
         public System.Windows.Forms.Label lbl_leixing;
         private System.Windows.Forms.Label lbl_zhuangtai;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.LinkLabel link_shanchu;
+        private System.Windows.Forms.LinkLabel link_bianji;
     }
 }

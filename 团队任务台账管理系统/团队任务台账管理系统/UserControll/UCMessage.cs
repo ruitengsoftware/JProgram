@@ -61,12 +61,19 @@ namespace 团队任务台账管理系统.UserControll
             }
             if (o is JJTongzhiInfo)//如果是通知公告
             {
+                JJTongzhiInfo info = o as JJTongzhiInfo;
                 //不是清单关闭销项
                 lbl_leixing.Visible = false;
                 pb_xiaoxiang.Visible = false;
                 pb_shanchu.Visible = false;
+                //如果创建人等于登陆人那么显示编辑和删除按钮
+                if (info._chuangjianren.Equals(JJLoginInfo._shiming))
+                {
+                    link_bianji.Visible = true;
+                    link_shanchu.Visible = true;
 
-                JJTongzhiInfo info = o as JJTongzhiInfo;
+                }
+
                 //在uc上显示  状态标题 发布时间
                 lbl_xiangxian.Text = string.Empty;
                 this.lbl_shijian.Text = Convert.ToDateTime(info._shixian).ToString("yyyy-MM-dd");
@@ -229,6 +236,7 @@ namespace 团队任务台账管理系统.UserControll
                     JJMethod.a_shuaxinzhuye(null, null);
                 }
             }
+            //如果是通知公告类型
             if (task is JJTongzhiInfo)
             {
                 //将该任务的状态变为已读，，字体从粗体变为常规
@@ -251,6 +259,7 @@ namespace 团队任务台账管理系统.UserControll
 
                 //}
             }
+            //如果是工作清单类型
             if (task is JJQingdanInfo)
             {
                 JJQingdanInfo ci = task as JJQingdanInfo;
@@ -274,8 +283,8 @@ namespace 团队任务台账管理系统.UserControll
             //判断类型,请休假单事由，事项名称，意见建议标题
             if (info._leixing.Equals("常规事项") || info._leixing.Equals("OKR事项"))
             {
-            str_sql = $"select * from jjdbrenwutaizhang.任务信息表 " +
-                $"where 名称='{info._mingcheng}' and 类型='{info._leixing}' and 状态='保存' and 删除=0";
+                str_sql = $"select * from jjdbrenwutaizhang.任务信息表 " +
+                    $"where 名称='{info._mingcheng}' and 类型='{info._leixing}' and 状态='保存' and 删除=0";
 
             }
             else if (info._leixing.Equals("请休假单"))
@@ -297,7 +306,7 @@ namespace 团队任务台账管理系统.UserControll
 
             try
             {
-            result._mingcheng = mydr["名称"].ToString();
+                result._mingcheng = mydr["名称"].ToString();
             }
             catch (Exception)
             {
@@ -308,38 +317,38 @@ namespace 团队任务台账管理系统.UserControll
                 result._leixing = mydr["类型"].ToString();
             }
             catch { result._leixing = string.Empty; }
-           result._zhuangtai = mydr["状态"].ToString();
-           result._xiangqing = mydr["详情"].ToString();
-           result._chuangjianren = mydr["创建人"].ToString();
-           result._chuangjianshijian = mydr["创建时间"].ToString();
-           result._duqushijian = mydr["读取时间"].ToString();
-           result._shixian = mydr["时限"].ToString();
-           result._jinjichengdu = mydr["紧急程度"].ToString();
-           result._mubiao = mydr["总体目标"].ToString();
-           result._chengguoji = mydr["成果集"].ToString();
-           result._shenqingren = mydr["申请人"].ToString();
-           result._shiyou = mydr["事由"].ToString();
-           result._kaishishijian = mydr["开始时间"].ToString();
-           result._jieshushijian = mydr["结束时间"].ToString();
-           result._weituoduixiang = mydr["委托对象"].ToString();
-           result._shenheyijian = mydr["审核意见"].ToString();
-           result._biaoti = mydr["标题"].ToString();
-           result._fankuiren = mydr["反馈人"].ToString();
-           result._fankuiduixiang = mydr["反馈对象"].ToString();
-           result._neirong = mydr["内容"].ToString();
-           result._banliyijian = mydr["办理意见"].ToString();
-           result._banlirenyuan = mydr["办理人员"].ToString();
-           result._jinzhanqingkuang = mydr["进展情况"].ToString();
-           result._zongtiyanshouren = mydr["总体验收人"].ToString();
-           result._chuliyijian = mydr["处理意见"].ToString();
-           result._shenherenyuan = mydr["审核人员"].ToString();
-           result._fasongren = mydr["发送人"].ToString();
-           result._fasongshijian= mydr["发送时间"].ToString();
-           result._jutiyaoqiu= mydr["具体要求"].ToString();
-           result._fujian= mydr["附件"].ToString();
-           result._qizhishijian= mydr["起止时间"].ToString();
-           result._xiaojiaqingkuang= mydr["销假情况"].ToString();
-            result._qingjiatianshu = mydr["请假天数"].ToString().Equals(string.Empty)?0: Convert.ToInt32(mydr["请假天数"].ToString());
+            result._zhuangtai = mydr["状态"].ToString();
+            result._xiangqing = mydr["详情"].ToString();
+            result._chuangjianren = mydr["创建人"].ToString();
+            result._chuangjianshijian = mydr["创建时间"].ToString();
+            result._duqushijian = mydr["读取时间"].ToString();
+            result._shixian = mydr["时限"].ToString();
+            result._jinjichengdu = mydr["紧急程度"].ToString();
+            result._mubiao = mydr["总体目标"].ToString();
+            result._chengguoji = mydr["成果集"].ToString();
+            result._shenqingren = mydr["申请人"].ToString();
+            result._shiyou = mydr["事由"].ToString();
+            result._kaishishijian = mydr["开始时间"].ToString();
+            result._jieshushijian = mydr["结束时间"].ToString();
+            result._weituoduixiang = mydr["委托对象"].ToString();
+            result._shenheyijian = mydr["审核意见"].ToString();
+            result._biaoti = mydr["标题"].ToString();
+            result._fankuiren = mydr["反馈人"].ToString();
+            result._fankuiduixiang = mydr["反馈对象"].ToString();
+            result._neirong = mydr["内容"].ToString();
+            result._banliyijian = mydr["办理意见"].ToString();
+            result._banlirenyuan = mydr["办理人员"].ToString();
+            result._jinzhanqingkuang = mydr["进展情况"].ToString();
+            result._zongtiyanshouren = mydr["总体验收人"].ToString();
+            result._chuliyijian = mydr["处理意见"].ToString();
+            result._shenherenyuan = mydr["审核人员"].ToString();
+            result._fasongren = mydr["发送人"].ToString();
+            result._fasongshijian = mydr["发送时间"].ToString();
+            result._jutiyaoqiu = mydr["具体要求"].ToString();
+            result._fujian = mydr["附件"].ToString();
+            result._qizhishijian = mydr["起止时间"].ToString();
+            result._xiaojiaqingkuang = mydr["销假情况"].ToString();
+            result._qingjiatianshu = mydr["请假天数"].ToString().Equals(string.Empty) ? 0 : Convert.ToInt32(mydr["请假天数"].ToString());
             return result;
 
 
@@ -370,7 +379,11 @@ namespace 团队任务台账管理系统.UserControll
 
 
         }
-
+        /// <summary>
+        /// 点击删除图片时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbl_shanchu_Click(object sender, EventArgs e)
         {
             //工作清单删除=0
@@ -380,9 +393,61 @@ namespace 团队任务台账管理系统.UserControll
                 JJMethod.a_shuaxinzhuye(null, null);
                 MessageBox.Show("工作清单已删除！");
             }
+        }
+        /// <summary>
+        /// 点击删除按钮时出发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void link_shanchu_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //显示提示框，是否确认删除
+            DialogResult mydr = MessageBox.Show("确认删除?", "删除信息", MessageBoxButtons.YesNo);
+            if (mydr == DialogResult.Yes)
+            {
+                //从通知公告表中删除通知
+                string name = lbl_mingcheng.Text;
+                string str_sql = $"delete from jjdbrenwutaizhang.通知公告表 where 标题='{name}'";
+                _mysql.ExecuteNonQuery(str_sql);
+                //刷新主界面
+                JJMethod.a_shuaxinzhuye(null, null);
+                //显示删除成功
+                MessageBox.Show("通知公告已删除！");
+            }
 
 
+        }
 
+        private void link_bianji_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //获得通知公告表中标题对应的信息，实例化一个jjtongzhiinfo
+            string biaoti = lbl_mingcheng.Text;
+            string leixing = lbl_leixing.Text;
+            //实例化一个mftongzhigonggao，把jjtongzhiinfo传递进来，mftongzhigonggao的状态设置为编辑模式（还有一个是创建模式）
+            string str_sql = $"select * from jjdbrenwutaizhang.通知公告表 " +
+                $"where 标题='{biaoti}'";
+            DataTable mydt = _mysql.ExecuteDataTable(str_sql);
+            List<string> list_fanwei = new List<string>();
+            foreach (DataRow dataRow in mydt.Rows)
+            {
+                list_fanwei.Add(dataRow["阅读范围"].ToString());
+            }
+            JJTongzhiInfo myinfo = new JJTongzhiInfo() {
+                _biaoti = mydt.Rows[0]["标题"].ToString(),
+                _qianfaren = mydt.Rows[0]["签发人"].ToString(),
+                _qingzhonghuanji = mydt.Rows[0]["轻重缓急"].ToString(),
+                _neirongpath = mydt.Rows[0]["内容"].ToString(),
+                _shixian = mydt.Rows[0]["时限"].ToString(),
+                _fujian = mydt.Rows[0]["附件"].ToString(),
+                _chuangjianren = mydt.Rows[0]["创建人"].ToString(),
+                _yuedufanwei = string.Join(",", list_fanwei)
+            };
+            WFtongzhigonggao mywin = new WFtongzhigonggao(myinfo);
+            mywin.mode = "编辑";
+            if (mywin.ShowDialog()==DialogResult.OK)
+            {
+                JJMethod.a_shuaxinzhuye(null, null);
+            }
 
         }
     }

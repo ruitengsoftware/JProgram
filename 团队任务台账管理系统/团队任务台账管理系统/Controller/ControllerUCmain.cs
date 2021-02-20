@@ -436,11 +436,23 @@ namespace 团队任务台账管理系统.Controller
         /// <returns></returns>
         public List<JJTongzhiInfo> GetTongzhi(int start, string kw,int displaynum)
         {
+            //这里的目的是要提取出所有阅读范围等于登陆人实名的通知公告
+            //思路：分别提取未读和已读的内容根据时间排序，获得一个总体的datarow
+            //将datarow每一行实例化一个tongzhiinfo，形成一个list
+            //根据displaynum的显示数量值，提取list对应的位置的元素
+            //return 结果
+
+
+
+
+
+
             List<JJTongzhiInfo> list = new List<JJTongzhiInfo>();
             string str_sql = $"select * from jjdbrenwutaizhang.通知公告表 " +
                 $"where 标题 like '%{kw}%' and 删除=0 " +
                 $"and 阅读范围='{JJLoginInfo._shiming}' " +
-                $"limit {displaynum * (start - 1)},{displaynum}";
+                $"and 状态='未读' " +
+                $"order by 发布时间 desc";
             var data = _mysqlhelper.ExecuteDataTable(str_sql, null);
             foreach (DataRow dr in data.Rows)
             {
@@ -454,14 +466,47 @@ namespace 团队任务台账管理系统.Controller
                     _qingzhonghuanji = dr["轻重缓急"].ToString(),
                     _shixian = dr["时限"].ToString(),
                     _yuedufanwei = dr["阅读范围"].ToString(),
-                    _fujian = dr["附件"].ToString()
-
+                    _fujian = dr["附件"].ToString(),
+                    _chuangjianren=dr["创建人"].ToString()
 
                 };
                 list.Add(info);
-
             }
-            return list;
+           str_sql = $"select * from jjdbrenwutaizhang.通知公告表 " +
+    $"where 标题 like '%{kw}%' and 删除=0 " +
+    $"and 阅读范围='{JJLoginInfo._shiming}' " +
+    $"and 状态='已读' " +
+    $"order by 发布时间 desc";
+            data = _mysqlhelper.ExecuteDataTable(str_sql, null);
+            foreach (DataRow dr in data.Rows)
+            {
+                JJTongzhiInfo info = new JJTongzhiInfo()
+                {
+                    _biaoti = dr["标题"].ToString(),
+                    _qianfaren = dr["签发人"].ToString(),
+                    _neirongpath = dr["内容"].ToString(),
+                    _zhuangtai = dr["状态"].ToString(),
+                    _fabushijian = dr["发布时间"].ToString(),
+                    _qingzhonghuanji = dr["轻重缓急"].ToString(),
+                    _shixian = dr["时限"].ToString(),
+                    _yuedufanwei = dr["阅读范围"].ToString(),
+                    _fujian = dr["附件"].ToString(),
+                    _chuangjianren = dr["创建人"].ToString()
+
+                };
+                list.Add(info);
+            }
+            List<JJTongzhiInfo> result = new List<JJTongzhiInfo>();
+            for (int i = 10*(start-1); i < 10 * (start - 1)+displaynum; i++)
+            {
+                if (i>list.Count-1)
+                {
+                    break;
+                }
+                result.Add(list[i]);
+            }
+
+            return result;
         }
 
 

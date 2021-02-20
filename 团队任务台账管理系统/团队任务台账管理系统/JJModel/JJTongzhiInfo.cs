@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace 团队任务台账管理系统.JJModel
 {
-   public class JJTongzhiInfo
+    public class JJTongzhiInfo
     {
+        /// <summary>
+        /// 创建人
+        /// </summary>
+        public string _chuangjianren = string.Empty;
         /// <summary>
         /// 标题
         /// </summary>
@@ -43,7 +47,7 @@ namespace 团队任务台账管理系统.JJModel
         /// <summary>
         /// 上传附件
         /// </summary>
-        public string _fujian = string.Empty; 
+        public string _fujian = string.Empty;
 
 
 
