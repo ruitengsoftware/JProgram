@@ -140,20 +140,19 @@ namespace 文本解析系统.JJWinForm
 
 
         }
-        UIHelper myuihelper = new UIHelper();
         private void label2_Paint(object sender, PaintEventArgs e)
         {
-            myuihelper.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
 
         private void label2_MouseEnter(object sender, EventArgs e)
         {
-            myuihelper.UpdateCC((Control)sender, Color.Salmon,Color.White);
+            UIHelper.UpdateCC((Control)sender, Color.Salmon,Color.White);
         }
 
         private void label2_MouseLeave(object sender, EventArgs e)
         {
-            myuihelper.UpdateCC((Control)sender, Color.Tomato, Color.White);
+            UIHelper.UpdateCC((Control)sender, Color.Tomato, Color.White);
 
         }
     }

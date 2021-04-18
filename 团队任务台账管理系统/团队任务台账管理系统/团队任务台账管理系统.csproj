@@ -778,5 +778,245 @@
   <ItemGroup>
     <None Include="Resources\guanbi.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addfieldlv1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChMkKV8fh6mIZaqKAEIGWUIz7hsAAANIgNvpdQAQgZx1751.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dingzi1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchlv %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchenter %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folderlv1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\greenpoint1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guanbi1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\消息2 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paizhao1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redpoint1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rentou1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shanchu31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\suo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\huiyuan1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\显示11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xiaoxi1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xiaoxiang1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xinzeng11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xinzeng21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellowpoint %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\隐藏11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\编辑1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\编辑21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\对号1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\对号 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\历史11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\历史21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\没有图片1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\企业管理_员工管理1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\退出1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\显示2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\隐藏2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addfieldlv2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChMkKV8fh6mIZaqKAEIGWUIz7hsAAANIgNvpdQAQgZx1752.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete42.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dingzi2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchlv %282%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchenter %282%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folderlv2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\greenpoint2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guanbi2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\消息2 %281%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paizhao2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redpoint2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rentou2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shanchu32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\suo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\huiyuan2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\显示12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xiaoxi2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xiaoxiang2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xinzeng12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xinzeng22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellowpoint %281%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\隐藏12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\编辑3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\编辑22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\对号2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\对号 %281%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\历史12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\历史22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\没有图片2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\企业管理_员工管理2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\退出2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\显示3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\隐藏3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

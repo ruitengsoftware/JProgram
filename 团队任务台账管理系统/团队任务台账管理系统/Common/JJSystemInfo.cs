@@ -9,6 +9,6 @@ namespace 团队任务台账管理系统.Common
    public class JJSystemInfo
     {
 
-        public static string _version = "v1.3.5 beta";
+        public static string _version = "v1.3.7 beta";
     }
 }

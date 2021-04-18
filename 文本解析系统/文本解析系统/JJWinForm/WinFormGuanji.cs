@@ -51,10 +51,9 @@ namespace 文本解析系统.JJWinForm
         {
             this.DialogResult = DialogResult.OK;
         }
-        UIHelper myuihelper = new UIHelper();
         private void lbl_quxiao_Paint(object sender, PaintEventArgs e)
         {
-            myuihelper.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
 
 
 
@@ -62,12 +61,12 @@ namespace 文本解析系统.JJWinForm
 
         private void lbl_quxiao_MouseLeave(object sender, EventArgs e)
         {
-            myuihelper.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
         }
 
         private void lbl_quxiao_MouseEnter(object sender, EventArgs e)
         {
-            myuihelper.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
 
         }
     }

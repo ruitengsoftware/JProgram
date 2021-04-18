@@ -17,7 +17,7 @@ namespace 团队任务台账管理系统.WinForm
     public partial class WFgongzuoqingdan : Form
     {
         MySQLHelper _mysql = new MySQLHelper();
-
+        object mytask = null;
         public WFgongzuoqingdan()
         {
             InitializeComponent();
@@ -29,6 +29,7 @@ namespace 团队任务台账管理系统.WinForm
         public WFgongzuoqingdan(JJQingdanInfo q)
         {
             InitializeComponent();
+            mytask = q;
             this.StartPosition = FormStartPosition.CenterParent;
             rb_a.Checked = q._qingzhonghuanji.Contains("A类") ? true : false;
             rb_b.Checked = q._qingzhonghuanji.Contains("B类") ? true : false;
@@ -74,7 +75,8 @@ namespace 团队任务台账管理系统.WinForm
             string str_sql = $"select count(*) from jjdbrenwutaizhang.工作清单表 " +
                 $"where 创建人='{JJLoginInfo._shiming}' and 名称='{tb_renwumingcheng.Text}'";
             int num =Convert.ToInt32( _mysql.ExecuteScalar(str_sql));
-            if (num>0)
+            //如果该名字已经存在并且mytask等于null,判断为窗体处于新建状态，不允许名称重复
+            if (num>0 && mytask==null)
             {
                 MessageBox.Show("任务名称重复！请重新输入！");
                

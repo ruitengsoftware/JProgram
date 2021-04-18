@@ -34,6 +34,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_woderenwu = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lbl_ruanjiangengxin = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pb_touxiang = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_woderenwu = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_touxiang)).BeginInit();
@@ -101,6 +101,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(100, 476);
             this.panel1.TabIndex = 2;
+            // 
+            // lbl_woderenwu
+            // 
+            this.lbl_woderenwu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_woderenwu.Location = new System.Drawing.Point(0, 440);
+            this.lbl_woderenwu.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_woderenwu.Name = "lbl_woderenwu";
+            this.lbl_woderenwu.Size = new System.Drawing.Size(100, 40);
+            this.lbl_woderenwu.TabIndex = 17;
+            this.lbl_woderenwu.Text = "我的任务";
+            this.lbl_woderenwu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_woderenwu.Visible = false;
+            this.lbl_woderenwu.Click += new System.EventHandler(this.lbl_woderenwu_Click_1);
             // 
             // label10
             // 
@@ -309,18 +322,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(705, 576);
             this.tableLayoutPanel2.TabIndex = 2;
-            // 
-            // lbl_woderenwu
-            // 
-            this.lbl_woderenwu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl_woderenwu.Location = new System.Drawing.Point(0, 440);
-            this.lbl_woderenwu.Margin = new System.Windows.Forms.Padding(0);
-            this.lbl_woderenwu.Name = "lbl_woderenwu";
-            this.lbl_woderenwu.Size = new System.Drawing.Size(100, 40);
-            this.lbl_woderenwu.TabIndex = 17;
-            this.lbl_woderenwu.Text = "我的任务";
-            this.lbl_woderenwu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_woderenwu.Click += new System.EventHandler(this.lbl_woderenwu_Click_1);
             // 
             // Form1
             // 

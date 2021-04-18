@@ -133,6 +133,10 @@ namespace UpdateOA
 
             string str_version = _mydr["文件名"].ToString();
             lbl_version.Text = str_version;
+            //获得本此更新内容显示在界面上
+            string str_update = _mydr["备注"].ToString();
+            lbl_update.Text = str_update;
+
             //获得服务器路径
             string webpath = _mydr["全路径"].ToString();
             //下载文件

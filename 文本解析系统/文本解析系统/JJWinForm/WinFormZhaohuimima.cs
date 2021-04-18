@@ -58,7 +58,6 @@ namespace 文本解析系统.JJWinForm
                 MessageBox.Show("邮箱不匹配！");
                 return;            }
         }
-        UIHelper _myui = new UIHelper();
         private void WinFormZhaohuimima_Load(object sender, EventArgs e)
         {
 
@@ -67,19 +66,19 @@ namespace 文本解析系统.JJWinForm
 
         private void lbl_queding_MouseEnter(object sender, EventArgs e)
         {
-           _myui.UpdateCSize((Control)sender, -1);
+            UIHelper.UpdateCSize((Control)sender, -1);
 
         }
 
         private void lbl_queding_MouseLeave(object sender, EventArgs e)
         {
-           _myui.UpdateCSize((Control)sender, 1);
+            UIHelper.UpdateCSize((Control)sender, 1);
 
         }
 
         private void lbl_queding_Paint(object sender, PaintEventArgs e)
         {
-            _myui.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
     }
 }

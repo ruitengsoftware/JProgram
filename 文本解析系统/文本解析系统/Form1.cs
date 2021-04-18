@@ -398,23 +398,19 @@ namespace 文本解析系统
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
-            UIHelper myuihelper = new UIHelper();
             //myuihelper.UpdateCSize((Control)sender, -1);
-            myuihelper.UpdateCC((Control)sender, Color.MediumSeaGreen, Color.White);
+            UIHelper.UpdateCC((Control)sender, Color.MediumSeaGreen, Color.White);
         }
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
-            UIHelper myuihelper = new UIHelper();
-            // myuihelper.UpdateCSize((Control)sender, 1);
-            myuihelper.UpdateCC((Control)sender, Color.SeaGreen, Color.White);
+            UIHelper.UpdateCC((Control)sender, Color.SeaGreen, Color.White);
 
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            UIHelper myuihelper = new UIHelper();
-            myuihelper.DrawRoundRect((Control)sender);
+            UIHelper.DrawRoundRect((Control)sender);
         }
 
         private void lbl_piliangshanchu_Click(object sender, EventArgs e)
@@ -456,17 +452,15 @@ namespace 文本解析系统
 
         private void label4_MouseEnter(object sender, EventArgs e)
         {
-            UIHelper myuihelper = new UIHelper();
             //myuihelper.UpdateCSize((Control)sender, -1);
-            myuihelper.UpdateCC((Control)sender, Color.Salmon, Color.White);
+            UIHelper.UpdateCC((Control)sender, Color.Salmon, Color.White);
 
         }
 
         private void label4_MouseLeave(object sender, EventArgs e)
         {
-            UIHelper myuihelper = new UIHelper();
             //myuihelper.UpdateCSize((Control)sender, -1);
-            myuihelper.UpdateCC((Control)sender, Color.Tomato, Color.White);
+            UIHelper.UpdateCC((Control)sender, Color.Tomato, Color.White);
 
         }
 

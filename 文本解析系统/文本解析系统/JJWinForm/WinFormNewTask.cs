@@ -75,8 +75,8 @@ namespace 文本解析系统.JJWinForm
 
         private void label3_Paint(object sender, PaintEventArgs e)
         {
-            UIHelper myuihelper = new UIHelper();
-            myuihelper.DrawRoundRect(((Control)sender));
+            UIHelper UIHelper = new UIHelper();
+            UIHelper.DrawRoundRect(((Control)sender));
         }
 
         private void label3_MouseEnter(object sender, EventArgs e)
@@ -88,16 +88,15 @@ namespace 文本解析系统.JJWinForm
         {
             ((PictureBox)sender).Image = Properties.Resources.folderlv;
         }
-        UIHelper myuihelper = new UIHelper();
 
         private void lbl_queding_MouseEnter(object sender, EventArgs e)
         {
-            myuihelper.UpdateCC((Control)sender, Color.Salmon, Color.White);    
+            UIHelper.UpdateCC((Control)sender, Color.Salmon, Color.White);    
         }
 
         private void lbl_queding_MouseLeave(object sender, EventArgs e)
         {
-            myuihelper.UpdateCC((Control)sender, Color.Tomato, Color.White);
+            UIHelper.UpdateCC((Control)sender, Color.Tomato, Color.White);
 
         }
 

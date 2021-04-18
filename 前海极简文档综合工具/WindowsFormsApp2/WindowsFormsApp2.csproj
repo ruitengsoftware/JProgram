@@ -121,9 +121,8 @@
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
-    <Reference Include="RuitengDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>G:\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
+    <Reference Include="RuitengDll">
+      <HintPath>..\..\..\..\OneDrive - mail.dlut.edu.cn\C#类库\RuitengDll\RuitengDll\bin\Debug\RuitengDll.dll</HintPath>
     </Reference>
     <Reference Include="Spire.Barcode, Version=3.7.0.11040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
       <HintPath>..\packages\Spire.Office.4.9.0\lib\net40\Spire.Barcode.dll</HintPath>
@@ -404,6 +403,12 @@
     <Compile Include="UC\WinFormWrong.Designer.cs">
       <DependentUpon>WinFormWrong.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinFormdenglu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinFormdenglu.designer.cs">
+      <DependentUpon>WinFormdenglu.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\WinFormAddTask.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -497,6 +502,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC\WinFormWrong.resx">
       <DependentUpon>WinFormWrong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinFormdenglu.resx">
+      <DependentUpon>WinFormdenglu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WinFormAddTask.resx">
       <DependentUpon>WinFormAddTask.cs</DependentUpon>

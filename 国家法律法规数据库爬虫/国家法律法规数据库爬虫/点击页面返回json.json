@@ -1,0 +1,113 @@
+{
+  "timestamp": 1614441698779,
+  "success": true,
+  "message": "success",
+  "code": 200,
+  "result": {
+    "data": [
+      {
+        "id": "MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY4ZDIxOTBjMjE%3D",
+        "title": "全国人民代表大会常务委员会关于《中华人民共和国香港特别行政区基本法》第十三条第一款和第十九条的解释",
+        "office": "全国人民代表大会常务委员会",
+        "publish": "2011-08-26 00:00:00",
+        "expiry": "2011-08-26 00:00:00",
+        "type": "法律解释",
+        "status": "1",
+        "url": "https://flk.npc.gov.cn/detail.html?MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY4ZDIxOTBjMjE%3D"
+      },
+      {
+        "id": "MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY1YWJhMTAwNzM%3D",
+        "title": "中华人民共和国国籍法",
+        "office": "全国人民代表大会",
+        "publish": "1980-09-10 00:00:00",
+        "expiry": "1980-09-10 00:00:00",
+        "type": "法律",
+        "status": "1",
+        "url": "https://flk.npc.gov.cn/detail.html?MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY1YWJhMTAwNzM%3D"
+      },
+      {
+        "id": "MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY4Y2NlYzBiZTU%3D",
+        "title": "全国人民代表大会常务委员会关于《中华人民共和国香港特别行政区基本法》第五十三条第二款的解释",
+        "office": "全国人民代表大会常务委员会",
+        "publish": "2005-04-27 00:00:00",
+        "expiry": "2005-04-27 00:00:00",
+        "type": "法律解释",
+        "status": "1",
+        "url": "https://flk.npc.gov.cn/detail.html?MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY4Y2NlYzBiZTU%3D"
+      },
+      {
+        "id": "MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY1YWQzZjAwOTE%3D",
+        "title": "中华人民共和国全国人民代表大会组织法",
+        "office": "全国人民代表大会",
+        "publish": "1982-12-10 00:00:00",
+        "expiry": "1982-12-10 00:00:00",
+        "type": "法律",
+        "status": "1",
+        "url": "https://flk.npc.gov.cn/detail.html?MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY1YWQzZjAwOTE%3D"
+      },
+      {
+        "id": "MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY4Y2M5NTBiZGI%3D",
+        "title": "全国人民代表大会常务委员会关于《中华人民共和国香港特别行政区基本法》附件一第七条和附件二第三条的解释",
+        "office": "全国人民代表大会常务委员会",
+        "publish": "2004-04-06 00:00:00",
+        "expiry": "2004-04-06 00:00:00",
+        "type": "法律解释",
+        "status": "1",
+        "url": "https://flk.npc.gov.cn/detail.html?MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY4Y2M5NTBiZGI%3D"
+      },
+      {
+        "id": "MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY1YWUxZTAwOWI%3D",
+        "title": "中华人民共和国国务院组织法",
+        "office": "全国人民代表大会",
+        "publish": "1982-12-10 00:00:00",
+        "expiry": "1982-12-10 00:00:00",
+        "type": "法律",
+        "status": "1",
+        "url": "https://flk.npc.gov.cn/detail.html?MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY1YWUxZTAwOWI%3D"
+      },
+      {
+        "id": "MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY4YzRiNjBiYTk%3D",
+        "title": "全国人民代表大会常务委员会关于《中华人民共和国香港特别行政区基本法》第二十二条第四款和第二十四条第二款第（三）项的解释",
+        "office": "全国人民代表大会常务委员会",
+        "publish": "1999-06-26 00:00:00",
+        "expiry": "1999-06-26 00:00:00",
+        "type": "法律解释",
+        "status": "1",
+        "url": "https://flk.npc.gov.cn/detail.html?MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY4YzRiNjBiYTk%3D"
+      },
+      {
+        "id": "MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY1YWViMzAwYTU%3D",
+        "title": "全国人民代表大会常务委员会关于县级以下人民代表大会代表直接选举的若干规定",
+        "office": "全国人民代表大会常务委员会",
+        "publish": "1983-03-05 00:00:00",
+        "expiry": "1983-03-05 00:00:00",
+        "type": "法律",
+        "status": "1",
+        "url": "https://flk.npc.gov.cn/detail.html?MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY1YWViMzAwYTU%3D"
+      },
+      {
+        "id": "MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY4ZDI4OTBjMmI%3D",
+        "title": "全国人民代表大会常务委员会关于《中华人民共和国澳门特别行政区基本法》附件一第七条和附件二第三条的解释",
+        "office": "全国人民代表大会常务委员会",
+        "publish": "2011-12-31 00:00:00",
+        "expiry": "2011-12-31 00:00:00",
+        "type": "法律解释",
+        "status": "1",
+        "url": "https://flk.npc.gov.cn/detail.html?MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY4ZDI4OTBjMmI%3D"
+      },
+      {
+        "id": "MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY2MGQzZjAyNjc%3D",
+        "title": "中华人民共和国民族区域自治法",
+        "office": "全国人民代表大会",
+        "publish": "2001-02-28 00:00:00",
+        "expiry": "2001-02-28 00:00:00",
+        "type": "法律",
+        "status": "1",
+        "url": "https://flk.npc.gov.cn/detail.html?MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY2MGQzZjAyNjc%3D"
+      }
+    ],
+    "totalSizes": 539,
+    "page": 2,
+    "size": 10
+  }
+}
