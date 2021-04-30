@@ -14,8 +14,33 @@ namespace 谦海数据解析系统.JJmodel
     /// </summary>
     public class RuleInfo
     {
+        /// <summary>
+        ///规则名称
+        /// </summary>
+        public string ruleName = string.Empty;
+        /// <summary>
+        /// 规则类型
+        /// </summary>
+        public string ruleType = string.Empty;
+        /// <summary>
+        /// 用于json格式化的ruleroot类
+        /// </summary>
+        public object _root = new object();
+        /// <summary>
+        /// 规则设置的文本信息，json格式
+        /// </summary>
+        public string ruleSet = string.Empty;
+        /// <summary>
+        /// 创建人
+        /// </summary>
+        public string _chuangjianren = string.Empty;
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public string _chuangjianshijian = string.Empty;
 
-        public RuleInfo() { }
+        public RuleInfo() { 
+        }
         /// <summary>
         /// 构造函数，仅仅把格式名称传递进去
         /// </summary>
@@ -46,30 +71,7 @@ namespace 谦海数据解析系统.JJmodel
 
 
 
-        /// <summary>
-        ///规则名称
-        /// </summary>
-        public string ruleName { get; set; }
-        /// <summary>
-        /// 规则类型
-        /// </summary>
-        public string ruleType = string.Empty;
-        /// <summary>
-        /// 用于json格式化的ruleroot类
-        /// </summary>
-        public object _root = new object();
-        /// <summary>
-        /// 规则设置的文本信息，json格式
-        /// </summary>
-        public string ruleSet = string.Empty;
-        /// <summary>
-        /// 创建人
-        /// </summary>
-        public string _chuangjianren = string.Empty;
-        /// <summary>
-        /// 创建时间
-        /// </summary>
-        public string _chuangjianshijian = string.Empty;
+
         /// <summary>
         /// 保存规则信息到数据库中
         /// </summary>
@@ -95,28 +97,28 @@ namespace 谦海数据解析系统.JJmodel
             ruleSet = mydr["规则设置"].ToString();
             _chuangjianren = mydr["创建人"].ToString();
             _chuangjianshijian = mydr["创建时间"].ToString();
-            if (SystemInfo._currentModule.Equals("文件名标准化"))
+            if (ruleType.Equals("文件名标准化"))
             {
                 _root = JsonConvert.DeserializeObject<WjmRuleRoot>(ruleSet);
             }
-            else if (SystemInfo._currentModule.Equals("格式标准化"))
+            else if (ruleType.Equals("格式标准化"))
             {
                 _root = JsonConvert.DeserializeObject<BzhRuleRoot>(ruleSet);
 
             }
-            else if (SystemInfo._currentModule.Equals("查重清洗"))
+            else if (ruleType.Equals("查重清洗"))
             {
                 _root = JsonConvert.DeserializeObject<CcqxRuleRoot>(ruleSet);
             }
-            else if (SystemInfo._currentModule.Equals("基础解析"))
+            else if (ruleType.Equals("基础解析"))
+            {
+                _root = JsonConvert.DeserializeObject<JcjxRuleRoot>(ruleSet);
+            }
+            else if (ruleType.Equals("内容解析"))
             {
 
             }
-            else if (SystemInfo._currentModule.Equals("内容解析"))
-            {
-
-            }
-            else if (SystemInfo._currentModule.Equals("大数据版"))
+            else if (ruleType.Equals("大数据版"))
             {
                 _root = JsonConvert.DeserializeObject<DsjRuleRoot>(ruleSet);
             }
@@ -207,8 +209,9 @@ namespace 谦海数据解析系统.JJmodel
         public List<string> _shanchu = new List<string>();
 
     }
-
-
+    /// <summary>
+    /// 标准化规则root
+    /// </summary>
     public class BzhRuleRoot
     {
         /*
@@ -228,7 +231,7 @@ namespace 谦海数据解析系统.JJmodel
         文本范围
         文本内容
          */
-        
+
         /// <summary>
         /// 左边距
         /// </summary>
@@ -292,7 +295,7 @@ namespace 谦海数据解析系统.JJmodel
         /// <summary>
         /// 大标题行距样式
         /// </summary>
-        public string _dbthjType= string.Empty;
+        public string _dbthjType = string.Empty;
         /// <summary>
         /// 大标题行距值
         /// </summary>
@@ -539,5 +542,17 @@ namespace 谦海数据解析系统.JJmodel
         /// 文本内容
         /// </summary>
         public string _wbnr = string.Empty;
+    }
+    /// <summary>
+    /// 基础解析规则root
+    /// </summary>
+    public class JcjxRuleRoot
+    {
+       
+
+
+
+
+
     }
 }

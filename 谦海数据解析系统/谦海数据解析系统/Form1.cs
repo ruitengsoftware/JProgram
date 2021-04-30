@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Aspose.Words;
+using MySql.Data.MySqlClient;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using 谦海数据解析系统.JJmodel;
 using 谦海数据解析系统.JJusercontrol;
 using 谦海数据解析系统.JJwinform;
@@ -22,7 +24,30 @@ namespace 谦海数据解析系统
 {
     public partial class Form1 : Form
     {
-
+        /// <summary>
+        /// 该方法用于防止动态增减控件时窗体闪烁
+        /// </summary>
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+        /// <summary>
+        /// 程序运行状态，0是停止，1是开始，2是暂停
+        /// </summary>
+        int statue = 0;
+        /// <summary>
+        /// 正在进行第几个文件夹
+        /// </summary>
+        int folderIndex = 0;
+        /// <summary>
+        /// 正在进行第几个文件
+        /// </summary>
+        int fileIndex = 0;
 
 
         public Form1()
@@ -66,13 +91,13 @@ namespace 谦海数据解析系统
             UpdateRules("大数据版", string.Empty, dgv_dsjRules);
             //4、显示基础解析规则
             UpdateFormats("基础解析", cbb_format4);
-            UpdateRulesOriginal(string.Empty,dgv_jichujiexi);
+            UpdateRulesOriginal(string.Empty, dgv_jichujiexi);
             //5、显示查重清洗
             UpdateFormats("查重清洗", cbb_format3);
-            UpdateRules("查重清洗",string.Empty, dgv_chachong);
+            UpdateRules("查重清洗", string.Empty, dgv_chachong);
             //显示格式标准化
             UpdateFormats("格式标准化", cbb_format2);
-            UpdateRules("格式标准化",string.Empty, dgv_biaozhunhua);
+            UpdateRules("格式标准化", string.Empty, dgv_biaozhunhua);
 
 
         }
@@ -181,7 +206,7 @@ namespace 谦海数据解析系统
             WjmRuleForm myform = new WjmRuleForm();
             if (myform.ShowDialog() == DialogResult.OK)
             {
-                UpdateRules("文件名标准化", dgv_wenjianmingrules) ;
+                UpdateRules("文件名标准化", dgv_wenjianmingrules);
             }
         }
         /// <summary>
@@ -208,7 +233,7 @@ namespace 谦海数据解析系统
         {
             List<string> list = new List<string>();
             //获得所有规则列表中选中的规则名称
-            for (int i = 0; i <mydgv.Rows.Count; i++)
+            for (int i = 0; i < mydgv.Rows.Count; i++)
             {
                 bool _checked = (bool)mydgv.Rows[i].Cells[0].EditedFormattedValue;
                 if (_checked)
@@ -225,7 +250,7 @@ namespace 谦海数据解析系统
         public List<string> GetSelectRules()
         {
             List<string> list = new List<string>();
-            foreach(Control c  in panel_5.Controls)
+            foreach (Control c in panel_5.Controls)
             {
                 var myuc = c as BiaoqiankuControl;
                 if (myuc.cb_biaoqianku.Checked)
@@ -572,20 +597,20 @@ namespace 谦海数据解析系统
             string ruleName = dgv_dsjRules.Rows[e.RowIndex].Cells[1].Value.ToString();
 
             //点击编辑按钮时
-            if (e.ColumnIndex== 4 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 4 && e.RowIndex >= 0)
             {
                 //获得规则的信息ruleinfo
                 RuleInfo myri = new RuleInfo(ruleName);
                 myri.GetRuleInfo();
                 //把ruleinfo传给wjmruleform窗体,立刻加载信息
                 DsjRuleForm myForm = new DsjRuleForm(myri);
-                if (myForm.ShowDialog()==DialogResult.OK)
+                if (myForm.ShowDialog() == DialogResult.OK)
                 {
                     MessageBox.Show($"规则 {myForm._ruleInfo.ruleName} 保存成功！");
                 }
             }
             //点击删除按钮时
-            if (e.ColumnIndex== 5 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 5 && e.RowIndex >= 0)
             {
                 DialogResult mydr = MessageBox.Show($"是否删除规则 {ruleName} ?", "消息提醒", MessageBoxButtons.YesNoCancel);
                 if (mydr == DialogResult.Yes)
@@ -759,7 +784,7 @@ namespace 谦海数据解析系统
         /// 刷新基础解析模块的规则列表
         /// </summary>
         /// <param name="mydgv"></param>
-        public void UpdateRulesOriginal(string kw,DataGridView mydgv)
+        public void UpdateRulesOriginal(string kw, DataGridView mydgv)
         {
             //更新规则列表中的规则
             DataTable mydt = MyMethod.GetRulesOriginal(kw);
@@ -1000,5 +1025,217 @@ namespace 谦海数据解析系统
             }
 
         }
+        /// <summary>
+        /// 点击开始按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lbl_kaishi_Click(object sender, EventArgs e)
+        {
+            //修改程序状态为执行，刷新状态信息
+            lbl_zhuangtai.Text = "正在进行数据解析……";
+            lbl_kaishi.Enabled = false;
+            lbl_kaishi.BackColor = Color.Gray;
+            statue = 1;
+
+            //获得文件夹下所有的文件名
+            for (int i = folderIndex; i < dgv_task.Rows.Count; i++)
+            {
+
+                folderIndex = i;//时刻记录当前程序执行到的文件夹位置
+                string folder = dgv_task.Rows[i].Cells[1].Value.ToString();
+                string[] files = Directory.GetFiles(folder);
+                for (int k = fileIndex; k < files.Length; k++)
+                {
+                    //计算百分率
+                    double _processRate = 100 * Convert.ToDouble(k + 1) / Convert.ToDouble(files.Length);
+                    dgv_task.Rows[i].Cells[3].Value = $"{_processRate.ToString("00.00")}%";
+                    Application.DoEvents();
+
+                    //如果用户终止了或者暂停了程序，就跳出循环
+                    if (statue == 0 || statue == 2)
+                    {
+                        return;
+                    }
+                    fileIndex = k;//时刻记录当前程序执行到的文件位置
+                    string file = files[k];
+                    #region  1、文件名格式标准化
+                    /*1、开始文件名格式标准化*/
+                    //拆分出路径和文件名
+                    string path = Path.GetDirectoryName(file);
+                    string fileOriginal = Path.GetFileNameWithoutExtension(file);
+                    string extension = Path.GetExtension(file);
+                    string filename = string.Empty;//用于存放改后的文件名
+                    ///拆分后的文件名集合,对list进行处理，如果是\d星，那么要和前一项合并
+                    List<string> list = Regex.Split(fileOriginal, @"\.").ToList();
+                    for (int j = 0; j < list.Count; j++)
+                    {
+                        if (Regex.IsMatch(list[j], @"\d星"))
+                        {
+                            list[j] = $"{list[j - 1] }.{list[j]}";
+                            list.RemoveAt(j - 1);
+                            break;
+                        }
+
+                    }
+                    //获得文件名标准格式下的所有rule名称
+                    FormatInfo fi = new FormatInfo(SystemInfo._userInfo._wjmbzh);
+                    fi.GetFormatInfo();
+                    List<string> rules = Regex.Split(fi._formatSet, @"\|").ToList();
+                    //对每一个rule循环，获得设置root
+                    foreach (string rule in rules)
+                    {
+                        RuleInfo myri = new RuleInfo(rule);
+                        myri.GetRuleInfo();
+                        WjmRuleRoot myroot = ((WjmRuleRoot)myri._root);
+                        //判断位置，得到操作目标,对每种可能的目标进行判断操作
+                        if (myroot.position[0].Equals("整个文件名"))
+                        {
+                            //对操作目标进行操作
+                            if (!myroot.delete.Trim().Equals(string.Empty))
+                            {
+                                filename = Regex.Replace(fileOriginal, myroot.delete.Trim(), "");
+                            }
+                            else if (!myroot.replace0.Trim().Equals(string.Empty))
+                            {
+                                filename = Regex.Replace(fileOriginal, myroot.replace0.Trim(), myroot.replace);
+                            }
+                        }
+                        else if (myroot.position[0].Equals("文件名前"))
+                        {
+                            //新增内容
+                            if (!myroot.newText.Trim().Equals(string.Empty))
+                            {
+                                filename = $"{myroot.newText}{fileOriginal}";
+                            }
+                        }
+                        else if (myroot.position[0].Equals("文件名后"))
+                        {
+                            //新增内容
+                            if (!myroot.newText.Trim().Equals(string.Empty))
+                            {
+                                filename = $"{fileOriginal}{myroot.newText}";
+                            }
+                        }
+                        else if (Regex.IsMatch(myroot.position[0], @"文件名第\d项前"))
+                        {
+                            //获得数字，然后获得目标文本
+                            int index = Convert.ToInt32(Regex.Match(myroot.position[0], @"\d").Value);
+                            string target = list[index - 1];
+                            //新增内容
+                            if (!myroot.newText.Trim().Equals(string.Empty))
+                            {
+                                target = $"{myroot.newText.Trim()}{target}";
+                            }
+                            list[index - 1] = target;
+                            filename = string.Join(".", list);
+                        }
+                        else if (Regex.IsMatch(myroot.position[0], @"文件名第\d项后"))
+                        {
+                            //获得数字，然后获得目标文本
+                            int index = Convert.ToInt32(Regex.Match(myroot.position[0], @"\d").Value);
+                            string target = list[index - 1];
+                            //新增内容
+                            if (!myroot.newText.Trim().Equals(string.Empty))
+                            {
+                                target = $"{target}{myroot.newText.Trim()}";
+                            }
+                            list[index - 1] = target;
+                            filename = string.Join(".", list);
+                        }
+                        //给文件改名
+                        File.Move($"{file}", $"{path}\\{filename}{extension}");
+
+                    }
+
+                    #endregion
+                    string currentFilename = $"{path}\\{filename}{extension}";
+                    #region 2、文档格式标准化
+                    //获得标准化规则
+                    FormatInfo _format = new FormatInfo(SystemInfo._userInfo._wjbzh);
+                    _format.GetFormatInfo();
+                    string _rule = Regex.Split(_format._formatSet, @"\|")[0];
+                    RuleInfo _ruleInfo = new RuleInfo(_rule);
+                    _ruleInfo.GetRuleInfo();
+                    BzhRuleRoot _root = _ruleInfo._root as BzhRuleRoot;
+                    //调整文档格式,包括大标题，副标题，正文，一级标题，二级标题，三级标题，页边距,
+                    MyMethod.UpdateFormat2(currentFilename, _root);
+
+                    //文本标注,暂时 放一放
+
+                    #endregion
+                    #region 3、查重清洗
+
+                    #endregion
+                    #region 4、基础解析
+
+                    #endregion
+                    JJDocument _jjDoc = new JJDocument(currentFilename);
+                    var listbase=_jjDoc.GetBaseAnalysis();
+                    _jjDoc.SaveList2Excel(listbase);
+                    #region 5、内容解析
+
+                    #endregion
+                    #region 6、大数据版
+
+                    #endregion
+                }
+            }
+            //执行完成提示，完成并将系统状态还原为0
+            statue = 0;
+            lbl_kaishi.Enabled = true;
+
+            lbl_kaishi.ForeColor = Color.White;
+            lbl_kaishi.BackColor = Color.MediumSeaGreen;
+            lbl_zhuangtai.Text = "已就绪，请点击\"开始\"执行解析";
+            MessageBox.Show("本次数据处理已完成！");
+        }
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// 点击停止按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lbl_tingzhi_Click(object sender, EventArgs e)
+        {
+            statue = 0;
+            folderIndex = 0;
+            fileIndex = 0;
+            lbl_kaishi.Enabled = true;
+            lbl_kaishi.ForeColor = Color.White;
+            lbl_kaishi.BackColor = Color.MediumSeaGreen;
+            lbl_zhuangtai.Text = "已就绪，请点击\"开始\"执行解析";
+
+        }
+        /// <summary>
+        /// 点击暂停按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lbl_zanting_Click(object sender, EventArgs e)
+        {
+            //判断程序如果已停止，那么不执行任何操作
+            if (statue == 0)
+            {
+                return;
+            }
+            statue = 2;
+            lbl_kaishi.Enabled = true;
+            lbl_kaishi.ForeColor = Color.White;
+            lbl_kaishi.BackColor = Color.MediumSeaGreen;
+            lbl_zhuangtai.Text = "已暂停解析";
+        }
+
+
+
+
+
     }
 }

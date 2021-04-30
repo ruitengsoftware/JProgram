@@ -306,15 +306,13 @@ namespace 文本解析系统.JJController
                 Aspose.Words.Document myword = new Aspose.Words.Document(filename);
                 //获得他要用到的格式
                 FormatInfo myfi = GetFormatInfo(formatname);
-
-
                 #region 新的解析过程
                 //判断是否进行查重处理，如果不查重处理，直接解析
                 if (myfi._wu2)//不查重处理
                 {
                     //开始解析,先解析基础规则，然后根据复制文本范围向sheet赋值
                     //赋值基础规则
-                    //生成excel表格
+                    //实例化一个excel
                     Aspose.Cells.Workbook mywbk1 = new Aspose.Cells.Workbook();
                     Aspose.Cells.Worksheet mysht1 = mywbk1.Worksheets[0];
                     mysht1.Cells.Style.IsTextWrapped = true;

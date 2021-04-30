@@ -111,10 +111,10 @@ namespace 谦海数据解析系统.JJwinform
             this.lbl_queding.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.lbl_queding.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_queding.ForeColor = System.Drawing.Color.White;
-            this.lbl_queding.Location = new System.Drawing.Point(125, 3);
-            this.lbl_queding.Margin = new System.Windows.Forms.Padding(3);
+            this.lbl_queding.Location = new System.Drawing.Point(127, 5);
+            this.lbl_queding.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_queding.Name = "lbl_queding";
-            this.lbl_queding.Size = new System.Drawing.Size(94, 34);
+            this.lbl_queding.Size = new System.Drawing.Size(90, 30);
             this.lbl_queding.TabIndex = 0;
             this.lbl_queding.Text = "确  定";
             this.lbl_queding.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -126,10 +126,10 @@ namespace 谦海数据解析系统.JJwinform
             this.lbl_quxiao.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.lbl_quxiao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_quxiao.ForeColor = System.Drawing.Color.White;
-            this.lbl_quxiao.Location = new System.Drawing.Point(225, 3);
-            this.lbl_quxiao.Margin = new System.Windows.Forms.Padding(3);
+            this.lbl_quxiao.Location = new System.Drawing.Point(227, 5);
+            this.lbl_quxiao.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_quxiao.Name = "lbl_quxiao";
-            this.lbl_quxiao.Size = new System.Drawing.Size(94, 34);
+            this.lbl_quxiao.Size = new System.Drawing.Size(90, 30);
             this.lbl_quxiao.TabIndex = 0;
             this.lbl_quxiao.Text = "取  消";
             this.lbl_quxiao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 谦海数据解析系统.JJmodel;
 
 namespace 谦海数据解析系统.JJwinform
 {
@@ -52,6 +53,19 @@ namespace 谦海数据解析系统.JJwinform
         /// <param name="e"></param>
         private void SelectFormatForm_Load(object sender, EventArgs e)
         {
+            var list=MyMethod.GetFormats("文件名标准化");
+            cbb_wenjianming.Items.AddRange(list.ToArray());
+            list = MyMethod.GetFormats("格式标准化");
+            cbb_geshihua.Items.AddRange(list.ToArray());
+            list = MyMethod.GetFormats("查重清洗");
+            cbb_chachong.Items.AddRange(list.ToArray());
+            list = MyMethod.GetFormats("基础解析");
+            cbb_jichujiexi.Items.AddRange(list.ToArray());
+            list = MyMethod.GetFormats("内容解析");
+            cbb_neirongjiexi.Items.AddRange(list.ToArray());
+            list = MyMethod.GetFormats("大数据版");
+            cbb_dashujuban.Items.AddRange(list.ToArray());
+
             //将用户个人信息显示再界面上，上次的选择
             cbb_wenjianming.Text = SystemInfo._userInfo._wjmbzh;
             cbb_geshihua.Text = SystemInfo._userInfo._wjbzh;
@@ -59,6 +73,8 @@ namespace 谦海数据解析系统.JJwinform
             cbb_jichujiexi.Text = SystemInfo._userInfo._jcjx;
             cbb_neirongjiexi.Text = SystemInfo._userInfo._nrjx;
             cbb_dashujuban.Text = SystemInfo._userInfo._dsjb;
+
+
         }
         /// <summary>
         /// 点击取消按钮时触发的事件

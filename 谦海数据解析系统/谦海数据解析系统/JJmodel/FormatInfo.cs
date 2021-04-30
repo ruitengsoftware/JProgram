@@ -1,9 +1,10 @@
-﻿using MySql.Data.MySqlClient;
+﻿ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace 谦海数据解析系统.JJmodel
@@ -47,6 +48,11 @@ namespace 谦海数据解析系统.JJmodel
         /// </summary>
         public   string _formatSet = string.Empty;
 
+
+        /// <summary>
+        /// 本格式所包含的所有规则信息
+        /// </summary>
+        public List<RuleInfo> _ruleInfo = new List<RuleInfo>();
         /// <summary>
         /// 格式类型
         /// </summary>
@@ -69,7 +75,6 @@ namespace 谦海数据解析系统.JJmodel
         /// <summary>
         /// 获得格式名称对应的格式信息
         /// </summary>
-
         public void GetFormatInfo()
         {
             string str_sql = $"select * from 数据解析库.格式信息表 where 格式名称='{_formatName}' and 删除=0";
@@ -77,6 +82,26 @@ namespace 谦海数据解析系统.JJmodel
             _formatType = mydr["格式类型"].ToString();
             _formatSet = mydr["格式设置"].ToString();
         }
+
+
+        /// <summary>
+        /// 该方法获得格式的所有规则信息，需要先调用getformatinfo方法获得格式信息
+        /// </summary>
+        public void GetRuleInfo()
+        {
+            string[] arrRule = Regex.Split(_formatSet, @"\|");
+            foreach (string str  in arrRule)
+            {
+                RuleInfo ri = new RuleInfo(str);
+                ri.GetRuleInfo();
+            }
+        
+        
+        
+        }
+
+
+
 
     }
 }

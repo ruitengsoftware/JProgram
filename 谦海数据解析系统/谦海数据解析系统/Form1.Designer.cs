@@ -320,7 +320,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1260, 811);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1044, 811);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -448,7 +448,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1154, 805);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(938, 805);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // splitContainer1
@@ -464,8 +464,8 @@ namespace 谦海数据解析系统
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel3);
-            this.splitContainer1.Size = new System.Drawing.Size(1148, 774);
-            this.splitContainer1.SplitterDistance = 506;
+            this.splitContainer1.Size = new System.Drawing.Size(932, 774);
+            this.splitContainer1.SplitterDistance = 444;
             this.splitContainer1.TabIndex = 1;
             // 
             // panel2
@@ -477,7 +477,7 @@ namespace 谦海数据解析系统
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(506, 774);
+            this.panel2.Size = new System.Drawing.Size(444, 774);
             this.panel2.TabIndex = 0;
             // 
             // dgv_task
@@ -503,11 +503,11 @@ namespace 谦海数据解析系统
             this.yichangbaocuoliang});
             this.dgv_task.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_task.EnableHeadersVisualStyles = false;
-            this.dgv_task.Location = new System.Drawing.Point(0, 34);
+            this.dgv_task.Location = new System.Drawing.Point(0, 76);
             this.dgv_task.Name = "dgv_task";
             this.dgv_task.RowHeadersVisible = false;
             this.dgv_task.RowTemplate.Height = 23;
-            this.dgv_task.Size = new System.Drawing.Size(506, 678);
+            this.dgv_task.Size = new System.Drawing.Size(444, 636);
             this.dgv_task.TabIndex = 1;
             // 
             // xuhao
@@ -541,7 +541,7 @@ namespace 谦海数据解析系统
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Location = new System.Drawing.Point(0, 712);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(506, 62);
+            this.groupBox1.Size = new System.Drawing.Size(444, 62);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "任务状态";
@@ -551,7 +551,7 @@ namespace 谦海数据解析系统
             this.lbl_zhuangtai.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_zhuangtai.Location = new System.Drawing.Point(3, 19);
             this.lbl_zhuangtai.Name = "lbl_zhuangtai";
-            this.lbl_zhuangtai.Size = new System.Drawing.Size(500, 40);
+            this.lbl_zhuangtai.Size = new System.Drawing.Size(438, 40);
             this.lbl_zhuangtai.TabIndex = 0;
             this.lbl_zhuangtai.Text = "已就绪，请点击\"开始\"执行解析";
             this.lbl_zhuangtai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -568,15 +568,16 @@ namespace 谦海数据解析系统
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(506, 34);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(444, 76);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // lbl_xinzengrenwu
             // 
             this.lbl_xinzengrenwu.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.lbl_xinzengrenwu.ForeColor = System.Drawing.Color.White;
-            this.lbl_xinzengrenwu.Location = new System.Drawing.Point(2, 2);
-            this.lbl_xinzengrenwu.Margin = new System.Windows.Forms.Padding(2);
+            this.lbl_xinzengrenwu.Location = new System.Drawing.Point(5, 5);
+            this.lbl_xinzengrenwu.Margin = new System.Windows.Forms.Padding(3);
             this.lbl_xinzengrenwu.Name = "lbl_xinzengrenwu";
             this.lbl_xinzengrenwu.Size = new System.Drawing.Size(80, 30);
             this.lbl_xinzengrenwu.TabIndex = 0;
@@ -588,44 +589,47 @@ namespace 谦海数据解析系统
             // 
             this.lbl_kaishi.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.lbl_kaishi.ForeColor = System.Drawing.Color.White;
-            this.lbl_kaishi.Location = new System.Drawing.Point(86, 2);
-            this.lbl_kaishi.Margin = new System.Windows.Forms.Padding(2);
+            this.lbl_kaishi.Location = new System.Drawing.Point(91, 5);
+            this.lbl_kaishi.Margin = new System.Windows.Forms.Padding(3);
             this.lbl_kaishi.Name = "lbl_kaishi";
             this.lbl_kaishi.Size = new System.Drawing.Size(80, 30);
             this.lbl_kaishi.TabIndex = 1;
             this.lbl_kaishi.Text = "开  始";
             this.lbl_kaishi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_kaishi.Click += new System.EventHandler(this.lbl_kaishi_Click);
             // 
             // lbl_zanting
             // 
             this.lbl_zanting.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.lbl_zanting.ForeColor = System.Drawing.Color.White;
-            this.lbl_zanting.Location = new System.Drawing.Point(170, 2);
-            this.lbl_zanting.Margin = new System.Windows.Forms.Padding(2);
+            this.lbl_zanting.Location = new System.Drawing.Point(177, 5);
+            this.lbl_zanting.Margin = new System.Windows.Forms.Padding(3);
             this.lbl_zanting.Name = "lbl_zanting";
             this.lbl_zanting.Size = new System.Drawing.Size(80, 30);
             this.lbl_zanting.TabIndex = 2;
             this.lbl_zanting.Text = "暂  停";
             this.lbl_zanting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_zanting.Click += new System.EventHandler(this.lbl_zanting_Click);
             // 
             // lbl_tingzhi
             // 
             this.lbl_tingzhi.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.lbl_tingzhi.ForeColor = System.Drawing.Color.White;
-            this.lbl_tingzhi.Location = new System.Drawing.Point(254, 2);
-            this.lbl_tingzhi.Margin = new System.Windows.Forms.Padding(2);
+            this.lbl_tingzhi.Location = new System.Drawing.Point(263, 5);
+            this.lbl_tingzhi.Margin = new System.Windows.Forms.Padding(3);
             this.lbl_tingzhi.Name = "lbl_tingzhi";
             this.lbl_tingzhi.Size = new System.Drawing.Size(80, 30);
             this.lbl_tingzhi.TabIndex = 3;
             this.lbl_tingzhi.Text = "停  止";
             this.lbl_tingzhi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_tingzhi.Click += new System.EventHandler(this.lbl_tingzhi_Click);
             // 
             // lbl_qingkong
             // 
             this.lbl_qingkong.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.lbl_qingkong.ForeColor = System.Drawing.Color.White;
-            this.lbl_qingkong.Location = new System.Drawing.Point(338, 2);
-            this.lbl_qingkong.Margin = new System.Windows.Forms.Padding(2);
+            this.lbl_qingkong.Location = new System.Drawing.Point(349, 5);
+            this.lbl_qingkong.Margin = new System.Windows.Forms.Padding(3);
             this.lbl_qingkong.Name = "lbl_qingkong";
             this.lbl_qingkong.Size = new System.Drawing.Size(80, 30);
             this.lbl_qingkong.TabIndex = 4;
@@ -637,8 +641,8 @@ namespace 谦海数据解析系统
             // 
             this.lbl_rengongjiaohe.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.lbl_rengongjiaohe.ForeColor = System.Drawing.Color.White;
-            this.lbl_rengongjiaohe.Location = new System.Drawing.Point(422, 2);
-            this.lbl_rengongjiaohe.Margin = new System.Windows.Forms.Padding(2);
+            this.lbl_rengongjiaohe.Location = new System.Drawing.Point(5, 41);
+            this.lbl_rengongjiaohe.Margin = new System.Windows.Forms.Padding(3);
             this.lbl_rengongjiaohe.Name = "lbl_rengongjiaohe";
             this.lbl_rengongjiaohe.Size = new System.Drawing.Size(80, 30);
             this.lbl_rengongjiaohe.TabIndex = 5;
@@ -657,7 +661,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(638, 774);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(484, 774);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tabControl1
@@ -675,7 +679,7 @@ namespace 谦海数据解析系统
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(638, 734);
+            this.tabControl1.Size = new System.Drawing.Size(484, 734);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
@@ -683,9 +687,9 @@ namespace 谦海数据解析系统
             // 文件名标准化
             // 
             this.文件名标准化.Controls.Add(this.tableLayoutPanel6);
-            this.文件名标准化.Location = new System.Drawing.Point(4, 34);
+            this.文件名标准化.Location = new System.Drawing.Point(4, 64);
             this.文件名标准化.Name = "文件名标准化";
-            this.文件名标准化.Size = new System.Drawing.Size(630, 696);
+            this.文件名标准化.Size = new System.Drawing.Size(476, 666);
             this.文件名标准化.TabIndex = 0;
             this.文件名标准化.Text = "文件名标准化";
             this.文件名标准化.UseVisualStyleBackColor = true;
@@ -703,7 +707,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(630, 696);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(476, 666);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // tableLayoutPanel7
@@ -723,7 +727,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(630, 40);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(476, 40);
             this.tableLayoutPanel7.TabIndex = 2;
             // 
             // label7
@@ -747,7 +751,7 @@ namespace 谦海数据解析系统
             this.cbb_formatName1.Location = new System.Drawing.Point(123, 7);
             this.cbb_formatName1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
             this.cbb_formatName1.Name = "cbb_formatName1";
-            this.cbb_formatName1.Size = new System.Drawing.Size(344, 25);
+            this.cbb_formatName1.Size = new System.Drawing.Size(190, 25);
             this.cbb_formatName1.TabIndex = 1;
             this.cbb_formatName1.SelectedIndexChanged += new System.EventHandler(this.cbb_formatName1_SelectedIndexChanged);
             // 
@@ -757,7 +761,7 @@ namespace 谦海数据解析系统
             this.lbl_baocun1.BackColor = System.Drawing.Color.Tomato;
             this.lbl_baocun1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_baocun1.ForeColor = System.Drawing.Color.White;
-            this.lbl_baocun1.Location = new System.Drawing.Point(475, 5);
+            this.lbl_baocun1.Location = new System.Drawing.Point(321, 5);
             this.lbl_baocun1.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_baocun1.Name = "lbl_baocun1";
             this.lbl_baocun1.Size = new System.Drawing.Size(70, 30);
@@ -772,7 +776,7 @@ namespace 谦海数据解析系统
             this.lbl_shanchu1.BackColor = System.Drawing.Color.Tomato;
             this.lbl_shanchu1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_shanchu1.ForeColor = System.Drawing.Color.White;
-            this.lbl_shanchu1.Location = new System.Drawing.Point(555, 5);
+            this.lbl_shanchu1.Location = new System.Drawing.Point(401, 5);
             this.lbl_shanchu1.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_shanchu1.Name = "lbl_shanchu1";
             this.lbl_shanchu1.Size = new System.Drawing.Size(70, 30);
@@ -788,7 +792,7 @@ namespace 谦海数据解析系统
             this.groupBox2.Location = new System.Drawing.Point(0, 40);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(630, 656);
+            this.groupBox2.Size = new System.Drawing.Size(476, 626);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "文件名标准化规则";
@@ -807,7 +811,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(624, 634);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(470, 604);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // tableLayoutPanel9
@@ -827,7 +831,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(624, 40);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(470, 40);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // lbl_xinjianguize1
@@ -836,7 +840,7 @@ namespace 谦海数据解析系统
             this.lbl_xinjianguize1.BackColor = System.Drawing.Color.Tomato;
             this.lbl_xinjianguize1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_xinjianguize1.ForeColor = System.Drawing.Color.White;
-            this.lbl_xinjianguize1.Location = new System.Drawing.Point(217, 5);
+            this.lbl_xinjianguize1.Location = new System.Drawing.Point(140, 5);
             this.lbl_xinjianguize1.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_xinjianguize1.Name = "lbl_xinjianguize1";
             this.lbl_xinjianguize1.Size = new System.Drawing.Size(90, 30);
@@ -851,7 +855,7 @@ namespace 谦海数据解析系统
             this.lbl_piliangshanchu1.BackColor = System.Drawing.Color.Tomato;
             this.lbl_piliangshanchu1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_piliangshanchu1.ForeColor = System.Drawing.Color.White;
-            this.lbl_piliangshanchu1.Location = new System.Drawing.Point(317, 5);
+            this.lbl_piliangshanchu1.Location = new System.Drawing.Point(240, 5);
             this.lbl_piliangshanchu1.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_piliangshanchu1.Name = "lbl_piliangshanchu1";
             this.lbl_piliangshanchu1.Size = new System.Drawing.Size(90, 30);
@@ -897,7 +901,7 @@ namespace 谦海数据解析系统
             this.dgv_wenjianmingrules.RowHeadersVisible = false;
             this.dgv_wenjianmingrules.RowTemplate.Height = 23;
             this.dgv_wenjianmingrules.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_wenjianmingrules.Size = new System.Drawing.Size(618, 548);
+            this.dgv_wenjianmingrules.Size = new System.Drawing.Size(464, 518);
             this.dgv_wenjianmingrules.TabIndex = 1;
             this.dgv_wenjianmingrules.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_wenjianmingrules_CellContentClick);
             // 
@@ -960,7 +964,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
             this.tableLayoutPanel10.Controls.Add(this.tb_search, 1, 0);
             this.tableLayoutPanel10.Controls.Add(this.pb_search, 2, 0);
             this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel11, 4, 0);
@@ -970,13 +974,13 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(624, 40);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(470, 40);
             this.tableLayoutPanel10.TabIndex = 2;
             // 
             // tb_search
             // 
             this.tb_search.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_search.Location = new System.Drawing.Point(144, 8);
+            this.tb_search.Location = new System.Drawing.Point(66, 8);
             this.tb_search.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.tb_search.Name = "tb_search";
             this.tb_search.Size = new System.Drawing.Size(194, 23);
@@ -987,7 +991,7 @@ namespace 谦海数据解析系统
             // 
             this.pb_search.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_search.Image = ((System.Drawing.Image)(resources.GetObject("pb_search.Image")));
-            this.pb_search.Location = new System.Drawing.Point(348, 7);
+            this.pb_search.Location = new System.Drawing.Point(270, 7);
             this.pb_search.Margin = new System.Windows.Forms.Padding(7);
             this.pb_search.Name = "pb_search";
             this.pb_search.Size = new System.Drawing.Size(26, 26);
@@ -1006,13 +1010,13 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel11.Controls.Add(this.label16, 1, 1);
             this.tableLayoutPanel11.Controls.Add(this.label17, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(522, 0);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(366, 0);
             this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(102, 40);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(104, 40);
             this.tableLayoutPanel11.TabIndex = 2;
             // 
             // label18
@@ -1060,9 +1064,9 @@ namespace 谦海数据解析系统
             // 格式标准化
             // 
             this.格式标准化.Controls.Add(this.tableLayoutPanel12);
-            this.格式标准化.Location = new System.Drawing.Point(4, 34);
+            this.格式标准化.Location = new System.Drawing.Point(4, 64);
             this.格式标准化.Name = "格式标准化";
-            this.格式标准化.Size = new System.Drawing.Size(630, 696);
+            this.格式标准化.Size = new System.Drawing.Size(476, 666);
             this.格式标准化.TabIndex = 1;
             this.格式标准化.Text = "格式标准化";
             this.格式标准化.UseVisualStyleBackColor = true;
@@ -1080,7 +1084,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(630, 696);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(476, 666);
             this.tableLayoutPanel12.TabIndex = 2;
             // 
             // tableLayoutPanel13
@@ -1100,7 +1104,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(630, 40);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(476, 40);
             this.tableLayoutPanel13.TabIndex = 2;
             // 
             // label8
@@ -1124,7 +1128,7 @@ namespace 谦海数据解析系统
             this.cbb_format2.Location = new System.Drawing.Point(123, 7);
             this.cbb_format2.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
             this.cbb_format2.Name = "cbb_format2";
-            this.cbb_format2.Size = new System.Drawing.Size(344, 25);
+            this.cbb_format2.Size = new System.Drawing.Size(190, 25);
             this.cbb_format2.TabIndex = 1;
             this.cbb_format2.SelectedIndexChanged += new System.EventHandler(this.cbb_format2_SelectedIndexChanged);
             // 
@@ -1134,7 +1138,7 @@ namespace 谦海数据解析系统
             this.lbl_baocun2.BackColor = System.Drawing.Color.Tomato;
             this.lbl_baocun2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_baocun2.ForeColor = System.Drawing.Color.White;
-            this.lbl_baocun2.Location = new System.Drawing.Point(475, 5);
+            this.lbl_baocun2.Location = new System.Drawing.Point(321, 5);
             this.lbl_baocun2.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_baocun2.Name = "lbl_baocun2";
             this.lbl_baocun2.Size = new System.Drawing.Size(70, 30);
@@ -1149,7 +1153,7 @@ namespace 谦海数据解析系统
             this.lbl_shanchu2.BackColor = System.Drawing.Color.Tomato;
             this.lbl_shanchu2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_shanchu2.ForeColor = System.Drawing.Color.White;
-            this.lbl_shanchu2.Location = new System.Drawing.Point(555, 5);
+            this.lbl_shanchu2.Location = new System.Drawing.Point(401, 5);
             this.lbl_shanchu2.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_shanchu2.Name = "lbl_shanchu2";
             this.lbl_shanchu2.Size = new System.Drawing.Size(70, 30);
@@ -1165,7 +1169,7 @@ namespace 谦海数据解析系统
             this.groupBox3.Location = new System.Drawing.Point(0, 40);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(630, 656);
+            this.groupBox3.Size = new System.Drawing.Size(476, 626);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "格式标准化规则";
@@ -1184,7 +1188,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(624, 634);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(470, 604);
             this.tableLayoutPanel14.TabIndex = 0;
             // 
             // tableLayoutPanel15
@@ -1204,7 +1208,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(624, 40);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(470, 40);
             this.tableLayoutPanel15.TabIndex = 0;
             // 
             // lbl_xinjianguize2
@@ -1213,7 +1217,7 @@ namespace 谦海数据解析系统
             this.lbl_xinjianguize2.BackColor = System.Drawing.Color.Tomato;
             this.lbl_xinjianguize2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_xinjianguize2.ForeColor = System.Drawing.Color.White;
-            this.lbl_xinjianguize2.Location = new System.Drawing.Point(217, 5);
+            this.lbl_xinjianguize2.Location = new System.Drawing.Point(140, 5);
             this.lbl_xinjianguize2.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_xinjianguize2.Name = "lbl_xinjianguize2";
             this.lbl_xinjianguize2.Size = new System.Drawing.Size(90, 30);
@@ -1228,7 +1232,7 @@ namespace 谦海数据解析系统
             this.lbl_piliangshanchu2.BackColor = System.Drawing.Color.Tomato;
             this.lbl_piliangshanchu2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_piliangshanchu2.ForeColor = System.Drawing.Color.White;
-            this.lbl_piliangshanchu2.Location = new System.Drawing.Point(317, 5);
+            this.lbl_piliangshanchu2.Location = new System.Drawing.Point(240, 5);
             this.lbl_piliangshanchu2.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_piliangshanchu2.Name = "lbl_piliangshanchu2";
             this.lbl_piliangshanchu2.Size = new System.Drawing.Size(90, 30);
@@ -1273,7 +1277,7 @@ namespace 谦海数据解析系统
             this.dgv_biaozhunhua.RowHeadersVisible = false;
             this.dgv_biaozhunhua.RowTemplate.Height = 23;
             this.dgv_biaozhunhua.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_biaozhunhua.Size = new System.Drawing.Size(618, 548);
+            this.dgv_biaozhunhua.Size = new System.Drawing.Size(464, 518);
             this.dgv_biaozhunhua.TabIndex = 1;
             this.dgv_biaozhunhua.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_biaozhunhua_CellContentClick);
             // 
@@ -1336,7 +1340,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
             this.tableLayoutPanel16.Controls.Add(this.tb_kw2, 1, 0);
             this.tableLayoutPanel16.Controls.Add(this.pb_search2, 2, 0);
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 4, 0);
@@ -1346,13 +1350,13 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(624, 40);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(470, 40);
             this.tableLayoutPanel16.TabIndex = 2;
             // 
             // tb_kw2
             // 
             this.tb_kw2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_kw2.Location = new System.Drawing.Point(144, 8);
+            this.tb_kw2.Location = new System.Drawing.Point(66, 8);
             this.tb_kw2.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.tb_kw2.Name = "tb_kw2";
             this.tb_kw2.Size = new System.Drawing.Size(194, 23);
@@ -1362,7 +1366,7 @@ namespace 谦海数据解析系统
             // 
             this.pb_search2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_search2.Image = ((System.Drawing.Image)(resources.GetObject("pb_search2.Image")));
-            this.pb_search2.Location = new System.Drawing.Point(348, 7);
+            this.pb_search2.Location = new System.Drawing.Point(270, 7);
             this.pb_search2.Margin = new System.Windows.Forms.Padding(7);
             this.pb_search2.Name = "pb_search2";
             this.pb_search2.Size = new System.Drawing.Size(26, 26);
@@ -1381,13 +1385,13 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel17.Controls.Add(this.label20, 1, 1);
             this.tableLayoutPanel17.Controls.Add(this.label21, 0, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(522, 0);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(366, 0);
             this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 2;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(102, 40);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(104, 40);
             this.tableLayoutPanel17.TabIndex = 2;
             // 
             // label14
@@ -1435,9 +1439,9 @@ namespace 谦海数据解析系统
             // 查重清洗
             // 
             this.查重清洗.Controls.Add(this.tableLayoutPanel18);
-            this.查重清洗.Location = new System.Drawing.Point(4, 34);
+            this.查重清洗.Location = new System.Drawing.Point(4, 64);
             this.查重清洗.Name = "查重清洗";
-            this.查重清洗.Size = new System.Drawing.Size(630, 696);
+            this.查重清洗.Size = new System.Drawing.Size(476, 666);
             this.查重清洗.TabIndex = 2;
             this.查重清洗.Text = "查重清洗";
             this.查重清洗.UseVisualStyleBackColor = true;
@@ -1455,7 +1459,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel18.RowCount = 2;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(630, 696);
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(476, 666);
             this.tableLayoutPanel18.TabIndex = 2;
             // 
             // tableLayoutPanel19
@@ -1475,7 +1479,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 1;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(630, 40);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(476, 40);
             this.tableLayoutPanel19.TabIndex = 2;
             // 
             // label22
@@ -1499,7 +1503,7 @@ namespace 谦海数据解析系统
             this.cbb_format3.Location = new System.Drawing.Point(123, 7);
             this.cbb_format3.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
             this.cbb_format3.Name = "cbb_format3";
-            this.cbb_format3.Size = new System.Drawing.Size(344, 25);
+            this.cbb_format3.Size = new System.Drawing.Size(190, 25);
             this.cbb_format3.TabIndex = 1;
             this.cbb_format3.SelectedIndexChanged += new System.EventHandler(this.cbb_format3_SelectedIndexChanged);
             // 
@@ -1509,7 +1513,7 @@ namespace 谦海数据解析系统
             this.lbl_baocun3.BackColor = System.Drawing.Color.Tomato;
             this.lbl_baocun3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_baocun3.ForeColor = System.Drawing.Color.White;
-            this.lbl_baocun3.Location = new System.Drawing.Point(475, 5);
+            this.lbl_baocun3.Location = new System.Drawing.Point(321, 5);
             this.lbl_baocun3.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_baocun3.Name = "lbl_baocun3";
             this.lbl_baocun3.Size = new System.Drawing.Size(70, 30);
@@ -1524,7 +1528,7 @@ namespace 谦海数据解析系统
             this.lbl_shanchu3.BackColor = System.Drawing.Color.Tomato;
             this.lbl_shanchu3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_shanchu3.ForeColor = System.Drawing.Color.White;
-            this.lbl_shanchu3.Location = new System.Drawing.Point(555, 5);
+            this.lbl_shanchu3.Location = new System.Drawing.Point(401, 5);
             this.lbl_shanchu3.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_shanchu3.Name = "lbl_shanchu3";
             this.lbl_shanchu3.Size = new System.Drawing.Size(70, 30);
@@ -1540,7 +1544,7 @@ namespace 谦海数据解析系统
             this.groupBox4.Location = new System.Drawing.Point(0, 40);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(630, 656);
+            this.groupBox4.Size = new System.Drawing.Size(476, 626);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "查重清洗规则";
@@ -1559,7 +1563,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(624, 634);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(470, 604);
             this.tableLayoutPanel20.TabIndex = 0;
             // 
             // tableLayoutPanel21
@@ -1579,7 +1583,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel21.Name = "tableLayoutPanel21";
             this.tableLayoutPanel21.RowCount = 1;
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel21.Size = new System.Drawing.Size(624, 40);
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(470, 40);
             this.tableLayoutPanel21.TabIndex = 0;
             // 
             // lbl_xinjianguize3
@@ -1588,7 +1592,7 @@ namespace 谦海数据解析系统
             this.lbl_xinjianguize3.BackColor = System.Drawing.Color.Tomato;
             this.lbl_xinjianguize3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_xinjianguize3.ForeColor = System.Drawing.Color.White;
-            this.lbl_xinjianguize3.Location = new System.Drawing.Point(217, 5);
+            this.lbl_xinjianguize3.Location = new System.Drawing.Point(140, 5);
             this.lbl_xinjianguize3.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_xinjianguize3.Name = "lbl_xinjianguize3";
             this.lbl_xinjianguize3.Size = new System.Drawing.Size(90, 30);
@@ -1603,7 +1607,7 @@ namespace 谦海数据解析系统
             this.lbl_piliangshanchu3.BackColor = System.Drawing.Color.Tomato;
             this.lbl_piliangshanchu3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_piliangshanchu3.ForeColor = System.Drawing.Color.White;
-            this.lbl_piliangshanchu3.Location = new System.Drawing.Point(317, 5);
+            this.lbl_piliangshanchu3.Location = new System.Drawing.Point(240, 5);
             this.lbl_piliangshanchu3.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_piliangshanchu3.Name = "lbl_piliangshanchu3";
             this.lbl_piliangshanchu3.Size = new System.Drawing.Size(90, 30);
@@ -1648,7 +1652,7 @@ namespace 谦海数据解析系统
             this.dgv_chachong.RowHeadersVisible = false;
             this.dgv_chachong.RowTemplate.Height = 23;
             this.dgv_chachong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_chachong.Size = new System.Drawing.Size(618, 548);
+            this.dgv_chachong.Size = new System.Drawing.Size(464, 518);
             this.dgv_chachong.TabIndex = 1;
             this.dgv_chachong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_chachong_CellContentClick);
             // 
@@ -1721,13 +1725,13 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel22.Name = "tableLayoutPanel22";
             this.tableLayoutPanel22.RowCount = 1;
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel22.Size = new System.Drawing.Size(624, 40);
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(470, 40);
             this.tableLayoutPanel22.TabIndex = 2;
             // 
             // tb_kw3
             // 
             this.tb_kw3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_kw3.Location = new System.Drawing.Point(144, 8);
+            this.tb_kw3.Location = new System.Drawing.Point(67, 8);
             this.tb_kw3.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.tb_kw3.Name = "tb_kw3";
             this.tb_kw3.Size = new System.Drawing.Size(194, 23);
@@ -1737,7 +1741,7 @@ namespace 谦海数据解析系统
             // 
             this.pb_search3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_search3.Image = ((System.Drawing.Image)(resources.GetObject("pb_search3.Image")));
-            this.pb_search3.Location = new System.Drawing.Point(348, 7);
+            this.pb_search3.Location = new System.Drawing.Point(271, 7);
             this.pb_search3.Margin = new System.Windows.Forms.Padding(7);
             this.pb_search3.Name = "pb_search3";
             this.pb_search3.Size = new System.Drawing.Size(26, 26);
@@ -1756,7 +1760,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel23.Controls.Add(this.label29, 1, 1);
             this.tableLayoutPanel23.Controls.Add(this.label30, 0, 0);
             this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel23.Location = new System.Drawing.Point(522, 0);
+            this.tableLayoutPanel23.Location = new System.Drawing.Point(368, 0);
             this.tableLayoutPanel23.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel23.Name = "tableLayoutPanel23";
             this.tableLayoutPanel23.RowCount = 2;
@@ -1810,9 +1814,9 @@ namespace 谦海数据解析系统
             // 基础解析
             // 
             this.基础解析.Controls.Add(this.tableLayoutPanel24);
-            this.基础解析.Location = new System.Drawing.Point(4, 34);
+            this.基础解析.Location = new System.Drawing.Point(4, 64);
             this.基础解析.Name = "基础解析";
-            this.基础解析.Size = new System.Drawing.Size(630, 696);
+            this.基础解析.Size = new System.Drawing.Size(476, 666);
             this.基础解析.TabIndex = 3;
             this.基础解析.Text = "基础解析";
             this.基础解析.UseVisualStyleBackColor = true;
@@ -1830,7 +1834,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel24.RowCount = 2;
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel24.Size = new System.Drawing.Size(630, 696);
+            this.tableLayoutPanel24.Size = new System.Drawing.Size(476, 666);
             this.tableLayoutPanel24.TabIndex = 2;
             // 
             // tableLayoutPanel25
@@ -1850,7 +1854,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel25.Name = "tableLayoutPanel25";
             this.tableLayoutPanel25.RowCount = 1;
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel25.Size = new System.Drawing.Size(630, 40);
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(476, 40);
             this.tableLayoutPanel25.TabIndex = 2;
             // 
             // label31
@@ -1874,7 +1878,7 @@ namespace 谦海数据解析系统
             this.cbb_format4.Location = new System.Drawing.Point(123, 7);
             this.cbb_format4.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
             this.cbb_format4.Name = "cbb_format4";
-            this.cbb_format4.Size = new System.Drawing.Size(344, 25);
+            this.cbb_format4.Size = new System.Drawing.Size(190, 25);
             this.cbb_format4.TabIndex = 1;
             this.cbb_format4.SelectedIndexChanged += new System.EventHandler(this.cbb_format4_SelectedIndexChanged);
             // 
@@ -1884,7 +1888,7 @@ namespace 谦海数据解析系统
             this.lbl_baocun4.BackColor = System.Drawing.Color.Tomato;
             this.lbl_baocun4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_baocun4.ForeColor = System.Drawing.Color.White;
-            this.lbl_baocun4.Location = new System.Drawing.Point(475, 5);
+            this.lbl_baocun4.Location = new System.Drawing.Point(321, 5);
             this.lbl_baocun4.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_baocun4.Name = "lbl_baocun4";
             this.lbl_baocun4.Size = new System.Drawing.Size(70, 30);
@@ -1899,7 +1903,7 @@ namespace 谦海数据解析系统
             this.lbl_shanchu4.BackColor = System.Drawing.Color.Tomato;
             this.lbl_shanchu4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_shanchu4.ForeColor = System.Drawing.Color.White;
-            this.lbl_shanchu4.Location = new System.Drawing.Point(555, 5);
+            this.lbl_shanchu4.Location = new System.Drawing.Point(401, 5);
             this.lbl_shanchu4.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_shanchu4.Name = "lbl_shanchu4";
             this.lbl_shanchu4.Size = new System.Drawing.Size(70, 30);
@@ -1915,7 +1919,7 @@ namespace 谦海数据解析系统
             this.groupBox5.Location = new System.Drawing.Point(0, 40);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(630, 656);
+            this.groupBox5.Size = new System.Drawing.Size(476, 626);
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "解析规则列表";
@@ -1934,7 +1938,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(624, 634);
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(470, 604);
             this.tableLayoutPanel26.TabIndex = 0;
             // 
             // tableLayoutPanel27
@@ -1954,7 +1958,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel27.Name = "tableLayoutPanel27";
             this.tableLayoutPanel27.RowCount = 1;
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel27.Size = new System.Drawing.Size(624, 40);
+            this.tableLayoutPanel27.Size = new System.Drawing.Size(470, 40);
             this.tableLayoutPanel27.TabIndex = 0;
             // 
             // lbl_xinjian4
@@ -1963,7 +1967,7 @@ namespace 谦海数据解析系统
             this.lbl_xinjian4.BackColor = System.Drawing.Color.Tomato;
             this.lbl_xinjian4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_xinjian4.ForeColor = System.Drawing.Color.White;
-            this.lbl_xinjian4.Location = new System.Drawing.Point(217, 5);
+            this.lbl_xinjian4.Location = new System.Drawing.Point(140, 5);
             this.lbl_xinjian4.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_xinjian4.Name = "lbl_xinjian4";
             this.lbl_xinjian4.Size = new System.Drawing.Size(90, 30);
@@ -1978,7 +1982,7 @@ namespace 谦海数据解析系统
             this.lbl_piliangshanchu4.BackColor = System.Drawing.Color.Tomato;
             this.lbl_piliangshanchu4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_piliangshanchu4.ForeColor = System.Drawing.Color.White;
-            this.lbl_piliangshanchu4.Location = new System.Drawing.Point(317, 5);
+            this.lbl_piliangshanchu4.Location = new System.Drawing.Point(240, 5);
             this.lbl_piliangshanchu4.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_piliangshanchu4.Name = "lbl_piliangshanchu4";
             this.lbl_piliangshanchu4.Size = new System.Drawing.Size(90, 30);
@@ -2023,7 +2027,7 @@ namespace 谦海数据解析系统
             this.dgv_jichujiexi.RowHeadersVisible = false;
             this.dgv_jichujiexi.RowTemplate.Height = 23;
             this.dgv_jichujiexi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_jichujiexi.Size = new System.Drawing.Size(618, 548);
+            this.dgv_jichujiexi.Size = new System.Drawing.Size(464, 518);
             this.dgv_jichujiexi.TabIndex = 1;
             this.dgv_jichujiexi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_jichujiexi_CellContentClick);
             // 
@@ -2096,13 +2100,13 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel28.Name = "tableLayoutPanel28";
             this.tableLayoutPanel28.RowCount = 1;
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel28.Size = new System.Drawing.Size(624, 40);
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(470, 40);
             this.tableLayoutPanel28.TabIndex = 2;
             // 
             // tb_kw4
             // 
             this.tb_kw4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_kw4.Location = new System.Drawing.Point(144, 8);
+            this.tb_kw4.Location = new System.Drawing.Point(67, 8);
             this.tb_kw4.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.tb_kw4.Name = "tb_kw4";
             this.tb_kw4.Size = new System.Drawing.Size(194, 23);
@@ -2112,7 +2116,7 @@ namespace 谦海数据解析系统
             // 
             this.pb_search4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_search4.Image = ((System.Drawing.Image)(resources.GetObject("pb_search4.Image")));
-            this.pb_search4.Location = new System.Drawing.Point(348, 7);
+            this.pb_search4.Location = new System.Drawing.Point(271, 7);
             this.pb_search4.Margin = new System.Windows.Forms.Padding(7);
             this.pb_search4.Name = "pb_search4";
             this.pb_search4.Size = new System.Drawing.Size(26, 26);
@@ -2131,7 +2135,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel29.Controls.Add(this.label38, 1, 1);
             this.tableLayoutPanel29.Controls.Add(this.label39, 0, 0);
             this.tableLayoutPanel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel29.Location = new System.Drawing.Point(522, 0);
+            this.tableLayoutPanel29.Location = new System.Drawing.Point(368, 0);
             this.tableLayoutPanel29.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel29.Name = "tableLayoutPanel29";
             this.tableLayoutPanel29.RowCount = 2;
@@ -2185,9 +2189,9 @@ namespace 谦海数据解析系统
             // 内容解析
             // 
             this.内容解析.Controls.Add(this.tableLayoutPanel30);
-            this.内容解析.Location = new System.Drawing.Point(4, 34);
+            this.内容解析.Location = new System.Drawing.Point(4, 64);
             this.内容解析.Name = "内容解析";
-            this.内容解析.Size = new System.Drawing.Size(630, 696);
+            this.内容解析.Size = new System.Drawing.Size(476, 666);
             this.内容解析.TabIndex = 4;
             this.内容解析.Text = "内容解析";
             this.内容解析.UseVisualStyleBackColor = true;
@@ -2205,7 +2209,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel30.RowCount = 2;
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel30.Size = new System.Drawing.Size(630, 696);
+            this.tableLayoutPanel30.Size = new System.Drawing.Size(476, 666);
             this.tableLayoutPanel30.TabIndex = 2;
             // 
             // tableLayoutPanel31
@@ -2225,7 +2229,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel31.Name = "tableLayoutPanel31";
             this.tableLayoutPanel31.RowCount = 1;
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel31.Size = new System.Drawing.Size(630, 40);
+            this.tableLayoutPanel31.Size = new System.Drawing.Size(476, 40);
             this.tableLayoutPanel31.TabIndex = 2;
             // 
             // label40
@@ -2249,7 +2253,7 @@ namespace 谦海数据解析系统
             this.cbb_format5.Location = new System.Drawing.Point(123, 7);
             this.cbb_format5.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
             this.cbb_format5.Name = "cbb_format5";
-            this.cbb_format5.Size = new System.Drawing.Size(344, 25);
+            this.cbb_format5.Size = new System.Drawing.Size(190, 25);
             this.cbb_format5.TabIndex = 1;
             this.cbb_format5.SelectedIndexChanged += new System.EventHandler(this.cbb_format5_SelectedIndexChanged);
             // 
@@ -2259,7 +2263,7 @@ namespace 谦海数据解析系统
             this.lbl_baocun5.BackColor = System.Drawing.Color.Tomato;
             this.lbl_baocun5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_baocun5.ForeColor = System.Drawing.Color.White;
-            this.lbl_baocun5.Location = new System.Drawing.Point(475, 5);
+            this.lbl_baocun5.Location = new System.Drawing.Point(321, 5);
             this.lbl_baocun5.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_baocun5.Name = "lbl_baocun5";
             this.lbl_baocun5.Size = new System.Drawing.Size(70, 30);
@@ -2274,7 +2278,7 @@ namespace 谦海数据解析系统
             this.lbl_shanchu5.BackColor = System.Drawing.Color.Tomato;
             this.lbl_shanchu5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_shanchu5.ForeColor = System.Drawing.Color.White;
-            this.lbl_shanchu5.Location = new System.Drawing.Point(555, 5);
+            this.lbl_shanchu5.Location = new System.Drawing.Point(401, 5);
             this.lbl_shanchu5.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_shanchu5.Name = "lbl_shanchu5";
             this.lbl_shanchu5.Size = new System.Drawing.Size(70, 30);
@@ -2290,7 +2294,7 @@ namespace 谦海数据解析系统
             this.groupBox6.Location = new System.Drawing.Point(0, 40);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(630, 656);
+            this.groupBox6.Size = new System.Drawing.Size(476, 626);
             this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "解析规则列表";
@@ -2308,7 +2312,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel32.Size = new System.Drawing.Size(624, 634);
+            this.tableLayoutPanel32.Size = new System.Drawing.Size(470, 604);
             this.tableLayoutPanel32.TabIndex = 0;
             // 
             // tableLayoutPanel33
@@ -2325,7 +2329,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel33.Name = "tableLayoutPanel33";
             this.tableLayoutPanel33.RowCount = 1;
             this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel33.Size = new System.Drawing.Size(624, 40);
+            this.tableLayoutPanel33.Size = new System.Drawing.Size(470, 40);
             this.tableLayoutPanel33.TabIndex = 0;
             // 
             // lbl_xinjianbiaoqianku
@@ -2334,7 +2338,7 @@ namespace 谦海数据解析系统
             this.lbl_xinjianbiaoqianku.BackColor = System.Drawing.Color.Tomato;
             this.lbl_xinjianbiaoqianku.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_xinjianbiaoqianku.ForeColor = System.Drawing.Color.White;
-            this.lbl_xinjianbiaoqianku.Location = new System.Drawing.Point(267, 5);
+            this.lbl_xinjianbiaoqianku.Location = new System.Drawing.Point(190, 5);
             this.lbl_xinjianbiaoqianku.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_xinjianbiaoqianku.Name = "lbl_xinjianbiaoqianku";
             this.lbl_xinjianbiaoqianku.Size = new System.Drawing.Size(90, 30);
@@ -2349,15 +2353,15 @@ namespace 谦海数据解析系统
             this.panel_5.Location = new System.Drawing.Point(0, 40);
             this.panel_5.Margin = new System.Windows.Forms.Padding(0);
             this.panel_5.Name = "panel_5";
-            this.panel_5.Size = new System.Drawing.Size(624, 594);
+            this.panel_5.Size = new System.Drawing.Size(470, 564);
             this.panel_5.TabIndex = 1;
             // 
             // 大数据版
             // 
             this.大数据版.Controls.Add(this.tableLayoutPanel5);
-            this.大数据版.Location = new System.Drawing.Point(4, 34);
+            this.大数据版.Location = new System.Drawing.Point(4, 64);
             this.大数据版.Name = "大数据版";
-            this.大数据版.Size = new System.Drawing.Size(630, 696);
+            this.大数据版.Size = new System.Drawing.Size(476, 666);
             this.大数据版.TabIndex = 5;
             this.大数据版.Text = "大数据版";
             this.大数据版.UseVisualStyleBackColor = true;
@@ -2375,7 +2379,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(630, 696);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(476, 666);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // tableLayoutPanel36
@@ -2395,7 +2399,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel36.Name = "tableLayoutPanel36";
             this.tableLayoutPanel36.RowCount = 1;
             this.tableLayoutPanel36.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel36.Size = new System.Drawing.Size(630, 40);
+            this.tableLayoutPanel36.Size = new System.Drawing.Size(476, 40);
             this.tableLayoutPanel36.TabIndex = 2;
             // 
             // label49
@@ -2419,7 +2423,7 @@ namespace 谦海数据解析系统
             this.cbb_formatname6.Location = new System.Drawing.Point(123, 7);
             this.cbb_formatname6.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
             this.cbb_formatname6.Name = "cbb_formatname6";
-            this.cbb_formatname6.Size = new System.Drawing.Size(344, 25);
+            this.cbb_formatname6.Size = new System.Drawing.Size(190, 25);
             this.cbb_formatname6.TabIndex = 1;
             this.cbb_formatname6.SelectedIndexChanged += new System.EventHandler(this.cbb_formatname6_SelectedIndexChanged);
             // 
@@ -2429,7 +2433,7 @@ namespace 谦海数据解析系统
             this.lbl_baocun.BackColor = System.Drawing.Color.Tomato;
             this.lbl_baocun.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_baocun.ForeColor = System.Drawing.Color.White;
-            this.lbl_baocun.Location = new System.Drawing.Point(475, 5);
+            this.lbl_baocun.Location = new System.Drawing.Point(321, 5);
             this.lbl_baocun.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_baocun.Name = "lbl_baocun";
             this.lbl_baocun.Size = new System.Drawing.Size(70, 30);
@@ -2444,7 +2448,7 @@ namespace 谦海数据解析系统
             this.lbl_shanchu.BackColor = System.Drawing.Color.Tomato;
             this.lbl_shanchu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_shanchu.ForeColor = System.Drawing.Color.White;
-            this.lbl_shanchu.Location = new System.Drawing.Point(555, 5);
+            this.lbl_shanchu.Location = new System.Drawing.Point(401, 5);
             this.lbl_shanchu.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_shanchu.Name = "lbl_shanchu";
             this.lbl_shanchu.Size = new System.Drawing.Size(70, 30);
@@ -2460,7 +2464,7 @@ namespace 谦海数据解析系统
             this.groupBox7.Location = new System.Drawing.Point(0, 40);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(630, 656);
+            this.groupBox7.Size = new System.Drawing.Size(476, 626);
             this.groupBox7.TabIndex = 5;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "大数据版规则";
@@ -2479,7 +2483,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel37.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel37.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel37.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel37.Size = new System.Drawing.Size(624, 634);
+            this.tableLayoutPanel37.Size = new System.Drawing.Size(470, 604);
             this.tableLayoutPanel37.TabIndex = 0;
             // 
             // tableLayoutPanel38
@@ -2499,7 +2503,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel38.Name = "tableLayoutPanel38";
             this.tableLayoutPanel38.RowCount = 1;
             this.tableLayoutPanel38.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel38.Size = new System.Drawing.Size(624, 40);
+            this.tableLayoutPanel38.Size = new System.Drawing.Size(470, 40);
             this.tableLayoutPanel38.TabIndex = 0;
             // 
             // lbl_xinjian6
@@ -2508,7 +2512,7 @@ namespace 谦海数据解析系统
             this.lbl_xinjian6.BackColor = System.Drawing.Color.Tomato;
             this.lbl_xinjian6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_xinjian6.ForeColor = System.Drawing.Color.White;
-            this.lbl_xinjian6.Location = new System.Drawing.Point(217, 5);
+            this.lbl_xinjian6.Location = new System.Drawing.Point(140, 5);
             this.lbl_xinjian6.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_xinjian6.Name = "lbl_xinjian6";
             this.lbl_xinjian6.Size = new System.Drawing.Size(90, 30);
@@ -2523,7 +2527,7 @@ namespace 谦海数据解析系统
             this.lbl_piliangshanchu.BackColor = System.Drawing.Color.Tomato;
             this.lbl_piliangshanchu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_piliangshanchu.ForeColor = System.Drawing.Color.White;
-            this.lbl_piliangshanchu.Location = new System.Drawing.Point(317, 5);
+            this.lbl_piliangshanchu.Location = new System.Drawing.Point(240, 5);
             this.lbl_piliangshanchu.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_piliangshanchu.Name = "lbl_piliangshanchu";
             this.lbl_piliangshanchu.Size = new System.Drawing.Size(90, 30);
@@ -2568,7 +2572,7 @@ namespace 谦海数据解析系统
             this.dgv_dsjRules.RowHeadersVisible = false;
             this.dgv_dsjRules.RowTemplate.Height = 23;
             this.dgv_dsjRules.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_dsjRules.Size = new System.Drawing.Size(618, 548);
+            this.dgv_dsjRules.Size = new System.Drawing.Size(464, 518);
             this.dgv_dsjRules.TabIndex = 1;
             this.dgv_dsjRules.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_dsjRules_CellContentClick);
             // 
@@ -2631,7 +2635,7 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel39.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel39.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel39.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel39.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.tableLayoutPanel39.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
             this.tableLayoutPanel39.Controls.Add(this.tb_kw6, 1, 0);
             this.tableLayoutPanel39.Controls.Add(this.pb_search6, 2, 0);
             this.tableLayoutPanel39.Controls.Add(this.tableLayoutPanel40, 4, 0);
@@ -2641,13 +2645,13 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel39.Name = "tableLayoutPanel39";
             this.tableLayoutPanel39.RowCount = 1;
             this.tableLayoutPanel39.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel39.Size = new System.Drawing.Size(624, 40);
+            this.tableLayoutPanel39.Size = new System.Drawing.Size(470, 40);
             this.tableLayoutPanel39.TabIndex = 2;
             // 
             // tb_kw6
             // 
             this.tb_kw6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_kw6.Location = new System.Drawing.Point(144, 8);
+            this.tb_kw6.Location = new System.Drawing.Point(66, 8);
             this.tb_kw6.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.tb_kw6.Name = "tb_kw6";
             this.tb_kw6.Size = new System.Drawing.Size(194, 23);
@@ -2657,7 +2661,7 @@ namespace 谦海数据解析系统
             // 
             this.pb_search6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_search6.Image = ((System.Drawing.Image)(resources.GetObject("pb_search6.Image")));
-            this.pb_search6.Location = new System.Drawing.Point(348, 7);
+            this.pb_search6.Location = new System.Drawing.Point(270, 7);
             this.pb_search6.Margin = new System.Windows.Forms.Padding(7);
             this.pb_search6.Name = "pb_search6";
             this.pb_search6.Size = new System.Drawing.Size(26, 26);
@@ -2676,13 +2680,13 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel40.Controls.Add(this.label56, 1, 1);
             this.tableLayoutPanel40.Controls.Add(this.label57, 0, 0);
             this.tableLayoutPanel40.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel40.Location = new System.Drawing.Point(522, 0);
+            this.tableLayoutPanel40.Location = new System.Drawing.Point(366, 0);
             this.tableLayoutPanel40.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel40.Name = "tableLayoutPanel40";
             this.tableLayoutPanel40.RowCount = 2;
             this.tableLayoutPanel40.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel40.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel40.Size = new System.Drawing.Size(102, 40);
+            this.tableLayoutPanel40.Size = new System.Drawing.Size(104, 40);
             this.tableLayoutPanel40.TabIndex = 2;
             // 
             // label54
@@ -2743,14 +2747,14 @@ namespace 谦海数据解析系统
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(638, 40);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(484, 40);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // pb_out
             // 
             this.pb_out.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_out.Image = global::谦海数据解析系统.Properties.Resources._out;
-            this.pb_out.Location = new System.Drawing.Point(606, 8);
+            this.pb_out.Location = new System.Drawing.Point(452, 8);
             this.pb_out.Margin = new System.Windows.Forms.Padding(8);
             this.pb_out.Name = "pb_out";
             this.pb_out.Size = new System.Drawing.Size(24, 24);
@@ -2764,7 +2768,7 @@ namespace 谦海数据解析系统
             this.lbl_username.AutoSize = true;
             this.lbl_username.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_username.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl_username.Location = new System.Drawing.Point(439, 1);
+            this.lbl_username.Location = new System.Drawing.Point(285, 1);
             this.lbl_username.Margin = new System.Windows.Forms.Padding(1);
             this.lbl_username.Name = "lbl_username";
             this.lbl_username.Size = new System.Drawing.Size(118, 38);
@@ -2776,7 +2780,7 @@ namespace 谦海数据解析系统
             // 
             this.pb_qiehuan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_qiehuan.Image = global::谦海数据解析系统.Properties.Resources.qiehuan;
-            this.pb_qiehuan.Location = new System.Drawing.Point(566, 8);
+            this.pb_qiehuan.Location = new System.Drawing.Point(412, 8);
             this.pb_qiehuan.Margin = new System.Windows.Forms.Padding(8);
             this.pb_qiehuan.Name = "pb_qiehuan";
             this.pb_qiehuan.Size = new System.Drawing.Size(24, 24);
@@ -2793,7 +2797,7 @@ namespace 谦海数据解析系统
             this.label13.Location = new System.Drawing.Point(0, 0);
             this.label13.Margin = new System.Windows.Forms.Padding(0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(1154, 25);
+            this.label13.Size = new System.Drawing.Size(938, 25);
             this.label13.TabIndex = 2;
             this.label13.Text = "高密级内部系统 严禁非公司许可电脑安装使用 严禁对外传播本系统任何信息";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2803,7 +2807,7 @@ namespace 谦海数据解析系统
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1260, 811);
+            this.ClientSize = new System.Drawing.Size(1044, 811);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

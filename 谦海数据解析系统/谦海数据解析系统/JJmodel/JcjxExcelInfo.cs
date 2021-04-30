@@ -6,12 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using 文本解析系统.JJCommon;
 
-namespace 文本解析系统.JJModel
+namespace 谦海数据解析系统.JJmodel
 {
-    public class WordInfo
+ 
+    /// <summary>
+    /// 用于向基础解析表输入基础解析结果的类
+    /// </summary>
+    class JcjxExcelInfo
     {
+
         Aspose.Words.Document _myword = null;
         /// <summary>
         /// 用于存放计算好的对象基础信息
@@ -21,6 +25,10 @@ namespace 文本解析系统.JJModel
         /// 文件名
         /// </summary>
         public string _wenjianming = string.Empty;
+        /// <summary>
+        /// 用于存放该文件的新位置
+        /// </summary>
+        public string _newPath = string.Empty;
         /// <summary>
         /// 主标题集合
         /// </summary>
@@ -121,14 +129,6 @@ namespace 文本解析系统.JJModel
         /// 普通索引句集合
         /// </summary>
         public List<string> _putongsuoyinju = new List<string>();
-        /// <summary>
-        /// 传入一个word文件名，在构造函数中分解成基本信息
-        /// </summary>
-        /// <param name="filename"></param>
-        public WordInfo(string filename)
-        {
-            _myword = new Aspose.Words.Document(filename);
-        }
         //public BaseInfo wenjianminginfo = new BaseInfo();
         //public BaseInfo zhubiaotiinfo = new BaseInfo();
         //public BaseInfo fubiaotiinfo = new BaseInfo();
@@ -152,6 +152,20 @@ namespace 文本解析系统.JJModel
         //public BaseInfo yijibiaotigangyaoinfo = new BaseInfo();
         //public BaseInfo erjibiaotigangyaoinfo = new BaseInfo();
         //public BaseInfo sanjibiaotigangyaoinfo = new BaseInfo();
+        /// <summary>
+        /// 依据该格式对文档进行基础解析
+        /// </summary>
+        public FormatInfo _formatInfo = new FormatInfo();
+
+
+        /// <summary>
+        /// 传入一个word文件名，在构造函数中分解成基本信息
+        /// </summary>
+        /// <param name="filename"></param>
+        public JcjxExcelInfo(string filename)
+        {
+            _myword = new Aspose.Words.Document(filename);
+        }
 
         /// <summary>
         /// 获得所有的文本
@@ -235,12 +249,6 @@ namespace 文本解析系统.JJModel
                 }
             }
         }
-
-
-
-
-
-
         /// <summary>
         /// 普通索引句
         /// </summary>
@@ -289,9 +297,6 @@ namespace 文本解析系统.JJModel
 
 
         }
-
-
-
         /// <summary>
         /// 获得段首标准句索引句
         /// </summary>
@@ -325,7 +330,6 @@ namespace 文本解析系统.JJModel
 
 
         }
-
         /// <summary>
         /// 获得三级标题索引句
         /// </summary>
@@ -359,7 +363,6 @@ namespace 文本解析系统.JJModel
             }
 
         }
-
         /// <summary>
         /// 获得二级标题索引句
         /// </summary>
@@ -957,7 +960,7 @@ namespace 文本解析系统.JJModel
                 //文本
                 newbi._wenben = item;
 
-                //名称,判断文本是否含有章，编，节，如果有的话，将名称改为对应的标题
+                //名称,判断文本是否含有章，编，节，如果有的话，将添加对应的子（章，编，节）
                 if (newbi._wenben.Contains("编"))
                 {
                     newbi._mingcheng = "编标题";
@@ -977,7 +980,7 @@ namespace 文本解析系统.JJModel
                 newbi._redu = 1;
                 //字数
                 newbi._zishu = newbi._wenben.Length;
-                //位置关联
+                //位置关联信息
 
                 for (int i = 0; i < _biaozhunju.Count; i++)
                 {
@@ -990,7 +993,7 @@ namespace 文本解析系统.JJModel
 
                     }
                 }
-                //内容关联
+                //内容关联信息
                 newbi._neirongguanlian = _zhengwengangyao;
                 _list_baseinfo.Add(newbi);
             }
@@ -1000,7 +1003,7 @@ namespace 文本解析系统.JJModel
                 newbi = new BaseInfo();
                 //文本
                 newbi._wenben = item;
-                //名称,判断文本是否含有章，编，节，如果有的话，将名称改为对应的标题
+                //名称,判断文本是否含有章，编，节，如果有的话，将名称前面添加对应的字（章，编，节）
                 if (newbi._wenben.Contains("编"))
                 {
                     newbi._mingcheng = "编标题";
@@ -1115,7 +1118,6 @@ namespace 文本解析系统.JJModel
                         {
                             newbi._weizhiguanlian = _biaozhunju[i + 1];
                         }
-
                     }
                 }
 
@@ -2455,8 +2457,6 @@ namespace 文本解析系统.JJModel
                 }
             }
         }
-
-
         /// <summary>
         /// 获得标准段（包括主标题）
         /// </summary>
@@ -2498,7 +2498,6 @@ namespace 文本解析系统.JJModel
 
             }
         }
-
         /// <summary>
         /// 获得标准句
         /// </summary>
@@ -2541,8 +2540,6 @@ namespace 文本解析系统.JJModel
                 }
             }
         }
-
-
         /// <summary>
         /// 获得段首标准句
         /// </summary>
@@ -2575,12 +2572,6 @@ namespace 文本解析系统.JJModel
                 _duanshoubiaozhunju.Add(mystr);
             }
         }
-
-
-
-
-
-
         /// <summary>
         /// 获得正文集合
         /// </summary>
@@ -2723,7 +2714,6 @@ namespace 文本解析系统.JJModel
 
             }
         }
-
         /// <summary>
         /// 将阿拉伯数字转换成大写数字
         /// </summary>
@@ -2791,10 +2781,8 @@ namespace 文本解析系统.JJModel
             return string.Empty;
 
         }
-
-
         /// <summary>
-        /// 把文字拆分成多个字符串
+        /// 把文字字符串根据长度要求拆分为字符串集合
         /// </summary>
         /// <param name="s">整个字符串</param>
         /// <param name="num">每段的字符串上限</param>
@@ -2814,5 +2802,159 @@ namespace 文本解析系统.JJModel
             }
             return list;
         }
+
+        /// <summary>
+        /// 该方法用于对文档进行基础解析，最终得到一个基础解系表
+        /// </summary>
+        //public void JichuJiexi()
+        //{
+        //   //将formatInfo的set解析成jcjxRuleRoot集合
+
+
+
+        //        //开始解析,先解析基础规则，然后根据复制文本范围向sheet赋值
+        //        //赋值基础规则
+        //        //实例化一个excel
+        //        Aspose.Cells.Workbook mywbk1 = new Aspose.Cells.Workbook();
+        //        Aspose.Cells.Worksheet mysht1 = mywbk1.Worksheets[0];
+        //        mysht1.Cells.Style.IsTextWrapped = true;
+        //        mysht1.Cells[0, 0].Value = "名称";
+        //        mysht1.Cells[0, 1].Value = "文本";
+        //        mysht1.Cells[0, 2].Value = "MD5值";
+        //        mysht1.Cells[0, 3].Value = "热度";
+        //        mysht1.Cells[0, 4].Value = "字数";
+        //        mysht1.Cells[0, 5].Value = "位置类关联信息";
+        //        mysht1.Cells[0, 6].Value = "位置类关联信息MD5";
+        //        mysht1.Cells[0, 7].Value = "内容类关联信息";
+        //        mysht1.Cells[0, 8].Value = "内容类关联信息MD5";
+        //        mysht1.Cells[0, 9].Value = "关联标准段";
+        //        mysht1.Cells[0, 10].Value = "关联标准段MD5";
+
+        //        //开始赋值信息
+        //        for (int i = 0; i < _formatInfo..Count; i++)
+        //        {
+               
+        //                //生成基础解析格式部分
+        //                WordInfo mywordinfo = new WordInfo(filename);
+        //                //使用一个方法获得word文档的的所有基础解系对象集合
+        //                mywordinfo.GetAllWenben();//获得了文本
+        //                                          //基础解析规则也分为两种分别是裁判文书基础规则，法律法规基础规则
+        //                if (myfi.list_jiexiguize[i].Equals("通用基础规则"))
+        //                {
+        //                    mywordinfo.AnalysisInfo();//解析通用基础规则
+
+        //                }
+        //                else if (myfi.list_jiexiguize[i].Equals("法律法规基础规则"))
+        //                {
+        //                    mywordinfo.AnalysisInfo();//解析通用基础规则
+
+        //                    mywordinfo.AnalysisInfo2();//解析法律法规基础规则
+        //                }
+
+
+
+
+
+        //                //循环所有的baseinfo对象到excel表中去
+        //                //在添入excel之前，判断是否出现过文本相同的记录，如果出现了就跳过，如果没出现，就添加这一行并且记录文本
+        //                List<string> list_r = new List<string>();
+        //                string wenben = string.Empty;//用来临时保存一条记录的文本
+        //                string mingcheng = string.Empty;//用来临时保存一条记录的名称
+        //                for (int b = 0; b < mywordinfo._list_baseinfo.Count; b++)
+        //                {
+        //                    //在这里做一个放错机制，防止正文过长等一些导致填充表格报错的情况
+        //                    try
+        //                    {
+        //                        wenben = mywordinfo._list_baseinfo[b]._wenben.Trim();
+        //                        mingcheng = mywordinfo._list_baseinfo[b]._mingcheng.Trim();
+        //                        if (mywordinfo._list_baseinfo[b]._wenben.Trim().Equals(string.Empty))
+        //                        {
+        //                            continue;
+        //                        }
+        //                        //判断是否重复,如果名称带有条或款或项，就不判断重复
+        //                        bool b_tkx = Regex.IsMatch(mingcheng, @"[条款项]");
+        //                        bool b1 = mingcheng.Equals("效力级别") || mingcheng.Equals("时效性") || mingcheng.Equals("发布日期") || mingcheng.Equals("实施日期") || mingcheng.Equals("发布机关");
+        //                        if (!b_tkx && !b1)
+        //                        {
+        //                            if (list_r.Contains(wenben))
+        //                            {
+        //                                continue;
+        //                            }
+        //                        }
+
+        //                        //获得最后一行，将信息填入到新的一行中
+        //                        int rowindex = mysht1.Cells.LastCell.Row + 1;
+        //                        mysht1.Cells[rowindex, 0].Value = mywordinfo._list_baseinfo[b]._mingcheng;
+        //                        mysht1.Cells[rowindex, 1].Value = mywordinfo._list_baseinfo[b]._wenben;
+        //                        mysht1.Cells[rowindex, 2].Value = mywordinfo._list_baseinfo[b]._MD5;
+        //                        mysht1.Cells[rowindex, 3].Value = mywordinfo._list_baseinfo[b]._redu;
+        //                        mysht1.Cells[rowindex, 4].Value = mywordinfo._list_baseinfo[b]._zishu;
+        //                        mysht1.Cells[rowindex, 5].Value = mywordinfo._list_baseinfo[b]._weizhiguanlian;
+        //                        mysht1.Cells[rowindex, 6].Value = Md5Helper.Md5(mywordinfo._list_baseinfo[b]._weizhiguanlian);
+        //                        mysht1.Cells[rowindex, 7].Value = mywordinfo._list_baseinfo[b]._neirongguanlian;
+        //                        mysht1.Cells[rowindex, 8].Value = Md5Helper.Md5(mywordinfo._list_baseinfo[b]._neirongguanlian);
+        //                        mysht1.Cells[rowindex, 9].Value = mywordinfo._list_baseinfo[b]._guanlianbiaozhunduan;
+        //                        mysht1.Cells[rowindex, 10].Value = Md5Helper.Md5(mywordinfo._list_baseinfo[b]._guanlianbiaozhunduan);
+        //                        //将文本保存在list_r中
+        //                        list_r.Add(wenben);
+        //                    }
+        //                    catch (Exception ex)
+        //                    {
+        //                        //MessageBox.Show(ex.Message);
+        //                    }
+        //                }
+        //        }
+        //        //保存解析结果表，如果为空表示默认位置
+        //        string savepath = string.Empty;
+        //        if (myfi._excelpath.Trim().Equals(string.Empty))
+        //        {
+        //            myfi._excelpath = Path.GetDirectoryName(filename);
+        //        }
+        //        mywbk1.Save($@"{myfi._excelpath}\{Path.GetFileNameWithoutExtension(filename)}.xlsx");
+        //}
     }
+
+    /// <summary>
+    /// 基础解系表中的行信息
+    /// </summary>
+    public class BaseInfo
+    {
+        /// <summary>
+        /// 全文
+        /// </summary>
+        public string _quanwen = string.Empty;
+        /// <summary>
+        /// 名称
+        /// </summary>
+        public string _mingcheng = string.Empty;
+        /// <summary>
+        /// 文本
+        /// </summary>
+        public string _wenben = string.Empty;
+        /// <summary>
+        /// MD5值
+        /// </summary>
+        public string _MD5 = string.Empty;
+        /// <summary>
+        /// 热度
+        /// </summary>
+        public int _redu = 0;
+        /// <summary>
+        /// 字数
+        /// </summary>
+        public int _zishu = 0;
+        /// <summary>
+        /// 位置关联信息
+        /// </summary>
+        public string _weizhiguanlian = string.Empty;
+        /// <summary>
+        /// 内容关联信息
+        /// </summary>
+        public string _neirongguanlian = string.Empty;
+        /// <summary>
+        ///关联标准段
+        /// </summary>
+        public string _guanlianbiaozhunduan = string.Empty;
+    }
+
 }

@@ -104,10 +104,10 @@
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.checkBox35 = new System.Windows.Forms.CheckBox();
+            this.cb_qujian = new System.Windows.Forms.CheckBox();
             this.checkBox36 = new System.Windows.Forms.CheckBox();
             this.tb_zidingyijieguo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cb_qujian = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -1067,6 +1067,18 @@
             this.checkBox35.Text = "后标准段";
             this.checkBox35.UseVisualStyleBackColor = true;
             // 
+            // cb_qujian
+            // 
+            this.cb_qujian.AutoSize = true;
+            this.cb_qujian.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cb_qujian.Location = new System.Drawing.Point(453, 8);
+            this.cb_qujian.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.cb_qujian.Name = "cb_qujian";
+            this.cb_qujian.Size = new System.Drawing.Size(135, 21);
+            this.cb_qujian.TabIndex = 7;
+            this.cb_qujian.Text = "提取区间内所有内容";
+            this.cb_qujian.UseVisualStyleBackColor = true;
+            // 
             // checkBox36
             // 
             this.checkBox36.AutoSize = true;
@@ -1102,18 +1114,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "赋值内容";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cb_qujian
-            // 
-            this.cb_qujian.AutoSize = true;
-            this.cb_qujian.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cb_qujian.Location = new System.Drawing.Point(453, 8);
-            this.cb_qujian.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.cb_qujian.Name = "cb_qujian";
-            this.cb_qujian.Size = new System.Drawing.Size(135, 21);
-            this.cb_qujian.TabIndex = 7;
-            this.cb_qujian.Text = "提取区间内所有内容";
-            this.cb_qujian.UseVisualStyleBackColor = true;
             // 
             // UCRuleInfo
             // 

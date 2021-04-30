@@ -12,9 +12,6 @@ namespace 文本解析系统.JJModel
         /// 全文
         /// </summary>
         public string _quanwen = string.Empty;
-
-
-
         /// <summary>
         /// 名称
         /// </summary>
@@ -31,8 +28,6 @@ namespace 文本解析系统.JJModel
         /// 热度
         /// </summary>
         public int _redu = 0;
-
-
         /// <summary>
         /// 字数
         /// </summary>

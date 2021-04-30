@@ -251,5 +251,184 @@ namespace 谦海数据解析系统.JJwinform
                 tb_neirong.Text = _myRoot._wbnr;
             }
         }
+        /// <summary>
+        /// 点击选择大标题字体按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_dbtzt_Click(object sender, EventArgs e)
+        {
+            FontDialog fd = new FontDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                tb_dbtzt.Text = fd.Font.Name;
+                nud_dbtzh.Value = Convert.ToDecimal(fd.Font.Size);
+                if (fd.Font.Bold)
+                {
+                    cb_dbtct.Checked = true;
+                }
+                else
+                {
+                    cb_dbtct.Checked = false;
+                }
+            }
+        }
+        /// <summary>
+        /// 点击副标题选择字体按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_fbtzt_Click(object sender, EventArgs e)
+        {
+            FontDialog fd = new FontDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                tb_fbtzt.Text = fd.Font.Name;
+                nud_fbtzh.Value = Convert.ToDecimal(fd.Font.Size);
+                if (fd.Font.Bold)
+                {
+                    cb_fbtct.Checked = true;
+                }
+                else
+                {
+                    cb_fbtct.Checked = false;
+                }
+            }
+        }
+        /// <summary>
+        /// 点击正文选择字体按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_zwzt_Click(object sender, EventArgs e)
+        {
+            FontDialog fd = new FontDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                tb_zwzt.Text = fd.Font.Name;
+                nud_zwzh.Value = Convert.ToDecimal(fd.Font.Size);
+                if (fd.Font.Bold)
+                {
+                    cb_zwct.Checked = true;
+                }
+                else
+                {
+                    cb_zwct.Checked = false;
+                }
+            }
+        }
+        /// <summary>
+        /// 点击一级标题选择字体按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_yjbtzt_Click(object sender, EventArgs e)
+        {
+            FontDialog fd = new FontDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                tb_yjbtzt.Text = fd.Font.Name;
+                nud_yjbtzh.Value = Convert.ToDecimal(fd.Font.Size);
+                if (fd.Font.Bold)
+                {
+                    cb_yjbtct.Checked = true;
+                }
+                else
+                {
+                    cb_yjbtct.Checked = false;
+                }
+            }
+        }
+        /// <summary>
+        /// 点击二级标题选择字体按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_ejbtzt_Click(object sender, EventArgs e)
+        {
+            FontDialog fd = new FontDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                tb_ejbtzt.Text = fd.Font.Name;
+                nud_ejbtzh.Value = Convert.ToDecimal(fd.Font.Size);
+                if (fd.Font.Bold)
+                {
+                    cb_ejbtct.Checked = true;
+                }
+                else
+                {
+                    cb_ejbtct.Checked = false;
+                }
+            }
+
+        }
+        /// <summary>
+        /// 点击三级标题选择字体按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_sjbtzt_Click(object sender, EventArgs e)
+        {
+            FontDialog fd = new FontDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                tb_sjbtzt.Text = fd.Font.Name;
+                nud_sjbtzh.Value = Convert.ToDecimal(fd.Font.Size);
+                if (fd.Font.Bold)
+                {
+                    cb_sjbtct.Checked = true;
+                }
+                else
+                {
+                    cb_sjbtct.Checked = false;
+                }
+            }
+
+        }
+        /// <summary>
+        /// 点击页眉设置选择字体按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_ymzt_Click(object sender, EventArgs e)
+        {
+            FontDialog fd = new FontDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                tb_ymzt.Text = fd.Font.Name;
+                nud_ymzh.Value = Convert.ToDecimal(fd.Font.Size);
+                if (fd.Font.Bold)
+                {
+                    cb_ymct.Checked = true;
+                }
+                else
+                {
+                    cb_ymct.Checked = false;
+                }
+            }
+
+        }
+        /// <summary>
+        /// 点击页脚设置选择字体按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_yjzt_Click(object sender, EventArgs e)
+        {
+            FontDialog fd = new FontDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                tb_yjzt.Text = fd.Font.Name;
+                nud_yjzh.Value = Convert.ToDecimal(fd.Font.Size);
+                if (fd.Font.Bold)
+                {
+                    cb_yjct.Checked = true;
+                }
+                else
+                {
+                    cb_yjct.Checked = false;
+                }
+            }
+        }
     }
 }

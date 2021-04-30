@@ -50,7 +50,7 @@ namespace 谦海数据解析系统.JJwinform
             this.nud_dbthjvalue = new System.Windows.Forms.NumericUpDown();
             this.tb_dbtzt = new System.Windows.Forms.TextBox();
             this.cb_dbtct = new System.Windows.Forms.CheckBox();
-            this.btnfont = new System.Windows.Forms.Button();
+            this.btn_dbtzt = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cbb_dbtdq = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,7 +66,7 @@ namespace 谦海数据解析系统.JJwinform
             this.nud_fbthjvalue = new System.Windows.Forms.NumericUpDown();
             this.tb_fbtzt = new System.Windows.Forms.TextBox();
             this.cb_fbtct = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_fbtzt = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
             this.cbb_fbtdq = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
@@ -82,7 +82,7 @@ namespace 谦海数据解析系统.JJwinform
             this.nud_zwhjvalue = new System.Windows.Forms.NumericUpDown();
             this.tb_zwzt = new System.Windows.Forms.TextBox();
             this.cb_zwct = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_zwzt = new System.Windows.Forms.Button();
             this.label44 = new System.Windows.Forms.Label();
             this.cbb_zwdq = new System.Windows.Forms.ComboBox();
             this.label46 = new System.Windows.Forms.Label();
@@ -98,7 +98,7 @@ namespace 谦海数据解析系统.JJwinform
             this.nud_yjbthjvalue = new System.Windows.Forms.NumericUpDown();
             this.tb_yjbtzt = new System.Windows.Forms.TextBox();
             this.cb_yjbtct = new System.Windows.Forms.CheckBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_yjbtzt = new System.Windows.Forms.Button();
             this.label55 = new System.Windows.Forms.Label();
             this.cbb_yjbtdq = new System.Windows.Forms.ComboBox();
             this.label56 = new System.Windows.Forms.Label();
@@ -114,7 +114,7 @@ namespace 谦海数据解析系统.JJwinform
             this.nud_ejbthjvalue = new System.Windows.Forms.NumericUpDown();
             this.tb_ejbtzt = new System.Windows.Forms.TextBox();
             this.cb_ejbtct = new System.Windows.Forms.CheckBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_ejbtzt = new System.Windows.Forms.Button();
             this.label64 = new System.Windows.Forms.Label();
             this.cbb_ejbtdq = new System.Windows.Forms.ComboBox();
             this.label65 = new System.Windows.Forms.Label();
@@ -130,7 +130,7 @@ namespace 谦海数据解析系统.JJwinform
             this.nud_sjbthjvalue = new System.Windows.Forms.NumericUpDown();
             this.tb_sjbtzt = new System.Windows.Forms.TextBox();
             this.cb_sjbtct = new System.Windows.Forms.CheckBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btn_sjbtzt = new System.Windows.Forms.Button();
             this.label73 = new System.Windows.Forms.Label();
             this.cbb_sjbtdq = new System.Windows.Forms.ComboBox();
             this.label74 = new System.Windows.Forms.Label();
@@ -155,7 +155,7 @@ namespace 谦海数据解析系统.JJwinform
             this.label19 = new System.Windows.Forms.Label();
             this.tb_ymnr = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnfont0 = new System.Windows.Forms.Button();
+            this.btn_ymzt = new System.Windows.Forms.Button();
             this.tb_ymzt = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.nud_ymzh = new System.Windows.Forms.NumericUpDown();
@@ -169,7 +169,7 @@ namespace 谦海数据解析系统.JJwinform
             this.label15 = new System.Windows.Forms.Label();
             this.tb_yjnr = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btn_yjzt = new System.Windows.Forms.Button();
             this.tb_yjzt = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.nud_yjzh = new System.Windows.Forms.NumericUpDown();
@@ -471,7 +471,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel4.Controls.Add(this.nud_dbthjvalue, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.tb_dbtzt, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.cb_dbtct, 3, 1);
-            this.tableLayoutPanel4.Controls.Add(this.btnfont, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.btn_dbtzt, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.label3, 4, 0);
             this.tableLayoutPanel4.Controls.Add(this.cbb_dbtdq, 5, 0);
             this.tableLayoutPanel4.Controls.Add(this.label4, 6, 0);
@@ -592,17 +592,18 @@ namespace 谦海数据解析系统.JJwinform
             this.cb_dbtct.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.cb_dbtct.UseVisualStyleBackColor = true;
             // 
-            // btnfont
+            // btn_dbtzt
             // 
-            this.btnfont.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnfont.ForeColor = System.Drawing.Color.Black;
-            this.btnfont.Location = new System.Drawing.Point(3, 33);
-            this.btnfont.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
-            this.btnfont.Name = "btnfont";
-            this.btnfont.Size = new System.Drawing.Size(74, 25);
-            this.btnfont.TabIndex = 5;
-            this.btnfont.Text = "选择字体";
-            this.btnfont.UseVisualStyleBackColor = true;
+            this.btn_dbtzt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_dbtzt.ForeColor = System.Drawing.Color.Black;
+            this.btn_dbtzt.Location = new System.Drawing.Point(3, 33);
+            this.btn_dbtzt.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
+            this.btn_dbtzt.Name = "btn_dbtzt";
+            this.btn_dbtzt.Size = new System.Drawing.Size(74, 25);
+            this.btn_dbtzt.TabIndex = 5;
+            this.btn_dbtzt.Text = "选择字体";
+            this.btn_dbtzt.UseVisualStyleBackColor = true;
+            this.btn_dbtzt.Click += new System.EventHandler(this.btn_dbtzt_Click);
             // 
             // label3
             // 
@@ -701,7 +702,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage9.Controls.Add(this.tableLayoutPanel5);
             this.tabPage9.Location = new System.Drawing.Point(4, 34);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(716, 151);
+            this.tabPage9.Size = new System.Drawing.Size(716, 149);
             this.tabPage9.TabIndex = 6;
             this.tabPage9.Text = "副标题";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -726,7 +727,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel5.Controls.Add(this.nud_fbthjvalue, 3, 0);
             this.tableLayoutPanel5.Controls.Add(this.tb_fbtzt, 1, 1);
             this.tableLayoutPanel5.Controls.Add(this.cb_fbtct, 3, 1);
-            this.tableLayoutPanel5.Controls.Add(this.button1, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.btn_fbtzt, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label34, 4, 0);
             this.tableLayoutPanel5.Controls.Add(this.cbb_fbtdq, 5, 0);
             this.tableLayoutPanel5.Controls.Add(this.label35, 6, 0);
@@ -743,7 +744,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(716, 151);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(716, 149);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // label32
@@ -847,17 +848,18 @@ namespace 谦海数据解析系统.JJwinform
             this.cb_fbtct.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.cb_fbtct.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_fbtzt
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(3, 33);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 25);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "选择字体";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_fbtzt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_fbtzt.ForeColor = System.Drawing.Color.Black;
+            this.btn_fbtzt.Location = new System.Drawing.Point(3, 33);
+            this.btn_fbtzt.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
+            this.btn_fbtzt.Name = "btn_fbtzt";
+            this.btn_fbtzt.Size = new System.Drawing.Size(74, 25);
+            this.btn_fbtzt.TabIndex = 5;
+            this.btn_fbtzt.Text = "选择字体";
+            this.btn_fbtzt.UseVisualStyleBackColor = true;
+            this.btn_fbtzt.Click += new System.EventHandler(this.btn_fbtzt_Click);
             // 
             // label34
             // 
@@ -959,7 +961,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage4.Location = new System.Drawing.Point(4, 34);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(716, 151);
+            this.tabPage4.Size = new System.Drawing.Size(716, 149);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "正文";
             // 
@@ -983,7 +985,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel7.Controls.Add(this.nud_zwhjvalue, 3, 0);
             this.tableLayoutPanel7.Controls.Add(this.tb_zwzt, 1, 1);
             this.tableLayoutPanel7.Controls.Add(this.cb_zwct, 3, 1);
-            this.tableLayoutPanel7.Controls.Add(this.button2, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.btn_zwzt, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.label44, 4, 0);
             this.tableLayoutPanel7.Controls.Add(this.cbb_zwdq, 5, 0);
             this.tableLayoutPanel7.Controls.Add(this.label46, 6, 0);
@@ -1000,7 +1002,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(716, 151);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(716, 149);
             this.tableLayoutPanel7.TabIndex = 3;
             // 
             // label41
@@ -1104,17 +1106,18 @@ namespace 谦海数据解析系统.JJwinform
             this.cb_zwct.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.cb_zwct.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btn_zwzt
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(3, 33);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(74, 25);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "选择字体";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_zwzt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_zwzt.ForeColor = System.Drawing.Color.Black;
+            this.btn_zwzt.Location = new System.Drawing.Point(3, 33);
+            this.btn_zwzt.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
+            this.btn_zwzt.Name = "btn_zwzt";
+            this.btn_zwzt.Size = new System.Drawing.Size(74, 25);
+            this.btn_zwzt.TabIndex = 5;
+            this.btn_zwzt.Text = "选择字体";
+            this.btn_zwzt.UseVisualStyleBackColor = true;
+            this.btn_zwzt.Click += new System.EventHandler(this.btn_zwzt_Click);
             // 
             // label44
             // 
@@ -1213,7 +1216,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage5.Controls.Add(this.tableLayoutPanel8);
             this.tabPage5.Location = new System.Drawing.Point(4, 34);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(716, 151);
+            this.tabPage5.Size = new System.Drawing.Size(716, 149);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "一级标题";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1238,7 +1241,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel8.Controls.Add(this.nud_yjbthjvalue, 3, 0);
             this.tableLayoutPanel8.Controls.Add(this.tb_yjbtzt, 1, 1);
             this.tableLayoutPanel8.Controls.Add(this.cb_yjbtct, 3, 1);
-            this.tableLayoutPanel8.Controls.Add(this.button3, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.btn_yjbtzt, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.label55, 4, 0);
             this.tableLayoutPanel8.Controls.Add(this.cbb_yjbtdq, 5, 0);
             this.tableLayoutPanel8.Controls.Add(this.label56, 6, 0);
@@ -1255,7 +1258,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(716, 151);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(716, 149);
             this.tableLayoutPanel8.TabIndex = 3;
             // 
             // label53
@@ -1359,17 +1362,18 @@ namespace 谦海数据解析系统.JJwinform
             this.cb_yjbtct.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.cb_yjbtct.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btn_yjbtzt
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(3, 33);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(74, 25);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "选择字体";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_yjbtzt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_yjbtzt.ForeColor = System.Drawing.Color.Black;
+            this.btn_yjbtzt.Location = new System.Drawing.Point(3, 33);
+            this.btn_yjbtzt.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
+            this.btn_yjbtzt.Name = "btn_yjbtzt";
+            this.btn_yjbtzt.Size = new System.Drawing.Size(74, 25);
+            this.btn_yjbtzt.TabIndex = 5;
+            this.btn_yjbtzt.Text = "选择字体";
+            this.btn_yjbtzt.UseVisualStyleBackColor = true;
+            this.btn_yjbtzt.Click += new System.EventHandler(this.btn_yjbtzt_Click);
             // 
             // label55
             // 
@@ -1468,7 +1472,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage7.Controls.Add(this.tableLayoutPanel9);
             this.tabPage7.Location = new System.Drawing.Point(4, 34);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(716, 151);
+            this.tabPage7.Size = new System.Drawing.Size(716, 149);
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "二级标题";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1493,7 +1497,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel9.Controls.Add(this.nud_ejbthjvalue, 3, 0);
             this.tableLayoutPanel9.Controls.Add(this.tb_ejbtzt, 1, 1);
             this.tableLayoutPanel9.Controls.Add(this.cb_ejbtct, 3, 1);
-            this.tableLayoutPanel9.Controls.Add(this.button4, 0, 1);
+            this.tableLayoutPanel9.Controls.Add(this.btn_ejbtzt, 0, 1);
             this.tableLayoutPanel9.Controls.Add(this.label64, 4, 0);
             this.tableLayoutPanel9.Controls.Add(this.cbb_ejbtdq, 5, 0);
             this.tableLayoutPanel9.Controls.Add(this.label65, 6, 0);
@@ -1510,7 +1514,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(716, 151);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(716, 149);
             this.tableLayoutPanel9.TabIndex = 4;
             // 
             // label62
@@ -1614,17 +1618,18 @@ namespace 谦海数据解析系统.JJwinform
             this.cb_ejbtct.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.cb_ejbtct.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btn_ejbtzt
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(3, 33);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(74, 25);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "选择字体";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_ejbtzt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_ejbtzt.ForeColor = System.Drawing.Color.Black;
+            this.btn_ejbtzt.Location = new System.Drawing.Point(3, 33);
+            this.btn_ejbtzt.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
+            this.btn_ejbtzt.Name = "btn_ejbtzt";
+            this.btn_ejbtzt.Size = new System.Drawing.Size(74, 25);
+            this.btn_ejbtzt.TabIndex = 5;
+            this.btn_ejbtzt.Text = "选择字体";
+            this.btn_ejbtzt.UseVisualStyleBackColor = true;
+            this.btn_ejbtzt.Click += new System.EventHandler(this.btn_ejbtzt_Click);
             // 
             // label64
             // 
@@ -1723,7 +1728,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage8.Controls.Add(this.tableLayoutPanel10);
             this.tabPage8.Location = new System.Drawing.Point(4, 34);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(716, 151);
+            this.tabPage8.Size = new System.Drawing.Size(716, 149);
             this.tabPage8.TabIndex = 3;
             this.tabPage8.Text = "三级标题";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1748,7 +1753,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel10.Controls.Add(this.nud_sjbthjvalue, 3, 0);
             this.tableLayoutPanel10.Controls.Add(this.tb_sjbtzt, 1, 1);
             this.tableLayoutPanel10.Controls.Add(this.cb_sjbtct, 3, 1);
-            this.tableLayoutPanel10.Controls.Add(this.button5, 0, 1);
+            this.tableLayoutPanel10.Controls.Add(this.btn_sjbtzt, 0, 1);
             this.tableLayoutPanel10.Controls.Add(this.label73, 4, 0);
             this.tableLayoutPanel10.Controls.Add(this.cbb_sjbtdq, 5, 0);
             this.tableLayoutPanel10.Controls.Add(this.label74, 6, 0);
@@ -1765,7 +1770,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(716, 151);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(716, 149);
             this.tableLayoutPanel10.TabIndex = 3;
             // 
             // label71
@@ -1869,17 +1874,18 @@ namespace 谦海数据解析系统.JJwinform
             this.cb_sjbtct.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.cb_sjbtct.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btn_sjbtzt
             // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(3, 33);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(74, 25);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "选择字体";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btn_sjbtzt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_sjbtzt.ForeColor = System.Drawing.Color.Black;
+            this.btn_sjbtzt.Location = new System.Drawing.Point(3, 33);
+            this.btn_sjbtzt.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
+            this.btn_sjbtzt.Name = "btn_sjbtzt";
+            this.btn_sjbtzt.Size = new System.Drawing.Size(74, 25);
+            this.btn_sjbtzt.TabIndex = 5;
+            this.btn_sjbtzt.Text = "选择字体";
+            this.btn_sjbtzt.UseVisualStyleBackColor = true;
+            this.btn_sjbtzt.Click += new System.EventHandler(this.btn_sjbtzt_Click);
             // 
             // label73
             // 
@@ -1978,7 +1984,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage10.Controls.Add(this.tableLayoutPanel19);
             this.tabPage10.Location = new System.Drawing.Point(4, 34);
             this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(716, 151);
+            this.tabPage10.Size = new System.Drawing.Size(716, 149);
             this.tabPage10.TabIndex = 4;
             this.tabPage10.Text = "页边距";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -2011,7 +2017,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(716, 151);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(716, 149);
             this.tableLayoutPanel19.TabIndex = 0;
             // 
             // label11
@@ -2159,7 +2165,6 @@ namespace 谦海数据解析系统.JJwinform
             this.groupBox3.Size = new System.Drawing.Size(730, 209);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "页眉页脚设置";
             // 
             // tabControl2
             // 
@@ -2240,7 +2245,7 @@ namespace 谦海数据解析系统.JJwinform
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.btnfont0);
+            this.flowLayoutPanel2.Controls.Add(this.btn_ymzt);
             this.flowLayoutPanel2.Controls.Add(this.tb_ymzt);
             this.flowLayoutPanel2.Controls.Add(this.label20);
             this.flowLayoutPanel2.Controls.Add(this.nud_ymzh);
@@ -2253,17 +2258,18 @@ namespace 谦海数据解析系统.JJwinform
             this.flowLayoutPanel2.Size = new System.Drawing.Size(710, 40);
             this.flowLayoutPanel2.TabIndex = 8;
             // 
-            // btnfont0
+            // btn_ymzt
             // 
-            this.btnfont0.AutoSize = true;
-            this.btnfont0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnfont0.Location = new System.Drawing.Point(6, 7);
-            this.btnfont0.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
-            this.btnfont0.Name = "btnfont0";
-            this.btnfont0.Size = new System.Drawing.Size(74, 27);
-            this.btnfont0.TabIndex = 4;
-            this.btnfont0.Text = "选择字体";
-            this.btnfont0.UseVisualStyleBackColor = true;
+            this.btn_ymzt.AutoSize = true;
+            this.btn_ymzt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_ymzt.Location = new System.Drawing.Point(6, 7);
+            this.btn_ymzt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.btn_ymzt.Name = "btn_ymzt";
+            this.btn_ymzt.Size = new System.Drawing.Size(74, 27);
+            this.btn_ymzt.TabIndex = 4;
+            this.btn_ymzt.Text = "选择字体";
+            this.btn_ymzt.UseVisualStyleBackColor = true;
+            this.btn_ymzt.Click += new System.EventHandler(this.btn_ymzt_Click);
             // 
             // tb_ymzt
             // 
@@ -2359,7 +2365,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage13.Location = new System.Drawing.Point(4, 34);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(716, 151);
+            this.tabPage13.Size = new System.Drawing.Size(716, 149);
             this.tabPage13.TabIndex = 1;
             this.tabPage13.Text = "页脚设置";
             this.tabPage13.UseVisualStyleBackColor = true;
@@ -2379,7 +2385,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(710, 145);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(710, 143);
             this.tableLayoutPanel11.TabIndex = 2;
             // 
             // flowLayoutPanel7
@@ -2417,7 +2423,7 @@ namespace 谦海数据解析系统.JJwinform
             // 
             // flowLayoutPanel8
             // 
-            this.flowLayoutPanel8.Controls.Add(this.button6);
+            this.flowLayoutPanel8.Controls.Add(this.btn_yjzt);
             this.flowLayoutPanel8.Controls.Add(this.tb_yjzt);
             this.flowLayoutPanel8.Controls.Add(this.label16);
             this.flowLayoutPanel8.Controls.Add(this.nud_yjzh);
@@ -2430,17 +2436,18 @@ namespace 谦海数据解析系统.JJwinform
             this.flowLayoutPanel8.Size = new System.Drawing.Size(710, 40);
             this.flowLayoutPanel8.TabIndex = 8;
             // 
-            // button6
+            // btn_yjzt
             // 
-            this.button6.AutoSize = true;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.Location = new System.Drawing.Point(6, 7);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(74, 27);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "选择字体";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btn_yjzt.AutoSize = true;
+            this.btn_yjzt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_yjzt.Location = new System.Drawing.Point(6, 7);
+            this.btn_yjzt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.btn_yjzt.Name = "btn_yjzt";
+            this.btn_yjzt.Size = new System.Drawing.Size(74, 27);
+            this.btn_yjzt.TabIndex = 4;
+            this.btn_yjzt.Text = "选择字体";
+            this.btn_yjzt.UseVisualStyleBackColor = true;
+            this.btn_yjzt.Click += new System.EventHandler(this.btn_yjzt_Click);
             // 
             // tb_yjzt
             // 
@@ -2535,7 +2542,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage11.Controls.Add(this.tableLayoutPanel3);
             this.tabPage11.Location = new System.Drawing.Point(4, 34);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(716, 151);
+            this.tabPage11.Size = new System.Drawing.Size(716, 149);
             this.tabPage11.TabIndex = 2;
             this.tabPage11.Text = "页码设置";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -2556,7 +2563,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(716, 151);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(716, 149);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // flowLayoutPanel4
@@ -2682,7 +2689,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(5);
-            this.tabPage3.Size = new System.Drawing.Size(716, 151);
+            this.tabPage3.Size = new System.Drawing.Size(716, 149);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "文中空行消除";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -3057,7 +3064,7 @@ namespace 谦海数据解析系统.JJwinform
         public System.Windows.Forms.NumericUpDown nud_dbthjvalue;
         public System.Windows.Forms.TextBox tb_dbtzt;
         public System.Windows.Forms.CheckBox cb_dbtct;
-        public System.Windows.Forms.Button btnfont;
+        public System.Windows.Forms.Button btn_dbtzt;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.ComboBox cbb_dbtdq;
         private System.Windows.Forms.Label label4;
@@ -3073,7 +3080,7 @@ namespace 谦海数据解析系统.JJwinform
         public System.Windows.Forms.NumericUpDown nud_fbthjvalue;
         public System.Windows.Forms.TextBox tb_fbtzt;
         public System.Windows.Forms.CheckBox cb_fbtct;
-        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button btn_fbtzt;
         private System.Windows.Forms.Label label34;
         public System.Windows.Forms.ComboBox cbb_fbtdq;
         private System.Windows.Forms.Label label35;
@@ -3089,7 +3096,7 @@ namespace 谦海数据解析系统.JJwinform
         public System.Windows.Forms.NumericUpDown nud_zwhjvalue;
         public System.Windows.Forms.TextBox tb_zwzt;
         public System.Windows.Forms.CheckBox cb_zwct;
-        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button btn_zwzt;
         private System.Windows.Forms.Label label44;
         public System.Windows.Forms.ComboBox cbb_zwdq;
         private System.Windows.Forms.Label label46;
@@ -3105,7 +3112,7 @@ namespace 谦海数据解析系统.JJwinform
         public System.Windows.Forms.NumericUpDown nud_yjbthjvalue;
         public System.Windows.Forms.TextBox tb_yjbtzt;
         public System.Windows.Forms.CheckBox cb_yjbtct;
-        public System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button btn_yjbtzt;
         private System.Windows.Forms.Label label55;
         public System.Windows.Forms.ComboBox cbb_yjbtdq;
         private System.Windows.Forms.Label label56;
@@ -3121,7 +3128,7 @@ namespace 谦海数据解析系统.JJwinform
         public System.Windows.Forms.NumericUpDown nud_ejbthjvalue;
         public System.Windows.Forms.TextBox tb_ejbtzt;
         public System.Windows.Forms.CheckBox cb_ejbtct;
-        public System.Windows.Forms.Button button4;
+        public System.Windows.Forms.Button btn_ejbtzt;
         private System.Windows.Forms.Label label64;
         public System.Windows.Forms.ComboBox cbb_ejbtdq;
         private System.Windows.Forms.Label label65;
@@ -3137,7 +3144,7 @@ namespace 谦海数据解析系统.JJwinform
         public System.Windows.Forms.NumericUpDown nud_sjbthjvalue;
         public System.Windows.Forms.TextBox tb_sjbtzt;
         public System.Windows.Forms.CheckBox cb_sjbtct;
-        public System.Windows.Forms.Button button5;
+        public System.Windows.Forms.Button btn_sjbtzt;
         private System.Windows.Forms.Label label73;
         public System.Windows.Forms.ComboBox cbb_sjbtdq;
         private System.Windows.Forms.Label label74;
@@ -3183,7 +3190,7 @@ namespace 谦海数据解析系统.JJwinform
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox tb_ymnr;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button btnfont0;
+        private System.Windows.Forms.Button btn_ymzt;
         private System.Windows.Forms.TextBox tb_ymzt;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.NumericUpDown nud_ymzh;
@@ -3196,7 +3203,7 @@ namespace 谦海数据解析系统.JJwinform
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox tb_yjnr;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btn_yjzt;
         private System.Windows.Forms.TextBox tb_yjzt;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.NumericUpDown nud_yjzh;

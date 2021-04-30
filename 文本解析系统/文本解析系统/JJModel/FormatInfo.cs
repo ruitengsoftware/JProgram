@@ -53,10 +53,5 @@ namespace 文本解析系统.JJModel
         /// 标准句库
         /// </summary>
         public string _biaozhunjuku = string.Empty; 
-
-
-
-
-
     }
 }
