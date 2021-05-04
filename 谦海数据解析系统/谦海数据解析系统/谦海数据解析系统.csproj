@@ -144,10 +144,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="JJmodel\BiaoqianInfo.cs" />
-    <Compile Include="JJmodel\BiaoqianInfo2.cs" />
+    <Compile Include="JJmodel\TagInfo.cs" />
     <Compile Include="JJmodel\FormatInfo.cs" />
-    <Compile Include="JJmodel\JcjxExcelInfo.cs" />
     <Compile Include="JJmodel\JJDocument.cs" />
     <Compile Include="JJmodel\Md5Helper.cs" />
     <Compile Include="JJmodel\MyMethod.cs" />

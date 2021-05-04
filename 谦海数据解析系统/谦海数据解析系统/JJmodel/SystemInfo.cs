@@ -18,7 +18,7 @@ namespace 谦海数据解析系统
         /// <summary>
         /// 版本发布日期
         /// </summary>
-        public static string _publishDate = "2021年4月17日";
+        public static string _publishDate = "2021年5月4日";
         /// <summary>
         /// 用户当前选中的左侧模块
         /// </summary>

@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
-using static 谦海数据解析系统.JJmodel.BiaoqianInfo;
+using static 谦海数据解析系统.JJmodel.TagInfo;
 
 namespace 谦海数据解析系统.JJmodel
 {
@@ -92,64 +92,40 @@ namespace 谦海数据解析系统.JJmodel
         }
 
 
-        /// <summary>
-        /// 获得节点的所有子节点信息
-        /// </summary>
-        /// <returns></returns>
-        public static List<BiaoqianInfo> GetChildNodes(BiaoqianInfo _bqInfo)
-        {
-            List<BiaoqianInfo> list_result = new List<BiaoqianInfo>();
-            string str_sql = $"select * from 数据解析库.内容标签表 where 删除=0 and 父标签名='{_bqInfo._mingcheng}' and 库名='{_bqInfo._kuming}'";
-            DataTable mydt = MySqlHelper.ExecuteDataset(SystemInfo._strConn, str_sql).Tables[0];
-            for (int i = 0; i < mydt.Rows.Count; i++)
-            {
-                DataRow mydr = mydt.Rows[i];
-                BiaoqianInfo myinfo = new BiaoqianInfo()
-                {
-                    _kuming = mydr["库名"].ToString(),
-                    _mingcheng = mydr["名称"].ToString(),
-                    _jibie = Convert.ToInt32(mydr["级别"].ToString()),
-                    _fubiaoqianming = mydr["父标签名"].ToString(),
-                    _biaoqianSet = mydr["设置"].ToString(),
-                    _chuangjianren = mydr["创建人"].ToString(),
-                    _chuangjianshijian = mydr["创建时间"].ToString()
-                };
-                BiaoqianRoot root = JsonConvert.DeserializeObject<BiaoqianRoot>(myinfo._biaoqianSet);
-                myinfo._biaoqianRoot = root;
-                list_result.Add(myinfo);
-            }
-            return list_result;
-        }
 
         /// <summary>
-        /// 获得节点的所有子节点信息
+        /// 获得内容节点的所有子节点信息
         /// </summary>
         /// <returns></returns>
-        public static List<BiaoqianInfo> GetChildNodes(BiaoqianInfo2 _bqInfo2)
-        {
-            List<BiaoqianInfo> list_result = new List<BiaoqianInfo>();
-            string str_sql = $"select * from 数据解析库.内容标签表 " +
-                $"where 删除=0 and 父标签名='{_bqInfo2.list_tag.Last()}' and 库名='{_bqInfo2._dbName}'";
-            DataTable mydt = MySqlHelper.ExecuteDataset(SystemInfo._strConn, str_sql).Tables[0];
-            for (int i = 0; i < mydt.Rows.Count; i++)
-            {
-                DataRow mydr = mydt.Rows[i];
-                BiaoqianInfo myinfo = new BiaoqianInfo()
-                {
-                    _kuming = mydr["库名"].ToString(),
-                    _mingcheng = mydr["名称"].ToString(),
-                    _jibie = Convert.ToInt32(mydr["级别"].ToString()),
-                    _fubiaoqianming = mydr["父标签名"].ToString(),
-                    _biaoqianSet = mydr["设置"].ToString(),
-                    _chuangjianren = mydr["创建人"].ToString(),
-                    _chuangjianshijian = mydr["创建时间"].ToString()
-                };
-                BiaoqianRoot root = JsonConvert.DeserializeObject<BiaoqianRoot>(myinfo._biaoqianSet);
-                myinfo._biaoqianRoot = root;
-                list_result.Add(myinfo);
-            }
-            return list_result;
-        }
+        //public static List<BiaoqianInfo> GetChildNodes(BiaoqianInfo2 _bqInfo2)
+        //{
+        //    List<BiaoqianInfo> list_result = new List<BiaoqianInfo>();
+        //    string str_sql = $"select * from 数据解析库.内容标签表 " +
+        //        $"where 删除=0 and 父标签名='{_bqInfo2.list_tag.Last()}' and 库名='{_bqInfo2._dbName}'";
+        //    DataTable mydt = MySqlHelper.ExecuteDataset(SystemInfo._strConn, str_sql).Tables[0];
+        //    for (int i = 0; i < mydt.Rows.Count; i++)
+        //    {
+        //        DataRow mydr = mydt.Rows[i];
+        //        BiaoqianInfo myinfo = new BiaoqianInfo()
+        //        {
+        //            _kuming = mydr["库名"].ToString(),
+        //            _mingcheng = mydr["名称"].ToString(),
+        //            _jibie = Convert.ToInt32(mydr["级别"].ToString()),
+        //            _fubiaoqianming = mydr["父标签名"].ToString(),
+        //            _biaoqianSet = mydr["设置"].ToString(),
+        //            _chuangjianren = mydr["创建人"].ToString(),
+        //            _chuangjianshijian = mydr["创建时间"].ToString()
+        //        };
+        //        BiaoqianRoot root = JsonConvert.DeserializeObject<BiaoqianRoot>(myinfo._biaoqianSet);
+        //        myinfo._biaoqianRoot = root;
+        //        list_result.Add(myinfo);
+        //    }
+        //    return list_result;
+        //}
+
+
+
+
         /// <summary>
         /// 已段落为单位调整格式的方法
         /// </summary>

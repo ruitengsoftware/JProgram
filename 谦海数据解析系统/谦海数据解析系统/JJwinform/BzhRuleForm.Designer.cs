@@ -702,7 +702,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage9.Controls.Add(this.tableLayoutPanel5);
             this.tabPage9.Location = new System.Drawing.Point(4, 34);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(716, 149);
+            this.tabPage9.Size = new System.Drawing.Size(716, 151);
             this.tabPage9.TabIndex = 6;
             this.tabPage9.Text = "副标题";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -744,7 +744,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(716, 149);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(716, 151);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // label32
@@ -961,7 +961,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage4.Location = new System.Drawing.Point(4, 34);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(716, 149);
+            this.tabPage4.Size = new System.Drawing.Size(716, 151);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "正文";
             // 
@@ -1002,7 +1002,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(716, 149);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(716, 151);
             this.tableLayoutPanel7.TabIndex = 3;
             // 
             // label41
@@ -1216,7 +1216,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage5.Controls.Add(this.tableLayoutPanel8);
             this.tabPage5.Location = new System.Drawing.Point(4, 34);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(716, 149);
+            this.tabPage5.Size = new System.Drawing.Size(716, 151);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "一级标题";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1258,7 +1258,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(716, 149);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(716, 151);
             this.tableLayoutPanel8.TabIndex = 3;
             // 
             // label53
@@ -1472,7 +1472,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage7.Controls.Add(this.tableLayoutPanel9);
             this.tabPage7.Location = new System.Drawing.Point(4, 34);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(716, 149);
+            this.tabPage7.Size = new System.Drawing.Size(716, 151);
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "二级标题";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1514,7 +1514,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(716, 149);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(716, 151);
             this.tableLayoutPanel9.TabIndex = 4;
             // 
             // label62
@@ -1728,7 +1728,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage8.Controls.Add(this.tableLayoutPanel10);
             this.tabPage8.Location = new System.Drawing.Point(4, 34);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(716, 149);
+            this.tabPage8.Size = new System.Drawing.Size(716, 151);
             this.tabPage8.TabIndex = 3;
             this.tabPage8.Text = "三级标题";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1770,7 +1770,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(716, 149);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(716, 151);
             this.tableLayoutPanel10.TabIndex = 3;
             // 
             // label71
@@ -1984,7 +1984,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage10.Controls.Add(this.tableLayoutPanel19);
             this.tabPage10.Location = new System.Drawing.Point(4, 34);
             this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(716, 149);
+            this.tabPage10.Size = new System.Drawing.Size(716, 151);
             this.tabPage10.TabIndex = 4;
             this.tabPage10.Text = "页边距";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -2017,7 +2017,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(716, 149);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(716, 151);
             this.tableLayoutPanel19.TabIndex = 0;
             // 
             // label11
@@ -2365,7 +2365,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage13.Location = new System.Drawing.Point(4, 34);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(716, 149);
+            this.tabPage13.Size = new System.Drawing.Size(716, 151);
             this.tabPage13.TabIndex = 1;
             this.tabPage13.Text = "页脚设置";
             this.tabPage13.UseVisualStyleBackColor = true;
@@ -2385,7 +2385,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(710, 143);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(710, 145);
             this.tableLayoutPanel11.TabIndex = 2;
             // 
             // flowLayoutPanel7
@@ -2542,7 +2542,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage11.Controls.Add(this.tableLayoutPanel3);
             this.tabPage11.Location = new System.Drawing.Point(4, 34);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(716, 149);
+            this.tabPage11.Size = new System.Drawing.Size(716, 151);
             this.tabPage11.TabIndex = 2;
             this.tabPage11.Text = "页码设置";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -2563,7 +2563,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(716, 149);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(716, 151);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // flowLayoutPanel4
@@ -2689,7 +2689,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(5);
-            this.tabPage3.Size = new System.Drawing.Size(716, 149);
+            this.tabPage3.Size = new System.Drawing.Size(716, 151);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "文中空行消除";
             this.tabPage3.UseVisualStyleBackColor = true;

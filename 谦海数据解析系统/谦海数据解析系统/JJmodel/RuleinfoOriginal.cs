@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace 谦海数据解析系统.JJModel
 {
+    /// <summary>
+    /// 用于基础解析的原始规则类
+    /// </summary>
    public class RuleInfoOriginal
     {
         /// <summary>

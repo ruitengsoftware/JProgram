@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using 谦海数据解析系统.JJmodel;
 using 谦海数据解析系统.JJwinform;
-using static 谦海数据解析系统.JJmodel.BiaoqianInfo;
+using static 谦海数据解析系统.JJmodel.TagInfo;
 
 namespace 谦海数据解析系统.JJusercontrol
 {
@@ -24,7 +24,7 @@ namespace 谦海数据解析系统.JJusercontrol
         /// <summary>
         /// 控件自身的标签信息
         /// </summary>
-        BiaoqianInfo _bqInfo = null;
+        TagInfo _bqInfo = null;
 
         public BiaoqianControl()
         {
@@ -35,7 +35,7 @@ namespace 谦海数据解析系统.JJusercontrol
         /// 构造函数，传一个标签信息实例进来
         /// </summary>
         /// <param name="myinfo"></param>
-        public BiaoqianControl(BiaoqianInfo myinfo)
+        public BiaoqianControl(TagInfo myinfo)
         {
             InitializeComponent();
             this.Dock = DockStyle.Top;
@@ -141,13 +141,12 @@ namespace 谦海数据解析系统.JJusercontrol
             if (_zhankai)
             {
                 //如果是展开状态，从数据库中获得该节点全部的子节点，然后循环实例化标签control，调整childrenindex，插入到容器中
-                List<BiaoqianInfo> list_child = MyMethod.GetChildNodes(_bqInfo);
                 Panel p = this.Parent as Panel;
                 int index = p.Controls.GetChildIndex(this);
 
-                for (int i = 0; i < list_child.Count; i++)
+                for (int i = 0; i < _bqInfo._childNodes.Count; i++)
                 {
-                    BiaoqianControl myuc = new BiaoqianControl(list_child[i]);
+                    BiaoqianControl myuc = new BiaoqianControl(_bqInfo._childNodes[i]);
                     p.Controls.Add(myuc);
                     p.Controls.SetChildIndex(myuc, index);
                 }

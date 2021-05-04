@@ -39,15 +39,17 @@ namespace 谦海数据解析系统.JJmodel
         /// </summary>
         public string _chuangjianshijian = string.Empty;
 
-        public RuleInfo() { 
+        public RuleInfo()
+        {
         }
         /// <summary>
         /// 构造函数，仅仅把格式名称传递进去
         /// </summary>
         /// <param name="name"></param>
-        public RuleInfo(string name)
+        public RuleInfo(string name, string type)
         {
             ruleName = name;
+            ruleType = type;
         }
 
         /// <summary>
@@ -66,6 +68,9 @@ namespace 谦海数据解析系统.JJmodel
             ruleSet = JsonConvert.SerializeObject(r);
             _chuangjianren = chuangjianren;
             _chuangjianshijian = chuangjianshijian;
+
+
+
         }
 
 
@@ -87,13 +92,13 @@ namespace 谦海数据解析系统.JJmodel
         }
 
         /// <summary>
-        /// 获得规则信息
+        /// 获得规则信息,除内容解析表意外
         /// </summary>
         public void GetRuleInfo()
         {
+
             string str_sql = $"select * from 数据解析库.规则信息表 where 规则名称='{ruleName}' and 删除=0";
             DataRow mydr = MySqlHelper.ExecuteDataRow(SystemInfo._strConn, str_sql);
-            ruleType = mydr["规则类型"].ToString();
             ruleSet = mydr["规则设置"].ToString();
             _chuangjianren = mydr["创建人"].ToString();
             _chuangjianshijian = mydr["创建时间"].ToString();
@@ -114,14 +119,12 @@ namespace 谦海数据解析系统.JJmodel
             {
                 _root = JsonConvert.DeserializeObject<JcjxRuleRoot>(ruleSet);
             }
-            else if (ruleType.Equals("内容解析"))
-            {
-
-            }
             else if (ruleType.Equals("大数据版"))
             {
                 _root = JsonConvert.DeserializeObject<DsjRuleRoot>(ruleSet);
             }
+
+
         }
 
 
@@ -548,7 +551,7 @@ namespace 谦海数据解析系统.JJmodel
     /// </summary>
     public class JcjxRuleRoot
     {
-       
+
 
 
 

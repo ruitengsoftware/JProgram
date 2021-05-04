@@ -414,7 +414,7 @@ namespace 谦海数据解析系统
             if (dgv_wenjianmingrules.Columns[e.ColumnIndex].Name == "bianjianniu" && e.RowIndex >= 0)
             {
                 //获得规则的信息ruleinfo
-                RuleInfo myri = new RuleInfo(ruleName);
+                RuleInfo myri = new RuleInfo(ruleName, "文件名标准化");
                 myri.GetRuleInfo();
                 //把ruleinfo传给wjmruleform窗体,立刻加载信息
                 WjmRuleForm myform = new WjmRuleForm(myri);
@@ -503,16 +503,13 @@ namespace 谦海数据解析系统
             for (int i = 0; i < mydt.Rows.Count; i++)
             {
                 DataRow mydr = mydt.Rows[i];
-                //实例化一个标签信息
-                BiaoqianInfo _biaoqianInfo = new BiaoqianInfo(
-                    mydr["库名"].ToString(),
-                    mydr["名称"].ToString(),
-                    Convert.ToInt32(mydr["级别"].ToString()),
-                    mydr["父标签名"].ToString(),
-                    mydr["设置"].ToString(),
-                    mydr["创建人"].ToString(),
-                    mydr["创建时间"].ToString()
-                );
+                //实例化一个标签信息,这个是内容标签，以及标签，没有父节点
+                TagInfo _biaoqianInfo = new TagInfo(
+                        mydr["名称"].ToString(),
+new TagInfo() { _kuming=mydr["库名"].ToString()}
+)
+                { };
+
                 //将biaoqianinfo传递给标签库控件，显示在界面上
                 BiaoqiankuControl myuc = new BiaoqiankuControl(_biaoqianInfo);
                 MyMethod.AddControl(myuc, panel_5);
@@ -531,7 +528,6 @@ namespace 谦海数据解析系统
             FormatInfo myfi = new FormatInfo(formatName, string.Join("|", list), formatType);
             myfi.SaveFormatInfo();
             UpdateFormats("大数据版", cbb_formatname6);
-
         }
         /// <summary>
         /// 切换选择大数据版格式按钮时触发的事件
@@ -600,7 +596,7 @@ namespace 谦海数据解析系统
             if (e.ColumnIndex == 4 && e.RowIndex >= 0)
             {
                 //获得规则的信息ruleinfo
-                RuleInfo myri = new RuleInfo(ruleName);
+                RuleInfo myri = new RuleInfo(ruleName, "大数据版");
                 myri.GetRuleInfo();
                 //把ruleinfo传给wjmruleform窗体,立刻加载信息
                 DsjRuleForm myForm = new DsjRuleForm(myri);
@@ -868,7 +864,7 @@ namespace 谦海数据解析系统
             if (e.ColumnIndex == 4 && e.RowIndex >= 0)
             {
                 //获得规则的信息ruleinfo
-                RuleInfo myri = new RuleInfo(ruleName);
+                RuleInfo myri = new RuleInfo(ruleName, "查重清洗");
                 myri.GetRuleInfo();
                 //把ruleinfo传给wjmruleform窗体,立刻加载信息
                 CcqxRuleForm myForm = new CcqxRuleForm(myri);
@@ -983,7 +979,7 @@ namespace 谦海数据解析系统
             if (e.ColumnIndex == 4 && e.RowIndex >= 0)
             {
                 //获得规则的信息ruleinfo
-                RuleInfo myri = new RuleInfo(ruleName);
+                RuleInfo myri = new RuleInfo(ruleName, "格式标准化");
                 myri.GetRuleInfo();
                 //把ruleinfo传给wjmruleform窗体,立刻加载信息
                 BzhRuleForm myForm = new BzhRuleForm(myri);
@@ -1085,7 +1081,7 @@ namespace 谦海数据解析系统
                     //对每一个rule循环，获得设置root
                     foreach (string rule in rules)
                     {
-                        RuleInfo myri = new RuleInfo(rule);
+                        RuleInfo myri = new RuleInfo(rule, "文件名标准化");
                         myri.GetRuleInfo();
                         WjmRuleRoot myroot = ((WjmRuleRoot)myri._root);
                         //判断位置，得到操作目标,对每种可能的目标进行判断操作
@@ -1155,7 +1151,7 @@ namespace 谦海数据解析系统
                     FormatInfo _format = new FormatInfo(SystemInfo._userInfo._wjbzh);
                     _format.GetFormatInfo();
                     string _rule = Regex.Split(_format._formatSet, @"\|")[0];
-                    RuleInfo _ruleInfo = new RuleInfo(_rule);
+                    RuleInfo _ruleInfo = new RuleInfo(_rule, "格式标准化");
                     _ruleInfo.GetRuleInfo();
                     BzhRuleRoot _root = _ruleInfo._root as BzhRuleRoot;
                     //调整文档格式,包括大标题，副标题，正文，一级标题，二级标题，三级标题，页边距,
@@ -1171,11 +1167,16 @@ namespace 谦海数据解析系统
 
                     #endregion
                     JJDocument _jjDoc = new JJDocument(currentFilename);
-                    var listbase=_jjDoc.GetBaseAnalysis();
+                    var listbase = _jjDoc.GetBaseAnalysis();
                     _jjDoc.SaveList2Excel(listbase);
                     #region 5、内容解析
 
                     #endregion
+                    var listneirong = _jjDoc.GetNeirongAnalysis();
+                    _jjDoc.SaveList2Excel(listneirong);
+
+
+
                     #region 6、大数据版
 
                     #endregion

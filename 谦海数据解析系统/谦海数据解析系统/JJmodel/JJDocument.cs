@@ -1,14 +1,22 @@
 ﻿using Aspose.Words;
+using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static 谦海数据解析系统.JJmodel.TagInfo;
 
 namespace 谦海数据解析系统.JJmodel
 {
+    /// <summary>
+    /// 该类用于解析word文档，在实例化的同时，将文档解析为标准段，标准句，索引句
+    /// 
+    /// </summary>
     public class JJDocument
     {
         Aspose.Words.Document _doc = null;
@@ -20,6 +28,12 @@ namespace 谦海数据解析系统.JJmodel
         /// 信息库名
         /// </summary>
         public string _infoDBName = string.Empty;
+
+
+        /// <summary>
+        /// 内容信息库名称
+        /// </summary>
+        public string _neirongDBName = string.Empty;
         /// <summary>
         /// 基础分类
         /// </summary>
@@ -48,6 +62,12 @@ namespace 谦海数据解析系统.JJmodel
         /// 基础解析格式名称
         /// </summary>
         public string _formatName = string.Empty;
+
+        /// <summary>
+        /// 用于内容解析的所有标签信息，可以在构造函数时取得
+        /// </summary>
+        public List<TagInfo> list_tag = new List<TagInfo>();
+
 
         /// <summary>
         /// 标准段
@@ -117,7 +137,7 @@ namespace 谦海数据解析系统.JJmodel
             {
                 _date = Regex.Match(_fileName, @"\d{2,4}年\d{1,2}月").Value;
             }
-           if (Regex.IsMatch(_fileName, @"\d{2,4}年\d{1,2}月\d{1,2}日"))
+            if (Regex.IsMatch(_fileName, @"\d{2,4}年\d{1,2}月\d{1,2}日"))
             {
                 _date = Regex.Match(_fileName, @"\d{2,4}年\d{1,2}月\d{1,2}日").Value;
             }
@@ -184,7 +204,51 @@ namespace 谦海数据解析系统.JJmodel
                     }
                 }
             }
+            //获得所有的内容解析标签信息集合
+            GetTagInfos();
+            //获得所有的基础解析标签信息
+
+
+
+
+
         }
+
+
+
+
+        /// <summary>
+        /// 获得文档的内容解析标签信息
+        /// </summary>
+        public void GetTagInfos()
+        {
+            //获得当前所选内容解析格式下的设置，将所选中的库名
+            string str_sql = $"select * from 数据解析库.格式信息表 " +
+                $"where 格式类型='内容解析' and 格式名称='{SystemInfo._userInfo._nrjx}' " +
+                $"and 删除=0";
+            DataRow mydr = MySqlHelper.ExecuteDataRow(SystemInfo._strConn, str_sql);
+            string dbname = Regex.Split(mydr["格式设置"].ToString(),@"\|")[0];
+
+            str_sql = $"select * from 数据解析库.内容标签表 " +
+                    $"where 删除=0 and 库名='{dbname}' and 级别>1";
+
+
+
+            DataTable mydt = MySqlHelper.ExecuteDataset(SystemInfo._strConn, str_sql).Tables[0];
+            foreach (DataRow item in mydt.Rows)
+            {
+                TagInfo tagInfo = new TagInfo();
+                tagInfo._kuming = item["库名"].ToString();
+                tagInfo._mingcheng = item["名称"].ToString();
+                tagInfo._jibie = Convert.ToInt32(item["级别"].ToString());
+                tagInfo._biaoqianSet = item["设置"].ToString();
+                tagInfo._chuangjianren = item["创建人"].ToString();
+                tagInfo._chuangjianshijian = item["创建时间"].ToString();
+                tagInfo._tagRoot = JsonConvert.DeserializeObject<TagRoot>(tagInfo._biaoqianSet);
+                list_tag.Add(tagInfo);
+            }
+        }
+
         /// <summary>
         /// 获得副标题段落集合
         /// </summary>
@@ -384,7 +448,7 @@ namespace 谦海数据解析系统.JJmodel
             return list;
         }
         /// <summary>
-        /// 获得基础解析
+        /// 获得基础解析信息集合
         /// </summary>
         /// <returns></returns>
         public List<JcjxInfo> GetBaseAnalysis()
@@ -487,6 +551,7 @@ namespace 谦海数据解析系统.JJmodel
             jji._author = _author;
             jji._original = _original;
             jji._date = _date;
+            list.Add(jji);
             //一级标题纲要
             //先判断有没有一级纲要
             if (list_yijibiaoti.Count > 0)
@@ -951,6 +1016,382 @@ namespace 谦海数据解析系统.JJmodel
             return list;
         }
 
+
+        /// <summary>
+        /// 该方法用于获得内容解析信息集合
+        /// </summary>
+        /// <returns></returns>
+        public List<NrjxInfo> GetNeirongAnalysis()
+        {
+            List<NrjxInfo> list = new List<NrjxInfo>();
+            NrjxInfo jji = null;
+
+            //获得一级标题纲要
+            var list_zhubiaoti = GetZhubiaoti();
+            var list_yijibiaoti = GetYijibiaoti();
+            var list_erjibiaoti = GetErjibiaoti();
+            var list_sanjibiaoti = GetSanjibiaoti();
+            var list_fubiaoti = GetFubiaoti();
+            var list_zhengwen = GetZhengwen();
+            var list_putongbiaozhunju = GetPutongbiaozhunju();
+            var list_putongsuoyinju = GetPutongsuoyinju();
+            //获得主标题info
+            for (int i = 0; i < list_zhubiaoti.Count; i++)
+            {
+                var item = list_zhubiaoti[i];
+                jji = new NrjxInfo();
+                jji._nodeType = "主标题";
+                jji._nodeText = item._text;
+                jji._nodeTextMD5 = Md5Helper.Md5(jji._nodeText);
+                jji._length = item._text.Length;
+                jji._tagHot = 1;
+                list.Add(jji);
+            }
+            //副标题
+            for (int i = 0; i < list_fubiaoti.Count; i++)
+            {
+                var item = list_fubiaoti[i];
+                jji = new NrjxInfo();
+                jji._nodeType = "副标题";
+                jji._nodeText = item._text;
+                jji._nodeTextMD5 = Md5Helper.Md5(jji._nodeText);
+                jji._length = item._text.Length;
+                jji._tagHot = 1;
+                list.Add(jji);
+            }
+            //正文
+            jji = new NrjxInfo();
+            jji._nodeType = "正文";
+            List<string> list_str = new List<string>();
+            foreach (JJParagraph item in list_zhengwen)
+            {
+                list_str.Add(item._text);
+            }
+            jji._nodeText = string.Join("\r", list_str);
+            jji._nodeTextMD5 = Md5Helper.Md5(jji._nodeText);
+            jji._length = jji._nodeText.Length;
+            jji._tagHot = 1;
+            list.Add(jji);
+            //一级标题纲要
+            //先判断有没有一级纲要
+            if (list_yijibiaoti.Count > 0)
+            {
+                jji = new NrjxInfo();
+                jji._nodeType = "一级标题纲要";
+                jji._nodeText = string.Join("\r", list_yijibiaoti);
+                jji._nodeTextMD5 = Md5Helper.Md5(jji._nodeText);
+                jji._length = jji._nodeText.Length;
+                jji._tagHot = 1;
+                list.Add(jji);
+            }
+            //二级标题纲要
+
+            if (list_erjibiaoti.Count > 0)
+            {
+                jji = new NrjxInfo();
+                jji._nodeType = "二级标题纲要";
+                jji._nodeText = string.Join("\r", list_erjibiaoti);
+                jji._nodeTextMD5 = Md5Helper.Md5(jji._nodeText);
+                jji._length = jji._nodeText.Length;
+                jji._tagHot = 1;
+                list.Add(jji);
+            }
+
+            //三级标题纲要
+            if (list_sanjibiaoti.Count > 0)
+            {
+                jji = new NrjxInfo();
+                jji._nodeType = "三级标题纲要";
+                jji._nodeText = string.Join("\r", list_sanjibiaoti);
+                jji._nodeTextMD5 = Md5Helper.Md5(jji._nodeText);
+                jji._length = jji._nodeText.Length;
+                jji._tagHot = 1;
+                list.Add(jji);
+            }
+            //标准段
+            for (int i = 0; i < _paragraphs.Count; i++)
+            {
+                var item = _paragraphs[i];
+                jji = new NrjxInfo();
+                jji._nodeType = "标准段";
+                jji._nodeText = item._text;
+                jji._nodeTextMD5 = Md5Helper.Md5(item._text);
+                jji._length = item._text.Length;
+                jji._tagHot = 1;
+                list.Add(jji);
+            }
+
+            //一级标题标准句
+            for (int i = 0; i < list_yijibiaoti.Count; i++)
+            {
+                for (int j = 0; j < list_yijibiaoti[i]._sentences.Count; j++)
+                {
+                    var item = list_yijibiaoti[i]._sentences[j];
+                    jji = new NrjxInfo();
+                    jji._nodeType = "一级标题标准句";
+                    jji._nodeText = item._text;
+                    jji._nodeTextMD5 = Md5Helper.Md5(item._text);
+                    jji._length = item._text.Length;
+                    jji._tagHot = 1;
+                    list.Add(jji);
+                }
+            }
+
+            //二级标题标准句
+            for (int i = 0; i < list_erjibiaoti.Count; i++)
+            {
+                for (int j = 0; j < list_erjibiaoti[i]._sentences.Count; j++)
+                {
+                    var item = list_erjibiaoti[i]._sentences[j];
+                    jji = new NrjxInfo();
+                    jji._nodeType = "二级标题标准句";
+                    jji._nodeText = item._text;
+                    jji._nodeTextMD5 = Md5Helper.Md5(item._text);
+                    jji._length = item._text.Length;
+                    jji._tagHot = 1;
+                    list.Add(jji);
+                }
+            }
+
+            //三级标题标准句
+            for (int i = 0; i < list_sanjibiaoti.Count; i++)
+            {
+                for (int j = 0; j < list_sanjibiaoti[i]._sentences.Count; j++)
+                {
+                    var item = list_sanjibiaoti[i]._sentences[j];
+                    jji = new NrjxInfo();
+                    jji._nodeType = "三级标题标准句";
+                    jji._nodeText = item._text;
+                    jji._nodeTextMD5 = Md5Helper.Md5(item._text);
+                    jji._length = item._text.Length;
+                    jji._tagHot = 1;
+                    list.Add(jji);
+                }
+            }
+
+            //普通标准句
+            for (int i = 0; i < list_putongbiaozhunju.Count; i++)
+            {
+                var item = list_putongbiaozhunju[i];
+                jji = new NrjxInfo();
+                jji._nodeType = "普通标准句";
+                jji._nodeText = item._text;
+                jji._nodeTextMD5 = Md5Helper.Md5(item._text);
+                jji._length = item._text.Length;
+                jji._tagHot = 1;
+                list.Add(jji);
+            }
+            //主标题索引句
+            for (int i = 0; i < list_zhubiaoti.Count; i++)
+            {
+                for (int j = 0; j < list_zhubiaoti[i]._sentences.Count; j++)
+                {
+                    for (int k = 0; k < list_zhubiaoti[i]._sentences[j]._indexSentences.Count; k++)
+                    {
+                        var item = list_zhubiaoti[i]._sentences[j]._indexSentences[k];
+                        jji = new NrjxInfo();
+                        jji._nodeType = "主标题索引句";
+                        jji._nodeText = item._text;
+                        jji._nodeTextMD5 = Md5Helper.Md5(item._text);
+                        jji._length = item._text.Length;
+                        jji._tagHot = 1;
+                        list.Add(jji);
+                    }
+                }
+            }
+            //副标题索引句
+            for (int i = 0; i < list_fubiaoti.Count; i++)
+            {
+                for (int j = 0; j < list_fubiaoti[i]._sentences.Count; j++)
+                {
+                    for (int k = 0; k < list_fubiaoti[i]._sentences[j]._indexSentences.Count; k++)
+                    {
+                        var item = list_fubiaoti[i]._sentences[j]._indexSentences[k];
+                        jji = new NrjxInfo();
+                        jji._nodeType = "副标题索引句";
+                        jji._nodeText = item._text;
+                        jji._nodeTextMD5 = Md5Helper.Md5(item._text);
+                        jji._length = item._text.Length;
+                        jji._tagHot = 1;
+                        list.Add(jji);
+                    }
+                }
+            }
+
+            //一级标题索引句
+            for (int i = 0; i < list_yijibiaoti.Count; i++)
+            {
+                for (int j = 0; j < list_yijibiaoti[i]._sentences.Count; j++)
+                {
+                    for (int k = 0; k < list_yijibiaoti[i]._sentences[j]._indexSentences.Count; k++)
+                    {
+                        var item = list_yijibiaoti[i]._sentences[j]._indexSentences[k];
+                        jji = new NrjxInfo();
+                        jji._nodeType = "一级标题索引句";
+                        jji._nodeText = item._text;
+                        jji._nodeTextMD5 = Md5Helper.Md5(item._text);
+                        jji._length = item._text.Length;
+                        jji._tagHot = 1;
+                        list.Add(jji);
+                    }
+                }
+            }
+
+            //二级标题索引句
+            for (int i = 0; i < list_erjibiaoti.Count; i++)
+            {
+                for (int j = 0; j < list_erjibiaoti[i]._sentences.Count; j++)
+                {
+                    for (int k = 0; k < list_erjibiaoti[i]._sentences[j]._indexSentences.Count; k++)
+                    {
+                        var item = list_erjibiaoti[i]._sentences[j]._indexSentences[k];
+                        jji = new NrjxInfo();
+                        jji._nodeType = "二级标题索引句";
+                        jji._nodeText = item._text;
+                        jji._nodeTextMD5 = Md5Helper.Md5(item._text);
+                        jji._length = item._text.Length;
+                        jji._tagHot = 1;
+                        list.Add(jji);
+                    }
+                }
+            }
+
+            //三级标题索引句
+            for (int i = 0; i < list_sanjibiaoti.Count; i++)
+            {
+                for (int j = 0; j < list_sanjibiaoti[i]._sentences.Count; j++)
+                {
+                    for (int k = 0; k < list_sanjibiaoti[i]._sentences[j]._indexSentences.Count; k++)
+                    {
+                        var item = list_sanjibiaoti[i]._sentences[j]._indexSentences[k];
+                        jji = new NrjxInfo();
+                        jji._nodeType = "三级标题索引句";
+                        jji._nodeText = item._text;
+                        jji._nodeTextMD5 = Md5Helper.Md5(item._text);
+                        jji._length = item._text.Length;
+                        jji._tagHot = 1;
+                        list.Add(jji);
+                    }
+                }
+            }
+
+            //普通索引句
+            for (int i = 0; i < list_putongsuoyinju.Count; i++)
+            {
+                var item = list_putongsuoyinju[i];
+                jji = new NrjxInfo();
+                jji._nodeType = "普通索引句";
+                jji._nodeText = item._text;
+                jji._nodeTextMD5 = Md5Helper.Md5(item._text);
+                jji._length = item._text.Length;
+                jji._tagHot = 1;
+                list.Add(jji);
+            }
+
+
+            //循环获得规则名称，对每一个规则，循环对所有的list元素
+            foreach (var item in list_tag)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    //判断list元素是否是，规则的对象位置，如果是，那么用正则匹配，如果匹配到，要看是否是特定语篇提取
+                    if (list[i]._nodeType.Contains(item._tagRoot.list_position[0]))
+                    {
+                        //对正则进行*拆分，判断是否同时
+                        List<string> list0 = Regex.Split(item._tagRoot.zhengze, @"\*").ToList();
+
+                        bool b = true;//用于存放是否满足所有的正则条件
+                        foreach (string str in list0)
+                        {
+                            b = Regex.IsMatch(list[i]._nodeText, str);
+                            if (!b)
+                            {
+                                break;
+                            }
+                        }
+                        if (b)//如果匹配到，要看是否是特定语篇提取
+                        {
+                            //如果是提取特定语篇，那么要讲"节点文本"字段赋值成为特定语篇对应的正则匹配结果
+
+                            if (item._tagRoot.list_yupian.Count == 0)//非特定语篇提取
+                            {
+                                //如果不是特定语篇，那么节点文本字段不用修改
+                                //计算节点文本md5,字数，标签名称，匹配度，热度赋值
+                                list[i]._nodeTextMD5 = Md5Helper.Md5(list[i]._nodeText);
+                                list[i]._length = list[i]._nodeText.Length;
+                                list[i]._tagName = item._mingcheng;
+                                list[i]._tagDegree = item._tagRoot.gudingzhi;
+                                list[i]._tagHot = 1;
+                            }
+                            else//特定语篇提取
+                            {
+                                //根据语篇的设置，提取正则对应的文本，
+                                //包括几种情况：时间表达式，数字表达式，度量表达式，地址表达式专有名词，正则提取式
+                                string re = string.Empty;//用于存放正则表达式
+                                if (item._tagRoot.list_yupian[0].Equals("时间表达式"))
+                                {
+                                    re = @"\d{2,4}年\d{1,2}月\d{1,2}日";
+                                }
+                                else if (item._tagRoot.list_yupian[0].Equals("数字表达式"))
+                                {
+
+                                }
+                                else if (item._tagRoot.list_yupian[0].Equals("度量表达式"))
+                                {
+
+                                }
+                                else if (item._tagRoot.list_yupian[0].Equals("地址表达式"))
+                                {
+
+                                }
+                                else if (item._tagRoot.list_yupian[0].Equals("专有名词"))
+                                {
+
+                                }
+                                else if (item._tagRoot.list_yupian[0].Equals("正则提取式"))
+                                {
+                                    re = item._tagRoot.zhengzetiqu;
+                                }
+                                string match = Regex.Match(list[i]._nodeText, re).Value;
+                                //如果提取到了，新建一个nrjxinfo,赋值节点文本，添加到list中
+                                if (!match.Equals(string.Empty))
+                                {
+                                    NrjxInfo _ni = new NrjxInfo();
+                                    _ni._nodeType = "特定语篇内容";
+                                    _ni._nodeText = match;
+                                    //计算节点文本md5,字数，标签名称，匹配度，标签热度赋值
+
+                                    _ni._nodeTextMD5 = Md5Helper.Md5(_ni._nodeText);
+                                    _ni._length = _ni._nodeText.Length;
+                                    _ni._tagName = item._mingcheng;
+                                    _ni._tagDegree = item._tagRoot.gudingzhi;
+                                    _ni._tagHot = 1;
+                                    list.Add(_ni);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+            return list;
+        }
+
+
+
+
         /// <summary>
         /// 保存基础解析结果
         /// </summary>
@@ -1004,6 +1445,38 @@ namespace 谦海数据解析系统.JJmodel
                 mysht.Cells[i + 1, 16].Value = list[i]._date;
                 mysht.Cells[i + 1, 17].Value = list[i]._positionTextMD5;
                 mysht.Cells[i + 1, 18].Value = list[i]._paraMD5;
+            }
+            mywbk.Save(savefilename);
+        }
+        /// <summary>
+        /// 保存内容解析结果
+        /// </summary>
+        /// <param name="list"></param>
+        public void SaveList2Excel(List<NrjxInfo> list)
+        {
+            //构造保存路径
+            string file = Path.GetFileNameWithoutExtension(_fileName);
+            string path = Path.GetDirectoryName(_fileName);
+            string savefilename = $"{path}\\02-{file}.xlsx";
+            Aspose.Cells.Workbook mywbk = new Aspose.Cells.Workbook();
+            Aspose.Cells.Worksheet mysht = mywbk.Worksheets[0];
+            //生成字段名
+            mysht.Cells[0, 0].Value = "节点类型名称";
+            mysht.Cells[0, 1].Value = "节点文本";
+            mysht.Cells[0, 2].Value = "节点文本MD5";
+            mysht.Cells[0, 3].Value = "字数";
+            mysht.Cells[0, 4].Value = "标签名称";
+            mysht.Cells[0, 5].Value = "节点标签匹配度";
+            mysht.Cells[0, 6].Value = "标签热度";
+            for (int i = 0; i < list.Count; i++)
+            {
+                mysht.Cells[i + 1, 0].Value = list[i]._nodeType;
+                mysht.Cells[i + 1, 1].Value = list[i]._nodeText;
+                mysht.Cells[i + 1, 2].Value = list[i]._nodeTextMD5;
+                mysht.Cells[i + 1, 3].Value = list[i]._length;
+                mysht.Cells[i + 1, 4].Value = list[i]._tagName;
+                mysht.Cells[i + 1, 5].Value = list[i]._tagDegree;
+                mysht.Cells[i + 1, 6].Value = list[i]._tagHot;
             }
             mywbk.Save(savefilename);
         }
@@ -1137,4 +1610,31 @@ namespace 谦海数据解析系统.JJmodel
 
 
     }
+    /// <summary>
+    /// 用于生成内容解析表的model
+    /// </summary>
+    public class NrjxInfo
+    {
+        public string _nodeType = string.Empty;
+
+        public string _nodeText = string.Empty;
+
+        public string _nodeTextMD5 = string.Empty;
+
+        public int _length = 0;
+
+        public string _tagName = string.Empty;
+
+        public string _tagDegree = string.Empty;
+
+        public int _tagHot = 0;
+
+
+    }
+
+
+
+
+
+
 }

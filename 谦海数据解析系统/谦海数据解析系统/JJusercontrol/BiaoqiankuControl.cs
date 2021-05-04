@@ -15,6 +15,11 @@ namespace 谦海数据解析系统.JJusercontrol
 {
     public partial class BiaoqiankuControl : UserControl
     {
+
+        /// <summary>
+        /// 窗体自身携带的标签信息
+        /// </summary>
+        TagInfo _mybqInfo = new TagInfo();
         public BiaoqiankuControl()
         {
             InitializeComponent();
@@ -23,15 +28,40 @@ namespace 谦海数据解析系统.JJusercontrol
         /// 传递一个标签信息实例进来，显示在界面上
         /// </summary>
         /// <param name="_bqInfo">内容标签</param>
-        public BiaoqiankuControl(BiaoqianInfo _bqInfo)
+        public BiaoqiankuControl(TagInfo _bqInfo)
         {
             InitializeComponent();
             this.Dock = DockStyle.Top;
             cb_biaoqianku.Text = _bqInfo._kuming;
+            _mybqInfo = _bqInfo;
             //实例化一个标签info控件
-            BiaoqianControl myuc = new BiaoqianControl(_bqInfo) { };
+            BiaoqianControl myuc = new BiaoqianControl(_mybqInfo) { };
             panel_biaoqian.Controls.Add(myuc);
         }
+
+        List<TagInfo> list_tree = new List<TagInfo>();
+        /// <summary>
+        /// 该方法用于递归获得所有标签子节点
+        /// </summary>
+        /// <param name="bq"></param>
+        /// <returns></returns>
+        public void GetAllChildNodes(TagInfo bq)
+        {
+            //传递进来的是一个信息库的1级标签，也就是内容标签
+            if (bq._childNodes.Count == 0)
+            {
+                list_tree.Add(bq);
+            }
+            else
+            { 
+                foreach (var item in bq._childNodes)
+                {
+                    GetAllChildNodes(item);
+                }
+            }
+        }
+
+
         /// <summary>
         /// 点击生成标签库解析表按钮时触发的事件
         /// </summary>
@@ -55,53 +85,30 @@ namespace 谦海数据解析系统.JJusercontrol
                 //    $"order by 级别";
                 //DataTable dataTable = MySqlHelper.ExecuteDataset(SystemInfo._strConn, str_sql).Tables[0];
                 //SaveDT2Excel(dataTable, mywbk, "Original", sfd.FileName, sfd.Filter);
-                //生成合并版
+                //生成合并单元格版
                 //获得内容标签的所有子标签,内容标签是1级标签,获得树状结构都从内容标签开始
-                List<BiaoqianInfo2> list_new = new List<BiaoqianInfo2>() {
-                     new BiaoqianInfo2(){_dbName=cb_biaoqianku.Text,list_tag={"内容标签" } }
-                };
-                List<BiaoqianInfo2> list_result = new List<BiaoqianInfo2>() {
-                     new BiaoqianInfo2(){_dbName=cb_biaoqianku.Text,list_tag={"内容标签" }  }
+                list_tree = new List<TagInfo>();
+                GetAllChildNodes(_mybqInfo);
 
-                };
-                bool end = false;
-                while (!end)
-                {
-                    end = true;
-                    list_new = new List<BiaoqianInfo2>(list_result);
-                    foreach (BiaoqianInfo2 bq2 in list_new)
-                    {
-                        List<BiaoqianInfo> list = MyMethod.GetChildNodes(bq2);
-                        if (list.Count > 0)//如果有的标签信息存在子标签，那么就不能结束
-                        {
-                            list_result.Remove(bq2);
-                            end = false;
-                            //循环所有的list，构造新的标签，添加到result中
-                            for (int i = 0; i < list.Count; i++)
-                            {
-                                BiaoqianInfo2 bq22 = new BiaoqianInfo2() {_dbName=bq2._dbName};
-                                bq22.list_tag = new List<string>(bq2.list_tag);
-                                bq22.list_tag.Add(list[i]._mingcheng);
-                                list_result.Add(bq22);
-                            }
-                        }
-                    }
-                }
                 //把list_result中的结果加载到comSht中，然后单元格合并
                 Worksheet comSht = mywbk.Worksheets[0];
                 comSht.Name = "Combine";
-                for (int i = 0; i < list_new.Count; i++)
+                for (int i = 0; i < list_tree.Count; i++)
                 {
-                    comSht.Cells[i+1, 0].Value = list_new[i]._dbName;
-
-                    for (int j = 0; j < list_new[i].list_tag.Count; j++)
+                    comSht.Cells[i + 1, 0].Value = list_tree[i]._kuming;
+                    comSht.Cells[i + 1, list_tree[i]._jibie].Value = list_tree[i]._mingcheng;
+                    //赋值父级标签名称
+                    var parent = list_tree[i]._parent;
+                    for (int j = list_tree[i]._jibie-1; j >0; j--)
                     {
-                        comSht.Cells[i+1, j + 1].Value = list_new[i].list_tag[j];
+                        comSht.Cells[i + 1, j].Value = parent._mingcheng;
+                        parent = parent._parent;
                     }
                 }
+
                 //获得最后一列的列数
-                int lastCol = comSht.Cells.LastCell.Column+1;
-                int lastRow = comSht.Cells.LastCell.Row+1;
+                int lastCol = comSht.Cells.MaxColumn + 1;
+                int lastRow = comSht.Cells.MaxRow + 1;
 
                 //添加字段
                 comSht.Cells[0, 0].Value = $"信息库名称";
@@ -122,13 +129,13 @@ namespace 谦海数据解析系统.JJusercontrol
                     comSht.Cells[0, i].Value = $"{dicFields[i]}级标签";
                 }
                 //开始合并单元格
-                for (int i = 0; i < lastCol-1; i++)
+                for (int i = 0; i < lastCol ; i++)
                 {
                     int totalRow = 1;
                     int startRow = 1;
-                    for (int j = 1; j <lastRow; j++)
+                    for (int j = 1; j < lastRow; j++)
                     {
-                        if (comSht.Cells[j+1, i].StringValue != string.Empty && comSht.Cells[j,i].StringValue== comSht.Cells[j+1, i].StringValue)
+                        if (comSht.Cells[j + 1, i].StringValue != string.Empty && comSht.Cells[j, i].StringValue == comSht.Cells[j + 1, i].StringValue)
                         {
                             totalRow++;
                             continue;
@@ -137,6 +144,7 @@ namespace 谦海数据解析系统.JJusercontrol
                         {
                             comSht.Cells.Merge(startRow, i, totalRow, 1);
                             startRow = j + 1;
+                            totalRow = 1;
                         }
                     }
                 }
@@ -192,4 +200,8 @@ namespace 谦海数据解析系统.JJusercontrol
 
 
     }
+
+
+
+
 }
