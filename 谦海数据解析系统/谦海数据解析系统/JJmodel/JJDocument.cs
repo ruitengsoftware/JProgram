@@ -62,7 +62,12 @@ namespace 谦海数据解析系统.JJmodel
         /// 基础解析格式名称
         /// </summary>
         public string _formatName = string.Empty;
-
+        public FormatInfo _baseFormatInfo = new FormatInfo();
+        /// <summary>
+        /// 内容解析格式名称
+        /// </summary>
+        public string _contentFormat = string.Empty;
+        public FormatInfo _contentFormatInfo = new FormatInfo();
         /// <summary>
         /// 用于内容解析的所有标签信息，可以在构造函数时取得
         /// </summary>
@@ -70,7 +75,7 @@ namespace 谦海数据解析系统.JJmodel
 
 
         /// <summary>
-        /// 标准段
+        /// 标准段（子级是标准句，孙子级索引句）
         /// </summary>
         List<JJParagraph> _paragraphs = new List<JJParagraph>();
         public JJDocument() { }
@@ -204,14 +209,13 @@ namespace 谦海数据解析系统.JJmodel
                     }
                 }
             }
-            //获得所有的内容解析标签信息集合
+            //获得所有的内容解析标签信息集合，获得内容格式信息（包含保存路径)
+            _contentFormatInfo._formatName = SystemInfo._userInfo._nrjx;
+            _contentFormatInfo.GetFormatInfo();
             GetTagInfos();
             //获得所有的基础解析标签信息
-
-
-
-
-
+            _baseFormatInfo._formatName = SystemInfo._userInfo._jcjx;
+            _baseFormatInfo.GetFormatInfo();
         }
 
 
@@ -227,7 +231,7 @@ namespace 谦海数据解析系统.JJmodel
                 $"where 格式类型='内容解析' and 格式名称='{SystemInfo._userInfo._nrjx}' " +
                 $"and 删除=0";
             DataRow mydr = MySqlHelper.ExecuteDataRow(SystemInfo._strConn, str_sql);
-            string dbname = Regex.Split(mydr["格式设置"].ToString(),@"\|")[0];
+            string dbname = Regex.Split(mydr["格式设置"].ToString(), @"\|")[0];
 
             str_sql = $"select * from 数据解析库.内容标签表 " +
                     $"where 删除=0 and 库名='{dbname}' and 级别>1";
@@ -714,7 +718,11 @@ namespace 谦海数据解析系统.JJmodel
                     jji._date = _date;
                     //构造关联内容MD5
                     string str = string.Empty;
-                    str = $"{list_erjibiaoti[i]._sentences[j + 1]._text}{string.Join("\r", list_erjibiaoti)}{item._parent._sentences[item._index + 1]}";
+                    try
+                    {
+                        str = $"{list_erjibiaoti[i]._sentences[j + 1]._text}{string.Join("\r", list_erjibiaoti)}{item._parent._sentences[item._index + 1]}";
+                    }
+                    catch { }
                     jji._positionTextMD5 = Md5Helper.Md5(str);
                     //构造所在标准段MD5
                     jji._paraMD5 = Md5Helper.Md5(item._parent._text);
@@ -1400,6 +1408,11 @@ namespace 谦海数据解析系统.JJmodel
             //构造保存路径
             string file = Path.GetFileNameWithoutExtension(_fileName);
             string path = Path.GetDirectoryName(_fileName);
+            //对预path要判断格式信息中的保存路径是否“空”，如果是空保存在同意路径下，如果不为空保存在新路径
+            if (_baseFormatInfo._zhidingwenjianjia)
+            {
+                path = _baseFormatInfo._savePath.Trim();
+            }
             string savefilename = $"{path}\\01-{file}.xlsx";
             Aspose.Cells.Workbook mywbk = new Aspose.Cells.Workbook();
             Aspose.Cells.Worksheet mysht = mywbk.Worksheets[0];
@@ -1457,6 +1470,11 @@ namespace 谦海数据解析系统.JJmodel
             //构造保存路径
             string file = Path.GetFileNameWithoutExtension(_fileName);
             string path = Path.GetDirectoryName(_fileName);
+            //判断指定文件夹是否勾选，如果不为空保存在新路径
+            if (_contentFormatInfo. _zhidingwenjianjia)
+            {
+                path = _contentFormatInfo._savePath.Trim();
+            }
             string savefilename = $"{path}\\02-{file}.xlsx";
             Aspose.Cells.Workbook mywbk = new Aspose.Cells.Workbook();
             Aspose.Cells.Worksheet mysht = mywbk.Worksheets[0];

@@ -54,16 +54,22 @@ namespace 谦海数据解析系统.JJwinform
         private void SelectFormatForm_Load(object sender, EventArgs e)
         {
             var list=MyMethod.GetFormats("文件名标准化");
+            cbb_wenjianming.Items.Add("无");
             cbb_wenjianming.Items.AddRange(list.ToArray());
             list = MyMethod.GetFormats("格式标准化");
+            cbb_geshihua.Items.Add("无");
             cbb_geshihua.Items.AddRange(list.ToArray());
             list = MyMethod.GetFormats("查重清洗");
+            cbb_chachong.Items.Add("无");
             cbb_chachong.Items.AddRange(list.ToArray());
             list = MyMethod.GetFormats("基础解析");
+            cbb_jichujiexi.Items.Add("无"); 
             cbb_jichujiexi.Items.AddRange(list.ToArray());
             list = MyMethod.GetFormats("内容解析");
+            cbb_neirongjiexi.Items.Add("无");
             cbb_neirongjiexi.Items.AddRange(list.ToArray());
             list = MyMethod.GetFormats("大数据版");
+            cbb_dashujuban.Items.Add("无");
             cbb_dashujuban.Items.AddRange(list.ToArray());
 
             //将用户个人信息显示再界面上，上次的选择

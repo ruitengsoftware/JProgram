@@ -57,7 +57,8 @@ namespace 谦海数据解析系统.JJmodel
         public static List<string> GetFormats(string ruleType)
         {
             List<string> list_result = new List<string>();
-            string str_sql = $"select 格式名称 from 数据解析库.格式信息表 where 删除=0 and 格式类型='{ruleType}'";
+            string str_sql = $"select 格式名称 from 数据解析库.格式信息表 " +
+                $"where 删除=0 and 格式类型='{ruleType}'";
             DataTable mydt = MySqlHelper.ExecuteDataset(SystemInfo._strConn, str_sql).Tables[0];
             for (int i = 0; i < mydt.Rows.Count; i++)
             {

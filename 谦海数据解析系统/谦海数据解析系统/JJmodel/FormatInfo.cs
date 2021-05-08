@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace 谦海数据解析系统.JJmodel
 {
-    class FormatInfo
+   public class FormatInfo
     {
         /// <summary>
         /// 格式名称
@@ -35,9 +35,19 @@ namespace 谦海数据解析系统.JJmodel
         /// 格式类型
         /// </summary>
         public string _formatType = string.Empty;
+        /// <summary>
+        /// 解析文件存储位置
+        /// </summary>
+        public string _savePath = string.Empty;
+        /// <summary>
+        /// 源文件夹
+        /// </summary>
+        public bool _yuanwenjianjia = false;
 
-
-
+        /// <summary>
+        /// 指定文件夹
+        /// </summary>
+        public bool _zhidingwenjianjia = false;
 
         public FormatInfo() { }
 
@@ -63,6 +73,23 @@ namespace 谦海数据解析系统.JJmodel
         }
 
         /// <summary>
+        /// 带有参数的构造函数,,保存路径（此项针对基础解析，内容解析和大数据版）
+        /// </summary>
+        /// <param name="name">格式名称</param>
+        /// <param name="set">格式设置</param>
+        /// <param name="type">格式类型</param>
+       /// <param name="savePath">保存路径</param>
+
+        public FormatInfo(string name, string set, string type,string savePath,bool yuan,bool zhiding)
+        {
+            _formatName = name;
+            _formatSet = set;
+            _formatType = type;
+            _savePath = savePath;
+            _yuanwenjianjia = yuan;
+            _zhidingwenjianjia = zhiding;
+        }
+ /// <summary>
         /// 带有参数的构造函数
         /// </summary>
         /// <param name="name">格式名称</param>
@@ -75,18 +102,21 @@ namespace 谦海数据解析系统.JJmodel
             _formatType = type;
         }
 
-
         /// <summary>
         /// 保存格式信息到数据库中，格式名称，格式类型和格式信息
         /// </summary>
         public void SaveFormatInfo()
         {
             //删除
-            string str_sql = $"delete from 数据解析库.格式信息表 where 格式名称='{_formatName}' and 删除=0";
+            string str_sql = $"delete from 数据解析库.格式信息表 " +
+                $"where 格式名称='{_formatName}' and 删除=0";
             MySqlHelper.ExecuteNonQuery(SystemInfo._strConn, str_sql);
             //插入 insert  into
-            str_sql = $"insert into 数据解析库.格式信息表 value('{_formatName}','{_formatSet}','{_formatType}',0)";
-            MySqlHelper.ExecuteScalar(SystemInfo._strConn, str_sql);
+            str_sql = $"insert into 数据解析库.格式信息表 " +
+                $"value('{_formatName}','{_formatSet}','{_formatType}',@savepath,{_yuanwenjianjia},{_zhidingwenjianjia},0)";
+            MySqlHelper.ExecuteScalar(SystemInfo._strConn, str_sql,new MySqlParameter[] {
+            new MySqlParameter("@savepath",_savePath )
+            });
             System.Windows.Forms.MessageBox.Show($"格式 {_formatName} 已保存成功！");
         }
 
@@ -99,10 +129,10 @@ namespace 谦海数据解析系统.JJmodel
             DataRow mydr = MySqlHelper.ExecuteDataRow(SystemInfo._strConn, str_sql);
             _formatType = mydr["格式类型"].ToString();
             _formatSet = mydr["格式设置"].ToString();
+            _savePath = mydr["保存路径"].ToString();
+            _yuanwenjianjia = Convert.ToBoolean(mydr["原文件夹"]);
+            _zhidingwenjianjia = Convert.ToBoolean(mydr["指定文件夹"]);
         }
-
-
-
         /// <summary>
         /// 获得内容解析标签集合
         /// </summary>

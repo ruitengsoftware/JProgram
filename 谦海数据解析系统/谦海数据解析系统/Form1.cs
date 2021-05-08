@@ -134,7 +134,7 @@ namespace 谦海数据解析系统
         {
             //记录当前模块
             SystemInfo._currentModule = ((Control)sender).Text;
-            tabControl1.SelectTab(SystemInfo._currentModule);
+            tab_control.SelectTab(SystemInfo._currentModule);
         }
         /// <summary>
         /// 点击退出按钮时触发的事件
@@ -458,7 +458,7 @@ namespace 谦海数据解析系统
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //软件窗体左侧的功能选择区也进行相应的选中
-            SystemInfo._currentModule = tabControl1.SelectedTab.Text;
+            SystemInfo._currentModule = tab_control.SelectedTab.Text;
             //更新左侧按钮样式
             foreach (Control c in panel1.Controls)
             {
@@ -506,7 +506,7 @@ namespace 谦海数据解析系统
                 //实例化一个标签信息,这个是内容标签，以及标签，没有父节点
                 TagInfo _biaoqianInfo = new TagInfo(
                         mydr["名称"].ToString(),
-new TagInfo() { _kuming=mydr["库名"].ToString()}
+new TagInfo() { _kuming = mydr["库名"].ToString() }
 )
                 { };
 
@@ -524,8 +524,11 @@ new TagInfo() { _kuming=mydr["库名"].ToString()}
         {
             string formatName = cbb_formatname6.Text;
             string formatType = SystemInfo._currentModule;
+            string savepath = tb_savepath6.Text;
+            bool yuan = cb_yuanwenjianjia6.Checked;
+            bool zhiding = cb_zhidingwenjianjia6.Checked;
             List<string> list = GetSelectRules(dgv_dsjRules);
-            FormatInfo myfi = new FormatInfo(formatName, string.Join("|", list), formatType);
+            FormatInfo myfi = new FormatInfo(formatName, string.Join("|", list), formatType,savepath,yuan,zhiding);
             myfi.SaveFormatInfo();
             UpdateFormats("大数据版", cbb_formatname6);
         }
@@ -541,6 +544,11 @@ new TagInfo() { _kuming=mydr["库名"].ToString()}
             FormatInfo myfi = new FormatInfo(formatName);
             myfi.GetFormatInfo();
             SelectRules(myfi._formatSet, dgv_dsjRules);
+            //加载保存路径
+            tb_savepath6.Text = myfi._savePath;
+            //加载路径选择框
+            cb_yuanwenjianjia6.Checked = myfi._yuanwenjianjia;
+            cb_zhidingwenjianjia6.Checked = myfi._zhidingwenjianjia;
 
         }
         /// <summary>
@@ -653,8 +661,12 @@ new TagInfo() { _kuming=mydr["库名"].ToString()}
         {
             string formatName = cbb_format5.Text;
             string formatType = SystemInfo._currentModule;
+            string savepath = tb_savepath5.Text;
+            bool yuan = cb_yuanwenjianjia5.Checked;
+            bool zhiding = cb_zhidingwenjianjia5.Checked;
+
             List<string> list = GetSelectRules();
-            FormatInfo myfi = new FormatInfo(formatName, string.Join("|", list), formatType);
+            FormatInfo myfi = new FormatInfo(formatName, string.Join("|", list), formatType, savepath,yuan,zhiding) ;
             myfi.SaveFormatInfo();
             UpdateFormats("内容解析", cbb_format5);
         }
@@ -670,17 +682,31 @@ new TagInfo() { _kuming=mydr["库名"].ToString()}
             FormatInfo myfi = new FormatInfo(formatName);
             myfi.GetFormatInfo();
             SelectRules(myfi._formatSet);
+            //加载保存路径
+            tb_savepath5.Text = myfi._savePath;
+            //加载路径选择框
+            cb_yuanwenjianjia5.Checked = myfi._yuanwenjianjia;
+            cb_zhidingwenjianjia5.Checked = myfi._zhidingwenjianjia;
 
         }
-
+        /// <summary>
+        /// 切换基础解析模块得格式选择列表时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbb_format4_SelectedIndexChanged(object sender, EventArgs e)
         {
             //获得格式信息，再规则信息设置中打勾
             string formatName = cbb_format4.Text;
+            
             FormatInfo myfi = new FormatInfo(formatName);
             myfi.GetFormatInfo();
             SelectRules(myfi._formatSet, dgv_jichujiexi);
-
+            //加载保存路径
+            tb_savepath4.Text = myfi._savePath;
+            //加载路径选择框
+            cb_yuanwenjianjia4.Checked = myfi._yuanwenjianjia;
+            cb_zhidingwenjianjia4.Checked = myfi._zhidingwenjianjia;
 
         }
         /// <summary>
@@ -692,8 +718,12 @@ new TagInfo() { _kuming=mydr["库名"].ToString()}
         {
             string formatName = cbb_format4.Text;
             string formatType = SystemInfo._currentModule;
+            string savePath = tb_savepath4.Text;
+            bool yuan = cb_yuanwenjianjia4.Checked;
+            bool zhiding = cb_zhidingwenjianjia4.Checked;
+
             List<string> list = GetSelectRules(dgv_jichujiexi);
-            FormatInfo myfi = new FormatInfo(formatName, string.Join("|", list), formatType);
+            FormatInfo myfi = new FormatInfo(formatName, string.Join("|", list), formatType,savePath,yuan,zhiding);
             myfi.SaveFormatInfo();
             UpdateFormats("基础解析", cbb_format4);
 
@@ -1056,129 +1086,171 @@ new TagInfo() { _kuming=mydr["库名"].ToString()}
                     fileIndex = k;//时刻记录当前程序执行到的文件位置
                     string file = files[k];
                     #region  1、文件名格式标准化
+
                     /*1、开始文件名格式标准化*/
-                    //拆分出路径和文件名
                     string path = Path.GetDirectoryName(file);
                     string fileOriginal = Path.GetFileNameWithoutExtension(file);
                     string extension = Path.GetExtension(file);
                     string filename = string.Empty;//用于存放改后的文件名
-                    ///拆分后的文件名集合,对list进行处理，如果是\d星，那么要和前一项合并
-                    List<string> list = Regex.Split(fileOriginal, @"\.").ToList();
-                    for (int j = 0; j < list.Count; j++)
+                    //判断“文件名标准化”格式，如果不是“无”，则进行文件名格式标准化
+
+                    if (!SystemInfo._userInfo._wjmbzh.Equals("无"))
                     {
-                        if (Regex.IsMatch(list[j], @"\d星"))
+                        //拆分出路径和文件名
+                        ///拆分后的文件名集合,对list进行处理，如果是\d星，那么要和前一项合并
+                        List<string> list = Regex.Split(fileOriginal, @"\.").ToList();
+                        for (int j = 0; j < list.Count; j++)
                         {
-                            list[j] = $"{list[j - 1] }.{list[j]}";
-                            list.RemoveAt(j - 1);
-                            break;
+                            if (Regex.IsMatch(list[j], @"\d星"))
+                            {
+                                list[j] = $"{list[j - 1] }.{list[j]}";
+                                list.RemoveAt(j - 1);
+                                break;
+                            }
+
                         }
+                        //获得文件名标准格式下的所有rule名称
+                        FormatInfo fi = new FormatInfo(SystemInfo._userInfo._wjmbzh);
+                        fi.GetFormatInfo();
+                        List<string> rules = Regex.Split(fi._formatSet, @"\|").ToList();
+                        //对每一个rule循环，获得设置root
+                        foreach (string rule in rules)
+                        {
+                            RuleInfo myri = new RuleInfo(rule, "文件名标准化");
+                            myri.GetRuleInfo();
+                            WjmRuleRoot myroot = ((WjmRuleRoot)myri._root);
+                            //判断位置，得到操作目标,对每种可能的目标进行判断操作
+                            if (myroot.position[0].Equals("整个文件名"))
+                            {
+                                //对操作目标进行操作
+                                if (!myroot.delete.Trim().Equals(string.Empty))
+                                {
+                                    filename = Regex.Replace(fileOriginal, myroot.delete.Trim(), "");
+                                }
+                                else if (!myroot.replace0.Trim().Equals(string.Empty))
+                                {
+                                    filename = Regex.Replace(fileOriginal, myroot.replace0.Trim(), myroot.replace);
+                                }
+                            }
+                            else if (myroot.position[0].Equals("文件名前"))
+                            {
+                                //新增内容
+                                if (!myroot.newText.Trim().Equals(string.Empty))
+                                {
+                                    filename = $"{myroot.newText}{fileOriginal}";
+                                }
+                            }
+                            else if (myroot.position[0].Equals("文件名后"))
+                            {
+                                //新增内容
+                                if (!myroot.newText.Trim().Equals(string.Empty))
+                                {
+                                    filename = $"{fileOriginal}{myroot.newText}";
+                                }
+                            }
+                            else if (Regex.IsMatch(myroot.position[0], @"文件名第\d项前"))
+                            {
+                                //获得数字，然后获得目标文本
+                                int index = Convert.ToInt32(Regex.Match(myroot.position[0], @"\d").Value);
+                                string target = list[index - 1];
+                                //新增内容
+                                if (!myroot.newText.Trim().Equals(string.Empty))
+                                {
+                                    target = $"{myroot.newText.Trim()}{target}";
+                                }
+                                list[index - 1] = target;
+                                filename = string.Join(".", list);
+                            }
+                            else if (Regex.IsMatch(myroot.position[0], @"文件名第\d项后"))
+                            {
+                                //获得数字，然后获得目标文本
+                                int index = Convert.ToInt32(Regex.Match(myroot.position[0], @"\d").Value);
+                                string target = list[index - 1];
+                                //新增内容
+                                if (!myroot.newText.Trim().Equals(string.Empty))
+                                {
+                                    target = $"{target}{myroot.newText.Trim()}";
+                                }
+                                list[index - 1] = target;
+                                filename = string.Join(".", list);
+                            }
+                            //给文件改名
+                            File.Move($"{file}", $"{path}\\{filename}{extension}");
+
+                        }
+
+
 
                     }
-                    //获得文件名标准格式下的所有rule名称
-                    FormatInfo fi = new FormatInfo(SystemInfo._userInfo._wjmbzh);
-                    fi.GetFormatInfo();
-                    List<string> rules = Regex.Split(fi._formatSet, @"\|").ToList();
-                    //对每一个rule循环，获得设置root
-                    foreach (string rule in rules)
+                    else//如果不进行文件名标准化，那么新得文件名和原先一样
                     {
-                        RuleInfo myri = new RuleInfo(rule, "文件名标准化");
-                        myri.GetRuleInfo();
-                        WjmRuleRoot myroot = ((WjmRuleRoot)myri._root);
-                        //判断位置，得到操作目标,对每种可能的目标进行判断操作
-                        if (myroot.position[0].Equals("整个文件名"))
-                        {
-                            //对操作目标进行操作
-                            if (!myroot.delete.Trim().Equals(string.Empty))
-                            {
-                                filename = Regex.Replace(fileOriginal, myroot.delete.Trim(), "");
-                            }
-                            else if (!myroot.replace0.Trim().Equals(string.Empty))
-                            {
-                                filename = Regex.Replace(fileOriginal, myroot.replace0.Trim(), myroot.replace);
-                            }
-                        }
-                        else if (myroot.position[0].Equals("文件名前"))
-                        {
-                            //新增内容
-                            if (!myroot.newText.Trim().Equals(string.Empty))
-                            {
-                                filename = $"{myroot.newText}{fileOriginal}";
-                            }
-                        }
-                        else if (myroot.position[0].Equals("文件名后"))
-                        {
-                            //新增内容
-                            if (!myroot.newText.Trim().Equals(string.Empty))
-                            {
-                                filename = $"{fileOriginal}{myroot.newText}";
-                            }
-                        }
-                        else if (Regex.IsMatch(myroot.position[0], @"文件名第\d项前"))
-                        {
-                            //获得数字，然后获得目标文本
-                            int index = Convert.ToInt32(Regex.Match(myroot.position[0], @"\d").Value);
-                            string target = list[index - 1];
-                            //新增内容
-                            if (!myroot.newText.Trim().Equals(string.Empty))
-                            {
-                                target = $"{myroot.newText.Trim()}{target}";
-                            }
-                            list[index - 1] = target;
-                            filename = string.Join(".", list);
-                        }
-                        else if (Regex.IsMatch(myroot.position[0], @"文件名第\d项后"))
-                        {
-                            //获得数字，然后获得目标文本
-                            int index = Convert.ToInt32(Regex.Match(myroot.position[0], @"\d").Value);
-                            string target = list[index - 1];
-                            //新增内容
-                            if (!myroot.newText.Trim().Equals(string.Empty))
-                            {
-                                target = $"{target}{myroot.newText.Trim()}";
-                            }
-                            list[index - 1] = target;
-                            filename = string.Join(".", list);
-                        }
-                        //给文件改名
-                        File.Move($"{file}", $"{path}\\{filename}{extension}");
-
+                        filename = fileOriginal;
                     }
-
-                    #endregion
                     string currentFilename = $"{path}\\{filename}{extension}";
-                    #region 2、文档格式标准化
-                    //获得标准化规则
-                    FormatInfo _format = new FormatInfo(SystemInfo._userInfo._wjbzh);
-                    _format.GetFormatInfo();
-                    string _rule = Regex.Split(_format._formatSet, @"\|")[0];
-                    RuleInfo _ruleInfo = new RuleInfo(_rule, "格式标准化");
-                    _ruleInfo.GetRuleInfo();
-                    BzhRuleRoot _root = _ruleInfo._root as BzhRuleRoot;
-                    //调整文档格式,包括大标题，副标题，正文，一级标题，二级标题，三级标题，页边距,
-                    MyMethod.UpdateFormat2(currentFilename, _root);
-
-                    //文本标注,暂时 放一放
 
                     #endregion
+
+
+
+
+                    #region 2、文档格式标准化
+                    //判断“文档格式标准化”格式，如果用户不是选择了“无”，则执行文件格式标准化
+                    if (!SystemInfo._userInfo._wjbzh.Equals("无"))
+                    {
+                        //获得标准化规则
+                        FormatInfo _format = new FormatInfo(SystemInfo._userInfo._wjbzh);
+                        _format.GetFormatInfo();
+                        string _rule = Regex.Split(_format._formatSet, @"\|")[0];
+                        RuleInfo _ruleInfo = new RuleInfo(_rule, "格式标准化");
+                        _ruleInfo.GetRuleInfo();
+                        BzhRuleRoot _root = _ruleInfo._root as BzhRuleRoot;
+                        //调整文档格式,包括大标题，副标题，正文，一级标题，二级标题，三级标题，页边距,
+                        MyMethod.UpdateFormat2(currentFilename, _root);
+
+                        //文本标注,暂时 放一放
+
+                    }
+
+
+                    #endregion
+
                     #region 3、查重清洗
+                    //判断用户选择的查重清洗格式，如果不等于，则进行查重清洗
+                    if (!SystemInfo._userInfo._ccqx.Equals("无"))
+                    {
+
+                    }
 
                     #endregion
                     #region 4、基础解析
-
-                    #endregion
+                    //判断用户选择的基础解析格式，如果不等于无，则进行基础解析
                     JJDocument _jjDoc = new JJDocument(currentFilename);
-                    var listbase = _jjDoc.GetBaseAnalysis();
-                    _jjDoc.SaveList2Excel(listbase);
-                    #region 5、内容解析
+
+                    if (!SystemInfo._userInfo._jcjx.Equals("无"))
+                    {
+                        var listbase = _jjDoc.GetBaseAnalysis();
+                        _jjDoc.SaveList2Excel(listbase);
+                    }
+
 
                     #endregion
-                    var listneirong = _jjDoc.GetNeirongAnalysis();
-                    _jjDoc.SaveList2Excel(listneirong);
 
+                    #region 5、内容解析
+                    //判断用户选择的内容解析格式，如果不等于无，则进行内容解析
+                    if (!SystemInfo._userInfo._nrjx.Equals("无"))
+                    {
+                        var listneirong = _jjDoc.GetNeirongAnalysis();
+                        _jjDoc.SaveList2Excel(listneirong);
 
+                    }
 
+                    #endregion
                     #region 6、大数据版
+                    //判断用户选择的大数据版，如果不等于无，则进行大数据版
+                    if (!SystemInfo._userInfo._dsjb.Equals("无"))
+                    {
 
+                    }
                     #endregion
                 }
             }
@@ -1233,10 +1305,46 @@ new TagInfo() { _kuming=mydr["库名"].ToString()}
             lbl_kaishi.BackColor = Color.MediumSeaGreen;
             lbl_zhuangtai.Text = "已暂停解析";
         }
+        /// <summary>
+        /// 点击基础解析模块文件夹按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pb_savepath4_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog()==DialogResult.OK)
+            {
+                tb_savepath4.Text = fbd.SelectedPath;
+            }
+        }
+        /// <summary>
+        /// 点击内容解析模块选择文件夹按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pb_savepath5_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                tb_savepath5.Text = fbd.SelectedPath;
+            }
 
+        }
+        /// <summary>
+        /// 点击大数据版选择文件夹按钮时触发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pb_savepath6_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                tb_savepath4.Text = fbd.SelectedPath;
+            }
 
-
-
-
+        }
     }
 }
