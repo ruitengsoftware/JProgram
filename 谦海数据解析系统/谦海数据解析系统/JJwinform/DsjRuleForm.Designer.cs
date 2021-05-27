@@ -117,7 +117,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(468, 600);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(512, 660);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -127,12 +127,13 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tb_rulename, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(468, 40);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(512, 40);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label1
@@ -151,10 +152,11 @@ namespace 谦海数据解析系统.JJwinform
             // 
             // tb_rulename
             // 
+            this.tb_rulename.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_rulename.Location = new System.Drawing.Point(83, 9);
             this.tb_rulename.Margin = new System.Windows.Forms.Padding(3, 9, 3, 3);
             this.tb_rulename.Name = "tb_rulename";
-            this.tb_rulename.Size = new System.Drawing.Size(382, 23);
+            this.tb_rulename.Size = new System.Drawing.Size(426, 23);
             this.tb_rulename.TabIndex = 1;
             // 
             // groupBox1
@@ -163,7 +165,7 @@ namespace 谦海数据解析系统.JJwinform
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(462, 94);
+            this.groupBox1.Size = new System.Drawing.Size(506, 94);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "规则说明";
@@ -175,7 +177,7 @@ namespace 谦海数据解析系统.JJwinform
             this.tb_explain.Multiline = true;
             this.tb_explain.Name = "tb_explain";
             this.tb_explain.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_explain.Size = new System.Drawing.Size(456, 72);
+            this.tb_explain.Size = new System.Drawing.Size(500, 72);
             this.tb_explain.TabIndex = 0;
             // 
             // groupBox2
@@ -184,7 +186,7 @@ namespace 谦海数据解析系统.JJwinform
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 143);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(462, 144);
+            this.groupBox2.Size = new System.Drawing.Size(506, 174);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "比对MD5值信息库";
@@ -203,7 +205,7 @@ namespace 谦海数据解析系统.JJwinform
             this.flp_xinxi.Location = new System.Drawing.Point(3, 19);
             this.flp_xinxi.Name = "flp_xinxi";
             this.flp_xinxi.Padding = new System.Windows.Forms.Padding(10);
-            this.flp_xinxi.Size = new System.Drawing.Size(456, 122);
+            this.flp_xinxi.Size = new System.Drawing.Size(500, 152);
             this.flp_xinxi.TabIndex = 0;
             // 
             // label5
@@ -294,9 +296,9 @@ namespace 谦海数据解析系统.JJwinform
             // 
             this.groupBox3.Controls.Add(this.flp_mingci);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 373);
+            this.groupBox3.Location = new System.Drawing.Point(3, 403);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(462, 144);
+            this.groupBox3.Size = new System.Drawing.Size(506, 174);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "比对信息库标签中专有名词";
@@ -315,7 +317,7 @@ namespace 谦海数据解析系统.JJwinform
             this.flp_mingci.Location = new System.Drawing.Point(3, 19);
             this.flp_mingci.Name = "flp_mingci";
             this.flp_mingci.Padding = new System.Windows.Forms.Padding(10);
-            this.flp_mingci.Size = new System.Drawing.Size(456, 122);
+            this.flp_mingci.Size = new System.Drawing.Size(500, 152);
             this.flp_mingci.TabIndex = 0;
             // 
             // label9
@@ -410,12 +412,12 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel3.Controls.Add(this.flp_fanwei, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 290);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 320);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(468, 40);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(512, 40);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // flp_fanwei
@@ -428,7 +430,7 @@ namespace 谦海数据解析系统.JJwinform
             this.flp_fanwei.Margin = new System.Windows.Forms.Padding(0);
             this.flp_fanwei.Name = "flp_fanwei";
             this.flp_fanwei.Padding = new System.Windows.Forms.Padding(8);
-            this.flp_fanwei.Size = new System.Drawing.Size(348, 40);
+            this.flp_fanwei.Size = new System.Drawing.Size(392, 40);
             this.flp_fanwei.TabIndex = 0;
             // 
             // checkBox9
@@ -483,12 +485,12 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel4.Controls.Add(this.flp_biaozhu, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 330);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 360);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(468, 40);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(512, 40);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // flp_biaozhu
@@ -502,7 +504,7 @@ namespace 谦海数据解析系统.JJwinform
             this.flp_biaozhu.Margin = new System.Windows.Forms.Padding(0);
             this.flp_biaozhu.Name = "flp_biaozhu";
             this.flp_biaozhu.Padding = new System.Windows.Forms.Padding(8);
-            this.flp_biaozhu.Size = new System.Drawing.Size(318, 40);
+            this.flp_biaozhu.Size = new System.Drawing.Size(362, 40);
             this.flp_biaozhu.TabIndex = 1;
             // 
             // checkBox10
@@ -567,12 +569,12 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel5.Controls.Add(this.flp_chonghe, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 520);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 580);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(468, 40);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(512, 40);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // flp_chonghe
@@ -585,7 +587,7 @@ namespace 谦海数据解析系统.JJwinform
             this.flp_chonghe.Margin = new System.Windows.Forms.Padding(0);
             this.flp_chonghe.Name = "flp_chonghe";
             this.flp_chonghe.Padding = new System.Windows.Forms.Padding(8);
-            this.flp_chonghe.Size = new System.Drawing.Size(268, 40);
+            this.flp_chonghe.Size = new System.Drawing.Size(312, 40);
             this.flp_chonghe.TabIndex = 1;
             // 
             // checkBox11
@@ -611,7 +613,7 @@ namespace 谦海数据解析系统.JJwinform
             // checkBox18
             // 
             this.checkBox18.AutoSize = true;
-            this.checkBox18.Location = new System.Drawing.Point(11, 38);
+            this.checkBox18.Location = new System.Drawing.Point(197, 11);
             this.checkBox18.Name = "checkBox18";
             this.checkBox18.Size = new System.Drawing.Size(99, 21);
             this.checkBox18.TabIndex = 2;
@@ -642,12 +644,12 @@ namespace 谦海数据解析系统.JJwinform
             this.tableLayoutPanel6.Controls.Add(this.lbl_baocun, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.lbl_quxiao, 2, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 560);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 620);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(468, 40);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(512, 40);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // lbl_baocun
@@ -656,7 +658,7 @@ namespace 谦海数据解析系统.JJwinform
             this.lbl_baocun.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.lbl_baocun.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_baocun.ForeColor = System.Drawing.Color.White;
-            this.lbl_baocun.Location = new System.Drawing.Point(139, 5);
+            this.lbl_baocun.Location = new System.Drawing.Point(161, 5);
             this.lbl_baocun.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_baocun.Name = "lbl_baocun";
             this.lbl_baocun.Size = new System.Drawing.Size(90, 30);
@@ -671,7 +673,7 @@ namespace 谦海数据解析系统.JJwinform
             this.lbl_quxiao.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.lbl_quxiao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_quxiao.ForeColor = System.Drawing.Color.White;
-            this.lbl_quxiao.Location = new System.Drawing.Point(239, 5);
+            this.lbl_quxiao.Location = new System.Drawing.Point(261, 5);
             this.lbl_quxiao.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_quxiao.Name = "lbl_quxiao";
             this.lbl_quxiao.Size = new System.Drawing.Size(90, 30);
@@ -685,7 +687,7 @@ namespace 谦海数据解析系统.JJwinform
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(468, 600);
+            this.ClientSize = new System.Drawing.Size(512, 660);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

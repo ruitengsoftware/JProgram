@@ -15,8 +15,9 @@ namespace 谦海数据采集管理系统.JJUserControl
         public JJReuqirementCard()
         {
             InitializeComponent();
-            RuiTengDll.UIHelper.DrawRoundRect(tableLayoutPanel1);
             this.Dock = DockStyle.Top;
+
+
         }
     }
 }
