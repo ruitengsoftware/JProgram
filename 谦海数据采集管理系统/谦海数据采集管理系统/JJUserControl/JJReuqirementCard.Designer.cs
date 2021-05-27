@@ -51,7 +51,7 @@ namespace 谦海数据采集管理系统.JJUserControl
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(248, 121);
+            this.panel1.Size = new System.Drawing.Size(279, 127);
             this.panel1.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -68,13 +68,13 @@ namespace 谦海数据采集管理系统.JJUserControl
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(248, 121);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(279, 127);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 40);
+            this.label1.Location = new System.Drawing.Point(3, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 17);
             this.label1.TabIndex = 0;
@@ -89,11 +89,11 @@ namespace 谦海数据采集管理系统.JJUserControl
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 83);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 87);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(242, 35);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(273, 37);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // label2
@@ -108,7 +108,7 @@ namespace 谦海数据采集管理系统.JJUserControl
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(145, 0);
+            this.label3.Location = new System.Drawing.Point(176, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 17);
             this.label3.TabIndex = 1;
@@ -127,7 +127,7 @@ namespace 谦海数据采集管理系统.JJUserControl
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(242, 34);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(273, 36);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // label4
@@ -142,7 +142,7 @@ namespace 谦海数据采集管理系统.JJUserControl
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(145, 0);
+            this.label5.Location = new System.Drawing.Point(176, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 17);
             this.label5.TabIndex = 1;
@@ -158,7 +158,7 @@ namespace 谦海数据采集管理系统.JJUserControl
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "JJReuqirementCard";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Size = new System.Drawing.Size(258, 131);
+            this.Size = new System.Drawing.Size(289, 137);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
