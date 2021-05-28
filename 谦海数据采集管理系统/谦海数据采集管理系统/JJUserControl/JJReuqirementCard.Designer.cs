@@ -31,13 +31,13 @@ namespace 谦海数据采集管理系统.JJUserControl
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_mingcheng = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_fuzeren = new System.Windows.Forms.Label();
+            this.lbl_haoshi = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_bianhao = new System.Windows.Forms.Label();
+            this.lbl_youxianji = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -58,7 +58,7 @@ namespace 谦海数据采集管理系统.JJUserControl
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_mingcheng, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -71,14 +71,20 @@ namespace 谦海数据采集管理系统.JJUserControl
             this.tableLayoutPanel1.Size = new System.Drawing.Size(279, 127);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // label1
+            // lbl_mingcheng
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "我是任务标题";
+            this.lbl_mingcheng.AutoSize = true;
+            this.lbl_mingcheng.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_mingcheng.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_mingcheng.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbl_mingcheng.Location = new System.Drawing.Point(1, 43);
+            this.lbl_mingcheng.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_mingcheng.Name = "lbl_mingcheng";
+            this.lbl_mingcheng.Size = new System.Drawing.Size(277, 40);
+            this.lbl_mingcheng.TabIndex = 0;
+            this.lbl_mingcheng.Text = "我是任务标题";
+            this.lbl_mingcheng.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_mingcheng.Click += new System.EventHandler(this.lbl_mingcheng_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -86,8 +92,8 @@ namespace 谦海数据采集管理系统.JJUserControl
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbl_fuzeren, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbl_haoshi, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 87);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -96,23 +102,29 @@ namespace 谦海数据采集管理系统.JJUserControl
             this.tableLayoutPanel2.Size = new System.Drawing.Size(273, 37);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // label2
+            // lbl_fuzeren
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "李兴瑞";
+            this.lbl_fuzeren.AutoSize = true;
+            this.lbl_fuzeren.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_fuzeren.Location = new System.Drawing.Point(1, 1);
+            this.lbl_fuzeren.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_fuzeren.Name = "lbl_fuzeren";
+            this.lbl_fuzeren.Size = new System.Drawing.Size(98, 35);
+            this.lbl_fuzeren.TabIndex = 0;
+            this.lbl_fuzeren.Text = "李兴瑞";
+            this.lbl_fuzeren.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // lbl_haoshi
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(176, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 17);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "已进行5h";
+            this.lbl_haoshi.AutoSize = true;
+            this.lbl_haoshi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_haoshi.Location = new System.Drawing.Point(174, 1);
+            this.lbl_haoshi.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_haoshi.Name = "lbl_haoshi";
+            this.lbl_haoshi.Size = new System.Drawing.Size(98, 35);
+            this.lbl_haoshi.TabIndex = 1;
+            this.lbl_haoshi.Text = "已进行5h";
+            this.lbl_haoshi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tableLayoutPanel3
             // 
@@ -120,8 +132,8 @@ namespace 谦海数据采集管理系统.JJUserControl
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label5, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lbl_bianhao, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lbl_youxianji, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -130,23 +142,29 @@ namespace 谦海数据采集管理系统.JJUserControl
             this.tableLayoutPanel3.Size = new System.Drawing.Size(273, 36);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // label4
+            // lbl_bianhao
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 17);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "编号：666666";
+            this.lbl_bianhao.AutoSize = true;
+            this.lbl_bianhao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_bianhao.Location = new System.Drawing.Point(1, 1);
+            this.lbl_bianhao.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_bianhao.Name = "lbl_bianhao";
+            this.lbl_bianhao.Size = new System.Drawing.Size(98, 34);
+            this.lbl_bianhao.TabIndex = 0;
+            this.lbl_bianhao.Text = "编号：666666";
+            this.lbl_bianhao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label5
+            // lbl_youxianji
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(176, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 17);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "优先级：高中低";
+            this.lbl_youxianji.AutoSize = true;
+            this.lbl_youxianji.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_youxianji.Location = new System.Drawing.Point(174, 1);
+            this.lbl_youxianji.Margin = new System.Windows.Forms.Padding(1);
+            this.lbl_youxianji.Name = "lbl_youxianji";
+            this.lbl_youxianji.Size = new System.Drawing.Size(98, 34);
+            this.lbl_youxianji.TabIndex = 1;
+            this.lbl_youxianji.Text = "优先级：高中低";
+            this.lbl_youxianji.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // JJReuqirementCard
             // 
@@ -159,6 +177,7 @@ namespace 谦海数据采集管理系统.JJUserControl
             this.Name = "JJReuqirementCard";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Size = new System.Drawing.Size(289, 137);
+            this.Load += new System.EventHandler(this.JJReuqirementCard_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -173,12 +192,12 @@ namespace 谦海数据采集管理系统.JJUserControl
         #endregion
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_mingcheng;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_fuzeren;
+        private System.Windows.Forms.Label lbl_haoshi;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbl_bianhao;
+        private System.Windows.Forms.Label lbl_youxianji;
     }
 }
